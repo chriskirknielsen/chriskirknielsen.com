@@ -1,0 +1,12 @@
+_site/
+node_modules/
+package-lock.json
+*.code-workspace
+
+# Design files
+*.sketch
+*.ai
+*.psd
+
+# Local Netlify folder
+.netlify

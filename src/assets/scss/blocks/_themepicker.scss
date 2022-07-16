@@ -1,0 +1,23 @@
+:root {
+    --themepicker-height: 10rem;
+
+    transition: transform 300ms ease-in-out;
+    
+    &[data-themepicker="open"] {
+        transform:translateY(var(--themepicker-height));
+    }
+}
+
+.themepicker {
+    .no-js & { display: none; }
+
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+
+    height: var(--themepicker-height);
+
+    background: var(--c-grey-max);
+    box-shadow: 0 -2px 0 var(--c-grey-min) inset;
+}

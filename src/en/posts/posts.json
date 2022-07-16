@@ -1,0 +1,6 @@
+{
+	"layout": "layouts/post.njk",
+	"permalink": "blog/{{ slug | slug }}/index.html",
+	"tags": ["post"],
+	"language": "en"
+}

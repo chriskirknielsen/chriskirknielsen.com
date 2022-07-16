@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+templateName: page
+---
+<header>
+    <h1>{{ displayTitle or title }}</h1>
+</header>
+
+<div class="flow">{{ layoutContent | safe }}</div>

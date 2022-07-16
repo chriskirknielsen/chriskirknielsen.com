@@ -1,0 +1,15 @@
+<div class="themepicker" aria-expanded="false">
+    <h3>{{ i18n.themeSwitchLabel }}</h3>
+    <ul>
+    {% for themeKey, themeValues in tokens.themes %}
+        <li><button type="button" data-theme-set="{{ themeKey }}">{{ themeValues.label }}</button></li>
+    {% endfor %}
+    </ul>
+    <button type="button" data-themepicker-toggler="false">
+            x
+        <span class="visually-hidden">Close Theme Picker</span>
+    </button>
+
+</div>
+
+<button type="button" data-themepicker-toggler>Open Theme Picker</button>

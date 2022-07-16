@@ -1,0 +1,83 @@
+/**
+ * Slightly edited Modern Reset by Andy Bell:
+ * https://github.com/hankchizljaw/modern-css-reset
+ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default padding */
+/* Remove list styles on ul, ol elements with a class attribute */
+ul:where([class]),
+ol:where([class]) {
+    padding: 0;
+    list-style: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul:where([class]),
+ol:where([class]),
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Set core body defaults */
+html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    font-family: sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:where(:not([class])) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 1ms !important;
+        animation-delay: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+        transition-delay: 1ms !important;
+        scroll-behavior: auto !important;
+    }
+}

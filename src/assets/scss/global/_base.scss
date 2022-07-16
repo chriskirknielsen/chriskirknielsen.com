@@ -1,0 +1,15 @@
+body {
+    font-family: var(--f-body);
+    line-height: #{$base-line-height};
+    color: var(--c-primary-min);
+    background-color: var(--c-primary-max);
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+    font-family: var(--f-heading);
+    letter-spacing: var(--heading-tracking);
+}
+
+button {
+    border-radius: var(--corner-radius);
+}

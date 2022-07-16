@@ -1,0 +1,46 @@
+@function is-map($var){
+    @return type-of($var) == 'map';
+}
+
+@function is-list($var){
+    @return type-of($var) == 'list';
+}
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function non-destructive-map-merge($parent-map, $child-map) {
+	// @source https://medium.com/@pentzzsolt/a-non-destructive-map-merge-function-for-sass-f91637f87b2e
+	$result: $parent-map;
+	@each $key, $value in $child-map {
+		@if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
+			$result: map-merge($result, ($key: $value));
+		}
+		@else {
+			$result: map-merge($result, ($key: non-destructive-map-merge(map-get($result, $key), $value)));
+		}
+	}
+	@return $result;
+}
+
+@function get-token($keys...) {
+    $map: $tokens;
+    @each $key in $keys {
+      $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function str-trim($string) {
+    @if (str-slice($string, 1, 1) == ' ') {
+      @return str-trim(str-slice($string, 2));
+    } @else if (str-slice($string, str-length($string), -1) == ' ') {
+      @return str-trim(str-slice($string, 1, -2));
+    } @else {
+      @return $string;
+    }
+  }

@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+templateName: post
+---
+
+<header>
+	<h1 id="{{ title | slug }}">{{ title }}</h1>
+</header>
+
+{{ layoutContent | safe }}
