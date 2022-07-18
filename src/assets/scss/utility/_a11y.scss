@@ -5,3 +5,9 @@
     height: 1px;
     clip: rect(1px, 1px, 1px, 1px);
 }
+
+*:focus {
+    outline: 4px dashed var(--ckn-link-active-color);
+    outline-offset: 2px;
+    &:not(:focus-visible) { outline: none; }
+}

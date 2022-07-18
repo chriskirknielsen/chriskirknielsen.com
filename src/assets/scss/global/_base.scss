@@ -1,13 +1,21 @@
 body {
     font-family: var(--f-body);
     line-height: #{$base-line-height};
-    color: var(--c-primary-min);
-    background-color: var(--c-primary-max);
+    color: var(--ckn-text-color);
+    background-color: var(--ckn-bg-color);
 }
 
 h1, h2, h3, h4, h5, h6, .heading {
     font-family: var(--f-heading);
     letter-spacing: var(--heading-tracking);
+}
+
+a:where(:any-link) {
+    color: var(--ckn-link-color);
+}
+a:hover,
+a:focus {
+    color: var(--ckn-link-active-color);
 }
 
 button {

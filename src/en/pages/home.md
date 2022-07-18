@@ -30,3 +30,5 @@ homeLocalData:
 ---
 
 Hello and welcome! My name is **Christopher Kirk-Nielsen** but please call me **Chris**. I’m an award-non-winning designer-turned-developer who loves building on the web, working at MOJO.
+
+You can [Read More](/about) over here!

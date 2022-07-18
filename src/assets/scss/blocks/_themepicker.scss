@@ -11,13 +11,75 @@
 .themepicker {
     .no-js & { display: none; }
 
+    --picker-gap: var(--size-xs);
+
     position: absolute;
     bottom: 100%;
     left: 0;
     right: 0;
 
     height: var(--themepicker-height);
+    padding: var(--picker-gap);
 
-    background: var(--c-grey-max);
+    color: var(--c-grey-min);
+    background-color: var(--c-grey-max);
     box-shadow: 0 -2px 0 var(--c-grey-min) inset;
+
+    &-title {
+        padding-inline: calc(2 * var(--picker-gap));
+        text-align: center;
+    }
+
+    &-list {
+        display: flex;
+        gap: var(--picker-gap);
+        max-width: 100%;
+        overflow-x: auto;
+        padding: var(--picker-gap) 0;
+}
+
+    &-item {
+        display: flex;
+
+        &:first-child { margin-inline-start: auto; }
+        &:last-child { margin-inline-end: auto; }
+    }
+
+    &-button {
+        color: var(--themepicker-a);
+        border: 2px var(--border-style) var(--themepicker-b);
+        background-color: var(--themepicker-bg);
+    }
+
+    &-palette {
+        & > :nth-child(1) { fill: var(--themepicker-a); }
+        & > :nth-child(2) { fill: var(--themepicker-b); }
+        & > :nth-child(3) { fill: var(--themepicker-c); }
+    }
+
+    &-close {
+        --close-color: currentColor;
+        --close-border: transparent;
+        --close-bg: transparent;
+
+        position: absolute;
+        top: var(--picker-gap);
+        right: var(--picker-gap);
+
+        color: var(--close-color);
+        border: 2px var(--border-style) var(--close-border);
+        background: var(--close-bg);
+
+        &:hover,
+        &:focus {
+            --close-color: var(--ckn-link-color);
+            --close-border: currentColor;
+            --close-bg: var(--ckn-bg-color);
+        }
+
+        & > svg {
+            width: calc(2 * var(--picker-gap));
+            height: calc(2 * var(--picker-gap));
+        }
+    }
 }

@@ -4,8 +4,12 @@ $tokens: (
     "light": vapor
   ),
   "defaultVars": (
+    "body-bg": white,
+    "body-text": black,
+    "body-link": blue,
     "heading-tracking": 0,
-    "corner-radius": var(--size-2xs)
+    "corner-radius": 8px,
+    "border-style": solid
   ),
   "themes": (
     "outrun": (
@@ -35,7 +39,10 @@ $tokens: (
         
       ),
       "vars": (
-        "corner-radius": var(--size-m),
+        "ckn-bg-color": var(--c-primary-max),
+        "ckn-text-color": var(--c-primary-min),
+        "ckn-link-color": var(--c-primary-med),
+        "ckn-link-active-color": var(--c-secondary-med),
         "heading-tracking": 0.05em
       )
     ),
@@ -64,12 +71,32 @@ $tokens: (
       ),
       "images": (
         
+      ),
+      "vars": (
+        "ckn-bg-color": var(--c-primary-max),
+        "ckn-text-color": var(--c-primary-min),
+        "ckn-link-color": var(--c-primary-med),
+        "ckn-link-active-color": var(--c-secondary-med)
       )
     ),
     "y2k": (
       "label": Y2K,
       "colors": (
-        
+        "grey": (
+          "min": #333333,
+          "max": #efefef,
+          "med": #808080
+        ),
+        "primary": (
+          "min": navy,
+          "med": red,
+          "max": yellow
+        ),
+        "secondary": (
+          "min": gray,
+          "med": purple,
+          "max": orange
+        )
       ),
       "fonts": (
         "heading": ('Comic Sans MS', serif),
@@ -79,7 +106,12 @@ $tokens: (
         
       ),
       "vars": (
-        "corner-radius": 4px
+        "ckn-bg-color": var(--c-grey-max),
+        "ckn-text-color": var(--c-grey-min),
+        "ckn-link-color": var(--c-primary-med),
+        "ckn-link-active-color": var(--c-secondary-med),
+        "corner-radius": 0,
+        "border-style": outset
       )
     )
   ),

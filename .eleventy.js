@@ -13,9 +13,9 @@ const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const { EleventyI18nPlugin: pluginI18n } = require('@11ty/eleventy');
-let markdownIt = require('markdown-it');
-let markdownItAnchor = require('markdown-it-anchor');
-let markdownItFootnote = require('markdown-it-footnote');
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
+const markdownItFootnote = require('markdown-it-footnote');
 
 // Config
 const purgeCssSafeList = {
@@ -51,6 +51,12 @@ module.exports = function (eleventyConfig) {
 			callback(null, code); // Fail gracefully.
 		}
 	});
+	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
+		const colorInfo = varValue.match(/var\( *--c-([a-z]+)-(min|med|max) *\)/);
+		const colorGroup = colorInfo[1];
+		const colorWeight = colorInfo[2];
+		return themeColors[colorGroup][colorWeight];
+	});
 
 	/* Shortcodes */
 	eleventyConfig.addPairedShortcode('callout', function (content, pseudo) {
@@ -60,7 +66,7 @@ module.exports = function (eleventyConfig) {
 		</div>`;
 	});
 
-	/* Transform */
+	/* Transforms */
 	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
 		if (!outputPath.endsWith('.html')) {
 			return content;
@@ -84,7 +90,7 @@ module.exports = function (eleventyConfig) {
 		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');
 	});
 
-	/* Passthrough */
+	/* Passthroughs */
 	eleventyConfig.addPassthroughCopy({
 		[`${rootDir}/_includes/assets/css`]: '/assets/css',
 		[`${rootDir}/_includes/assets/js`]: '/assets/js',

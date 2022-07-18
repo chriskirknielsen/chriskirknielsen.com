@@ -1,15 +1,30 @@
 <div class="themepicker" aria-expanded="false">
-    <h3>{{ i18n.themeSwitchLabel }}</h3>
-    <ul>
+    <h3 class="themepicker-title">{{ i18n.themeSwitchLabel }}</h3>
+    <ul class="themepicker-list">
     {% for themeKey, themeValues in tokens.themes %}
-        <li><button type="button" data-theme-set="{{ themeKey }}">{{ themeValues.label }}</button></li>
+        {% set themeColorBg = themeValues.vars['ckn-bg-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorA = themeValues.vars['ckn-link-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorB = themeValues.vars['ckn-text-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorC = themeValues.vars['ckn-link-active-color'] | extractColorFromTokenVar(themeValues.colors) -%}
+        <li class="themepicker-item" style="--themepicker-bg:{{ themeColorBg }}; --themepicker-a:{{ themeColorA }}; --themepicker-b:{{ themeColorB }}; --themepicker-c:{{ themeColorC }};">
+            <button class="themepicker-button" type="button" data-theme-set="{{ themeKey }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="themepicker-palette">
+                    <polygon points="54.04787 16.11595 30 30 5.95213 16.11595 30 2.23191 54.04787 16.11595"/>
+                    <polygon points="30 30 30 57.76809 54.04787 43.88404 54.04787 16.11595 30 30"/>
+                    <polygon points="30 30 5.95213 16.11595 5.95213 43.88404 30 57.76809 30 30"/>
+                </svg>
+
+                <span class="themepicker-label">{{ themeValues.label }}</span>
+            </button>
+        </li>
     {% endfor %}
     </ul>
-    <button type="button" data-themepicker-toggler="false">
-            x
+
+    <button class="themepicker-close" type="button" data-themepicker-toggler="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         <span class="visually-hidden">Close Theme Picker</span>
     </button>
 
 </div>
 
-<button type="button" data-themepicker-toggler>Open Theme Picker</button>
+<button type="button" data-themepicker-toggler>Theme Picker</button>
