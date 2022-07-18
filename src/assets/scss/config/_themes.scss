@@ -1,82 +1,103 @@
 $theme-default: get-token('defaultTheme');
 $theme-default-vars: get-token('defaultVars');
 $theme-themes: get-token('themes');
+$theme-globals: get-token('globals');
 $theme-font-fallback: get-token('fontFallback');
 
 // DRY theme switch: https://css-tricks.com/a-dry-approach-to-color-themes-in-css/
 
 :root {
-    $theme-vars: ();
-    @each $theme-key, $theme-tokens in $theme-themes {
-        // Run through the tokens and make css variables
-        @each $group, $values in $theme-tokens {
-            @if $group == 'colors' {
-                @each $name, $weights in $values {
-                    @each $weight, $value in $weights {
-                        $key: 'c-#{$name}-#{$weight}';
-                        $map: ($key: ($theme-key: $value));
-                        $theme-vars: non-destructive-map-merge($theme-vars, $map);
-                    }
-                }
-            }
-            @if $group == 'fonts' {
-                @each $name, $families in $values {
-                    $stack: ();
-    
-                    @each $family in $families {
-                        @if (is-list(map-deep-get($theme-font-fallback, $family))) {
-                            $stack: join($stack, map-get($theme-font-fallback, $family));
-                        }
-                        @else {
-                            $stack: append($stack, $family, $separator: 'comma');
-                        }
-                    }
+	$theme-vars: ();
 
-                    $key: 'f-#{$name}';
-                    $map: ($key: ($theme-key: zip($stack)));
-                    $theme-vars: non-destructive-map-merge($theme-vars, $map);
-                }
-            }
-            @if $group == 'vars' {
-                @each $var, $value in $values {
-                    $key: '#{$var}';
-                    $map: ($key: ($theme-key: $value));
-                    $theme-vars: non-destructive-map-merge($theme-vars, $map);
-                }
-            }
-        }
-    }
-    
-    @each $key, $pairs in $theme-vars {
-        $list: ''; // Initialise the empty string
-        
-        @each $theme-key, $theme-tokens in $theme-themes {
-            $pair-val: if(map-has-key($pairs, $theme-key), map-get($pairs, $theme-key), map-get($theme-default-vars, $key));
-            $list: $list + ' var(--_theme-#{$theme-key}, #{$pair-val})';
-        }
+	// Create a list
+	@each $theme-key, $theme-tokens in $theme-themes {
+		// Run through the tokens and make css variables
+		@each $group, $values in $theme-tokens {
+			@if $group == 'colors' {
+				@each $name, $weights in $values {
+					@each $weight, $value in $weights {
+						$key: 'c-#{$name}-#{$weight}';
+						$map: (
+							$key: (
+								$theme-key: $value,
+							),
+						);
+						$theme-vars: non-destructive-map-merge($theme-vars, $map);
+					}
+				}
+			}
+			@if $group == 'fonts' {
+				@each $name, $families in $values {
+					$stack: ();
 
-        $list: str-trim($list);
-        
-        --#{$key}:#{$list};
-    }
+					@each $family in $families {
+						@if (is-list(map-deep-get($theme-font-fallback, $family))) {
+							$stack: join($stack, map-get($theme-font-fallback, $family));
+						} @else {
+							$stack: append($stack, $family, $separator: 'comma');
+						}
+					}
 
-    @each $theme-key in map-keys($theme-themes) {
-        --_theme-#{$theme-key}: var(--OFF);
-    }
+					$key: 'f-#{$name}';
+					$map: (
+						$key: (
+							$theme-key: zip($stack),
+						),
+					);
+					$theme-vars: non-destructive-map-merge($theme-vars, $map);
+				}
+			}
+			@if $group == 'vars' {
+				@each $var, $value in $values {
+					$key: '#{$var}';
+					$map: (
+						$key: (
+							$theme-key: $value,
+						),
+					);
+					$theme-vars: non-destructive-map-merge($theme-vars, $map);
+				}
+			}
+		}
+	}
+
+	// Output the list with each theme, using the fallback value if not provided
+	@each $key, $pairs in $theme-vars {
+		$list: ''; // Initialise the empty string
+
+		@each $theme-key, $theme-tokens in $theme-themes {
+			$pair-val: if(map-has-key($pairs, $theme-key), map-get($pairs, $theme-key), map-get($theme-default-vars, $key));
+			$list: $list + ' var(--_theme-#{$theme-key}, #{$pair-val})';
+		}
+
+		$list: str-trim($list);
+
+		--#{$key}: #{$list};
+	}
+
+	// Add in global variables
+	@each $global-key, $global-val in $theme-globals {
+		--ckn-#{$global-key}: #{$global-val};
+	}
+
+	// Disable all themes by default
+	@each $theme-key in map-keys($theme-themes) {
+		--_theme-#{$theme-key}: var(--OFF);
+	}
 }
 
 // The data-attribute only shows up with JS enabled, overwriting the prefers-color-scheme MQs, so only set these to ON when no JS is active
-:root:not([data-theme]) {
-    @media screen and (prefers-color-scheme: light) {
-        --_theme-#{map-get($theme-default, 'light')}: var(--ON);
-    }
-    @media screen and (prefers-color-scheme: dark) {
-        --_theme-#{map-get($theme-default, 'dark')}: var(--ON);
-    }
+:root:is(.no-js, :not([data-theme])) {
+	@media screen and (prefers-color-scheme: light) {
+		--_theme-#{map-get($theme-default, 'light')}: var(--ON);
+	}
+	@media screen and (prefers-color-scheme: dark) {
+		--_theme-#{map-get($theme-default, 'dark')}: var(--ON);
+	}
 }
 
 @each $theme-key in map-keys($theme-themes) {
-    :root[data-theme="#{$theme-key}"] {
-        --_theme-#{$theme-key}: var(--ON);
-    }
+	:root[data-theme='#{$theme-key}']:not(.no-js) {
+		--_theme-#{$theme-key}: var(--ON);
+	}
 }

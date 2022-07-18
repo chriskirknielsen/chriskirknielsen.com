@@ -1,23 +1,37 @@
 body {
-    font-family: var(--f-body);
-    line-height: #{$base-line-height};
-    color: var(--ckn-text-color);
-    background-color: var(--ckn-bg-color);
+	font-family: var(--f-body);
+	line-height: var(--ckn-base-line-height);
+	color: var(--ckn-text-color);
+	background-color: var(--ckn-bg-color);
 }
 
-h1, h2, h3, h4, h5, h6, .heading {
-    font-family: var(--f-heading);
-    letter-spacing: var(--heading-tracking);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+	font-family: var(--f-heading);
+	letter-spacing: var(--heading-tracking);
 }
 
 a:where(:any-link) {
-    color: var(--ckn-link-color);
+	color: var(--ckn-link-color);
 }
 a:hover,
 a:focus {
-    color: var(--ckn-link-active-color);
+	color: var(--ckn-link-active-color);
 }
 
 button {
-    border-radius: var(--corner-radius);
+	border-radius: var(--corner-radius);
+}
+
+*:focus {
+	outline: 4px dashed var(--ckn-link-active-color);
+	outline-offset: 2px;
+	&:not(:focus-visible) {
+		outline: none;
+	}
 }

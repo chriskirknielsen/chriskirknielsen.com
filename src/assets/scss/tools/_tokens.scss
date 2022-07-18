@@ -4,9 +4,9 @@ $tokens: (
     "light": vapor
   ),
   "defaultVars": (
-    "body-bg": white,
-    "body-text": black,
-    "body-link": blue,
+    "ckn-body-bg": white,
+    "ckn-body-text": black,
+    "ckn-body-link": blue,
     "heading-tracking": 0,
     "corner-radius": 8px,
     "border-style": solid
@@ -114,6 +114,9 @@ $tokens: (
         "border-style": outset
       )
     )
+  ),
+  "globals": (
+    "base-line-height": 1.5
   ),
   "typeScale": (
     "0": clamp(1.00rem, calc(0.80rem + 0.98vw), 1.50rem),
