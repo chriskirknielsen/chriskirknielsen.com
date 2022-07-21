@@ -1,4 +1,2 @@
-{% set themePick %}
-{% include "assets/js/theme-pick.js" %}
-{% endset %}
+{% set themePick %}{% include "assets/js/themepicker-toggle.js" %}{% endset %}
 <script>{{- themePick | jsmin | safe -}}</script>

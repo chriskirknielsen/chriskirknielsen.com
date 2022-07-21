@@ -7,8 +7,8 @@
 	display: inline-block;
 	padding: var(--size-xs);
 
-	color: var(--c-grey-min);
-	background: var(--c-secondary-max);
+	color: var(--theme-color-gray-min);
+	background: var(--theme-color-secondary-max);
 }
 
 .skip-link:not(:focus),

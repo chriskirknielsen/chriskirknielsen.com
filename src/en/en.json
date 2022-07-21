@@ -1,5 +1,7 @@
 {
+	"dir": "ltr",
 	"lang": "en",
+	"locale": "en",
 	"localePath": "/",
 	"localeRoot": "",
 	"localeRssUrl": "/rss.xml",
@@ -11,10 +13,8 @@
 		"dateFormat": "DD MMMM Y",
 		"skiplink": "Skip to content",
 		"closeLabel": "Close",
-		"logoLink": "Homepage",
-		"feed": {
-			"subtitle": "Blog of a front-end developer who likes to tinker"
-		},
+		"homepageLabel": "Homepage",
+		"feedSubtitle": "Blog of a front-end developer who likes to tinker",
 		"latestPost": "Latest Post",
 		"tagged": "Tagged",
 		"blobBacklinkLabel": "Back to Blog",

@@ -2,6 +2,6 @@
 	--flow-space: var(--size-s, 1em);
 
 	& > * + * {
-		margin-top: var(--flow-space);
+		margin-block-start: var(--flow-space);
 	}
 }

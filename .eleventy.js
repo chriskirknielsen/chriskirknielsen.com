@@ -3,6 +3,8 @@ const rootDir = 'src'; // Root folder
 const outputDir = '_site'; // Build destination folder
 const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
+const locales = metadata.locales;
+const defaultLanguage = 'en';
 
 // Tools
 const { minify } = require('terser');
@@ -12,18 +14,53 @@ const { PurgeCSS } = require('purgecss');
 const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const { EleventyI18nPlugin: pluginI18n } = require('@11ty/eleventy');
+const { EleventyI18nPlugin } = require('@11ty/eleventy');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
 
 // Config
 const purgeCssSafeList = {
-	_global: ['translated-rtl'], // Translation class
+	_global: ['translated-rtl', 'aria-checked'], // Translation class
 	home: [],
 	blog: [], // Article list links and external article button
 	about: [],
 };
+const translations = {};
+for (const locale of locales) {
+	const { i18n } = require(`./${rootDir}/${locale}/${locale}.json`);
+	for (const [key, value] of Object.entries(i18n)) {
+		if (!translations.hasOwnProperty(key)) {
+			translations[key] = {};
+		}
+		translations[key][locale] = value;
+	}
+}
+
+// Helpers
+function getDeep(obj, keys) {
+	if (!obj || typeof obj !== 'object') {
+		throw `The provided obj is not an object.`;
+	}
+	if (typeof keys === 'string') {
+		keys = keys.split('.').map((key) => key.trim());
+	}
+	if (keys.length === 0) {
+		return false;
+	}
+
+	while (keys.length > 0) {
+		const key = keys.shift();
+		if (!obj.hasOwnProperty(key)) {
+			return false;
+		}
+		obj = obj[key];
+		if (!obj) {
+			return false;
+		}
+	}
+	return obj;
+}
 
 module.exports = function (eleventyConfig) {
 	/* Plugins */
@@ -36,12 +73,14 @@ module.exports = function (eleventyConfig) {
 			'data-lang': (context) => context.language.toUpperCase(),
 		},
 	});
-	eleventyConfig.addPlugin(pluginI18n, {
-		defaultLanguage: 'en', // Required, this site uses "en"
+	eleventyConfig.addPlugin(EleventyI18nPlugin, {
+		defaultLanguage: defaultLanguage, // Required, this site uses "en"
+		errorMode: 'allow-fallback',
 	});
 
 	/* Filters */
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
+
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
 		try {
 			const minified = await minify(code);
@@ -51,8 +90,19 @@ module.exports = function (eleventyConfig) {
 			callback(null, code); // Fail gracefully.
 		}
 	});
+
+	eleventyConfig.addFilter('i18n', function (key) {
+		const context = this?.ctx || this.context?.environments;
+		const lang = context.lang;
+		const keyGroup = translations.hasOwnProperty(key) ? translations[key] : false;
+		if (!keyGroup) {
+			return key; // Display the key if anything else fails
+		}
+		const translation = keyGroup.hasOwnProperty(lang) ? keyGroup[lang] : keyGroup[defaultLanguage];
+		return translation;
+	});
 	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
-		const colorInfo = varValue.match(/var\( *--c-([a-z]+)-(min|med|max) *\)/);
+		const colorInfo = varValue.match(/var\(\s*--theme-color-([a-z]+)-(min|med|max)\s*\)/);
 		const colorGroup = colorInfo[1];
 		const colorWeight = colorInfo[2];
 		return themeColors[colorGroup][colorWeight];

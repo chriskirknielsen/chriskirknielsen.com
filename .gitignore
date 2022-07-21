@@ -1,5 +1,6 @@
 _site/
 node_modules/
+design/
 package-lock.json
 *.code-workspace
 

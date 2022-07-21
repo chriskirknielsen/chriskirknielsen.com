@@ -31,7 +31,7 @@
 		document.documentElement.classList.remove('no-js');
 		const themeKeys = {{ tokens.themes | keys | dump | safe }};
 		const themeDefault = {{ tokens.defaultTheme | dump | safe }};
-		{% include "assets/js/theme-set.js" %}
+		{% include "assets/js/themepicker-set.js" %}
 	})()
 	{% endset %}
 	<script>{{- themeScript | jsmin | safe -}}</script>

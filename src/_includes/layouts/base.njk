@@ -1,19 +1,22 @@
+{% from "macros/svg.njk" import svg %}
+
 <!doctype html>
 <html {% if section %} data-current="{{ section }}"{% endif %} lang="{{ lang }}" class="no-js">
 
 {% include "components/head.njk" %}
 
 <body>
+
 	<a class="skip-link" href="#content" data-skiplink>{{ i18n.skiplink }}</a>
 
-	{% include "components/theme-picker.njk" %}
-	{# {% include "components/header.njk" %} #}
+	{% include "components/header.njk" %}
 	
-	<main class="main content | flow fluid-type" id="content" tabindex="-1">
+	<main class="main | container flow fluid" id="content" tabindex="-1">
 		{{ layoutContent | safe }}
 	</main>
 
-	{# {% include "components/footer.njk" %} #}
+	{% include "components/footer.njk" %}
+	{% include "components/themepicker-menu.njk" %}
 	{% include "components/foot.njk" %}
 </body>
 

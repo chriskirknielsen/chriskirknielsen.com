@@ -1,12 +1,15 @@
 :root {
-    /* Thanks Lea Verou! */
-    --ON: initial;
-    --OFF: ;
+	/* Thanks Lea Verou! */
+	--ON: initial;
+	--OFF: ;
 
-    @each $scale, $value in get-token('typeScale') {
-        --type-#{$scale}: #{$value};
-    }
-    @each $size, $value in get-token('size') {
-        --size-#{$size}: #{$value};
-    }
+	@each $scale, $value in get-token('typeScale') {
+		--type-#{$scale}: #{$value};
+	}
+	@each $size, $value in get-token('size') {
+		--size-#{$size}: #{$value};
+	}
+	@each $group, $list in get-token('fontFallback') {
+		--font-fallback-#{$group}: #{zip($list)};
+	}
 }

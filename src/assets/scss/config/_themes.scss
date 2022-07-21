@@ -16,7 +16,7 @@ $theme-font-fallback: get-token('fontFallback');
 			@if $group == 'colors' {
 				@each $name, $weights in $values {
 					@each $weight, $value in $weights {
-						$key: 'c-#{$name}-#{$weight}';
+						$key: 'color-#{$name}-#{$weight}';
 						$map: (
 							$key: (
 								$theme-key: $value,
@@ -32,13 +32,13 @@ $theme-font-fallback: get-token('fontFallback');
 
 					@each $family in $families {
 						@if (is-list(map-deep-get($theme-font-fallback, $family))) {
-							$stack: join($stack, map-get($theme-font-fallback, $family));
+							$stack: append($stack, 'var(--font-fallback-#{$family})', $separator: 'comma');
 						} @else {
 							$stack: append($stack, $family, $separator: 'comma');
 						}
 					}
 
-					$key: 'f-#{$name}';
+					$key: 'font-#{$name}';
 					$map: (
 						$key: (
 							$theme-key: zip($stack),
@@ -72,12 +72,12 @@ $theme-font-fallback: get-token('fontFallback');
 
 		$list: str-trim($list);
 
-		--#{$key}: #{$list};
+		--theme-#{$key}: #{$list};
 	}
 
 	// Add in global variables
 	@each $global-key, $global-val in $theme-globals {
-		--ckn-#{$global-key}: #{$global-val};
+		--global-#{$global-key}: #{$global-val};
 	}
 
 	// Disable all themes by default

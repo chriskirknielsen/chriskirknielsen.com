@@ -1,0 +1,81 @@
+.header {
+	&-inner {
+		display: flex;
+		gap: var(--size-m);
+		align-items: center;
+		padding-block: var(--size-m);
+	}
+
+	&-logo {
+		margin-inline-end: auto;
+
+		color: var(--theme-color-primary-med);
+		font-size: 2rem;
+		text-decoration: none;
+
+		& > svg {
+			height: 1em;
+			width: auto;
+			overflow: visible;
+
+			transition: filter 420ms ease-in-out;
+
+			& > path {
+				fill: currentColor;
+				fill-opacity: 1;
+				stroke: var(--theme-color-primary-min);
+				stroke-width: 4px;
+				stroke-opacity: 0;
+
+				transition: inherit;
+				transition-property: fill, fill-opacity, stroke-opacity;
+			}
+		}
+
+		&:is(:hover, :focus) > svg {
+			filter: drop-shadow(0 0 0.25rem currentColor);
+		}
+
+		&:is(:hover, :focus) > svg > path {
+			fill: var(--theme-color-gray-max);
+			fill-opacity: 0.5;
+			stroke-opacity: 1;
+
+			animation: cknLogoNeon 300ms ease-in-out;
+
+			&:first-child {
+				animation-delay: 100ms;
+			}
+			&:last-child {
+				animation-delay: 300ms;
+			}
+		}
+	}
+}
+
+.menu {
+	display: flex;
+	gap: var(--size-m);
+	align-items: baseline;
+}
+
+@keyframes cknLogoNeon {
+	0% {
+		stroke-opacity: 0;
+	}
+	20% {
+		stroke-opacity: 0.5;
+	}
+	40% {
+		stroke-opacity: 0;
+	}
+	60% {
+		stroke-opacity: 0.75;
+	}
+	80% {
+		stroke-opacity: 0;
+	}
+	100% {
+		stroke-opacity: 1;
+	}
+}

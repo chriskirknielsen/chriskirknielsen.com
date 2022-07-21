@@ -1,3 +1,4 @@
+window.setTheme(window.getTheme());
 document.addEventListener('click', function (e) {
 	const setter = e.target.closest('[data-theme-set]');
 	if (setter) {
