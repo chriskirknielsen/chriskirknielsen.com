@@ -1,0 +1,85 @@
+:root:not([data-theme]),
+[data-theme='dusk'],
+[data-theme='dawn'] {
+	.header {
+		&-logo {
+			& > svg {
+				transition: filter 420ms ease-in-out;
+
+				& > path {
+					fill-opacity: 1;
+					stroke: var(--theme-color-primary-min);
+					stroke-width: 6;
+					stroke-opacity: 0;
+
+					transition: inherit;
+					transition-property: fill, fill-opacity, stroke-opacity;
+				}
+			}
+
+			&:is(:hover, :focus) > svg {
+				filter: drop-shadow(0 0 0.25rem currentColor);
+			}
+
+			&:is(:hover, :focus) > svg > path {
+				fill: var(--theme-color-gray-max);
+				fill-opacity: 0.5;
+				stroke-opacity: 1;
+
+				animation: cknLogoNeon 300ms ease-in-out;
+
+				&[data-i='1'] {
+					animation-delay: 100ms;
+				}
+				&[data-i='3'] {
+					animation-delay: 300ms;
+				}
+			}
+
+			@keyframes cknLogoNeon {
+				0% {
+					stroke-opacity: 0;
+				}
+				20% {
+					stroke-opacity: 0.5;
+				}
+				40% {
+					stroke-opacity: 0;
+				}
+				60% {
+					stroke-opacity: 0.75;
+				}
+				80% {
+					stroke-opacity: 0;
+				}
+				100% {
+					stroke-opacity: 1;
+				}
+			}
+		}
+	}
+
+	[data-cta='button'] {
+		&:is(:hover, :focus) {
+			box-shadow: 0 0 0.75em var(--theme-cta-border-color), 0 0 0.5em var(--theme-cta-border-color) inset;
+		}
+	}
+}
+
+[data-theme='y2k'] {
+	:focus {
+		outline: 1px dotted currentColor;
+	}
+
+	[data-cta='button'] {
+		&:focus {
+			outline-offset: -4px;
+			outline: 1px dotted #4c4c4c;
+			box-shadow: 0 0 0 1px #4c4c4c;
+		}
+
+		&:active {
+			--cta-border-color: var(--theme-cta-border-color-active);
+		}
+	}
+}

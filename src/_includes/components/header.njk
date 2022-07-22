@@ -1,10 +1,10 @@
 <header class="header">
     <div class="header-inner | container">
         <a href="{{ '/' | locale_url }}" class="header-logo">
-            {% set homepageLabel = homepageLabel | i18n %}
+            {% set homepageLabel = 'homepageLabel' | i18n %}
             {{ svg('logo', { title: homepageLabel }) }}
-            {{ homepageLabel }}
         </a>
+
         <nav class="header-nav" aria-label="{{ 'navLabel' | i18n }}">
             <ul class="header-menu menu" role="list">
                 <li class="menu-item">
@@ -18,6 +18,7 @@
                 </li>
             </ul>
         </nav>
+        
         {% include "components/themepicker-toggler.njk" %}
     </div>
 </header>

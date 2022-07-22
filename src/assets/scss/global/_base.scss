@@ -1,8 +1,15 @@
+:root {
+	color-scheme: var(--theme-color-scheme);
+}
 body {
+	// Define some contextual colour variables
+	--ctx-color: var(--theme-text-color);
+	--ctx-bg: var(--theme-bg-color);
+
 	font-family: var(--theme-font-body);
-	line-height: var(--global-base-line-height);
-	color: var(--theme-text-color);
-	background-color: var(--theme-bg-color);
+	line-height: var(--site-base-line-height);
+	color: var(--ctx-color);
+	background-color: var(--ctx-bg);
 }
 
 h1,

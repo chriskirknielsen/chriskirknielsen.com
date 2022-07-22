@@ -1,11 +1,13 @@
 <div class="themepicker" aria-expanded="false">
     <h2 class="themepicker-title | h4">{{ 'themeSwitchLabel' | i18n }}</h2>
     <ul class="themepicker-list">
+    {% set schemeThemes = tokens.schemes | values %}
     {% for themeKey, themeValues in tokens.themes %}
-        {% set themeColorBg = themeValues.vars['bg-color'] | extractColorFromTokenVar(themeValues.colors) %}
-        {% set themeColorA = themeValues.vars['link-color'] | extractColorFromTokenVar(themeValues.colors) %}
-        {% set themeColorB = themeValues.vars['text-color'] | extractColorFromTokenVar(themeValues.colors) %}
-        {% set themeColorC = themeValues.vars['link-color-active'] | extractColorFromTokenVar(themeValues.colors) -%}
+    {% set themeVars = tokens.schemeCommonVars.vars if (schemeThemes | includes(themeKey)) else ( themeValues.vars) %}
+        {% set themeColorBg = themeVars['bg-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorA = themeVars['link-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorB = themeVars['text-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorC = themeVars['link-color-active'] | extractColorFromTokenVar(themeValues.colors) -%}
         <li class="themepicker-item" style="--themepicker-bg:{{ themeColorBg }}; --themepicker-a:{{ themeColorA }}; --themepicker-b:{{ themeColorB }}; --themepicker-c:{{ themeColorC }};">
             <button class="themepicker-button" type="button" aria-checked="false" data-theme-set="{{ themeKey }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="themepicker-palette">

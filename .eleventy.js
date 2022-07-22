@@ -80,6 +80,9 @@ module.exports = function (eleventyConfig) {
 
 	/* Filters */
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
+	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
+	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
+	eleventyConfig.addFilter('removePrivateProps', (arr) => arr.filter((item) => String(item).startsWith('_')));
 
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
 		try {

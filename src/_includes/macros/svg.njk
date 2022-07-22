@@ -1,3 +1,3 @@
-{% macro svg(filename, svgData = {}) %}
-    {% include '../assets/img/' + filename + '.svg.njk' %}
+{% macro svg(filename, svgData) %}
+    {% include '../assets/img/' + filename + '.svg.njk' ignore missing %}
 {% endmacro %}

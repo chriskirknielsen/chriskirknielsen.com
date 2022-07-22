@@ -1,25 +1,57 @@
 $tokens: (
-  "defaultTheme": (
-    "dark": outrun,
-    "light": vapor
+  "constants": (
+    "base-line-height": 1.5,
+    "content-width": 42rem,
+    "content-gutter": var(--size-s)
   ),
-  "defaultVars": (
+  "vars": (
+    "color-scheme": dark light,
+    "font-heading": Helvetica,
+    "font-body": Georgia,
     "bg-color": white,
     "text-color": black,
-    "heading-color": black,
+    "heading-color": rebeccapurple,
     "link-color": blue,
     "link-color-active": purple,
-    "heading-tracking": 0,
-    "corner-radius": 8px,
     "cta-border-color": var(--theme-color-gray-med),
-    "cta-color": var(--theme-color-secondary-med),
-    "cta-color-active": var(--theme-color-secondary-med),
+    "cta-border-width": 1px,
+    "cta-text-color": var(--theme-color-secondary-med),
+    "cta-text-color-active": var(--theme-color-secondary-med),
     "cta-bg": var(--theme-color-secondary-med),
-    "cta-bg-active": var(--theme-color-secondary-med)
+    "cta-bg-active": var(--theme-color-secondary-med),
+    "heading-tracking": 0,
+    "corner-radius": 8px
+  ),
+  "schemes": (
+    "light": dawn,
+    "dark": dusk
+  ),
+  "schemeCommonVars": (
+    "fonts": (
+      "heading": ('Marvin Visions Big', sans-serif),
+      "body": (sans-serif)
+    ),
+    "vars": (
+      "bg-color": var(--theme-color-primary-max),
+      "heading-color": var(--theme-color-primary-min),
+      "text-color": var(--theme-color-gray-min),
+      "link-color": var(--theme-color-primary-med),
+      "link-color-active": var(--theme-color-secondary-med),
+      "cta-border-color": var(--theme-color-primary-med),
+      "cta-text-color": var(--theme-color-grey-max),
+      "cta-text-color-active": var(--theme-color-primary-med),
+      "cta-bg": var(--theme-color-gray-max),
+      "cta-bg-active": var(--theme-color-gray-max),
+      "heading-tracking": 0.05em
+    ),
+    "images": (
+      
+    )
   ),
   "themes": (
-    "outrun": (
-      "label": Outrun,
+    "dusk": (
+      "label": Dusk,
+      "color-scheme": dark,
       "colors": (
         "gray": (
           "min": hsl(225, 15%, 95%),
@@ -36,26 +68,27 @@ $tokens: (
           "med": hsl(177, 77%, 44%),
           "max": hsl(195, 90%, 12%)
         )
-      ),
-      "fonts": (
-        "heading": ('Marvin Visions Big', sans-serif),
-        "body": (sans-serif)
-      ),
-      "images": (
-        
-      ),
-      "vars": (
-        "bg-color": var(--theme-color-primary-max),
-        "heading-color": var(--theme-color-primary-min),
-        "text-color": var(--theme-color-gray-min),
-        "link-color": var(--theme-color-primary-med),
-        "link-color-active": var(--theme-color-secondary-med),
-        "cta-border-color": var(--theme-color-gray-med),
-        "cta-color": var(--theme-color-secondary-med),
-        "cta-color-active": var(--theme-color-secondary-med),
-        "cta-bg": var(--theme-color-secondary-med),
-        "cta-bg-active": var(--theme-color-secondary-med),
-        "heading-tracking": 0.05em
+      )
+    ),
+    "dawn": (
+      "label": Dawn,
+      "color-scheme": light,
+      "colors": (
+        "gray": (
+          "min": hsl(233, 12%, 13%),
+          "med": hsl(227, 5%, 63%),
+          "max": hsl(39, 100%, 96%)
+        ),
+        "primary": (
+          "min": hsl(263, 100%, 26%),
+          "med": hsl(330, 100%, 44%),
+          "max": hsl(33, 100%, 90%)
+        ),
+        "secondary": (
+          "min": hsl(195, 90%, 12%),
+          "med": hsl(181, 46%, 34%),
+          "max": hsl(254, 39%, 85%)
+        )
       )
     ),
     "vapor": (
@@ -81,15 +114,17 @@ $tokens: (
         "heading": ('VCR OSD Mono', monospace),
         "body": (monospace)
       ),
-      "images": (
-        
-      ),
       "vars": (
+        "color-scheme": light,
         "bg-color": var(--theme-color-primary-max),
         "heading-color": var(--theme-color-primary-min),
         "text-color": var(--theme-color-gray-min),
         "link-color": var(--theme-color-primary-med),
-        "link-color-active": var(--theme-color-secondary-med)
+        "link-color-active": var(--theme-color-secondary-med),
+        "corner-radius": 4px
+      ),
+      "images": (
+        
       )
     ),
     "y2k": (
@@ -115,28 +150,27 @@ $tokens: (
         "heading": ('Comic Sans MS', serif),
         "body": ('Times New Roman', serif)
       ),
-      "images": (
-        
-      ),
       "vars": (
+        "color-scheme": light,
         "bg-color": var(--theme-color-gray-max),
         "heading-color": var(--theme-color-primary-min),
         "text-color": var(--theme-color-gray-min),
         "link-color": var(--theme-color-primary-min),
         "link-color-active": var(--theme-color-primary-med),
+        "cta-border-width": 2px,
         "cta-bg": var(--theme-color-gray-med),
         "cta-bg-active": var(--theme-color-gray-med),
+        "cta-bg-hover": var(--theme-color-gray-max),
         "cta-text-color": var(--theme-color-gray-min),
         "cta-text-color-active": var(--theme-color-primary-min),
         "cta-border-color": var(--theme-color-gray-max) var(--theme-color-gray-min) var(--theme-color-gray-min) var(--theme-color-gray-max),
+        "cta-border-color-active": var(--theme-color-gray-min) var(--theme-color-gray-max) var(--theme-color-gray-max) var(--theme-color-gray-min),
         "corner-radius": 0
+      ),
+      "images": (
+        
       )
     )
-  ),
-  "globals": (
-    "base-line-height": 1.5,
-    "content-width": 42rem,
-    "content-gutter": var(--size-s)
   ),
   "typeScale": (
     "0": clamp(1.00rem, calc(0.90rem + 0.49vw), 1.25rem),

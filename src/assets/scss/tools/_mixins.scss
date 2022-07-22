@@ -1,0 +1,34 @@
+@mixin generate-theme-vars($var-groups, $prefix: 'theme', $exclude: ()) {
+	@each $theme-var-group, $theme-group-values in $var-groups {
+		@if (index($exclude, $theme-var-group) == null) {
+			@if $theme-var-group == 'fonts' {
+				@each $name, $families in $theme-group-values {
+					$stack: ();
+
+					@each $family in $families {
+						@if (is-list(map-deep-get(get-token('fontFallback'), $family))) {
+							$stack: append($stack, 'var(--font-fallback-#{$family})', $separator: 'comma');
+						} @else {
+							$stack: append($stack, $family, $separator: 'comma');
+						}
+					}
+
+					--#{$prefix}-font-#{$name}: #{zip($stack)};
+				}
+			}
+			@if $theme-var-group == 'colors' {
+				@each $name, $weights in $theme-group-values {
+					@each $weight, $value in $weights {
+						$theme-color-key: 'color-#{$name}-#{$weight}';
+						--#{$prefix}-#{$theme-color-key}: #{$value};
+					}
+				}
+			}
+			@if $theme-var-group == 'vars' {
+				@each $var, $value in $theme-group-values {
+					--#{$prefix}-#{$var}: #{$value};
+				}
+			}
+		}
+	}
+}

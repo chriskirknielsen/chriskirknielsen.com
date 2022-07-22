@@ -25,12 +25,13 @@
 	<meta name="twitter:image:alt" property="og:image:alt" content="{{ navtitle or title or renderData.title }}" />
 	<meta name="twitter:card" content="summary" />
 
-	<style id="inline-styles">{%- if not hasFullCustomStyles %}/*INLINE_CSS*/{% endif -%}</style>
+	{# <style id="inline-styles">{%- if not hasFullCustomStyles %}/*INLINE_CSS*/{% endif -%}</style> #}
+	<style>{% include 'assets/css/style.css' %}</style>
 	{% set themeScript %}
 	(function(){
 		document.documentElement.classList.remove('no-js');
 		const themeKeys = {{ tokens.themes | keys | dump | safe }};
-		const themeDefault = {{ tokens.defaultTheme | dump | safe }};
+		const themeDefault = {{ tokens.schemes | dump | safe }};
 		{% include "assets/js/themepicker-set.js" %}
 	})()
 	{% endset %}
