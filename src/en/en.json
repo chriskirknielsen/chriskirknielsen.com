@@ -20,9 +20,11 @@
 		"blobBacklinkLabel": "Back to Blog",
 		"original": "Read the original article",
 		"external": "Read the full article on",
-		"homeMarkCreaDev": "A Creative Developer",
-		"homeMarkCreaDevMarkup": "A CRE<tspan>A</tspan>TIVE DEVELOPER",
-		"homeMarkVisualDescription": "Chris Kirk-Nielsen: creative developer, in a heavily eighties-inspired graphical style with neon colours, a perspective grid, and a large stylised sun in the background",
+		"homeMark": {
+			"creaDev": "A Creative Developer",
+			"creaDevMarkup": "A CRE<tspan>A</tspan>TIVE DEVELOPER",
+			"visualDescription": "Chris Kirk-Nielsen: creative developer, in a heavily eighties-inspired graphical style with neon colours, a perspective grid, and a large stylised sun in the background"
+		},
 		"allRights": "All rights reserved",
 		"langLabel": "Language",
 		"navLabel": "Navigation",

@@ -4,9 +4,11 @@ const outputDir = '_site'; // Build destination folder
 const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = metadata.locales;
-const defaultLanguage = 'en';
+const defaultLang = 'en';
 
 // Tools
+const util = require('util');
+const deepmerge = require('deepmerge');
 const { minify } = require('terser');
 const { PurgeCSS } = require('purgecss');
 
@@ -19,27 +21,42 @@ const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
 
-// Config
-const purgeCssSafeList = {
-	_global: ['translated-rtl', 'aria-checked'], // Translation class
-	home: [],
-	blog: [], // Article list links and external article button
-	about: [],
-};
-const translations = {};
-for (const locale of locales) {
-	const { i18n } = require(`./${rootDir}/${locale}/${locale}.json`);
-	for (const [key, value] of Object.entries(i18n)) {
-		if (!translations.hasOwnProperty(key)) {
+// Helpers
+function trueType(val) {
+	return Object.prototype.toString.call(val).slice(8, -1).toLowerCase();
+}
+function createLangDictionary(lang, object, translations = {}) {
+	if (!object) {
+		return translations;
+	}
+	for (const [key, value] of Object.entries(object)) {
+		// Create the property if it does not exist
+		if (typeof translations[key] === 'undefined') {
 			translations[key] = {};
 		}
-		translations[key][locale] = value;
+		// If it's an object, recursively assign
+		if (trueType(value) === 'object') {
+			translations[key] = deepmerge(createLangDictionary(lang, value, translations[key]), translations[key]);
+		} else {
+			// End of the line: set the translation value
+			translations[key][lang] = value;
+		}
 	}
+	return translations;
 }
 
-// Helpers
+function buildDictionary() {
+	const translations = {};
+	for (const locale of locales) {
+		const { i18n } = require(`./${rootDir}/${locale}/${locale}.json`);
+
+		createLangDictionary(locale, i18n, translations);
+	}
+	return translations;
+}
+
 function getDeep(obj, keys) {
-	if (!obj || typeof obj !== 'object') {
+	if (!obj || trueType(obj) !== 'object') {
 		throw `The provided obj is not an object.`;
 	}
 	if (typeof keys === 'string') {
@@ -62,6 +79,15 @@ function getDeep(obj, keys) {
 	return obj;
 }
 
+// Config
+const translations = buildDictionary();
+const purgeCssSafeList = {
+	_global: [':is', ':where', 'translated-rtl', 'aria-checked', 'data-theme'], // Translation class
+	home: [],
+	blog: [], // Article list links and external article button
+	about: [],
+};
+
 module.exports = function (eleventyConfig) {
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginRss);
@@ -74,11 +100,13 @@ module.exports = function (eleventyConfig) {
 		},
 	});
 	eleventyConfig.addPlugin(EleventyI18nPlugin, {
-		defaultLanguage: defaultLanguage, // Required, this site uses "en"
+		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
+		dictionary: translations,
 	});
 
 	/* Filters */
+	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
@@ -95,15 +123,23 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter('i18n', function (key) {
+		// Find the page context
 		const context = this?.ctx || this.context?.environments;
-		const lang = context.lang;
-		const keyGroup = translations.hasOwnProperty(key) ? translations[key] : false;
-		if (!keyGroup) {
-			return key; // Display the key if anything else fails
-		}
-		const translation = keyGroup.hasOwnProperty(lang) ? keyGroup[lang] : keyGroup[defaultLanguage];
+
+		// Determine the target language, or use the default
+		const lang = context.lang || defaultLang;
+
+		// Extend the dictionary if a i18n object exists
+		const addIns = context?.i18n;
+
+		// Build the full dictionary for the page
+		const fullDictionary = createLangDictionary(lang, addIns, structuredClone(translations));
+
+		// Find the nested value of the translation, or the default language one, or just display the key
+		const translation = getDeep(fullDictionary, `${key}.${lang}`) || getDeep(fullDictionary, `${key}.${defaultLang}`) || key;
 		return translation;
 	});
+
 	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
 		const colorInfo = varValue.match(/var\(\s*--theme-color-([a-z]+)-(min|med|max)\s*\)/);
 		const colorGroup = colorInfo[1];
