@@ -1,6 +1,7 @@
 :root {
 	color-scheme: var(--theme-color-scheme);
 }
+
 body {
 	// Define some contextual colour variables
 	--ctx-color: var(--theme-text-color);
@@ -8,6 +9,7 @@ body {
 
 	font-family: var(--theme-font-body);
 	line-height: var(--site-base-line-height);
+	text-underline-offset: 0.125em;
 	color: var(--ctx-color);
 	background-color: var(--ctx-bg);
 }
@@ -25,9 +27,9 @@ h6,
 .h5,
 .h6,
 .heading {
-	color: var(--theme-heading-color);
 	font-family: var(--theme-font-heading);
 	letter-spacing: var(--theme-heading-tracking);
+	color: var(--theme-heading-color);
 }
 
 @for $s from 1 through 6 {
@@ -35,22 +37,6 @@ h6,
 	.h#{$s} {
 		font-size: var(--type-#{6 - $s});
 	}
-}
-
-a:where(:not([class])) {
-	&:where(:any-link) {
-		color: var(--theme-link-color);
-	}
-	&:where(:hover, :focus) {
-		color: var(--theme-link-color-active);
-		text-decoration: none;
-		box-decoration-break: clone;
-		box-shadow: 0 0.25em 0 var(--theme-link-color);
-	}
-}
-
-button {
-	border-radius: var(--theme-corner-radius);
 }
 
 *:focus {

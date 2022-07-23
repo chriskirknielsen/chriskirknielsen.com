@@ -1,5 +1,5 @@
-<div class="themepicker" aria-expanded="false">
-    <h2 class="themepicker-title | h4">{{ 'themeSwitchLabel' | i18n }}</h2>
+<div class="themepicker" aria-expanded="false" aria-describedby="themepicker-heading">
+    <h2 class="themepicker-title | h4" id="themepicker-heading">{{ 'themeSwitchLabel' | i18n }}</h2>
     <ul class="themepicker-list">
     {% set schemeThemes = tokens.schemes | values %}
     {% for themeKey, themeValues in tokens.themes %}
@@ -22,7 +22,7 @@
     {% endfor %}
     </ul>
 
-    <button class="themepicker-close" type="button" data-themepicker-toggler="false">
+    <button class="themepicker-close" type="button" data-themepicker-toggler="false" data-button="icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         <span class="visually-hidden">Close Theme Picker</span>
     </button>

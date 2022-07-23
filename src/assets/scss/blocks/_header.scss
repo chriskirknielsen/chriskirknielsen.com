@@ -1,7 +1,9 @@
 .header {
+	--header-gap: var(--size-l);
+
 	&-inner {
 		display: flex;
-		gap: var(--size-m);
+		gap: var(--header-gap);
 		align-items: center;
 		padding-block: var(--size-m);
 	}
@@ -27,13 +29,27 @@
 		}
 
 		&:is(:hover, :focus) > svg > path {
-			fill: var(--theme-color-gray-med);
+			fill: var(--theme-color-primary-min);
 		}
 	}
 }
 
 .menu {
 	display: flex;
-	gap: var(--size-m);
+	gap: var(--header-gap);
 	align-items: baseline;
+
+	&-item {
+	}
+
+	&-link {
+		font-weight: 700;
+		text-decoration: underline;
+		color: var(--theme-text-color);
+
+		&:is(:hover, :focus) {
+			text-decoration: none;
+			color: var(--theme-cta-text-color);
+		}
+	}
 }

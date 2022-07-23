@@ -1,0 +1,10 @@
+:where(a:where(:not([class])), .link) {
+	text-decoration: underline;
+	color: var(--theme-link-color);
+	text-decoration-skip-ink: auto;
+
+	&:where(:hover, :focus) {
+		color: var(--theme-link-color-active);
+		text-decoration: none;
+	}
+}

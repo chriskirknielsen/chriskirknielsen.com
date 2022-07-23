@@ -126,26 +126,15 @@
 	&-close {
 		--close-color: currentColor;
 		--close-border: transparent;
-		--close-bg: transparent;
+		--close-bg: var(--theme-color-secondary-max);
 
 		position: absolute;
 		top: var(--picker-gap);
 		right: var(--picker-gap);
 
-		padding: 0;
+		padding: var(--size-2xs);
 
-		color: var(--close-color);
 		border-width: 2px;
-		border-style: solid;
-		border-color: var(--close-border);
-		background: var(--close-bg);
-
-		&:hover,
-		&:focus {
-			--close-color: var(--theme-link-color);
-			--close-border: currentColor;
-			--close-bg: var(--theme-bg-color);
-		}
 
 		& > svg {
 			width: calc(2 * var(--picker-gap));

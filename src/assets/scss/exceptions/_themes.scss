@@ -7,6 +7,7 @@
 				transition: filter 420ms ease-in-out;
 
 				& > path {
+					fill: var(--theme-header-logo-fill);
 					fill-opacity: 1;
 					stroke: var(--theme-color-primary-min);
 					stroke-width: 6;
@@ -23,15 +24,15 @@
 
 			&:is(:hover, :focus) > svg > path {
 				fill: var(--theme-color-gray-max);
-				fill-opacity: 0.5;
+				fill-opacity: 0;
 				stroke-opacity: 1;
 
 				animation: cknLogoNeon 300ms ease-in-out;
 
-				&[data-i='1'] {
+				&[data-c] {
 					animation-delay: 100ms;
 				}
-				&[data-i='3'] {
+				&[data-n] {
 					animation-delay: 300ms;
 				}
 			}
@@ -59,10 +60,10 @@
 		}
 	}
 
-	[data-cta='button'] {
-		&:is(:hover, :focus) {
-			box-shadow: 0 0 0.75em var(--theme-cta-border-color), 0 0 0.5em var(--theme-cta-border-color) inset;
-		}
+	:where(button, .button):is(:hover, :focus) {
+		transition-property: box-shadow, border-color;
+		transition-duration: var(--theme-cta-transition-duration, 0ms);
+		transition-timing-function: cubic-bezier(0.33, 2.04, 0.34, -0.18);
 	}
 }
 
@@ -71,15 +72,10 @@
 		outline: 1px dotted currentColor;
 	}
 
-	[data-cta='button'] {
+	:where(button, .button) {
 		&:focus {
 			outline-offset: -4px;
 			outline: 1px dotted #4c4c4c;
-			box-shadow: 0 0 0 1px #4c4c4c;
-		}
-
-		&:active {
-			--cta-border-color: var(--theme-cta-border-color-active);
 		}
 	}
 }

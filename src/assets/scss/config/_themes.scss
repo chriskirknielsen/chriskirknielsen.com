@@ -1,7 +1,10 @@
 $theme-constants: get-token('constants');
 $theme-vars: get-token('vars');
 $theme-schemes: get-token('schemes');
+$theme-scheme-light: map-get($theme-schemes, 'light');
+$theme-scheme-dark: map-get($theme-schemes, 'dark');
 $theme-scheme-common-vars: get-token('schemeCommonVars');
+$theme-scheme-common-vars-resettable: map-get($theme-scheme-common-vars, 'vars-resettable');
 $theme-themes: get-token('themes');
 $theme-font-fallback: get-token('fontFallback');
 
@@ -13,7 +16,7 @@ $theme-font-fallback: get-token('fontFallback');
 		--THEME-#{$theme-key}: var(--OFF);
 	}
 
-	// Define base scheme variables
+	// Define base scheme's common variables
 	@include generate-theme-vars($theme-scheme-common-vars, $prefix: '_theme', $exclude: ('colors'));
 
 	// In addition to the common values, list the colours to be used
@@ -23,7 +26,17 @@ $theme-font-fallback: get-token('fontFallback');
 	$scheme-key: map-get($theme-schemes, $scheme);
 	$scheme-themes: map-values($theme-schemes);
 	$scheme-values: map-get($theme-themes, $scheme-key);
+	$scheme-vars: map-get($scheme-values, 'vars');
 	$scheme-colors: map-get($scheme-values, 'colors');
+
+	@each $scheme-var-key, $value in $scheme-vars {
+		$scheme-var-val: '';
+		@each $scheme-theme-key in $scheme-themes {
+			$value: map-deep-get($theme-themes, $scheme-theme-key, 'vars', $scheme-var-key);
+			$scheme-var-val: $scheme-var-val + ' var(--THEME-#{$scheme-theme-key}, #{$value})';
+		}
+		--_theme-#{$scheme-var-key}: #{$scheme-var-val};
+	}
 
 	@each $name, $weights in $scheme-colors {
 		@each $weight in map-keys($weights) {
@@ -33,6 +46,7 @@ $theme-font-fallback: get-token('fontFallback');
 				$value: map-deep-get($theme-themes, $scheme-theme-key, 'colors', $name, $weight);
 				$scheme-color-val: $scheme-color-val + ' var(--THEME-#{$scheme-theme-key}, #{$value})';
 			}
+			// No underline prefix for colours, they are mandatory!
 			--theme-#{$scheme-color-key}: #{$scheme-color-val};
 		}
 	}
@@ -45,25 +59,31 @@ $theme-font-fallback: get-token('fontFallback');
 		$val-with-fallback: 'var(--_theme-#{$var-key}, #{$var-value})'; // Grab a theme-defined value if it exists, or fallback to the global value
 		--theme-#{$var-key}: #{$val-with-fallback};
 	}
-}
 
-// The data-attribute only shows up with JS enabled, overwriting the prefers-color-scheme MQs, so only set these to ON when no JS is active
-:root:not([data-theme]) {
-	@media screen and (prefers-color-scheme: light) {
-		--THEME-#{map-get($theme-schemes, 'light')}: var(--ON);
+	// The data-attribute only shows up with JS enabled, overwriting the prefers-color-scheme MQs, so only set these to ON when no JS is active
+	&:not([data-theme]) {
+		@media screen and (prefers-color-scheme: light) {
+			--THEME-#{$theme-scheme-light}: var(--ON);
+		}
+		@media screen and (prefers-color-scheme: dark) {
+			--THEME-#{$theme-scheme-dark}: var(--ON);
+		}
 	}
-	@media screen and (prefers-color-scheme: dark) {
-		--THEME-#{map-get($theme-schemes, 'dark')}: var(--ON);
+
+	&[data-theme]:not([data-theme='#{$theme-scheme-light}']):not([data-theme='#{$theme-scheme-dark}']) {
+		@each $scheme-var-key, $value in $theme-scheme-common-vars-resettable {
+			--_theme-#{$scheme-var-key}: initial; // Reset vars
+		}
 	}
-}
 
-@each $theme-key, $theme-var-groups in $theme-themes {
-	:root[data-theme='#{$theme-key}'] {
-		--THEME-#{$theme-key}: var(--ON);
+	@each $theme-key, $theme-var-groups in $theme-themes {
+		&[data-theme='#{$theme-key}'] {
+			--THEME-#{$theme-key}: var(--ON);
 
-		// If this isn't a default scheme, generate all the overwrite variables
-		@if (index(map-values($theme-schemes), $theme-key) == null) {
-			@include generate-theme-vars($theme-var-groups);
+			// If this isn't a default scheme, generate all the overwrite variables
+			@if (index(map-values($theme-schemes), $theme-key) == null) {
+				@include generate-theme-vars($theme-var-groups);
+			}
 		}
 	}
 }

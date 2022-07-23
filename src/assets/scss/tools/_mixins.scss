@@ -24,7 +24,7 @@
 					}
 				}
 			}
-			@if $theme-var-group == 'vars' {
+			@if ($theme-var-group == 'vars' or $theme-var-group == 'vars-resettable') {
 				@each $var, $value in $theme-group-values {
 					--#{$prefix}-#{$var}: #{$value};
 				}

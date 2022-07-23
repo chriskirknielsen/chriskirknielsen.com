@@ -1,0 +1,33 @@
+:where(button, .button) {
+	display: var(--cta-display, inline-flex);
+	align-items: center;
+	gap: var(--cta-gap, 0);
+	padding: var(--cta-padding-block, var(--size-2xs)) var(--cta-padding-inline, var(--size-s));
+
+	font-size: var(--cta-font-size, 1em);
+	line-height: var(--cta-line-height, var(--site-base-line-height));
+	font-weight: var(--cta-font-weight, 400);
+	text-decoration: var(--cta-decoration-style, none) var(--cta-decoration-color, currentColor) var(--cta-decoration-thickness, from-font);
+	text-underline-offset: var(--cta-underline-offset, auto);
+
+	color: var(--cta-text-color, var(--theme-cta-text-color, currentColor));
+	text-shadow: var(--cta-text-shadow, none);
+
+	border-width: var(--cta-border-size, var(--theme-cta-border-width));
+	border-style: var(--cta-border-style, solid);
+	border-color: var(--cta-border-color, var(--theme-cta-border-color, currentColor));
+	border-radius: var(--cta-border-radius, var(--theme-corner-radius));
+	background-color: var(--cta-background-color, var(--theme-cta-bg));
+	box-shadow: var(--cta-box-shadow, none);
+
+	&:is(:hover, :focus) {
+		--cta-border-color: var(--theme-cta-border-color-active);
+		--cta-text-color: var(--theme-cta-text-color-active);
+		--cta-background-color: var(--theme-cta-bg-active);
+		--cta-box-shadow: var(--theme-cta-box-shadow-active, none);
+	}
+
+	&[data-button='icon'] {
+		--cta-padding-inline: var(--cta-padding-block, var(--size-2xs));
+	}
+}

@@ -11,14 +11,17 @@ $tokens: (
     "bg-color": white,
     "text-color": black,
     "heading-color": rebeccapurple,
+    "header-logo-fill": var(--theme-link-color),
     "link-color": blue,
     "link-color-active": purple,
     "cta-border-color": var(--theme-color-gray-med),
+    "cta-border-color-active": var(--theme-color-primary-med),
     "cta-border-width": 1px,
     "cta-text-color": var(--theme-color-secondary-med),
-    "cta-text-color-active": var(--theme-color-secondary-med),
     "cta-bg": var(--theme-color-secondary-med),
     "cta-bg-active": var(--theme-color-secondary-med),
+    "cta-box-shadow-active": none,
+    "cta-transition-duration": 0ms,
     "heading-tracking": 0,
     "corner-radius": 8px
   ),
@@ -38,10 +41,12 @@ $tokens: (
       "link-color": var(--theme-color-primary-med),
       "link-color-active": var(--theme-color-secondary-med),
       "cta-border-color": var(--theme-color-primary-med),
-      "cta-text-color": var(--theme-color-grey-max),
-      "cta-text-color-active": var(--theme-color-primary-med),
+      "cta-border-color-active": var(--theme-color-primary-min),
+      "cta-text-color": var(--theme-color-primary-min),
       "cta-bg": var(--theme-color-gray-max),
-      "cta-bg-active": var(--theme-color-gray-max),
+      "cta-bg-active": var(--theme-color-gray-max)
+    ),
+    "vars-resettable": (
       "heading-tracking": 0.05em
     ),
     "images": (
@@ -51,7 +56,12 @@ $tokens: (
   "themes": (
     "dusk": (
       "label": Dusk,
-      "color-scheme": dark,
+      "vars": (
+        "color-scheme": dark,
+        "header-logo-fill": var(--theme-color-secondary-med),
+        "cta-transition-duration": 300ms,
+        "cta-box-shadow-active": '0 0 0.75em var(--theme-cta-border-color), 0 0 0.5em var(--theme-cta-border-color) inset'
+      ),
       "colors": (
         "gray": (
           "min": hsl(225, 15%, 95%),
@@ -72,7 +82,12 @@ $tokens: (
     ),
     "dawn": (
       "label": Dawn,
-      "color-scheme": light,
+      "vars": (
+        "color-scheme": light,
+        "header-logo-fill": var(--theme-color-primary-med),
+        "cta-transition-duration": 0ms,
+        "cta-box-shadow-active": '0 0 0 0.125em var(--theme-cta-border-color)'
+      ),
       "colors": (
         "gray": (
           "min": hsl(233, 12%, 13%),
@@ -165,6 +180,7 @@ $tokens: (
         "cta-text-color-active": var(--theme-color-primary-min),
         "cta-border-color": var(--theme-color-gray-max) var(--theme-color-gray-min) var(--theme-color-gray-min) var(--theme-color-gray-max),
         "cta-border-color-active": var(--theme-color-gray-min) var(--theme-color-gray-max) var(--theme-color-gray-max) var(--theme-color-gray-min),
+        "cta-box-shadow-active": 0 0 0 1px var(--theme-color-gray-min),
         "corner-radius": 0
       ),
       "images": (
