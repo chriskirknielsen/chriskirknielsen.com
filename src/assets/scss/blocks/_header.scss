@@ -1,7 +1,7 @@
 .header {
-	--header-gap: var(--size-l);
-
 	&-inner {
+		--header-gap: clamp(var(--size-m), ((100vw - 24rem) * 9999), var(--size-l));
+
 		display: flex;
 		gap: var(--header-gap);
 		align-items: center;
@@ -46,6 +46,7 @@
 		font-weight: 700;
 		text-decoration: underline;
 		color: var(--theme-text-color);
+		white-space: nowrap;
 
 		&:is(:hover, :focus) {
 			text-decoration: none;

@@ -1,0 +1,96 @@
+---
+layout: layouts/base.njk
+section: home
+---
+
+<div class="content-breakout homescreen">
+    <p class="visually-hidden">{{ 'homescreenTitle.visualDescription' | i18n }}</p>
+    <div class="homescreen-content">
+        <div class="homescreen-background" aria-hidden="true">
+            {% set ckn_grid %}{%- include "assets/img/homescreen-grid.svg" -%}{% endset %}
+            {{ ckn_grid | safe }}
+        </div>
+
+        <h1 class="homescreen-title">
+            {% set ckn_mark %}{%- include "assets/img/homescreen-title.svg.njk" -%}{% endset %}
+            {{ ckn_mark | safe }}
+        </h1>
+    </div>
+</div>
+
+<div class="flow">
+    {{ layoutContent | safe }}
+
+    <div class="u-bg-alt-color u-bg-extend u-paddingBlock-l">
+        <div class="subsection subsection--quickaccess">
+            <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
+
+            <a href="{{ 'page.quickAccess.about.url' | i18n }}" class="button" data-button="tile" style="--area: url1">
+                <strong class="spaced-items">
+                    {% set svgQuestionOpts = { class: 'inline-icon' } %}
+                    {% include "assets/img/question.svg.njk" %}
+                    {{ 'page.quickAccess.about.label' | i18n }}
+                </strong>
+                <span class="u-c-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
+            </a>
+            <a href="{{ 'page.quickAccess.designs.url' | i18n }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
+                <strong class="spaced-items">
+                    {% set svgShirtOpts = { class: 'inline-icon' } %}
+                    {% include "assets/img/shirt.svg.njk" %}
+                    {{ 'page.quickAccess.designs.label' | i18n }}
+                </strong>
+                <span class="u-c-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
+            </a>
+            <a href="{{ 'page.quickAccess.fonts.url' | i18n }}" class="button" data-button="tile" style="--area: url3">
+                <strong class="spaced-items">
+                    {% set svgTypeOpts = { class: 'inline-icon' } %}
+                    {% include "assets/img/type.svg.njk" %}
+                    {{ 'page.quickAccess.fonts.label' | i18n }}
+                </strong>
+                <span class="u-c-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
+            </a>
+
+            <p class="spaced-items inlined-items" style="--area: also">
+                <a href="{{ 'page.quickAccess.also.usesPageUrl' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
+
+                {% for socialPage in social %}
+                    <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <div class="subsection subsection--writing">
+            <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
+
+            <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
+
+            {% set latestposts = collections["posts_" + locale] | reverse %}
+            {% set latestpost = latestposts[0] %}
+            <article class="u-posRelative" style="--area: post">
+                <time datetime="{{ latestpost.date }}">{{ latestpost.date }}</time>
+
+                <h2 class="h3">
+                    <a href="{{ latestpost.url | url }}" class="u-textDecoration--none u-afterCover">
+                        {{- latestpost.data.title -}}
+                    </a>
+                </h2>
+
+                <p class="u-marginBlockStart--half">
+                    {{- latestpost.data.summary or latestpost.excerpt -}}
+                </p>
+            </article>
+
+            <p class="spaced-items inlined-items" style="--area: ctas">
+                <a href="{{ '/blog' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
+                
+                <a href="{{ localeRssUrl }}" class="button">
+                    {% include 'assets/img/rss.svg.njk' %}
+                    <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
+                    <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>

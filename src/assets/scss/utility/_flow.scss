@@ -1,5 +1,5 @@
 .flow {
-	--flow-space: var(--size-s, 1em);
+	--flow-space: var(--size-l, 1em);
 
 	& > * + * {
 		margin-block-start: var(--flow-space);

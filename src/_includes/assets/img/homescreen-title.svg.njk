@@ -1,0 +1,266 @@
+{# Define the color for the fake 3D name element #}
+{% set depth_count = 11 %}
+{% set depth_min_scale = 0.9 %}
+{% set depth_close_sat = 48 %}
+{% set depth_close_lux = 26 %}
+{% set depth_far_sat = 11 %}
+{% set depth_far_lux = 2 %}
+{% set depth_factor_x = 1 %}
+{% set depth_factor_y = 0.9 %}
+
+{# Define the color for the horizon #}
+{% set horizon_flash = "#fff" %}
+
+{# Define the color for the shiny parts #}
+{% set shine_color = "#fff" %}
+
+{# Define the name's wireframe #}
+{% set wire_color_lum_start = 100 %}
+{% set wire_color_lum_end = 50 %}
+{% set wire_count = 8 %}
+{% set wire_color = 'cyan' %}
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="homescreen-svg">
+  <title>Chris, {{ 'homescreenTitle.creaDev' | i18n | toLowercase }}</title>
+
+  <defs>
+    <!-- SHAPE: Chris -->
+    <path id="homescreen-svg-chris-shape" d="M170.04,287.19h93.75v46.88h-93.75c-46.88,0,-70.31,-23.44,-70.31,-70.31v-23.44c0,-46.88,23.44,-70.31,70.31,-70.31h93.75v46.88h-93.75c-15.63,0,-23.44,7.81,-23.44,23.44v23.44c0.01,15.6,7.82,23.42,23.44,23.42zm152.35,-11.72v58.59h-46.88v-164.06h46.88v58.59h82.03v-58.59h46.88v164.06h-46.88v-58.59h-82.03zm140.62,-105.47h123.05c35.16,0,52.73,17.58,52.73,52.73c0,28.59,-11.6,45.55,-34.8,50.86l34.8,60.47h-54.02l-33.87,-58.59h-41.02v58.59h-46.88v-164.06zm46.88,46.87v11.72h76.17c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-76.17zm187.5,117.19h-46.88v-164.06h46.88v164.06zm111.33,0h-99.61v-46.88h99.61c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-46.88c-35.16,0,-52.73,-17.58,-52.73,-52.73c0,-35.16,17.58,-52.73,52.73,-52.73h99.61v46.88h-99.61c-3.91,0,-5.86,1.95,-5.86,5.86s1.95,5.86,5.86,5.86h46.88c35.16,0,52.73,17.58,52.73,52.73s-17.58,52.73,-52.73,52.73z"></path>
+
+    <!-- MASK: Chris -->
+    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask">
+      <use xlink:href="#homescreen-svg-chris-shape" fill="#fff" />
+    </mask>
+    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask-inverted">
+      <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
+      <use xlink:href="#homescreen-svg-chris-shape" fill="#000" />
+    </mask>
+    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask-outline">
+      <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="#fff" stroke-width="2" />
+    </mask>
+    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask-outline-double">
+      <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="#fff" stroke-width="4" />
+    </mask>
+
+    <!-- FILTER: Flash Glow -->
+    <filter id="flashGlow" height="300%" width="300%" x="-75%" y="-75%">
+      <!-- Thicken out the original shape -->
+      <feMorphology operator="dilate" radius="8" in="SourceAlpha" result="flashGlow_thicken" />
+
+      <!-- Use a gaussian blur to create the soft blurriness of the glow -->
+      <feGaussianBlur in="flashGlow_thicken" stdDeviation="16" result="flashGlow_blurred" />
+
+      <!-- Change the color -->
+      <feFlood flood-color="{{ wire_color }}" result="flashGlow_glowColor" />
+
+      <!-- Color in the glows -->
+      <feComposite in="flashGlow_glowColor" in2="flashGlow_blurred" operator="in" result="flashGlow_colored" />
+
+      <!--Layer the effects together -->
+      <feMerge>
+        <feMergeNode in="flashGlow_colored"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+
+    </filter>
+
+    <!-- FILTER: Dark Purple Glow Thick -->
+    <filter id="violetShadeGlow" height="300%" width="300%" x="-75%" y="-75%">
+      <!-- Thicken out the original shape -->
+      <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="violetShadeGlow_thicken" />
+
+      <!-- Use a gaussian blur to create the soft blurriness of the glow -->
+      <feGaussianBlur in="violetShadeGlow_thicken" stdDeviation="2" result="violetShadeGlow_blurred" />
+
+      <!-- Change the color -->
+      <feFlood flood-color="var(--homescreen-chris-inner)" result="violetShadeGlow_glowColor" />
+
+      <!-- Color in the glows -->
+      <feComposite in="violetShadeGlow_glowColor" in2="violetShadeGlow_blurred" operator="in" result="violetShadeGlow_colored" />
+
+      <!-- Lower the final opacity -->
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+
+    </filter>
+
+    <!-- FILTER: Dark Purple Glow Softer -->
+    <filter id="violetShadeGlow2" height="300%" width="300%" x="-75%" y="-75%">
+      <!-- Thicken out the original shape -->
+      <feMorphology operator="dilate" radius="4" in="SourceAlpha" result="violetShadeGlow2_thicken" />
+
+      <!-- Use a gaussian blur to create the soft blurriness of the glow -->
+      <feGaussianBlur in="violetShadeGlow2_thicken" stdDeviation="8" result="violetShadeGlow2_blurred" />
+
+      <!-- Change the color -->
+      <feFlood flood-color="var(--homescreen-chris-inner)" result="violetShadeGlow_glowColor" />
+
+      <!-- Color in the glows -->
+      <feComposite in="violetShadeGlow2_glowColor" in2="violetShadeGlow2_blurred" operator="in" result="violetShadeGlow2_colored" />
+
+      <!-- Lower the final opacity -->
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.25"/>
+      </feComponentTransfer>
+
+    </filter>
+
+    <!-- GRADIENT: Outline -->
+    <linearGradient id="gradientPinkPurple" gradientUnits="userSpaceOnUse" x1="480" y1="169.998" x2="480" y2="334.06">
+      <stop offset=".42" stop-color="var(--homescreen-chris-outline-b)"/>
+      <stop offset=".64" stop-color="var(--homescreen-chris-outline-a)"/>
+      <stop offset=".77" stop-color="var(--homescreen-chris-outline-b)"/>
+    </linearGradient>
+
+    <!-- GRADIENT: Main -->
+    <linearGradient id="gradientDuskTop" gradientUnits="userSpaceOnUse" x1="480" y1="169.998" x2="480" y2="334.06">
+      <stop offset="0" stop-color="var(--homescreen-chris-upper-a)"/>
+      <stop offset=".167" stop-color="var(--homescreen-chris-upper-b)"/>
+      <stop offset=".333" stop-color="var(--homescreen-chris-upper-c)"/>
+      <stop offset=".5" stop-color="var(--homescreen-chris-upper-d)"/>
+      <stop offset="1" stop-color="var(--homescreen-chris-upper-d)"/>
+    </linearGradient>
+
+    <linearGradient id="gradientDuskBottom" gradientUnits="userSpaceOnUse" x1="480" y1="169.998" x2="480" y2="334.06">
+      <stop offset=".5" stop-color="var(--homescreen-chris-lower-a)"/>
+      <stop offset="1" stop-color="var(--homescreen-chris-lower-b)"/>
+    </linearGradient>
+
+    <!-- GRADIENT: Horizon Shine -->
+    <radialGradient id="horizonFlash">
+      {# Stops generated with https://larsenwork.com/easing-gradients/ #}
+      <stop offset="0.000" stop-color="{{ horizon_flash }}" stop-opacity="1.000" />
+      <stop offset="0.081" stop-color="{{ horizon_flash }}" stop-opacity="0.987" />
+      <stop offset="0.155" stop-color="{{ horizon_flash }}" stop-opacity="0.951" />
+      <stop offset="0.225" stop-color="{{ horizon_flash }}" stop-opacity="0.896" />
+      <stop offset="0.290" stop-color="{{ horizon_flash }}" stop-opacity="0.825" />
+      <stop offset="0.353" stop-color="{{ horizon_flash }}" stop-opacity="0.741" />
+      <stop offset="0.412" stop-color="{{ horizon_flash }}" stop-opacity="0.648" />
+      <stop offset="0.471" stop-color="{{ horizon_flash }}" stop-opacity="0.550" />
+      <stop offset="0.529" stop-color="{{ horizon_flash }}" stop-opacity="0.450" />
+      <stop offset="0.588" stop-color="{{ horizon_flash }}" stop-opacity="0.352" />
+      <stop offset="0.647" stop-color="{{ horizon_flash }}" stop-opacity="0.259" />
+      <stop offset="0.710" stop-color="{{ horizon_flash }}" stop-opacity="0.175" />
+      <stop offset="0.775" stop-color="{{ horizon_flash }}" stop-opacity="0.104" />
+      <stop offset="0.845" stop-color="{{ horizon_flash }}" stop-opacity="0.049" />
+      <stop offset="0.919" stop-color="{{ horizon_flash }}" stop-opacity="0.013" />
+      <stop offset="1.000" stop-color="{{ horizon_flash }}" stop-opacity="0.000" />
+    </radialGradient>
+
+    <!-- GRADIENT: Shine Spots -->
+    <radialGradient id="gradientShine">
+      <stop offset="0" stop-color="{{ shine_color }}"/>
+      <stop offset=".75" stop-color="{{ shine_color }}" stop-opacity="0"/>
+      <stop offset="1" stop-color="{{ shine_color }}" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- GRADIENT: Shine Overlay -->
+    <linearGradient id="gradientShineOver" gradientUnits="userSpaceOnUse" x1="120.234" y1="-143.29" x2="684.493" y2="330.18">
+      <stop offset=".45" stop-color="{{ shine_color }}" stop-opacity="0"/>
+      <stop offset=".5" stop-color="{{ shine_color }}" stop-opacity="0.9"/>
+      <stop offset=".55" stop-color="{{ shine_color }}" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Horizon Flash -->
+  <ellipse class="homescreen-svg__horizon-flash" fill="url(#horizonFlash)" cx="50%" cy="50%" rx="50%" ry="1%"/>
+
+  <!-- Chris -->
+  <g class="homescreen-svg__chris-group homescreen-svg__group" role="img" aria-label="Chris">
+
+    <!-- Wires -->
+    <g class="homescreen-svg__wires" style="--wire-count: {{ wire_count }};">
+      {% for w in range(0, wire_count) -%}
+        {% set wire_lum = wire_color_lum_end + (wire_color_lum_start - wire_color_lum_end) * (w/wire_count) %}
+        <use xlink:href="#homescreen-svg-chris-shape" class="homescreen-svg__wire" fill="none" stroke="hsla(180, 100%, {{ wire_lum }}%, .8)" stroke-width="2" style="--w: {{ w }};" />
+      {%- endfor %}
+    </g>
+    
+    <g class="homescreen-svg__chris-main">
+      <!-- Fake depth layers -->
+      <g stroke-width="2.5" class="homescreen-svg__chris-depth-group">
+      {% for d in range(0, depth_count) -%}
+        {% set depth_sat = depth_far_sat + (depth_close_sat - depth_far_sat) * (d/depth_count) %}
+        {% set depth_lux = depth_far_lux + (depth_close_lux - depth_far_lux) * (d/depth_count) %}
+        {% set depth_scale_x = (1 - depth_min_scale * depth_factor_x) * (d/depth_count) + depth_min_scale * depth_factor_x %}
+        {% set depth_scale_y = (1 - depth_min_scale * depth_factor_y) * (d/depth_count) + depth_min_scale * depth_factor_y %}
+        {% set color_h %}calc(var(--homescreen-chris-depth-hue)){% endset %}
+        {% set color_s %}calc(var(--homescreen-chris-depth-sat, 1) * {{ depth_sat | round(3) }}%){% endset %}
+        {% set color_l %}calc(var(--homescreen-chris-depth-lux, 0%) + {{ depth_lux | round(3) }}%){% endset %}
+        <use
+          xlink:href="#homescreen-svg-chris-shape"
+          class="homescreen-svg__group homescreen-svg__chris-depth"
+          style="
+            transform: scale({{ depth_scale_x | round(3) }}, {{ depth_scale_y | round(3) }});
+            color: hsl({{ color_h }}, {{ color_s }}, {{ color_l }});
+          "
+        />
+      {%- endfor %}
+      </g>
+
+      <!-- Outline -->
+      <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="url(#gradientPinkPurple)" stroke-width="3" />
+
+      <!-- Gradient -->
+      <g mask="url(#homescreen-svg-chris-mask)">
+        <rect x="0%" y="0" width="100%" height="100%" fill="url(#gradientDuskTop)" />
+        <path fill="url(#gradientDuskBottom)" d="M0 256.6v247.6h971.2V249H866c-5.1 0-18.3 6.7-21.8 6.5-3.5-.2-6.9-2-10.5-2s-11.1 3.5-15.8 3.5c-4.7 0-9.3-1.8-13.3-1.8-10 0-15.8-4.2-25.6-4.2-8.2 0-12.6 3.9-17.9 3.9-5.3 0-14.9 1.2-21.7 1.2s-7.3-.4-13.8-.4-9.4-2.5-15.3-2.5c-11.4 0-14.7-5-25.2-5-2.6 0-3.1.5-6.7.5-2 0-4.4-.5-7.4-.5-3.1 0-18.9 8.3-23.2 8.3s-7.4 1.9-12.8 1.9-4.5-1.5-11.3-1.5c-6.8 0-9.5 1.2-12 1.2s-10.4-4.2-16.8-4.2c-18 0-21.1-5.7-30.2-5.7-6.8 0-14.2 6.5-21.1 6.5-6.9 0-16.1 3.5-20 3.5-4 0-9.1-5.3-16.2-5.3s-10.7 5.6-20.7 5.6-14.4-4.9-21.7-4.9c-13.3 0-15.3-5.5-22.4-5.5-8 .1-10.4 2.3-14.4 2.3s-10.6 5.2-18.7 5.2c-8 0-13.8 1.4-19.5 1.4s-10.1-2.7-15.4-2.7c-5.3 0-15.9-3.8-20.3-3.8s-18 4.4-26.2 4.4-10.4-2.7-13.8-2.7c-9 0-14-4.8-20-4.8-4 0-16.1 3.8-22.2 3.8s-109.5 8.6-117.8 8.6-15-7.6-24.4-7.6c-2.6 0-3.3.4-6.2.4-3.3 0-4.7-.8-10-.8-10.2 0-16.2 4.9-22 4.9-7.4-.1-91.7-.1-91.7-.1z" />
+      </g>
+
+      <!-- Inner Shadow  -->
+      <g mask="url(#homescreen-svg-chris-mask)">
+        <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="var(--homescreen-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow)" />
+        <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="var(--homescreen-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow2)" />
+      </g>
+
+      <!-- Shine Overlay (hide initially, show with CSS) -->
+      <g mask="url(#homescreen-svg-chris-mask)">
+        <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="homescreen-svg__name-shineOver" style="opacity:0" />
+      </g>
+
+      <!-- Outline Overlay (hide initially, show with CSS) -->
+      <g mask="url(#homescreen-svg-chris-mask-outline-double)">
+        <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="homescreen-svg__name-shineOver homescreen-svg__name-shineOver--delayed" style="opacity:0" />
+      </g>
+
+      <!-- Shine Spots -->
+      <g mask="url(#homescreen-svg-chris-mask-outline)">
+        <circle fill="url(#gradientShine)" cx="119" cy="178.95" r="48.81"/>
+        <circle fill="url(#gradientShine)" cx="735.67" cy="168.52" r="36.76"/>
+        <ellipse fill="url(#gradientShine)" cx="523.35" cy="173.84" rx="63.03" ry="26.07"/>
+        <ellipse fill="url(#gradientShine)" cx="363.35" cy="226.84" rx="40.05" ry="13.95"/>
+        <circle fill="url(#gradientShine)" cx="299.35" cy="169.84" r="19.17"/>
+        <ellipse fill="url(#gradientShine)" cx="222.35" cy="285.84" rx="40.05" ry="13.95"/>
+        <ellipse fill="url(#gradientShine)" cx="769" cy="285.84" rx="28.44" ry="13.95"/>
+        <circle fill="url(#gradientShine)" cx="626.35" cy="303.114" r="39.29"/>
+        <ellipse fill="url(#gradientShine)" cx="563.72" cy="227.84" rx="26.79" ry="7.9"/>
+        <ellipse fill="url(#gradientShine)" cx="790.35" cy="227.84" rx="29.94" ry="7.9"/>
+      </g>
+
+      {# <circle fill="url(#gradientShine)" cx="736" cy="173" r="12" /> #}
+
+      <g class="homescreen-svg__glare-group">
+        <g class="homescreen-svg__glare homescreen-svg__group">
+          <ellipse fill="url(#gradientShine)" cx="0" cy="0" ry="16" rx="4" />
+          <ellipse fill="url(#gradientShine)" cx="0" cy="0" rx="16" ry="4" />
+        </g>
+      </g>
+    </g>
+
+    <g class="homescreen-svg__chris-flash">
+      <use xlink:href="#homescreen-svg-chris-shape" fill="{{ shine_color }}" stroke="{{ shine_color }}" filter="url(#flashGlow)" />
+      {# <use xlink:href="#homescreen-svg-chris-shape"  fill="{{ shine_color }}" stroke="{{ shine_color }}" /> #}
+    </g>
+  </g>
+
+  <!-- Creative Developer -->
+  <g aria-label="{{ 'homescreenTitle.creaDev' | i18n }}" class="homescreen-svg__creativedeveloper-text homescreen-svg__group" letter-spacing=".7em">
+    <text text-anchor="middle" x="50%" y="387">
+      {{ 'homescreenTitle.creaDev' | i18n | toUppercase }}
+    </text>
+  </g>
+
+  <!-- Horizon Glow -->
+  <ellipse class="homescreen-svg__horizon-flash" fill="url(#horizonFlash)" cx="50%" cy="50%" rx="25%" ry="33%"/>
+</svg>

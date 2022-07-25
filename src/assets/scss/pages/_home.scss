@@ -1,0 +1,426 @@
+@use 'sass:math';
+.homescreen {
+	$grid-line-anim-time: 4s;
+	$sun-radius: 20vmin;
+	$sun-blind-size: math.div($sun-radius, 12);
+
+	@include default-schemes {
+		@include generate-light-dark-vars('homescreen-sky-end', #ecb43a, #791e74);
+		@include generate-light-dark-vars('homescreen-floor-start', #f774b5, #1e0347);
+		@include generate-light-dark-vars('homescreen-grid-line', rebeccapurple, cyan);
+
+		@include generate-light-dark-vars('homescreen-sun-lower-end', #ff9ece, #1e1230);
+		--homescreen-sun-upper-top: #ff0095;
+		--homescreen-sun-upper-middle: #ffafa3;
+		--homescreen-sun-upper-bottom: #ffffe9;
+		--homescreen-sun-lower-top: #ff0095;
+		--homescreen-sun-glow: #ed23afbf;
+		--homescreen-sun-glow-alpha: #ed23af00;
+
+		--homescreen-bg-mask: linear-gradient(tan 50%, 66.7%, #0000 95%);
+		--homescreen-disc-mask: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
+		--homescreen-lines-mask: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50% 100% /
+			100% 50%;
+
+		--homescreen-chris-inner: #130026;
+		--homescreen-chris-upper-a: #260039;
+		--homescreen-chris-upper-b: #7a11ba;
+		--homescreen-chris-upper-c: #fd57b7;
+		--homescreen-chris-upper-d: #fddcc0;
+		--homescreen-chris-lower-a: #7e004e;
+		--homescreen-chris-lower-b: #ed23af;
+		--homescreen-chris-outline-a: #e04fab;
+		--homescreen-chris-outline-b: #4f045f;
+
+		@include generate-light-dark-vars('homescreen-chris-depth-hue', 274, 244);
+		@include generate-light-dark-vars('homescreen-chris-depth-sat', 2, 1);
+		@include generate-light-dark-vars('homescreen-chris-depth-lux', 5%, 0%);
+
+		--homescreen-creadev-stroke: var(--theme-color-primary-max);
+		--homescreen-creadev-fill: var(--theme-color-primary-min);
+	}
+
+	@include theme('vapor') {
+		--homescreen-silhouette-emoji: '🌴';
+		--homescreen-silhouette-color: #ff0095;
+		--homescreen-sky-end: #ecb43a;
+		--homescreen-floor-start: #f774b5;
+		--homescreen-grid-line: rebeccapurple;
+
+		--homescreen-sun-lower-end: #ff9ece;
+		--homescreen-sun-upper-top: #ff0095;
+		--homescreen-sun-upper-middle: #ffafa3;
+		--homescreen-sun-upper-bottom: #ffffe9;
+		--homescreen-sun-lower-top: #ff0095;
+		--homescreen-sun-glow: #ed23afbf;
+		--homescreen-sun-glow-alpha: #ed23af00;
+
+		--homescreen-bg-mask: linear-gradient(tan 50%, 66.7%, #0000 95%);
+		--homescreen-disc-mask: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
+		--homescreen-lines-mask: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50% 100% /
+			100% 50%;
+
+		--homescreen-chris-inner: #130026;
+		--homescreen-chris-upper-a: #260039;
+		--homescreen-chris-upper-b: #7a11ba;
+		--homescreen-chris-upper-c: #fd57b7;
+		--homescreen-chris-upper-d: #fddcc0;
+		--homescreen-chris-lower-a: #7e004e;
+		--homescreen-chris-lower-b: #ed23af;
+		--homescreen-chris-outline-a: #e04fab;
+		--homescreen-chris-outline-b: #4f045f;
+
+		--homescreen-chris-depth-hue: 274;
+		--homescreen-chris-depth-sat: 2;
+		--homescreen-chris-depth-lux: 5%;
+
+		--homescreen-creadev-stroke: var(--theme-color-primary-max);
+		--homescreen-creadev-fill: var(--theme-color-primary-min);
+	}
+
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
+	min-height: #{$sun-radius * 3};
+
+	contain: content;
+
+	&-content {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	&-background {
+		$sun-gradient: linear-gradient(
+				180deg,
+				var(--homescreen-sun-upper-top) 0,
+				12.5%,
+				var(--homescreen-sun-upper-middle) 30%,
+				var(--homescreen-sun-upper-bottom) 50%,
+				var(--homescreen-sun-lower-top) 50%,
+				82.5%,
+				var(--homescreen-sun-lower-end) 100%
+			)
+			no-repeat 50% 50% / 100% #{$sun-radius * 2};
+		$sun-glow-gradient: radial-gradient(
+				circle at 50% 100%,
+				var(--homescreen-sun-glow-alpha) #{$sun-radius * 0.875},
+				#{$sun-radius * 0.975},
+				var(--homescreen-sun-glow) #{$sun-radius},
+				#{$sun-radius * 1.0325},
+				var(--homescreen-sun-glow-alpha) #{$sun-radius * 1.25}
+			)
+			no-repeat 50% 0 / 100% 50%;
+
+		/* Sky layer */
+		background:
+            // Horizon glow
+			radial-gradient(ellipse 150% 20% at 50% 100%, var(--homescreen-sun-glow) 0%, 12.5%, var(--homescreen-sun-glow-alpha) 50%) no-repeat 50% 0 / 100% 50%,
+			// Full sky
+			linear-gradient(transparent 0%, var(--homescreen-sky-end) 50%, var(--homescreen-floor-start) 50%, transparent 100%);
+
+		// Fade out the grid at the bottom
+		-webkit-mask-image: var(--homescreen-bg-mask);
+		mask-image: var(--homescreen-bg-mask);
+
+		&,
+		&::before,
+		&::after {
+			content: '';
+
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+
+		/* Sun layer */
+		&::before {
+			background: #{$sun-gradient};
+			-webkit-mask: var(--homescreen-disc-mask), var(--homescreen-lines-mask);
+			-webkit-mask-composite: source-out;
+			mask: var(--homescreen-disc-mask) subtract, var(--homescreen-lines-mask);
+		}
+
+		&::after {
+			background: #{$sun-glow-gradient};
+		}
+	}
+
+	&-grid {
+		contain: content;
+		position: relative;
+		top: 50%; // Leave 50% for the background, and use the remaining 50% for the floor
+
+		width: 100%;
+
+		filter: drop-shadow(0 0 0.5vmin var(--homescreen-grid-line, cyan));
+
+		& > path {
+			fill: none;
+			stroke: var(--homescreen-grid-line, cyan);
+			stroke-width: 1.5px;
+			stroke-width: clamp(0.75px, 0.1vw, 1.5px);
+			vector-effect: non-scaling-stroke;
+		}
+	}
+
+	&-title {
+		&::before {
+			--homescreen-silhouette-mask: linear-gradient(to bottom, tan, 75%, transparent);
+			content: var(--homescreen-silhouette-emoji, none);
+
+			position: absolute;
+			inset-block: 0 100%;
+			inset-inline: 0;
+
+			width: 1em;
+			height: 1em;
+			margin: 0 auto;
+
+			font-size: $sun-radius;
+			color: transparent;
+			text-shadow: 0 0 0 var(--homescreen-silhouette-color);
+
+			-webkit-mask-image: var(--homescreen-silhouette-mask);
+			mask-image: var(--homescreen-silhouette-mask);
+		}
+
+		position: relative;
+
+		max-width: 100%; // Counter the default h1's max-width of 60ch
+
+		& > svg {
+			width: 60rem;
+			contain: content;
+		}
+	}
+
+	&-svg {
+		$mark-depth-factor-x: 1;
+		$mark-depth-factor-y: 0.9;
+		$wire-count: 8;
+		$wire-init-delay: 0.75s;
+		$wire-step-delay: 0.0625s;
+		$wire-anim-time: 0.75s;
+		$wire-factor: 0.25;
+		$wire-final-end: $wire-init-delay + $wire-step-delay * ($wire-count - 1) + $wire-anim-time;
+		$greeting-init-delay: $wire-init-delay * 2;
+		$greeting-anim-time: 0s;
+		$flash-anim-delay: $wire-final-end - $wire-step-delay * $wire-count;
+		$flash-anim-time: 1.25s;
+		$chris-anim-time: 1.25s;
+		$chris-anim-delay: $flash-anim-delay + $flash-anim-time * 0.5;
+		$creadev-anim-delay: $chris-anim-delay + $chris-anim-time * 0.25;
+		$creadev-anim-time: 1.5s;
+		$shine-anim-time: 1.5s;
+		$shine-anim-delay: 1.25s + $creadev-anim-delay;
+		$glare-anim-time: 1s;
+		$glare-anim-delay: $creadev-anim-delay + ($shine-anim-time - $glare-anim-time);
+
+		&__wire {
+			--w-pow: calc((var(--wire-count) + 1) / (var(--w) + 1));
+			--w-delay: calc(#{$wire-step-delay} * var(--w));
+			--w-scale-x: calc(1 + (1 / 10 * (var(--wire-count) - var(--w))) * #{$mark-depth-factor-x} * #{$wire-factor} + 0.0125);
+			--w-scale-y: calc(1 + (1 / 10 * (var(--wire-count) - var(--w))) * #{$mark-depth-factor-y} * #{$wire-factor} + 0.0125);
+			// --w-translateY: calc(var(--w-pow) * #{ $wire-factor });
+
+			opacity: 0;
+			transform: scale(var(--w-scale-x), var(--w-scale-y)); // translateY(calc(var(--w-translateY) * -1%));
+
+			animation-name: svgMarkFadeInOut;
+			animation-iteration-count: 1;
+			animation-fill-mode: both;
+			animation-duration: #{$wire-anim-time};
+			animation-timing-function: steps(1);
+			animation-delay: calc(#{$wire-init-delay} + var(--w-delay));
+		}
+
+		&__horizon-flash,
+		&__chris-flash {
+			opacity: 0.0001;
+			animation-name: svgMarkFadeInOut;
+			animation-iteration-count: 1;
+			animation-timing-function: ease;
+			animation-delay: #{$flash-anim-delay};
+			pointer-events: none;
+		}
+
+		&__chris-flash {
+			animation-fill-mode: both;
+			animation-duration: #{$flash-anim-time};
+		}
+
+		&__horizon-flash {
+			animation-name: svgMarkFadeInOut, scaleOut;
+			animation-duration: #{$flash-anim-time};
+			animation-timing-function: linear, ease;
+		}
+
+		&__group {
+			animation-name: svgMarkReset;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
+
+		&__chris-depth {
+			fill: currentColor;
+			stroke: currentColor;
+
+			opacity: 1;
+
+			// Backfill from 100% scale to the faked depth
+			animation-name: svgMarkUnreset;
+			animation-fill-mode: backwards;
+			animation-duration: 1s;
+			animation-delay: #{$chris-anim-delay - $wire-step-delay * ($wire-count * 0.5)};
+			animation-timing-function: cubic-bezier(0, 0, 0.25, 1);
+		}
+
+		&__chris-main {
+			opacity: 0;
+
+			animation-name: svgMarkReset;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+			animation-duration: 0.1s;
+			animation-delay: #{$chris-anim-delay};
+			animation-timing-function: steps(1);
+		}
+
+		&__creativedeveloper-text {
+			stroke: var(--homescreen-creadev-stroke);
+			stroke-width: 0.1625em;
+			fill: var(--homescreen-creadev-fill);
+			paint-order: stroke;
+
+			font-size: 1.185rem;
+			font-family: var(--font-fallback-sans-serif);
+			font-weight: 300;
+
+			opacity: 1;
+
+			animation-name: svgMarkCreaDev;
+			animation-duration: #{$creadev-anim-time};
+			animation-delay: #{$creadev-anim-delay};
+			animation-fill-mode: both;
+			animation-timing-function: cubic-bezier(0, 0, 0, 1);
+		}
+
+		&__glare-group {
+			transform-origin: 0 0; // Keep this at 0 0 since the glare is placed relative to the top-left corner so the element's rotation is anchored properly
+			transform: translate(76%, 34.5%) rotate(30deg); // Translate coordinate are hard-coded based on SVG viewBox
+		}
+
+		&__glare {
+			transform: scale(0, 0) rotate(-270deg);
+			animation-duration: #{$glare-anim-time};
+			animation-delay: #{$glare-anim-delay};
+			animation-timing-function: cubic-bezier(0, 0, 0, 1);
+		}
+
+		&__name-shineOver {
+			animation: shineOver #{$shine-anim-time} ease-in-out #{$shine-anim-delay} 1 both;
+		}
+
+		&__name-shineOver--delayed {
+			animation-duration: #{$shine-anim-time - 0.125s};
+			animation-delay: #{$shine-anim-delay + 0.25s};
+		}
+	}
+
+	@keyframes svgMarkGreeting {
+		// Extends to ensure descenders/text-shadow don't get clipped too eagerly
+		0% {
+			clip-path: polygon(0 0, 0 0, -2rem 100%, -2rem 100%);
+		}
+		100% {
+			clip-path: polygon(0 0, calc(100% + 2rem) 0, 100% 100%, -2rem 100%);
+		}
+	}
+
+	@keyframes svgMarkFadeInOut {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes scaleOut {
+		0% {
+			transform: scale(0.5);
+		}
+		100% {
+			transform: scale(1.5);
+		}
+	}
+
+	@keyframes svgMarkUnreset {
+		0% {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	@keyframes svgMarkReset {
+		100% {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	@keyframes svgMarkCreaDev {
+		0% {
+			opacity: 0.0001;
+			transform: scaleX(1.25);
+		}
+		100% {
+			opacity: 1;
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes shineOver {
+		0% {
+			transform: translateX(82.5%);
+			opacity: 0;
+			// visibility: hidden;
+		}
+		1% {
+			opacity: 1;
+			// visibility: visible;
+		}
+		99% {
+			opacity: 1;
+			// visibility: visible;
+		}
+		100% {
+			transform: translateX(-82.5%);
+			opacity: 0;
+			// visibility: hidden;
+		}
+	}
+}
+
+.subsection--quickaccess {
+	grid-template-areas:
+		'head url2'
+		'url1 url2'
+		'url1 url3'
+		'also url3';
+}
+.subsection--writing {
+	grid-template-areas:
+		'post head'
+		'post body'
+		'post ctas';
+}

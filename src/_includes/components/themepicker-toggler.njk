@@ -1,4 +1,5 @@
-<button class="themepicker-toggler | cta" type="button" data-button="icon" data-themepicker-toggler>
+<button class="themepicker-toggler" type="button" data-button="icon" data-themepicker-toggler>
     <span class="visually-hidden">Theme Picker</span>
-    <span class="icon">{{ svg('palette', { class: 'themepicker-icon' }) }}</span>
+    {% set svgPaletteOpts = { class: 'icon themepicker-icon' } %}
+    {% include 'assets/img/palette.svg.njk' %}
 </button>

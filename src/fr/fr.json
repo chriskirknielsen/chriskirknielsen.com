@@ -6,33 +6,42 @@
 	"localeRoot": "fr/",
 	"localeRssUrl": "/fr/rss.xml",
 	"i18n": {
-		"punctSp": " ",
-		"quoteOpen": "« ",
-		"quoteClose": " »",
-		"andWord": "et",
+		"grammar": {
+			"punctSp": " ",
+			"quoteOpen": "« ",
+			"quoteClose": " »",
+			"andWord": "et"
+		},
 		"dateFormat": "DD MMMM Y",
 		"skiplink": "Sauter au contenu",
 		"closeLabel": "Fermer",
-		"homepageLabel": "Page d'accueil",
-		"feedSubtitle": "Blog d'un développeur front-end qui aime bidouiller",
+		"nav": {
+			"label": "Navigation",
+			"home": "Page d'accueil",
+			"blog": "Blog",
+			"about": "À Propos",
+			"shop": "Boutique"
+		},
 		"latestPost": "Dernier Article",
 		"tagged": "Étiquettes",
 		"blobBacklinkLabel": "Retour au Blog",
 		"original": "Consulter l'article original",
 		"external": "Consulter l'article complet sur",
-		"homeMark": {
+		"homescreenTitle": {
 			"creaDev": "Développeur créatif",
-			"creaDevMarkup": "DÉVELOPPEUR CRÉ<tspan>A</tspan>TIF",
 			"visualDescription": "Chris Kirk-Nielsen: développeur créatif, dans un style fortement inspiré des années 80 avec des couleurs néon, une grille en perspective et un large soleil stylisé dans le fond"
 		},
 		"allRights": "Tous droits réservés",
 		"langLabel": "Langue",
-		"navLabel": "Navigation",
 		"fixErrorPR": "Éditer sur GitHub",
 		"footerAdditionalLinks": "En Bonus",
 		"customFonts": "Polices d'Écriture",
-		"externalLinks": "Hyperliens !",
-		"rssHint": "S'inscrire au flux RSS",
+		"externalLinks": "Hyperliens",
+		"rss": {
+			"feed": "Flux RSS",
+			"subscribe": "S'inscrire au flux RSS",
+			"description": "Blog d'un développeur front-end qui aime bidouiller"
+		},
 		"postAuthorFormat": "Article rédigé par {0}",
 		"postSupportFormat": "Si vous avez un commentaire, <a href=\"{0}\">taggez-moi sur Twitter</a> pour discuter ! Si ceci vous a plu, vous pouvez <a href=\"{1}\">commander un de mes t-shirts</a>. Merci infiniment !",
 		"langSwitchLabel": "Changer de Langue",

@@ -1,46 +1,103 @@
-@function is-map($var){
-    @return type-of($var) == 'map';
+@use 'sass:math';
+@function is-map($var) {
+	@return type-of($var) == 'map';
 }
 
-@function is-list($var){
-    @return type-of($var) == 'list';
+@function is-list($var) {
+	@return type-of($var) == 'list';
 }
 
 @function map-deep-get($map, $keys...) {
-    @each $key in $keys {
-        $map: map-get($map, $key);
-    }
-    @return $map;
-}
-
-@function non-destructive-map-merge($parent-map, $child-map) {
-	// @source https://medium.com/@pentzzsolt/a-non-destructive-map-merge-function-for-sass-f91637f87b2e
-	$result: $parent-map;
-	@each $key, $value in $child-map {
-		@if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
-			$result: map-merge($result, ($key: $value));
-		}
-		@else {
-			$result: map-merge($result, ($key: non-destructive-map-merge(map-get($result, $key), $value)));
-		}
+	@each $key in $keys {
+		$map: map-get($map, $key);
 	}
-	@return $result;
+	@return $map;
 }
 
 @function get-token($keys...) {
-    $map: $tokens;
-    @each $key in $keys {
-      $map: map-get($map, $key);
-    }
-    @return $map;
+	$map: $tokens;
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
 }
 
 @function str-trim($string) {
-    @if (str-slice($string, 1, 1) == ' ') {
-      @return str-trim(str-slice($string, 2));
-    } @else if (str-slice($string, str-length($string), -1) == ' ') {
-      @return str-trim(str-slice($string, 1, -2));
-    } @else {
-      @return $string;
-    }
-  }
+	@if (str-slice($string, 1, 1) == ' ') {
+		@return str-trim(str-slice($string, 2));
+	} @else if (str-slice($string, str-length($string), -1) == ' ') {
+		@return str-trim(str-slice($string, 1, -2));
+	} @else {
+		@return $string;
+	}
+}
+
+// Remaps a number `n` from range `[in_min, in_max]` to range `[out_min, out_max]`
+@function remap-number($n, $in_min, $in_max, $out_min, $out_max) {
+	@return ($n - $in_min) * math.div(($out_max - $out_min), ($in_max - $in_min)) + $out_min;
+}
+
+@function easeInOutNum($t) {
+	@if $t < 0.5 {
+		@return 4 * $t * $t * $t;
+	}
+	@return ($t - 1) * (2 * $t - 2) * (2 * $t - 2) + 1;
+}
+
+@function easeInNum($t) {
+	@return $t * $t * $t;
+}
+
+@function easeOutNum($t) {
+	$t: $t - 1;
+	@return $t * $t * $t + 1;
+}
+
+/** 
+ * Returns a list of color stops
+ * @param $sc: Start color: fully opaque value
+ * @param $sa: Start alpha: [0,1]
+ * @param $ec: End color: fully opaque value
+ * @param $ea: End alpha: [0,1]
+ * @param $sp: Start point (length value)
+ * @param $ep: End point (length value)
+ * @param $s: Stops: Number of stops
+ * @param $xb: Exclude boundaries: doesn't output the boundary stops
+ */
+@function gradient-stops($sc: #000, $sa: 1, $ec: #000, $ea: 0, $sp: 0%, $ep: 100%, $s: 8, $xb: false, $ease: 'in-out') {
+	$stops: (); // Initialise the stops
+
+	// Add start boundary
+	@if ($xb == false) {
+		$stops: append($stops, (#{rgba($sc, $sa)} #{$sp}));
+	}
+
+	// Add stops
+	@for $stop from 1 to $s {
+		$progress: math.div($stop, $s); // Returns a decimal belonging to ]0,1[
+		$easing-value: easeInOutNum($progress); // Get the ease-mapped value
+		@if ($ease == 'in') {
+			$easing-value: easeInNum($progress);
+		} @else if ($ease == 'out') {
+			$easing-value: easeOutNum($progress);
+		}
+		$mix-value: percentage($easing-value); // Compute the percentage
+		$color-value: $sc;
+		@if ($sc != $ec) {
+			// Only mix colors if they differ
+			$color-value: mix($sc, $ec, $mix-value);
+		}
+		$alpha-value: remap-number($easing-value, 0, 1, $sa, $ea);
+		$position-value: remap-number($progress, 0, 1, $sp, $ep);
+
+		$stops: append($stops, (#{rgba($color-value, $alpha-value)} #{$position-value}));
+	}
+
+	// Add end boundary
+	@if ($xb == false) {
+		$stops: append($stops, (#{rgba($ec, $ea)} #{$ep}));
+	}
+
+	// Return comma-separated list of stops
+	@return zip($stops);
+}

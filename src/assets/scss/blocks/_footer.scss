@@ -1,0 +1,88 @@
+.footer {
+	--ctx-bg: var(--theme-color-gray-max);
+
+	margin-block-start: auto;
+
+	background-color: var(--ctx-bg);
+	outline: 2px solid var(--theme-color-gray-med);
+
+	&-inner {
+		display: grid;
+		grid-gap: 1px;
+		grid-template-areas:
+			'logo note'
+			'logo hyper'
+			'edit hyper'
+			'lang xtra';
+
+		@include above-medium {
+			grid-template-areas:
+				'logo note'
+				'logo edit'
+				'logo hyper'
+				'lang xtra';
+		}
+
+		@include above-large {
+			grid-template-columns: auto repeat(3, minmax(0, 1fr));
+			grid-template-areas:
+				'logo xtra lang hyper'
+				'logo xtra lang hyper'
+				'note note note edit';
+		}
+
+		& > * {
+			padding: var(--size-m) var(--size-l);
+			outline: 1px solid var(--theme-color-gray-med);
+		}
+	}
+
+	&__logo {
+		grid-area: logo;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: var(--size-m);
+
+		background: var(--theme-color-gray-med);
+
+		& > svg {
+			width: 50%;
+			width: clamp(3rem, 50%, 8rem);
+			height: auto;
+
+			fill: var(--ctx-bg);
+		}
+	}
+
+	&__edit {
+		grid-area: edit;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		text-align: center;
+	}
+
+	&__note {
+		grid-area: note;
+		text-align: center;
+
+		// @include above-large {
+		text-align: left;
+		// }
+	}
+	&__nav[data-footer-nav='extras'] {
+		grid-area: xtra;
+	}
+	&__nav[data-footer-nav='lang'] {
+		grid-area: lang;
+	}
+	&__nav[data-footer-nav='external'] {
+		grid-area: hyper;
+	}
+	&__nav li + li {
+		// Little bit of spacing for accessibility
+		margin-top: 0.5em;
+	}
+}

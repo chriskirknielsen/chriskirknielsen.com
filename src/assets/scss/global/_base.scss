@@ -7,11 +7,22 @@ body {
 	--ctx-color: var(--theme-text-color);
 	--ctx-bg: var(--theme-bg-color);
 
+	display: flex;
+	flex-direction: column;
+
 	font-family: var(--theme-font-body);
 	line-height: var(--site-base-line-height);
 	text-underline-offset: 0.125em;
 	color: var(--ctx-color);
 	background-color: var(--ctx-bg);
+}
+
+main {
+	padding-block-end: var(--size-xl);
+
+	&:focus {
+		outline: 0;
+	}
 }
 
 h1,
@@ -28,6 +39,7 @@ h6,
 .h6,
 .heading {
 	font-family: var(--theme-font-heading);
+	line-height: 1.125;
 	letter-spacing: var(--theme-heading-tracking);
 	color: var(--theme-heading-color);
 }
@@ -45,5 +57,14 @@ h6,
 
 	&:not(:focus-visible) {
 		outline: none;
+	}
+}
+
+// Ensure SVG elements transform from their center point
+svg {
+	transform-origin: 50% 50%;
+
+	* {
+		transform-origin: inherit;
 	}
 }

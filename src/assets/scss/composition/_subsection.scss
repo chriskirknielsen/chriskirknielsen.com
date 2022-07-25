@@ -1,0 +1,19 @@
+.subsection {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-m);
+
+	@include above-medium {
+		display: grid;
+		gap: var(--size-l);
+		grid-template-columns: 1fr 1fr;
+
+		& > * {
+			align-self: start;
+		}
+
+		& > * {
+			grid-area: var(--area, initial);
+		}
+	}
+}

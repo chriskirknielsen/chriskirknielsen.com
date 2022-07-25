@@ -5,7 +5,7 @@
     {% for themeKey, themeValues in tokens.themes %}
     {% set themeVars = tokens.schemeCommonVars.vars if (schemeThemes | includes(themeKey)) else ( themeValues.vars) %}
         {% set themeColorBg = themeVars['bg-color'] | extractColorFromTokenVar(themeValues.colors) %}
-        {% set themeColorA = themeVars['link-color'] | extractColorFromTokenVar(themeValues.colors) %}
+        {% set themeColorA = themeVars['accent-color'] | extractColorFromTokenVar(themeValues.colors) %}
         {% set themeColorB = themeVars['text-color'] | extractColorFromTokenVar(themeValues.colors) %}
         {% set themeColorC = themeVars['link-color-active'] | extractColorFromTokenVar(themeValues.colors) -%}
         <li class="themepicker-item" style="--themepicker-bg:{{ themeColorBg }}; --themepicker-a:{{ themeColorA }}; --themepicker-b:{{ themeColorB }}; --themepicker-c:{{ themeColorC }};">

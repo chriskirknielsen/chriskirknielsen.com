@@ -30,21 +30,22 @@
 	gap: var(--picker-gap);
 	overflow: hidden;
 	height: var(--themepicker-height);
-	padding: var(--picker-gap);
+	padding: var(--picker-gap) 0;
 
 	color: var(--picker-text);
 	background-color: var(--picker-bg);
 	box-shadow: 0 -2px 0 var(--picker-text) inset;
 
 	&-icon {
+		width: 1.5em;
 		fill: currentColor;
 	}
 
 	&-title {
-		padding-inline: calc(2 * var(--picker-gap));
+		padding-inline: calc(3 * var(--picker-gap));
 
 		text-align: center;
-		line-height: 1;
+		line-height: 1.1;
 	}
 
 	&-list {
@@ -52,7 +53,7 @@
 		gap: var(--picker-gap);
 		max-width: 100%;
 		overflow-x: auto;
-		padding: var(--picker-gap) var(--picker-button-border-size);
+		padding: var(--picker-gap);
 	}
 
 	&-item {
@@ -83,6 +84,8 @@
 		border-color: var(--picker-button-border-color, transparent);
 		background-color: var(--themepicker-bg);
 		box-shadow: 0 0 0 1px var(--picker-text);
+
+		transition: none !important; // Exceptions might overwrite this so we apply important, yuck I know!
 
 		&:is(:hover, :focus) {
 			--picker-button-border-color: var(--themepicker-b);
@@ -133,8 +136,6 @@
 		right: var(--picker-gap);
 
 		padding: var(--size-2xs);
-
-		border-width: 2px;
 
 		& > svg {
 			width: calc(2 * var(--picker-gap));

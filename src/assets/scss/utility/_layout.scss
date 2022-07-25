@@ -1,0 +1,17 @@
+.spaced-items {
+	display: flex;
+	gap: 0.75em;
+}
+
+.inlined-items {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+.u-display-flex {
+	display: flex;
+}
+.u-display-block {
+	display: block;
+}

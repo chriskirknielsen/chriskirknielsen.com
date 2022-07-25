@@ -1,4 +1,5 @@
 ---
+layout: layouts/home.njk
 title: Accueil
 summary: Christopher Kirk-Nielsen, développeur créatif
 permalink: /fr/
@@ -26,5 +27,3 @@ i18n:
 ---
 
 Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder pour le web qui travaille chez MOJO PSG.
-
-You can [Read More](/about) over here!

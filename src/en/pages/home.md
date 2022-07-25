@@ -1,4 +1,5 @@
 ---
+layout: layouts/home.njk
 title: Home
 summary: Christopher Kirk-Nielsen, a creative developer
 permalink: /
@@ -26,7 +27,3 @@ i18n:
 ---
 
 Hello and welcome! My name is **Christopher Kirk-Nielsen** but please call me **Chris**. I’m an award-non-winning designer-turned-developer who loves building on the web, working at MOJO.
-
-{{ 'page.quickAccess.heading' | i18n }}
-
-You can [Read More](/about) over here!

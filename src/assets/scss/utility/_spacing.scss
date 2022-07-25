@@ -1,0 +1,28 @@
+$properties: ('margin', 'padding');
+$directions: (
+	block: 'Block',
+	inline: 'Inline',
+);
+$positions: (
+	start: 'Start',
+	end: 'End',
+);
+@each $sizeName in map-keys(get-token('size')) {
+	@each $property in $properties {
+		.u-#{$property}-#{$sizeName} {
+			#{$property}: var(--size-#{$sizeName});
+		}
+
+		@each $dir-prop, $dir-name in $directions {
+			.u-#{$property}#{$dir-name}-#{$sizeName} {
+				#{$property}-#{$dir-prop}: var(--size-#{$sizeName});
+			}
+
+			@each $pos-prop, $pos-name in $positions {
+				.u-#{$property}#{$dir-name}#{$pos-name}-#{$sizeName} {
+					#{$property}-#{$dir-prop}-#{$pos-prop}: var(--size-#{$sizeName});
+				}
+			}
+		}
+	}
+}

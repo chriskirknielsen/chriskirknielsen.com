@@ -10,7 +10,7 @@ module.exports = {
 	copyrightStart: 2019,
 	currentYear: new Date().getFullYear(),
 	defaultLocale: 'en',
-	locales: ['en', 'fr'],
+	locales: { en: 'English', fr: 'Français' },
 	merch: {
 		TeePublic: 'https://www.teepublic.com/user/chriskirknielsen/',
 		RedBubble: 'https://www.redbubble.com/people/ckirknielsen/shop',

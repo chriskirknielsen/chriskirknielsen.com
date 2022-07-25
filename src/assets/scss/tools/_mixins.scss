@@ -1,3 +1,7 @@
+@mixin generate-light-dark-vars($var, $light, $dark) {
+	--#{$var}: var(--THEME-#{$theme-scheme-light}, #{$light}) var(--THEME-#{$theme-scheme-dark}, #{$dark});
+}
+
 @mixin generate-theme-vars($var-groups, $prefix: 'theme', $exclude: ()) {
 	@each $theme-var-group, $theme-group-values in $var-groups {
 		@if (index($exclude, $theme-var-group) == null) {
@@ -29,6 +33,35 @@
 					--#{$prefix}-#{$var}: #{$value};
 				}
 			}
+		}
+	}
+}
+
+@mixin above-medium {
+	@media screen and (min-width: 740px) {
+		@content;
+	}
+}
+@mixin above-large {
+	@media screen and (min-width: 1140px) {
+		@content;
+	}
+}
+@mixin default-schemes {
+	// Okay you can judge me for this but I have no clue why I need to do it this way
+	$p: &;
+	@at-root {
+		:root:not([data-theme]) #{$p},
+		[data-theme='dusk'] #{$p},
+		[data-theme='dawn'] #{$p} {
+			@content;
+		}
+	}
+}
+@mixin theme($key) {
+	@at-root {
+		[data-theme='#{$key}'] {
+			@content;
 		}
 	}
 }

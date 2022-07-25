@@ -3,7 +3,7 @@ const rootDir = 'src'; // Root folder
 const outputDir = '_site'; // Build destination folder
 const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
-const locales = metadata.locales;
+const locales = Object.keys(metadata.locales);
 const defaultLang = 'en';
 
 // Tools
@@ -13,10 +13,10 @@ const { minify } = require('terser');
 const { PurgeCSS } = require('purgecss');
 
 // Plugins
+const { EleventyI18nPlugin } = require('@11ty/eleventy');
 const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const { EleventyI18nPlugin } = require('@11ty/eleventy');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
@@ -44,7 +44,6 @@ function createLangDictionary(lang, object, translations = {}) {
 	}
 	return translations;
 }
-
 function buildDictionary() {
 	const translations = {};
 	for (const locale of locales) {
@@ -54,7 +53,6 @@ function buildDictionary() {
 	}
 	return translations;
 }
-
 function getDeep(obj, keys) {
 	if (!obj || trueType(obj) !== 'object') {
 		throw `The provided obj is not an object.`;
@@ -82,8 +80,8 @@ function getDeep(obj, keys) {
 // Config
 const translations = buildDictionary();
 const purgeCssSafeList = {
-	_global: [':is', ':where', 'translated-rtl', 'aria-checked', 'data-theme'], // Translation class
-	home: [],
+	_global: [':is', ':where', 'translated-rtl', 'data-theme'],
+	home: ['homescreen'],
 	blog: [], // Article list links and external article button
 	about: [],
 };
@@ -109,6 +107,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
+	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
+	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
 	eleventyConfig.addFilter('removePrivateProps', (arr) => arr.filter((item) => String(item).startsWith('_')));
 
@@ -141,6 +141,12 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
+		// If it's not a variable, render the value as is
+		if (!varValue.trim().startsWith('var(--')) {
+			return varValue;
+		}
+
+		// Find the colour group and weight, then pick the value out from the theme colours
 		const colorInfo = varValue.match(/var\(\s*--theme-color-([a-z]+)-(min|med|max)\s*\)/);
 		const colorGroup = colorInfo[1];
 		const colorWeight = colorInfo[2];

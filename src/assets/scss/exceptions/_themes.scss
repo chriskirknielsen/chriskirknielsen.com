@@ -1,6 +1,4 @@
-:root:not([data-theme]),
-[data-theme='dusk'],
-[data-theme='dawn'] {
+@include default-schemes {
 	.header {
 		&-logo {
 			& > svg {
@@ -10,7 +8,7 @@
 					fill: var(--theme-header-logo-fill);
 					fill-opacity: 1;
 					stroke: var(--theme-color-primary-min);
-					stroke-width: 6;
+					stroke-width: 3;
 					stroke-opacity: 0;
 
 					transition: inherit;
@@ -19,7 +17,7 @@
 			}
 
 			&:is(:hover, :focus) > svg {
-				filter: drop-shadow(0 0 0.25rem currentColor);
+				filter: drop-shadow(0 0 0.0625rem currentColor) drop-shadow(0 0 0.25rem currentColor);
 			}
 
 			&:is(:hover, :focus) > svg > path {
@@ -38,20 +36,16 @@
 			}
 
 			@keyframes cknLogoNeon {
-				0% {
+				0%,
+				40%,
+				80% {
 					stroke-opacity: 0;
 				}
 				20% {
 					stroke-opacity: 0.5;
 				}
-				40% {
-					stroke-opacity: 0;
-				}
 				60% {
 					stroke-opacity: 0.75;
-				}
-				80% {
-					stroke-opacity: 0;
 				}
 				100% {
 					stroke-opacity: 1;
@@ -67,7 +61,7 @@
 	}
 }
 
-[data-theme='y2k'] {
+@include theme('y2k') {
 	:focus {
 		outline: 1px dotted currentColor;
 	}

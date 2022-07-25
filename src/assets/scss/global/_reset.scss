@@ -11,10 +11,19 @@
 }
 
 /* Remove default padding */
+ul,
+ol {
+	padding: 0;
+}
+
+/* Set a different list style for default unordered lists */
+ul {
+	list-style: inside square;
+}
+
 /* Remove list styles on ul, ol elements with a class attribute */
 ul:where([class]),
 ol:where([class]) {
-	padding: 0;
 	list-style: none;
 }
 
@@ -46,6 +55,8 @@ body {
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	font-family: sans-serif;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 /* A elements that don't have a class get default styles */

@@ -11,20 +11,28 @@
 /* Global */
 @import 'global/reset';
 @import 'global/base';
+@import 'global/link';
+@import 'global/button';
 
 /* Composition */
 @import 'composition/container';
+@import 'composition/subsection';
 
 /* Block */
 @import 'blocks/header';
 @import 'blocks/themepicker';
-@import 'blocks/link';
-@import 'blocks/button';
+@import 'blocks/footer';
 
 /* Utility */
 @import 'utility/a11y';
 @import 'utility/flow';
 @import 'utility/fluid';
+@import 'utility/spacing';
+@import 'utility/layout';
+@import 'utility/color';
+
+/* Page-specific styles */
+@import 'pages/home';
 
 /* Exception */
 @import 'exceptions/themes';

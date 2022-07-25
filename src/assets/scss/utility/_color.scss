@@ -1,0 +1,29 @@
+.inline-icon {
+	fill: currentColor;
+}
+
+@each $name, $set in get-token('_expectedColors') {
+	@each $weight in $set {
+		$value: 'var(--theme-color-#{$name}-#{$weight})';
+		.u-c-#{$name}-#{$weight} {
+			color: #{$value};
+			--ctx-color: #{$value};
+		}
+		.u-bg-#{$name}-#{$weight} {
+			background-color: #{$value};
+			--ctx-bg: #{$value};
+		}
+	}
+}
+
+.u-bg-alt-color {
+	--ctx-bg: var(--theme-bg-alt-color);
+	background-color: var(--ctx-bg);
+}
+
+.u-bg-extend {
+	// h/t Temani Afif
+	clip-path: inset(0 -100%);
+
+	box-shadow: 0 0 0 100vmax var(--ctx-bg);
+}

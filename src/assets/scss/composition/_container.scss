@@ -1,5 +1,55 @@
 .container {
+	width: 100%;
 	max-width: var(--site-content-width);
 	margin-inline: auto;
 	padding-inline: var(--site-content-gutter);
 }
+
+.content-breakout {
+	position: relative;
+	width: 100vw;
+	margin-inline-start: calc(50% - 50vw);
+}
+
+// @supports (display: grid) and (grid-template-columns: subgrid) {
+// 	.content {
+// 		display: grid;
+// 		grid-template-columns:
+// 			[fullbleed-start]
+// 			1fr
+// 			[wide-start]
+// 			var(--site-content-gutter)
+// 			[container-start]
+// 			minmax(0, var(--site-content-width))
+// 			[container-end]
+// 			var(--site-content-gutter)
+// 			[wide-end]
+// 			1fr
+// 			[fullbleed-end];
+
+// 		max-width: 100%;
+// 		margin-inline: 0;
+
+// 		& > * {
+// 			grid-column: container-start / container-end;
+// 			padding-inline: 0;
+// 		}
+
+// 		& > &-wide {
+// 			grid-column: wide-start / wide-end;
+// 		}
+
+// 		& > &-full {
+// 			grid-column: fullbleed-start / fullbleed-end;
+
+// 			// Reset the no-grid fallback
+// 			margin-inline-start: initial;
+// 			width: initial;
+// 		}
+
+// 		& > &-wide-limited {
+// 			max-width: var(--site-content-width);
+// 			margin-inline: auto;
+// 		}
+// 	}
+// }
