@@ -1,4 +1,9 @@
 @use 'sass:math';
+
+// [data-current='home'] .main {
+// 	padding-block-start: 0;
+// }
+
 .homescreen {
 	$grid-line-anim-time: 4s;
 	$sun-radius: 20vmin;
@@ -42,7 +47,8 @@
 
 	@include theme('vapor') {
 		--homescreen-silhouette-emoji: '🌴';
-		--homescreen-silhouette-color: #ff0095;
+		--homescreen-silhouette-color: #fddcc0;
+
 		--homescreen-sky-end: #ecb43a;
 		--homescreen-floor-start: #f774b5;
 		--homescreen-grid-line: rebeccapurple;
@@ -76,6 +82,7 @@
 
 		--homescreen-creadev-stroke: var(--theme-color-primary-max);
 		--homescreen-creadev-fill: var(--theme-color-primary-min);
+		--homescreen-creadev-font: var(--font-fallback-monospace);
 	}
 
 	display: flex;
@@ -84,6 +91,7 @@
 	min-height: #{$sun-radius * 3};
 
 	contain: content;
+	isolation: isolate;
 
 	&-content {
 		position: relative;
@@ -110,8 +118,8 @@
 				var(--homescreen-sun-glow-alpha) #{$sun-radius * 0.875},
 				#{$sun-radius * 0.975},
 				var(--homescreen-sun-glow) #{$sun-radius},
-				#{$sun-radius * 1.0325},
-				var(--homescreen-sun-glow-alpha) #{$sun-radius * 1.25}
+				#{$sun-radius * 1.03625},
+				var(--homescreen-sun-glow-alpha) #{$sun-radius * 1.325}
 			)
 			no-repeat 50% 0 / 100% 50%;
 
@@ -120,7 +128,7 @@
             // Horizon glow
 			radial-gradient(ellipse 150% 20% at 50% 100%, var(--homescreen-sun-glow) 0%, 12.5%, var(--homescreen-sun-glow-alpha) 50%) no-repeat 50% 0 / 100% 50%,
 			// Full sky
-			linear-gradient(transparent 0%, var(--homescreen-sky-end) 50%, var(--homescreen-floor-start) 50%, transparent 100%);
+			linear-gradient(var(--ctx-bg) 0%, var(--homescreen-sky-end) 50%, var(--homescreen-floor-start) 50%, var(--ctx-bg) 100%);
 
 		// Fade out the grid at the bottom
 		-webkit-mask-image: var(--homescreen-bg-mask);
@@ -171,7 +179,7 @@
 
 	&-title {
 		&::before {
-			--homescreen-silhouette-mask: linear-gradient(to bottom, tan, 75%, transparent);
+			--homescreen-silhouette-mask: linear-gradient(to bottom, tan, 80%, transparent);
 			content: var(--homescreen-silhouette-emoji, none);
 
 			position: absolute;
@@ -220,7 +228,7 @@
 		$shine-anim-time: 1.5s;
 		$shine-anim-delay: 1.25s + $creadev-anim-delay;
 		$glare-anim-time: 1s;
-		$glare-anim-delay: $creadev-anim-delay + ($shine-anim-time - $glare-anim-time);
+		$glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		&__wire {
 			--w-pow: calc((var(--wire-count) + 1) / (var(--w) + 1));
@@ -299,7 +307,7 @@
 			paint-order: stroke;
 
 			font-size: 1.185rem;
-			font-family: var(--font-fallback-sans-serif);
+			font-family: var(--homescreen-creadev-font, var(--font-fallback-sans-serif));
 			font-weight: 300;
 
 			opacity: 1;
@@ -320,7 +328,7 @@
 			transform: scale(0, 0) rotate(-270deg);
 			animation-duration: #{$glare-anim-time};
 			animation-delay: #{$glare-anim-delay};
-			animation-timing-function: cubic-bezier(0, 0, 0, 1);
+			animation-timing-function: cubic-bezier(0, 0.5, 0, 1);
 		}
 
 		&__name-shineOver {

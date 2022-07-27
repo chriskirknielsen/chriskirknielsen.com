@@ -3,8 +3,11 @@ layout: layouts/base.njk
 templateName: post
 ---
 
-<header>
-	<h1 id="{{ title | slug }}">{{ title }}</h1>
+<header class="bigboi | content-breakout">
+	<div class="bigboi-inner | container">
+		<h1 id="{{ title | slug }}">{{ title }}</h1>
+		<time datetime="{{ date | dateFormat({ format: 'machine' }) }}">{{ date | dateFormat({ format: 'nice', locale: lang }) }}</time>
+	</div>
 </header>
 
 {{ layoutContent | safe }}

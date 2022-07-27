@@ -1,11 +1,11 @@
 .subsection {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-m);
+	gap: var(--size-l);
 
 	@include above-medium {
 		display: grid;
-		gap: var(--size-l);
+		gap: var(--size-xl);
 		grid-template-columns: 1fr 1fr;
 
 		& > * {

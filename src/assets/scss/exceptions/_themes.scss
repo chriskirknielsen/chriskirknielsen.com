@@ -54,10 +54,36 @@
 		}
 	}
 
+	.bigboi {
+		@include generate-light-dark-vars('bigboi-outline-color', white, black);
+		@include generate-light-dark-vars('bigboi-line-color', var(--theme-color-primary-med), var(--theme-color-secondary-med));
+		--bigboi-bg-mask: radial-gradient(ellipse at center, rgba(0 0 0 / 20%), rgba(0 0 0 / 0%));
+
+		position: relative;
+
+		outline: 2px solid var(--bigboi-outline-color);
+
+		&::before {
+			$grid-line-width: 1.5px;
+
+			content: '';
+
+			position: absolute;
+			inset: 0;
+
+			background: repeat 50% 50% / 2rem 2rem;
+			background-image: linear-gradient(var(--bigboi-line-color) #{$grid-line-width}, transparent #{$grid-line-width}),
+				linear-gradient(90deg, var(--bigboi-line-color) #{$grid-line-width}, transparent #{$grid-line-width});
+
+			-webkit-mask-image: var(--bigboi-bg-mask);
+			mask-image: var(--bigboi-bg-mask);
+		}
+	}
+
 	:where(button, .button):is(:hover, :focus) {
 		transition-property: box-shadow, border-color;
 		transition-duration: var(--theme-cta-transition-duration, 0ms);
-		transition-timing-function: cubic-bezier(0.33, 2.04, 0.34, -0.18);
+		transition-timing-function: cubic-bezier(0.33, 1.5, 0.33, -0.2);
 	}
 }
 

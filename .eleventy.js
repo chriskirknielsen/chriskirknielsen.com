@@ -11,6 +11,7 @@ const util = require('util');
 const deepmerge = require('deepmerge');
 const { minify } = require('terser');
 const { PurgeCSS } = require('purgecss');
+const { DateTime } = require('luxon');
 
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
@@ -70,7 +71,7 @@ function getDeep(obj, keys) {
 			return false;
 		}
 		obj = obj[key];
-		if (!obj) {
+		if (typeof obj === 'undefined') {
 			return false;
 		}
 	}
@@ -94,6 +95,7 @@ module.exports = function (eleventyConfig) {
 		templateFormats: ['md', 'html', 'njk'],
 		preAttributes: {
 			tabindex: 0,
+			class: (context) => `language-${context.language} codeblock`,
 			'data-lang': (context) => context.language.toUpperCase(),
 		},
 	});
@@ -111,6 +113,22 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
 	eleventyConfig.addFilter('removePrivateProps', (arr) => arr.filter((item) => String(item).startsWith('_')));
+	eleventyConfig.addFilter('dateFormat', (date, opts = {}) => {
+		const format = opts.format || 'machine';
+		const locale = opts.locale || defaultLang;
+		const dateObj = new Date(date);
+		switch (format) {
+			case 'year': {
+				return DateTime.fromJSDate(dateObj).toUTC().toFormat('yyyy');
+			}
+			case 'nice': {
+				return DateTime.fromJSDate(dateObj).toUTC().setLocale(locale).toLocaleString(DateTime.DATE_FULL);
+			}
+			case 'machine': {
+				return DateTime.fromJSDate(dateObj).toUTC().toFormat('dd LLL yyyy');
+			}
+		}
+	});
 
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
 		try {
@@ -136,7 +154,13 @@ module.exports = function (eleventyConfig) {
 		const fullDictionary = createLangDictionary(lang, addIns, structuredClone(translations));
 
 		// Find the nested value of the translation, or the default language one, or just display the key
-		const translation = getDeep(fullDictionary, `${key}.${lang}`) || getDeep(fullDictionary, `${key}.${defaultLang}`) || key;
+		let translation = getDeep(fullDictionary, `${key}.${lang}`);
+		if (translation === false) {
+			translation = getDeep(fullDictionary, `${key}.${defaultLang}`);
+		}
+		if (translation === false) {
+			translation = key;
+		}
 		return translation;
 	});
 
@@ -183,6 +207,26 @@ module.exports = function (eleventyConfig) {
 		});
 
 		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');
+	});
+
+	/* Collections */
+	eleventyConfig.addCollection('pages_all', function (collection) {
+		return [].concat(locales.map((locale) => collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/*.{md,njk}`)));
+	});
+
+	eleventyConfig.addCollection('posts_all', function (collection) {
+		return [].concat(locales.map((locale) => collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/*.{md,njk}`)));
+	});
+
+	// Loop over locales and get each page and post into its own collection
+	locales.forEach((locale) => {
+		eleventyConfig.addCollection(`pages_${locale}`, function (collection) {
+			return collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/*.{md,njk}`);
+		});
+
+		eleventyConfig.addCollection(`posts_${locale}`, function (collection) {
+			return collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/*.{md,njk}`);
+		});
 	});
 
 	/* Passthroughs */
@@ -251,6 +295,12 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
 
 	return {
+		templateFormats: ['md', 'njk', 'html'],
+		pathPrefix: '/',
+		markdownTemplateEngine: 'njk',
+		htmlTemplateEngine: 'njk',
+		dataTemplateEngine: 'njk',
+		passthroughFileCopy: true,
 		dir: {
 			input: rootDir,
 			output: outputDir,

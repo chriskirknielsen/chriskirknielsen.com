@@ -1,14 +1,17 @@
 .footer {
-	--ctx-bg: var(--theme-color-gray-max);
+	--ctx-bg: var(--theme-footer-bg-color);
+	--ctx-color: var(--theme-footer-text-color);
 
 	margin-block-start: auto;
 
+	color: var(--ctx-color);
 	background-color: var(--ctx-bg);
-	outline: 2px solid var(--theme-color-gray-med);
+	outline: 2px solid var(--theme-footer-border-color);
 
 	&-inner {
 		display: grid;
 		grid-gap: 1px;
+		grid-template-columns: minmax(4rem, 8rem) 1fr;
 		grid-template-areas:
 			'logo note'
 			'logo hyper'
@@ -24,7 +27,7 @@
 		}
 
 		@include above-large {
-			grid-template-columns: auto repeat(3, minmax(0, 1fr));
+			grid-template-columns: minmax(6rem, 12rem) repeat(3, minmax(0, 1fr));
 			grid-template-areas:
 				'logo xtra lang hyper'
 				'logo xtra lang hyper'
@@ -33,7 +36,7 @@
 
 		& > * {
 			padding: var(--size-m) var(--size-l);
-			outline: 1px solid var(--theme-color-gray-med);
+			outline: 1px solid var(--theme-footer-border-color);
 		}
 	}
 
@@ -44,7 +47,7 @@
 		align-items: center;
 		padding: var(--size-m);
 
-		background: var(--theme-color-gray-med);
+		background-color: var(--theme-footer-border-color);
 
 		& > svg {
 			width: 50%;

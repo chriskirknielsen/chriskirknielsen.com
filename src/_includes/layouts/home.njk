@@ -21,7 +21,7 @@ section: home
 <div class="flow">
     {{ layoutContent | safe }}
 
-    <div class="u-bg-alt-color u-bg-extend u-paddingBlock-l">
+    <div class="u-background-alt-color u-background-extend u-paddingBlock-2xl">
         <div class="subsection subsection--quickaccess">
             <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
 
@@ -31,7 +31,7 @@ section: home
                     {% include "assets/img/question.svg.njk" %}
                     {{ 'page.quickAccess.about.label' | i18n }}
                 </strong>
-                <span class="u-c-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
+                <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
             </a>
             <a href="{{ 'page.quickAccess.designs.url' | i18n }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
                 <strong class="spaced-items">
@@ -39,7 +39,7 @@ section: home
                     {% include "assets/img/shirt.svg.njk" %}
                     {{ 'page.quickAccess.designs.label' | i18n }}
                 </strong>
-                <span class="u-c-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
+                <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
             </a>
             <a href="{{ 'page.quickAccess.fonts.url' | i18n }}" class="button" data-button="tile" style="--area: url3">
                 <strong class="spaced-items">
@@ -47,10 +47,10 @@ section: home
                     {% include "assets/img/type.svg.njk" %}
                     {{ 'page.quickAccess.fonts.label' | i18n }}
                 </strong>
-                <span class="u-c-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
+                <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
             </a>
 
-            <p class="spaced-items inlined-items" style="--area: also">
+            <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l);">
                 <a href="{{ 'page.quickAccess.also.usesPageUrl' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
 
                 {% for socialPage in social %}
@@ -60,32 +60,30 @@ section: home
         </div>
     </div>
 
-    <div>
+    <div style="--flow-space:var(--size-2xl)">
         <div class="subsection subsection--writing">
             <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
 
             <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
 
-            {% set latestposts = collections["posts_" + locale] | reverse %}
+            {% set latestposts = collections["posts_" + lang] | reverse %}
             {% set latestpost = latestposts[0] %}
-            <article class="u-posRelative" style="--area: post">
-                <time datetime="{{ latestpost.date }}">{{ latestpost.date }}</time>
+            <a href="{{ latestpost.url | url }}" class="button | flow" data-button="tile" style="--area: post">
+                <time datetime="{{ latestpost.date | dateFormat({ format: 'machine' }) }}">{{ latestpost.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
 
-                <h2 class="h3">
-                    <a href="{{ latestpost.url | url }}" class="u-textDecoration--none u-afterCover">
-                        {{- latestpost.data.title -}}
-                    </a>
+                <h2 class="h3 | u-marginBlockStart-2xs">
+                    {{- latestpost.data.title -}}
                 </h2>
 
-                <p class="u-marginBlockStart--half">
+                <p class="u-color-gray-min u-marginBlockStart-2xs">
                     {{- latestpost.data.summary or latestpost.excerpt -}}
                 </p>
-            </article>
+            </a>
 
             <p class="spaced-items inlined-items" style="--area: ctas">
                 <a href="{{ '/blog' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
                 
-                <a href="{{ localeRssUrl }}" class="button">
+                <a href="{{ '/rss.xml' | locale_url }}" class="button">
                     {% include 'assets/img/rss.svg.njk' %}
                     <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
                     <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>

@@ -18,7 +18,7 @@ body {
 }
 
 main {
-	padding-block-end: var(--size-xl);
+	padding-block-end: var(--size-2xl);
 
 	&:focus {
 		outline: 0;
@@ -58,6 +58,12 @@ h6,
 	&:not(:focus-visible) {
 		outline: none;
 	}
+}
+
+time[datetime] {
+	font-size: 0.875em;
+	font-weight: 700;
+	color: var(--theme-accent-color);
 }
 
 // Ensure SVG elements transform from their center point

@@ -22,13 +22,16 @@
 			"about": "À Propos",
 			"shop": "Boutique"
 		},
+		"blog": {
+			"intro": "Voici mes quelques pensées très variées sur le développement front-end. C'est pas grand chose mais c'est écrit avec le cœur."
+		},
 		"latestPost": "Dernier Article",
 		"tagged": "Étiquettes",
 		"blobBacklinkLabel": "Retour au Blog",
 		"original": "Consulter l'article original",
 		"external": "Consulter l'article complet sur",
 		"homescreenTitle": {
-			"creaDev": "Développeur créatif",
+			"creaDev": "Un Développeur créatif",
 			"visualDescription": "Chris Kirk-Nielsen: développeur créatif, dans un style fortement inspiré des années 80 avec des couleurs néon, une grille en perspective et un large soleil stylisé dans le fond"
 		},
 		"allRights": "Tous droits réservés",

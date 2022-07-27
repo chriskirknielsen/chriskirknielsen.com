@@ -1,0 +1,13 @@
+.bigboi {
+	--ctx-bg: var(--theme-bigboi-bg-color);
+	--ctx-color: var(--theme-bigboi-text-color);
+
+	padding-block: var(--size-xl);
+
+	color: var(--ctx-color);
+	background-color: var(--ctx-bg);
+
+	&-inner {
+		position: relative;
+	}
+}

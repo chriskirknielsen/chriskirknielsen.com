@@ -1,11 +1,12 @@
 .spaced-items {
 	display: flex;
-	gap: 0.75em;
+	gap: var(--spaced-items-gap, 0.75em);
+	justify-content: var(--spaced-items-justify, initial);
 }
 
 .inlined-items {
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	flex-wrap: wrap;
 }
 

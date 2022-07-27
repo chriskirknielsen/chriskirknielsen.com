@@ -17,10 +17,13 @@
 /* Composition */
 @import 'composition/container';
 @import 'composition/subsection';
+@import 'composition/posts';
 
 /* Block */
 @import 'blocks/header';
 @import 'blocks/themepicker';
+@import 'blocks/bigboi';
+@import 'blocks/prismjs';
 @import 'blocks/footer';
 
 /* Utility */
@@ -30,6 +33,7 @@
 @import 'utility/spacing';
 @import 'utility/layout';
 @import 'utility/color';
+@import 'utility/typography';
 
 /* Page-specific styles */
 @import 'pages/home';

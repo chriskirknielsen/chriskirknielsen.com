@@ -1,0 +1,48 @@
+.heading-anchor {
+	$p: &;
+
+	position: relative;
+
+	text-decoration: none;
+	color: inherit;
+
+	&:is(:hover, :focus) {
+		text-decoration: underline;
+	}
+
+	&-symbol {
+		visibility: hidden;
+
+		position: absolute;
+		inset-inline-end: calc(100% + 0.25em);
+		inset-block-start: 0.75em;
+
+		width: 1em;
+		height: 1em;
+
+		font-size: 0.5em;
+
+		#{$p}:is(:hover, :focus) & {
+			visibility: visible;
+		}
+	}
+}
+
+.postlist {
+	--flow-space: var(--size-2xl);
+
+	&-yeargroup {
+		padding-block-end: var(--size-2xs);
+
+		color: var(--theme-color-secondary-med);
+		background: linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
+	}
+
+	&-yeargroup + &-post {
+		--flow-space: var(--size-s);
+	}
+
+	&-date {
+		display: block;
+	}
+}

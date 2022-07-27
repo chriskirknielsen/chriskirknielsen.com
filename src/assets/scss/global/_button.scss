@@ -32,7 +32,9 @@
 	}
 
 	&[data-button='tile'] {
-		display: block;
+		--btn-display: block;
+		--btn-padding-block: var(--size-xs);
+		--btn-padding-inline: var(--size-m);
 	}
 
 	& :is(.icon, .inline-icon) {

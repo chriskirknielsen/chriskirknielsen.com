@@ -1,4 +1,4 @@
-:where(a:where(:not([class])), .link) {
+:where(a:not([class]), .link) {
 	text-decoration-line: underline;
 	text-decoration-color: var(--theme-link-underline-color, currentColor);
 	color: var(--theme-link-color);

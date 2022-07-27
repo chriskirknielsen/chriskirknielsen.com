@@ -1,0 +1,22 @@
+<div class="postlist | flow">
+	{% set currYear = ''%}
+	{% for post in postslist | reverse %}
+		{% set postYear = post.date | dateFormat({ format: 'year' }) %}
+		{% if currYear != postYear %}
+			<p class="postlist-yeargroup | u-fontSize-smaller">{{ postYear }}</p>
+		{% endif %}
+
+		<article class="postlist-post" {% if post.url == url %} data-current="current item"{% endif %}>
+			<h2 class="h3">
+				<a href="{{ post.url | url }}">
+					{{- post.data.title or "Untitled Post" -}}
+				</a>
+			</h2>
+
+			<time class="postlist-date" datetime="{{ post.date | dateFormat({ format: 'machine' }) }}">{{ post.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
+			<p class="u-fontSize-smaller">{{- post.data.summary or post.excerpt -}}</p>
+		</article>
+
+		{% if currYear != postYear %}{% set currYear = postYear %}{% endif %}
+	{% endfor %}
+</div>

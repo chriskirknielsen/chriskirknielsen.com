@@ -12,11 +12,14 @@ $tokens: (
     "bg-alt-color": #ccc,
     "text-color": black,
     "text-alt-color": red,
+    "accent-color": var(--theme-color-primary-med),
     "heading-color": rebeccapurple,
     "header-logo-fill": var(--theme-link-color),
     "link-color": blue,
     "link-underline-color": var(--theme-link-color),
     "link-color-active": purple,
+    "bigboi-bg-color": var(--theme-color-gray-max),
+    "bigboi-text-color": var(--theme-color-gray-min),
     "cta-border-color": var(--theme-color-gray-med),
     "cta-border-color-active": var(--theme-color-primary-med),
     "cta-border-width": 1px,
@@ -25,8 +28,11 @@ $tokens: (
     "cta-bg-active": var(--theme-color-secondary-med),
     "cta-box-shadow-active": none,
     "cta-transition-duration": 0ms,
+    "footer-text-color": var(--theme-color-gray-max),
+    "footer-bg-color": var(--theme-color-gray-min),
+    "footer-border-color": var(--theme-color-gray-med),
     "heading-tracking": 0,
-    "corner-radius": 8px
+    "corner-radius": 4px
   ),
   "_expectedColors": (
     "gray": (min, med, max),
@@ -56,10 +62,13 @@ $tokens: (
       "cta-border-color-active": var(--theme-color-secondary-min),
       "cta-text-color": var(--theme-color-primary-min),
       "cta-bg": var(--theme-color-gray-max),
-      "cta-bg-active": var(--theme-color-gray-max)
+      "cta-bg-active": var(--theme-color-gray-max),
+      "footer-text-color": var(--theme-color-gray-min),
+      "footer-bg-color": var(--theme-color-gray-max),
+      "footer-border-color": var(--theme-color-gray-med)
     ),
     "vars-resettable": (
-      "heading-tracking": 0.075em
+      "heading-tracking": 0.0625em
     ),
     "images": (
       
@@ -71,7 +80,7 @@ $tokens: (
       "vars": (
         "color-scheme": dark,
         "header-logo-fill": var(--theme-color-secondary-med),
-        "cta-transition-duration": 300ms,
+        "cta-transition-duration": 400ms,
         "cta-box-shadow-active": '0 0 0.75em var(--theme-color-secondary-med), 0 0 0.5em var(--theme-color-secondary-med) inset'
       ),
       "colors": (
@@ -151,6 +160,9 @@ $tokens: (
         "accent-color": var(--theme-color-primary-med),
         "link-color": var(--theme-color-primary-med),
         "link-color-active": var(--theme-color-secondary-med),
+        "footer-text-color": var(--theme-color-primary-min),
+        "footer-bg-color": var(--theme-color-primary-max),
+        "footer-border-color": var(--theme-color-primary-min),
         "corner-radius": 4px
       ),
       "images": (
