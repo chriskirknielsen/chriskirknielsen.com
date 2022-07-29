@@ -17,13 +17,16 @@ templateName: post
 </p>
 {% endif %}
 
-{{ layoutContent | safe }}
+<div class="fluid">
+	{{ layoutContent | safe }}
+</div>
 
 {% if externalUrl %}
-<p>
+<p class="post-external">
 	<a href="{{ externalUrl }}" class="button">
 		{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}
-		<svg class="inline-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="arcs"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
+		{% set svgRssOpts = { class: 'inline-icon' } %}
+		{% include 'assets/svg/rss.svg.njk' %}
 	</a>
 </p>
 {% endif %}
@@ -32,7 +35,7 @@ templateName: post
 <footer class="post-footer">
 	<img src="{{ '/' + assets.imagesDir + '/profile.jpg' | url }}" alt="" width="64" height="64" class="post-footer-avatar">
 	
-	<p class="post-footer-author | u-fontSize-smallest">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name }) }}</p>
-	<p class="post-footer-blurb | u-fontSize-smaller">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: metadata.author.twitter, shopUrl: '/designs/' }) | safe }}</p>
+	<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name }) }}</p>
+	<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: metadata.author.twitter, shopUrl: '/designs/' }) | safe }}</p>
 </footer>
 {% endif %}

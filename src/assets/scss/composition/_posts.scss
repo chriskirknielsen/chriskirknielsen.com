@@ -68,12 +68,12 @@
 		&-avatar {
 			float: left;
 
-			width: 3.5em;
+			width: 4em;
 			aspect-ratio: 1;
 			object-fit: cover;
 			margin-inline-end: var(--size-m);
 
-			border: 2px solid var(--theme-accent-color);
+			border: 2px solid var(--theme-link-color);
 			border-radius: 50%;
 		}
 		&-author {

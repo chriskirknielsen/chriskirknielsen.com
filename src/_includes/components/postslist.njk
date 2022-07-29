@@ -3,7 +3,7 @@
 	{% for post in postslist | reverse %}
 		{% set postYear = post.date | dateFormat({ format: 'year' }) %}
 		{% if currYear != postYear %}
-			<p class="postlist-yeargroup | u-fontSize-smaller">
+			<p class="postlist-yeargroup | u-fontSize-larger">
 				<span class="visually-hidden">{{ 'blog.yearLabel' | i18n }}</span>
 				{{ postYear }}
 			</p>
@@ -17,7 +17,7 @@
 			</h2>
 
 			<time class="postlist-date" datetime="{{ post.date | dateFormat({ format: 'machine' }) }}">{{ post.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
-			<p class="u-fontSize-smaller">{{- post.data.summary or post.excerpt -}}</p>
+			<p>{{- post.data.summary or post.excerpt -}}</p>
 		</article>
 
 		{% if currYear != postYear %}{% set currYear = postYear %}{% endif %}

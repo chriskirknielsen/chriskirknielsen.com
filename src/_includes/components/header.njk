@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header-inner | container">
-        <a href="{{ '/' | locale_url }}" class="header-logo">
+        <a href="{{ '/' | locale_url | url }}" class="header-logo">
             {% set svgLogoOpts = { title: ('nav.home' | i18n) } %}
             {% include 'assets/svg/logo.svg.njk' %}
         </a>
@@ -8,10 +8,10 @@
         <nav class="header-nav" aria-label="{{ 'nav.label' | i18n }}">
             <ul class="header-menu menu" role="list">
                 <li class="menu-item">
-                    <a href="{{ '/blog' | locale_url }}" class="menu-link">{{ 'nav.blog' | i18n }}</a>
+                    <a href="{{ '/blog/' | locale_url | url }}" class="menu-link">{{ 'nav.blog' | i18n }}</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">{{ 'nav.about' | i18n }}</a>
+                    <a href="{{ '/about/' | locale_url | url }}" class="menu-link">{{ 'nav.about' | i18n }}</a>
                 </li>
                 <li class="menu-item">
                     <a href="#" class="menu-link">{{ 'nav.shop' | i18n }}</a>
