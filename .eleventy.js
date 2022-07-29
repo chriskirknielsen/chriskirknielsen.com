@@ -11,6 +11,7 @@ const util = require('util');
 const deepmerge = require('deepmerge');
 const { minify } = require('terser');
 const { PurgeCSS } = require('purgecss');
+const htmlmin = require('html-minifier');
 const { DateTime } = require('luxon');
 const templite = require('templite');
 
@@ -118,17 +119,29 @@ module.exports = function (eleventyConfig) {
 		const format = opts.format || 'machine';
 		const locale = opts.locale || defaultLang;
 		const dateObj = new Date(date);
+		const utcDate = DateTime.fromJSDate(dateObj).toUTC();
 		switch (format) {
 			case 'year': {
-				return DateTime.fromJSDate(dateObj).toUTC().toFormat('yyyy');
+				return utcDate.toFormat('yyyy');
 			}
 			case 'nice': {
-				return DateTime.fromJSDate(dateObj).toUTC().setLocale(locale).toLocaleString(DateTime.DATE_FULL);
+				const year = utcDate.toFormat('yyyy');
+				const month = Intl.DateTimeFormat(locale, { month: 'long' }).format(utcDate.toJSDate());
+				const day = Intl.DateTimeFormat(locale, { day: 'numeric' }).format(utcDate.toJSDate());
+				return `${day} ${month} ${year}`;
 			}
 			case 'machine': {
-				return DateTime.fromJSDate(dateObj).toUTC().toFormat('dd LLL yyyy');
+				return utcDate.toFormat('dd LLL yyyy');
 			}
 		}
+	});
+
+	eleventyConfig.addFilter('htmlmin', function (code) {
+		return htmlmin.minify(code, {
+			useShortDoctype: true,
+			removeComments: true,
+			collapseWhitespace: true,
+		});
 	});
 
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
@@ -209,6 +222,20 @@ module.exports = function (eleventyConfig) {
 		});
 
 		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');
+	});
+
+	// Minify HTML output
+	eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+		if (!outputPath.endsWith('.html')) {
+			return content;
+		}
+
+		let minified = htmlmin.minify(content, {
+			useShortDoctype: true,
+			removeComments: true,
+			collapseWhitespace: true,
+		});
+		return minified;
 	});
 
 	/* Collections */
