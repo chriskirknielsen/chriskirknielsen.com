@@ -1,0 +1,42 @@
+.screensaver {
+	$screensaver-animation-time: 5000ms;
+	$screensaver-logo-size: 200px;
+
+	--theme-header-logo-fill: initial; // Prevent the fill from the header to be passed in this <use>
+
+	position: fixed;
+	inset: 0;
+	z-index: 99;
+
+	background: black;
+
+	& div {
+		display: inline-block;
+
+		animation: scrsvrX calc(#{$screensaver-animation-time} * var(--scrnsvr-speed-x, 1.2)) linear var(--scrnsvr-delay-x, -1618ms) alternate infinite both;
+	}
+
+	& svg {
+		display: block;
+		width: $screensaver-logo-size;
+		height: auto;
+
+		animation: scrsvrY calc(#{$screensaver-animation-time} * var(--scrnsvr-speed-y, 1)) linear var(--scrnsvr-delay-y, -314ms) alternate infinite both;
+
+		& > use {
+			color: var(--scrnsvr-logo-fill, white);
+			fill: var(--scrnsvr-logo-fill, white);
+		}
+	}
+}
+
+@keyframes scrsvrX {
+	to {
+		transform: translateX(calc(100vw - 100%));
+	}
+}
+@keyframes scrsvrY {
+	to {
+		transform: translateY(calc(100vh - 100%));
+	}
+}

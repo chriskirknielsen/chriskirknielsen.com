@@ -20,7 +20,7 @@
 			width: auto;
 			overflow: visible;
 
-			& > path {
+			& path {
 				fill: currentColor;
 
 				transition: inherit;
@@ -28,7 +28,7 @@
 			}
 		}
 
-		&:is(:hover, :focus) > svg > path {
+		&:is(:hover, :focus) > svg path {
 			fill: var(--theme-color-primary-min);
 		}
 	}

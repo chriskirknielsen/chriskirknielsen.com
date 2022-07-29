@@ -179,7 +179,7 @@
 
 	&-title {
 		&::before {
-			--homescreen-silhouette-mask: linear-gradient(to bottom, tan, 80%, transparent);
+			--homescreen-silhouette-mask: linear-gradient(to bottom, tan 50%, 80%, transparent);
 			content: var(--homescreen-silhouette-emoji, none);
 
 			position: absolute;
