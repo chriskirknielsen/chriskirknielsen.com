@@ -1,5 +1,17 @@
-.u-fontSize-small {
-	font-size: 0.875rem;
+// Absolute sizes
+.u-fontSize-s {
+	font-size: var(--size-s);
+}
+.u-fontSize-m {
+	font-size: var(--size-m);
+}
+.u-fontSize-l {
+	font-size: var(--size-l);
+}
+
+// Relative sizes
+.u-fontSize-smallest {
+	font-size: 0.75em;
 }
 .u-fontSize-smaller {
 	font-size: 0.875em;
@@ -7,9 +19,6 @@
 .u-fontSize-normal {
 	font-size: 1em;
 }
-.u-fontSize-bigger {
+.u-fontSize-larger {
 	font-size: 1.25em;
-}
-.u-fontSize-big {
-	font-size: 1.25rem;
 }

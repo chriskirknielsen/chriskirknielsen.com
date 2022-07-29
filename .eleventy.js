@@ -12,6 +12,7 @@ const deepmerge = require('deepmerge');
 const { minify } = require('terser');
 const { PurgeCSS } = require('purgecss');
 const { DateTime } = require('luxon');
+const templite = require('templite');
 
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
@@ -140,7 +141,7 @@ module.exports = function (eleventyConfig) {
 		}
 	});
 
-	eleventyConfig.addFilter('i18n', function (key) {
+	eleventyConfig.addFilter('i18n', function (key, data = {}) {
 		// Find the page context
 		const context = this?.ctx || this.context?.environments;
 
@@ -161,6 +162,7 @@ module.exports = function (eleventyConfig) {
 		if (translation === false) {
 			translation = key;
 		}
+		translation = templite(translation, data);
 		return translation;
 	});
 
@@ -233,6 +235,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
 		[`${rootDir}/_includes/assets/css`]: '/assets/css',
 		[`${rootDir}/_includes/assets/js`]: '/assets/js',
+		[`${rootDir}/assets/img`]: '/assets/img',
 	});
 
 	/* Markdown */

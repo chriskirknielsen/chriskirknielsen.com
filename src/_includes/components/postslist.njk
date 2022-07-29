@@ -3,7 +3,10 @@
 	{% for post in postslist | reverse %}
 		{% set postYear = post.date | dateFormat({ format: 'year' }) %}
 		{% if currYear != postYear %}
-			<p class="postlist-yeargroup | u-fontSize-smaller">{{ postYear }}</p>
+			<p class="postlist-yeargroup | u-fontSize-smaller">
+				<span class="visually-hidden">{{ 'blog.yearLabel' | i18n }}</span>
+				{{ postYear }}
+			</p>
 		{% endif %}
 
 		<article class="postlist-post" {% if post.url == url %} data-current="current item"{% endif %}>

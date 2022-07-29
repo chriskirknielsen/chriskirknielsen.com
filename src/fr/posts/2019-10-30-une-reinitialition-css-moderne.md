@@ -216,7 +216,7 @@ Une autre chose que Andy a finalement choisi de définir comme valeur par défau
 }
 ```
 
-Dernièrement mais loin d'être triviale, est une règle `@media` qui réinitialise les transitions, animations et comportement du défilement si l'utilisateur préfère les mouvements réduits. Ceci est une addition utile — notamment avec les sélecteurs `!important` qui donnent la priorité en termes de spécificité — puisque maintenant, si une utilisatrice ne veut pas de mouvement, elle n'en verra pas, quel que soit le CSS qui suit cette réinitialisation.
+Dernièrement mais loin d'être triviale, est une règle `@media` qui réinitialise les transitions, animations et comportement du défilement si l'utilisateur préfère les mouvements réduits. Ceci est une addition utile — notamment avec les marqueurs `!important` qui donnent la priorité en termes d'origine — puisque maintenant, si une utilisatrice ne veut pas de mouvement, elle n'en verra pas, quel que soit le CSS qui suit cette réinitialisation.
 
 _Note :_ Merci à [@atomiks](https://github.com/atomiks), désormais ceci ne cassera pas les écouteurs d'événements JavaScript sur `animationend` et `transitionend`.
 

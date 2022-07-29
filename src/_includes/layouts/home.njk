@@ -7,12 +7,12 @@ section: home
     <p class="visually-hidden">{{ 'homescreenTitle.visualDescription' | i18n }}</p>
     <div class="homescreen-content">
         <div class="homescreen-background" aria-hidden="true">
-            {% set ckn_grid %}{%- include "assets/img/homescreen-grid.svg" -%}{% endset %}
+            {% set ckn_grid %}{%- include "assets/svg/homescreen-grid.svg" -%}{% endset %}
             {{ ckn_grid | safe }}
         </div>
 
         <h1 class="homescreen-title">
-            {% set ckn_mark %}{%- include "assets/img/homescreen-title.svg.njk" -%}{% endset %}
+            {% set ckn_mark %}{%- include "assets/svg/homescreen-title.svg.njk" -%}{% endset %}
             {{ ckn_mark | safe }}
         </h1>
     </div>
@@ -28,7 +28,7 @@ section: home
             <a href="{{ 'page.quickAccess.about.url' | i18n }}" class="button" data-button="tile" style="--area: url1">
                 <strong class="spaced-items">
                     {% set svgQuestionOpts = { class: 'inline-icon' } %}
-                    {% include "assets/img/question.svg.njk" %}
+                    {% include "assets/svg/question.svg.njk" %}
                     {{ 'page.quickAccess.about.label' | i18n }}
                 </strong>
                 <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
@@ -36,7 +36,7 @@ section: home
             <a href="{{ 'page.quickAccess.designs.url' | i18n }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
                 <strong class="spaced-items">
                     {% set svgShirtOpts = { class: 'inline-icon' } %}
-                    {% include "assets/img/shirt.svg.njk" %}
+                    {% include "assets/svg/shirt.svg.njk" %}
                     {{ 'page.quickAccess.designs.label' | i18n }}
                 </strong>
                 <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
@@ -44,7 +44,7 @@ section: home
             <a href="{{ 'page.quickAccess.fonts.url' | i18n }}" class="button" data-button="tile" style="--area: url3">
                 <strong class="spaced-items">
                     {% set svgTypeOpts = { class: 'inline-icon' } %}
-                    {% include "assets/img/type.svg.njk" %}
+                    {% include "assets/svg/type.svg.njk" %}
                     {{ 'page.quickAccess.fonts.label' | i18n }}
                 </strong>
                 <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
@@ -84,7 +84,7 @@ section: home
                 <a href="{{ '/blog' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
                 
                 <a href="{{ '/rss.xml' | locale_url }}" class="button">
-                    {% include 'assets/img/rss.svg.njk' %}
+                    {% include 'assets/svg/rss.svg.njk' %}
                     <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
                     <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>
                 </a>

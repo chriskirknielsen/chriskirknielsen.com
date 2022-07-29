@@ -10,4 +10,29 @@ templateName: post
 	</div>
 </header>
 
+{% if original %}
+<p class="post-original">
+	<span class="u-fontItalic">{{ 'blog.original' | i18n }}{{ 'grammar.punctSp' | i18n }}:</span>
+	<a href="{{ original | url }}" rel="nofollow"><span class="u-fontBold">{{ originalTitle or original }}</span></a>
+</p>
+{% endif %}
+
 {{ layoutContent | safe }}
+
+{% if externalUrl %}
+<p>
+	<a href="{{ externalUrl }}" class="button">
+		{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}
+		<svg class="inline-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="arcs"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg>
+	</a>
+</p>
+{% endif %}
+
+{% if not original and not externalUrl %}
+<footer class="post-footer">
+	<img src="{{ '/' + assets.imagesDir + '/profile.jpg' | url }}" alt="" width="64" height="64" class="post-footer-avatar">
+	
+	<p class="post-footer-author | u-fontSize-smallest">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name }) }}</p>
+	<p class="post-footer-blurb | u-fontSize-smaller">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: metadata.author.twitter, shopUrl: '/designs/' }) | safe }}</p>
+</footer>
+{% endif %}

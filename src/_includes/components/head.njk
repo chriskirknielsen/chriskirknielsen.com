@@ -18,7 +18,7 @@
 		{% if customMetaImage %}
 			{{ customMetaImage | url | absoluteUrl(metadata.url) }}
 		{% else %}
-			{{ '/assets/img/metaimage.jpg' | url | absoluteUrl(metadata.url) }}
+			{{ '/assets/svg/metaimage.jpg' | url | absoluteUrl(metadata.url) }}
 		{% endif %}
 	{% endset %}
 	<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">

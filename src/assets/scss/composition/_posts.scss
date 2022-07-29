@@ -32,9 +32,11 @@
 	--flow-space: var(--size-2xl);
 
 	&-yeargroup {
+		padding-inline-start: var(--size-xs);
 		padding-block-end: var(--size-2xs);
 
 		color: var(--theme-color-secondary-med);
+		border-inline-start: 1px solid currentColor;
 		background: linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
 	}
 
@@ -44,5 +46,47 @@
 
 	&-date {
 		display: block;
+	}
+}
+
+.post {
+	&-original,
+	&-footer {
+		padding: var(--size-xs) var(--size-s);
+
+		color: var(--theme-footer-text-color);
+		border: 1px solid var(--theme-footer-border-color);
+		border-radius: var(--theme-corner-radius);
+		background: var(--theme-footer-bg-color);
+	}
+
+	&-original {
+		font-style: italic;
+	}
+
+	&-footer {
+		&-avatar {
+			float: left;
+
+			width: 3.5em;
+			aspect-ratio: 1;
+			object-fit: cover;
+			margin-inline-end: var(--size-m);
+
+			border: 2px solid var(--theme-accent-color);
+			border-radius: 50%;
+		}
+		&-author {
+			font-style: italic;
+			color: var(--theme-link-color);
+		}
+		&-blurb {
+		}
+
+		&::after {
+			content: '';
+			display: table;
+			clear: left;
+		}
 	}
 }

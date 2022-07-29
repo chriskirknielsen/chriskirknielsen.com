@@ -23,13 +23,16 @@
 			"shop": "Boutique"
 		},
 		"blog": {
-			"intro": "Voici mes quelques pensées très variées sur le développement front-end. C'est pas grand chose mais c'est écrit avec le cœur."
+			"intro": "Voici mes quelques pensées très variées sur le développement front-end. C'est pas grand chose mais c'est écrit avec le cœur.",
+			"yearLabel": "Articles pour l'année",
+			"original": "Consulter l'article original",
+			"external": "Consulter l'article complet sur",
+			"writtenByAuthor": "Article rédigé par {{ author }}",
+			"commentsAndSupport": "Si vous avez un commentaire, <a href=\"{{ twitterUrl }}\">taggez-moi sur Twitter</a> pour discuter ! Si ceci vous a plu, vous pouvez <a href=\"{{ shopUrl }}\">commander un de mes t-shirts</a>. Merci infiniment !"
 		},
 		"latestPost": "Dernier Article",
 		"tagged": "Étiquettes",
 		"blobBacklinkLabel": "Retour au Blog",
-		"original": "Consulter l'article original",
-		"external": "Consulter l'article complet sur",
 		"homescreenTitle": {
 			"creaDev": "Un Développeur créatif",
 			"visualDescription": "Chris Kirk-Nielsen: développeur créatif, dans un style fortement inspiré des années 80 avec des couleurs néon, une grille en perspective et un large soleil stylisé dans le fond"
