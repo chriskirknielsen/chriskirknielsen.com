@@ -11,6 +11,7 @@
 /* Global */
 @import 'global/reset';
 @import 'global/base';
+@import 'global/typography';
 @import 'global/link';
 @import 'global/button';
 
@@ -37,6 +38,7 @@
 
 /* Page-specific styles */
 @import 'pages/home';
+@import 'pages/about';
 
 /* Exception */
 @import 'exceptions/themes';

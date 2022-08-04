@@ -1,0 +1,45 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.heading {
+	font-family: var(--theme-font-heading);
+	line-height: 1.125;
+	letter-spacing: var(--theme-heading-tracking);
+	color: var(--theme-heading-color);
+}
+
+@for $s from 1 through 6 {
+	h#{$s},
+	.h#{$s} {
+		font-size: var(--type-#{6 - $s});
+	}
+}
+
+i,
+em {
+	padding-inline-end: 0.125em; // Add a little space after an em tag to avoid sticking too closely to the following text
+
+	color: var(--theme-accent-color);
+}
+
+s,
+del {
+	text-decoration-thickness: 0.0625em;
+	// text-shadow: 0 2px 0 var(--ctx-bg, transparent);
+	// background: repeating-linear-gradient(-45deg, var(--theme-accent-color, transparent), var(--theme-accent-color, transparent) 0.33px, transparent 0.33px, transparent 6px);
+	// box-decoration-break: clone;
+}
+
+time[datetime] {
+	font-weight: 700;
+	color: var(--theme-accent-color);
+}

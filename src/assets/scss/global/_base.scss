@@ -25,32 +25,6 @@ main {
 	}
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-.heading {
-	font-family: var(--theme-font-heading);
-	line-height: 1.125;
-	letter-spacing: var(--theme-heading-tracking);
-	color: var(--theme-heading-color);
-}
-
-@for $s from 1 through 6 {
-	h#{$s},
-	.h#{$s} {
-		font-size: var(--type-#{6 - $s});
-	}
-}
-
 *:focus {
 	outline: 4px dashed var(--theme-link-color-active);
 	outline-offset: 2px;
@@ -58,11 +32,6 @@ h6,
 	&:not(:focus-visible) {
 		outline: none;
 	}
-}
-
-time[datetime] {
-	font-weight: 700;
-	color: var(--theme-accent-color);
 }
 
 // Ensure SVG elements transform from their center point

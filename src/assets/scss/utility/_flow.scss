@@ -1,5 +1,13 @@
 .flow {
 	& > * + * {
-		margin-block-start: var(--flow-space, var(--size-l));
+		margin-block-start: var(--flow-space, var(--size-xl));
+	}
+
+	// Make sure headings stick close to associated content
+	& > :where(h2, h3) + * {
+		--flow-space: var(--size-2xs);
+	}
+	& > :where(h2 + h3) {
+		--flow-space: var(--size-2xs);
 	}
 }

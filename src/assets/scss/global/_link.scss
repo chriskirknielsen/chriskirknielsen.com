@@ -8,7 +8,7 @@
 		color: var(--theme-link-color-active);
 		text-decoration: none;
 		text-shadow: 0 2px 0 var(--ctx-bg, transparent);
-		background: linear-gradient(90deg, var(--theme-link-underline-color, transparent) 25%, transparent) repeat-x 0 100% / 0.67px 0.67em;
+		background: repeating-linear-gradient(90deg, var(--theme-link-underline-color, transparent) 0.5px, transparent 1px) repeat-x 0 100% / 2px 0.67em;
 		box-decoration-break: clone;
 	}
 }
