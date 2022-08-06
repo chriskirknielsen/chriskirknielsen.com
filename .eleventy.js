@@ -114,7 +114,22 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
 	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
+	eleventyConfig.addFilter('unique', (arr) => [...new Set(arr)]);
+	eleventyConfig.addFilter('flatten', function (array) {
+		const flatten = (arr) => arr.reduce((acc, cur) => acc.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
+		return flatten(array);
+	});
 	eleventyConfig.addFilter('removePrivateProps', (arr) => arr.filter((item) => String(item).startsWith('_')));
+	eleventyConfig.addFilter('pluck', function (list, key) {
+		const arr = Array.isArray(list) ? list : Object.values(list);
+		return arr.map((o) => o[key]);
+	});
+	eleventyConfig.addFilter('filterBoolProp', (array, property, flip = false) =>
+		array.filter((obj) => {
+			const bool = obj[property];
+			return flip ? bool === false : bool !== false;
+		})
+	);
 	eleventyConfig.addFilter('dateFormat', (date, opts = {}) => {
 		const format = opts.format || 'machine';
 		const locale = opts.locale || defaultLang;

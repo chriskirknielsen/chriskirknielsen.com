@@ -1,0 +1,156 @@
+---
+title: Shop
+pageTitle: Designs
+subtitle: A collection of posters and shirt designs I've made
+summary: Shirt and poster designs by Christopher Kirk-Nielsen
+---
+
+{% set activeDesigns = designs | filterBoolProp('showInGallery') %}
+
+<div class="u-textAlign-center">
+	<p class="visually-hidden">Shops:</p>
+	<ol class="inline-list | u-fontWeight-bold u-fontSize-smallest">
+		{% for merchStore, merchUrl in metadata.merch %}
+			<li><a href="{{ merchUrl | url }}">{{ merchStore }}</a>
+		{% endfor %}
+	</ol>
+</div>
+
+<hr class="u-marginBlock-xl">
+
+<fieldset class="filter" hidden>
+	<script>document.querySelector('.filter').hidden=false</script>
+	<legend class="visually-hidden">Filter</legend>
+	<div class="filter-legend | u-fontWeight-bold" aria-hidden="true">Filter</div>
+
+	<div class="filter-item">
+		<input type="radio" name="filter" class="visually-hidden" id="filter-all" value="" checked>
+		<label for="filter-all" class="button filter-tag" aria-pressed="true">All</label>
+	</div>
+
+	{% for tag in activeDesigns | pluck('tags') | flatten | unique | sort %}
+	<div class="filter-item">
+		<input type="radio" name="filter" id="filter-{{ tag }}" class="visually-hidden" value="{{ tag | toLowercase }}">
+		<label for="filter-{{ tag }}" class="button filter-tag" aria-pressed="false">{{ tag }}</label>
+	</div>
+	{% endfor %}
+</fieldset>
+
+<div class="cards u-marginBlockStart-xl" data-filtered-list="idle">
+{% for design in activeDesigns %}
+	{% set designPermalink = '/designs/' + design.slug %}
+	<article
+		class="card"
+		id="{{ design.slug }}"
+		data-filtered-item
+		data-tags="
+		{%- for tag in design.tags -%}
+			{{ tag }}
+			{%- if not loop.last %},{% endif -%}
+		{%- endfor -%}
+		"
+		aria-hidden="false"
+	>
+		{% if design.img %}
+		<div class="card__image">
+			<a href="{{ designPermalink | url }}" aria-label="{{ design.name }}" tabindex="-1">
+				<img
+				src="{{ '/' + assets.imagesDir + '/designs/' + design.img | url }}"
+				srcset="
+					{{ '/' + assets.imagesDir + '/designs/' + design.img + '?nf_resize=fit&w=300' | url }} 300w,
+					{{ '/' + assets.imagesDir + '/designs/' + design.img | url }} 600w
+				"
+				sizes="
+					(max-width: 575px) 90vw,
+					(max-width: 847px) 40vw,
+					(max-width: 1023px) 30vw,
+					300px
+				"
+				alt=""
+				width="600"
+				height="600"
+				{{ ('loading="lazy"' | safe) if loop.index >= 8 }}
+				/>
+			</a>
+		</div>
+		{% endif %}
+
+		<div class="card__content">
+			<h2 class="card__title | h4 | u-marginBlockEnd-s">
+				<a href="{{ designPermalink | url }}" class="heading-link">{{- design.name -}}</a>
+			</h2>
+			
+			<ul role="list" class="inline-list | u-marginBlockStart-auto u-fontSize-smallest">
+				{%- for site, url in design.links %}
+				<li><a href="{{ url | url }}">{{ site }}</li>
+				{% endfor -%}
+			</ul>
+		</div>
+	</article>
+{% endfor %}
+</div>
+
+<script>
+{% set designsFilter %}
+(function() {
+	let hashIndicator = 'filter:';
+	let initialHash = window.location.hash.slice(1);
+	let items = [].slice.call(document.querySelectorAll('[data-tags]'));
+	let list = document.querySelector('[data-filtered-list]');
+	let tagList = [].slice.call(document.querySelectorAll('.filter-item'));
+	let duration = 500;
+	list.style.setProperty('--t', duration + 'ms');
+
+	function filterTo(filter) {
+		let isShowAll = (filter === '');
+		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		list.setAttribute('data-filtered-list', 'change');
+
+		tagList.forEach(function(tagWrap) {
+			let tagValue = tagWrap.querySelector('[name="filter"]').value;
+			let label = tagWrap.querySelector('.filter-tag');
+			let isPressed = tagValue === filter;
+			label.setAttribute('aria-pressed', String(isPressed));
+		});
+
+		items.forEach(function(item) {
+			let tags = item.getAttribute('data-tags').split(',');
+			let isShown = (tags.indexOf(filter) > -1) || isShowAll;
+			item.style.setProperty('--d', Math.floor(Math.random() * duration / 10) + 'ms');
+
+			setTimeout(function() {
+				item.setAttribute('aria-hidden', (!isShown).toString());
+			}, (prefersReducedMotion ? 0 : duration));
+		});
+
+		setTimeout(function() {
+			list.setAttribute('data-filtered-list', 'idle');
+		}, (prefersReducedMotion ? 0 : duration));
+
+		history.replaceState(undefined, '', filter ? ('#' + hashIndicator + filter) : '#');
+	}
+
+	if (initialHash.indexOf(hashIndicator) === 0) {
+		let baseFilter = initialHash.slice(hashIndicator.length);
+		let filterSelectBox = document.querySelector('#filter-' + (baseFilter || 'all'));
+		if (!filterSelectBox) {
+			baseFilter = '';
+			filterSelectBox = document.querySelector('#filter-all');
+		}
+		filterSelectBox.checked = true;
+		filterTo(baseFilter);
+	}
+
+	document.addEventListener('input', function(e) {
+		let radio = e.target.closest('[name="filter"]');
+		if (!radio) {
+			return;
+		}
+		let filter = radio.value;
+		filterTo(filter);
+	});
+})();
+{% endset %}
+{{- designsFilter | jsmin | safe -}}
+</script>

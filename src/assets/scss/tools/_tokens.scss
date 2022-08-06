@@ -1,6 +1,7 @@
 $tokens: (
   "constants": (
     "base-line-height": 1.5,
+    "heading-line-height": 1.1,
     "content-width": 60rem,
     "content-gutter": var(--size-s)
   ),
@@ -10,6 +11,7 @@ $tokens: (
     "font-body": Georgia,
     "bg-color": white,
     "bg-alt-color": #ccc,
+    "bg-neutral-color": var(--theme-color-gray-max),
     "text-color": black,
     "text-alt-color": red,
     "accent-color": var(--theme-color-primary-med),
@@ -18,7 +20,7 @@ $tokens: (
     "link-color": blue,
     "link-underline-color": var(--theme-link-color),
     "link-color-active": purple,
-    "bigboi-bg-color": var(--theme-color-gray-max),
+    "bigboi-bg-color": var(--theme-bg-neutral-color),
     "bigboi-text-color": var(--theme-color-gray-min),
     "cta-border-color": var(--theme-color-gray-med),
     "cta-border-color-active": var(--theme-color-primary-med),

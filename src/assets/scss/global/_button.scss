@@ -21,8 +21,15 @@
 	box-shadow: var(--btn-box-shadow, none);
 
 	&:is(:hover, :focus) {
-		--btn-border-color: var(--theme-cta-border-color-active);
 		--btn-text-color: var(--theme-cta-text-color-active);
+		--btn-border-color: var(--theme-cta-border-color-active);
+		--btn-background-color: var(--theme-cta-bg-active);
+		--btn-box-shadow: var(--theme-cta-box-shadow-active, none);
+	}
+
+	&[aria-pressed='true'] {
+		--btn-text-color: var(--theme-cta-text-color-active);
+		--btn-border-color: var(--theme-cta-border-color-active);
 		--btn-background-color: var(--theme-cta-bg-active);
 		--btn-box-shadow: var(--theme-cta-box-shadow-active, none);
 	}

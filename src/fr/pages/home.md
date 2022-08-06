@@ -26,4 +26,4 @@ i18n:
             blogLabel: 'Visiter le blog'
 ---
 
-Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder pour le web qui travaille chez MOJO PSG.
+Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder sur le web qui travaille chez MOJO PSG.

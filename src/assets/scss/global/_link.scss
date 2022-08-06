@@ -1,4 +1,11 @@
 :where(a:not([class]), .link) {
+	--link-grad-one: 0px;
+	--link-grad-two: 1px;
+
+	@media (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.5), (-moz-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+		--link-grad-one: 0.5px;
+	}
+
 	text-decoration-line: underline;
 	text-decoration-color: var(--theme-link-underline-color, currentColor);
 	color: var(--theme-link-color);
@@ -7,8 +14,9 @@
 	&:where(:hover, :focus) {
 		color: var(--theme-link-color-active);
 		text-decoration: none;
-		text-shadow: 0 2px 0 var(--ctx-bg, transparent);
-		background: repeating-linear-gradient(90deg, var(--theme-link-underline-color, transparent) 0.5px, transparent 1px) repeat-x 0 100% / 2px 0.67em;
+		text-shadow: 0 0.0625em 0 var(--ctx-bg, transparent);
+		background: repeating-linear-gradient(90deg, var(--theme-link-underline-color, transparent) var(--link-grad-one), transparent var(--link-grad-two)) repeat-x 0 100% / 2px
+			0.67em;
 		box-decoration-break: clone;
 	}
 }

@@ -1,0 +1,53 @@
+.filter {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.5em 0.5em;
+	margin: 0;
+	padding: 0;
+
+	border: 0;
+
+	&-item {
+		display: inline;
+
+		& input[type='radio']:hover + label {
+			color: var(--c-grey-max);
+			background: var(--c-grey-min);
+		}
+
+		& input[type='radio']:focus-visible + label {
+			outline: 4px dashed var(--c-grey-min);
+		}
+
+		& input[type='radio']:checked + label {
+			color: var(--c-grey-max);
+			background: var(--color-accent);
+		}
+	}
+}
+
+[data-filtered-item] {
+	&[aria-hidden='true'] {
+		@extend .visually-hidden; // Hide the element without using `display: none` to preserve animatability
+
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		transform-origin: 50% -25%;
+		will-change: transform;
+
+		transition: 250ms ease-out;
+		transition-property: filter, opacity, transform;
+		transition-duration: var(--t, 250ms);
+		transition-delay: var(--d, 5ms);
+
+		[data-filtered-list='change'] & {
+			filter: grayscale(1) blur(12px);
+			opacity: 0;
+			transform: scale(0.9);
+		}
+	}
+}

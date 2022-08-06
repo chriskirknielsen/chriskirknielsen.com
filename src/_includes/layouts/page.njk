@@ -2,8 +2,15 @@
 layout: layouts/base.njk
 templateName: page
 ---
-<header>
-    <h1>{{ displayTitle or title }}</h1>
+
+<header class="bigboi | content-breakout">
+	<div class="bigboi-inner | container" style="--flow-space: var(--size-m)">
+		<h1>{{ pageTitle or title }}</h1>
+		
+		<p class="u-fontWeight-bold">{{ subtitle }}</p>
+    </div>
 </header>
 
-<div class="flow">{{ layoutContent | safe }}</div>
+<div class="flow fluid">
+	{{ layoutContent | safe }}
+</div>

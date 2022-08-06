@@ -1,5 +1,5 @@
 .about-country {
-	--about-country-anim-time: 1000ms;
+	--about-country-anim-time: 1500ms;
 
 	position: relative;
 	display: inline-block;
@@ -48,9 +48,12 @@
 
 @keyframes aboutCountryTransform {
 	0% {
-		transform: rotate(-90deg) translateX(1em) rotate(90deg);
+		transform: rotate(-90deg) translateX(1.25em) rotate(90deg);
+	}
+	50% {
+		opacity: 0;
 	}
 	100% {
-		transform: rotate(-450deg) translateX(1em) rotate(450deg);
+		transform: rotate(-450deg) translateX(1.25em) rotate(450deg);
 	}
 }

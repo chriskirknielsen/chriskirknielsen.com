@@ -7,6 +7,23 @@ $positions: (
 	start: 'Start',
 	end: 'End',
 );
+
+.u-margin-auto {
+	margin: auto;
+}
+
+@each $dir-prop, $dir-name in $directions {
+	.u-margin#{$dir-name}-auto {
+		margin-#{$dir-prop}: auto;
+	}
+
+	@each $pos-prop, $pos-name in $positions {
+		.u-margin#{$dir-name}#{$pos-name}-auto {
+			margin-#{$dir-prop}-#{$pos-prop}: auto;
+		}
+	}
+}
+
 @each $sizeName in map-keys(get-token('size')) {
 	@each $property in $properties {
 		.u-#{$property}-#{$sizeName} {
