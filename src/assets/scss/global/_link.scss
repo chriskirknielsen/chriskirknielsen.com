@@ -6,9 +6,9 @@
 		--link-grad-one: 0.5px;
 	}
 
+	color: var(--theme-link-color);
 	text-decoration-line: underline;
 	text-decoration-color: var(--theme-link-underline-color, currentColor);
-	color: var(--theme-link-color);
 	text-decoration-skip-ink: auto;
 
 	&:where(:hover, :focus) {

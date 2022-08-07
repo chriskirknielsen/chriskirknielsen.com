@@ -9,7 +9,7 @@
 			</p>
 		{% endif %}
 
-		<article class="postlist-post" {% if post.url == url %} data-current="current item"{% endif %}>
+		<article class="postlist-post">
 			<h2 class="h3">
 				<a href="{{ post.url | url }}">
 					{{- post.data.title or "Untitled Post" -}}

@@ -1,0 +1,42 @@
+[data-section='404'] main {
+	max-width: 30rem;
+}
+
+// CDIV is 404 in Roman numerals, if you were wondering.
+.cdiv-clock {
+	&-wrap {
+		display: block;
+		margin-inline: auto;
+		width: 16rem;
+		max-width: 100%;
+	}
+
+	display: block;
+	width: 100%;
+
+	&-numerals,
+	&-hands {
+		fill: var(--theme-color-primary-min);
+	}
+
+	&-rings {
+		fill: none;
+		stroke: var(--theme-color-primary-min);
+		stroke-width: 3;
+	}
+
+	&-hands {
+		stroke: var(--ctx-bg);
+		stroke-width: 2;
+
+		& > * {
+			animation: cdivHands 4.04s cubic-bezier(0, 0, 0, 1);
+		}
+	}
+}
+
+@keyframes cdivHands {
+	from {
+		transform: rotate(calc((-180deg * var(--cdiv-min) / 60) - var(--cdiv-min) / 60 * 360deg));
+	}
+}

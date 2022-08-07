@@ -7,7 +7,7 @@ const { exec, spawn } = require('child_process');
 
 gulp.task('css', function () {
 	return gulp
-		.src([root + '/assets/scss/*.scss', '!_*.scss'])
+		.src([root + '/assets/scss/**/*.scss', '!_*.scss'])
 		.pipe(sass({ precision: 4, outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(gulp.dest(root + '/_includes/assets/css'));
 });

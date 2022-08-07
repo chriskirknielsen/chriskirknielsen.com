@@ -25,7 +25,49 @@
 	<meta name="twitter:image:alt" property="og:image:alt" content="{{ navtitle or title or renderData.title }}" />
 	<meta name="twitter:card" content="summary" />
 
-	<style id="inline-styles">{%- if not hasFullCustomStyles %}/*INLINE_CSS*/{% endif -%}</style>
+	{%- if fontSpecimen -%}		
+		{# Initialise variable outside loop scope #}
+		{%- set fontSpecimenStyles = '' -%}
+
+		{%- for fontSpecimenName, fontSpecimensFaces in fontSpecimen -%}
+			{# Preload the "default" font #}
+			<link rel="preload" href="{{ './' + fontSpecimensFaces[0].file | url }}" as="font" type="font/woff2" crossorigin>
+			
+			{%- set fontSpecimenStyles -%}
+				{%- for fontSpecimenFace in fontSpecimensFaces -%}
+				@font-face {
+					font-family: '{{ fontSpecimenName }}';
+					src: url('{{ './' + fontSpecimenFace.file | url }}') format('woff2');
+					font-weight: {{ fontSpecimenFace.weight or 400 }};
+					font-style: {{ fontSpecimenFace.style or 'normal' }};
+					font-display: swap;
+				}
+				{%- endfor -%}
+				.specimen { font-family: '{{ fontSpecimenName }}', {{ (fontSpecimenFallback | safe) or 'sans-serif' }}; }
+			{%- endset -%}
+		{%- endfor -%}
+	{%- endif -%}
+
+	<style id="inline-styles">
+		{%- if not hasFullCustomStyles %}/*INLINE_CSS*/{% endif -%}
+
+		{%- if fontSpecimenStyles -%}
+			{{- fontSpecimenStyles | cssmin | safe -}}
+		{%- endif -%}
+
+		{%- if styleOverrides -%}
+			{# Add page-specific styles inline #}
+			{%- set pageStyleGroup = "" -%}
+
+			{%- for styleOverride in styleOverrides -%}
+				{%- set pagestylelink %}{{ assets.fontSpecimenStyles }}/{{ styleOverride | trim(' ') }}.css{% endset -%}
+				{%- set pagestyle %}{% include pagestylelink %}{% endset -%}
+				{%- set pageStyleGroup = pageStyleGroup + pagestyle -%}
+			{%- endfor -%}
+
+			{{- pageStyleGroup | cssmin | safe -}}
+		{%- endif -%}
+	</style>
 	{# <style>{% include 'assets/css/style.css' %}</style> #}
 	{% set themeScript %}
 	(function(){
@@ -37,10 +79,10 @@
 	{% endset %}
 	<script>{{- themeScript | jsmin | safe -}}</script>
 
-	{# <link rel="icon" href="{{ "/" + metadata.assetUrl.icons.faviconPng | url }}" type="image/png">
-	<link rel="icon" href="{{ "/" + metadata.assetUrl.icons.faviconSvg | url }}">
-	<link rel="mask-icon" href="{{ "/" + metadata.assetUrl.icons.maskIcon | url }}" color="{{ tokens.colors.dusk.secondary.med }}">
-	<link rel="apple-touch-icon" href="{{ "/" + metadata.assetUrl.icons.appleTouchIcon | url }}"> #}
+	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
+	<link rel="icon" href="{{ '/' + assets.icons.faviconSvg | url }}">
+	<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.secondary.med }}">
+	<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
 
 	{% if metaThemeColorOverride %}
 	<meta name="theme-color" content="{{ metaThemeColorOverride | safe }}">

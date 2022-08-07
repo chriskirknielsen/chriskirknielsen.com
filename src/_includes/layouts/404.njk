@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+section: 404
+---
+
+<button type="button" class="button-reset cdiv-clock-wrap" data-chime>
+    {% set clock_404 -%}
+    {%- include "assets/svg/clock-404.svg.njk" -%}
+    {%- endset -%}
+    {{ clock_404 | htmlmin | safe }}
+</button>
+
+{{ layoutContent | safe }}
+
+<p class="u-textAlign-center">
+    <a href="{{ localePath | url }}" class="button">
+        {% set svgArrowBackDoubleOpts = { class: "inline-icon" } %}
+        {% include "assets/svg/arrow-back-double.svg.njk" %}
+        {{ 'nav.home' | i18n }}
+    </a>
+</p>
+
+<audio id="cdiv-sfx" src="{{ '/' + assets.audio + '/bttf-chime.mp3' | url }}"></audio>
+
+<script>
+{%- set chimeScript -%}
+    document.querySelector('[data-chime]').addEventListener('click', function() {
+        var audio = document.getElementById('cdiv-sfx');
+        if (!audio.playing) {
+            audio.play();
+        }
+    });
+{%- endset -%}
+{{- chimeScript | jsmin | safe -}}
+</script>

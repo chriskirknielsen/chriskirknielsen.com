@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+{% set hasFullCustomStyles = true %}
+{% include "components/head.njk" %}
+
+<body>
+	<main class="content flow" id="content">
+		{{ layoutContent | safe }}
+	</main>
+
+	<footer class="footer">
+		Font built with {{ fontLove or 'love' }}
+		by <a href="{{ metadata.url | url }}">Christopher Kirk-Nielsen</a>
+		|
+		<a href="{{ '/fonts/' | url }}">Font Directory</a>
+	</footer>
+
+	<script>
+	{% set fontSpecimenScripts %}
+		var fontPreviewerForm = document.getElementById('font-previewer');
+		var fontPreviewInput = document.getElementById('preview-input');
+		var fontPreviewOutput = document.getElementById('preview-output');
+		var fontPreviewSvg = document.getElementById('preview-svg');
+		var fontPreviewSave = document.getElementById('save-preview');
+		var fontNameSlug = '{{ title | slug }}';
+
+		function updateFontPreviewText() { 
+			fontPreviewOutput.textContent = fontPreviewInput.value.trim() || '{{ fontSpecimenSampleDefault | safe }}';
+		}
+
+		function updateFontPreviewOptions (e) {
+			var previewOptions = e.target.closest('[data-preview-option]') || false;
+			if (!previewOptions) { previewOptions = [].slice.call(document.querySelectorAll('[data-preview-option]')); }
+			else { previewOptions = [previewOptions]; }
+
+			previewOptions.forEach(function (previewOption) {
+				var classToToggle = previewOption.getAttribute('name');
+				var isToggleAdd = previewOption.checked;
+
+				if (isToggleAdd) { fontPreviewOutput.classList.add('specimen-'+classToToggle); }
+				else { fontPreviewOutput.classList.remove('specimen-'+classToToggle); }
+			});
+		}
+
+		document.getElementById('preview-update').addEventListener('click', function (e) {
+			updateFontPreviewText();
+			updateFontPreviewOptions(e);
+		});
+		document.addEventListener('click', function (e) {
+			var ligCode = e.target.closest('.ligature-sample-code');
+			if (!ligCode) { return; }
+			var ligText = ligCode.parentElement.querySelector('input');
+			ligText.select();
+			document.execCommand('copy');
+			ligCode.classList.add('copied');
+			setTimeout(function() { ligCode.classList.remove('copied'); }, 300);
+		});
+		fontPreviewerForm.addEventListener('keyup', updateFontPreviewText);
+		fontPreviewerForm.addEventListener('change', updateFontPreviewOptions);
+		fontPreviewerForm.addEventListener('submit', function (e) {
+			updateFontPreviewText();
+			e.preventDefault();
+			return false;
+		});
+	{% endset %}
+	{{ fontSpecimenScripts | jsmin | safe }}
+	</script>
+	<script src="../download-preview.js" defer></script>
+</body>
+
+</html>

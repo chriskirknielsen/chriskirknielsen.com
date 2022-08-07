@@ -2,4 +2,8 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
 	gap: var(--size-l);
+
+	&[data-grid-cols='3'] {
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	}
 }

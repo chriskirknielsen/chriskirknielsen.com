@@ -43,3 +43,38 @@ time[datetime] {
 	font-weight: 700;
 	color: var(--theme-accent-color);
 }
+
+blockquote {
+	border-inline-start: var(--size-2xs) solid var(--theme-color-primary-min, currentColor);
+	padding-inline-start: var(--size-l);
+
+	& > * + * {
+		margin-block-start: var(--size-m);
+	}
+
+	& > :first-child::before {
+		content: open-quote;
+
+		display: inline-block;
+
+		text-indent: -0.75em;
+	}
+
+	& > :last-child::after {
+		content: close-quote;
+	}
+
+	:lang(fr) & > :first-child::before {
+		text-indent: -1em;
+	}
+	:lang(fr) & > :last-child::after {
+		padding-inline-start: 0.25em;
+	}
+
+	& > :first-child::before,
+	& > :last-child::after {
+		color: var(--theme-color-secondary-med, currentColor);
+		font-weight: bold;
+		font-family: var(--font-fallback-serif);
+	}
+}

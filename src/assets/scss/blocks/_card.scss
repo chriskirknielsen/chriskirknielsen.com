@@ -58,6 +58,15 @@
 		background-color: var(--theme-bg-neutral-color);
 	}
 
+	a[data-card-coverlink] {
+		&::after {
+			content: '';
+
+			position: absolute;
+			inset: 0;
+		}
+	}
+
 	&-title {
 		position: relative;
 

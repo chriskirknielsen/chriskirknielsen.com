@@ -10,6 +10,7 @@ const defaultLang = 'en';
 const util = require('util');
 const deepmerge = require('deepmerge');
 const { minify } = require('terser');
+const CleanCSS = require('clean-css');
 const { PurgeCSS } = require('purgecss');
 const htmlmin = require('html-minifier');
 const { DateTime } = require('luxon');
@@ -23,6 +24,7 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
+const pageAssets = require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix');
 
 // Helpers
 function trueType(val) {
@@ -106,6 +108,12 @@ module.exports = function (eleventyConfig) {
 		errorMode: 'allow-fallback',
 		dictionary: translations,
 	});
+	eleventyConfig.addPlugin(pageAssets, {
+		mode: 'directory',
+		postsMatching: 'src/fonts/*/*.njk',
+		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2',
+		silent: true,
+	});
 
 	/* Filters */
 	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
@@ -158,6 +166,10 @@ module.exports = function (eleventyConfig) {
 			removeComments: true,
 			collapseWhitespace: true,
 		});
+	});
+
+	eleventyConfig.addFilter('cssmin', function (code) {
+		return new CleanCSS({}).minify(code).styles;
 	});
 
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
@@ -283,11 +295,26 @@ module.exports = function (eleventyConfig) {
 		});
 	});
 
+	// Only _published_ content in the `fonts/` directory
+	eleventyConfig.addCollection('fonts', function (collection) {
+		return collection
+			.getAllSorted()
+			.filter(function (item) {
+				var postsRegExp = new RegExp('^./' + (rootDir ? rootDir + '/' : '') + 'fonts/');
+				var isDraft = Boolean(item.data.draft);
+				return item.inputPath.match(postsRegExp) !== null && !isDraft;
+			})
+			.sort(function (a, b) {
+				return a.inputPath.localeCompare(b.inputPath); // sort by path - ascending
+			});
+	});
+
 	/* Passthroughs */
 	eleventyConfig.addPassthroughCopy({
 		[`${rootDir}/_includes/assets/css`]: '/assets/css',
 		[`${rootDir}/_includes/assets/js`]: '/assets/js',
 		[`${rootDir}/assets/img`]: '/assets/img',
+		[`${rootDir}/assets/audio`]: '/assets/audio',
 	});
 
 	/* Markdown */
