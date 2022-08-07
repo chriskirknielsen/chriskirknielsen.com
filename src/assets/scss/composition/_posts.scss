@@ -3,13 +3,6 @@
 
 	position: relative;
 
-	text-decoration: none;
-	color: inherit;
-
-	&:is(:hover, :focus) {
-		text-decoration: underline;
-	}
-
 	&-symbol {
 		visibility: hidden;
 

@@ -1,7 +1,6 @@
 ---
-title: Shop
-pageTitle: Designs
-subtitle: A collection of posters and shirt designs I've made
+title: Designs
+subtitle: A collection of posters and shirt designs I've made, available across multiple online shops.
 summary: Shirt and poster designs by Christopher Kirk-Nielsen
 ---
 
@@ -36,9 +35,9 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 	{% endfor %}
 </fieldset>
 
-<div class="cards u-marginBlockStart-xl" data-filtered-list="idle">
+<div class="grid u-marginBlockStart-xl" data-filtered-list="idle">
 {% for design in activeDesigns %}
-	{% set designPermalink = '/designs/' + design.slug %}
+	{% set designPermalink = '/designs/' + design.slug + '/' | url %}
 	<article
 		class="card"
 		id="{{ design.slug }}"
@@ -52,8 +51,8 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		aria-hidden="false"
 	>
 		{% if design.img %}
-		<div class="card__image">
-			<a href="{{ designPermalink | url }}" aria-label="{{ design.name }}" tabindex="-1">
+		<div class="card-image">
+			<a href="{{ designPermalink }}" aria-label="{{ design.name }}" tabindex="-1">
 				<img
 				src="{{ '/' + assets.imagesDir + '/designs/' + design.img | url }}"
 				srcset="
@@ -75,9 +74,9 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		</div>
 		{% endif %}
 
-		<div class="card__content">
-			<h2 class="card__title | h4 | u-marginBlockEnd-s">
-				<a href="{{ designPermalink | url }}" class="heading-link">{{- design.name -}}</a>
+		<div class="card-content">
+			<h2 class="card-title | h4 | u-marginBlockEnd-s">
+				<a href="{{ designPermalink }}" class="heading-link">{{- design.name -}}</a>
 			</h2>
 			
 			<ul role="list" class="inline-list | u-marginBlockStart-auto u-fontSize-smallest">

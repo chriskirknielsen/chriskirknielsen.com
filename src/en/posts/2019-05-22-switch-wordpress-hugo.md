@@ -9,7 +9,7 @@ date: 2019-05-22
 tags:
     - wordpress
     - hugo
-    - static site generator
+    - ssg
 ---
 
 When I converted [my blog, Geekometric](https://geekometric.com), from a WordPress-based site to a Hugo-built static site, I felt I needed to go through a lot of different pages to achieve a simple blog.

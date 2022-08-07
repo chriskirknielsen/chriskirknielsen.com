@@ -1,0 +1,16 @@
+.standbyme {
+	display: flex;
+	flex-wrap: wrap;
+
+	& > * {
+		flex-basis: calc((42rem - 100%) * 999);
+	}
+
+	&-wide {
+		flex-grow: 2;
+	}
+
+	&-narrow {
+		flex-grow: 1;
+	}
+}

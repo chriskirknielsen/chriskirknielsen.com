@@ -1,0 +1,64 @@
+---
+pagination:
+    data: designs
+    size: 1
+    alias: design
+permalink: "designs/{{ design.slug | slug }}/"
+eleventyExcludeFromCollections: true
+eleventyComputed:
+    pageTitle: "{{ design.name | safe }}"
+    title: "{{ design.name | safe }} — Design"
+    subtitle: "{{ design.description | safe }}"
+    summary: "{{ design.description | safe }} | Design by Christopher Kirk-Nielsen"
+    customMetaImage: "{{ '/' + assets.imagesDir + '/designs/' + design.img }}"
+backlink: { url: "/designs/", label: "Back to Designs" }
+---
+
+<article class="standbyme">
+	{% if design.img %}
+	<div class="standbyme-wide">
+		<img src="{{ '/' + assets.imagesDir + '/designs/' + design.img | url }}" alt="" width="600" height="600" class="u-corner">
+	</div>
+	{% endif %}
+
+	<div class="standbyme-narrow | flow | u-padding-l">
+	{% if design.links %}
+		<h2>Available on</h2>
+		<ul class="flow">
+			{%- for site, url in design.links %}
+			<li><a href="{{ url | url }}">{{ site }}</li>
+			{% endfor -%}
+		</ul>
+	{% endif %}
+
+	{% if design.note %}<p class="u-fontStyle-italic">{% markdown true %}{{ design.note }}{% endmarkdown %}</p>{% endif %}
+	{% if design.similar %}
+		<h2 class="h3">Similar designs:</h2>
+		<ul class="flow">
+			{%- for otherDesignSlug in design.similar %}
+			{% set otherDesign = designs | find('slug', otherDesignSlug) %}
+			<li><a href="{{ '/designs/' + (otherDesign.slug | slug) + '/' | url }}">{{ otherDesign.name | safe }}</a></li>
+			{% endfor -%}
+		</ul>
+	{% endif %}
+	</div>
+</article>
+
+<script>
+{% set backlinkThroughHistory %}
+(function(){
+	// Send back to a potential filtered view
+	let backlinkEl = document.querySelector('[data-backlink][href="/designs/"]');
+	if (document.referrer.replace(/\/$/, '') === backlinkEl.href.replace(/\/$/, '')) {
+		backlinkEl.addEventListener('click', function (e) {
+			e.preventDefault();
+			window.history.go(-1);
+			// If there is an issue with history and nothing happens, go to the basic URL after a short while
+			setTimeout(function() { window.location.href = backlinkEl.href; }, 300);
+			return false;
+		});
+	}
+})()
+{% endset %}
+{{- backlinkThroughHistory | jsmin | safe -}}
+</script>

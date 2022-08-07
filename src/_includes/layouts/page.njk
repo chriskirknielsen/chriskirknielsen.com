@@ -8,6 +8,16 @@ templateName: page
 		<h1>{{ pageTitle or title }}</h1>
 		
 		<p class="u-fontWeight-bold">{{ subtitle }}</p>
+
+		{% if backlink %}
+		<p class="u-marginBlockStart-m">
+			<a href="{{ backlink.url | url }}" class="button" data-backlink>
+				{% set svgArrowBackOpts = { class: "inline-icon" } %}
+				{% include "assets/svg/arrow-back.svg.njk" %}
+				{{ backlink.label }}
+			</a>
+		</p>
+		{% endif %}
     </div>
 </header>
 

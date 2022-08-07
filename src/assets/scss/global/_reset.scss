@@ -22,8 +22,8 @@ ul {
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
-ul:where([class]),
-ol:where([class]) {
+ul:where([role='list']),
+ol:where([role='list']) {
 	list-style: none;
 }
 

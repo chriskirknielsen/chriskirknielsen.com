@@ -16,3 +16,7 @@
 .u-display-block {
 	display: block;
 }
+
+.u-corner {
+	border-radius: var(--theme-corner-radius);
+}

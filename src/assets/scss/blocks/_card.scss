@@ -1,9 +1,3 @@
-.cards {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
-	gap: var(--size-l);
-}
-
 .card {
 	position: relative;
 
@@ -15,14 +9,47 @@
 	border: 1px solid var(--theme-accent-color);
 	border-radius: var(--theme-corner-radius);
 
-	&__image img {
+	&-image {
 		flex-shrink: 0;
+	}
+
+	&-image a {
+		display: block;
+		overflow: hidden;
+	}
+
+	/* //For :has() support:
+	&-image a:is(:hover) img,
+	&:focus-within &-image a img {
+		transform: scale(1.0625) rotate(1deg);
+	}
+	&:has(a:is(:hover, :focus)) &-image a img {
+		transform: scale(1.0625) rotate(1deg);
+	}
+	//*/
+
+	// While waiting for :has() to be supported, since the card should only react to links
+	// We can remove pointer events so the :hover state is only active on links which restore the pointer-events
+	& {
+		pointer-events: none;
+	}
+	& a {
+		pointer-events: auto;
+	}
+	&:hover a img,
+	&:focus-within &-image a img {
+		transform: scale(1.0625) rotate(1deg);
+	}
+
+	&-image img {
 		width: 100%;
 
 		background: var(--theme-color-gray-med);
+
+		transition: transform 250ms cubic-bezier(0.67, 0, 0.33, 1);
 	}
 
-	&__content {
+	&-content {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
@@ -31,7 +58,7 @@
 		background-color: var(--theme-bg-neutral-color);
 	}
 
-	&__title {
+	&-title {
 		position: relative;
 
 		&::before {

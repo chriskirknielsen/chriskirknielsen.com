@@ -2,7 +2,7 @@
 	--link-grad-one: 0px;
 	--link-grad-two: 1px;
 
-	@media (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.5), (-moz-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+	@media (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.66), (-moz-min-device-pixel-ratio: 1.66), (min-device-pixel-ratio: 1.66) {
 		--link-grad-one: 0.5px;
 	}
 
@@ -18,5 +18,14 @@
 		background: repeating-linear-gradient(90deg, var(--theme-link-underline-color, transparent) var(--link-grad-one), transparent var(--link-grad-two)) repeat-x 0 100% / 2px
 			0.67em;
 		box-decoration-break: clone;
+	}
+}
+
+:is(h1, h2, h3, h4, h5, h6) > :is(a, .heading-anchor) {
+	text-decoration: none;
+	color: inherit;
+
+	&:is(:hover, :focus) {
+		text-decoration: underline;
 	}
 }

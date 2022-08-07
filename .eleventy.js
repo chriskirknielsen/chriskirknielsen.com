@@ -114,6 +114,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
 	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
+	eleventyConfig.addFilter('find', (array, prop, value) => array.find((item) => item[prop] === value));
 	eleventyConfig.addFilter('unique', (arr) => [...new Set(arr)]);
 	eleventyConfig.addFilter('flatten', function (array) {
 		const flatten = (arr) => arr.reduce((acc, cur) => acc.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
@@ -213,6 +214,15 @@ module.exports = function (eleventyConfig) {
 		return `<div class="callout"${typeof pseudo === 'string' ? ' data-callout="' + pseudo + '"' : ''}>
 			<p>${md.renderInline(content)}</p>
 		</div>`;
+	});
+
+	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => {
+		const md = new markdownIt().disable('code');
+		return inline ? md.renderInline(content) : md.render(content);
+	});
+
+	eleventyConfig.addNunjucksAsyncShortcode('svg', (filename, opts) => {
+		return '';
 	});
 
 	/* Transforms */
