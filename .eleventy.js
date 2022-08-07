@@ -315,6 +315,7 @@ module.exports = function (eleventyConfig) {
 		[`${rootDir}/_includes/assets/js`]: '/assets/js',
 		[`${rootDir}/assets/img`]: '/assets/img',
 		[`${rootDir}/assets/audio`]: '/assets/audio',
+		[`${rootDir}/assets/fonts`]: '/assets/fonts',
 	});
 
 	/* Markdown */

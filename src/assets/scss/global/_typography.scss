@@ -28,7 +28,7 @@ i,
 em {
 	padding-inline-end: 0.125em; // Add a little space after an em tag to avoid sticking too closely to the following text
 
-	color: var(--theme-accent-color);
+	color: var(--theme-heading-color);
 }
 
 s,
@@ -76,5 +76,15 @@ blockquote {
 		color: var(--theme-color-secondary-med, currentColor);
 		font-weight: bold;
 		font-family: var(--font-fallback-serif);
+	}
+}
+
+:is(ol, ul) {
+	& :is(ol, ul) {
+		padding-left: 1em;
+	}
+
+	& ul {
+		list-style-type: disc;
 	}
 }

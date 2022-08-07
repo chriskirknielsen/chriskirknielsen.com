@@ -1,14 +1,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ navtitle or title or renderData.title }} | {{ metadata.title }}</title>
+	<title>{{ title or renderData.title }} | {{ metadata.title }}</title>
 	
 	{% if summary %}
 	<meta name="description" content="{{ summary }}">
 	<meta name="og:description" content="{{ summary }}">
 	{% endif %}
 	
-	<meta property="og:title" content="{{ navtitle or title or renderData.title }} | {{ metadata.title }}">
+	<meta property="og:title" content="{{ title or renderData.title }} | {{ metadata.title }}">
 	<meta property="og:site_name" content="{{ metadata.title }}">
 	<meta property="og:locale" content="{{ locale or 'en' }}">
 	<meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
@@ -22,7 +22,7 @@
 		{% endif %}
 	{% endset %}
 	<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">
-	<meta name="twitter:image:alt" property="og:image:alt" content="{{ navtitle or title or renderData.title }}" />
+	<meta name="twitter:image:alt" property="og:image:alt" content="{{ title or renderData.title }}" />
 	<meta name="twitter:card" content="summary" />
 
 	{%- if fontSpecimen -%}		

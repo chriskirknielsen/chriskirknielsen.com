@@ -3,7 +3,6 @@ layout: layouts/home.njk
 title: Home
 summary: Christopher Kirk-Nielsen, a creative developer
 permalink: /
-navtitle: Home
 i18n:
     page:
         quickAccess:

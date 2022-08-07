@@ -23,8 +23,7 @@
             <nav aria-labelledby="footer-extras-links-title" class="footer__nav" data-footer-nav="extras">
                 <h2 class="h4" id="footer-extras-links-title">{{ 'footerAdditionalLinks' | i18n }}</h2>
                 <ul>
-                    {# {%- set getAcknowledgementsPage = collections | getLocalisedPage('acknowledgements', locale) -%}
-                    <li><a href="{{ getAcknowledgementsPage.data.permalink | url }}">{{ getAcknowledgementsPage.data.navtitle }}</a></li> #}
+                    <li><a href="{{ '/acknowledgements/' | locale_url }}">{{ 'nav.acknowledgements' | i18n }}</a></li>
                     <li><a href="{{ '/fonts/' | url }}">{{ 'customFonts' | i18n }}</a></li>
                 </ul>
             </nav>

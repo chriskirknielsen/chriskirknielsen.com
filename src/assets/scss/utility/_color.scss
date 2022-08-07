@@ -23,8 +23,6 @@
 }
 
 .u-background-extend {
-	// h/t Temani Afif
-	clip-path: inset(0 -100%);
-
-	box-shadow: 0 0 0 100vmax var(--ctx-bg);
+	// h/t SelenIT2: https://twitter.com/SelenIT2/status/1534496667944239107
+	border-image: conic-gradient(var(--ctx-bg) 0 0) fill 1/0/0 50vmax;
 }

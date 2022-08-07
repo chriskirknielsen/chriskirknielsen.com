@@ -25,7 +25,7 @@ section: home
         <div class="subsection subsection--quickaccess">
             <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
 
-            <a href="{{ 'page.quickAccess.about.url' | i18n }}" class="button" data-button="tile" style="--area: url1">
+            <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
                 <strong class="spaced-items">
                     {% set svgQuestionOpts = { class: 'inline-icon' } %}
                     {% include "assets/svg/question.svg.njk" %}
@@ -33,7 +33,7 @@ section: home
                 </strong>
                 <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
             </a>
-            <a href="{{ 'page.quickAccess.designs.url' | i18n }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
+            <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
                 <strong class="spaced-items">
                     {% set svgShirtOpts = { class: 'inline-icon' } %}
                     {% include "assets/svg/shirt.svg.njk" %}
@@ -41,7 +41,7 @@ section: home
                 </strong>
                 <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
             </a>
-            <a href="{{ 'page.quickAccess.fonts.url' | i18n }}" class="button" data-button="tile" style="--area: url3">
+            <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
                 <strong class="spaced-items">
                     {% set svgTypeOpts = { class: 'inline-icon' } %}
                     {% include "assets/svg/type.svg.njk" %}
@@ -51,7 +51,7 @@ section: home
             </a>
 
             <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l);">
-                <a href="{{ 'page.quickAccess.also.usesPageUrl' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
+                <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
 
                 {% for socialPage in social %}
                     <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
@@ -81,7 +81,7 @@ section: home
             </a>
 
             <p class="spaced-items inlined-items" style="--area: ctas">
-                <a href="{{ '/blog' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
+                <a href="{{ '/blog/' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
                 
                 <a href="{{ '/rss.xml' | locale_url }}" class="button">
                     {% include 'assets/svg/rss.svg.njk' %}
