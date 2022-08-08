@@ -1,0 +1,14 @@
+---
+layout: layouts/page.njk
+lang: en
+locale: en
+dir: ltr
+title: Test Page
+permalink: /test/index.html
+---
+
+<ul>
+{%- for post in collections.all -%}
+    <li><a href="{{ post.url }}">{{ post.url }}</a></li>
+{%- endfor -%}
+</ul>

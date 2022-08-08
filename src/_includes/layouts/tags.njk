@@ -1,0 +1,20 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: ['all', 'language', 'nav', 'post', 'posts', 'posts_all', 'posts_en', 'posts_fr', 'pages', 'pages_all', 'pages_en', 'pages_fr']
+layout: layouts/base.njk
+permalink: /{{ localeRoot }}tags/{{ tag }}/
+eleventyComputed:
+  title: "{{ 'tagged' | i18n }} {{ 'grammar.quoteOpen' | i18n }}{{ tag }}{{ 'grammar.quoteClose' | i18n }}"
+---
+
+<header class="bigboi | content-breakout">
+	<div class="bigboi-inner | container" style="--flow-space: var(--size-m)">
+		<h1>{{ title }}</h1>
+  </div>
+</header>
+
+{% set postslist = collections[ tag ] | locale(lang) %}
+{% include "components/postslist.njk" %}

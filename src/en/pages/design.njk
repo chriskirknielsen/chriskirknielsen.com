@@ -3,9 +3,8 @@ pagination:
     data: designs
     size: 1
     alias: design
-permalink: "designs/{{ design.slug | slug }}/"
-eleventyExcludeFromCollections: true
 eleventyComputed:
+    permalink: "designs/{{ design.slug | slug }}/"
     pageTitle: "{{ design.name | safe }}"
     title: "{{ design.name | safe }} — Design"
     subtitle: "{{ design.description | safe }}"

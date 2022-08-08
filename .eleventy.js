@@ -18,6 +18,7 @@ const templite = require('templite');
 
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
+const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
@@ -103,6 +104,7 @@ module.exports = function (eleventyConfig) {
 			'data-lang': (context) => context.language.toUpperCase(),
 		},
 	});
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(EleventyI18nPlugin, {
 		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
@@ -119,6 +121,12 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
+	eleventyConfig.addFilter('locale', function (collection, locale) {
+		if (!locale) {
+			return collection;
+		}
+		return collection.filter((item) => item.data.lang === locale);
+	});
 	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
 	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
