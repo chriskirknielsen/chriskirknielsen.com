@@ -295,14 +295,12 @@ module.exports = function (eleventyConfig) {
 		});
 	});
 
-	// Only _published_ content in the `fonts/` directory
+	// Only _published_ content in the `/fonts/` directory
 	eleventyConfig.addCollection('fonts', function (collection) {
 		return collection
-			.getAllSorted()
+			.getFilteredByGlob(`./${rootDir}/fonts/**/index.njk`)
 			.filter(function (item) {
-				var postsRegExp = new RegExp('^./' + (rootDir ? rootDir + '/' : '') + 'fonts/');
-				var isDraft = Boolean(item.data.draft);
-				return item.inputPath.match(postsRegExp) !== null && !isDraft;
+				return !item.data.draft;
 			})
 			.sort(function (a, b) {
 				return a.inputPath.localeCompare(b.inputPath); // sort by path - ascending

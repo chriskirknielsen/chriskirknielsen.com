@@ -8,8 +8,8 @@
 		"watch": "npx eleventy --watch --port=9090",
 		"debug": "DEBUG=* npx eleventy",
 		"sass:tokens": "npx json-to-scss src/_data/tokens.json src/assets/scss/config/_tokens.scss",
-		"dev": "gulp watch & eleventy --serve --quiet --port=9090",
-		"dev:eleventy": "eleventy --serve --port=9090",
+		"dev": "gulp watch & eleventy --serve --quiet --incremental --port=9090",
+		"dev:eleventy": "eleventy --serve --incremental --port=9090",
 		"dev:gulpcss": "gulp css"
 	},
 	"keywords": [],
