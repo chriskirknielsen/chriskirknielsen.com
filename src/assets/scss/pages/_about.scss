@@ -50,7 +50,8 @@
 	0% {
 		transform: rotate(-90deg) translateX(1.25em) rotate(90deg);
 	}
-	50% {
+	33%,
+	67% {
 		opacity: 0;
 	}
 	100% {

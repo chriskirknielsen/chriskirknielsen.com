@@ -30,7 +30,7 @@
 			"original": "Read the original article",
 			"external": "Read the full article on",
 			"writtenByAuthor": "Post written by {{ author }}",
-			"commentsAndSupport": "If you have a comment, please <a href=\"{{ twitterUrl }}\">tag me on Twitter</a>, I'm happy to chat! If you liked this content, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>. Thanks a ton!"
+			"commentsAndSupport": "If you have a comment, please <a href=\"{{ twitterUrl }}\">tag me on Twitter</a>, I'm happy to chat! If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>? Thanks a ton!"
 		},
 		"latestPost": "Latest Post",
 		"tagged": "Tagged",
