@@ -1,8 +1,10 @@
 ---
+tags: [designs]
 pagination:
     data: designs
     size: 1
     alias: design
+    addAllPagesToCollections: true
 eleventyComputed:
     permalink: "designs/{{ design.slug | slug }}/"
     pageTitle: "{{ design.name | safe }}"

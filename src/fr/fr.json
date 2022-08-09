@@ -10,7 +10,8 @@
 			"punctSp": " ",
 			"quoteOpen": "« ",
 			"quoteClose": " »",
-			"andWord": "et"
+			"andWord": "et",
+			"inWord": "dans"
 		},
 		"skiplink": "Sauter au contenu",
 		"closeLabel": "Fermer",

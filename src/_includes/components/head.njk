@@ -90,6 +90,10 @@
 	<meta name="theme-color" content="{{ tokens.themes[tokens.defaultTheme.dark].colors.primary.max }}">
 	{% endif %}
 
-	{% if localeRssUrl %}<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ localeRssUrl }}">{% endif %}
+	<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url }}">
+	{% for link in page.url | locale_links %}
+    <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | url }}">
+	{% endfor %}
+	<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url }}">
 	<meta name="generator" content="{{ eleventy.generator }}">
 </head>

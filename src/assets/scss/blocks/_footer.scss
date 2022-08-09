@@ -11,7 +11,7 @@
 	&-inner {
 		display: grid;
 		grid-gap: 1px;
-		grid-template-columns: minmax(4rem, 8rem) 1fr;
+		grid-template-columns: 1fr 2fr;
 		grid-template-areas:
 			'logo note'
 			'logo hyper'

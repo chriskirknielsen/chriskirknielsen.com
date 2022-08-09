@@ -104,7 +104,7 @@ module.exports = function (eleventyConfig) {
 			'data-lang': (context) => context.language.toUpperCase(),
 		},
 	});
-	eleventyConfig.addPlugin(EleventyRenderPlugin);
+	// eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(EleventyI18nPlugin, {
 		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
@@ -121,15 +121,17 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
-	eleventyConfig.addFilter('locale', function (collection, locale) {
-		if (!locale) {
-			return collection;
-		}
-		return collection.filter((item) => item.data.lang === locale);
+	eleventyConfig.addFilter('locale', function (collection, locale = null) {
+		// Determine the target language, or use the default
+		const context = this?.ctx || this.context?.environments;
+		locale = locale || context.lang || defaultLang;
+
+		return collection.filter((item) => item?.data?.lang === locale);
 	});
 	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
 	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
+	eleventyConfig.addFilter('filterOut', (list, values) => list.filter((value) => !values.includes(value)));
 	eleventyConfig.addFilter('find', (array, prop, value) => array.find((item) => item[prop] === value));
 	eleventyConfig.addFilter('unique', (arr) => [...new Set(arr)]);
 	eleventyConfig.addFilter('flatten', function (array) {
@@ -241,9 +243,9 @@ module.exports = function (eleventyConfig) {
 		return inline ? md.renderInline(content) : md.render(content);
 	});
 
-	eleventyConfig.addNunjucksAsyncShortcode('svg', (filename, opts) => {
-		return '';
-	});
+	// eleventyConfig.addNunjucksAsyncShortcode('svg', (filename, opts) => {
+	// 	return '';
+	// });
 
 	/* Transforms */
 	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {

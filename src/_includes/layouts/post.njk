@@ -6,7 +6,17 @@ templateName: post
 <header class="bigboi | content-breakout">
 	<div class="bigboi-inner | container">
 		<h1 id="{{ title | slug }}">{{ title }}</h1>
-		<time datetime="{{ date | dateFormat({ format: 'machine' }) }}">{{ date | dateFormat({ format: 'nice', locale: lang }) }}</time>
+		<p>
+			<time datetime="{{ date | dateFormat({ format: 'machine' }) }}">
+				{{- date | dateFormat({ format: 'nice', locale: lang }) -}}
+			</time>
+			{{ 'grammar.inWord' | i18n }}
+			{%- if tags -%}
+				{%- for tag in tags | filterOut(systemtags) -%}
+					{%- if loop.index > 1 %},{% endif %} <a href="{{ localePath + 'tags/' + tag | url }}/">{{ tag }}</a>
+				{%- endfor -%}
+			{%- endif -%}
+		</p>
 	</div>
 </header>
 

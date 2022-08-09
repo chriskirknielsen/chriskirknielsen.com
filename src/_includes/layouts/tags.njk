@@ -3,7 +3,8 @@ pagination:
   data: collections
   size: 1
   alias: tag
-  filter: ['all', 'language', 'nav', 'post', 'posts', 'posts_all', 'posts_en', 'posts_fr', 'pages', 'pages_all', 'pages_en', 'pages_fr']
+  addAllPagesToCollections: true
+  filter: systemtags
 layout: layouts/base.njk
 permalink: /{{ localeRoot }}tags/{{ tag }}/
 eleventyComputed:
@@ -16,5 +17,5 @@ eleventyComputed:
   </div>
 </header>
 
-{% set postslist = collections[ tag ] | locale(lang) %}
+{% set postslist = collections[ tag ] | locale %}
 {% include "components/postslist.njk" %}
