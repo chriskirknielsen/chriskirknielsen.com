@@ -9,13 +9,12 @@ const defaultLang = 'en';
 // Tools
 const util = require('util');
 const deepmerge = require('deepmerge');
-const { minify } = require('terser');
-const UglifyJS = require('uglify-es');
-const CleanCSS = require('clean-css');
 const { PurgeCSS } = require('purgecss');
-const htmlmin = require('html-minifier');
 const { DateTime } = require('luxon');
+const htmlmin = require('html-minifier');
 const templite = require('templite');
+const CleanCSS = require('clean-css');
+const { minify } = require('terser');
 
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
@@ -155,19 +154,16 @@ module.exports = function (eleventyConfig) {
 		const format = opts.format || 'machine';
 		const locale = opts.locale || defaultLang;
 		const dateObj = new Date(date);
-		const utcDate = DateTime.fromJSDate(dateObj).toUTC();
+		const utcDate = DateTime.fromJSDate(dateObj).toUTC().setLocale(locale);
 		switch (format) {
 			case 'year': {
 				return utcDate.toFormat('yyyy');
 			}
 			case 'nice': {
-				const year = utcDate.toFormat('yyyy');
-				const month = Intl.DateTimeFormat(locale, { month: 'long' }).format(utcDate.toJSDate());
-				const day = Intl.DateTimeFormat(locale, { day: 'numeric' }).format(utcDate.toJSDate());
-				return `${day} ${month} ${year}`;
+				return utcDate.toFormat('d LLLL yyyy');
 			}
 			case 'machine': {
-				return utcDate.toFormat('dd LLL yyyy');
+				return utcDate.toFormat('yyyy-MM-dd');
 			}
 		}
 	});

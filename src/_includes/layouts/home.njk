@@ -7,7 +7,7 @@ section: home
     <p class="visually-hidden">{{ 'homescreenTitle.visualDescription' | i18n }}</p>
     <div class="homescreen-content">
         <div class="homescreen-background" aria-hidden="true">
-            {% renderFile "homescreen-grid" | svgUrl(false), {}, "html" %}
+            {% renderFile "homescreen-grid" | svgUrl(false), null, "html" %}
         </div>
 
         <h1 class="homescreen-title">
