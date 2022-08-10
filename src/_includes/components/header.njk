@@ -1,8 +1,7 @@
 <header class="header">
     <div class="header-inner | container">
         <a href="{{ '/' | locale_url | url }}" class="header-logo">
-            {% set svgLogoOpts = { title: ('nav.home' | i18n) } %}
-            {% include 'assets/svg/logo.svg.njk' %}
+            {% renderFile "logo" | svgUrl, { svgTitle: ('nav.home' | i18n) } %}
         </a>
 
         <nav class="header-nav" aria-label="{{ 'nav.label' | i18n }}">

@@ -1,5 +1,4 @@
-{% set anchorLinkSvgClass = "visually-hidden" -%}
-{%- include "assets/svg/anchor-link.svg.njk" %}
+{%- renderFile "anchor-link" | svgUrl, { svgClass: "visually-hidden" } -%}
 
 <script>"use strict";
 {%- set footJs %}

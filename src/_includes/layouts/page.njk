@@ -12,8 +12,7 @@ templateName: page
 		{% if backlink %}
 		<p class="u-marginBlockStart-m">
 			<a href="{{ backlink.url | url }}" class="button" data-backlink>
-				{% set svgArrowBackOpts = { class: "inline-icon" } %}
-				{% include "assets/svg/arrow-back.svg.njk" %}
+				{% renderFile "arrow-back" | svgUrl, { svgClass: "inline-icon" } %}
 				{{ backlink.label }}
 			</a>
 		</p>

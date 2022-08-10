@@ -104,7 +104,7 @@ module.exports = function (eleventyConfig) {
 			'data-lang': (context) => context.language.toUpperCase(),
 		},
 	});
-	// eleventyConfig.addPlugin(EleventyRenderPlugin);
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(EleventyI18nPlugin, {
 		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
@@ -119,6 +119,7 @@ module.exports = function (eleventyConfig) {
 
 	/* Filters */
 	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
+	eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
 	eleventyConfig.addFilter('locale', function (collection, locale = null) {
@@ -242,10 +243,6 @@ module.exports = function (eleventyConfig) {
 		const md = new markdownIt().disable('code');
 		return inline ? md.renderInline(content) : md.render(content);
 	});
-
-	// eleventyConfig.addNunjucksAsyncShortcode('svg', (filename, opts) => {
-	// 	return '';
-	// });
 
 	/* Transforms */
 	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {

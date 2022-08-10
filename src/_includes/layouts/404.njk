@@ -4,9 +4,9 @@ section: 404
 ---
 
 <button type="button" class="button-reset cdiv-clock-wrap" data-chime>
-    {% set clock_404 -%}
-    {%- include "assets/svg/clock-404.svg.njk" -%}
-    {%- endset -%}
+    {%- setAsync "clock_404" -%}
+    {%- renderFile "clock-404" | svgUrl -%}
+    {%- endsetAsync -%}
     {{ clock_404 | htmlmin | safe }}
 </button>
 
@@ -14,8 +14,7 @@ section: 404
 
 <p class="u-textAlign-center">
     <a href="{{ localePath | url }}" class="button">
-        {% set svgArrowBackDoubleOpts = { class: "inline-icon" } %}
-        {% include "assets/svg/arrow-back-double.svg.njk" %}
+        {% renderFile "arrow-back-double" | svgUrl, { svgClass: "inline-icon" } %}
         {{ 'nav.home' | i18n }}
     </a>
 </p>
