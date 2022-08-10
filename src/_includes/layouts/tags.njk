@@ -1,14 +1,19 @@
----
-pagination:
-  data: collections
-  size: 1
-  alias: tag
-  addAllPagesToCollections: true
-  filter: systemtags
-layout: layouts/base.njk
-permalink: /{{ localeRoot }}tags/{{ tag }}/
-eleventyComputed:
-  title: "{{ 'tagged' | i18n }} {{ 'grammar.quoteOpen' | i18n }}{{ tag }}{{ 'grammar.quoteClose' | i18n }}"
+---js
+{
+  pagination: {
+    data: "collections",
+    size: 1,
+    alias: "tag",
+    before: function(paginationData, fullData) {
+      return paginationData.filter(t => !fullData.systemtags.includes(t));
+    }
+  },
+  layout: "layouts/base.njk",
+  permalink: "/{{ localeRoot }}tags/{{ tag }}/",
+  eleventyComputed: {
+    title: "{{ 'tagged' | i18n }} {{ 'grammar.quoteOpen' | i18n }}{{ tag }}{{ 'grammar.quoteClose' | i18n }}"
+  }
+}
 ---
 
 <header class="bigboi | content-breakout">
@@ -17,5 +22,5 @@ eleventyComputed:
   </div>
 </header>
 
-{% set postslist = collections[ tag ] | locale %}
+{% set postslist = collections[ tag ] | collectionInLocale %}
 {% include "components/postslist.njk" %}

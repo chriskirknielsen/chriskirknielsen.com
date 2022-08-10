@@ -61,7 +61,7 @@ section: home
 
             <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
 
-            {% set latestposts = collections["posts_" + lang] | reverse %}
+            {% set latestposts = collections["post_" + lang] | reverse %}
             {% set latestpost = latestposts[0] %}
             <a href="{{ latestpost.url | url }}" class="button | flow" data-button="tile" style="--area: post">
                 <time datetime="{{ latestpost.date | dateFormat({ format: 'machine' }) }}">{{ latestpost.date | dateFormat({ format: 'nice', locale: lang }) }}</time>

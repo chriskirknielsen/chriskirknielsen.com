@@ -10,6 +10,7 @@ const defaultLang = 'en';
 const util = require('util');
 const deepmerge = require('deepmerge');
 const { minify } = require('terser');
+const UglifyJS = require('uglify-es');
 const CleanCSS = require('clean-css');
 const { PurgeCSS } = require('purgecss');
 const htmlmin = require('html-minifier');
@@ -112,17 +113,17 @@ module.exports = function (eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pageAssets, {
 		mode: 'directory',
-		postsMatching: 'src/fonts/*/*.njk',
+		postsMatching: `${rootDir}/fonts/*/*.njk`,
 		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2',
 		silent: true,
 	});
 
 	/* Filters */
-	eleventyConfig.addFilter('console', (value) => `<div style="white-space: pre-wrap;">${unescape(util.inspect(value))}</div>`);
+	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
-	eleventyConfig.addFilter('locale', function (collection, locale = null) {
+	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
 		// Determine the target language, or use the default
 		const context = this?.ctx || this.context?.environments;
 		locale = locale || context.lang || defaultLang;
@@ -192,6 +193,14 @@ module.exports = function (eleventyConfig) {
 			callback(null, code); // Fail gracefully.
 		}
 	});
+	// eleventyConfig.addFilter('jsmin', function (code) {
+	// 	let minified = UglifyJS.minify(code);
+	// 	if (minified.error) {
+	// 		console.log('UglifyJS error: ', minified.error);
+	// 		return code;
+	// 	}
+	// 	return minified.code;
+	// });
 
 	eleventyConfig.addFilter('i18n', function (key, data = {}) {
 		// Find the page context
@@ -283,21 +292,21 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Collections */
-	eleventyConfig.addCollection('pages_all', function (collection) {
+	eleventyConfig.addCollection('page_all', function (collection) {
 		return [].concat(locales.map((locale) => collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/*.{md,njk}`)));
 	});
 
-	eleventyConfig.addCollection('posts_all', function (collection) {
+	eleventyConfig.addCollection('post_all', function (collection) {
 		return [].concat(locales.map((locale) => collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/*.{md,njk}`)));
 	});
 
 	// Loop over locales and get each page and post into its own collection
 	locales.forEach((locale) => {
-		eleventyConfig.addCollection(`pages_${locale}`, function (collection) {
+		eleventyConfig.addCollection(`page_${locale}`, function (collection) {
 			return collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/*.{md,njk}`);
 		});
 
-		eleventyConfig.addCollection(`posts_${locale}`, function (collection) {
+		eleventyConfig.addCollection(`post_${locale}`, function (collection) {
 			return collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/*.{md,njk}`);
 		});
 	});

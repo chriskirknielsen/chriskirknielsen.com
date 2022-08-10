@@ -1,8 +1,8 @@
 const locales = Object.keys(require('./metadata.js').locales);
-locales.push('all');
-const systemTags = ['post', 'page', 'designs', 'fonts'];
+locales.push('all'); // We also want to filter out collections for all languages
+const systemtags = ['all', 'post', 'page', 'designs', 'fonts'];
 for (let locale of locales) {
-	systemTags.push(`pages_${locale}`);
-	systemTags.push(`posts_${locale}`);
+	systemtags.push(`page_${locale}`);
+	systemtags.push(`post_${locale}`);
 }
-module.exports = systemTags;
+module.exports = systemtags;
