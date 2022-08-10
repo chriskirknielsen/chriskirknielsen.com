@@ -21,11 +21,12 @@
 	}
 }
 
-:is(h1, h2, h3, h4, h5, h6) > :is(a, .heading-anchor) {
+:is(h1, h2, h3, h4, h5, h6) > :is(a, .heading-anchor, .heading-link) {
 	text-decoration: none;
 	color: inherit;
 
 	&:is(:hover, :focus) {
-		text-decoration: underline;
+		text-decoration-line: underline;
+		text-decoration-color: var(--theme-link-underline-color, currentColor);
 	}
 }
