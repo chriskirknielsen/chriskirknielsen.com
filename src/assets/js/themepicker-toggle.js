@@ -8,6 +8,7 @@
 		const newStatus = force !== null ? JSON.parse(force) : !isOpen;
 		htmlEl.setAttribute(pickerAttr, newStatus ? 'open' : 'closed');
 		pickerEl.setAttribute('aria-expanded', newStatus.toString());
+		return newStatus;
 	}
 	document.addEventListener('click', function (e) {
 		const setter = e.target.closest('[data-theme-set]');
@@ -29,6 +30,10 @@
 		if (e.key.toLowerCase() !== 'm') {
 			return;
 		}
-		toggleThemePickerMenu();
+		// Scroll to top if opening the picker
+		const newStatus = toggleThemePickerMenu();
+		if (newStatus) {
+			document.body.scrollIntoView({ block: 'start', behavior: 'smooth' });
+		}
 	});
 })();
