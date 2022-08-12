@@ -28,7 +28,7 @@
 		padding-inline-start: var(--size-xs);
 		padding-block-end: var(--size-2xs);
 
-		color: var(--theme-color-secondary-med);
+		color: var(--t-color-secondary-med);
 		border-inline-start: 1px solid currentColor;
 		background: linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
 	}
@@ -47,10 +47,10 @@
 	&-footer {
 		padding: var(--size-xs) var(--size-s);
 
-		color: var(--theme-footer-text-color);
-		border: 1px solid var(--theme-footer-border-color);
-		border-radius: var(--theme-corner-radius);
-		background: var(--theme-footer-bg-color);
+		color: var(--t-footer-text-color);
+		border: 1px solid var(--t-footer-border-color);
+		border-radius: var(--t-corner-radius);
+		background: var(--t-footer-bg-color);
 	}
 
 	&-original {
@@ -68,11 +68,11 @@
 
 			border: 2px solid transparent;
 			border-radius: 50%;
-			background: linear-gradient(45deg, var(--theme-link-color), var(--theme-link-underline-color)) border-box;
+			background: linear-gradient(45deg, var(--t-link-color), var(--t-link-underline-color)) border-box;
 		}
 		&-author {
 			font-style: italic;
-			color: var(--theme-link-color);
+			color: var(--t-link-color);
 		}
 		&-blurb {
 		}

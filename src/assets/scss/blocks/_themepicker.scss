@@ -16,8 +16,8 @@
 
 	--picker-gap: var(--site-content-gutter);
 	--picker-button-border-size: 2px;
-	--picker-text: var(--theme-color-gray-min);
-	--picker-bg: var(--theme-color-gray-max);
+	--picker-text: var(--t-color-gray-min);
+	--picker-bg: var(--t-color-gray-max);
 
 	position: absolute;
 	bottom: 100%;
@@ -143,7 +143,7 @@
 	&-close {
 		--close-color: currentColor;
 		--close-border: transparent;
-		--close-bg: var(--theme-color-secondary-max);
+		--close-bg: var(--t-color-secondary-max);
 
 		position: absolute;
 		top: var(--picker-gap);

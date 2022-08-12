@@ -1,8 +1,8 @@
 @mixin generate-light-dark-vars($var, $light, $dark) {
-	--#{$var}: var(--THEME-#{$theme-scheme-light}, #{$light}) var(--THEME-#{$theme-scheme-dark}, #{$dark});
+	--#{$var}: var(--t-#{$theme-scheme-light}, #{$light}) var(--t-#{$theme-scheme-dark}, #{$dark});
 }
 
-@mixin generate-theme-vars($var-groups, $prefix: 'theme', $exclude: ()) {
+@mixin generate-theme-vars($var-groups, $prefix: 't', $exclude: ()) {
 	@each $theme-var-group, $theme-group-values in $var-groups {
 		@if (index($exclude, $theme-var-group) == null) {
 			@if $theme-var-group == 'fonts' {

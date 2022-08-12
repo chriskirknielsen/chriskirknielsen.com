@@ -9,17 +9,16 @@
 		--link-grad-one: 0.25px;
 	}
 
-	color: var(--theme-link-color);
+	color: var(--t-link-color);
 	text-decoration-line: underline;
-	text-decoration-color: var(--theme-link-underline-color, currentColor);
+	text-decoration-color: var(--t-link-underline-color, currentColor);
 	text-decoration-skip-ink: auto;
 
 	&:where(:hover, :focus) {
-		color: var(--theme-link-color-active);
+		color: var(--t-link-color-active);
 		text-decoration: none;
 		text-shadow: 0 0.0625em 0 var(--ctx-bg, transparent);
-		background: repeating-linear-gradient(90deg, var(--theme-link-underline-color, transparent) var(--link-grad-one), transparent var(--link-grad-two)) repeat-x 0 100% / 2px
-			0.67em;
+		background: repeating-linear-gradient(90deg, var(--t-link-underline-color, transparent) var(--link-grad-one), transparent var(--link-grad-two)) repeat-x 0 100% / 2px 0.67em;
 		box-decoration-break: clone;
 	}
 }
@@ -30,6 +29,6 @@
 
 	&:is(:hover, :focus) {
 		text-decoration-line: underline;
-		text-decoration-color: var(--theme-link-underline-color, currentColor);
+		text-decoration-color: var(--t-link-underline-color, currentColor);
 	}
 }

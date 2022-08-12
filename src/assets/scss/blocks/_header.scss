@@ -11,7 +11,7 @@
 	&-logo {
 		margin-inline-end: auto;
 
-		color: var(--theme-color-primary-med);
+		color: var(--t-color-primary-med);
 		font-size: 2rem;
 		text-decoration: none;
 
@@ -29,7 +29,7 @@
 		}
 
 		&:is(:hover, :focus) > svg path {
-			fill: var(--theme-color-primary-min);
+			fill: var(--t-color-primary-min);
 		}
 	}
 }
@@ -45,12 +45,12 @@
 	&-link {
 		font-weight: 700;
 		text-decoration: underline;
-		color: var(--theme-text-color);
+		color: var(--t-text-color);
 		white-space: nowrap;
 
 		&:is(:hover, :focus) {
 			text-decoration: none;
-			color: var(--theme-cta-text-color);
+			color: var(--t-cta-text-color);
 		}
 	}
 }

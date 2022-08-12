@@ -11,10 +11,10 @@ h6,
 .h5,
 .h6,
 .heading {
-	font-family: var(--theme-font-heading);
+	font-family: var(--t-font-heading);
 	line-height: 1.125;
-	letter-spacing: var(--theme-heading-tracking);
-	color: var(--theme-heading-color);
+	letter-spacing: var(--t-heading-tracking);
+	color: var(--t-heading-color);
 }
 
 @for $s from 1 through 6 {
@@ -28,24 +28,24 @@ i,
 em {
 	padding-inline-end: 0.125em; // Add a little space after an em tag to avoid sticking too closely to the following text
 
-	color: var(--theme-heading-color);
+	color: var(--t-heading-color);
 }
 
 s,
 del {
 	text-decoration-thickness: 0.0625em;
 	// text-shadow: 0 2px 0 var(--ctx-bg, transparent);
-	// background: repeating-linear-gradient(-45deg, var(--theme-accent-color, transparent), var(--theme-accent-color, transparent) 0.33px, transparent 0.33px, transparent 6px);
+	// background: repeating-linear-gradient(-45deg, var(--t-accent-color, transparent), var(--t-accent-color, transparent) 0.33px, transparent 0.33px, transparent 6px);
 	// box-decoration-break: clone;
 }
 
 time[datetime] {
 	font-weight: 700;
-	color: var(--theme-accent-color);
+	color: var(--t-accent-color);
 }
 
 blockquote {
-	border-inline-start: var(--size-2xs) solid var(--theme-color-primary-min, currentColor);
+	border-inline-start: var(--size-2xs) solid var(--t-color-primary-min, currentColor);
 	padding-inline-start: var(--size-l);
 
 	& > * + * {
@@ -73,7 +73,7 @@ blockquote {
 
 	& > :first-child::before,
 	& > :last-child::after {
-		color: var(--theme-color-secondary-med, currentColor);
+		color: var(--t-color-secondary-med, currentColor);
 		font-weight: bold;
 		font-family: var(--font-fallback-serif);
 	}

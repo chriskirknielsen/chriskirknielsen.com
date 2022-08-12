@@ -16,12 +16,12 @@
 
 	&-numerals,
 	&-hands {
-		fill: var(--theme-color-primary-min);
+		fill: var(--t-color-primary-min);
 	}
 
 	&-rings {
 		fill: none;
-		stroke: var(--theme-color-primary-min);
+		stroke: var(--t-color-primary-min);
 		stroke-width: 3;
 	}
 

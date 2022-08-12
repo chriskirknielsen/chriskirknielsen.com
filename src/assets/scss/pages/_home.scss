@@ -37,8 +37,8 @@
 		@include generate-light-dark-vars('homescreen-chris-depth-sat', 2, 1);
 		@include generate-light-dark-vars('homescreen-chris-depth-lux', 5%, 0%);
 
-		--homescreen-creadev-stroke: var(--theme-color-primary-max);
-		--homescreen-creadev-fill: var(--theme-color-primary-min);
+		--homescreen-creadev-stroke: var(--t-color-primary-max);
+		--homescreen-creadev-fill: var(--t-color-primary-min);
 	}
 
 	@include theme('vapor') {
@@ -76,8 +76,8 @@
 		--homescreen-chris-depth-sat: 2;
 		--homescreen-chris-depth-lux: 5%;
 
-		--homescreen-creadev-stroke: var(--theme-color-primary-max);
-		--homescreen-creadev-fill: var(--theme-color-primary-min);
+		--homescreen-creadev-stroke: var(--t-color-primary-max);
+		--homescreen-creadev-fill: var(--t-color-primary-min);
 		--homescreen-creadev-font: var(--font-fallback-monospace);
 	}
 

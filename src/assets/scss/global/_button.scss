@@ -10,28 +10,28 @@
 	text-decoration: var(--btn-decoration-style, none) var(--btn-decoration-color, currentColor) var(--btn-decoration-thickness, from-font);
 	text-underline-offset: var(--btn-underline-offset, auto);
 
-	color: var(--btn-text-color, var(--theme-cta-text-color, currentColor));
+	color: var(--btn-text-color, var(--t-cta-text-color, currentColor));
 	text-shadow: var(--btn-text-shadow, none);
 
-	border-width: var(--btn-border-size, var(--theme-cta-border-width));
+	border-width: var(--btn-border-size, var(--t-cta-border-width));
 	border-style: var(--btn-border-style, solid);
-	border-color: var(--btn-border-color, var(--theme-cta-border-color, currentColor));
-	border-radius: var(--btn-border-radius, var(--theme-corner-radius));
-	background-color: var(--btn-background-color, var(--theme-cta-bg));
+	border-color: var(--btn-border-color, var(--t-cta-border-color, currentColor));
+	border-radius: var(--btn-border-radius, var(--t-corner-radius));
+	background-color: var(--btn-background-color, var(--t-cta-bg));
 	box-shadow: var(--btn-box-shadow, none);
 
 	&:is(:hover, :focus) {
-		--btn-text-color: var(--theme-cta-text-color-active);
-		--btn-border-color: var(--theme-cta-border-color-active);
-		--btn-background-color: var(--theme-cta-bg-active);
-		--btn-box-shadow: var(--theme-cta-box-shadow-active, none);
+		--btn-text-color: var(--t-cta-text-color-active);
+		--btn-border-color: var(--t-cta-border-color-active);
+		--btn-background-color: var(--t-cta-bg-active);
+		--btn-box-shadow: var(--t-cta-box-shadow-active, none);
 	}
 
 	&[aria-pressed='true'] {
-		--btn-text-color: var(--theme-cta-text-color-active);
-		--btn-border-color: var(--theme-cta-border-color-active);
-		--btn-background-color: var(--theme-cta-bg-active);
-		--btn-box-shadow: var(--theme-cta-box-shadow-active, none);
+		--btn-text-color: var(--t-cta-text-color-active);
+		--btn-border-color: var(--t-cta-border-color-active);
+		--btn-background-color: var(--t-cta-bg-active);
+		--btn-box-shadow: var(--t-cta-box-shadow-active, none);
 	}
 
 	&[data-button='icon'] {

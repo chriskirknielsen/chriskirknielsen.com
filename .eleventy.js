@@ -231,7 +231,7 @@ module.exports = function (eleventyConfig) {
 		}
 
 		// Find the colour group and weight, then pick the value out from the theme colours
-		const colorInfo = varValue.match(/var\(\s*--theme-color-([a-z]+)-(min|med|max)\s*\)/);
+		const colorInfo = varValue.match(/var\(\s*--t-color-([a-z]+)-(min|med|max)\s*\)/);
 		const colorGroup = colorInfo[1];
 		const colorWeight = colorInfo[2];
 		return themeColors[colorGroup][colorWeight];

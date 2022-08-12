@@ -6,9 +6,9 @@
 				transition: filter var(--logo-transition);
 
 				& path {
-					fill: var(--theme-header-logo-fill);
+					fill: var(--t-header-logo-fill);
 					fill-opacity: 1;
-					stroke: var(--theme-color-primary-min);
+					stroke: var(--t-color-primary-min);
 					stroke-width: 3;
 					stroke-opacity: 0;
 
@@ -22,7 +22,7 @@
 			}
 
 			&:is(:hover, :focus) > svg path {
-				fill: var(--theme-color-gray-max);
+				fill: var(--t-color-gray-max);
 				fill-opacity: 0;
 				stroke-opacity: 1;
 
@@ -57,7 +57,7 @@
 
 	.bigboi {
 		@include generate-light-dark-vars('bigboi-outline-color', white, black);
-		@include generate-light-dark-vars('bigboi-line-color', var(--theme-color-primary-med), var(--theme-color-secondary-med));
+		@include generate-light-dark-vars('bigboi-line-color', var(--t-color-primary-med), var(--t-color-secondary-med));
 		--bigboi-bg-mask: radial-gradient(ellipse at center, rgba(0 0 0 / 20%), rgba(0 0 0 / 0%));
 
 		position: relative;
@@ -83,7 +83,7 @@
 
 	:where(button, .button):is(:hover, :focus) {
 		transition-property: box-shadow, border-color;
-		transition-duration: var(--theme-cta-transition-duration, 0ms);
+		transition-duration: var(--t-cta-transition-duration, 0ms);
 		transition-timing-function: cubic-bezier(0.33, 1.5, 0.33, -0.2);
 	}
 }

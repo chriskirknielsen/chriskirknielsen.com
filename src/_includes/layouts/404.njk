@@ -5,7 +5,7 @@ section: 404
 
 <button type="button" class="button-reset cdiv-clock-wrap" data-chime>
     {%- setAsync "clock_404" -%}
-    {%- renderFile "clock-404" | svgUrl -%}
+    {%- renderFile "clock-404" | svgUrl, { ariaLabel: clock404Label } -%}
     {%- endsetAsync -%}
     {{ clock_404 | htmlmin | safe }}
 </button>

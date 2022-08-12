@@ -1,16 +1,16 @@
 :root {
-	color-scheme: var(--theme-color-scheme);
+	color-scheme: var(--t-color-scheme);
 }
 
 body {
 	// Define some contextual colour variables
-	--ctx-color: var(--theme-text-color);
-	--ctx-bg: var(--theme-bg-color);
+	--ctx-color: var(--t-text-color);
+	--ctx-bg: var(--t-bg-color);
 
 	display: flex;
 	flex-direction: column;
 
-	font-family: var(--theme-font-body);
+	font-family: var(--t-font-body);
 	line-height: var(--site-base-line-height);
 	text-underline-offset: 0.125em;
 	color: var(--ctx-color);
@@ -26,7 +26,7 @@ main {
 }
 
 *:focus {
-	outline: 4px dashed var(--theme-link-color-active);
+	outline: 4px dashed var(--t-link-color-active);
 	outline-offset: 2px;
 
 	&:not(:focus-visible) {

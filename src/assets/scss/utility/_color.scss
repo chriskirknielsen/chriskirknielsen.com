@@ -1,6 +1,6 @@
 @each $name, $set in get-token('_expectedColors') {
 	@each $weight in $set {
-		$value: 'var(--theme-color-#{$name}-#{$weight})';
+		$value: 'var(--t-color-#{$name}-#{$weight})';
 		.u-color-#{$name}-#{$weight} {
 			color: #{$value};
 			--ctx-color: #{$value};
@@ -13,12 +13,12 @@
 }
 
 .u-color-accent-color {
-	--ctx-color: var(--theme-accent-color);
+	--ctx-color: var(--t-accent-color);
 	color: var(--ctx-color);
 }
 
 .u-background-alt-color {
-	--ctx-bg: var(--theme-bg-alt-color);
+	--ctx-bg: var(--t-bg-alt-color);
 	background-color: var(--ctx-bg);
 }
 

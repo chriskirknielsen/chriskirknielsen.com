@@ -1,12 +1,12 @@
 .footer {
-	--ctx-bg: var(--theme-footer-bg-color);
-	--ctx-color: var(--theme-footer-text-color);
+	--ctx-bg: var(--t-footer-bg-color);
+	--ctx-color: var(--t-footer-text-color);
 
 	margin-block-start: auto;
 
 	color: var(--ctx-color);
 	background-color: var(--ctx-bg);
-	outline: 2px solid var(--theme-footer-border-color);
+	outline: 2px solid var(--t-footer-border-color);
 
 	&-inner {
 		display: grid;
@@ -36,7 +36,7 @@
 
 		& > * {
 			padding: var(--size-m) var(--size-l);
-			outline: 1px solid var(--theme-footer-border-color);
+			outline: 1px solid var(--t-footer-border-color);
 		}
 	}
 
@@ -47,7 +47,7 @@
 		align-items: center;
 		padding: var(--size-m);
 
-		background-color: var(--theme-footer-border-color);
+		background-color: var(--t-footer-border-color);
 
 		& > svg {
 			width: 50%;

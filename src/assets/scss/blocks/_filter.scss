@@ -12,17 +12,17 @@
 		display: inline;
 
 		// & input[type='radio']:hover + label {
-		// 	color: var(--theme-color-gray-max);
-		// 	background: var(--theme-color-gray-min);
+		// 	color: var(--t-color-gray-max);
+		// 	background: var(--t-color-gray-min);
 		// }
 
 		& input[type='radio']:focus-visible + label {
-			outline: 4px dashed var(--theme-color-gray-min);
+			outline: 4px dashed var(--t-color-gray-min);
 		}
 
 		// & input[type='radio']:checked + label {
-		// 	color: var(--theme-color-gray-max);
-		// 	background: var(--theme-accent-color);
+		// 	color: var(--t-color-gray-max);
+		// 	background: var(--t-accent-color);
 		// }
 	}
 }
