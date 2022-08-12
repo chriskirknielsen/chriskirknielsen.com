@@ -1,4 +1,5 @@
 module.exports = {
+	css: 'assets/css',
 	style: 'assets/css/style.css',
 	imagesDir: 'assets/img',
 	fontSpecimenStyles: 'assets/css/font-specimen',

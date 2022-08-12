@@ -282,7 +282,7 @@
 			animation-fill-mode: backwards;
 			animation-duration: 1s;
 			animation-delay: #{$chris-anim-delay - $wire-step-delay * ($wire-count * 0.5)};
-			animation-timing-function: cubic-bezier(0, 0, 0.25, 1);
+			animation-timing-function: var(--easing-out);
 		}
 
 		&__chris-main {
@@ -312,7 +312,7 @@
 			animation-duration: #{$creadev-anim-time};
 			animation-delay: #{$creadev-anim-delay};
 			animation-fill-mode: both;
-			animation-timing-function: cubic-bezier(0, 0, 0, 1);
+			animation-timing-function: var(--easing-circ-out);
 		}
 
 		&__glare-group {
@@ -328,7 +328,7 @@
 		}
 
 		&__name-shineOver {
-			animation: shineOver #{$shine-anim-time} ease-in-out #{$shine-anim-delay} 1 both;
+			animation: shineOver #{$shine-anim-time} var(--easing-in-out) #{$shine-anim-delay} 1 both;
 		}
 
 		&__name-shineOver--delayed {

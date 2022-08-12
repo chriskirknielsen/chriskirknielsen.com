@@ -28,13 +28,23 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: var(--picker-gap);
-	overflow: hidden;
 	height: var(--themepicker-height);
 	padding: var(--picker-gap) 0;
+	overflow: hidden;
 
 	color: var(--picker-text);
 	background-color: var(--picker-bg);
 	box-shadow: 0 -2px 0 var(--picker-text) inset;
+
+	transform: translateY(-50%);
+
+	transition: transform 300ms var(--easing-in-out);
+
+	[data-themepicker='open'] & {
+		transform: translateY(0%);
+
+		transition-delay: 100ms;
+	}
 
 	&-icon {
 		width: 1.5em;
@@ -46,6 +56,10 @@
 
 		text-align: center;
 		line-height: 1.1;
+
+		& > span {
+			text-decoration: underline dotted;
+		}
 	}
 
 	&-list {

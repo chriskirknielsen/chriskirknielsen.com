@@ -12,4 +12,7 @@
 	@each $group, $list in get-token('fontFallback') {
 		--font-fallback-#{$group}: #{zip($list)};
 	}
+	@each $name, $cb-def in get-token('easing') {
+		--easing-#{$name}: #{$cb-def};
+	}
 }

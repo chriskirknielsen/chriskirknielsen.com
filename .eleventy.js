@@ -118,8 +118,9 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Filters */
-	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
+	eleventyConfig.addFilter('assetPath', (filename, subdir) => `./${rootDir}/_includes/assets/${subdir}/${filename}`);
 	eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`);
+	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
 	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
@@ -322,7 +323,7 @@ module.exports = function (eleventyConfig) {
 	/* Passthroughs */
 	eleventyConfig.addPassthroughCopy({
 		[`${rootDir}/_includes/assets/css`]: '/assets/css',
-		[`${rootDir}/_includes/assets/js`]: '/assets/js',
+		// [`${rootDir}/_includes/assets/js`]: '/assets/js',
 		[`${rootDir}/assets/img`]: '/assets/img',
 		[`${rootDir}/assets/audio`]: '/assets/audio',
 		[`${rootDir}/assets/fonts`]: '/assets/fonts',

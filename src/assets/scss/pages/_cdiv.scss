@@ -30,7 +30,7 @@
 		stroke-width: 2;
 
 		& > * {
-			animation: cdivHands 4.04s cubic-bezier(0, 0, 0, 1);
+			animation: cdivHands 4.04s var(--easing-circ-out);
 		}
 	}
 }

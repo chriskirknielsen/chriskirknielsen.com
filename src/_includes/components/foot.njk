@@ -1,5 +1,4 @@
-{%- renderFile "anchor-link" | svgUrl, { svgClass: "visually-hidden" } -%}
-
+{%- renderFile "anchor-link" | svgUrl, { class: "visually-hidden" } -%}
 <style>{%- renderFile "font-face.css" | assetPath("css"), null, "njk" -%}</style>
 <script>"use strict";
 {%- set footJs %}
@@ -11,7 +10,6 @@ const scrsvrUrl = `{{ '/assets/css/screensaver.css' | url }}`;
     scrsvrScript.src = scrsvrSrc;
     document.head.appendChild(scrsvrScript);
     {%- include "assets/js/themepicker-toggle.js" -%}
-    {# {%- include "assets/js/screensaver.js" -%} #}
 })()
 {% endset -%}
 {{- footJs | replace('"use strict";', "") | jsmin | safe }}
