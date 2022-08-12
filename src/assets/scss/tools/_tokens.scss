@@ -236,11 +236,11 @@ $tokens: (
   ),
   "typeScale": (
     "0": clamp(1.00rem, calc(0.90rem + 0.49vw), 1.25rem),
-    "1": clamp(1.13rem, calc(1.02rem + 0.55vw), 1.41rem),
-    "2": clamp(1.27rem, calc(1.14rem + 0.62vw), 1.58rem),
-    "3": clamp(1.42rem, calc(1.28rem + 0.70vw), 1.78rem),
-    "4": clamp(1.60rem, calc(1.45rem + 0.78vw), 2.00rem),
-    "5": clamp(1.80rem, calc(1.63rem + 0.88vw), 2.25rem)
+    "1": clamp(1.33rem, calc(1.27rem + 0.33vw), 1.50rem),
+    "2": clamp(1.78rem, calc(1.77rem + 0.05vw), 1.80rem),
+    "3": clamp(2.16rem, calc(2.45rem + -0.41vw), 2.37rem),
+    "4": clamp(2.59rem, calc(3.38rem + -1.10vw), 3.16rem),
+    "5": clamp(3.11rem, calc(4.64rem + -2.14vw), 4.21rem)
   ),
   "size": (
     "2xs": 0.25rem,

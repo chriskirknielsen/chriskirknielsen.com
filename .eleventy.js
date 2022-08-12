@@ -86,7 +86,7 @@ function getDeep(obj, keys) {
 // Config
 const translations = buildDictionary();
 const purgeCssSafeList = {
-	_global: [':is', ':where', 'translated-rtl', 'data-theme'],
+	_global: [':is', ':where', 'translated-rtl', 'data-theme', `aria-checked`],
 	home: ['homescreen'],
 	blog: [], // Article list links and external article button
 	about: [],

@@ -7,7 +7,7 @@ permalink: /acknowledgements/
 
 ## Technical
 
-This site is built with [Eleventy](https://www.11ty.dev/) (of which I am an official supporter!), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS and minify styles and scripts alike, then inline them to reduce HTTP requests.
+This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/) (of which I am an official supporter!), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS and minify styles and scripts alike, then inline them to reduce HTTP requests.
 
 Hosting is provided by [Netlify](https://netlify.com/), free of charge, since I don't generate much traffic… Still good to support these fine folks, though!
 
@@ -30,7 +30,7 @@ The humble beginnings of the WWW have heavily influenced my career, so I can onl
 ### Gear
 
 -   [2019 16" MacBook Pro](https://www.apple.com/macbook-pro-16/) (Intel Core i7, 16 GB RAM and 500 GB SSD)
-    A good computer with a real Escape key, after all these years with a virtual one.
+    A good computer with a real Escape key, after all these years with a fake touchscreen one.
 -   [Dell U2518D Monitor](https://www.amazon.com/Dell-LED-Lit-Monitor-U2518D-Compatibility/dp/B075KGLYRL?linkCode=as2&tag=ratcgala-20)
     A big screen for big code.
 -   [Autonomous AI ErgoChair 2](https://www.autonomous.ai/office-chairs/ergonomic-chair/?rid=7a4b2c) _(disclaimer: contains a referral ID, gives you a discount)_
@@ -47,7 +47,7 @@ The humble beginnings of the WWW have heavily influenced my career, so I can onl
 ### Apps
 
 -   [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
-    I've been using Firefox since version 3 or something, and it's never disappointed me — love the DevTools!
+    I've been using Firefox since version 3 or something, and it's never disappointed me — love the CSS DevTools!
 -   [Visual Studio Code](https://code.visualstudio.com/)
     Love how powerful and extendable this editor is! I notably use these additions:
     -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): A beautiful neon-infused theme.
