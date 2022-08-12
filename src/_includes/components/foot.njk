@@ -1,5 +1,6 @@
 {%- renderFile "anchor-link" | svgUrl, { svgClass: "visually-hidden" } -%}
 
+<style>{%- renderFile "font-face.css" | assetPath("css"), null, "njk" -%}</style>
 <script>"use strict";
 {%- set footJs %}
 const scrsvrUrl = `{{ '/assets/css/screensaver.css' | url }}`;

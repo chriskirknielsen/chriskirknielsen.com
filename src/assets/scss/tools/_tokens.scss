@@ -74,6 +74,14 @@ $tokens: (
     ),
     "images": (
       
+    ),
+    "custom-font": (
+      "name": Marvin Visions Big,
+      "altLocalNames": ('Marvin Visions Big Bold'),
+      "filename": MarvinVisionsBig-Bold,
+      "formats": (woff2, woff),
+      "style": normal,
+      "weight": 700
     )
   ),
   "themes": (
@@ -169,6 +177,13 @@ $tokens: (
       ),
       "images": (
         
+      ),
+      "custom-font": (
+        "name": VCR OSD Mono,
+        "filename": VCROSDMONO,
+        "formats": (woff2, woff),
+        "style": normal,
+        "weight": 400
       )
     ),
     "y2k": (
@@ -240,5 +255,11 @@ $tokens: (
     "serif": ('Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida Serif', 'Lucida', 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', 'Georgia', 'serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
     "sans-serif": ('system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
     "monospace": ('Monaco', 'Consolas', 'Andale Mono', 'Courier New', 'monospace', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol')
+  ),
+  "easing": (
+    "in": cubic-bezier(0, 0.75, 1, 1),
+    "out": cubic-bezier(0, 0, 0.25, 1),
+    "circ-out": cubic-bezier(0, 0, 0, 1),
+    "in-out": cubic-bezier(0.67, 0, 0.33, 1)
   )
 );

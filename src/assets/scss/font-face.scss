@@ -1,0 +1,43 @@
+@import 'tools/tokens';
+@import 'tools/functions';
+
+$font-dir-path: '/assets/fonts';
+
+$custom-fonts: ();
+@if (map-has-key(get-token('schemeCommonVars'), 'custom-font')) {
+	$custom-fonts: append($custom-fonts, map-get(get-token('schemeCommonVars'), 'custom-font'));
+}
+@each $theme-key, $theme-config in get-token('themes') {
+	@if (map-has-key($theme-config, 'custom-font')) {
+		$custom-fonts: append($custom-fonts, map-get($theme-config, 'custom-font'));
+	}
+}
+@each $font in $custom-fonts {
+	$font-name: map-get($font, 'name');
+	$font-alts: map-get($font, 'altLocalNames');
+	$font-alts-inject: '';
+	@if ($font-alts != null) {
+		$font-alts-inject: ' ';
+		@each $alt in $font-alts {
+			$font-alts-inject: $font-alts-inject + 'local("#{$alt}"), ';
+		}
+	}
+	$font-filename: map-get($font, 'filename');
+	$font-formats: map-get($font, 'formats');
+	$font-formats-list: ();
+	@each $format in $font-formats {
+		$format-url: 'url("#{$font-dir-path}/#{$font-filename}.#{$format}") format("#{$format}")';
+		$font-formats-list: append($font-formats-list, $format-url);
+	}
+	$font-formats-inject: zip($font-formats-list);
+	$font-style: map-get($font, 'style');
+	$font-weight: map-get($font, 'weight');
+
+	@font-face {
+		font-family: '#{$font-name}';
+		src: local('#{$font-name}'), #{$font-alts-inject} #{$font-formats-inject};
+		font-style: #{$font-style};
+		font-weight: #{$font-weight};
+		font-display: swap;
+	}
+}
