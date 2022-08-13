@@ -25,7 +25,6 @@
 			"usesHash": "uses"
 		},
 		"blog": {
-			"intro": "Here are some random thoughts about front-end development. I know it ain't much, but it's honest.",
 			"yearLabel": "Posts for the year",
 			"original": "Read the original article",
 			"external": "Read the full article on",

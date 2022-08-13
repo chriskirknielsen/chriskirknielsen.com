@@ -25,7 +25,6 @@
 			"usesHash": "usages"
 		},
 		"blog": {
-			"intro": "Voici mes quelques pensées très variées sur le développement front-end. C'est pas grand chose mais c'est écrit avec le cœur.",
 			"yearLabel": "Articles pour l'année",
 			"original": "Consulter l'article original",
 			"external": "Consulter l'article complet sur",
