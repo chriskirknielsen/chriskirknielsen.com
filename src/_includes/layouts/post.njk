@@ -35,7 +35,7 @@ templateName: post
 <p class="post-external">
 	<a href="{{ externalUrl }}" class="button">
 		{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}
-		{% renderFile "rss" | svgUrl, { class: 'inline-icon' } %}
+		{% renderFile "arrow-next" | svgUrl, { class: 'inline-icon' } %}
 	</a>
 </p>
 {% endif %}
