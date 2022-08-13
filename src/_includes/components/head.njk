@@ -49,7 +49,7 @@
 	{%- endif -%}
 
 	<style id="inline-styles">
-		{%- if not hasFullCustomStyles %}/*INLINE_CSS*/{% endif -%}
+		{%- if not isMiniSite %}/*INLINE_CSS*/{% endif -%}
 
 		{%- if fontSpecimenStyles -%}
 			{{- fontSpecimenStyles | cssmin | safe -}}
@@ -69,6 +69,7 @@
 		{%- endif -%}
 	</style>
 	{# <style>{% include 'assets/css/style.css' %}</style> #}
+	{% if not isMiniSite %}
 	{% set themeScript %}
 	(function(){
 		document.documentElement.classList.remove('no-js');
@@ -78,6 +79,7 @@
 	})()
 	{% endset %}
 	<script>{{- themeScript | jsmin | safe -}}</script>
+	{% endif %}
 
 	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
 	<link rel="icon" href="{{ '/' + assets.icons.faviconSvg | url }}">
