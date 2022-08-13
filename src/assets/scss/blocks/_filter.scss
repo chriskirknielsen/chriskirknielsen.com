@@ -42,7 +42,7 @@
 		transition: 200ms var(--easing-out);
 		transition-property: filter, opacity, transform;
 		transition-duration: var(--t, 250ms);
-		transition-delay: var(--d, 5ms);
+		transition-delay: calc(var(--d) * 50ms);
 
 		[data-filtered-list='change'] & {
 			filter: grayscale(1) blur(12px);

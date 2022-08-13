@@ -75,7 +75,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		{% endif %}
 
 		<div class="card-content">
-			<h2 class="card-title | h4 | u-marginBlockEnd-s">
+			<h2 class="card-title | h5 | u-marginBlockEnd-s">
 				<a href="{{ designPermalink }}" class="heading-link">{{- design.name -}}</a>
 			</h2>
 			
@@ -103,6 +103,8 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 	function filterTo(filter) {
 		let isShowAll = (filter === '');
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		let shownIndex = 0;
+		let delay = duration / 10;
 
 		list.setAttribute('data-filtered-list', 'change');
 
@@ -116,16 +118,17 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		items.forEach(function(item) {
 			let tags = item.getAttribute('data-tags').split(',');
 			let isShown = (tags.indexOf(filter) > -1) || isShowAll;
-			item.style.setProperty('--d', Math.floor(Math.random() * duration / 10) + 'ms');
+			item.style.setProperty('--d', shownIndex);
+			if (isShown) shownIndex++;
 
 			setTimeout(function() {
 				item.setAttribute('aria-hidden', (!isShown).toString());
-			}, (prefersReducedMotion ? 0 : duration));
+			}, (prefersReducedMotion ? 0 : duration + shownIndex * delay));
 		});
 
 		setTimeout(function() {
 			list.setAttribute('data-filtered-list', 'idle');
-		}, (prefersReducedMotion ? 0 : duration));
+		}, (prefersReducedMotion ? 0 : duration + shownIndex * delay));
 
 		history.replaceState(undefined, '', filter ? ('#' + hashIndicator + filter) : '#');
 	}
