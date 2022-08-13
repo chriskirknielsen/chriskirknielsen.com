@@ -5,7 +5,12 @@
     size: 1,
     alias: "tag",
     before: function(paginationData, fullData) {
-      return paginationData.filter(t => !fullData.systemtags.includes(t));
+      return paginationData.filter(t => {
+        // Exclude tags that are "system" tags, and then
+        // filter out tags who don't have any entries in the current language
+        return !fullData.systemtags.includes(t)
+          && fullData.collections[t].some(p => p.lang === fullData.lang)
+      });
     }
   },
   layout: "layouts/base.njk",

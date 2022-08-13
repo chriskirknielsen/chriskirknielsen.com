@@ -108,7 +108,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyI18nPlugin, {
 		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
-		dictionary: translations,
 	});
 	eleventyConfig.addPlugin(pageAssets, {
 		mode: 'directory',
@@ -127,7 +126,6 @@ module.exports = function (eleventyConfig) {
 		// Determine the target language, or use the default
 		const context = this?.ctx || this.context?.environments;
 		locale = locale || context.lang || defaultLang;
-
 		return collection.filter((item) => item?.data?.lang === locale);
 	});
 	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
