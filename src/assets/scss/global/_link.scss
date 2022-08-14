@@ -1,12 +1,17 @@
 :where(a:not([class]), .link) {
 	--link-grad-one: 0px;
 	--link-grad-two: 1px;
+	--link-grad-def: repeating-linear-gradient(90deg, var(--t-link-underline-color, transparent) var(--link-grad-one), transparent var(--link-grad-two));
 
 	@media (min-resolution: 120dpi), (-webkit-min-device-pixel-ratio: 1.66), (-moz-min-device-pixel-ratio: 1.66), (min-device-pixel-ratio: 1.66) {
 		--link-grad-one: 0.5px;
 	}
-	@media (min-resolution: 200dpi), (-webkit-min-device-pixel-ratio: 2.5), (-moz-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5) {
-		--link-grad-one: 0.25px;
+	@media (min-resolution: 196dpi), (-webkit-min-device-pixel-ratio: 2.727), (-moz-min-device-pixel-ratio: 2.727), (min-device-pixel-ratio: 2.727) {
+		--link-grad-one: 0.36667px;
+	}
+	@supports (fill: color-mix(in lch, red 1%, tan)) {
+		--link-grad-color: color-mix(in lch, var(--t-link-underline-color, currentColor) 50%, transparent);
+		--link-grad-def: linear-gradient(var(--link-grad-color), var(--link-grad-color));
 	}
 
 	color: var(--t-link-color);
@@ -18,7 +23,7 @@
 		color: var(--t-link-color-active);
 		text-decoration: none;
 		text-shadow: 0 0.0625em 0 var(--ctx-bg, transparent);
-		background: repeating-linear-gradient(90deg, var(--t-link-underline-color, transparent) var(--link-grad-one), transparent var(--link-grad-two)) repeat-x 0 100% / 2px 0.67em;
+		background: var(--link-grad-def) repeat-x 0 100% / 2px 0.67em;
 		box-decoration-break: clone;
 	}
 }

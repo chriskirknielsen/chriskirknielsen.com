@@ -25,6 +25,7 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
+const md = new markdownIt().disable('code');
 const pageAssets = require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix');
 
 // Helpers
@@ -86,7 +87,7 @@ function getDeep(obj, keys) {
 // Config
 const translations = buildDictionary();
 const purgeCssSafeList = {
-	_global: [':is', ':where', 'translated-rtl', 'data-theme', `aria-checked`],
+	_global: [':is', ':where', 'translated-rtl'],
 	home: ['homescreen'],
 	blog: [], // Article list links and external article button
 	about: [],
@@ -120,6 +121,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('assetPath', (filename, subdir) => `./${rootDir}/_includes/assets/${subdir}/${filename}`);
 	eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
+	eleventyConfig.addFilter('fromJSON', (str) => JSON.parse(str));
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
 	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
 	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
@@ -237,14 +239,12 @@ module.exports = function (eleventyConfig) {
 
 	/* Shortcodes */
 	eleventyConfig.addPairedShortcode('callout', function (content, pseudo) {
-		const md = new markdownIt().disable('code');
 		return `<div class="callout"${typeof pseudo === 'string' ? ' data-callout="' + pseudo + '"' : ''}>
-			<p>${md.renderInline(content)}</p>
+			<p>${md.renderInline(content.trim())}</p>
 		</div>`;
 	});
 
 	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => {
-		const md = new markdownIt().disable('code');
 		return inline ? md.renderInline(content) : md.render(content);
 	});
 
@@ -267,6 +267,8 @@ module.exports = function (eleventyConfig) {
 			css: [`${rootDir}/_includes/${assets.style}`],
 			keyframes: true,
 			safelist: safeSelectors,
+			blocklist: ['twitter:card'],
+			dynamicAttributes: ['data-theme', 'aria-checked'],
 		});
 
 		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');

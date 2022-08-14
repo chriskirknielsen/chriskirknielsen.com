@@ -85,11 +85,11 @@ select {
 	*,
 	*::before,
 	*::after {
-		animation-duration: 1ms !important;
-		animation-delay: 1ms !important;
+		animation-duration: 0.1ms !important;
+		animation-delay: 0.1ms !important;
 		animation-iteration-count: 1 !important;
-		transition-duration: 1ms !important;
-		transition-delay: 1ms !important;
+		transition-duration: 0.1ms !important;
+		transition-delay: 0.1ms !important;
 		scroll-behavior: auto !important;
 	}
 }
