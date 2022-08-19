@@ -20,6 +20,7 @@
 {% set wire_count = 8 %}
 {% set wire_color = 'cyan' %}
 
+{% set svgTitle %}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="homescreen-svg">
   <title>Chris, {{ 'homescreenTitle.creaDev' | i18n | toLowercase }}</title>
 
@@ -264,3 +265,5 @@
   <!-- Horizon Glow -->
   <ellipse class="homescreen-svg__horizon-flash" fill="url(#horizonFlash)" cx="50%" cy="50%" rx="25%" ry="33%"/>
 </svg>
+{% endset %}
+{{ svgTitle | htmlmin | safe }}
