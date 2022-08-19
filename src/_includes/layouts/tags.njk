@@ -9,7 +9,7 @@
         // Exclude tags that are "system" tags, and then
         // filter out tags who don't have any entries in the current language
         return !fullData.systemtags.includes(t)
-          && fullData.collections[t].some(p => p.lang === fullData.lang)
+          && fullData.collections[t].some(p => p.data.lang === fullData.lang)
       });
     }
   },
