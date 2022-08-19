@@ -34,6 +34,28 @@ main {
 	}
 }
 
+[id]:target {
+	scroll-margin-block-start: var(--size-2xl);
+
+	outline: var(--size-xs) dashed var(--t-link-color-active);
+
+	animation: targetOutline 500ms var(--easing-in-out) 1500ms both;
+}
+
+@keyframes targetOutline {
+	from {
+		outline-offset: var(--size-xs);
+	}
+
+	20% {
+		outline-offset: var(--size-s);
+	}
+
+	to {
+		outline: var(--size-2xs) dashed transparent;
+	}
+}
+
 // Ensure SVG elements transform from their center point
 svg {
 	transform-origin: 50% 50%;

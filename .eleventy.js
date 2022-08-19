@@ -87,7 +87,7 @@ function getDeep(obj, keys) {
 // Config
 const translations = buildDictionary();
 const purgeCssSafeList = {
-	_global: [':is', ':where', 'translated-rtl'],
+	_global: [':is', ':where', 'translated-rtl', ':target'],
 	home: ['homescreen'],
 	blog: [], // Article list links and external article button
 	about: [],
@@ -265,7 +265,7 @@ module.exports = function (eleventyConfig) {
 		const purgeCSSResults = await new PurgeCSS().purge({
 			content: [{ raw: content }],
 			css: [`${rootDir}/_includes/${assets.style}`],
-			keyframes: true,
+			keyframes: true, // Removes unused keyframes
 			safelist: safeSelectors,
 			blocklist: ['twitter:card'],
 			dynamicAttributes: ['data-theme', 'aria-checked'],
