@@ -22,7 +22,7 @@
 	&:where(:hover, :focus) {
 		color: var(--t-link-color-active);
 		text-decoration: none;
-		text-shadow: 0 0.0625em 0 var(--ctx-bg, transparent);
+		text-shadow: 0 max(1.5px, 0.0625em) 0 var(--ctx-bg, transparent);
 		background: var(--link-grad-def) repeat-x 0 100% / 2px 0.67em;
 		box-decoration-break: clone;
 	}

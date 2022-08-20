@@ -63,7 +63,7 @@ Just to push this a little bit further, I have some SVG files that do not requir
 eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./src/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`);
 ```
 
-Since `isNjk` defaults to `true` here, I can ignore it in most cases, and set `false` in the few cases I needed:
+Since `isNjk` defaults to `true` here, I can ignore it in most cases, and set `false` in the few cases I need it:
 
 ```njk
 {% renderFile 'grid' | svgUrl(false) %}

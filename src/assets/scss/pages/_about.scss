@@ -55,7 +55,7 @@
 			position: absolute;
 
 			font-style: normal;
-			text-shadow: 0 0 1px var(--ctx-bg), 0 0 2px var(--ctx-bg), 0 0 4px var(--ctx-bg);
+			text-shadow: 0 0 1px #333, 0 0 2px #333, 0 0 4px #333;
 
 			animation: 1s var(--easing-circ-out) 1 both;
 			animation-name: aboutEmojiMove, aboutEmojiFade;
@@ -114,6 +114,36 @@
 			&::after {
 				animation: none;
 			}
+		}
+	}
+}
+
+.about-visubezier {
+	float: left;
+	width: 33%;
+	max-width: 8rem;
+	margin-inline-end: var(--size-s);
+
+	& ~ h2 {
+		clear: both;
+	}
+
+	@supports (d: path('M0 0H1')) and (cx: 1) {
+		$bezier-x: 186;
+		$bezier-y: 186;
+
+		[data-move] {
+			transition: all var(--easing-in-out) 300ms;
+		}
+		&:hover [data-move='point'] {
+			cx: #{$bezier-x};
+			cy: #{$bezier-y};
+		}
+		&:hover [data-move='line'] {
+			d: path('M50 206L#{$bezier-x} #{$bezier-y}');
+		}
+		&:hover [data-move='spline'] {
+			d: path('M50 206C#{$bezier-x} #{$bezier-y} 84 10 205.3 50.3');
 		}
 	}
 }
@@ -187,5 +217,47 @@
 		&:hover {
 			--vhs-offset-x: 0.5rem;
 		}
+	}
+}
+
+.about-marquee {
+	padding-block: var(--size-xl);
+
+	color: var(--t-link-color);
+
+	& p {
+		display: flex;
+		justify-content: space-around;
+		gap: 0.5em;
+
+		font-size: var(--type-1);
+		font-weight: bold;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		--marquee-size: max(800px, 200vw);
+
+		&-inner {
+			width: var(--marquee-size);
+
+			white-space: nowrap;
+		}
+
+		& p {
+			width: 50%;
+			text-shadow: calc(var(--marquee-size) / 2) 0 0 currentColor;
+
+			animation: aboutMarquee 16s linear infinite;
+		}
+
+		&:hover p {
+			animation-play-state: paused;
+		}
+	}
+}
+
+@keyframes aboutMarquee {
+	to {
+		transform: translateX(calc(var(--marquee-size) / -2));
 	}
 }

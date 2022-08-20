@@ -5,25 +5,13 @@ summary: Some info about this site
 permalink: /acknowledgements/
 ---
 
-## Technical
+## Site Specs
 
 This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/) (of which I am an official supporter!), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS and minify styles and scripts alike, then inline them to reduce HTTP requests.
 
 Hosting is provided by [Netlify](https://netlify.com/), free of charge, since I don't generate much traffic… Still good to support these fine folks, though!
 
 You can check out the [full source code on GitHub]({{ metadata.repo }}), just don't be a jerk: don't steal the code and call it yours. Thanks!
-
-## Aesthetics
-
-### Dusk & Dawn
-
-Thanks to all the designers who create '80s-infused visuals that fuelled my inspiration. You provide invaluable visuals to the world.
-
-The font used for headings is the beautiful [Marvin Visions Bold](https://www.readvisions.com/marvin) (free for personal use), that perfectly fits this site's aesthetic. The other fonts you see here are your system's default — yay, performance!
-
-### Vapor & Y2K
-
-The humble beginnings of the WWW have heavily influenced my career, so I can only be thankful to the style that emerged at the start of the 21<sup>st</sup> century, and the more recent vaporwave aesthetic!
 
 ## Uses
 

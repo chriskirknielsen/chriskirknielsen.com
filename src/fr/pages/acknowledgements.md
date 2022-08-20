@@ -5,25 +5,13 @@ summary: Quelques mercis sont en ordre…
 permalink: /fr/remerciements/
 ---
 
-## Techniques
+## Détails du site
 
 Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique (auquel j'apporte mon soutien !). Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier styles comme scripts, injectés dans la page pour réduire les requêtes HTTP.
 
 L'hébergement est fourni par [Netlify](https://netlify.com/), gratuitement, puisque je ne génère que peu de trafic… Pour autant, ça reste une bonne idée de les soutenir !
 
 Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.repo }}) ; prière de ne pas être un chenapan et voler le code et mettre votre nom dessus. Merci !
-
-## Esthétique
-
-### Dusk & Dawn
-
-Merci à tou·tes ces graphistes qui créent des visuels style années 80 qui ont nourri mon inspiration. Vos images représentent un bien précieux dans ce monde.
-
-La police d'écriture pour les titrages est la magnifique [Marvin Visions Bold](https://www.readvisions.com/marvin) (gratuite pour usage personnel), qui complimente parfaitement l'esthétique de ce site. Les autres que vous voyez ici sont les polices installées par défaut sur votre système — quel gain de performance !
-
-### Vapor & Y2K
-
-Les débuts du WWW ont contribué à mon orientation professionnelle donc je ne peux qu'être reconnaissant des styles des débuts du XXI<sup>e</sup> siècle, et du style Vaporwave !
 
 ## Usages
 

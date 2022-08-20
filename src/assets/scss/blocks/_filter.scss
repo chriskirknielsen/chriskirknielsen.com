@@ -11,19 +11,29 @@
 	&-item {
 		display: inline;
 
-		// & input[type='radio']:hover + label {
-		// 	color: var(--t-color-gray-max);
-		// 	background: var(--t-color-gray-min);
-		// }
-
 		& input[type='radio']:focus-visible + label {
 			outline: 4px dashed var(--t-color-gray-min);
 		}
 
-		// & input[type='radio']:checked + label {
-		// 	color: var(--t-color-gray-max);
-		// 	background: var(--t-accent-color);
-		// }
+		& input[type='radio']:checked + label {
+			position: relative;
+
+			&::before {
+				content: '';
+
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+
+				width: 0.25em;
+				height: 0.5em;
+				margin: auto 0;
+
+				border-radius: 0 0.25em 0.25em 0;
+				background: currentColor;
+			}
+		}
 	}
 }
 

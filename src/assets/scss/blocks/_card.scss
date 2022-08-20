@@ -66,21 +66,4 @@
 			inset: 0;
 		}
 	}
-
-	&-title {
-		position: relative;
-
-		&::before {
-			content: '';
-
-			position: absolute;
-			left: calc(-1 * var(--size-m));
-
-			width: var(--t-corner-radius);
-			height: calc(var(--site-heading-line-height) * 1em);
-
-			background: var(--t-accent-color);
-			border-radius: 0 calc(2 * var(--t-corner-radius)) calc(2 * var(--t-corner-radius)) 0;
-		}
-	}
 }
