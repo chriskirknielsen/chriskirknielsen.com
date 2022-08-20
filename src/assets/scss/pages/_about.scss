@@ -151,14 +151,15 @@
 .about-vhs {
 	--vhs-overlap: clamp(0.5rem, 5vw, 2rem);
 	--vhs-shelf: 1.5rem;
-	--ctx-bg: hsl(28, 19%, 86%);
+	--vhs-bg-dark: hsl(28, 19%, 70%);
+	--vhs-bg: hsl(28, 19%, 86%);
 
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) auto var(--vhs-overlap) auto minmax(var(--vhs-overlap), 4rem) auto var(--vhs-overlap) auto minmax(0, 1fr);
 	grid-template-rows: auto auto var(--vhs-shelf) auto var(--vhs-shelf);
 	padding-block: var(--size-xl);
 
-	background: var(--ctx-bg);
+	background: linear-gradient(90deg, var(--vhs-bg-dark), var(--vhs-bg) 25%, var(--vhs-bg) 75%, var(--vhs-bg-dark));
 
 	&::before,
 	&::after {
@@ -168,8 +169,8 @@
 		display: block;
 		grid-column: 1 / -1;
 
-		background: linear-gradient(90deg, transparent, hsl(28, 19%, 70%), transparent) no-repeat 50% 0% / 100% 2px,
-			radial-gradient(farthest-side at 50% 1px, hsl(28, 19%, 70%), transparent) no-repeat 50% 0 / 100% 100%;
+		background: linear-gradient(90deg, transparent, var(--vhs-bg-dark), transparent) no-repeat 50% 0% / 100% 2px,
+			radial-gradient(farthest-side at 50% 1px, var(--vhs-bg-dark), transparent) no-repeat 50% 0 / 100% 100%;
 	}
 
 	&::before {

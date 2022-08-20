@@ -3,8 +3,8 @@ layout: layouts/base.njk
 templateName: page
 ---
 
-<header class="bigboi | content-breakout">
-	<div class="bigboi-inner | container" style="--flow-space: var(--size-m)">
+<header class="bigboi | content-fullbleed container">
+	<div class="bigboi-inner | content" style="--flow-space: var(--size-m)">
 		<h1>{{ pageTitle or title }}</h1>
 		
 		<p class="u-fontWeight-bold">{{ subtitle }}</p>
@@ -20,6 +20,6 @@ templateName: page
     </div>
 </header>
 
-<div class="flow fluid">
+<div class="flow fluid | content-fullbleed container">
 	{{ layoutContent | safe }}
 </div>

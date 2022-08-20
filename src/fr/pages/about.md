@@ -16,9 +16,12 @@ i18n:
 
 Bien que le développement front-end est mon activité principale ces jours-ci, étant petit je pensais devenir un graphiste après des heures sur Microsoft Paint puis Photoshop (avec une licence *totalement* valide). Je me suis aventuré dans du code sur MySpace et j'ai fini par créer mon propre site (dépensant de l'argent sur un domaine et un hébergement), me proclamant **"webmaster"** avant mon premier bouton d'acné (l'audace !). J'ai fini par suivre **4 ans d'études de graphiste,** apprenant au passage quelques bonnes leçons de typographie et j'ai ensuite travaillé en freelance pour des clients de renom à faire du montage vidéo, des bannières publicitaires, ainsi que des pages "immersives". Écrire des lignes de code et voir quelque chose apparaître à l'écran était, et est toujours, un peu <em class="about-emoji" data-emoji="✨">magique</em>, j'en ai donc fait mon boulot. Actuellement, je travaille chez MOJO comme développeur front-end senior avec une merveilleuse équipe, tentant de créer des sites **accessibles et optimisés**, apprenant de nouvelles choses constamment dans ce domaine en perpétuelle évolution tout en m'amusant avec le CSS.
 
-{% include 'components/about/visubezier.njk' %}
-
+<p>
+{%- include 'components/about/visubezier.njk' -%}
+{%- markdown true -%}
 J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, j'ai crée une petite extension pour VS Code nommée [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier) pour visualiser les courbes de lissages en CSS, qui est bien utile, si vous voulez mon avis totalement objectif. Et j'ai la chance d'avoir été publié sur des sites tels que [CSS-Tricks](https://css-tricks.com/author/chriskirknielsen/) et [Smashing Magazine](https://www.smashingmagazine.com/author/chriskirknielsen/), si vous arrivez à le croire !
+{%- endmarkdown -%}
+</p>
 
 ## Créatif quand inactif
 

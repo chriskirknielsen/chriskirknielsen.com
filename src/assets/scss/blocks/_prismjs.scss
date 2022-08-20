@@ -54,8 +54,6 @@ pre[class*='language-'] {
 
 	position: relative;
 
-	margin-inline: Calc(-1 * Clamp(0px, ((100vw - 100%) * 999), var(--site-content-gutter)));
-
 	&[data-lang]::before {
 		content: attr(data-lang);
 

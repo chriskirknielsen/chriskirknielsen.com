@@ -14,11 +14,14 @@ i18n:
 
 ## Developer stuff
 
-While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I did dabble in code on MySpace and eventually making my own site (I even paid for a domain and hosting) and calling myself a **"webmaster"** before I even had zits on my face (the hubris). I ended up **studying graphic design for 4 years,** learned lots about typography, then freelanced for some neat clients on video editing, ad banners, and "immersive" pages. Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>, so I pursued that. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, trying to make **accessible and performant** web pages, and learning new things in this constantly evolving field while having fun with CSS.
+While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I did dabble in code on MySpace and eventually making my own site (I even paid for a domain and hosting) and calling myself a **"webmaster"** before I even had zits on my face (the hubris). I ended up **studying graphic design for 4 years** then freelanced for some neat clients on video editing, ad banners, and "immersive" pages. Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>, so I pursued that. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, trying to make **accessible and performant** web pages, and learning new things in this constantly evolving field while having fun with CSS.
 
-{% include 'components/about/visubezier.njk' %}
-
+<p>
+{%- include 'components/about/visubezier.njk' -%}
+{%- markdown true -%}
 I have contributed to a few open source projects, but only in small ways; if it counts, this little VS Code extension of mine called [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier) to preview CSS easings is great, in my unbiased and trustworthy opinion. And I've been lucky enough to be featured on sites like [CSS-Tricks](https://css-tricks.com/author/chriskirknielsen/) and [Smashing Magazine](https://www.smashingmagazine.com/author/chriskirknielsen/), if you can believe it!
+{%- endmarkdown -%}
+</p>
 
 ## Creative stuff
 

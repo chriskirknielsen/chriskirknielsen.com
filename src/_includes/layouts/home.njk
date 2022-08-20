@@ -3,7 +3,7 @@ layout: layouts/base.njk
 section: home
 ---
 
-<div class="content-breakout homescreen">
+<div class="content-fullbleed homescreen">
     <p class="visually-hidden">{{ 'homescreenTitle.visualDescription' | i18n }}</p>
     <div class="homescreen-content">
         <div class="homescreen-background" aria-hidden="true">
@@ -16,7 +16,7 @@ section: home
     </div>
 </div>
 
-<div class="flow fluid">
+<div class="flow fluid | content-fullbleed container">
     {{ layoutContent | safe }}
 
     <div class="u-background-alt-color u-background-extend u-paddingBlock-2xl">

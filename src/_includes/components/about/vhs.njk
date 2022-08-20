@@ -5,7 +5,7 @@
     "css": "CSS",
     "js": "JavaScript"
 }' | fromJSON %}
-<div class="about-vhs | u-background-extend">
+<div class="about-vhs | content-fullbleed">
 {% for slug, name in vhsTapes %}
 <img src="{{ vhsImageRoot + slug + '.jpg' | url }}" alt="{{ 'page.vhsImageAlt' | i18n({ name: name }) }}" width="120" height="220" loading="lazy">
 {% endfor %}

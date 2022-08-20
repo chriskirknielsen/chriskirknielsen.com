@@ -14,11 +14,12 @@
 ul,
 ol {
 	padding: 0;
+	list-style-position: inside;
 }
 
 /* Set a different list style for default unordered lists */
 ul {
-	list-style: inside square;
+	list-style-type: square;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */

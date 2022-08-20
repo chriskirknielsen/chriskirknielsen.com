@@ -3,9 +3,9 @@ layout: layouts/base.njk
 templateName: post
 ---
 
-<header class="bigboi | content-breakout">
-	<div class="bigboi-inner | container">
-		<h1 id="{{ title | slug }}">{{ title }}</h1>
+<header class="bigboi | content-fullbleed container">
+	<div class="bigboi-inner | content">
+		<h1 id="{{ title | slugify }}">{{ title }}</h1>
 		<p>
 			<time datetime="{{ date | dateFormat({ format: 'machine' }) }}">
 				{{- date | dateFormat({ format: 'nice', locale: lang }) -}}
@@ -27,7 +27,7 @@ templateName: post
 </p>
 {% endif %}
 
-<div class="fluid flow">
+<div class="flow fluid | content-fullbleed container">
 	{{ layoutContent | safe }}
 </div>
 
