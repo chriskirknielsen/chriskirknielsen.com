@@ -3,7 +3,7 @@ $tokens: (
     "base-line-height": 1.5,
     "heading-line-height": 1.1,
     "content-width": 60rem,
-    "content-gutter": var(--size-s)
+    "content-gutter": var(--size-m)
   ),
   "vars": (
     "color-scheme": dark light,
@@ -238,12 +238,12 @@ $tokens: (
     )
   ),
   "typeScale": (
-    "0": clamp(1.00rem, calc(0.90rem + 0.49vw), 1.25rem),
-    "1": clamp(1.33rem, calc(1.27rem + 0.33vw), 1.50rem),
-    "2": clamp(1.78rem, calc(1.77rem + 0.05vw), 1.80rem),
-    "3": clamp(2.16rem, calc(2.45rem - 0.41vw), 2.37rem),
-    "4": clamp(2.59rem, calc(3.38rem - 1.10vw), 3.16rem),
-    "5": clamp(3.11rem, calc(4.64rem - 2.14vw), 4.21rem)
+    "0": clamp(1.00rem, calc(0.81rem + 0.94vw), 1.38rem),
+    "1": clamp(1.20rem, calc(1.03rem + 0.87vw), 1.55rem),
+    "2": clamp(1.44rem, calc(1.29rem + 0.75vw), 1.74rem),
+    "3": clamp(1.73rem, calc(1.61rem + 0.57vw), 1.96rem),
+    "4": clamp(2.07rem, calc(2.01rem + 0.32vw), 2.20rem),
+    "5": clamp(2.48rem, calc(2.49rem - 0.03vw), 2.49rem)
   ),
   "size": (
     "2xs": 0.25rem,

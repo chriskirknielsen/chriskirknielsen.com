@@ -14,7 +14,7 @@
 		display: none;
 	}
 
-	--picker-gap: var(--site-content-gutter);
+	--picker-gap: calc(var(--site-content-gutter) / 2);
 	--picker-button-border-size: 2px;
 	--picker-text: var(--t-color-gray-min);
 	--picker-bg: var(--t-color-gray-max);

@@ -1,6 +1,6 @@
 .header {
 	&-inner {
-		--header-gap: clamp(var(--size-m), ((100vw - 24rem) * 9999), var(--size-l));
+		--header-gap: clamp(var(--size-m), 2.5vw, var(--size-l));
 
 		display: flex;
 		gap: var(--header-gap);
