@@ -19,39 +19,41 @@ section: home
 <div class="flow fluid | content-fullbleed container">
     {{ layoutContent | safe }}
 
-    <div class="u-background-alt-color u-background-extend u-paddingBlock-2xl">
-        <div class="subsection subsection--quickaccess">
-            <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
+    <div class="content-fullbleed | u-background-bg-alt-color u-paddingBlock-2xl">
+        <div class="container">
+            <div class="subsection subsection--quickaccess">
+                <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
 
-            <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
-                <strong class="spaced-items">
-                    {% renderFile "question" | svgUrl, { class: "inline-icon" } %}
-                    {{ 'page.quickAccess.about.label' | i18n }}
-                </strong>
-                <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
-            </a>
-            <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
-                <strong class="spaced-items">
-                    {% renderFile "shirt" | svgUrl, { class: "inline-icon" } %}
-                    {{ 'page.quickAccess.designs.label' | i18n }}
-                </strong>
-                <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
-            </a>
-            <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
-                <strong class="spaced-items">
-                    {% renderFile "type" | svgUrl, { class: "inline-icon" } %}
-                    {{ 'page.quickAccess.fonts.label' | i18n }}
-                </strong>
-                <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
-            </a>
+                <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
+                    <strong class="spaced-items">
+                        {% renderFile "question" | svgUrl, { class: "inline-icon" } %}
+                        {{ 'page.quickAccess.about.label' | i18n }}
+                    </strong>
+                    <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
+                </a>
+                <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
+                    <strong class="spaced-items">
+                        {% renderFile "shirt" | svgUrl, { class: "inline-icon" } %}
+                        {{ 'page.quickAccess.designs.label' | i18n }}
+                    </strong>
+                    <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
+                </a>
+                <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
+                    <strong class="spaced-items">
+                        {% renderFile "type" | svgUrl, { class: "inline-icon" } %}
+                        {{ 'page.quickAccess.fonts.label' | i18n }}
+                    </strong>
+                    <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
+                </a>
 
-            <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l);">
-                <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
+                <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l);">
+                    <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
 
-                {% for socialPage in social %}
-                    <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
-                {% endfor %}
-            </p>
+                    {% for socialPage in social %}
+                        <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
+                    {% endfor %}
+                </p>
+            </div>
         </div>
     </div>
 

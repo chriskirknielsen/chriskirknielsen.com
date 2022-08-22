@@ -12,14 +12,21 @@
 	}
 }
 
-.u-color-accent-color {
-	--ctx-color: var(--t-accent-color);
-	color: var(--ctx-color);
+$extra-text-colors: ('heading-color', 'text-color', 'text-alt-color', 'accent-color', 'accent-color-alt');
+$extra-bg-colors: ('bg-color', 'bg-alt-color');
+
+@each $x-color in $extra-text-colors {
+	.u-color-#{$x-color} {
+		--ctx-color: var(--t-#{$x-color});
+		color: var(--ctx-color);
+	}
 }
 
-.u-background-alt-color {
-	--ctx-bg: var(--t-bg-alt-color);
-	background-color: var(--ctx-bg);
+@each $x-background in $extra-bg-colors {
+	.u-background-#{$x-background} {
+		--ctx-bg: var(--t-#{$x-background});
+		background-color: var(--ctx-bg);
+	}
 }
 
 .u-background-extend {
