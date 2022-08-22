@@ -52,6 +52,8 @@
 		"postAuthorFormat": "Article rédigé par {0}",
 		"postSupportFormat": "Si vous avez un commentaire, <a href=\"{0}\">taggez-moi sur Twitter</a> pour discuter ! Si ceci vous a plu, vous pouvez <a href=\"{1}\">commander un de mes t-shirts</a>. Merci infiniment !",
 		"langSwitchLabel": "Changer de Langue",
-		"themeSwitchLabel": "Changer de Thè<span>m</span>e"
+		"themeSwitchLabel": "Changer de Thè<span>m</span>e",
+		"themePicker": "Sélecteur de Thème",
+		"closeThemePicker": "Fermer le sélecteur de thème"
 	}
 }
