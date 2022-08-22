@@ -1,5 +1,6 @@
-[data-section='404'] main {
+[data-section='404'] main > * {
 	max-width: 30rem;
+	margin-inline: auto;
 }
 
 // CDIV is 404 in Roman numerals, if you were wondering.
