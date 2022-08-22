@@ -147,7 +147,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/art-print/Control-by-ckirknielsen/106874139.1G4ZT',
 			Society6: 'https://society6.com/product/control6788779_print?sku=s6-23678622p4a1v45',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 		similar: ['control-service-weapon'],
 	},
 	{
@@ -159,7 +159,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/art-print/God-of-War-by-ckirknielsen/106870471.1G4ZT',
 			Society6: 'https://society6.com/product/god-of-war6788801_print?sku=s6-23678708p4a1v45',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 	},
 	{
 		slug: 'deathloop',
@@ -170,7 +170,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/art-print/DEATHLOOP-by-ckirknielsen/106881338.1G4ZT',
 			Society6: 'https://society6.com/product/deathloop_print?sku=s6-23684963p4a1v45',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 	},
 	{
 		slug: 'dead-space',
@@ -181,7 +181,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/art-print/Dead-Space-by-ckirknielsen/106878842.1G4ZT',
 			Society6: 'https://society6.com/product/dead-space6791094_print?sku=s6-23685021p4a1v45',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 	},
 	{
 		slug: 'jak-daxter-powercell-hunters',
@@ -193,7 +193,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/t-shirt/23558909-powercell-hunters',
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/powercell-hunters/1809059/',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 		similar: ['crash-bandicoot-wumpa-hoarder', 'sly-cooper-gentleman-thief'],
 	},
 	{
@@ -206,7 +206,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/t-shirt/25571868-wumpa-hoarder',
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/wumpa-hoarder/1831579/',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 		similar: ['jak-daxter-powercell-hunters', 'sly-cooper-gentleman-thief'],
 	},
 	{
@@ -219,7 +219,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/t-shirt/29290455-gentleman-thief',
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/gentleman-thief/1831582/',
 		},
-		tags: ['video-games'],
+		tags: ['games'],
 		similar: ['jak-daxter-powercell-hunters', 'crash-bandicoot-wumpa-hoarder'],
 	},
 	{
@@ -278,7 +278,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/poster/Control-FBC-Service-Weapon-by-ckirknielsen/89267833.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/24392079-control-fbc-service-weapon',
 		},
-		tags: ['video-games', 'gaming-arsenal'],
+		tags: ['games', 'gaming-arsenal'],
 		similar: ['control'],
 	},
 	{
@@ -292,7 +292,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/poster/DEATHLOOP-Fourpounder-by-ckirknielsen/97903910.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/26802077-deathloop-fourpounder',
 		},
-		tags: ['video-games', 'gaming-arsenal'],
+		tags: ['games', 'gaming-arsenal'],
 		similar: ['deathloop'],
 	},
 	{
@@ -307,7 +307,7 @@ module.exports = [
 			'RedBubble (Alt)': 'https://www.redbubble.com/i/poster/God-of-War-Leviathan-Axe-Alt-Version-by-ckirknielsen/106755016.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/24830737-god-of-war-leviathan-axe',
 		},
-		tags: ['video-games', 'gaming-arsenal'],
+		tags: ['games', 'gaming-arsenal'],
 		similar: ['god-of-war'],
 	},
 	{
@@ -321,7 +321,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/poster/The-Last-of-Us-Switchblade-by-ckirknielsen/106050948.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/28918532-the-last-of-us-switchblade',
 		},
-		tags: ['video-games', 'gaming-arsenal'],
+		tags: ['games', 'gaming-arsenal'],
 	},
 	{
 		showInGallery: false,
@@ -334,7 +334,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/poster/Ratchet-and-Clank-Omniwrench-Millenium-by-ckirknielsen/93357003.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/25205497-ratchet-and-clank-omniwrench-millenium',
 		},
-		tags: ['video-games', 'gaming-arsenal'],
+		tags: ['games', 'gaming-arsenal'],
 	},
 	{
 		showInGallery: false,
@@ -347,7 +347,7 @@ module.exports = [
 			RedBubble: 'https://www.redbubble.com/i/poster/Dead-Space-Plasma-Cutter-by-ckirknielsen/99996925.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/27453494-dead-space-plasma-cutter',
 		},
-		tags: ['video-games', 'gaming-arsenal'],
+		tags: ['games', 'gaming-arsenal'],
 		similar: ['dead-space'],
 	},
 ];
