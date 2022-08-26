@@ -1,3 +1,6 @@
+{%- set bezierX = 186 -%}
+{%- set bezierY = 186 -%}
+
 <svg class="about-visubezier" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" stroke-miterlimit="4">
     <rect x="46" y="46" width="164" height="164" fill="var(--t-color-gray-max)"/>
     <g fill="none" stroke="var(--t-color-secondary-med)" stroke-width="6">
@@ -11,11 +14,11 @@
     <rect x="46" y="46" width="164" height="164" fill="none" stroke="var(--t-color-gray-med)" stroke-width="8"/>
     <g fill="var(--t-color-primary-min)">
         <circle cx="84" cy="9.9" r="8.1"/>
-        <circle cx="138.3" cy="86" r="8.1" data-move="point"/>
+        <circle cx="138.3" cy="86" r="8.1" data-move="point" style="--cx: {{bezierX}}; --cy: {{bezierY}};" />
     </g>
     <g fill="none" stroke="var(--t-color-primary-min)" stroke-width="6">
         <line x1="205.3" y1="50.3" x2="84" y2="9.9" />
-        <path d="M50 206L138.3 86" data-move="line"/>
-        <path d="M50 206C138.3 86 84 10 205.3 50.3" data-move="spline" />
+        <path d="M50 206L138.3 86" data-move="line" style="--d: 'M50 206L{{bezierX}} {{bezierY}}';" />
+        <path d="M50 206C138.3 86 84 10 205.3 50.3" data-move="spline" style="--d: 'M50 206C{{bezierX}} {{bezierY}} 84 10 205.3 50.3';" />
     </g>
 </svg>

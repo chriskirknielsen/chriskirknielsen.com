@@ -1,0 +1,36 @@
+.callout {
+	&,
+	& + * {
+		// Provide more space around this element
+		--flow-space: var(--size-2xl);
+	}
+
+	position: relative;
+	padding: var(--size-m);
+	padding-block-start: 0;
+
+	border-inline-start: 2px solid var(--t-color-primary-med);
+
+	html[lang='en'] &::before {
+		content: 'Note';
+	}
+	html[lang='fr'] &::before {
+		content: 'Nota Bene';
+	}
+	&[data-callout][class]::before {
+		content: attr(data-callout);
+	} // If provided, override pseudo's text content
+
+	&::before {
+		display: block;
+		padding-block-end: 0.5em;
+
+		font-family: var(--t-font-heading);
+		font-size: 1.5em;
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: var(--t-heading-tracking);
+
+		color: var(--t-color-primary-min);
+	}
+}

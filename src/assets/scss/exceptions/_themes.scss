@@ -90,6 +90,28 @@
 	.card {
 		box-shadow: 0 0.25em 1em -0.5em var(--t-accent-color);
 	}
+
+	.callout {
+		padding-block-start: var(--size-xl);
+
+		background: linear-gradient(90deg, transparent, var(--ctx-bg)) 100% 0 repeat-y,
+			repeating-linear-gradient(var(--t-color-primary-med) 0, var(--t-color-primary-med) 2px, transparent 2px, transparent 6px) 0 0 repeat-x,
+			linear-gradient(90deg, var(--t-color-primary-med), var(--ctx-bg)) 0 100% no-repeat;
+		background-size: 100% 1.25em, 100% 1.25em, 100% 0.11em;
+
+		&::before {
+			position: absolute;
+			inset-block-start: -0.25em;
+			inset-inline-start: var(--site-content-gutter);
+
+			padding: 0 var(--site-content-gutter);
+
+			font-size: max(var(--size-xl), 1.75em);
+			color: var(--t-color-primary-min);
+			text-shadow: 0.1em 0.1em 0 var(--ctx-bg), 0.125em 0.125em 0 var(--t-color-primary-med);
+			background-color: var(--ctx-bg);
+		}
+	}
 }
 
 @include theme('y2k') {

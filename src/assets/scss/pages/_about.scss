@@ -128,7 +128,7 @@
 		clear: both;
 	}
 
-	@supports (d: path('M0 0H1')) and (cx: 1) {
+	@supports (d: path('M0 0H1')) and (cx: var(--c)) and (cy: 1) {
 		$bezier-x: 186;
 		$bezier-y: 186;
 
@@ -136,14 +136,14 @@
 			transition: all var(--easing-in-out) 300ms;
 		}
 		&:hover [data-move='point'] {
-			cx: #{$bezier-x};
-			cy: #{$bezier-y};
+			cx: var(--cx);
+			cy: var(--cy);
 		}
 		&:hover [data-move='line'] {
-			d: path('M50 206L#{$bezier-x} #{$bezier-y}');
+			d: path(var(--d));
 		}
 		&:hover [data-move='spline'] {
-			d: path('M50 206C#{$bezier-x} #{$bezier-y} 84 10 205.3 50.3');
+			d: path(var(--d));
 		}
 	}
 }
