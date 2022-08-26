@@ -5,6 +5,7 @@ const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = Object.keys(metadata.locales);
 const defaultLang = 'en';
+const jsminCache = {};
 
 // Tools
 const util = require('util');
@@ -181,10 +182,20 @@ module.exports = function (eleventyConfig) {
 		return new CleanCSS({}).minify(code).styles;
 	});
 
-	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
+	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, ...rest) {
+		const callback = rest.pop();
+		const cacheKey = rest.length > 0 ? rest[0] : null;
+
 		try {
-			const minified = await minify(code);
-			callback(null, minified.code);
+			if (cacheKey && jsminCache.hasOwnProperty(cacheKey)) {
+				callback(null, jsminCache[cacheKey]);
+			} else {
+				const minified = await minify(code);
+				if (cacheKey) {
+					jsminCache[cacheKey] = minified.code;
+				}
+				callback(null, minified.code);
+			}
 		} catch (err) {
 			console.error('Terser error: ', err);
 			callback(null, code); // Fail gracefully.

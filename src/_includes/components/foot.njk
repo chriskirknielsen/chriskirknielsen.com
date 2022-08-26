@@ -12,5 +12,5 @@ const scrsvrUrl = `{{ '/assets/css/screensaver.css' | url }}`;
     {%- include "assets/js/themepicker-toggle.js" -%}
 })()
 {% endset -%}
-{{- footJs | replace('"use strict";', "") | jsmin | safe }}
+{{- footJs | replace('"use strict";', "") | jsmin('foot') | safe }}
 </script>

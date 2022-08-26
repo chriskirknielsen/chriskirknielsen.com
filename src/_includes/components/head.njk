@@ -78,7 +78,7 @@
 		{% include "assets/js/themepicker-set.js" %}
 	})()
 	{% endset %}
-	<script>{{- themeScript | jsmin | safe -}}</script>
+	<script>{{- themeScript | jsmin('head') | safe -}}</script>
 	{% endif %}
 
 	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
