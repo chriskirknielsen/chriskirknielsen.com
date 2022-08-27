@@ -221,44 +221,58 @@
 	}
 }
 
-.about-marquee {
+.about-cheers {
 	padding-block: var(--size-xl);
 
 	color: var(--t-link-color);
 
 	& p {
+		position: relative;
+
 		display: flex;
 		justify-content: space-around;
 		gap: 0.5em;
 
-		font-size: var(--type-1);
-		font-weight: bold;
+		font-size: var(--type-4);
+		font-weight: 200;
+		letter-spacing: 0.125em;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
-		--marquee-size: max(800px, 200vw);
+		--about-cheers-anim-time: 1067ms;
+		--about-cheers-total-time: calc(var(--about-cheers-anim-time) * (1 + var(--n)));
+		--about-cheers-hold-time: calc(var(--about-cheers-anim-time) * var(--n) / 10);
 
-		&-inner {
-			width: var(--marquee-size);
-
-			white-space: nowrap;
+		p {
+			min-height: 1.5em;
 		}
+		& span {
+			position: absolute;
 
-		& p {
-			width: 50%;
-			text-shadow: calc(var(--marquee-size) / 2) 0 0 currentColor;
+			display: block;
 
-			animation: aboutMarquee 16s linear infinite;
-		}
+			animation: aboutMarquee var(--about-cheers-total-time) var(--easing-in-out) calc(var(--i) * -2 * var(--about-cheers-hold-time)) infinite;
 
-		&:hover p {
-			animation-play-state: paused;
+			&:nth-child(odd) {
+				--about-cheers-factor: -1;
+			}
 		}
 	}
 }
 
 @keyframes aboutMarquee {
-	to {
-		transform: translateX(calc(var(--marquee-size) / -2));
+	0%,
+	70% {
+		transform: translateX(calc(var(--about-cheers-factor, 1) * 50vw));
+		opacity: 0;
+	}
+	80%,
+	90% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.5);
+		opacity: 0;
 	}
 }

@@ -125,4 +125,12 @@
 			outline: 1px dotted #4c4c4c;
 		}
 	}
+
+	.filter-item input[type='radio']:checked + label {
+		text-decoration: underline;
+
+		&::before {
+			content: none;
+		}
+	}
 }

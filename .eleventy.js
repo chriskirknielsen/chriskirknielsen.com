@@ -195,21 +195,13 @@ module.exports = function (eleventyConfig) {
 				if (cacheKey) {
 					jsminCache[cacheKey] = minified; // Store the promise which has the minified output (an object with a code property)
 				}
-				callback(null, await minified.code); // Await and use the return value in the callback
+				callback(null, (await minified).code); // Await and use the return value in the callback
 			}
 		} catch (err) {
 			console.error('Terser error: ', err);
 			callback(null, code); // Fail gracefully.
 		}
 	});
-	// eleventyConfig.addFilter('jsmin', function (code) {
-	// 	let minified = UglifyJS.minify(code);
-	// 	if (minified.error) {
-	// 		console.log('UglifyJS error: ', minified.error);
-	// 		return code;
-	// 	}
-	// 	return minified.code;
-	// });
 
 	eleventyConfig.addFilter('i18n', function (key, data = {}) {
 		// Find the page context

@@ -1,11 +1,15 @@
-<div class="about-marquee | content-fullbleed container">
-    <div class="about-marquee-inner">
-        <p>
-            <span lang="en">Cheers</span>
-            <span lang="fr">Santé</span>
-            <span lang="da">Skål</span>
-            <span lang="it">Salute</span>
-            <span lang="ja">かんぱい</span>
-        </p>
-    </div>
+{% set cheers = {
+    en: "Cheers",
+    fr: "Santé",
+    da: "Skål",
+    it: "Salute",
+    ja: "かんぱい",
+    gd: "Sláinte"
+} %}
+<div class="about-cheers | content-fullbleed container" style="--n:{{ cheers | length }}">
+<p>
+{%- for lang, cheer in cheers -%}
+<span lang="{{ lang }}" style="--i:{{ loop.index0 }}">{{ cheer | safe }}</span>
+{%- endfor -%}
+</p>
 </div>
