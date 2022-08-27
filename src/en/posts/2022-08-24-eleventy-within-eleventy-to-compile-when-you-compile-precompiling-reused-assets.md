@@ -163,9 +163,9 @@ permalink: head-script.js
 The file is rendered with the HTML engine since that effectively passes it as plaintext, as [noted in the docs](https://www.11ty.dev/docs/languages/), preventing any unnecessary transformations on the file.
 {% endcallout %}
 
-And that’s it. That’s my hacky solution. But then [on Twitter, I was asked about if I had tried a global data file](https://twitter.com/eleven_ty/status/1562480526396919808)… here’s what I came up with.
+One caveat is that those files get rendered at the root of the main build due to the `permalink` in the frontmatter, but I'm sure that could be worked around. And that’s it. That’s my hacky solution. But then [on Twitter, I was asked about if I had tried a global data file](https://twitter.com/eleven_ty/status/1562480526396919808)… here’s what I came up with.
 
-# Using a global data file instead
+## Using a global data file instead
 
 I couldn’t make it work. Maybe I need more caffeine but couldn't figure out where to start, sorry!
 
@@ -183,14 +183,18 @@ module.exports = function (eleventyConfig) {
 
 		try {
 			if (cacheKey && jsminCache[cacheKey]) {
-				const cacheValue = await Promise.resolve(jsminCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
-				callback(null, cacheValue.code); // Access the code property of the cached value
+				// Wait for the data, wrapped in a resolved promise in case the original value already was resolved
+				const cacheValue = await Promise.resolve(jsminCache[cacheKey]);
+				// Access the code property of the cached value
+				callback(null, cacheValue.code);
 			} else {
 				const minified = minify(code);
 				if (cacheKey) {
-					jsminCache[cacheKey] = minified; // Store the promise which has the minified output (an object with a code property)
+					// Store the promise which has the minified output (an object with a code property)
+					jsminCache[cacheKey] = minified;
 				}
-				callback(null, await minified.code); // Await and use the return value in the callback
+				// Await and use the return value in the callback
+				callback(null, (await minified).code);
 			}
 		} catch (err) {
 			console.error('Terser error: ', err);
