@@ -32,8 +32,8 @@ h2 {
 		content: '⬡';
 
 		position: absolute;
-		top: 0;
-		left: -1.125em;
+		inset-block-start: 0;
+		inset-inline-start: -1.125em;
 
 		width: 0.75em;
 		height: 1em;
@@ -57,7 +57,7 @@ ul {
 }
 
 li + li {
-	margin-top: 0.75em;
+	margin-block-start: 0.75em;
 }
 
 .main-heading-block {
@@ -109,11 +109,7 @@ li + li {
 
 .lombax-silhouette {
 	position: absolute;
-
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	inset: 0;
 
 	width: 50%;
 	margin: auto;
@@ -160,10 +156,10 @@ li + li {
 	}
 
 	&::before {
-		padding-right: 1em;
+		padding-inline-end: 1em;
 	}
 	&::after {
-		padding-left: 1em;
+		padding-inline-start: 1em;
 	}
 }
 
@@ -268,11 +264,9 @@ li + li {
 	&::before,
 	&::after {
 		content: '';
+
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		inset: 0;
 
 		border-radius: inherit;
 

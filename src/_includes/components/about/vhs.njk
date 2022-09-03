@@ -7,6 +7,22 @@
 }' | fromJSON %}
 <div class="about-vhs | content-fullbleed">
 {% for slug, name in vhsTapes %}
+<a href="/designs/vhs-{{ slug }}/" data-img="vhs">
 <img src="{{ vhsImageRoot + slug + '.jpg' | url }}" alt="{{ 'page.vhsImageAlt' | i18n({ name: name }) }}" width="120" height="220" loading="lazy">
+</a>
 {% endfor %}
+<a href="/designs/www-explorer/" class data-img="mug">
+<svg xmlns="http://www.w3.org/2000/svg" width="227.5" height="227.5" viewBox="0 0 227.5 227.5">
+    <defs>
+      <linearGradient id="aboutMugGrad" gradientUnits="userSpaceOnUse" x1="53" y1="0" x2="175" y2="0">
+        <stop offset="0" stop-color="#e6e6e6"/>
+        <stop offset="0.5" stop-color="#cccccc"/>
+        <stop offset="1" stop-color="#e6e6e6"/>
+      </linearGradient>
+    </defs>
+    <path fill="#e6e6e6" d="M45.3 155.1c-8.7 0-21.3-7.8-21.3-40.2s12.3-43.3 19.5-43.3c5.7 0 10 6.7 11.5 9.3l-.2-20.3S52 59 45.8 59s-35.4 3.3-35.4 56.7 30.4 55.6 45.1 50.4l-.1-23c-.6 3-2.9 12-10.1 12Z"/>
+    <path fill="url(#aboutMugGrad)" d="M53.7 184.5c0 12.7 121.6 12.7 121.6 0V38.6c0-6.8-121.6-6.8-121.6 0v145.9Z"/>
+</svg>
+<img src="{{ '/' + assets.imagesDir + '/design-mug-www.png' | url }}" alt="{{ 'page.mugImageAlt' | i18n({ name: 'WWW logo, NASA-style' }) }}" width="100" height="100" loading="lazy">
+</a>
 </div>

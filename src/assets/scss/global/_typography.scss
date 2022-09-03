@@ -81,7 +81,7 @@ blockquote {
 
 :is(ol, ul) {
 	& :is(ol, ul) {
-		padding-left: 1em;
+		padding-inline-start: 1em;
 	}
 
 	& ul {

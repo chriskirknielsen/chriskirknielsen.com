@@ -192,11 +192,7 @@
         <use
           xlink:href="#homescreen-svg-chris-shape"
           class="homescreen-svg__group homescreen-svg__chris-depth"
-          style="
-            transform: scale({{ depth_scale_x | round(3) }}, {{ depth_scale_y | round(3) }});
-            color: hsl({{ color_h }}, {{ color_s }}, {{ color_l }});
-          "
-        />
+          style="transform: scale({{ depth_scale_x | round(3) }}, {{ depth_scale_y | round(3) }}); color: hsl({{ color_h }}, {{ color_s }}, {{ color_l }});" />
       {%- endfor %}
       </g>
 

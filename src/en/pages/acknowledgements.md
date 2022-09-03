@@ -39,7 +39,7 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}), just do
 -   [Visual Studio Code](https://code.visualstudio.com/)
     Love how powerful and extendable this editor is! I notably use these additions:
     -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): A beautiful neon-infused theme.
-    -   [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2): A useful way to keep track of indentation.
+    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Keeps all my code harmoniously formatted.
     -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): My own CSS easing preview tool.
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
     I love working with vectors! I optimise my work with [SVGOMG](https://jakearchibald.github.io/svgomg/) and then manually tweak them to be _just right_.

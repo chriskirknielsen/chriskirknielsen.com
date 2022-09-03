@@ -23,11 +23,11 @@
 			[fullbleed-start]
 			1fr
 			[wide-start]
-			var(--site-content-gutter)
+			var(--container-inner-gutter, var(--site-content-gutter))
 			[container-start]
-			minmax(0, var(--site-content-width))
+			var(--container-inner-def, minmax(0, var(--site-content-width)))
 			[container-end]
-			var(--site-content-gutter)
+			var(--container-inner-gutter, var(--site-content-gutter))
 			[wide-end]
 			1fr
 			[fullbleed-end];

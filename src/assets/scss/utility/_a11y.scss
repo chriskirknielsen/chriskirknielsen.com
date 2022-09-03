@@ -1,7 +1,7 @@
 .skip-link:focus {
 	position: fixed;
-	top: 1rem;
-	left: 1rem;
+	inset-block-start: 1rem;
+	inset-inline-start: 1rem;
 	z-index: 99;
 
 	display: inline-block;

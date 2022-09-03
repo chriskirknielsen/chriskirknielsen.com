@@ -102,7 +102,7 @@ module.exports = function (eleventyConfig) {
 		templateFormats: ['md', 'html', 'njk'],
 		preAttributes: {
 			tabindex: 0,
-			class: (context) => `language-${context.language} content-wide`,
+			class: (context) => `language-${context.language} codeblock content-wide`,
 			'data-lang': (context) => context.language.toUpperCase(),
 		},
 	});

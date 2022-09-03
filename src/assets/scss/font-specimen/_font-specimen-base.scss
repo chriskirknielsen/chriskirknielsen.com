@@ -91,11 +91,10 @@ a {
 	--flow: 2em;
 
 	& > * {
-		margin-top: 0;
-		margin-bottom: 0;
+		margin-block: 0;
 	}
 	& > * + * {
-		margin-top: var(--flow, 2em);
+		margin-block-start: var(--flow, 2em);
 	}
 
 	& > h2 + :is(p, ul, ol) {
@@ -157,10 +156,8 @@ a {
 			// Reset the no-subgrid fallback
 			max-width: 100%;
 			width: 100%;
-			margin-left: initial;
-			margin-right: initial;
-			padding-left: 0;
-			padding-right: 0;
+			margin-inline: initial;
+			padding-inline: 0;
 		}
 	}
 }
@@ -214,7 +211,7 @@ a {
 	input[type='checkbox'] + label {
 		position: relative;
 
-		padding-left: 0.5rem;
+		padding-inline-start: 0.5rem;
 	}
 
 	input[type='checkbox'] + label::before,
@@ -226,8 +223,8 @@ a {
 	}
 
 	input[type='checkbox'] + label::before {
-		top: 0;
-		left: #{$cbox-size * -1};
+		inset-block-start: 0;
+		inset-inline-start: #{$cbox-size * -1};
 
 		width: $cbox-size;
 		height: $cbox-size;
@@ -253,8 +250,8 @@ a {
 	input[type='checkbox']:checked + label::after {
 		content: '';
 
-		left: #{$cbox-size * -0.5 - $check-size * 1.25};
-		top: #{$cbox-size * 0.25 - $check-size};
+		inset-block-start: #{$cbox-size * 0.25 - $check-size};
+		inset-inline-start: #{$cbox-size * -0.5 - $check-size * 1.25};
 
 		width: #{$cbox-size * 0.5};
 		height: #{$cbox-size * 0.75};
@@ -378,7 +375,7 @@ code,
 	}
 
 	.ligature-sample-code {
-		margin-top: 0.25em;
+		margin-block-start: 0.25em;
 
 		text-align: center;
 		font-size: 0.75rem;

@@ -1,6 +1,7 @@
 :where(button, .button):where(:not(.button-reset)) {
 	display: var(--btn-display, inline-flex);
 	align-items: center;
+	justify-content: var(--btn-justify-content, start);
 	gap: var(--btn-gap, 0.5em);
 	padding: var(--btn-padding-block, var(--size-2xs)) var(--btn-padding-inline, var(--size-s));
 

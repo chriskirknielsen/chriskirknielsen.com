@@ -12,13 +12,13 @@ i18n:
                 content: 'Pour en apprendre un peu (ou beaucoup ?) sur moi, c’est par ici. C’est pour le moins… exhaustif.'
             designs:
                 label: 'Mes t-shirts et affiches'
-                content: 'Je crée des designs, et j’en ai fait une "boutique". Vous y trouverez du dev, du cinéma et du jeu vidéo.'
+                content: 'Je crée des designs, et j’en ai fait une "boutique". Vous y trouverez du dev, un peu de pop-culture…'
             fonts:
                 label: 'Mes quelques typos'
-                content: 'Ayant une passion pour les typos, voici quelques humbles projects de police d’écriture.'
+                content: 'Ayant une passion pour les typos, voici quelques humbles police d’écriture.'
             also:
                 label: 'Plus…'
-                usesPageLabel: 'Usages'
+                usesPageLabel: 'Matos'
         writing:
             heading: 'Écriture'
             content: 'J’écris de manière très irrégulière, histoire de sortir des idées de ma tête. Si vous voulez me lire, voici le dernier article. J’ai aussi un flux RSS pour les intéressé·e·s!'

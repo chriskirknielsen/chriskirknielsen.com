@@ -33,8 +33,8 @@ h2 {
 		content: '⬡';
 
 		position: absolute;
-		top: 0;
-		left: -1.125em;
+		inset-block-start: 0;
+		inset-inline-start: -1.125em;
 
 		width: 0.75em;
 		height: 1em;
@@ -58,7 +58,7 @@ ul {
 }
 
 li + li {
-	margin-top: 0.75em;
+	margin-block-start: 0.75em;
 }
 
 code {
@@ -116,10 +116,7 @@ code {
 .lombax-silhouette {
 	position: absolute;
 
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	inset: 0;
 
 	width: 75%;
 	margin: auto;
@@ -166,10 +163,10 @@ code {
 	}
 
 	&::before {
-		padding-right: 1em;
+		padding-inline-end: 1em;
 	}
 	&::after {
-		padding-left: 1em;
+		padding-inline-start: 1em;
 	}
 }
 
@@ -269,15 +266,15 @@ code {
 	background: linear-gradient(-45deg, transparent 0.5em, var(--palette-06, orange) 0, var(--palette-07, yellow));
 
 	* + & {
-		margin-top: 1em;
+		margin-block-start: 1em;
 	}
 	& + * {
-		margin-top: 0.5em;
+		margin-block-start: 0.5em;
 	}
 }
 
 .demo-grid-single {
-	margin-right: auto;
+	margin-inline-end: auto;
 	text-align: left;
 
 	& > span {
@@ -346,10 +343,7 @@ code,
 	&::after {
 		content: '';
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		inset: 0;
 
 		border-radius: inherit;
 

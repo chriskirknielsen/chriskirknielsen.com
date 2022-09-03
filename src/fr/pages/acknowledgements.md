@@ -39,7 +39,7 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
 -   [Visual Studio Code](https://code.visualstudio.com/)
     J'aime comment cet éditeur est puissant et personnalisable ! J'utilise notamment :
     -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode) : Un magnifique thème saveur néon.
-    -   [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) : Une façon pratique de garder un œil sur mon indentation.
+    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Pour garder mon code propre et harmonieux.
     -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier) : Mon propre outil de prévisualisation de courbes de lissage CSS.
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
     J'adore travailler en vectoriel ! J'optimise mes travaux avec [SVGOMG](https://jakearchibald.github.io/svgomg/) puis j'ajuste manuellement pour que tout soit _pile poil_ comme je veux.

@@ -9,13 +9,13 @@ i18n:
             heading: 'Quick Access'
             about:
                 label: 'Way too many facts about me'
-                content: 'If you want to learn a little (or a lot?) more about me, this is the place. It’s… comprehensive, to say the least.'
+                content: 'If you want to learn more about me, this is the place. It should cover quite a bit…'
             designs:
                 label: 'Shirts and posters I designed'
-                content: 'I design things sometimes and made a “shop”. Lots of dev stuff, movie stuff, gaming stuff…'
+                content: 'I design things sometimes and made a “shop”. Lots of dev stuff, a little pop-culture…'
             fonts:
                 label: 'A few typefaces I’ve worked on'
-                content: 'I’ve always loved fonts so making my own had to happen. My humbles projects are available here.'
+                content: 'I’ve always thought fonts to be cool so making my own had to happen.'
             also:
                 label: 'Also…'
                 usesPageLabel: 'Uses'

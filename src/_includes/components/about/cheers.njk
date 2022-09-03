@@ -3,10 +3,9 @@
     fr: "Santé",
     da: "Skål",
     it: "Salute",
-    ja: "かんぱい",
-    gd: "Sláinte"
+    ja: "かんぱい"
 } %}
-<div class="about-cheers | content-fullbleed container" style="--n:{{ cheers | length }}">
+<div class="about-cheers" style="--n:{{ cheers | length }}">
 <p>
 {%- for lang, cheer in cheers -%}
 <span lang="{{ lang }}" style="--i:{{ loop.index0 }}">{{ cheer | safe }}</span>

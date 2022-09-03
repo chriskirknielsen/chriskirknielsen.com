@@ -112,6 +112,10 @@
 			background-color: var(--ctx-bg);
 		}
 	}
+
+	.about-quotebox {
+		box-shadow: 0.5em 0.5em 2em -1em var(--t-color-primary-med);
+	}
 }
 
 @include theme('y2k') {
@@ -132,5 +136,9 @@
 		&::before {
 			content: none;
 		}
+	}
+
+	.post-footer-avatar {
+		border-radius: 0;
 	}
 }

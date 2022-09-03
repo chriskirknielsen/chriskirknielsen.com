@@ -1,39 +1,63 @@
 ---
 layout: layouts/about.njk
 title: À Propos
-pageTitle: Salut, moi c'est Chris
+pageTitle: Salut, moi c'est Chris (il/lui)
 subtitle: Un graphiste devenu développeur qui adore construire sur le web.
 summary: En apprendre plus sur Christopher Kirk-Nielsen
 permalink: /fr/a-propos/
+facts:
+    - ❤️ Apprécie que vous lisiez ces faits
+    - 👀 Connaît juste assez l'alphabet cyrillique pour le lire.
+    - 🕰 Retour Vers Le Futur est probablement son film préféré.
+    - ☕️ Avait l'habitude de boire du thé, maintenant c'est du café !
+    - 🤓 Aime regarder des vidéos YouTube de maths et physique malgré ne pas tout comprendre.
+    - 🛹 Faisait du skateboard pendant un temps puis a décidé que jouer à Tony Hawk était plus sûr.
+    - ⛰ Aimerait vraiment être une personne plus fréquemment dehors (à l'aide).
+    - 🐈 Adore les animaux, merci de présenter votre chien.
+    - 😴 Dort sur son côté mais se réveille sur son dos.
+    - 🎸 Thrice est son group préféré, n'hésitez pas à demander une recommandation !
 i18n:
     page:
+        randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"
         vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
+        mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
 ---
 
-**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧱">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder. Vous en voulez encore ? C'est parti !**
+**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧱">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder. Vous en voulez encore ? C'est parti&nbsp;!**
+
+{% include 'components/about/random-fact.njk' %}
 
 ## Christopher, un développeur
 
-Bien que le développement front-end est mon activité principale ces jours-ci, étant petit je pensais devenir un graphiste après des heures sur Microsoft Paint puis Photoshop (avec une licence *totalement* valide). Je me suis aventuré dans du code sur MySpace et j'ai fini par créer mon propre site (dépensant de l'argent sur un domaine et un hébergement), me proclamant **"webmaster"** avant mon premier bouton d'acné (l'audace !). J'ai fini par suivre **4 ans d'études de graphiste,** apprenant au passage quelques bonnes leçons de typographie et j'ai ensuite travaillé en freelance pour des clients de renom à faire du montage vidéo, des bannières publicitaires, ainsi que des pages "immersives". Écrire des lignes de code et voir quelque chose apparaître à l'écran était, et est toujours, un peu <em class="about-emoji" data-emoji="✨">magique</em>, j'en ai donc fait mon boulot. Actuellement, je travaille chez MOJO comme développeur front-end senior avec une merveilleuse équipe, tentant de créer des sites **accessibles et optimisés**, apprenant de nouvelles choses constamment dans ce domaine en perpétuelle évolution tout en m'amusant avec le CSS.
+Bien que le développement front-end est mon activité principale ces jours-ci, étant petit je pensais devenir un graphiste après des heures sur Microsoft Paint puis Photoshop (avec une licence *totalement* valide). Je me suis aventuré dans du code sur MySpace et j'ai fini par créer mon propre site (dépensant de l'argent sur un domaine et un hébergement!), me proclamant **"webmaster"** avant mon premier bouton d'acné (quelle audace&nbsp;!). J'ai fini par suivre **4 ans d'études de graphiste,** apprenant au passage quelques bonnes leçons de typographie et j'ai ensuite travaillé en freelance pour des clients de renom à faire du montage vidéo, des bannières publicitaires, ainsi que des pages "immersives".
 
-<p>
-{%- include 'components/about/visubezier.njk' -%}
-{%- markdown true -%}
-J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, j'ai crée une petite extension pour VS Code nommée [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier) pour visualiser les courbes de lissages en CSS, qui est bien utile, si vous voulez mon avis totalement objectif. Et j'ai la chance d'avoir été publié sur des sites tels que [CSS-Tricks](https://css-tricks.com/author/chriskirknielsen/) et [Smashing Magazine](https://www.smashingmagazine.com/author/chriskirknielsen/), si vous arrivez à le croire !
-{%- endmarkdown -%}
+Écrire des lignes de code et voir quelque chose apparaître à l'écran était, et est toujours, un peu <em class="about-emoji" data-emoji="✨">magique</em>, j'en ai donc fait mon boulot. Actuellement, je travaille chez MOJO comme développeur front-end senior avec une merveilleuse équipe, tentant de créer des sites **accessibles et optimisés**, apprenant de nouvelles choses constamment dans ce domaine en perpétuelle évolution tout en m'amusant avec le CSS.
+
+{% include 'components/about/visubezier.njk' %}
+
+<p data-about="opensource">
+J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, j'ai crée une petite extension pour VS Code nommée <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> pour visualiser les courbes de lissages en CSS, qui est bien utile, si vous voulez mon avis totalement objectif. Et j'ai la chance d'avoir été publié sur des sites tels que <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> et <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, si vous arrivez à le croire&nbsp;!</p>
 </p>
 
 ## Créatif quand inactif
 
-Quand je ne travaille pas, **j'aime créer des illustrations** qui passeraient bien sur un t-shirt — la passion créative ! Vous pouvez voir tout ce beau monde dans la ["Boutique"](/designs/) si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (quelle esthétique !). J'apprécie un bon jeu vidéo par moments et adore regarder des films, alors si vous souhaitez me faire sourire, une citation de film devrait le faire (ou un jeu de mots, *je suis passionné de jeux de mots !*). Si ça vous captive, [j'ai créé des polices d'écriture](/fonts/) — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas !
+<p data-about="creative">
+Quand je ne travaille pas, <strong>j'aime créer des illustrations</strong> qui passeraient bien sur un t-shirt — la passion créative&nbsp;! Vous pouvez voir tout ce beau monde dans la <a href="/designs/">"Boutique"</a> si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (quelle esthétique&nbsp;!). J'apprécie un bon jeu vidéo par moments et adore regarder des films, alors si vous souhaitez me faire sourire, une citation de film devrait le faire (ou un jeu de mots, <em>je suis passionné de jeux de mots&nbsp;!</em>). Si ça vous captive, <a href="/fonts/">j'ai créé des polices d'écriture</a> — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas&nbsp;!
+</p>
+
+<p class="about-quotebox">Ils ont encore utilisé de la foutue Helvetica&nbsp;! Ils peuvent pas continuer comme ça&nbsp;!</p>
 
 {% include 'components/about/vhs.njk' %}
 
-Je suis aussi un fan de musique ! Mes satiétés sonores tournent principalement autour du rock et de la musique électronique. J'ai un projet nommé [Chronoise](https://chronoise.com) pour mes modiques minces mélodies que je n'ai pas touché depuis des années mais c'est tendance de dire que je fais de la musique. Il faudrait que je m'y remette car *j'adore les synthés*, et puis mes talents de guitariste laissent un peu à désirer — un ordinateur me donne l'impression d'être habile !
+Je suis aussi un fan de musique&nbsp;! Mes satiétés sonores tournent principalement autour du rock et de la musique électronique. J'ai un projet nommé [Chronoise](https://chronoise.com) pour mes modiques minces mélodies que je n'ai pas touché depuis des années mais c'est tendance de dire que je fais de la musique. Il faudrait que je m'y remette car *j'adore les synthés*, et puis mes talents de guitariste laissent un peu à désirer — un ordinateur me donne l'impression d'être habile.
 
 ## Des infos perso
 
-J'ai principalement grandi à Lyon, en France, avec mes parents danois. J'ai passé une année en Australie étant petit, apprenant l'anglais avec l'accent local, et j'ai même tenu un bébé koala. Par conséquent, **trois langues** se battent pour le contrôle de ma matière grise ; c'est sympa. Je connais pas mal d'italien mais je perds mes moyens quand je parle à une personne locale — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> J'ai étudié le japonais au lycée, quand j'étais vraiment flemmard donc je suis mauvais mais DuoLingo ~~essaie~~ menace d'y remédier. Aussi, bien que je ne comprenne qu'un mot sur cent (et encore), je sais lire l'alphabet cyrillique. Pas très utile, certes, mais j'ai appris à ne pas mélanger des alphabets ; ça m'agace, même ! Bref, j'aime les langues ! Et mon accent anglais est étrange !
+<p class="about-quotebox" data-about="personal">Mon accent anglais est bizarre et un peu mixte sans passer par la France.</p>
+
+<p>
+J'ai principalement grandi à Lyon, en France, avec mes parents danois. J'ai passé une année en Australie étant petit, apprenant l'anglais avec l'accent du coin, et j'ai même tenu un bébé koala. Par conséquent, <strong>trois langues</strong> se battent pour le contrôle de ma matière grise ; c'est sympa. Je connais pas mal d'italien mais je perds mes moyens quand je parle à une personne locale — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> J'ai étudié le japonais au lycée, quand j'étais glandeur donc je suis mauvais mais DuoLingo <del>essaie</del> menace d'y remédier. Bref, j'aime les langues&nbsp;!
+</p>
 
 {% include 'components/about/cheers.njk' %}
 
@@ -43,4 +67,8 @@ Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://w
 
 ## Pour discuter, c'est au clavier
 
-Vous pouvez envoyer un e-mail à `chriskirknielsen[arobase]gmail[point]com` — étant donné que les numéros inconnus sont un cauchemar, je préfère communiquer par écrit !
+<p data-about="contact">
+Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je prends ça comme un compliment. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code>chriskirknielsen[arobase]gmail[point]com</code> — je préfère communiquer par écrit&nbsp;!
+</p>
+
+<p class="about-quotebox">Les numéros inconnus me mettent la pression.</p>
