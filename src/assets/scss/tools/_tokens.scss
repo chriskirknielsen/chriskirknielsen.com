@@ -7,6 +7,7 @@ $tokens: (
   ),
   "vars": (
     "color-scheme": dark light,
+    "is-dark": 0,
     "font-heading": Helvetica,
     "font-body": Georgia,
     "bg-color": white,
@@ -90,6 +91,7 @@ $tokens: (
       "label": Dusk,
       "vars": (
         "color-scheme": dark,
+        "is-dark": 1,
         "header-logo-fill": var(--t-color-secondary-med),
         "cta-transition-duration": 400ms,
         "cta-box-shadow-active": '0 0 0.75em var(--t-color-secondary-med), 0 0 0.5em var(--t-color-secondary-med) inset'
@@ -116,6 +118,7 @@ $tokens: (
       "label": Dawn,
       "vars": (
         "color-scheme": light,
+        "is-dark": 0,
         "header-logo-fill": var(--t-color-primary-med),
         "cta-transition-duration": 0ms,
         "cta-box-shadow-active": '0 0 0 0.125em var(--t-color-primary-med)'
@@ -163,6 +166,7 @@ $tokens: (
       ),
       "vars": (
         "color-scheme": light,
+        "is-dark": 0,
         "bg-color": var(--t-color-primary-max),
         "bg-alt-color": var(--t-color-secondary-max),
         "heading-color": var(--t-color-primary-min),
@@ -192,7 +196,7 @@ $tokens: (
       "label": Y2K,
       "colors": (
         "gray": (
-          "min": #4c4c4c,
+          "min": #2d2d2d,
           "med": #a0a0a0,
           "max": #eeeeee
         ),
@@ -213,8 +217,9 @@ $tokens: (
       ),
       "vars": (
         "color-scheme": light,
+        "is-dark": 0,
         "bg-color": #ffffff,
-        "bg-alt-color": var(--t-color-primary-max),
+        "bg-alt-color": #c0c0c0,
         "heading-color": var(--t-color-primary-min),
         "text-color": #000000,
         "text-alt-color": var(--t-color-gray-max),

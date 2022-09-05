@@ -31,13 +31,13 @@ em {
 	color: var(--t-heading-color);
 }
 
-s,
-del {
-	text-decoration-thickness: 0.0625em;
-	// text-shadow: 0 2px 0 var(--ctx-bg, transparent);
-	// background: repeating-linear-gradient(-45deg, var(--t-accent-color, transparent), var(--t-accent-color, transparent) 0.33px, transparent 0.33px, transparent 6px);
-	// box-decoration-break: clone;
-}
+// s,
+// del {
+// text-decoration-thickness: 0.0625em;
+// text-shadow: 0 2px 0 var(--ctx-bg, transparent);
+// background: repeating-linear-gradient(-45deg, var(--t-accent-color, transparent), var(--t-accent-color, transparent) 0.33px, transparent 0.33px, transparent 6px);
+// box-decoration-break: clone;
+// }
 
 time[datetime] {
 	font-weight: 700;

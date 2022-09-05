@@ -124,10 +124,18 @@
 	}
 
 	:where(button, .button) {
+		--btn-padding-block: var(--size-2xs);
+		--btn-padding-inline: var(--size-xs);
+
 		&:focus {
 			outline-offset: -4px;
 			outline: 1px dotted #4c4c4c;
 		}
+	}
+
+	:where(a:not([class]), .link):where(:hover, :focus) {
+		text-shadow: none;
+		background: none;
 	}
 
 	.filter-item input[type='radio']:checked + label {

@@ -409,6 +409,8 @@ html.no-js .about-facts {
 }
 
 .about-quotebox {
+	--qbgrad-pos: calc(100% * (1 - var(--t-is-dark))) calc(100% * (1 - var(--t-is-dark)));
+
 	align-self: center;
 	display: flex;
 	justify-content: center;
@@ -424,7 +426,7 @@ html.no-js .about-facts {
 
 	color: var(--t-color-primary-max);
 	border-radius: calc(4 * var(--t-corner-radius));
-	background: var(--t-color-primary-min) radial-gradient(farthest-corner at 0 0, var(--t-color-primary-min), 66.7%, var(--t-color-primary-med));
+	background: var(--t-color-primary-min) radial-gradient(farthest-corner at var(--qbgrad-pos, 100% 100%), var(--t-color-primary-min), 66.7%, var(--t-color-primary-med));
 }
 
 @include above-medium {
@@ -433,7 +435,7 @@ html.no-js .about-facts {
 			// Add more columns within!
 			--container-inner-cols: 5;
 			--container-inner-def: repeat(var(--container-inner-cols), minmax(0, calc((var(--site-content-width) + 2 * var(--site-content-gutter)) / var(--container-inner-cols))));
-			--container-inner-gutter: 0; // Gutten is its own track we can remove and replace with the gap property
+			--container-inner-gutter: 0; // Gutter is its own track we can remove and replace with the gap property
 
 			& > .container {
 				gap: 0 calc(var(--site-content-gutter) * 2);
