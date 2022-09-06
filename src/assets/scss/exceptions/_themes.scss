@@ -119,13 +119,14 @@
 }
 
 @include theme('y2k') {
+	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-primary-min), var(--t-color-primary-max));
+
 	:focus {
 		outline: 1px dotted currentColor;
 	}
 
 	:where(button, .button) {
-		--btn-padding-block: var(--size-2xs);
-		--btn-padding-inline: var(--size-xs);
+		--btn-line-height: 1.2;
 
 		&:focus {
 			outline-offset: -4px;
@@ -146,7 +147,94 @@
 		}
 	}
 
+	.postlist-yeargroup {
+		padding-block: 0;
+
+		color: var(--t-color-gray-max);
+		border: 0;
+		background: var(--y2k-bar-grad);
+	}
+
+	.postlist-post + .postlist-post {
+		position: relative;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			inset-inline: 0;
+			inset-block-start: calc(var(--flow-space, var(--size-xl)) * -0.5);
+
+			width: 100%;
+			height: 1px;
+
+			background: currentColor;
+		}
+	}
+
 	.post-footer-avatar {
 		border-radius: 0;
+	}
+
+	.about-quotebox {
+		--y2k-bar-height: 1.5rem;
+		position: relative;
+
+		padding: calc(var(--size-s) + var(--y2k-bar-height)) var(--size-s) var(--size-s);
+
+		color: var(--t-cta-text-color);
+		border-width: 2px;
+		border-style: solid;
+		border-color: var(--t-cta-border-color);
+		background: var(--t-cta-bg);
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			inset: 1px 1px auto;
+
+			height: var(--y2k-bar-height);
+
+			background: var(--y2k-bar-grad);
+		}
+	}
+
+	.footer__logo {
+		position: relative;
+
+		background: linear-gradient(#4d90fb, #c2e6fb);
+
+		transform-style: preserve-3d;
+
+		& > svg {
+			overflow: visible;
+
+			stroke: var(--t-color-secondary-min);
+			stroke-width: 1px;
+			fill: var(--t-color-secondary-med);
+			fill: url('#logo-ie-grad');
+		}
+
+		&::before {
+			--halo-width: clamp(2px, 0.25px + 0.5vw, 4px);
+
+			content: '';
+
+			position: absolute;
+			inset: 0;
+
+			width: calc(clamp(3rem, 50%, 8rem) / 2);
+			aspect-ratio: 0.35;
+			margin: auto;
+
+			border-width: calc(var(--halo-width) / 2) 0 calc(var(--halo-width) / 2) var(--halo-width);
+			border-style: solid;
+			border-color: #faa400;
+			border-radius: 50%;
+			box-shadow: inset calc(var(--halo-width) / 2) 0 0 calc(var(--halo-width) / 2) #ffe907;
+
+			transform: rotateZ(45deg) rotateY(1deg) translateZ(calc(var(--halo-width) / 20));
+		}
 	}
 }

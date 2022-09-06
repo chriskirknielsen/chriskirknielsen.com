@@ -81,6 +81,46 @@
 		--homescreen-creadev-font: var(--font-fallback-monospace);
 	}
 
+	@include theme('y2k') {
+		--homescreen-sky-start: #4d90fb;
+		--homescreen-sky-end: #c2e6fb;
+		--homescreen-floor-start: #8fbe20;
+		--homescreen-floor-end: #395808;
+		--homescreen-grid-line: transparent;
+
+		--homescreen-sun-lower-end: transparent;
+		--homescreen-sun-upper-top: transparent;
+		--homescreen-sun-upper-middle: transparent;
+		--homescreen-sun-upper-bottom: transparent;
+		--homescreen-sun-lower-top: transparent;
+		--homescreen-sun-glow: transparent;
+		--homescreen-sun-glow-alpha: transparent;
+
+		--homescreen-bg-mask: tan;
+		--homescreen-disc-mask: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
+		--homescreen-lines-mask: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50% 100% /
+			100% 50%;
+
+		--homescreen-chris-wire-hue: 80;
+		--homescreen-chris-inner: #001544;
+		--homescreen-chris-upper-a: #0060ed;
+		--homescreen-chris-upper-b: #4d90fb;
+		--homescreen-chris-upper-c: #86b4ff;
+		--homescreen-chris-upper-d: #c2e6fb;
+		--homescreen-chris-lower-a: #8fbe20;
+		--homescreen-chris-lower-b: #395808;
+		--homescreen-chris-outline-a: #84e7fc;
+		--homescreen-chris-outline-b: #0f75bd;
+
+		--homescreen-chris-depth-hue: 191;
+		--homescreen-chris-depth-sat: 2;
+		--homescreen-chris-depth-lux: 5%;
+
+		--homescreen-creadev-stroke: transparent;
+		--homescreen-creadev-fill: white;
+		--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
+	}
+
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
@@ -124,7 +164,12 @@
             // Horizon glow
 			radial-gradient(ellipse 150% 20% at 50% 100%, var(--homescreen-sun-glow) 0%, 12.5%, var(--homescreen-sun-glow-alpha) 50%) no-repeat 50% 0 / 100% 50%,
 			// Full sky
-			linear-gradient(var(--ctx-bg) 0%, var(--homescreen-sky-end) 50%, var(--homescreen-floor-start) 50%, var(--ctx-bg) 100%);
+			linear-gradient(
+					var(--homescreen-sky-start, var(--ctx-bg)) 0%,
+					var(--homescreen-sky-end) 50%,
+					var(--homescreen-floor-start) 50%,
+					var(--homescreen-floor-end, var(--ctx-bg)) 100%
+				);
 
 		// Fade out the grid at the bottom
 		-webkit-mask-image: var(--homescreen-bg-mask);

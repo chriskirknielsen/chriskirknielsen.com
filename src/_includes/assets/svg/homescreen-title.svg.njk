@@ -174,7 +174,7 @@
     <g class="homescreen-svg__wires" style="--wire-count: {{ wire_count }};">
       {% for w in range(0, wire_count) -%}
         {% set wire_lum = wire_color_lum_end + (wire_color_lum_start - wire_color_lum_end) * (w/wire_count) %}
-        <use xlink:href="#homescreen-svg-chris-shape" class="homescreen-svg__wire" fill="none" stroke="hsla(180, 100%, {{ wire_lum }}%, .8)" stroke-width="2" style="--w: {{ w }};" />
+        <use xlink:href="#homescreen-svg-chris-shape" class="homescreen-svg__wire" fill="none" stroke="hsla(var(--homescreen-chris-wire-hue, 180), 100%, {{ wire_lum }}%, .8)" stroke-width="2" style="--w: {{ w }};" />
       {%- endfor %}
     </g>
     

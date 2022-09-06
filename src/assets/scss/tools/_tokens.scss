@@ -206,20 +206,20 @@ $tokens: (
           "max": #2073cf
         ),
         "secondary": (
-          "min": gray,
-          "med": purple,
-          "max": orange
+          "min": #053c77,
+          "med": #086ead,
+          "max": #ebcb23
         )
       ),
       "fonts": (
-        "heading": ('Comic Sans MS', 'Comic Sans', serif),
+        "heading": ('Tahoma', 'Verdana', sans-serif),
         "body": ('Times New Roman', serif)
       ),
       "vars": (
         "color-scheme": light,
         "is-dark": 0,
         "bg-color": #ffffff,
-        "bg-alt-color": #c0c0c0,
+        "bg-alt-color": #d8ecff,
         "heading-color": var(--t-color-primary-min),
         "text-color": #000000,
         "text-alt-color": var(--t-color-gray-max),
@@ -227,7 +227,7 @@ $tokens: (
         "accent-color-alt": var(--t-color-secondary-min),
         "link-color": var(--t-color-primary-min),
         "link-color-active": var(--t-color-primary-med),
-        "cta-bg": var(--t-color-gray-med),
+        "cta-bg": #c0c0c0,
         "cta-bg-active": var(--t-color-gray-med),
         "cta-bg-hover": var(--t-color-gray-max),
         "cta-text-color": var(--t-color-gray-min),

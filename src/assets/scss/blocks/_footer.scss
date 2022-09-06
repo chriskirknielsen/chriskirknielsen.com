@@ -84,7 +84,7 @@
 	&__nav[data-footer-nav='external'] {
 		grid-area: hyper;
 	}
-	&__nav li + li {
+	&__nav li {
 		// Little bit of spacing for accessibility
 		margin-block-start: 0.5em;
 	}
