@@ -18,11 +18,6 @@
 		--homescreen-sun-glow: #ed23afbf;
 		--homescreen-sun-glow-alpha: #ed23af00;
 
-		--homescreen-bg-mask: linear-gradient(tan 50%, 66.7%, #0000 95%);
-		--homescreen-disc-mask: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
-		--homescreen-lines-mask: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50% 100% /
-			100% 50%;
-
 		--homescreen-chris-inner: #130026;
 		--homescreen-chris-upper-a: #260039;
 		--homescreen-chris-upper-b: #7a11ba;
@@ -42,66 +37,68 @@
 	}
 
 	@include theme('vapor') {
-		--homescreen-silhouette-emoji: '🌴';
-		--homescreen-silhouette-color: #fddcc0;
+		// --homescreen-sky-start: #0089da;
+		--homescreen-sky-start: #82dee800;
+		--homescreen-sky-end: #82dee8;
+		--homescreen-floor-start: #f365bc;
+		--homescreen-floor-end: #f3d4e6;
+		--homescreen-grid-line: #dcdbe1;
 
-		--homescreen-sky-end: #ecb43a;
-		--homescreen-floor-start: #f774b5;
-		--homescreen-grid-line: rebeccapurple;
-
-		--homescreen-sun-lower-end: #ff9ece;
-		--homescreen-sun-upper-top: #ff0095;
-		--homescreen-sun-upper-middle: #ffafa3;
-		--homescreen-sun-upper-bottom: #ffffe9;
-		--homescreen-sun-lower-top: #ff0095;
-		--homescreen-sun-glow: #ed23afbf;
-		--homescreen-sun-glow-alpha: #ed23af00;
-
-		--homescreen-bg-mask: linear-gradient(tan 50%, 66.7%, #0000 95%);
-		--homescreen-disc-mask: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
-		--homescreen-lines-mask: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50% 100% /
-			100% 50%;
+		--homescreen-sun-upper-top: #ea5bc4;
+		--homescreen-sun-upper-middle: #eeafbf;
+		--homescreen-sun-upper-bottom: #f5f7b6;
+		--homescreen-sun-lower-top: #ff00c3;
+		--homescreen-sun-lower-end: #ff9ece00;
+		--homescreen-sun-glow: #f2acfa;
+		--homescreen-sun-glow-alpha: #f2acfa00;
 
 		--homescreen-chris-inner: #130026;
-		--homescreen-chris-upper-a: #260039;
-		--homescreen-chris-upper-b: #7a11ba;
-		--homescreen-chris-upper-c: #fd57b7;
-		--homescreen-chris-upper-d: #fddcc0;
-		--homescreen-chris-lower-a: #7e004e;
-		--homescreen-chris-lower-b: #ed23af;
-		--homescreen-chris-outline-a: #e04fab;
-		--homescreen-chris-outline-b: #4f045f;
+		--homescreen-chris-upper-a: #50588c;
+		--homescreen-chris-upper-b: #1f7cc3;
+		--homescreen-chris-upper-c: #8bd8f4;
+		--homescreen-chris-upper-d: #cafff1;
+		--homescreen-chris-lower-a: #ff64cb;
+		--homescreen-chris-lower-b: #f4b4f4;
+		--homescreen-chris-outline-a: #f9b0ec;
+		--homescreen-chris-outline-b: #f6f3fc;
 
-		--homescreen-chris-depth-hue: 274;
+		--homescreen-chris-depth-hue: 200;
 		--homescreen-chris-depth-sat: 2;
 		--homescreen-chris-depth-lux: 5%;
 
-		--homescreen-creadev-stroke: var(--t-color-primary-max);
+		--homescreen-creadev-stroke: var(--homescreen-grid-line);
 		--homescreen-creadev-fill: var(--t-color-primary-min);
-		--homescreen-creadev-font: var(--font-fallback-monospace);
+		--homescreen-creadev-font: var(--t-font-heading);
+
+		.content-fullbleed.u-background-bg-alt-color {
+			--ctx-bg: inherit;
+			background: linear-gradient(var(--t-bg-alt-color) 2px, transparent 0, transparent calc(100% - 2px), var(--t-bg-alt-color) 0);
+		}
 	}
 
 	@include theme('y2k') {
+		$homescreen-bg-image: asset-path(get-token('themes', 'y2k', 'images', 'homescreen-bg-image'));
 		--homescreen-sky-start: #4d90fb;
 		--homescreen-sky-end: #c2e6fb;
 		--homescreen-floor-start: #8fbe20;
 		--homescreen-floor-end: #395808;
 		--homescreen-grid-line: transparent;
 
-		--homescreen-sun-lower-end: transparent;
 		--homescreen-sun-upper-top: transparent;
 		--homescreen-sun-upper-middle: transparent;
 		--homescreen-sun-upper-bottom: transparent;
 		--homescreen-sun-lower-top: transparent;
+		--homescreen-sun-lower-end: transparent;
 		--homescreen-sun-glow: transparent;
 		--homescreen-sun-glow-alpha: transparent;
 
 		--homescreen-bg-mask: tan;
-		--homescreen-disc-mask: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
-		--homescreen-lines-mask: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50% 100% /
-			100% 50%;
+		--homescreen-bg-image: #75a9ea url('#{$homescreen-bg-image}') no-repeat 50% 50% / cover;
+		--homescreen-disc-mask: tan;
+		--homescreen-lines-mask: tan;
 
-		--homescreen-chris-wire-hue: 80;
+		--homescreen-chris-wire-hue: 90;
+		--homescreen-chris-flash-glow: #00ff00;
 		--homescreen-chris-inner: #001544;
 		--homescreen-chris-upper-a: #0060ed;
 		--homescreen-chris-upper-b: #4d90fb;
@@ -116,7 +113,7 @@
 		--homescreen-chris-depth-sat: 2;
 		--homescreen-chris-depth-lux: 5%;
 
-		--homescreen-creadev-stroke: transparent;
+		--homescreen-creadev-stroke: #588dce;
 		--homescreen-creadev-fill: white;
 		--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
 	}
@@ -160,20 +157,27 @@
 			no-repeat 50% 0 / 100% 50%;
 
 		/* Sky layer */
-		background:
-            // Horizon glow
-			radial-gradient(ellipse 150% 20% at 50% 100%, var(--homescreen-sun-glow) 0%, 12.5%, var(--homescreen-sun-glow-alpha) 50%) no-repeat 50% 0 / 100% 50%,
-			// Full sky
-			linear-gradient(
+		--homescreen-bg-mask-default: linear-gradient(tan 50%, 66.7%, #0000 95%);
+		--homescreen-bg-default:
+            /* Horizon glow */ radial-gradient(
+					ellipse 150% 20% at 50% 100%,
+					var(--homescreen-sun-glow) 0%,
+					12.5%,
+					var(--homescreen-sun-glow-alpha) 50%
+				)
+				no-repeat 50% 0 / 100% 50%,
+			/* Full sky */
+				linear-gradient(
 					var(--homescreen-sky-start, var(--ctx-bg)) 0%,
 					var(--homescreen-sky-end) 50%,
 					var(--homescreen-floor-start) 50%,
 					var(--homescreen-floor-end, var(--ctx-bg)) 100%
 				);
+		background: var(--homescreen-bg-image, var(--homescreen-bg-default));
 
 		// Fade out the grid at the bottom
-		-webkit-mask-image: var(--homescreen-bg-mask);
-		mask-image: var(--homescreen-bg-mask);
+		-webkit-mask-image: var(--homescreen-bg-mask, var(--homescreen-bg-mask-default));
+		mask-image: var(--homescreen-bg-mask, var(--homescreen-bg-mask-default));
 
 		&,
 		&::before,
@@ -186,10 +190,14 @@
 
 		/* Sun layer */
 		&::before {
+			--homescreen-disc-mask-default: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
+			--homescreen-lines-mask-default: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x
+				50% 100% / 100% 50%;
+
 			background: #{$sun-gradient};
-			-webkit-mask: var(--homescreen-disc-mask), var(--homescreen-lines-mask);
+			-webkit-mask: var(--homescreen-disc-mask, var(--homescreen-disc-mask-default)), var(--homescreen-lines-mask, var(--homescreen-lines-mask-default));
 			-webkit-mask-composite: source-out;
-			mask: var(--homescreen-disc-mask) subtract, var(--homescreen-lines-mask);
+			mask: var(--homescreen-disc-mask, var(--homescreen-disc-mask-default)) subtract, var(--homescreen-lines-mask, var(--homescreen-lines-mask-default));
 		}
 
 		&::after {
@@ -216,26 +224,6 @@
 	}
 
 	&-title {
-		&::before {
-			--homescreen-silhouette-mask: linear-gradient(to bottom, tan 50%, 80%, transparent);
-			content: var(--homescreen-silhouette-emoji, none);
-
-			position: absolute;
-			inset-block: 0 100%;
-			inset-inline: 0;
-
-			width: 1em;
-			height: 1em;
-			margin: 0 auto;
-
-			font-size: $sun-radius;
-			color: transparent;
-			text-shadow: 0 0 0 var(--homescreen-silhouette-color);
-
-			-webkit-mask-image: var(--homescreen-silhouette-mask);
-			mask-image: var(--homescreen-silhouette-mask);
-		}
-
 		position: relative;
 
 		max-width: 100%; // Counter the default h1's max-width of 60ch

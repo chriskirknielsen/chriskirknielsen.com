@@ -1,4 +1,6 @@
 $tokens: (
+  "_assetsPath": /assets/img/themes,
+  "_layerOrder": (body, main, footer, header, themepicker),
   "constants": (
     "base-line-height": 1.5,
     "heading-line-height": 1.1,
@@ -182,7 +184,7 @@ $tokens: (
         "corner-radius": 4px
       ),
       "images": (
-        
+        "body-bg-image": 'vapor-bg.png'
       ),
       "custom-font": (
         "name": VCR OSD Mono,
@@ -238,7 +240,7 @@ $tokens: (
         "corner-radius": 0
       ),
       "images": (
-        
+        "homescreen-bg-image": 'unsplash-xaze-clouds.jpg'
       )
     )
   ),
