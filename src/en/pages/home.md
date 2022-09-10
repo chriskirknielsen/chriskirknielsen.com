@@ -6,7 +6,7 @@ permalink: /
 i18n:
     page:
         quickAccess:
-            heading: 'Quick Access'
+            heading: 'Jump in'
             about:
                 label: 'Way too many facts about me'
                 content: 'If you want to learn more about me, this is the place. It should cover quite a bit…'
@@ -20,7 +20,7 @@ i18n:
                 label: 'Also…'
                 usesPageLabel: 'Uses'
         writing:
-            heading: 'Writing'
+            heading: 'Thoughts'
             content: 'I write quite infrequently, when ideas need expressing. If you want to read some of my ramblings, this is my latest. I’ve also got an RSS feed for the cool kids!'
             blogLabel: 'Visit the blog'
 ---
