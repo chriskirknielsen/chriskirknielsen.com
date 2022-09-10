@@ -4,11 +4,12 @@
 		const htmlEl = document.documentElement;
 		const pickerEl = document.querySelector('.themepicker');
 		const pickerAttr = 'data-themepicker';
-		const isOpen = htmlEl.getAttribute(pickerAttr) === 'open';
-		const newStatus = force !== null ? JSON.parse(force) : !isOpen;
-		htmlEl.setAttribute(pickerAttr, newStatus ? 'open' : 'closed');
-		pickerEl.setAttribute('aria-expanded', newStatus.toString());
-		return newStatus;
+		const prevIsOpenStatus = htmlEl.getAttribute(pickerAttr) === 'open';
+		const newIsOpenStatus = force !== null ? JSON.parse(force) : !prevIsOpenStatus;
+		htmlEl.setAttribute(pickerAttr, newIsOpenStatus ? 'open' : 'closed');
+		pickerEl.setAttribute('aria-expanded', newIsOpenStatus.toString());
+		pickerEl.inert = !newIsOpenStatus;
+		return newIsOpenStatus;
 	}
 	document.addEventListener('click', function (e) {
 		const setter = e.target.closest('[data-theme-set]');

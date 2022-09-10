@@ -57,6 +57,7 @@ body {
 	text-rendering: optimizeSpeed;
 	font-family: sans-serif;
 	overflow-x: hidden;
+	overflow-x: clip;
 	overflow-y: auto;
 }
 

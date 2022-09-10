@@ -13,6 +13,7 @@ body {
 	font-family: var(--t-font-body);
 	line-height: var(--site-base-line-height);
 	text-underline-offset: 0.125em;
+	hyphens: auto;
 	color: var(--ctx-color);
 	background-color: var(--ctx-bg);
 }

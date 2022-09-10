@@ -418,14 +418,14 @@ html.no-js .about-facts {
 	padding: var(--size-m);
 
 	font-size: 0.875em;
-	font-family: var(--font-fallback-serif);
+	font-family: var(--quotebox-font, var(--font-fallback-serif));
 	font-weight: bold;
 	font-style: italic;
 	text-align: center;
 	line-height: 1.1;
 
 	color: var(--t-color-primary-max);
-	border-radius: calc(4 * var(--t-corner-radius));
+	border-radius: var(--quotebox-corner-radius, calc(4 * var(--t-corner-radius)));
 	background: var(--t-color-primary-min) radial-gradient(farthest-corner at var(--qbgrad-pos, 100% 100%), var(--t-color-primary-min), 66.7%, var(--t-color-primary-med));
 }
 

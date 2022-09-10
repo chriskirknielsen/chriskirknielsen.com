@@ -242,8 +242,14 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Shortcodes */
-	eleventyConfig.addPairedShortcode('callout', function (content, pseudo) {
-		return `<div class="callout"${typeof pseudo === 'string' ? ' data-callout="' + pseudo + '"' : ''}>
+	eleventyConfig.addPairedShortcode('callout', function (content, pseudo = '', emoji = '') {
+		const uniqueId = `co-${new Date().getTime().toString(36)}`;
+		const context = this?.ctx || this.context?.environments;
+		const lang = context.lang || defaultLang;
+		pseudo ||= translations.callout[lang];
+
+		return `<div class="callout" aria-labelledby="${uniqueId}">
+			<p id="${uniqueId}" class="callout-label"${emoji ? ' style="--callout-emoji: \'' + emoji + '\'"' : ''}>${pseudo}</p>
 			<p>${md.renderInline(content.trim())}</p>
 		</div>`;
 	});

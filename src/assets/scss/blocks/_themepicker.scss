@@ -20,7 +20,7 @@
 	--picker-bg: var(--t-color-gray-max);
 
 	position: absolute;
-	bottom: 100%;
+	inset-block-end: 100%;
 	inset-inline: 0;
 
 	display: flex;

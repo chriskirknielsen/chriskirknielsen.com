@@ -7,7 +7,7 @@ summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
 facts:
     - ❤️ Appreciates you reading through these facts.
-    - 👀 Kinda knows the Cyrillic alphabet enough to read—but not understand—sentences.
+    - 👀 Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences.
     - 🕰 Favourite movie is Back to the Future, most likely.
     - ☕️ Used to drink lots of tea, but now it's coffee!
     - 🤓 Enjoys maths/physics YouTube videos despite not understanding everything.
@@ -29,7 +29,7 @@ i18n:
 
 ## Typing away, every day
 
-While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I did dabble in code on MySpace and eventually making my own site (I even paid for a domain and hosting!) and calling myself a **"webmaster"** before I even had zits on my face (the hubris). I ended up **studying graphic design for 4 years** then freelanced for some neat clients on video editing, ad banners, and "immersive" pages.
+While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I did dabble in code on MySpace and eventually made my own site (I even paid for a domain and hosting!), calling myself a **"webmaster"** before I even had zits on my face — the hubris. I ended up **studying graphic design for 4 years** then freelanced for some neat clients on video editing, ad banners, and "immersive" pages.
 
 Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>, so I pursued that. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, trying to make **accessible and performant** web pages, and learning new things in this constantly evolving field while having fun with CSS.
 
@@ -58,8 +58,6 @@ I am also a music enthusiast! I listen to a lot of things, however rock- and ele
 <p>
 I mostly grew up in Lyon, France, to Danish parents. I did spend a year in Australia as a kid, speaking English with an Aussie accent, and even held a baby koala. As a result, <strong>three languages</strong> keep overriding each other; it's not confusing at all. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I studied Japanese in high-school, at peak slacking-off mentality, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I like languages!
 </p>
-
-{% include 'components/about/cheers.njk' %}
 
 ## Speaking of skills…
 

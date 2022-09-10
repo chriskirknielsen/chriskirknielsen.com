@@ -59,8 +59,6 @@ Je suis aussi un fan de musique&nbsp;! Mes satiétés sonores tournent principal
 J'ai principalement grandi à Lyon, en France, avec mes parents danois. J'ai passé une année en Australie étant petit, apprenant l'anglais avec l'accent du coin, et j'ai même tenu un bébé koala. Par conséquent, <strong>trois langues</strong> se battent pour le contrôle de ma matière grise ; c'est sympa. Je connais pas mal d'italien mais je perds mes moyens quand je parle à une personne locale — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> J'ai étudié le japonais au lycée, quand j'étais glandeur donc je suis mauvais mais DuoLingo <del>essaie</del> menace d'y remédier. Bref, j'aime les langues&nbsp;!
 </p>
 
-{% include 'components/about/cheers.njk' %}
-
 ## Un réel professionnel
 
 Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://www.linkedin.com/in/chriskirknielsen/) que je ne consulte jamais. Je sais *programmer en HTML, CSS,* JavaScript, PHP et MySQL, j'aime la **Jamstack** pour les sites statiques, comme Eleventy ou Hugo, et je suis tout aussi à l'aise avec un site **WordPress**. Sachez que la **suite Adobe** me tient à cœur, avec Photoshop, Illustrator et After Effects étant de bons amis. Ah, et je détiens la double-nationalité franco-danoise et une "Green Card" américaine.

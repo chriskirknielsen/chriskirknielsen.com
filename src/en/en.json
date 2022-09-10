@@ -21,7 +21,7 @@
 			"blog": "Blog",
 			"about": "About",
 			"designs": "Designs",
-			"acknowledgements": "Acknowledgements",
+			"acknowledgements": "Thanks / Uses",
 			"usesHash": "uses"
 		},
 		"blog": {
@@ -31,6 +31,7 @@
 			"writtenByAuthor": "Post written by {{ author }}",
 			"commentsAndSupport": "If you have a comment, please <a href=\"{{ twitterUrl }}\">tag me on Twitter</a>, I'm happy to chat! If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>? Thanks a ton!"
 		},
+		"callout": "Note",
 		"latestPost": "Latest Post",
 		"tagged": "Tagged",
 		"blobBacklinkLabel": "Back to Blog",

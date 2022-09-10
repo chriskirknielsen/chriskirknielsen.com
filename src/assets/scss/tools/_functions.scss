@@ -22,7 +22,7 @@
 	@return $map;
 }
 
-@function asset-path($filename) {
+@function asset-path($filename: '') {
 	@return get-token('_assetsPath') + '/' + $filename;
 }
 

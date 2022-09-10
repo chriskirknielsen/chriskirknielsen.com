@@ -11,17 +11,7 @@
 
 	border-inline-start: 2px solid var(--t-color-primary-med);
 
-	html[lang='en'] &::before {
-		content: 'Note';
-	}
-	html[lang='fr'] &::before {
-		content: 'Nota Bene';
-	}
-	&[data-callout][class]::before {
-		content: attr(data-callout);
-	} // If provided, override pseudo's text content
-
-	&::before {
+	&-label {
 		display: block;
 		padding-block-end: 0.5em;
 

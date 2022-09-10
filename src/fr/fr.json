@@ -31,6 +31,7 @@
 			"writtenByAuthor": "Article rédigé par {{ author }}",
 			"commentsAndSupport": "Si vous avez un commentaire, <a href=\"{{ twitterUrl }}\">taggez-moi sur Twitter</a> pour discuter ! Si vous souhaitez me soutenir, vous pouvez <a href=\"{{ shopUrl }}\">commander un de mes t-shirts</a>. Merci infiniment !"
 		},
+		"callout": "Nota bene",
 		"latestPost": "Dernier Article",
 		"tagged": "Étiquettes",
 		"blobBacklinkLabel": "Retour au Blog",

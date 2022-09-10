@@ -99,7 +99,7 @@
 			linear-gradient(90deg, var(--t-color-primary-med), var(--ctx-bg)) 0 100% no-repeat;
 		background-size: 100% 1.25em, 100% 1.25em, 100% 0.11em;
 
-		&::before {
+		&-label {
 			position: absolute;
 			inset-block-start: -0.25em;
 			inset-inline-start: var(--site-content-gutter);
@@ -151,6 +151,22 @@
 		body::after {
 			inset-inline-end: 0;
 			transform: scaleX(-1);
+		}
+	}
+
+	.about-quotebox {
+		--quotebox-font: var(--t-font-heading);
+		--quotebox-corner-radius: 0;
+
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0.5em -0.5em -0.5em;
+			z-index: -1;
+
+			box-shadow: inset 0 0 0 2px var(--t-color-primary-med);
 		}
 	}
 }
@@ -212,11 +228,11 @@
 		border-radius: 0;
 	}
 
-	.about-quotebox {
-		--y2k-bar-height: 1.5rem;
+	.about-quotebox,
+	.callout {
 		position: relative;
 
-		padding: calc(var(--size-s) + var(--y2k-bar-height)) var(--size-s) var(--size-s);
+		padding: calc(var(--size-s) + var(--y2k-bar-height, 1.5rem)) var(--size-s) var(--size-s);
 
 		color: var(--t-cta-text-color);
 		border-width: 2px;
@@ -224,15 +240,38 @@
 		border-color: var(--t-cta-border-color);
 		background: var(--t-cta-bg);
 
-		&::before {
-			content: '';
-
+		&-label {
 			position: absolute;
 			inset: 1px 1px auto;
 
-			height: var(--y2k-bar-height);
+			height: var(--y2k-bar-height, 1.5rem);
 
 			background: var(--y2k-bar-grad);
+		}
+	}
+
+	.about-quotebox::before {
+		content: '';
+	}
+
+	.callout {
+		--y2k-bar-height: 2rem;
+
+		&-label {
+			display: flex;
+			align-items: center;
+			padding-block: 0.125em;
+			padding-inline: inherit;
+			gap: 0.5em;
+
+			font-size: 1rem;
+			font-weight: 300;
+			font-family: var(--font-fallback-monospace);
+			color: white;
+
+			&::before {
+				content: var(--callout-emoji, '🗒');
+			}
 		}
 	}
 
