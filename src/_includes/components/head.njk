@@ -3,28 +3,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }} | {{ metadata.title }}</title>
 	
-	{% if summary %}
-	<meta name="description" content="{{ summary }}">
-	<meta name="og:description" content="{{ summary }}">
-	{% endif %}
-	
-	<meta property="og:title" content="{{ title }} | {{ metadata.title }}">
-	<meta property="og:site_name" content="{{ metadata.title }}">
-	<meta property="og:locale" content="{{ locale or 'en' }}">
-	<meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
-	<meta property="og:url" content="{{ (localePath or '/') | url | absoluteUrl(metadata.url) }}">
-	
-	{% set meta_image_url %}
-		{% if customMetaImage %}
-			{{ customMetaImage | url | absoluteUrl(metadata.url) }}
-		{% else %}
-			{{ '/assets/svg/metaimage.jpg' | url | absoluteUrl(metadata.url) }}
-		{% endif %}
-	{% endset %}
-	<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">
-	<meta name="twitter:image:alt" property="og:image:alt" content="{{ title }}" />
-	<meta name="twitter:card" content="summary" />
-
 	{%- if fontSpecimen -%}		
 		{# Initialise variable outside loop scope #}
 		{%- set fontSpecimenStyles = '' -%}
@@ -48,6 +26,20 @@
 		{%- endfor -%}
 	{%- endif -%}
 
+	{# Synchronous JS #}
+	{% if not isMiniSite %}
+	{% set themeScript %}
+	(function(){
+		document.documentElement.classList.remove('no-js');
+		const themeKeys = {{ tokens.themes | keys | dump | safe }};
+		const themeDefault = {{ tokens.schemes | dump | safe }};
+		{% include "assets/js/themepicker-set.js" %}
+	})()
+	{% endset %}
+	<script>{{- themeScript | jsmin('head') | safe -}}</script>
+	{% endif %}
+
+	{# Synchronous CSS #}
 	<style id="inline-styles">
 		{%- if not isMiniSite %}/*INLINE_CSS*/{% endif -%}
 
@@ -68,34 +60,45 @@
 			{{- pageStyleGroup | cssmin | safe -}}
 		{%- endif -%}
 	</style>
-	{# <style>{% include 'assets/css/style.css' %}</style> #}
-	{% if not isMiniSite %}
-	{% set themeScript %}
-	(function(){
-		document.documentElement.classList.remove('no-js');
-		const themeKeys = {{ tokens.themes | keys | dump | safe }};
-		const themeDefault = {{ tokens.schemes | dump | safe }};
-		{% include "assets/js/themepicker-set.js" %}
-	})()
-	{% endset %}
-	<script>{{- themeScript | jsmin('head') | safe -}}</script>
-	{% endif %}
 
+	{# Icons #}
 	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
 	<link rel="icon" href="{{ '/' + assets.icons.faviconSvg | url }}">
 	<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.secondary.med }}">
 	<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
 
-	{% if metaThemeColorOverride %}
-	<meta name="theme-color" content="{{ metaThemeColorOverride | safe }}">
-	{% else %}
-	<meta name="theme-color" content="{{ tokens.themes[tokens.defaultTheme.dark].colors.primary.max }}">
-	{% endif %}
-
+	{# Page alternates #}
 	<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url }}">
 	{% for link in page.url | locale_links %}
     <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | url }}">
 	{% endfor %}
+	
+	{# RSS feed #}
 	<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url }}">
+	
+	{# Meta, SEO, etc. #}
 	<meta name="generator" content="{{ eleventy.generator }}">
+	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.defaultTheme.dark].colors.primary.max) | safe }}">
+
+	{% if summary %}
+	<meta name="description" content="{{ summary }}">
+	<meta name="og:description" content="{{ summary }}">
+	{% endif %}
+	
+	<meta property="og:title" content="{{ title }} | {{ metadata.title }}">
+	<meta property="og:site_name" content="{{ metadata.title }}">
+	<meta property="og:locale" content="{{ locale or 'en' }}">
+	<meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
+	<meta property="og:url" content="{{ (localePath or '/') | url | absoluteUrl(metadata.url) }}">
+	
+	{% set meta_image_url %}
+		{% if customMetaImage %}
+			{{ customMetaImage | url | absoluteUrl(metadata.url) }}
+		{% else %}
+			{{ '/assets/svg/metaimage.jpg' | url | absoluteUrl(metadata.url) }}
+		{% endif %}
+	{% endset %}
+	<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">
+	<meta name="twitter:image:alt" property="og:image:alt" content="{{ title }}" />
+	<meta name="twitter:card" content="summary" />
 </head>
