@@ -419,7 +419,7 @@ html.no-js .about-facts {
 
 	font-size: 0.875em;
 	font-family: var(--quotebox-font, var(--font-fallback-serif));
-	font-weight: bold;
+	font-weight: var(--quotebox-weight, bold);
 	font-style: italic;
 	text-align: center;
 	line-height: 1.1;

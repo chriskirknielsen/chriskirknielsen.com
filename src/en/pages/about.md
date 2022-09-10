@@ -23,7 +23,7 @@ i18n:
         mugImageAlt: "A plain mug with a {{ name }} on it"
 ---
 
-**I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧱">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">US</span> who used to be a designer and who now likes to code. You want to know more? Well, be my guest!**
+**I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧱">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">United States</span> who used to be a designer and who now likes to code. You want to know more? Well, be my guest!**
 
 {% include 'components/about/random-fact.njk' %}
 

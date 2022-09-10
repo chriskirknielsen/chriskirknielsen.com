@@ -5,7 +5,6 @@ const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = Object.keys(metadata.locales);
 const defaultLang = 'en';
-const jsminCache = {};
 
 // Tools
 const util = require('util');
@@ -95,6 +94,9 @@ const purgeCssSafeList = {
 };
 
 module.exports = function (eleventyConfig) {
+	/* Variables */
+	const jsminCache = {};
+
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginBlogTools);

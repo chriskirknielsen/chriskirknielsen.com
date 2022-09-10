@@ -8,27 +8,29 @@
 <script>
 {% set aboutFactsScript %}
 (function(){
-    const factDisplayEl = document.querySelector('[data-fact="show"]');
-    const facts = {{ facts | dump | safe }};
-    let currentFactIndex = -1;
-    function getNewRandom(list, excluded = -1) {
-        let randNumber = Math.floor(Math.random() * list.length);
-        if (randNumber !== excluded) {
-            return randNumber;
-        }
-        return getNewRandom(list, excluded);
-    }
-    function getNewFact() {
-        const newFactIndex = getNewRandom(facts, currentFactIndex);
+	// The order of the facts is random on page load, but then each button click ensures a sequential fact so you can see them all if you really want without repetition
+	function shuffle(toShuffle) {
+		for (let i = (toShuffle.length - 1); i > 0; i -= 1) {
+			const randomIndex = Math.floor(Math.random() * (i + 1));
+			[toShuffle[i], toShuffle[randomIndex]] = [toShuffle[randomIndex], toShuffle[i]];
+		}
+		return toShuffle;
+	}
+	const factDisplayEl = document.querySelector('[data-fact="show"]');
+	const facts = shuffle({{ facts | dump | safe }});
+	let currentFactIndex = -1;
 
-        if (factDisplayEl.hidden || currentFactIndex === -1) {
-            factDisplayEl.hidden = false;
-        }
+	function newFact() {
+		const newFactIndex = (currentFactIndex + 1) % facts.length;
 
-        factDisplayEl.textContent = facts[newFactIndex];
-        currentFactIndex = newFactIndex;
-    }
-    document.querySelector('[data-fact="get"]').addEventListener('click', getNewFact);
+		if (factDisplayEl.hidden || currentFactIndex === -1) {
+			factDisplayEl.hidden = false;
+		}
+
+		factDisplayEl.textContent = facts[newFactIndex];
+		currentFactIndex = newFactIndex;
+	}
+	document.querySelector('[data-fact="get"]').addEventListener('click', newFact);
 })()
 {% endset %}
 {{ aboutFactsScript | jsmin | safe }}

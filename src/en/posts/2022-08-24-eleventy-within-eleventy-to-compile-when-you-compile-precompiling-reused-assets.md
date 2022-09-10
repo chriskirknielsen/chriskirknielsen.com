@@ -10,7 +10,7 @@ tags:
 templateEngineOverride: njk,md
 ---
 
-{% callout "Update", "🚨" %}[Maybe don't do this?](#quick-update){% endcallout %}
+{% callout "Update", "🚨" %}[Okay, so maybe don't do this? More info below!](#quick-update){% endcallout %}
 
 A bit of a weird title, but I’m sure Xzibit would approve. So let me explain what I’m on about: I have two components on my site that use inlined JS: once in the `<head>`, once before `</body>`. These two components are included on every page, and me being forever the optimist—I mean optimiser—I minify those bits of JS with a `jsmin` filter. This is an [approach recommended by Eleventy](https://www.11ty.dev/docs/quicktips/inline-js/). Totally valid, if you do this, don’t let me stop you!
 
