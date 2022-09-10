@@ -60,20 +60,12 @@
 
 	&__edit {
 		grid-area: edit;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 
 		text-align: center;
 	}
 
 	&__note {
 		grid-area: note;
-		text-align: center;
-
-		// @include above-large {
-		text-align: left;
-		// }
 	}
 	&__nav[data-footer-nav='extras'] {
 		grid-area: xtra;
