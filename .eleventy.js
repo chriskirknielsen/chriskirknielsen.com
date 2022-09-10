@@ -278,7 +278,7 @@ module.exports = function (eleventyConfig) {
 			keyframes: true, // Removes unused keyframes
 			safelist: safeSelectors,
 			blocklist: ['twitter:card'],
-			dynamicAttributes: ['data-theme', 'aria-checked'],
+			dynamicAttributes: ['data-theme', 'aria-pressed'],
 		});
 
 		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');

@@ -24,13 +24,13 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 
 	<div class="filter-item">
 		<input type="radio" name="filter" class="visually-hidden" id="filter-all" value="" checked>
-		<label for="filter-all" class="button filter-tag" aria-pressed="true">All</label>
+		<label for="filter-all" class="button filter-tag">All</label>
 	</div>
 
 	{% for tag in activeDesigns | pluck('tags') | flatten | unique | sort %}
 	<div class="filter-item">
 		<input type="radio" name="filter" id="filter-{{ tag }}" class="visually-hidden" value="{{ tag | toLowercase }}">
-		<label for="filter-{{ tag }}" class="button filter-tag" aria-pressed="false">{{ tag }}</label>
+		<label for="filter-{{ tag }}" class="button filter-tag">{{ tag }}</label>
 	</div>
 	{% endfor %}
 </fieldset>
@@ -81,7 +81,12 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 			
 			<ul role="list" class="inline-list | u-marginBlockStart-auto u-fontSize-smallest">
 				{%- for site, url in design.links %}
-				<li><a href="{{ url | url }}">{{ site }}</li>
+				<li>
+					<a href="{{ url | url }}">
+						<span class="visually-hidden">{{ design.name }} on</span>
+						{{ site }}
+					</a>
+				</li>
 				{% endfor -%}
 			</ul>
 		</div>
@@ -107,13 +112,6 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		let delay = duration / 10;
 
 		list.setAttribute('data-filtered-list', 'change');
-
-		tagList.forEach(function(tagWrap) {
-			let tagValue = tagWrap.querySelector('[name="filter"]').value;
-			let label = tagWrap.querySelector('.filter-tag');
-			let isPressed = tagValue === filter;
-			label.setAttribute('aria-pressed', String(isPressed));
-		});
 
 		items.forEach(function(item) {
 			let tags = item.getAttribute('data-tags').split(',');

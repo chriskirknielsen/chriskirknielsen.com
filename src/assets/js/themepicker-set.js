@@ -7,7 +7,7 @@ window.setTheme = function (theme) {
 	document.documentElement.setAttribute('data-theme', theme);
 	localStorage.setItem(themeStore, theme);
 	document.querySelectorAll('[data-theme-set]').forEach(function (btn) {
-		btn.setAttribute('aria-checked', (btn.getAttribute('data-theme-set') === theme).toString());
+		btn.setAttribute('aria-pressed', (btn.getAttribute('data-theme-set') === theme).toString());
 	});
 };
 window.getTheme = function () {

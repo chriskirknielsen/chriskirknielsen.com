@@ -3,11 +3,12 @@
 	function toggleThemePickerMenu(force = null) {
 		const htmlEl = document.documentElement;
 		const pickerEl = document.querySelector('.themepicker');
+		const toggleBtn = document.querySelector('[data-themepicker-toggler]');
 		const pickerAttr = 'data-themepicker';
 		const prevIsOpenStatus = htmlEl.getAttribute(pickerAttr) === 'open';
 		const newIsOpenStatus = force !== null ? JSON.parse(force) : !prevIsOpenStatus;
 		htmlEl.setAttribute(pickerAttr, newIsOpenStatus ? 'open' : 'closed');
-		pickerEl.setAttribute('aria-expanded', newIsOpenStatus.toString());
+		toggleBtn.setAttribute('aria-expanded', newIsOpenStatus.toString());
 		pickerEl.inert = !newIsOpenStatus;
 		return newIsOpenStatus;
 	}

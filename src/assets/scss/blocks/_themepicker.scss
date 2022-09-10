@@ -106,7 +106,7 @@
 			--picker-button-border-color: var(--themepicker-b);
 		}
 
-		&[aria-checked='true'] {
+		&[aria-pressed='true'] {
 			&::before {
 				content: '';
 
