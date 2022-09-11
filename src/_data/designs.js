@@ -92,7 +92,7 @@ module.exports = [
 		slug: 'www-explorer',
 		name: 'World Wide Web Explorer',
 		description: 'Explore the spaces between what connects us all: the World Wide Web!',
-		note: 'For a mug with the design on both sides, use anything **but** TeePublic.',
+		note: 'For a mug with the design on both sides, use RedBubble or Society6.',
 		img: 'www-explorer.jpg',
 		links: {
 			TeePublic: 'https://www.teepublic.com/t-shirt/28541207-world-wide-web-explorer',

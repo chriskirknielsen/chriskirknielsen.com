@@ -6,7 +6,7 @@ permalink: /
 i18n:
     page:
         quickAccess:
-            heading: 'Jump in'
+            heading: 'Jump right in'
             about:
                 label: 'Way too many facts about me'
                 content: 'If you want to learn more about me, this is the place. It should cover quite a bit…'

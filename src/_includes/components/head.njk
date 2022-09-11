@@ -68,13 +68,13 @@
 	<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
 
 	{# Page alternates #}
-	<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url }}">
+	<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absoluteUrl(metadata.url) }}">
 	{% for link in page.url | locale_links %}
-    <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | url }}">
+    <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | absoluteUrl(metadata.url) }}">
 	{% endfor %}
 	
 	{# RSS feed #}
-	<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url | absoluteUrl(metadata.url) }}">
 	
 	{# Meta, SEO, etc. #}
 	<meta name="generator" content="{{ eleventy.generator }}">
