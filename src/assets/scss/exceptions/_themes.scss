@@ -154,6 +154,14 @@
 		}
 	}
 
+	.postlist-yeargroup {
+		padding-block: 0;
+
+		color: var(--t-color-gray-max);
+		border: 0;
+		background: var(--t-color-primary-med);
+	}
+
 	.about-quotebox {
 		--quotebox-font: var(--t-font-heading);
 		--quotebox-weight: 400;
@@ -167,12 +175,14 @@
 			inset: 0.5em -0.5em -0.5em 0.5em;
 			z-index: -1;
 
-			border: 2px solid cadetblue;
+			border: 2px solid var(--t-color-secondary-med);
 		}
 	}
 }
 @include theme('y2k') {
 	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-primary-min), var(--t-color-primary-max));
+	--t-scrollbar-color: #7c7c7c;
+	--t-scrollbar-bg: #dddddd;
 
 	:focus {
 		outline: 1px dotted currentColor;
@@ -275,6 +285,10 @@
 				content: var(--callout-emoji, '🗒');
 			}
 		}
+	}
+
+	.codeblock :is(.token.comment, .token.doctype) {
+		color: hsl(240, 33%, 42%); // Get summadat sweet contrast
 	}
 
 	.footer__logo {

@@ -25,12 +25,16 @@
 	--flow-space: var(--size-2xl);
 
 	&-yeargroup {
+		position: sticky;
+		inset-block-start: 0;
+		z-index: 1;
+
 		padding-inline-start: var(--size-xs);
 		padding-block-end: var(--size-2xs);
 
 		color: var(--t-color-secondary-med);
 		border-inline-start: 1px solid currentColor;
-		background: linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
+		background: var(--ctx-bg) linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
 	}
 
 	&-yeargroup + &-post {
