@@ -1,9 +1,3 @@
-.content-fullbleed {
-	position: relative;
-	width: 100vw;
-	margin-inline-start: calc(50% - 50vw);
-}
-
 .container,
 .container > .content {
 	width: 100%;
@@ -14,6 +8,14 @@
 
 .container > .container {
 	padding-inline: 0;
+}
+
+@supports not (grid-template-columns: subgrid) {
+	.content-fullbleed:not(.page-content) {
+		min-width: 100vw; // Supersedes defined width or max-width
+		margin-inline-start: calc(50% - 50vw);
+		padding-inline: calc(var(--site-content-gutter) / 2);
+	}
 }
 
 @supports (grid-template-columns: subgrid) {
