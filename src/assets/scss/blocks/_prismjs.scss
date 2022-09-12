@@ -39,13 +39,20 @@ pre > code {
 	display: block;
 	overflow: auto; // Let users scroll in case of a long string
 
-	padding: var(--size-m) var(--size-l);
+	padding: var(--site-content-gutter);
 
 	border-inline-start: var(--codeblock-border) solid var(--t-color-secondary-med, currentColor);
+
+	&::after {
+		content: '';
+		display: block;
+		padding-inline-end: var(--site-content-gutter);
+	}
 }
 
 pre.codeblock {
 	--codeblock-border: 2px;
+
 	&,
 	& + * {
 		// Provide more space around this element
@@ -53,19 +60,43 @@ pre.codeblock {
 	}
 
 	position: relative;
+	padding-block-start: var(--codeblock-lang, 0px);
 
-	&[data-lang]::before {
-		content: attr(data-lang);
+	&[data-lang] {
+		--codeblock-lang: 1.5rem;
+
+		&::before {
+			content: '.' attr(data-lang);
+
+			position: absolute;
+			inset: 0 0 auto 0;
+			z-index: 2;
+
+			display: flex;
+			align-items: center;
+			width: 100%;
+			height: var(--codeblock-lang);
+			padding: 0 calc(var(--codeblock-border) + var(--site-content-gutter));
+
+			line-height: 1;
+			color: var(--ctx-bg);
+			background: var(--t-color-secondary-med);
+
+			font-size: 0.75em;
+			letter-spacing: 0.125em;
+		}
+	}
+
+	&::after {
+		content: '';
 
 		position: absolute;
-		inset: 0 auto var(--size-m) var(--codeblock-border);
-		padding: 0.25em 0.25em;
+		inset: 0 0 var(--size-m) var(--codeblock-border);
+		z-index: 1;
 
-		font-size: 0.75em;
-		letter-spacing: 0.0625em;
-		text-shadow: 1px 1px 0 var(--ctx-bg), 2px 2px 0 var(--ctx-bg);
-		writing-mode: vertical-lr;
-		background: linear-gradient(90deg, var(--ctx-bg), transparent 80%);
+		background: linear-gradient(90deg, var(--ctx-bg), transparent var(--site-content-gutter), transparent calc(100% - var(--site-content-gutter)), var(--ctx-bg));
+
+		pointer-events: none;
 	}
 }
 
