@@ -128,27 +128,6 @@
       <stop offset="1" stop-color="var(--homescreen-chris-lower-b)"/>
     </linearGradient>
 
-    <!-- GRADIENT: Horizon Shine -->
-    <radialGradient id="horizonFlash">
-      {# Stops generated with https://larsenwork.com/easing-gradients/ #}
-      <stop offset="0.000" stop-color="{{ horizon_flash }}" stop-opacity="1.000" />
-      <stop offset="0.081" stop-color="{{ horizon_flash }}" stop-opacity="0.987" />
-      <stop offset="0.155" stop-color="{{ horizon_flash }}" stop-opacity="0.951" />
-      <stop offset="0.225" stop-color="{{ horizon_flash }}" stop-opacity="0.896" />
-      <stop offset="0.290" stop-color="{{ horizon_flash }}" stop-opacity="0.825" />
-      <stop offset="0.353" stop-color="{{ horizon_flash }}" stop-opacity="0.741" />
-      <stop offset="0.412" stop-color="{{ horizon_flash }}" stop-opacity="0.648" />
-      <stop offset="0.471" stop-color="{{ horizon_flash }}" stop-opacity="0.550" />
-      <stop offset="0.529" stop-color="{{ horizon_flash }}" stop-opacity="0.450" />
-      <stop offset="0.588" stop-color="{{ horizon_flash }}" stop-opacity="0.352" />
-      <stop offset="0.647" stop-color="{{ horizon_flash }}" stop-opacity="0.259" />
-      <stop offset="0.710" stop-color="{{ horizon_flash }}" stop-opacity="0.175" />
-      <stop offset="0.775" stop-color="{{ horizon_flash }}" stop-opacity="0.104" />
-      <stop offset="0.845" stop-color="{{ horizon_flash }}" stop-opacity="0.049" />
-      <stop offset="0.919" stop-color="{{ horizon_flash }}" stop-opacity="0.013" />
-      <stop offset="1.000" stop-color="{{ horizon_flash }}" stop-opacity="0.000" />
-    </radialGradient>
-
     <!-- GRADIENT: Shine Spots -->
     <radialGradient id="gradientShine">
       <stop offset="0" stop-color="{{ shine_color }}"/>
@@ -163,9 +142,6 @@
       <stop offset=".55" stop-color="{{ shine_color }}" stop-opacity="0"/>
     </linearGradient>
   </defs>
-
-  <!-- Horizon Flash -->
-  <ellipse class="homescreen-svg__horizon-flash" fill="url(#horizonFlash)" cx="50%" cy="50%" rx="50%" ry="1%"/>
 
   <!-- Chris -->
   <g class="homescreen-svg__chris-group homescreen-svg__group" role="img" aria-label="Chris">
@@ -257,9 +233,6 @@
       {{ 'homescreenTitle.creaDev' | i18n | toUppercase }}
     </text>
   </g>
-
-  <!-- Horizon Glow -->
-  <ellipse class="homescreen-svg__horizon-flash" fill="url(#horizonFlash)" cx="50%" cy="50%" rx="25%" ry="33%"/>
 </svg>
 {% endset %}
 {{ svgTitle | htmlmin | safe }}

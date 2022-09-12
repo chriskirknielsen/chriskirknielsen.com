@@ -268,7 +268,7 @@
 			opacity: 0;
 			transform: scale(var(--w-scale-x), var(--w-scale-y)); // translateY(calc(var(--w-translateY) * -1%));
 
-			animation-name: svgMarkFadeInOut;
+			animation-name: fadeInOut;
 			animation-iteration-count: 1;
 			animation-fill-mode: both;
 			animation-duration: #{$wire-anim-time};
@@ -276,10 +276,9 @@
 			animation-delay: calc(#{$wire-init-delay} + var(--w-delay));
 		}
 
-		&__horizon-flash,
 		&__chris-flash {
 			opacity: 0.0001;
-			animation-name: svgMarkFadeInOut;
+			animation-name: fadeInOut;
 			animation-iteration-count: 1;
 			animation-timing-function: ease;
 			animation-delay: #{$flash-anim-delay};
@@ -289,12 +288,6 @@
 		&__chris-flash {
 			animation-fill-mode: both;
 			animation-duration: #{$flash-anim-time};
-		}
-
-		&__horizon-flash {
-			animation-name: svgMarkFadeInOut, scaleOut;
-			animation-duration: #{$flash-anim-time};
-			animation-timing-function: linear, ease;
 		}
 
 		&__group {
@@ -369,25 +362,13 @@
 		}
 	}
 
-	@keyframes svgMarkGreeting {
-		// Extends to ensure descenders/text-shadow don't get clipped too eagerly
-		0% {
-			clip-path: polygon(0 0, 0 0, -2rem 100%, -2rem 100%);
-		}
+	@keyframes fadeInOut {
+		0%,
 		100% {
-			clip-path: polygon(0 0, calc(100% + 2rem) 0, 100% 100%, -2rem 100%);
-		}
-	}
-
-	@keyframes svgMarkFadeInOut {
-		0% {
 			opacity: 0;
 		}
 		50% {
 			opacity: 1;
-		}
-		100% {
-			opacity: 0;
 		}
 	}
 
@@ -429,20 +410,14 @@
 		0% {
 			transform: translateX(82.5%);
 			opacity: 0;
-			// visibility: hidden;
 		}
-		1% {
-			opacity: 1;
-			// visibility: visible;
-		}
+		1%,
 		99% {
 			opacity: 1;
-			// visibility: visible;
 		}
 		100% {
 			transform: translateX(-82.5%);
 			opacity: 0;
-			// visibility: hidden;
 		}
 	}
 }

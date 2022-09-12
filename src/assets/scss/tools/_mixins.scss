@@ -51,9 +51,7 @@
 	// Okay you can judge me for this but I have no clue why I need to do it this way
 	$p: &;
 	@at-root {
-		:root:not([data-theme]) #{$p},
-		[data-theme='dusk'] #{$p},
-		[data-theme='dawn'] #{$p} {
+		:is(:root:not([data-theme]), [data-theme='dusk'], [data-theme='dawn']) #{$p} {
 			@content;
 		}
 	}
