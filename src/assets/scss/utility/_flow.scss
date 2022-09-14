@@ -4,7 +4,8 @@
 	}
 
 	// Make sure headings stick close to associated content
-	& > :where(h2, h3) + * {
+	& > :where(h2, h3) + *,
+	& > :where(p) + :where(ul, ol) {
 		--flow-space: var(--size-2xs);
 	}
 	& > :where(h2 + h3) {

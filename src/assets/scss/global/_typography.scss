@@ -80,8 +80,11 @@ blockquote {
 }
 
 :is(ol, ul) {
+	&:where(:not([class])),
 	& :is(ol, ul) {
-		padding-inline-start: 1em;
+		padding-inline-start: 0.875em;
+
+		list-style-position: outside;
 	}
 
 	& ul {
