@@ -42,12 +42,6 @@ pre > code {
 	padding: var(--site-content-gutter);
 
 	border-inline-start: var(--codeblock-border) solid var(--t-color-secondary-med, currentColor);
-
-	&::after {
-		content: '';
-		display: block;
-		padding-inline-end: var(--site-content-gutter);
-	}
 }
 
 pre.codeblock {
@@ -66,7 +60,7 @@ pre.codeblock {
 		--codeblock-lang: 1.5rem;
 
 		&::before {
-			content: '.' attr(data-lang);
+			content: attr(data-lang);
 
 			position: absolute;
 			inset: 0 0 auto 0;
