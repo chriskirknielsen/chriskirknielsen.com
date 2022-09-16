@@ -171,14 +171,18 @@ One caveat is that those files get rendered at the root of the main build due to
 
 I couldn’t make it work. Maybe I need more caffeine but couldn't figure out where to start, sorry!
 
+<hr>
+
 ## Quick update
 
 After publishing this post, [Zach proposed using a custom cache solution](https://twitter.com/eleven_ty/status/1562796287786754049) which is indeed a great idea! I made a minor adjustment to set a particular cache key (so the filter can be called like `… | jsmin('someKey')`), but the idea is the same:
 
 ```js
-const jsminCache = {};
 // ...
 module.exports = function (eleventyConfig) {
+	let jsminCache = {}; // Create a variable to hold the cached values
+	eleventyConfig.on('eleventy.before', () => (jsminCache = {})); // Reset cache before running
+
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, ...rest) {
 		const callback = rest.pop();
 		const cacheKey = rest.length > 0 ? rest[0] : null;

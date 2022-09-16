@@ -95,7 +95,8 @@ const purgeCssSafeList = {
 
 module.exports = function (eleventyConfig) {
 	/* Variables */
-	const jsminCache = {};
+	let jsminCache = {};
+	eleventyConfig.on('eleventy.before', () => (jsminCache = {}));
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginRss);
