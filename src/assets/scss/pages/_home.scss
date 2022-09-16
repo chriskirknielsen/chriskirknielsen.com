@@ -71,11 +71,6 @@
 		--homescreen-creadev-stroke: var(--homescreen-grid-line);
 		--homescreen-creadev-fill: var(--t-color-primary-min);
 		--homescreen-creadev-font: var(--t-font-heading);
-
-		.content-fullbleed.u-background-bg-alt-color {
-			--ctx-bg: inherit;
-			background: linear-gradient(var(--t-bg-alt-color) 2px, transparent 0, transparent calc(100% - 2px), var(--t-bg-alt-color) 0);
-		}
 	}
 
 	@include theme('y2k') {

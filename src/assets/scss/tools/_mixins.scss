@@ -47,19 +47,26 @@
 		@content;
 	}
 }
-@mixin default-schemes {
-	// Okay you can judge me for this but I have no clue why I need to do it this way
-	$p: &;
+@mixin _theme($selector, $context) {
 	@at-root {
-		:is(:root:not([data-theme]), [data-theme='dusk'], [data-theme='dawn']) #{$p} {
+		#{$selector} #{$context} {
 			@content;
 		}
 	}
 }
-@mixin theme($key) {
-	@at-root {
-		[data-theme='#{$key}'] {
-			@content;
-		}
+@mixin default-schemes($section: false) {
+	$section-selector: unquote(if($section != false, "[data-section='#{$section}']", ''));
+	$root-selector: unquote("#{$section-selector}:is(:root:not([data-theme]), [data-theme='dusk'], [data-theme='dawn'])");
+
+	@include _theme($root-selector, &) {
+		@content;
+	}
+}
+@mixin theme($key, $section: false) {
+	$section-selector: unquote(if($section != false, "[data-section='#{$section}']", ''));
+	$root-selector: unquote("#{$section-selector}[data-theme='#{$key}']");
+
+	@include _theme($root-selector, &) {
+		@content;
 	}
 }

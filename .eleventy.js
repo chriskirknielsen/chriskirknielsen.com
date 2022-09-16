@@ -252,7 +252,7 @@ module.exports = function (eleventyConfig) {
 		pseudo ||= translations.callout[lang];
 
 		return `<div class="callout" aria-labelledby="${uniqueId}">
-			<p id="${uniqueId}" class="callout-label"${emoji ? ' style="--callout-emoji: \'' + emoji + '\'"' : ''}>${pseudo}</p>
+			<p id="${uniqueId}" class="h3 | callout-label"${emoji ? ' style="--callout-emoji: \'' + emoji + '\'"' : ''}>${pseudo}</p>
 			<p>${md.renderInline(content.trim())}</p>
 		</div>`;
 	});

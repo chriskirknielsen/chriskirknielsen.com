@@ -108,7 +108,7 @@
 
 			font-size: max(var(--size-xl), 1.75em);
 			color: var(--t-color-primary-min);
-			text-shadow: 0.1em 0.1em 0 var(--ctx-bg), 0.125em 0.125em 0 var(--t-color-primary-med);
+			text-shadow: 0.075em 0.075em 0 var(--ctx-bg), 0.125em 0.125em 0 var(--t-color-primary-med);
 			background-color: var(--ctx-bg);
 		}
 	}
@@ -178,11 +178,41 @@
 			border: 2px solid var(--t-color-secondary-med);
 		}
 	}
+
+	.callout-label {
+		&::after {
+			content: '…'; // Hint of exasperation
+		}
+
+		// Pixelated text shadow
+		text-shadow: 2px 2px 0 var(--t-color-primary-max), 4px 4px 0 var(--t-color-primary-max), 6px 6px 0 var(--t-color-primary-max), 8px 8px 0 var(--t-color-primary-max);
+	}
 }
+@include theme('vapor', 'home') {
+	.content-fullbleed.u-background-bg-alt-color {
+		--ctx-bg: inherit;
+		background: linear-gradient(var(--t-bg-alt-color) 2px, transparent 0, transparent calc(100% - 2px), var(--t-bg-alt-color) 0);
+	}
+}
+
 @include theme('y2k') {
 	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-primary-min), var(--t-color-primary-max));
 	--t-scrollbar-color: #7c7c7c;
 	--t-scrollbar-bg: #dddddd;
+
+	&::-webkit-scrollbar,
+	& ::-webkit-scrollbar,
+	&::-webkit-scrollbar-track,
+	& ::-webkit-scrollbar-track {
+		background-color: var(--t-scrollbar-bg);
+	}
+
+	&::-webkit-scrollbar-thumb,
+	& ::-webkit-scrollbar-thumb {
+		background: var(--t-scrollbar-color);
+		border: 2px solid;
+		border-color: var(--t-cta-border-color);
+	}
 
 	:focus {
 		outline: 1px dotted currentColor;
@@ -195,11 +225,6 @@
 			outline-offset: -4px;
 			outline: 1px dotted #4c4c4c;
 		}
-	}
-
-	:where(a:not([class]), .link):where(:hover, :focus) {
-		text-shadow: none;
-		background: none;
 	}
 
 	.filter-item input[type='radio']:checked + label {

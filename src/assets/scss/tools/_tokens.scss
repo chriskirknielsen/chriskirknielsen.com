@@ -1,5 +1,5 @@
 $tokens: (
-  "_assetsPath": /assets/img/themes,
+  "_assetsPath": '/assets/img/themes',
   "_layerOrder": (body, main, footer, header, themepicker),
   "constants": (
     "base-line-height": 1.5,
@@ -23,6 +23,8 @@ $tokens: (
     "link-color": blue,
     "link-underline-color": var(--t-link-color),
     "link-color-active": purple,
+    "link-underline-color-active": transparent,
+    "link-shadow-active": transparent,
     "bigboi-bg-color": var(--t-bg-neutral-color),
     "bigboi-text-color": var(--t-color-gray-min),
     "cta-border-color": var(--t-color-gray-med),
@@ -37,6 +39,7 @@ $tokens: (
     "footer-bg-color": var(--t-color-gray-min),
     "footer-border-color": var(--t-color-gray-med),
     "heading-tracking": 0,
+    "heading-text-transform": none,
     "corner-radius": 4px
   ),
   "_expectedColors": (
@@ -74,7 +77,8 @@ $tokens: (
       "footer-border-color": var(--t-color-gray-med)
     ),
     "vars-resettable": (
-      "heading-tracking": 0.0625em
+      "heading-tracking": 0.0625em,
+      "link-shadow-active": var(--t-link-underline-color-active)
     ),
     "images": (
       
@@ -96,7 +100,8 @@ $tokens: (
         "is-dark": 1,
         "header-logo-fill": var(--t-color-secondary-med),
         "cta-transition-duration": 400ms,
-        "cta-box-shadow-active": '0 0 0.75em var(--t-color-secondary-med), 0 0 0.5em var(--t-color-secondary-med) inset'
+        "cta-box-shadow-active": '0 0 0.75em var(--t-color-secondary-med), 0 0 0.5em var(--t-color-secondary-med) inset',
+        "link-underline-color-active": hsl(320, 88%, 22%)
       ),
       "colors": (
         "gray": (
@@ -123,7 +128,8 @@ $tokens: (
         "is-dark": 0,
         "header-logo-fill": var(--t-color-primary-med),
         "cta-transition-duration": 0ms,
-        "cta-box-shadow-active": '0 0 0 0.125em var(--t-color-primary-med)'
+        "cta-box-shadow-active": '0 0 0 0.125em var(--t-color-primary-med)',
+        "link-underline-color-active": pink
       ),
       "colors": (
         "gray": (
@@ -179,10 +185,12 @@ $tokens: (
         "link-color": var(--t-color-primary-med),
         "link-color-active": var(--t-color-gray-min),
         "link-underline-color": var(--t-color-secondary-med),
+        "link-underline-color-active": var(--t-color-gray-max),
         "footer-text-color": var(--t-color-primary-min),
         "footer-bg-color": var(--t-color-primary-max),
         "footer-border-color": var(--t-color-primary-min),
-        "corner-radius": 4px
+        "corner-radius": 4px,
+        "heading-text-transform": uppercase
       ),
       "images": (
         "body-bg-image": 'vapor-bg.png'
