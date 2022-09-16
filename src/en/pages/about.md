@@ -29,7 +29,7 @@ i18n:
 
 ## Typing away, every day
 
-While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I did dabble in code on MySpace and eventually made my own site (I even paid for a domain and hosting!), calling myself a **"webmaster"** before I even had zits on my face — the hubris. I ended up **studying graphic design for 4 years** then freelanced for some neat clients on video editing, ad banners, and "immersive" pages.
+While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I dabbled in code on MySpace and eventually made my own site (I even paid for a domain and hosting!), calling myself a **"webmaster"** before I even had zits on my face — the hubris. I ended up **studying graphic design for 4 years** then freelanced for neat clients on video editing, ad banners, and "immersive" pages.
 
 Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>, so I pursued that. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, trying to make **accessible and performant** web pages, and learning new things in this constantly evolving field while having fun with CSS.
 
