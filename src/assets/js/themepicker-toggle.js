@@ -25,17 +25,20 @@
 			toggleThemePickerMenu(force);
 		}
 	});
-	document.addEventListener('keypress', function (e) {
+	document.addEventListener('keyup', function (e) {
 		if (e.altKey || e.metaKey || e.ctrlKey || e.shiftKey) {
 			return;
 		}
-		if (e.key.toLowerCase() !== 'm') {
-			return;
-		}
-		// Scroll to top if opening the picker
-		const newStatus = toggleThemePickerMenu();
-		if (newStatus) {
-			document.body.scrollIntoView({ block: 'start', behavior: 'smooth' });
+		let isEsc = e.code === 'Escape';
+		let isM = e.key.toLowerCase() === 'm';
+		if (isEsc || isM) {
+			// Force close on pressing escape
+			const newStatus = toggleThemePickerMenu(isEsc ? false : null);
+
+			// Scroll to top if opening the picker
+			if (newStatus) {
+				document.body.scrollIntoView({ block: 'start', behavior: 'smooth' });
+			}
 		}
 	});
 })();
