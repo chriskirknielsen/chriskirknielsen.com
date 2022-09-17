@@ -148,7 +148,8 @@
 				var(--homescreen-sun-glow-alpha) #{$sun-radius * 0.875},
 				#{$sun-radius * 0.975},
 				var(--homescreen-sun-glow) #{$sun-radius},
-				#{$sun-radius * 1.03625},
+				var(--homescreen-sun-glow) #{$sun-radius + 0.1},
+				#{$sun-radius + 0.2},
 				var(--homescreen-sun-glow-alpha) #{$sun-radius * 1.325}
 			)
 			no-repeat 50% 0 / 100% 50%;
@@ -429,4 +430,11 @@
 		'post head'
 		'post body'
 		'post ctas';
+}
+
+@include theme('vapor', 'home') {
+	.content-fullbleed.u-background-bg-alt-color {
+		--ctx-bg: inherit;
+		background: linear-gradient(var(--t-bg-alt-color) 2px, transparent 0, transparent calc(100% - 2px), var(--t-bg-alt-color) 0);
+	}
 }

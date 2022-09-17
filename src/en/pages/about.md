@@ -21,15 +21,23 @@ i18n:
         randomFact: "Click here to get a random fact about me"
         vhsImageAlt: "A VHS tape design inspired by {{ name }}"
         mugImageAlt: "A plain mug with a {{ name }} on it"
+        profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
 ---
 
-**I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧱">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">United States</span> who used to be a designer and who now likes to code. You want to know more? Well, be my guest!**
+**I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">United States</span> who used to be a designer and who now likes to code. You want to know more? Well, be my guest!**
 
 {% include 'components/about/random-fact.njk' %}
 
+
 ## Typing away, every day
 
+<div class="about-first">
+{%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
+{{- profile | htmlmin | safe }}
+
 While front-end development is my focus nowadays, I grew up thinking I'd be a designer after playing with Microsoft Paint and then Photoshop (with a *totally* valid licence). I dabbled in code on MySpace and eventually made my own site (I even paid for a domain and hosting!), calling myself a **"webmaster"** before I even had zits on my face — the hubris. I ended up **studying graphic design for 4 years** then freelanced for neat clients on video editing, ad banners, and "immersive" pages.
+
+</div>
 
 Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>, so I pursued that. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, trying to make **accessible and performant** web pages, and learning new things in this constantly evolving field while having fun with CSS.
 
@@ -42,14 +50,14 @@ I have contributed to a few open source projects, but only in small ways; if it 
 ## Still creative, on occasion
 
 <p data-about="creative">
-When I'm not doing client work, <strong>I like to create designs</strong> that might look good on a t-shirt — still getting those creative juices flowing! You can check all those out in the <a href="/designs/">Designs "Shop"</a> if you're interested; it's got lots of dev-related designs, and a few <em class="about-emoji" data-emoji="🌴">'80s aesthetics</em> (my favourite!). I also geek out on video games from time to time and enjoy movies, so if you want to make my day, a movie quote might work (or puns — <em>I really love puns</em>). You might like to know that <a href="/fonts/">I've created some typefaces</a> — I consider myself a font nerd and will (try to) recognise the font used for every logo until my last breath.
+When inspiration strikes, <strong>I like to create designs</strong> that might look good on a t-shirt — still getting those creative juices flowing! You can check all those out in the <a href="/designs/">Designs "Shop"</a> if you're interested; it's got lots of dev-related designs, and a few <em class="about-emoji" data-emoji="🌴">'80s aesthetics</em> (my favourite!). I also to play a video games from time to time and enjoy movies, so if you want to make my day, a movie quote might work (or puns — <em>I really love puns</em>). You might like to know that <a href="/fonts/">I've created some typefaces</a> — I consider myself a font nerd and will (try to) recognise the font used for every logo until my last breath.
 </p>
 
 <p class="about-quotebox">They used frickin’ Helvetica again! They can’t keep getting away with it!</p>
 
 {% include 'components/about/vhs.njk' %}
 
-I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles provide most of my auditory relaxation. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years but it sounds neat to say you write music. I need to get back into that because *synthesisers are incredibly fun*. Plus, my guitar skills are lacking, computers help me feel competent!
+I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles take up most of my playlists. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years but it sounds neat to say you write music. I need to get back into that because *synthesisers are incredibly fun*. Plus, my guitar skills are lacking, computers help me feel competent!
 
 ## About me, not my marketable skills
 
@@ -66,7 +74,7 @@ I am a professional, as proven by the fact I have a [LinkedIn profile](https://w
 ## Fancy a chat?
 
 <p data-about="contact">
-If you got through this and thought “Wow I need to talk to Chris!”, I’ll take the compliment. You can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen[at]gmail[dot]com</code>—yes, written communication is preferred!
+If you got through this and thought “Wow I need to talk to Chris!”, I’ll take the compliment. You can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen[at]gmail[dot]com</code>!
 </p>
 
 <p class="about-quotebox">Unknown phone numbers give me anxiety.</p>

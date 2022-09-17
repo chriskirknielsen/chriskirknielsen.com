@@ -21,9 +21,10 @@ i18n:
         randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"
         vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
         mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
+        profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
 ---
 
-**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧱">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder. Vous en voulez encore ? C'est parti&nbsp;!**
+**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder. Vous en voulez encore ? C'est parti&nbsp;!**
 
 {% include 'components/about/random-fact.njk' %}
 
@@ -42,7 +43,7 @@ J'ai contribué à quelques projets open source mais rien de folichon ; si ça c
 ## Créatif quand inactif
 
 <p data-about="creative">
-Quand je ne travaille pas, <strong>j'aime créer des illustrations</strong> qui passeraient bien sur un t-shirt — la passion créative&nbsp;! Vous pouvez voir tout ce beau monde dans la <a href="/designs/">"Boutique"</a> si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (quelle esthétique&nbsp;!). J'apprécie un bon jeu vidéo par moments et adore regarder des films, alors si vous souhaitez me faire sourire, une citation de film devrait le faire (ou un jeu de mots, <em>je suis passionné de jeux de mots&nbsp;!</em>). Si ça vous captive, <a href="/fonts/">j'ai créé des polices d'écriture</a> — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas&nbsp;!
+Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui passeraient bien sur un t-shirt — la passion créative&nbsp;! Vous pouvez voir tout ce beau monde dans la <a href="/designs/">"Boutique"</a> si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (quelle esthétique&nbsp;!). J'apprécie un bon jeu vidéo par moments et adore regarder des films, alors si vous souhaitez me faire sourire, une citation de film devrait le faire (ou un jeu de mots, <em>je suis passionné de jeux de mots&nbsp;!</em>). Si ça vous captive, <a href="/fonts/">j'ai créé des polices d'écriture</a> — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas&nbsp;!
 </p>
 
 <p class="about-quotebox">Ils ont encore utilisé de la foutue Helvetica&nbsp;! Ils peuvent pas continuer comme ça&nbsp;!</p>
@@ -66,7 +67,7 @@ Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://w
 ## Pour discuter, c'est au clavier
 
 <p data-about="contact">
-Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je prends ça comme un compliment. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code>chriskirknielsen[arobase]gmail[point]com</code> — je préfère communiquer par écrit&nbsp;!
+Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je prends ça comme un compliment. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code>chriskirknielsen[arobase]gmail[point]com</code> !
 </p>
 
 <p class="about-quotebox">Les numéros inconnus me mettent la pression.</p>

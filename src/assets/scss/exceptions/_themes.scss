@@ -188,12 +188,6 @@
 		text-shadow: 2px 2px 0 var(--t-color-primary-max), 4px 4px 0 var(--t-color-primary-max), 6px 6px 0 var(--t-color-primary-max), 8px 8px 0 var(--t-color-primary-max);
 	}
 }
-@include theme('vapor', 'home') {
-	.content-fullbleed.u-background-bg-alt-color {
-		--ctx-bg: inherit;
-		background: linear-gradient(var(--t-bg-alt-color) 2px, transparent 0, transparent calc(100% - 2px), var(--t-bg-alt-color) 0);
-	}
-}
 
 @include theme('y2k') {
 	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-primary-min), var(--t-color-primary-max));
@@ -227,12 +221,9 @@
 		}
 	}
 
-	.filter-item input[type='radio']:checked + label {
-		text-decoration: underline;
-
-		&::before {
-			content: none;
-		}
+	.filter-item input[type='radio']:focus-visible + label {
+		outline-offset: -4px;
+		outline: 1px dotted black;
 	}
 
 	.postlist-yeargroup {

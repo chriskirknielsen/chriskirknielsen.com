@@ -34,6 +34,140 @@
 	}
 }
 
+.about-first {
+	position: relative;
+
+	@include above-medium {
+		display: flex;
+		gap: var(--size-l);
+	}
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+.about-profile {
+	$profile-image-border-size: 0.125rem;
+	$profile-image-anim-time: 1.625;
+	$profile-image-anim-delay: 0.25;
+
+	/* SVG illustration variables */
+	$profile-anim-line-delay: 0.2s;
+	$profile-anim-line-duration: 0.6s;
+	$profile-anim-path-delay: $profile-anim-line-delay + $profile-anim-line-duration * 0.625;
+	$profile-anim-path-duration: 1.25s;
+	$profile-anim-hair-delay: $profile-anim-path-delay + $profile-anim-path-duration * 0.75;
+	$profile-anim-hair-duration: 1s;
+	$profile-anim-glasses-delay: $profile-anim-hair-delay + $profile-anim-hair-duration * 0.5;
+	$profile-anim-glasses-duration: 0.5s;
+
+	float: right;
+
+	order: 1;
+	flex: 0 0 auto;
+	align-self: flex-start;
+	width: clamp(3rem, 1rem + 15vw, 4rem);
+	margin-block: var(--size-m);
+	margin-inline-start: var(--size-m);
+
+	transform: scaleX(-1);
+
+	@include above-medium {
+		margin-inline-start: 0;
+	}
+
+	&::after,
+	&-path path,
+	&-hair path,
+	&-glasses {
+		animation-fill-mode: backwards;
+		animation-iteration-count: 1;
+		animation-timing-function: var(--easing-in-out);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset-block: calc(var(--size-m) * -1);
+		inset-inline-end: 0;
+
+		width: 1.5px;
+
+		background-color: currentColor;
+
+		transform-origin: 50% 100%;
+		animation-name: aboutLineDraw;
+		animation-duration: #{$profile-anim-line-duration};
+		animation-delay: #{$profile-anim-line-delay};
+	}
+
+	&-path path {
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 3;
+		stroke-dasharray: 1 1;
+
+		animation-name: aboutPathDraw;
+		animation-duration: #{$profile-anim-path-duration};
+		animation-delay: #{$profile-anim-path-delay};
+	}
+
+	&-hair path {
+		fill: none;
+		stroke: var(--t-color-primary-med);
+		stroke-linecap: round;
+		stroke-dasharray: 1 1;
+
+		animation-name: aboutHairGrow, aboutPathDraw;
+		animation-duration: #{$profile-anim-hair-duration};
+		animation-delay: #{$profile-anim-hair-delay};
+	}
+
+	&-glasses {
+		fill: var(--t-color-primary-min);
+		animation-name: aboutGlasses;
+		animation-duration: #{$profile-anim-glasses-duration};
+		animation-timing-function: var(--easing-out);
+		animation-delay: #{$profile-anim-glasses-delay};
+	}
+
+	&-hair--brow {
+		transform-origin: 50% 50%;
+		transition: transform 0.25s var(--easing-in-out);
+	}
+
+	&:hover &-hair--brow {
+		transform: translateY(-2%) rotate(3deg);
+	}
+}
+
+@keyframes aboutLineDraw {
+	0% {
+		transform: scaleY(0);
+	}
+}
+
+@keyframes aboutPathDraw {
+	0% {
+		stroke-dashoffset: 1;
+	}
+}
+
+@keyframes aboutHairGrow {
+	0% {
+		stroke-width: 0;
+	}
+}
+
+@keyframes aboutGlasses {
+	0% {
+		opacity: 0.0001;
+		transform: translateY(-15%);
+	}
+}
+
 html.no-js .about-facts {
 	display: none;
 }
@@ -409,6 +543,7 @@ html.no-js .about-facts {
 }
 
 .about-quotebox {
+	--flow-space: var(--size-xl);
 	--qbgrad-pos: calc(100% * (1 - var(--t-is-dark))) calc(100% * (1 - var(--t-is-dark)));
 
 	align-self: center;
@@ -475,6 +610,10 @@ html.no-js .about-facts {
 		[data-about='contact'] + .about-quotebox {
 			grid-column: span 1;
 			margin: 0;
+		}
+
+		.about-quotebox {
+			--flow-space: 0;
 		}
 	}
 }
