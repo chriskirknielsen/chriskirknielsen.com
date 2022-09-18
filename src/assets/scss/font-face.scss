@@ -2,16 +2,18 @@
 @import 'tools/functions';
 
 $font-dir-path: '/assets/fonts';
-
 $custom-fonts: ();
+
 @if (map-has-key(get-token('schemeCommonVars'), 'custom-font')) {
 	$custom-fonts: append($custom-fonts, map-get(get-token('schemeCommonVars'), 'custom-font'));
 }
+
 @each $theme-key, $theme-config in get-token('themes') {
 	@if (map-has-key($theme-config, 'custom-font')) {
 		$custom-fonts: append($custom-fonts, map-get($theme-config, 'custom-font'));
 	}
 }
+
 @each $font in $custom-fonts {
 	$font-name: map-get($font, 'name');
 	$font-alts: map-get($font, 'altLocalNames');

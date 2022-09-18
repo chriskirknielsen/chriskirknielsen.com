@@ -42,9 +42,11 @@ templateName: post
 
 {% if not original and not externalUrl %}
 <footer class="post-footer">
-	<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar"><img src="{{ '/' + assets.imagesDir + '/profile.jpg' | url }}" alt="" width="64" height="64"></a>
+	<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar" tabindex="-1">
+		<img src="{{ '/' + assets.imagesDir + '/profile.jpg' | url }}" alt="" width="64" height="64">
+	</a>
 	
-	<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name }) }}</p>
+	<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url) }) | safe }}</p>
 	<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: metadata.author.twitter, shopUrl: '/designs/' }) | safe }}</p>
 </footer>
 {% endif %}

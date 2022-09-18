@@ -41,6 +41,7 @@ pre > code {
 
 	max-height: 80vh;
 	padding: var(--site-content-gutter);
+	padding-inline-start: calc(var(--site-content-gutter) - var(--codeblock-border));
 
 	border-inline-start: var(--codeblock-border) solid var(--t-color-secondary-med, currentColor);
 }

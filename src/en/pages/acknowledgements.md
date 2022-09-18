@@ -1,17 +1,17 @@
 ---
 title: Acknowledgements
-subtitle: Or "colophon"
+subtitle: Or "colophon", I suppose.
 summary: Some info about this site
 permalink: /acknowledgements/
 ---
 
 ## Site Specs
 
-This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/) (of which I am an official supporter!), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS and minify styles and scripts alike, then inline them to reduce HTTP requests.
+This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS and minify styles and scripts alike, then inline them to reduce HTTP requests.
 
 Hosting is provided by [Netlify](https://netlify.com/), free of charge, since I don't generate much traffic… Still good to support these fine folks, though!
 
-You can check out the [full source code on GitHub]({{ metadata.repo }}), just don't be a jerk: don't steal the code and call it yours. Thanks!
+You can check out the [full source code on GitHub]({{ metadata.repo }}), I only ask that you don't steal my code and slap your own name on it.
 
 ## Uses
 
@@ -48,10 +48,4 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}), just do
 -   [ImageOptim](https://imageoptim.com/mac)
     Beautiful tool to compress images better, you won't regret it.
 
-## People
-
-Thanks to my friend Youcef for giving me feedback every single time I asked him if a pixel looked out of place.
-
-And thanks to my partner Ilona for dealing with me every time I said "One second, just fixing a thing on my website!", even though it took me half an hour.
-
-Finally: thank **you** for stopping by, I truly appreciate it!
+Thanks for stopping by, stranger, it is mighty kind of you!

@@ -1,13 +1,13 @@
 ---
 title: Remerciements
-subtitle: Ou "colophon"
+subtitle: Ou "colophon", je présume.
 summary: Quelques mercis sont en ordre…
 permalink: /fr/remerciements/
 ---
 
-## Détails du site
+## Détails techniques
 
-Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique (auquel j'apporte mon soutien !). Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier styles comme scripts, injectés dans la page pour réduire les requêtes HTTP.
+Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique. Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier styles comme scripts, injectés dans la page pour réduire les requêtes HTTP.
 
 L'hébergement est fourni par [Netlify](https://netlify.com/), gratuitement, puisque je ne génère que peu de trafic… Pour autant, ça reste une bonne idée de les soutenir !
 
@@ -48,10 +48,4 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
 -   [ImageOptim](https://imageoptim.com/mac)
     Superbe outil pour mieux compresser mes images.
 
-## Personnes
-
-Merci à mon bon ami Youcef pour ses retours constructifs à chaque fois que je l'embête pour savoir si un pixel avait l'air louche.
-
-Et merci à ma femme Ilona pour sa patience à chaque fois que je disais "Deux secondes, je corrige juste un truc sur mon site !", même si ça finissait par me prendre une demi-heure.
-
-Pour finir : merci à **vous** aussi d'avoir pris le temps de visiter mon site, ça me fait très plaisir !
+Merci d'être passé par ici, cher·ère inconnu·e, c'est fort aimable !
