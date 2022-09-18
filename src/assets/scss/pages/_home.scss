@@ -1,120 +1,120 @@
 @use 'sass:math';
 
-.homescreen {
-	$grid-line-anim-time: 4s;
-	$sun-radius: 20vmin;
-	$sun-blind-size: math.div($sun-radius, 12);
+$grid-line-anim-time: 4s;
+$sun-radius: 20vmin;
+$sun-blind-size: math.div($sun-radius, 12);
 
-	@include default-schemes {
-		@include generate-light-dark-vars('homescreen-sky-end', #ecb43a, #791e74);
-		@include generate-light-dark-vars('homescreen-floor-start', #f774b5, #1e0347);
-		@include generate-light-dark-vars('homescreen-grid-line', rebeccapurple, cyan);
+@include default-schemes('home') {
+	@include generate-light-dark-vars('homescreen-sky-end', #ecb43a, #791e74);
+	@include generate-light-dark-vars('homescreen-floor-start', #f774b5, #1e0347);
+	@include generate-light-dark-vars('homescreen-grid-line', rebeccapurple, cyan);
 
-		@include generate-light-dark-vars('homescreen-sun-lower-end', #ff9ece, #1e1230);
-		--homescreen-sun-upper-top: #ff0095;
-		--homescreen-sun-upper-middle: #ffafa3;
-		--homescreen-sun-upper-bottom: #ffffe9;
-		--homescreen-sun-lower-top: #ff0095;
-		--homescreen-sun-glow: #ed23afbf;
-		--homescreen-sun-glow-alpha: #ed23af00;
+	@include generate-light-dark-vars('homescreen-sun-lower-end', #ff9ece, #1e1230);
+	--homescreen-sun-upper-top: #ff0095;
+	--homescreen-sun-upper-middle: #ffafa3;
+	--homescreen-sun-upper-bottom: #ffffe9;
+	--homescreen-sun-lower-top: #ff0095;
+	--homescreen-sun-glow: #ed23afbf;
+	--homescreen-sun-glow-alpha: #ed23af00;
 
-		--homescreen-chris-inner: #130026;
-		--homescreen-chris-upper-a: #260039;
-		--homescreen-chris-upper-b: #7a11ba;
-		--homescreen-chris-upper-c: #fd57b7;
-		--homescreen-chris-upper-d: #fddcc0;
-		--homescreen-chris-lower-a: #7e004e;
-		--homescreen-chris-lower-b: #ed23af;
-		--homescreen-chris-outline-a: #e04fab;
-		--homescreen-chris-outline-b: #4f045f;
+	--homescreen-chris-inner: #130026;
+	--homescreen-chris-upper-a: #260039;
+	--homescreen-chris-upper-b: #7a11ba;
+	--homescreen-chris-upper-c: #fd57b7;
+	--homescreen-chris-upper-d: #fddcc0;
+	--homescreen-chris-lower-a: #7e004e;
+	--homescreen-chris-lower-b: #ed23af;
+	--homescreen-chris-outline-a: #e04fab;
+	--homescreen-chris-outline-b: #4f045f;
 
-		@include generate-light-dark-vars('homescreen-chris-depth-hue', 274, 244);
-		@include generate-light-dark-vars('homescreen-chris-depth-sat', 2, 1);
-		@include generate-light-dark-vars('homescreen-chris-depth-lux', 5%, 0%);
+	@include generate-light-dark-vars('homescreen-chris-depth-hue', 274, 244);
+	@include generate-light-dark-vars('homescreen-chris-depth-sat', 2, 1);
+	@include generate-light-dark-vars('homescreen-chris-depth-lux', 5%, 0%);
 
-		--homescreen-creadev-stroke: var(--t-color-primary-max);
-		--homescreen-creadev-fill: var(--t-color-primary-min);
-	}
+	--homescreen-creadev-stroke: var(--t-color-primary-max);
+	--homescreen-creadev-fill: var(--t-color-primary-min);
+}
 
-	@include theme('vapor') {
-		// --homescreen-sky-start: #0089da;
-		--homescreen-sky-start: #82dee800;
-		--homescreen-sky-end: #82dee8;
-		--homescreen-floor-start: #f365bc;
-		--homescreen-floor-end: #f3d4e6;
-		--homescreen-grid-line: #dcdbe1;
+@include theme('vapor', 'home') {
+	// --homescreen-sky-start: #0089da;
+	--homescreen-sky-start: #82dee800;
+	--homescreen-sky-end: #82dee8;
+	--homescreen-floor-start: #f365bc;
+	--homescreen-floor-end: #f3d4e6;
+	--homescreen-grid-line: #dcdbe1;
 
-		--homescreen-sun-upper-top: #ea5bc4;
-		--homescreen-sun-upper-middle: #eeafbf;
-		--homescreen-sun-upper-bottom: #f5f7b6;
-		--homescreen-sun-lower-top: #ff00c3;
-		--homescreen-sun-lower-end: #ff9ece00;
-		--homescreen-sun-glow: #f2acfa;
-		--homescreen-sun-glow-alpha: #f2acfa00;
+	--homescreen-sun-upper-top: #ea5bc4;
+	--homescreen-sun-upper-middle: #eeafbf;
+	--homescreen-sun-upper-bottom: #f5f7b6;
+	--homescreen-sun-lower-top: #ff00c3;
+	--homescreen-sun-lower-end: #ff9ece00;
+	--homescreen-sun-glow: #f2acfa;
+	--homescreen-sun-glow-alpha: #f2acfa00;
 
-		--homescreen-chris-wire-hue: 300;
-		--homescreen-chris-flash-glow: #ff00ff;
-		--homescreen-chris-inner: #130026;
-		--homescreen-chris-upper-a: #50588c;
-		--homescreen-chris-upper-b: #1f7cc3;
-		--homescreen-chris-upper-c: #8bd8f4;
-		--homescreen-chris-upper-d: #cafff1;
-		--homescreen-chris-lower-a: #ff64cb;
-		--homescreen-chris-lower-b: #f4b4f4;
-		--homescreen-chris-outline-a: #f9b0ec;
-		--homescreen-chris-outline-b: #f6f3fc;
+	--homescreen-chris-wire-hue: 300;
+	--homescreen-chris-flash-glow: #ff00ff;
+	--homescreen-chris-inner: #130026;
+	--homescreen-chris-upper-a: #50588c;
+	--homescreen-chris-upper-b: #1f7cc3;
+	--homescreen-chris-upper-c: #8bd8f4;
+	--homescreen-chris-upper-d: #cafff1;
+	--homescreen-chris-lower-a: #ff64cb;
+	--homescreen-chris-lower-b: #f4b4f4;
+	--homescreen-chris-outline-a: #f9b0ec;
+	--homescreen-chris-outline-b: #f6f3fc;
 
-		--homescreen-chris-depth-hue: 200;
-		--homescreen-chris-depth-sat: 2;
-		--homescreen-chris-depth-lux: 5%;
+	--homescreen-chris-depth-hue: 200;
+	--homescreen-chris-depth-sat: 2;
+	--homescreen-chris-depth-lux: 5%;
 
-		--homescreen-creadev-stroke: var(--homescreen-grid-line);
-		--homescreen-creadev-fill: var(--t-color-primary-min);
-		--homescreen-creadev-font: var(--t-font-heading);
-	}
+	--homescreen-creadev-stroke: var(--homescreen-grid-line);
+	--homescreen-creadev-fill: var(--t-color-primary-min);
+	--homescreen-creadev-font: var(--t-font-heading);
+}
 
-	@include theme('y2k') {
-		$homescreen-bg-image: asset-path(get-token('themes', 'y2k', 'images', 'homescreen-bg-image'));
-		--homescreen-sky-start: #4d90fb;
-		--homescreen-sky-end: #c2e6fb;
-		--homescreen-floor-start: #8fbe20;
-		--homescreen-floor-end: #395808;
-		--homescreen-grid-line: transparent;
+@include theme('y2k', 'home') {
+	$homescreen-bg-image: asset-path(get-token('themes', 'y2k', 'images', 'homescreen-bg-image'));
+	--homescreen-sky-start: #4d90fb;
+	--homescreen-sky-end: #c2e6fb;
+	--homescreen-floor-start: #8fbe20;
+	--homescreen-floor-end: #395808;
+	--homescreen-grid-line: transparent;
 
-		--homescreen-sun-upper-top: transparent;
-		--homescreen-sun-upper-middle: transparent;
-		--homescreen-sun-upper-bottom: transparent;
-		--homescreen-sun-lower-top: transparent;
-		--homescreen-sun-lower-end: transparent;
-		--homescreen-sun-glow: transparent;
-		--homescreen-sun-glow-alpha: transparent;
+	--homescreen-sun-upper-top: transparent;
+	--homescreen-sun-upper-middle: transparent;
+	--homescreen-sun-upper-bottom: transparent;
+	--homescreen-sun-lower-top: transparent;
+	--homescreen-sun-lower-end: transparent;
+	--homescreen-sun-glow: transparent;
+	--homescreen-sun-glow-alpha: transparent;
 
-		--homescreen-bg-mask: tan;
-		--homescreen-bg-image: #75a9ea url('#{$homescreen-bg-image}') no-repeat 50% 50% / cover;
-		--homescreen-disc-mask: tan;
-		--homescreen-lines-mask: tan;
+	--homescreen-bg-mask: tan;
+	--homescreen-bg-image: #75a9ea url('#{$homescreen-bg-image}') no-repeat 50% 50% / cover;
+	--homescreen-disc-mask: tan;
+	--homescreen-lines-mask: tan;
 
-		--homescreen-chris-wire-hue: 90;
-		--homescreen-chris-flash-glow: #00ff00;
-		--homescreen-chris-inner: #001544;
-		--homescreen-chris-upper-a: #0060ed;
-		--homescreen-chris-upper-b: #4d90fb;
-		--homescreen-chris-upper-c: #86b4ff;
-		--homescreen-chris-upper-d: #c2e6fb;
-		--homescreen-chris-lower-a: #8fbe20;
-		--homescreen-chris-lower-b: #395808;
-		--homescreen-chris-outline-a: #84e7fc;
-		--homescreen-chris-outline-b: #0f75bd;
+	--homescreen-chris-wire-hue: 90;
+	--homescreen-chris-flash-glow: #00ff00;
+	--homescreen-chris-inner: #001544;
+	--homescreen-chris-upper-a: #0060ed;
+	--homescreen-chris-upper-b: #4d90fb;
+	--homescreen-chris-upper-c: #86b4ff;
+	--homescreen-chris-upper-d: #c2e6fb;
+	--homescreen-chris-lower-a: #8fbe20;
+	--homescreen-chris-lower-b: #395808;
+	--homescreen-chris-outline-a: #84e7fc;
+	--homescreen-chris-outline-b: #0f75bd;
 
-		--homescreen-chris-depth-hue: 191;
-		--homescreen-chris-depth-sat: 2;
-		--homescreen-chris-depth-lux: 5%;
+	--homescreen-chris-depth-hue: 191;
+	--homescreen-chris-depth-sat: 2;
+	--homescreen-chris-depth-lux: 5%;
 
-		--homescreen-creadev-stroke: #588dce;
-		--homescreen-creadev-fill: white;
-		--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
-	}
+	--homescreen-creadev-stroke: #588dce;
+	--homescreen-creadev-fill: white;
+	--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
+}
 
+[data-section='home'] .homescreen {
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
@@ -430,11 +430,4 @@
 		'post head'
 		'post body'
 		'post ctas';
-}
-
-@include theme('vapor', 'home') {
-	.content-fullbleed.u-background-bg-alt-color {
-		--ctx-bg: inherit;
-		background: linear-gradient(var(--t-bg-alt-color) 2px, transparent 0, transparent calc(100% - 2px), var(--t-bg-alt-color) 0);
-	}
 }

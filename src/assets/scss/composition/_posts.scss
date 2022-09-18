@@ -63,16 +63,19 @@
 
 	&-footer {
 		&-avatar {
+			display: block;
+			margin-inline-end: var(--size-m);
 			float: left;
 
-			width: 4em;
-			aspect-ratio: 1;
-			object-fit: cover;
-			margin-inline-end: var(--size-m);
+			& > img {
+				width: 4em;
+				aspect-ratio: 1;
+				object-fit: cover;
 
-			border: 2px solid transparent;
-			border-radius: 50%;
-			background: linear-gradient(45deg, var(--t-link-color), var(--t-link-underline-color)) border-box;
+				border: 2px solid transparent;
+				border-radius: 50%;
+				background: linear-gradient(45deg, var(--t-link-color), var(--t-link-underline-color)) border-box;
+			}
 		}
 		&-author {
 			font-style: italic;

@@ -42,7 +42,7 @@ templateName: post
 
 {% if not original and not externalUrl %}
 <footer class="post-footer">
-	<img src="{{ '/' + assets.imagesDir + '/profile.jpg' | url }}" alt="" width="64" height="64" class="post-footer-avatar">
+	<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar"><img src="{{ '/' + assets.imagesDir + '/profile.jpg' | url }}" alt="" width="64" height="64"></a>
 	
 	<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name }) }}</p>
 	<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: metadata.author.twitter, shopUrl: '/designs/' }) | safe }}</p>
