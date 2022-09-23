@@ -1,5 +1,11 @@
 .about-country {
 	--about-country-anim-time: 1500ms;
+	&::before,
+	&::after {
+		content: '';
+		filter: opacity(0);
+		transition: filter 200ms;
+	}
 
 	&:hover {
 		&::before,
@@ -15,12 +21,14 @@
 			text-align: center;
 			pointer-events: none;
 
-			animation: aboutCountryTransform var(--about-country-anim-time) var(--easing-in-out) both infinite;
+			filter: opacity(1);
+
+			animation: aboutCountryTransform var(--about-country-anim-time) var(--easing-in-out) calc(var(--about-country-anim-time) * -0.25) both infinite;
 		}
 
 		&::after {
 			content: attr(data-icon);
-			animation-delay: calc(var(--about-country-anim-time) * -0.5);
+			animation-delay: calc(var(--about-country-anim-time) * -0.75);
 		}
 
 		@media (prefers-reduced-motion: reduce) {

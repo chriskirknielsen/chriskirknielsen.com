@@ -15,6 +15,7 @@ facts:
     - ⛰ Aimerait vraiment être une personne plus fréquemment dehors (à l'aide).
     - 🐈 Adore les animaux, merci de présenter votre chien.
     - 😴 Dort sur son côté mais se réveille sur son dos.
+    - 📚 Aime apprendre mais aussi aider — n'hésitez pas à demander !
     - 🎸 Thrice est son group préféré, n'hésitez pas à demander une recommandation !
 i18n:
     page:

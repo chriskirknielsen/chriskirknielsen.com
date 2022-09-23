@@ -10,11 +10,12 @@ facts:
     - 👀 Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences.
     - 🕰 Favourite movie is Back to the Future, most likely.
     - ☕️ Used to drink lots of tea, but now it's coffee!
-    - 🤓 Enjoys maths/physics YouTube videos despite not understanding everything.
-    - 🛹 Practiced skateboarding for a little, then decided playing Tony Hawk was safer.
+    - 🤓 Enjoys maths/physics YouTube videos despite not grasping everything.
+    - 🛹 Practiced skateboarding for a while, then decided playing Tony Hawk was safer.
     - ⛰ Truly wishes to be a more outdoorsy person (help).
     - 🐈 Loves animals, please introduce your pet.
     - 😴 Sleeps on his side but wakes up on his back.
+    - 📚 Loves learning but also helping — ask away about anything!
     - 🎸 Favourite band is Thrice, just ask for a recommendation!
 i18n:
     page:
@@ -24,7 +25,7 @@ i18n:
         profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
 ---
 
-**I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">United States</span> who used to be a designer and who now likes to code. You want to know more? Well, be my guest!**
+**I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">USA</span> who used to be a designer and who now likes to code.**
 
 {% include 'components/about/random-fact.njk' %}
 
