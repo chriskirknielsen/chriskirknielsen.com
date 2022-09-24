@@ -87,7 +87,7 @@
 		transition-timing-function: cubic-bezier(0.33, 1.5, 0.33, -0.2);
 	}
 
-	.card {
+	.cardblock {
 		box-shadow: 0 0.25em 1em -0.5em var(--t-accent-color);
 
 		&-title {
@@ -237,7 +237,7 @@
 		}
 	}
 
-	.filter-item input[type='radio']:focus-visible + label {
+	.filtering-item input[type='radio']:focus-visible + label {
 		outline-offset: -4px;
 		outline: 1px dotted black;
 	}

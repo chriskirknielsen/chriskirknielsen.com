@@ -6,7 +6,7 @@ subtitle: A designer turned developer who loves building on the web.
 summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
 facts:
-    - ❤️ Appreciates you reading through these facts.
+    - 💜 Appreciates you reading through these facts.
     - 👀 Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences.
     - 🕰 Favourite movie is Back to the Future, most likely.
     - ☕️ Used to drink lots of tea, but now it's coffee!

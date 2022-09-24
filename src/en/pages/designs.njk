@@ -17,29 +17,29 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 
 <hr>
 
-<fieldset class="filter" hidden>
-	<script>document.querySelector('.filter').hidden=false</script>
+<fieldset class="filtering" hidden>
+	<script>document.querySelector('.filtering').hidden=false</script>
 	<legend class="visually-hidden">Filter</legend>
-	<div class="filter-legend | u-fontWeight-bold" aria-hidden="true">Filter</div>
+	<div class="filtering-legend | u-fontWeight-bold" aria-hidden="true">Filter</div>
 
-	<div class="filter-item">
+	<div class="filtering-item">
 		<input type="radio" name="filter" class="visually-hidden" id="filter-all" value="" checked>
-		<label for="filter-all" class="button filter-tag">All</label>
+		<label for="filter-all" class="filtering-tag | button">All</label>
 	</div>
 
 	{% for tag in activeDesigns | pluck('tags') | flatten | unique | sort %}
-	<div class="filter-item">
+	<div class="filtering-item">
 		<input type="radio" name="filter" id="filter-{{ tag }}" class="visually-hidden" value="{{ tag | toLowercase }}">
-		<label for="filter-{{ tag }}" class="button filter-tag">{{ tag }}</label>
+		<label for="filter-{{ tag }}" class="filtering-tag | button">{{ tag }}</label>
 	</div>
 	{% endfor %}
 </fieldset>
 
-<div class="grid u-marginBlockStart-xl" data-filtered-list="idle">
+<div class="gridlist u-marginBlockStart-xl" data-filtered-list="idle">
 {% for design in activeDesigns %}
 	{% set designPermalink = '/designs/' + design.slug + '/' | url %}
 	<article
-		class="card"
+		class="cardblock"
 		id="{{ design.slug }}"
 		data-filtered-item
 		data-tags="
@@ -51,7 +51,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		aria-hidden="false"
 	>
 		{% if design.img %}
-		<div class="card-image">
+		<div class="cardblock-image">
 			<a href="{{ designPermalink }}" aria-label="{{ design.name }}" tabindex="-1">
 				<img
 				src="{{ '/' + assets.imagesDir + '/designs/' + design.img | url }}"
@@ -74,8 +74,8 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		</div>
 		{% endif %}
 
-		<div class="card-content">
-			<h2 class="card-title | h5 | u-marginBlockEnd-s">
+		<div class="cardblock-content">
+			<h2 class="cardblock-title | h5 | u-marginBlockEnd-s">
 				<a href="{{ designPermalink }}" class="heading-link">{{- design.name -}}</a>
 			</h2>
 			
@@ -101,7 +101,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 	let initialHash = window.location.hash.slice(1);
 	let items = [].slice.call(document.querySelectorAll('[data-tags]'));
 	let list = document.querySelector('[data-filtered-list]');
-	let tagList = [].slice.call(document.querySelectorAll('.filter-item'));
+	let tagList = [].slice.call(document.querySelectorAll('.filtering-item'));
 	let duration = 500;
 	list.style.setProperty('--t', duration + 'ms');
 

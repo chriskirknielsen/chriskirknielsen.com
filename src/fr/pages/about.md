@@ -6,8 +6,8 @@ subtitle: Un graphiste devenu développeur qui adore construire sur le web.
 summary: En apprendre plus sur Christopher Kirk-Nielsen
 permalink: /fr/a-propos/
 facts:
-    - ❤️ Apprécie que vous lisiez ces faits
-    - 👀 Connaît juste assez l'alphabet cyrillique pour le lire.
+    - 💜 Apprécie que vous lisiez ces faits
+    - 👀 Connaît juste assez l'alphabet cyrillique pour le lire mais pas comprendre.
     - 🕰 Retour Vers Le Futur est probablement son film préféré.
     - ☕️ Avait l'habitude de boire du thé, maintenant c'est du café !
     - 🤓 Aime regarder des vidéos YouTube de maths et physique malgré ne pas tout comprendre.

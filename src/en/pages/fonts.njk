@@ -5,13 +5,13 @@ summary: You might find a cool, nerdy font by Christopher Kirk-Nielsen here
 ---
 
 {% set fontslist = collections.fonts %}
-<div class="grid" data-grid-cols="3">
+<div class="gridlist" data-grid-cols="3">
 {% for font in fontslist %}
-  <article class="card">
-    <div class="card-image">
+  <article class="cardblock">
+    <div class="cardblock-image">
       <img src="{{ font.data.customMetaImage + '?nf_resize=fit&w=400' | url }}" alt="" width="1200" height="1200">
     </div>
-    <div class="card-content">
+    <div class="cardblock-content">
       <h2>
         <a href="{{ font.url | url }}" class="heading-link" data-card-coverlink>
           {{- font.data.title -}}

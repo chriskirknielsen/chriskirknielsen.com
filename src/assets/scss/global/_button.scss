@@ -28,7 +28,7 @@
 		--btn-box-shadow: var(--t-cta-box-shadow-active, none);
 	}
 
-	:checked + &.filter-tag {
+	:checked + &.filtering-tag {
 		--btn-text-color: var(--t-cta-text-color-active);
 		--btn-border-color: var(--t-cta-border-color-active);
 		--btn-background-color: var(--t-cta-bg-active);

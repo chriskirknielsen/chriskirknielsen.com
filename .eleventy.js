@@ -280,7 +280,6 @@ module.exports = function (eleventyConfig) {
 			css: [`${rootDir}/_includes/${assets.style}`],
 			keyframes: true, // Removes unused keyframes
 			safelist: safeSelectors,
-			blocklist: ['twitter:card'],
 			dynamicAttributes: ['data-theme', 'aria-pressed'],
 		});
 
