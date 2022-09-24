@@ -30,6 +30,7 @@ for (var i = 1; i <= 10; i++) {
 	function salutations(nom) {
 		var txt = 'Salut, ' + nom + ' !';
 	}
+	salutations('num'+i);
 	console.log(txt); // Renvoie une erreur, "`txt` is not defined" car `txt` appartient à la fonction
 }
 ```
