@@ -110,6 +110,7 @@ $sun-blind-size: math.div($sun-radius, 12);
 	--homescreen-chris-depth-lux: 5%;
 
 	--homescreen-creadev-stroke: #588dce;
+	--homescreen-creadev-stroke-width: 0.25em;
 	--homescreen-creadev-fill: white;
 	--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
 }
@@ -319,7 +320,7 @@ $sun-blind-size: math.div($sun-radius, 12);
 
 		&__creativedeveloper-text {
 			stroke: var(--homescreen-creadev-stroke);
-			stroke-width: 0.1875em;
+			stroke-width: var(--homescreen-creadev-stroke-width, 0.1875em);
 			fill: var(--homescreen-creadev-fill);
 			paint-order: stroke;
 

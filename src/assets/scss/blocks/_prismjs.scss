@@ -33,6 +33,8 @@ mark {
 
 :not(pre) > code {
 	padding: 0.0625em 0.125em;
+
+	white-space: pre-wrap;
 }
 
 pre > code {
