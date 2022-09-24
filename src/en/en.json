@@ -29,7 +29,7 @@
 			"original": "Read the original article",
 			"external": "Read the full article on",
 			"writtenByAuthor": "Post written by <a href=\"{{aboutUrl}}\">{{ author }}</a>",
-			"commentsAndSupport": "If you have a comment, please <a href=\"{{ twitterUrl }}\">tag me on Twitter</a>, I'm happy to chat! If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>? Thanks a ton!"
+			"commentsAndSupport": "If you have a comment, please <a href=\"{{ twitterUrl }}\">tag me on Twitter</a> to chat. If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>? Thanks a ton!"
 		},
 		"callout": "Note",
 		"latestPost": "Latest Post",
@@ -52,8 +52,6 @@
 		},
 		"rssFeed": "RSS Feed",
 		"rssHint": "Subscribe to RSS feed",
-		"postAuthorFormat": "Post written by {0}",
-		"postSupportFormat": "If you have a comment, please <a href=\"{0}\">tag me on Twitter</a>, I'm happy to chat! If you liked this content, maybe consider getting a <a href=\"{1}\">shirt design of mine</a>. Thanks a ton!",
 		"langSwitchLabel": "Switch Language",
 		"themeSwitchLabel": "Switch The<span>m</span>e",
 		"themePicker": "Theme Picker",
