@@ -92,3 +92,12 @@ blockquote {
 		list-style-type: disc;
 	}
 }
+
+hr {
+	width: 100%;
+	height: 2px;
+
+	border: 0;
+	border-radius: 50%;
+	background: var(--t-color-primary-min);
+}
