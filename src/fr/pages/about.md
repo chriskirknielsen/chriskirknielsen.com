@@ -22,16 +22,22 @@ i18n:
         randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"
         vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
         mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
-        profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
+        profile: "Moitié du visage de Chris avec le contour de sa tête, son nez, ses lunettes, sourcils et barbe dessinés"
 ---
 
-**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder. Vous en voulez encore ? C'est parti&nbsp;!**
+**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder.**
 
 {% include 'components/about/random-fact.njk' %}
 
 ## Christopher, un développeur
 
-Bien que le développement front-end est mon activité principale ces jours-ci, étant petit je pensais devenir un graphiste après des heures sur Microsoft Paint puis Photoshop (avec une licence *totalement* valide). Je me suis aventuré dans du code sur MySpace et j'ai fini par créer mon propre site (dépensant de l'argent sur un domaine et un hébergement!), me proclamant **"webmaster"** avant mon premier bouton d'acné (quelle audace&nbsp;!). J'ai fini par suivre **4 ans d'études de graphiste,** apprenant au passage quelques bonnes leçons de typographie et j'ai ensuite travaillé en freelance pour des clients de renom à faire du montage vidéo, des bannières publicitaires, ainsi que des pages "immersives".
+<div class="about-first">
+{%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
+{{- profile | htmlmin | safe }}
+
+Bien que le développement front-end est mon activité principale ces jours-ci, étant petit je pensais devenir un graphiste après des heures sur Microsoft Paint puis Photoshop (avec une licence *totalement* valide). Je me suis aventuré dans du code sur MySpace et j'ai fini par créer mon propre site (dépensant de l'argent sur un domaine et un hébergement&nbsp;!), me proclamant **"webmaster"** avant mon premier bouton d'acné — l'audace&nbsp;!. J'ai fini par suivre **4 ans d'études de graphiste** et j'ai ensuite travaillé en freelance pour des clients de renom à faire du montage vidéo, des bannières publicitaires, ainsi que des pages "immersives".
+
+</div>
 
 Écrire des lignes de code et voir quelque chose apparaître à l'écran était, et est toujours, un peu <em class="about-emoji" data-emoji="✨">magique</em>, j'en ai donc fait mon boulot. Actuellement, je travaille chez MOJO comme développeur front-end senior avec une merveilleuse équipe, tentant de créer des sites **accessibles et optimisés**, apprenant de nouvelles choses constamment dans ce domaine en perpétuelle évolution tout en m'amusant avec le CSS.
 
