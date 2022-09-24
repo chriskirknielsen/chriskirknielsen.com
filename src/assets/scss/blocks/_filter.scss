@@ -35,10 +35,8 @@
 		transform-origin: 50% -25%;
 		will-change: transform;
 
-		transition: 200ms var(--easing-out);
+		transition: var(--t, 250ms) var(--easing-out);
 		transition-property: filter, opacity, transform;
-		transition-duration: var(--t, 250ms);
-		transition-delay: calc(var(--d) * 50ms);
 
 		[data-filtered-list='change'] & {
 			filter: grayscale(1) blur(12px);

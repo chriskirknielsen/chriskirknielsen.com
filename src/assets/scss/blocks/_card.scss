@@ -18,26 +18,8 @@
 		overflow: hidden;
 	}
 
-	/* //For :has() support:
-	&-image a:is(:hover) img,
-	&:focus-within &-image a img {
-		transform: scale(1.0625) rotate(1deg);
-	}
-	&:has(a:is(:hover, :focus)) &-image a img {
-		transform: scale(1.0625) rotate(1deg);
-	}
-	//*/
-
-	// While waiting for :has() to be supported, since the card should only react to links
-	// We can remove pointer events so the :hover state is only active on links which restore the pointer-events
-	& {
-		pointer-events: none;
-	}
-	& a {
-		pointer-events: auto;
-	}
-	&:hover a img,
-	&:focus-within &-image a img {
+	&-image a:is(:hover, :focus) img, // Firefox…
+	&:has(a:is(:hover, :focus)) &-image img {
 		transform: scale(1.0625) rotate(1deg);
 	}
 
@@ -55,7 +37,8 @@
 		flex-grow: 1;
 		padding: var(--size-m);
 
-		background-color: var(--t-bg-neutral-color);
+		--ctx-bg: var(--t-bg-neutral-color);
+		background-color: var(--ctx-bg);
 	}
 
 	a[data-card-coverlink] {

@@ -89,6 +89,22 @@
 
 	.card {
 		box-shadow: 0 0.25em 1em -0.5em var(--t-accent-color);
+
+		&-title {
+			position: relative;
+
+			margin-block-start: -1.25em;
+			margin-inline-start: -0.25em;
+
+			& > a {
+				padding-inline: 0.25em;
+
+				border-start-start-radius: var(--t-corner-radius);
+				border-start-end-radius: var(--t-corner-radius);
+				background-color: var(--ctx-bg);
+				box-decoration-break: clone;
+			}
+		}
 	}
 
 	.callout {
