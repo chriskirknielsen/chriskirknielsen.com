@@ -38,13 +38,13 @@
 }
 
 @mixin above-medium {
-	@media screen and (min-width: 740px) {
-		@content;
+	@media screen and (min-width: 46.25em) {
+		@content; // 740px
 	}
 }
 @mixin above-large {
-	@media screen and (min-width: 1140px) {
-		@content;
+	@media screen and (min-width: 71.25em) {
+		@content; // 1140px
 	}
 }
 @mixin _theme($selector, $context) {
