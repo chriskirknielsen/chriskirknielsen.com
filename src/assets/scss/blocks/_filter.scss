@@ -24,24 +24,27 @@
 }
 
 [data-filtered-item] {
+	&[aria-hidden='false'] {
+		z-index: 10;
+	}
 	&[aria-hidden='true'] {
-		@extend .visually-hidden; // Hide the element without using `display: none` to preserve animatability
+		position: absolute;
+		z-index: 0;
 
 		visibility: hidden;
 		pointer-events: none;
+
+		transform: translate(0, 0) scale(0);
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
-		transform-origin: 50% -25%;
 		will-change: transform;
 
-		transition: var(--t, 250ms) var(--easing-out);
-		transition-property: filter, opacity, transform;
+		transition: var(--t, 250ms) var(--easing-in-out);
+		transition-property: z-index, opacity, transform, visibility;
 
 		[data-filtered-list='change'] & {
-			filter: grayscale(1) blur(12px);
-			opacity: 0;
-			transform: scale(0.9);
+			transition-duration: 0s;
 		}
 	}
 }

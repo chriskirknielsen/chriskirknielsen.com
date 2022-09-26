@@ -401,7 +401,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
 
 	// If gulp is running, wait a second!
-	eleventyConfig.setWatchThrottleWaitTime(1000); // in milliseconds
+	eleventyConfig.setWatchThrottleWaitTime(750); // in milliseconds
 
 	return {
 		templateFormats: ['md', 'njk', 'html'],

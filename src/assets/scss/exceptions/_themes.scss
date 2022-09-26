@@ -102,6 +102,7 @@
 				border-start-start-radius: var(--t-corner-radius);
 				border-start-end-radius: var(--t-corner-radius);
 				background-color: var(--ctx-bg);
+				-webkit-box-decoration-break: clone;
 				box-decoration-break: clone;
 			}
 		}
@@ -321,6 +322,10 @@
 
 	.codeblock :is(.token.comment, .token.doctype) {
 		color: hsl(240, 33%, 42%); // Get summadat sweet contrast
+	}
+
+	[data-filtered-item] {
+		transition-timing-function: steps(8, jump-none);
 	}
 
 	.footer__logo {
