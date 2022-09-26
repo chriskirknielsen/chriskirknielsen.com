@@ -17,6 +17,7 @@ facts:
     - 😴 Sleeps on his side but wakes up on his back.
     - 📚 Loves learning but also helping — ask away about anything!
     - 🎸 Favourite band is Thrice, just ask for a recommendation!
+    - 👾 Knows the Konami code, totally not a hint.
 i18n:
     page:
         randomFact: "Click here to get a random fact about me"

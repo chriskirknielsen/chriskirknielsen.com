@@ -17,6 +17,7 @@ facts:
     - 😴 Dort sur son côté mais se réveille sur son dos.
     - 📚 Aime apprendre mais aussi aider — n'hésitez pas à demander !
     - 🎸 Thrice est son group préféré, n'hésitez pas à demander une recommandation !
+    - 👾 Connaît le code Konami, ceci n'est pas du tout un indice.
 i18n:
     page:
         randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"
