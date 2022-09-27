@@ -19,6 +19,7 @@
 			screenSaver.remove();
 		}
 		if (!isOn) {
+			document.documentElement.removeAttribute('data-screensaver');
 			return;
 		}
 
@@ -47,6 +48,7 @@
 
 		screenSaver.innerHTML = '<div><svg viewBox="0 0 159 64.8" width="159" height="65"><use href="#ckn-logo" /></svg></div>';
 		document.body.appendChild(screenSaver);
+		document.documentElement.setAttribute('data-screensaver', '');
 	};
 
 	document.addEventListener('keyup', (e) => {

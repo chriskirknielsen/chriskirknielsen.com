@@ -1,4 +1,4 @@
-:root:has(.screensaver) {
+:root[data-screensaver] {
 	overflow: hidden;
 }
 .screensaver {
