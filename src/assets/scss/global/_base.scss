@@ -19,6 +19,8 @@ body {
 }
 
 main {
+	z-index: #{layer-index('themepicker')};
+
 	padding-block-end: var(--size-2xl);
 
 	&:focus {

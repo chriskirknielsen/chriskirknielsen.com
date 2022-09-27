@@ -22,6 +22,7 @@
 	position: absolute;
 	inset-block-end: 100%;
 	inset-inline: 0;
+	z-index: #{layer-index('themepicker')};
 
 	display: flex;
 	flex-direction: column;

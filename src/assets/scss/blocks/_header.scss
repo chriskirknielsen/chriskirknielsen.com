@@ -1,4 +1,6 @@
 .header {
+	z-index: #{layer-index('header')};
+
 	&-inner {
 		--header-gap: clamp(var(--size-m), 2.5vw, var(--size-l));
 

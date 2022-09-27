@@ -2,6 +2,8 @@
 	--ctx-bg: var(--t-footer-bg-color);
 	--ctx-color: var(--t-footer-text-color);
 
+	z-index: #{layer-index('footer')};
+
 	margin-block-start: auto;
 
 	color: var(--ctx-color);

@@ -22,6 +22,16 @@
 	@return $map;
 }
 
+@function layer-index($layer) {
+	@if (map-has-key($tokens, '_layerOrder')) {
+		$layer-list: get-token('_layerOrder');
+		$layer-index: index($layer-list, $layer);
+		@return $layer-index * 10;
+	} @else {
+		@error 'Layer #{$layer} does not exist.';
+	}
+}
+
 @function asset-path($filename: '') {
 	@return get-token('_assetsPath') + '/' + $filename;
 }
