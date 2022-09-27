@@ -102,8 +102,6 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 	let items = [].slice.call(document.querySelectorAll('[data-tags]'));
 	let list = document.querySelector('[data-filtered-list]');
 	let tagList = [].slice.call(document.querySelectorAll('.filtering-item'));
-	let duration = 500;
-	list.style.setProperty('--t', duration + 'ms');
 
 	function filterTo(filter, skipAnim = false) {
 		let isShowAll = (filter === '');
@@ -146,6 +144,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 				item.style.visibility = 'visible';
 				item.style.width = `${first.width}px`;
 				item.style.height = `${first.height}px`;
+				item.style.setProperty('--xy', `${invert.x}px, ${invert.y}px`);
 			}
 			let transform = `translate(${invert.x}px, ${invert.y}px) scale(${ (!wasShown && isShown) ? '0' : '1' })`;
 			item.style.transform = transform;
@@ -154,14 +153,15 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		requestAnimationFrame(function() {
 			list.setAttribute('data-filtered-list', 'idle');
 			items.forEach((item) => {
+				item.removeAttribute('data-first');
+				item.removeAttribute('data-shown-from-to');
 				item.style.transform = '';
 				item.addEventListener('transitionend', () => {
 					item.style.visibility = '';
 					item.style.width = '';
 					item.style.height = '';
+					item.style.removeProperty('--xy');
 				}, { once: true });
-				item.removeAttribute('data-first');
-				item.removeAttribute('data-shown-from-to');
 			});
 		});
 

@@ -34,7 +34,7 @@
 		visibility: hidden;
 		pointer-events: none;
 
-		transform: translate(0, 0) scale(0);
+		transform: translate(var(--xy, 0, 0)) scale(0);
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
@@ -42,9 +42,16 @@
 
 		transition: var(--t, 250ms) var(--easing-in-out);
 		transition-property: z-index, opacity, transform, visibility;
-
-		[data-filtered-list='change'] & {
-			transition-duration: 0s;
-		}
+	}
+}
+[data-filtered-list] {
+	@media (prefers-reduced-motion: no-preference) {
+		--t: 500ms;
+	}
+}
+[data-filtered-list='change'] {
+	&,
+	& [data-filtered-item] {
+		transition-duration: 0s;
 	}
 }
