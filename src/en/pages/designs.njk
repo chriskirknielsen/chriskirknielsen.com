@@ -103,6 +103,14 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 	let list = document.querySelector('[data-filtered-list]');
 	let tagList = [].slice.call(document.querySelectorAll('.filtering-item'));
 
+	function resetItem(item) {
+		item.style.visibility = '';
+		item.style.width = '';
+		item.style.height = '';
+		item.style.removeProperty('--xy');
+		item.style.removeProperty('--t');
+	}
+
 	function filterTo(filter, skipAnim = false) {
 		let isShowAll = (filter === '');
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -110,6 +118,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		// Don't animate in certain conditions
 		if (skipAnim || prefersReducedMotion) {
 			items.forEach(function(item) {
+				resetItem(item); // Just in case
 				let tags = item.getAttribute('data-tags').split(',');
 				let isShown = (tags.indexOf(filter) > -1) || isShowAll;
 				item.setAttribute('aria-hidden', (!isShown).toString());
@@ -122,18 +131,19 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		list.setAttribute('data-filtered-list', 'change');
 
 		items.forEach(function(item) {
+			resetItem(item); // Reset if triggered mid-animation
 			let tags = item.getAttribute('data-tags').split(',');
 			let wasShown = item.getAttribute('aria-hidden') === 'false';
 			let isShown = (tags.indexOf(filter) > -1) || isShowAll;
 			let first = item.getBoundingClientRect();
 			item.setAttribute('data-first', JSON.stringify(first));
-			item.setAttribute('data-shown-from-to', JSON.stringify({ was: wasShown, is: isShown}));
+			item.setAttribute('data-shown-from-to', JSON.stringify({ from: wasShown, to: isShown}));
 		});
 
 		items.forEach(function(item) {
 			let shown = JSON.parse(item.getAttribute('data-shown-from-to'));
-			let wasShown = shown.was;
-			let isShown = shown.is;
+			let wasShown = shown.from;
+			let isShown = shown.to;
 			let first = JSON.parse(item.getAttribute('data-first'));
 			item.setAttribute('aria-hidden', (!isShown).toString());
 			let last = item.getBoundingClientRect();
@@ -145,6 +155,8 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 				item.style.width = `${first.width}px`;
 				item.style.height = `${first.height}px`;
 				item.style.setProperty('--xy', `${invert.x}px, ${invert.y}px`);
+			} else if (!wasShown && !isShown) {
+				item.style.setProperty('--t', '0ms');
 			}
 			let transform = `translate(${invert.x}px, ${invert.y}px) scale(${ (!wasShown && isShown) ? '0' : '1' })`;
 			item.style.transform = transform;
@@ -157,10 +169,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 				item.removeAttribute('data-shown-from-to');
 				item.style.transform = '';
 				item.addEventListener('transitionend', () => {
-					item.style.visibility = '';
-					item.style.width = '';
-					item.style.height = '';
-					item.style.removeProperty('--xy');
+					resetItem(item);
 				}, { once: true });
 			});
 		});

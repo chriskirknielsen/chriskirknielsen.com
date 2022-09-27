@@ -40,18 +40,11 @@
 	@media (prefers-reduced-motion: no-preference) {
 		will-change: transform;
 
-		transition: var(--t, 250ms) var(--easing-in-out);
+		transition: var(--t, 300ms) var(--easing-in-out);
 		transition-property: z-index, transform, visibility;
 	}
-}
-[data-filtered-list] {
-	@media (prefers-reduced-motion: no-preference) {
-		--t: 500ms;
-	}
-}
-[data-filtered-list='change'] {
-	&,
-	& [data-filtered-item] {
+
+	[data-filtered-list='change'] & {
 		transition-duration: 0s;
 	}
 }
