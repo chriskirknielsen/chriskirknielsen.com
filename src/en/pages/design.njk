@@ -8,7 +8,7 @@ pagination:
 eleventyComputed:
     permalink: "designs/{{ design.slug | slug }}/"
     pageTitle: "{{ design.name | safe }}"
-    title: "{{ design.name | safe }} — Design"
+    title: "{{ design.name | striphyphenchars | safe }} — Design"
     subtitle: "{{ design.description | safe }}"
     summary: "{{ design.description | safe }} | Design by Christopher Kirk-Nielsen"
     customMetaImage: "{{ '/' + assets.imagesDir + '/designs/' + design.img }}"

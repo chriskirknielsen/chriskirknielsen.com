@@ -76,14 +76,14 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 
 		<div class="cardblock-content">
 			<h2 class="cardblock-title | h5 | u-marginBlockEnd-s">
-				<a href="{{ designPermalink }}" class="heading-link">{{- design.name -}}</a>
+				<a href="{{ designPermalink }}" class="heading-link">{{- design.name | safe -}}</a>
 			</h2>
 			
 			<ul role="list" class="inline-list | u-marginBlockStart-auto u-fontSize-smallest">
 				{%- for site, url in design.links %}
 				<li>
 					<a href="{{ url | url }}">
-						<span class="visually-hidden">{{ design.name }} on</span>
+						<span class="visually-hidden">{{ design.name | striptags }} on</span>
 						{{ site }}
 					</a>
 				</li>

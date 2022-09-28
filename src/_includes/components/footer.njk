@@ -40,7 +40,7 @@
             </nav>
 
             <nav aria-labelledby="footer-external-links-title" class="footer__nav" data-footer-nav="external">
-                <h2 class="h4" id="footer-external-links-title">{{ 'externalLinks' | i18n }}</h2>
+                <h2 class="h4" id="footer-external-links-title">{{ 'externalLinks' | i18n | safe }}</h2>
 
                 <ul>
                     <li><a href="{{ localeRssUrl }}" aria-label="{{ 'rss.subscribe' | i18n }}">RSS</a></li>

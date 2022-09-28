@@ -103,7 +103,7 @@ module.exports = [
 	},
 	{
 		slug: 'vaporwave-css',
-		name: 'Vaporwave CSS',
+		name: 'Vapor&shy;wave CSS',
 		description: 'Trying my hand at some aestheticss…',
 		img: 'vaporwave-css.jpg',
 		links: {
@@ -185,7 +185,7 @@ module.exports = [
 	},
 	{
 		slug: 'jak-daxter-powercell-hunters',
-		name: 'Jak & Daxter, Powercell Hunters',
+		name: 'Jak & Daxter, Power&shy;cell Hunters',
 		description: 'A design inspired by one of my favourite video games: Jak And Daxter.',
 		img: 'powercell-hunters.jpg',
 		links: {
@@ -198,7 +198,7 @@ module.exports = [
 	},
 	{
 		slug: 'crash-bandicoot-wumpa-hoarder',
-		name: 'Crash Bandicoot, Wumpa Hoarder',
+		name: 'Crash Bandi&shy;coot, Wumpa Hoarder',
 		description: 'A design inspired by the wild, Wumpa-loving bandicoot: Crash!',
 		img: 'wumpa-hoarder.jpg',
 		links: {
@@ -211,7 +211,7 @@ module.exports = [
 	},
 	{
 		slug: 'sly-cooper-gentleman-thief',
-		name: 'Sly Cooper, Gentleman Thief',
+		name: 'Sly Cooper, Gentle&shy;man Thief',
 		description: 'A design inspired by the charismatic thief, who also happens to be a raccoon… Sly Cooper.',
 		img: 'gentleman-thief.jpg',
 		links: {
@@ -284,7 +284,7 @@ module.exports = [
 	{
 		showInGallery: false,
 		slug: 'deathloop-fourpounder',
-		name: 'DEATHLOOP, Fourpounder',
+		name: 'DEATHLOOP, Four&shy;pounder',
 		description: 'A poster showcasing a stylish gun from DEATHLOOP.',
 		img: 'deathloop-fourpounder.jpg',
 		links: {
@@ -313,7 +313,7 @@ module.exports = [
 	{
 		showInGallery: false,
 		slug: 'tlou-switchblade',
-		name: 'The Last of Us, Switchblade',
+		name: 'The Last of Us, Switch&shy;blade',
 		description: "A poster illustrating Ellie's signature knife in The Last of Us.",
 		img: 'tlou-switchblade.jpg',
 		links: {
@@ -326,7 +326,7 @@ module.exports = [
 	{
 		showInGallery: false,
 		slug: 'ratchet-clank-omniwrench',
-		name: 'Ratchet & Clank, Omniwrench',
+		name: 'Ratchet & Clank, Omni&shy;wrench',
 		description: 'A poster presenting a versatile tool in Ratchet & Clank.',
 		img: 'rc-wrench.jpg',
 		links: {

@@ -5,7 +5,7 @@ templateName: page
 
 <header class="bigboi | content-fullbleed container">
 	<div class="bigboi-inner | content" style="--flow-space: var(--size-m)">
-		<h1>{{ pageTitle or title }}</h1>
+		<h1>{{ (pageTitle or title) | safe }}</h1>
 		
 		<p class="u-fontWeight-bold">{{ subtitle }}</p>
 

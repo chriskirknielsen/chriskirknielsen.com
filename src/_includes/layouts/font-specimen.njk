@@ -26,7 +26,7 @@ tags: [fonts]
 		var fontPreviewOutput = document.getElementById('preview-output');
 		var fontPreviewSvg = document.getElementById('preview-svg');
 		var fontPreviewSave = document.getElementById('save-preview');
-		var fontNameSlug = '{{ title | slug }}';
+		var fontNameSlug = '{{ title | striphyphenchars | slug }}';
 
 		function updateFontPreviewText() { 
 			fontPreviewOutput.textContent = fontPreviewInput.value.trim() || '{{ fontSpecimenSampleDefault | safe }}';
