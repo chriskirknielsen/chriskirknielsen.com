@@ -12,5 +12,5 @@ templateEngineOverride: njk, md
 </style>
 <script>
     {%- set screensaverJs %}{% include "assets/js/screensaver.js" %}{% endset -%}
-    {{- screensaverJs | jsmin | safe -}}
+    {{- screensaverJs | jsmin('screensaver') | safe -}}
 </script>

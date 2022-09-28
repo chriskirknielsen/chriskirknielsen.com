@@ -19,7 +19,7 @@ body {
 }
 
 main {
-	z-index: #{layer-index('themepicker')};
+	z-index: #{layer-index('main')};
 
 	padding-block-end: var(--size-2xl);
 

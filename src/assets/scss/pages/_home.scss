@@ -3,6 +3,26 @@
 $grid-line-anim-time: 4s;
 $sun-radius: 20vmin;
 $sun-blind-size: math.div($sun-radius, 12);
+$mark-depth-factor-x: 1;
+$mark-depth-factor-y: 0.9;
+$wire-count: 8;
+$wire-init-delay: 0.75s;
+$wire-step-delay: 0.0625s;
+$wire-anim-time: 0.75s;
+$wire-factor: 0.25;
+$wire-final-end: $wire-init-delay + $wire-step-delay * ($wire-count - 1) + $wire-anim-time;
+$greeting-init-delay: $wire-init-delay * 2;
+$greeting-anim-time: 0s;
+$flash-anim-delay: $wire-final-end - $wire-step-delay * $wire-count;
+$flash-anim-time: 1.25s;
+$chris-anim-time: 1.25s;
+$chris-anim-delay: $flash-anim-delay + $flash-anim-time * 0.5;
+$creadev-anim-delay: $chris-anim-delay + $chris-anim-time * 0.25;
+$creadev-anim-time: 1.5s;
+$shine-anim-time: 1.5s;
+$shine-anim-delay: 1.25s + $creadev-anim-delay;
+$glare-anim-time: 1s;
+$glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 @include default-schemes('home') {
 	@include generate-light-dark-vars('homescreen-sky-end', #ecb43a, #791e74);
@@ -83,20 +103,9 @@ $sun-blind-size: math.div($sun-radius, 12);
 	--homescreen-sky-end: #c2e6fb;
 	--homescreen-floor-start: #8fbe20;
 	--homescreen-floor-end: #395808;
-	--homescreen-grid-line: transparent;
-
-	--homescreen-sun-upper-top: transparent;
-	--homescreen-sun-upper-middle: transparent;
-	--homescreen-sun-upper-bottom: transparent;
-	--homescreen-sun-lower-top: transparent;
-	--homescreen-sun-lower-end: transparent;
-	--homescreen-sun-glow: transparent;
-	--homescreen-sun-glow-alpha: transparent;
 
 	--homescreen-bg-mask: tan;
 	--homescreen-bg-image: #75a9ea url('#{$homescreen-bg-image}') no-repeat 50% 50% / cover;
-	--homescreen-disc-mask: tan;
-	--homescreen-lines-mask: tan;
 
 	--homescreen-chris-wire-hue: 90;
 	--homescreen-chris-flash-glow: #00ff00;
@@ -118,6 +127,77 @@ $sun-blind-size: math.div($sun-radius, 12);
 	--homescreen-creadev-stroke-width: 0.25em;
 	--homescreen-creadev-fill: white;
 	--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
+
+	.homescreen-grid {
+		display: none;
+	}
+
+	.homescreen-background {
+		&::before,
+		&::after {
+			content: none;
+		}
+	}
+}
+
+@include theme('neotokyo', 'home') {
+	--homescreen-sky-start: var(--t-color-primary-max);
+	--homescreen-sky-end: var(--t-color-primary-med);
+	--homescreen-floor-start: #0c313d;
+	--homescreen-floor-end: var(--t-color-primary-max);
+	--homescreen-grid-line: var(--t-color-primary-min);
+
+	--homescreen-sun-upper-top: #f9103d;
+	--homescreen-sun-upper-middle: #bf092d;
+	--homescreen-sun-upper-bottom: #791d4f;
+	--homescreen-sun-lower-top: #67193d;
+	--homescreen-sun-lower-end: #67193d00;
+	--homescreen-sun-glow: #ff5778;
+	--homescreen-sun-glow-alpha: #ff577800;
+
+	--homescreen-chris-wire-hue: 348;
+	--homescreen-chris-flash-glow: #ff0033;
+	--homescreen-chris-inner: #33000a;
+	--homescreen-chris-upper-a: #2b0214;
+	--homescreen-chris-upper-b: #6f0221;
+	--homescreen-chris-upper-c: #d30e36;
+	--homescreen-chris-upper-d: #fa1140;
+	--homescreen-chris-lower-a: #4a1225;
+	--homescreen-chris-lower-b: #bb072b;
+	--homescreen-chris-outline-a: #a3928a;
+	--homescreen-chris-outline-b: #c9bfb6;
+
+	--homescreen-chris-depth-hue: 348;
+	--homescreen-chris-depth-sat: 5;
+	--homescreen-chris-depth-lux: 5%;
+
+	--homescreen-creadev-stroke: var(--t-color-secondary-max);
+	--homescreen-creadev-fill: var(--t-color-secondary-min);
+	--homescreen-creadev-font: var(--t-font-heading);
+}
+
+@include theme(('vapor', 'neotokyo'), 'home') {
+	.homescreen-title::after {
+		content: 'クリス';
+
+		position: absolute;
+		inset: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-family: cursive, fantasy, serif;
+		font-size: calc(min(100vw, 60rem) * 0.2);
+		font-weight: 700;
+		color: var(--t-color-secondary-max);
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-color: var(--t-color-secondary-max);
+		-webkit-text-stroke: 0.0175em;
+
+		rotate: -2deg;
+
+		animation: svgMarkCreaDev #{$creadev-anim-time} #{$creadev-anim-delay - ($creadev-anim-time * 0.25)} both var(--easing-circ-out);
+	}
 }
 
 [data-section='home'] .homescreen {
@@ -166,8 +246,8 @@ $sun-blind-size: math.div($sun-radius, 12);
             /* Horizon glow */ radial-gradient(
 					ellipse 150% 20% at 50% 100%,
 					var(--homescreen-sun-glow) 0%,
-					12.5%,
-					var(--homescreen-sun-glow-alpha) 50%
+					2.5%,
+					var(--homescreen-sun-glow-alpha) 75%
 				)
 				no-repeat 50% 0 / 100% 50%,
 			/* Full sky */
@@ -239,27 +319,6 @@ $sun-blind-size: math.div($sun-radius, 12);
 	}
 
 	&-svg {
-		$mark-depth-factor-x: 1;
-		$mark-depth-factor-y: 0.9;
-		$wire-count: 8;
-		$wire-init-delay: 0.75s;
-		$wire-step-delay: 0.0625s;
-		$wire-anim-time: 0.75s;
-		$wire-factor: 0.25;
-		$wire-final-end: $wire-init-delay + $wire-step-delay * ($wire-count - 1) + $wire-anim-time;
-		$greeting-init-delay: $wire-init-delay * 2;
-		$greeting-anim-time: 0s;
-		$flash-anim-delay: $wire-final-end - $wire-step-delay * $wire-count;
-		$flash-anim-time: 1.25s;
-		$chris-anim-time: 1.25s;
-		$chris-anim-delay: $flash-anim-delay + $flash-anim-time * 0.5;
-		$creadev-anim-delay: $chris-anim-delay + $chris-anim-time * 0.25;
-		$creadev-anim-time: 1.5s;
-		$shine-anim-time: 1.5s;
-		$shine-anim-delay: 1.25s + $creadev-anim-delay;
-		$glare-anim-time: 1s;
-		$glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
-
 		&__wire {
 			--w-pow: calc((var(--wire-count) + 1) / (var(--w) + 1));
 			--w-delay: calc(#{$wire-step-delay} * var(--w));

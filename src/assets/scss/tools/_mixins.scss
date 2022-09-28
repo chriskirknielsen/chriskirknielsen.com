@@ -49,8 +49,10 @@
 }
 @mixin _theme($selector, $context) {
 	@at-root {
-		#{$selector} #{$context} {
-			@content;
+		#{$selector} {
+			& #{$context} {
+				@content;
+			}
 		}
 	}
 }
@@ -65,6 +67,13 @@
 @mixin theme($key, $section: false) {
 	$section-selector: unquote(if($section != false, "[data-section='#{$section}']", ''));
 	$root-selector: unquote("#{$section-selector}[data-theme='#{$key}']");
+	@if (type-of($key) == list) {
+		$root-selector-list: ();
+		@each $key-item in $key {
+			$root-selector-list: append($root-selector-list, "#{$section-selector}[data-theme='#{$key-item}']");
+		}
+		$root-selector: unquote(#{zip($root-selector-list)});
+	}
 
 	@include _theme($root-selector, &) {
 		@content;

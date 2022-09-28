@@ -23,7 +23,7 @@
 			overflow: visible;
 
 			& path {
-				fill: currentColor;
+				fill: var(--t-header-logo-fill, currentColor);
 
 				transition: inherit;
 				transition-property: fill, fill-opacity, stroke-opacity;
@@ -31,7 +31,7 @@
 		}
 
 		&:is(:hover, :focus) > svg path {
-			fill: var(--t-color-primary-min);
+			fill: var(--t-header-logo-fill-active, var(--t-color-primary-min));
 		}
 	}
 }

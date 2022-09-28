@@ -6,7 +6,6 @@
 				transition: filter var(--logo-transition);
 
 				& path {
-					fill: var(--t-header-logo-fill);
 					fill-opacity: 1;
 					stroke: var(--t-color-primary-min);
 					stroke-width: 3;
@@ -152,7 +151,7 @@
 
 			position: fixed;
 			inset: 0 auto;
-			z-index: 1;
+			z-index: #{layer-index('footer', 1)};
 
 			width: clamp(#{$body-bg-image-width}, (100% - #{$body-bg-min-width}) / 2 - #{$body-bg-image-gutter}, #{$body-bg-image-width} * 3);
 			height: 100vh;
@@ -236,6 +235,12 @@
 			outline-offset: -4px;
 			outline: 1px dotted #4c4c4c;
 		}
+	}
+
+	hr {
+		height: unset;
+		border-radius: 0;
+		border: 2px ridge var(--t-color-gray-med);
 	}
 
 	.filtering-item input[type='radio']:focus-visible + label {
@@ -363,6 +368,45 @@
 			box-shadow: inset calc(var(--halo-width) / 2) 0 0 calc(var(--halo-width) / 2) #ffe907;
 
 			transform: rotateZ(45deg) rotateY(1deg) translateZ(calc(var(--halo-width) / 20));
+		}
+	}
+}
+
+@include theme('neotokyo') {
+	.about-quotebox {
+		--quotebox-font: var(--t-font-heading);
+		--quotebox-weight: 400;
+		--quotebox-style: normal;
+		--quotebox-transform: uppercase;
+		--quotebox-tracking: var(--t-heading-tracking);
+		--quotebox-corner-radius: 0;
+
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0.5em -0.5em -0.5em 0.5em;
+			z-index: -1;
+
+			border: 2px solid var(--t-color-secondary-med);
+		}
+	}
+
+	.callout {
+		border-inline-start-color: var(--t-color-primary-min);
+
+		&-label {
+			width: fit-content;
+			margin-block-end: 0.5em;
+			padding-block-start: 0.125em;
+			padding-block-end: 0;
+			padding-inline-end: calc(var(--size-m) + 2px);
+
+			font-size: 1.25em;
+			color: var(--t-color-primary-max);
+			background: var(--t-color-primary-min);
+			box-shadow: calc(var(--size-m) * -1) 0 0 var(--t-color-primary-min);
 		}
 	}
 }

@@ -22,11 +22,11 @@
 	@return $map;
 }
 
-@function layer-index($layer) {
+@function layer-index($layer, $index: 0) {
 	@if (map-has-key($tokens, '_layerOrder')) {
 		$layer-list: get-token('_layerOrder');
 		$layer-index: index($layer-list, $layer);
-		@return $layer-index * 10;
+		@return $layer-index * 10 + $index;
 	} @else {
 		@error 'Layer #{$layer} does not exist.';
 	}
