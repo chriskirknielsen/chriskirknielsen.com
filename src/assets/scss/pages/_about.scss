@@ -579,11 +579,11 @@ html.no-js .about-facts {
 		[data-section='about'] main.container {
 			// Add more columns within!
 			--container-inner-cols: 5;
-			--container-inner-def: repeat(var(--container-inner-cols), minmax(0, calc((var(--site-content-width) + 2 * var(--site-content-gutter)) / var(--container-inner-cols))));
+			--container-inner-def: repeat(var(--container-inner-cols), minmax(0, calc((var(--C-content-width) + 2 * var(--C-content-gutter)) / var(--container-inner-cols))));
 			--container-inner-gutter: 0; // Gutter is its own track we can remove and replace with the gap property
 
 			& > .container {
-				gap: 0 calc(var(--site-content-gutter) * 2);
+				gap: 0 calc(var(--C-content-gutter) * 2);
 			}
 		}
 

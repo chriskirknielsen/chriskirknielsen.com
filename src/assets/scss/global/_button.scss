@@ -6,7 +6,7 @@
 	padding: var(--btn-padding-block, var(--size-2xs)) var(--btn-padding-inline, var(--size-s));
 
 	font-size: var(--btn-font-size, 1em);
-	line-height: var(--btn-line-height, var(--site-base-line-height));
+	line-height: var(--btn-line-height, var(--C-base-line-height));
 	font-weight: var(--btn-font-weight, 400);
 	text-decoration: var(--btn-decoration-style, none) var(--btn-decoration-color, currentColor) var(--btn-decoration-thickness, from-font);
 	text-underline-offset: var(--btn-underline-offset, auto);

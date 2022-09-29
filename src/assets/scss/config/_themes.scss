@@ -54,7 +54,7 @@ $theme-easing: get-token('easing');
 
 	// Add in global constants and variables
 	@each $var-key, $var-value in $theme-constants {
-		--site-#{$var-key}: #{$var-value};
+		--C-#{$var-key}: #{$var-value};
 	}
 	@each $var-key, $var-value in $theme-vars {
 		$val-with-fallback: 'var(--_t-#{$var-key}, #{$var-value})'; // Grab a theme-defined value if it exists, or fallback to the global value

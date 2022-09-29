@@ -1,9 +1,9 @@
 .container,
 .container > .content {
 	width: 100%;
-	max-width: var(--site-content-width);
+	max-width: var(--C-content-width);
 	margin-inline: auto;
-	padding-inline: var(--site-content-gutter);
+	padding-inline: var(--C-content-gutter);
 }
 
 .container > .container {
@@ -14,7 +14,7 @@
 	.content-fullbleed:not(.page-content) {
 		min-width: 100vw; // Supersedes defined width or max-width
 		margin-inline-start: calc(50% - 50vw);
-		padding-inline: calc(var(--site-content-gutter) / 2);
+		padding-inline: calc(var(--C-content-gutter) / 2);
 	}
 }
 
@@ -25,11 +25,11 @@
 			[fullbleed-start]
 			1fr
 			[wide-start]
-			var(--container-inner-gutter, var(--site-content-gutter))
+			var(--container-inner-gutter, var(--C-content-gutter))
 			[container-start]
-			var(--container-inner-def, minmax(0, var(--site-content-width)))
+			var(--container-inner-def, minmax(0, var(--C-content-width)))
 			[container-end]
-			var(--container-inner-gutter, var(--site-content-gutter))
+			var(--container-inner-gutter, var(--C-content-gutter))
 			[wide-end]
 			1fr
 			[fullbleed-end];

@@ -42,8 +42,8 @@ pre > code {
 	overflow: auto; // Let users scroll in case of a long string
 
 	max-height: 80vh;
-	padding: var(--site-content-gutter);
-	padding-inline-start: calc(var(--site-content-gutter) - var(--codeblock-border));
+	padding: var(--C-content-gutter);
+	padding-inline-start: calc(var(--C-content-gutter) - var(--codeblock-border));
 
 	border-inline-start: var(--codeblock-border) solid var(--t-color-secondary-med, currentColor);
 }
@@ -74,7 +74,7 @@ pre.codeblock {
 			align-items: center;
 			width: 100%;
 			height: var(--codeblock-lang);
-			padding: 0 calc(var(--codeblock-border) + var(--site-content-gutter));
+			padding: 0 calc(var(--codeblock-border) + var(--C-content-gutter));
 
 			line-height: 1;
 			color: var(--ctx-bg);
@@ -92,7 +92,7 @@ pre.codeblock {
 		inset: 0 auto var(--size-m) var(--codeblock-border);
 		z-index: 1;
 
-		width: var(--site-content-gutter);
+		width: var(--C-content-gutter);
 
 		background: linear-gradient(90deg, var(--ctx-bg), transparent 80%);
 

@@ -118,9 +118,9 @@
 		&-label {
 			position: absolute;
 			inset-block-start: -0.25em;
-			inset-inline-start: var(--site-content-gutter);
+			inset-inline-start: var(--C-content-gutter);
 
-			padding: 0 var(--site-content-gutter);
+			padding: 0 var(--C-content-gutter);
 
 			font-size: max(var(--size-xl), 1.75em);
 			color: var(--t-color-primary-min);
