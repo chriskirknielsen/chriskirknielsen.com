@@ -19,6 +19,7 @@ $tokens: (
     "text-alt-color": red,
     "accent-color": var(--t-color-primary-med),
     "heading-color": rebeccapurple,
+    "header-logo-fill": currentColor,
     "link-color": blue,
     "link-underline-color": var(--t-link-color),
     "link-color-active": purple,
@@ -79,7 +80,7 @@ $tokens: (
       "heading-tracking": 0.0625em,
       "heading-text-transform": uppercase,
       "link-shadow-active": var(--t-link-underline-color-active),
-      "header-logo-fill": var(--t-link-color)
+      "header-logo-fill": var(--t-color-secondary-med)
     ),
     "images": (
       
@@ -99,7 +100,6 @@ $tokens: (
       "vars": (
         "color-scheme": dark,
         "is-dark": 1,
-        "header-logo-fill": var(--t-color-secondary-med),
         "cta-transition-duration": 400ms,
         "cta-box-shadow-active": '0 0 0.75em var(--t-color-secondary-med), 0 0 0.5em var(--t-color-secondary-med) inset',
         "link-underline-color-active": hsl(320, 88%, 22%)
@@ -127,7 +127,6 @@ $tokens: (
       "vars": (
         "color-scheme": light,
         "is-dark": 0,
-        "header-logo-fill": var(--t-color-primary-med),
         "cta-transition-duration": 0ms,
         "cta-box-shadow-active": '0 0 0 0.125em var(--t-color-primary-med)',
         "link-underline-color-active": pink
