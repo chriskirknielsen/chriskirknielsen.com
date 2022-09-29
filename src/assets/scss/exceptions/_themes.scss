@@ -326,7 +326,7 @@
 	}
 
 	.codeblock :is(.token.comment, .token.doctype) {
-		color: hsl(240, 33%, 42%); // Get summadat sweet contrast
+		--token-gray-med: hsl(240, 33%, 42%);
 	}
 
 	[data-filtered-item] {
@@ -373,6 +373,10 @@
 }
 
 @include theme('neotokyo') {
+	.bigboi {
+		outline: 2px solid var(--t-color-primary-med);
+	}
+
 	.about-quotebox {
 		--quotebox-font: var(--t-font-heading);
 		--quotebox-weight: 400;
@@ -407,6 +411,15 @@
 			color: var(--t-color-primary-max);
 			background: var(--t-color-primary-min);
 			box-shadow: calc(var(--size-m) * -1) 0 0 var(--t-color-primary-min);
+
+			&::before {
+				content: '// ';
+			}
 		}
+	}
+
+	.codeblock {
+		--token-gray-med: #a85454;
+		--token-primary-med: #ff7e66;
 	}
 }

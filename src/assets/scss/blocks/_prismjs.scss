@@ -104,7 +104,6 @@ pre.codeblock {
 	padding: 0.15em 0.2em 0.05em;
 	border-radius: 0.3em;
 	border: 2px solid var(--t-color-primary-med);
-	// box-shadow: 1px 1px 0.3em -0.1em var(--t-color-gray-max) inset;
 }
 
 .token.namespace {
@@ -114,43 +113,44 @@ pre.codeblock {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: var(--t-color-gray-med);
+	color: var(--token-gray-med, var(--t-color-gray-med));
 }
 .token.operator,
 .token.boolean,
-.token.number {
-	color: var(--t-color-primary-med);
+.token.number,
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.important,
+.token.deleted,
+code.language-markup .token.tag {
+	color: var(--token-primary-med, var(--t-color-primary-med));
 }
 .token.attr-name,
-.token.string {
-	color: var(--t-color-primary-min);
-}
+.token.string,
 .token.entity,
 .token.url,
-.language-css .token.string,
-.style .token.string {
+.token.property .language-css .token.string,
+.style .token.string,
+code.language-markup .token.attr-value {
 	color: var(--t-color-primary-min);
 }
 .token.selector,
 .token.inserted {
 	color: var(--t-color-secondary-min);
 }
-.token.property {
-	color: var(--t-color-primary-min);
-}
-.token.atrule,
-.token.attr-value,
-.token.keyword,
-.token.important,
-.token.deleted {
-	color: var(--t-color-primary-med);
-}
 .token.regex,
-.token.statement {
+.token.statement,
+code.language-markup .token.attr-name,
+code.language-markup .token.style,
+code.language-markup .token.script,
+code.language-markup .token.script .token.keyword {
 	color: var(--t-color-secondary-med);
 }
 .token.placeholder,
-.token.variable {
+.token.variable,
+.token.punctuation,
+code.language-markup {
 	color: var(--t-color-gray-min);
 }
 .token.important,
@@ -158,34 +158,11 @@ pre.codeblock {
 .token.bold {
 	font-weight: bold;
 }
-.token.punctuation {
-	color: var(--t-color-gray-min);
-}
 .token.entity {
 	cursor: help;
 }
 .token.italic {
 	font-style: italic;
-}
-
-code.language-markup {
-	color: var(--t-color-gray-min);
-}
-code.language-markup .token.tag {
-	color: var(--t-color-primary-med);
-}
-code.language-markup .token.attr-name {
-	color: var(--t-color-secondary-med);
-}
-code.language-markup .token.attr-value {
-	color: var(--t-color-primary-min);
-}
-code.language-markup .token.style,
-code.language-markup .token.script {
-	color: var(--t-color-secondary-med);
-}
-code.language-markup .token.script .token.keyword {
-	color: var(--t-color-secondary-med);
 }
 
 /* Line highlight plugin */

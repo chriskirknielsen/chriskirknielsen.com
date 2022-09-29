@@ -174,9 +174,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--homescreen-creadev-stroke: var(--t-color-secondary-max);
 	--homescreen-creadev-fill: var(--t-color-secondary-min);
 	--homescreen-creadev-font: var(--t-font-heading);
-}
 
-@include theme(('vapor', 'neotokyo'), 'home') {
 	.homescreen-title::after {
 		content: 'クリス';
 
@@ -190,11 +188,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		font-size: calc(min(100vw, 60rem) * 0.2);
 		font-weight: 700;
 		color: var(--t-color-secondary-max);
-		-webkit-text-fill-color: transparent;
+		-webkit-text-fill-color: hsla(201, 91%, 4%, 0.2);
 		-webkit-text-stroke-color: var(--t-color-secondary-max);
 		-webkit-text-stroke: 0.0175em;
-
-		rotate: -2deg;
 
 		animation: svgMarkCreaDev #{$creadev-anim-time} #{$creadev-anim-delay - ($creadev-anim-time * 0.25)} both var(--easing-circ-out);
 	}
