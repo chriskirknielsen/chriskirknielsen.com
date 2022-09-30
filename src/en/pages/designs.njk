@@ -97,16 +97,11 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 <script>
 {% set designsFilter %}
 (function() {
-	const easeInOut = 'cubic-bezier(0.67, 0, 0.33, 1)';
 	let hashIndicator = 'filter:';
 	let initialHash = window.location.hash.slice(1);
 	let items = [].slice.call(document.querySelectorAll('[data-tags]'));
 	let list = document.querySelector('[data-filtered-list]');
 	let tagList = [].slice.call(document.querySelectorAll('.filtering-item'));
-	const animateOptions = {
-		duration: 500,
-		easing: easeInOut,
-	};
 
 	function resetItem(item) {
 		item.style.width = '';
@@ -131,9 +126,14 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 			return;
 		}
 
-		list.style.setProperty('--t', `${animateOptions.duration}ms`); // Sync up with CSS
+		const animateOptions = {
+			duration: 500,
+			easing: getComputedStyle(items[0]).transitionTimingFunction || 'ease-in-out',
+		};
 		const listGeometry = list.getBoundingClientRect();
+		list.style.setProperty('--t', `${animateOptions.duration}ms`); // Sync up with CSS
 
+		// First, capture the initial state
 		items.forEach(function(item) {
 			resetItem(item); // Reset if triggered mid-animation
 			const tags = item.getAttribute('data-tags').split(',');
@@ -141,53 +141,56 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 			const isShown = (tags.indexOf(filter) > -1) || isShowAll;
 			const first = item.getBoundingClientRect();
 			item.setAttribute('data-first', JSON.stringify(first));
-			item.setAttribute('data-shown-from-to', JSON.stringify({ from: wasShown, to: isShown}));
+			item.setAttribute('data-shown-from-to', `${wasShown?1:0},${isShown?1:0}`);
 		});
 
-		items.forEach(function(item) {
-			const shown = JSON.parse(item.getAttribute('data-shown-from-to'));
-			const wasShown = shown.from;
-			const isShown = shown.to;
-			const first = JSON.parse(item.getAttribute('data-first'));
+		// Then apply the change so all objects can calculate their new geometry after the change (taking sibling position into account)
+		items.forEach(function(item,i) {
+			const shown = item.getAttribute('data-shown-from-to').split(',').map((i) => parseInt(i,10));
+			const isShown = shown[1] === 1;
 			item.setAttribute('aria-hidden', (!isShown).toString());
+		});
+
+		// Finally, grab the new geometry for all items and apply animation
+		items.forEach(function(item,i) {
+			const shown = item.getAttribute('data-shown-from-to').split(',').map((i) => parseInt(i,10));
+			const wasShown = shown[0] === 1;
+			const isShown = shown[1] === 1;
+			const first = JSON.parse(item.getAttribute('data-first'));
 			const last = item.getBoundingClientRect();
 			const keyframeFrom = {};
 			const keyframeTo = {};
-			const transform = `${first.left - last.left}px, ${first.top - last.top}px`;
 
 			// Determine keyframes for each config
-			if (wasShown && isShown) {
-				keyframeFrom.transform = `translate(${transform}) scale(1)`;
-				keyframeTo.transform = `translate(0, 0) scale(1)`;
-			} else if (wasShown && !isShown) {
-				item.style.width = `${first.width}px`;
-				item.style.height = `${first.height}px`;
-
+			if (wasShown && isShown) { // Move
+				keyframeFrom.transform = `translate(${first.left - last.left}px, ${first.top - last.top}px)`;
+				//keyframeFrom.width = `${first.width}px`;
+				//keyframeFrom.height = `${first.height}px`;
+				keyframeTo.transform = `translate(0, 0)`;
+				//keyframeTo.width = `${last.width}px`;
+				//keyframeTo.height = `${last.height}px`;
+			} else if (wasShown && !isShown) { // Hide
 				keyframeFrom.transform = `translate(${first.left - listGeometry.left}px, ${first.top - listGeometry.top}px) scale(1)`;
-				keyframeFrom.visibility = 'visible';
+				keyframeFrom.opacity = '1';
+				keyframeFrom.width = `${first.width}px`;
+				keyframeFrom.height = `${first.height}px`;
 				keyframeTo.transform = `translate(${first.left - listGeometry.left}px, ${first.top - listGeometry.top}px) scale(0)`;
-				keyframeTo.visibility = 'hidden';
-			} else if (!wasShown && isShown) {
+				keyframeTo.opacity = '0';
+				keyframeTo.width = `${first.width}px`;
+				keyframeTo.height = `${first.height}px`;
+			} else if (!wasShown && isShown) { // Reveal
 				keyframeFrom.transform = `translate(${first.left - listGeometry.left}px, ${first.top - listGeometry.top}px) scale(0)`;
+				keyframeFrom.opacity = '0';
+				keyframeFrom.width = `${last.width}px`;
+				keyframeFrom.height = `${last.height}px`;
 				keyframeTo.transform = `translate(0, 0) scale(1)`;
-				console.log()
-			} else if (!wasShown && !isShown) {
+				keyframeTo.opacity = '1';
+				keyframeTo.width = `${last.width}px`;
+				keyframeTo.height = `${last.height}px`;
+			} else if (!wasShown && !isShown) { // Stay hidden
 				keyframeFrom.transform = `scale(0)`;
 				keyframeTo.transform = `scale(0)`;
 			}
-
-			{# let invert = { x: first.left - last.left, y: first.top - last.top, scale: (isShown?1:0) - (wasShown?0:1) };
-
-			if (wasShown && !isShown) {
-				invert = { x: first.left - listGeometry.left, y: first.top - listGeometry.top };
-				item.style.visibility = 'visible';
-				item.style.width = `${first.width}px`;
-				item.style.height = `${first.height}px`;
-				item.style.setProperty('--xy', `${invert.x}px, ${invert.y}px`);
-			} else if (!wasShown && !isShown) {
-				item.style.setProperty('--t', '0ms');
-			}
-			item.style.transform = `translate(${invert.x}px, ${invert.y}px) scale(${ (!wasShown && isShown) ? '0' : '1' })`; #}
 
 			const anim = item.animate([keyframeFrom, keyframeTo], animateOptions);
 			anim.addEventListener('finish', (e) => resetItem(item));

@@ -24,10 +24,15 @@
 }
 
 [data-filtered-item] {
-	transition: z-index var(--t, 300ms) var(--easing-in-out);
+	@media (prefers-reduced-motion: no-preference) {
+		transition: var(--t, 300ms) var(--easing-in-out);
+		transition-property: visibility, z-index;
+	}
 
 	&[aria-hidden='false'] {
 		z-index: 10;
+
+		visibility: visible;
 	}
 
 	&[aria-hidden='true'] {
