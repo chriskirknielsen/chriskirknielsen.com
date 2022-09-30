@@ -58,7 +58,7 @@ Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui 
 
 {% include 'components/about/vhs.njk' %}
 
-Je suis aussi un fan de musique&nbsp;! Mes satiétés sonores tournent principalement autour du rock et de la musique électronique. J'ai un projet nommé [Chronoise](https://chronoise.com) pour mes modiques minces mélodies que je n'ai pas touché depuis des années mais c'est tendance de dire que je fais de la musique. Il faudrait que je m'y remette car *j'adore les synthés*, et puis mes talents de guitariste laissent un peu à désirer — un ordinateur me donne l'impression d'être habile.
+Je suis aussi un fan de musique&nbsp;! Mes satiétés sonores tournent principalement autour du rock et de la musique électronique. J'ai un projet nommé [Chronoise](https://chronoise.com) pour mes modiques minces mélodies que je n'ai pas touché depuis des années mais bon, c'est tendance de dire que je fais de la musique. Je trouve que *les synthés sont super chouettes* et jouer quelques accords sur la guitare de temps en temps, même si je suis assez novice, est reposant.
 
 ## Des infos perso
 

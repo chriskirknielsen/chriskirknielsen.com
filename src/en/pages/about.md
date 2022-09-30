@@ -59,7 +59,7 @@ When inspiration strikes, <strong>I like to create designs</strong> that might l
 
 {% include 'components/about/vhs.njk' %}
 
-I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles take up most of my playlists. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years but it sounds neat to say you write music. I need to get back into that because *synthesisers are incredibly fun*. Plus, my guitar skills are lacking, computers help me feel competent!
+I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles take up most of my playlists. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years, but hey, it sounds neat to say you write music. I find playing around with *synthesisers incredibly fun*, and strumming a few chords on the guitar, despite not being excellent at it, is relaxing.
 
 ## About me, not my marketable skills
 
