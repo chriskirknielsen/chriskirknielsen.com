@@ -418,6 +418,10 @@
 		}
 	}
 
+	.cardblock {
+		box-shadow: 0 0 1em -0.375em var(--t-accent-color);
+	}
+
 	.codeblock {
 		--token-gray-med: #a85454;
 		--token-primary-med: #ff7e66;
