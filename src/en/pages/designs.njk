@@ -35,7 +35,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 	{% endfor %}
 </fieldset>
 
-<div class="gridlist u-marginBlockStart-xl" data-filtered-list="idle">
+<div class="gridlist u-marginBlockStart-xl" data-filtered-list>
 {% for design in activeDesigns %}
 	{% set designPermalink = '/designs/' + design.slug + '/' | url %}
 	<article
@@ -97,18 +97,23 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 <script>
 {% set designsFilter %}
 (function() {
+	const easeInOut = 'cubic-bezier(0.67, 0, 0.33, 1)';
 	let hashIndicator = 'filter:';
 	let initialHash = window.location.hash.slice(1);
 	let items = [].slice.call(document.querySelectorAll('[data-tags]'));
 	let list = document.querySelector('[data-filtered-list]');
 	let tagList = [].slice.call(document.querySelectorAll('.filtering-item'));
+	const animateOptions = {
+		duration: 500,
+		easing: easeInOut,
+	};
 
 	function resetItem(item) {
-		item.style.visibility = '';
 		item.style.width = '';
 		item.style.height = '';
-		item.style.removeProperty('--xy');
-		item.style.removeProperty('--t');
+		item.removeAttribute('data-first');
+		item.removeAttribute('data-shown-from-to');
+		item.getAnimations().forEach((anim) => anim.finish());
 	}
 
 	function filterTo(filter, skipAnim = false) {
@@ -116,7 +121,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		
 		// Don't animate in certain conditions
-		if (skipAnim || prefersReducedMotion) {
+		if (skipAnim || prefersReducedMotion || !Element.prototype.animate) {
 			items.forEach(function(item) {
 				resetItem(item); // Just in case
 				let tags = item.getAttribute('data-tags').split(',');
@@ -126,28 +131,52 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 			return;
 		}
 
-		let listGeometry = list.getBoundingClientRect();
-
-		list.setAttribute('data-filtered-list', 'change');
+		list.style.setProperty('--t', `${animateOptions.duration}ms`); // Sync up with CSS
+		const listGeometry = list.getBoundingClientRect();
 
 		items.forEach(function(item) {
 			resetItem(item); // Reset if triggered mid-animation
-			let tags = item.getAttribute('data-tags').split(',');
-			let wasShown = item.getAttribute('aria-hidden') === 'false';
-			let isShown = (tags.indexOf(filter) > -1) || isShowAll;
-			let first = item.getBoundingClientRect();
+			const tags = item.getAttribute('data-tags').split(',');
+			const wasShown = item.getAttribute('aria-hidden') === 'false';
+			const isShown = (tags.indexOf(filter) > -1) || isShowAll;
+			const first = item.getBoundingClientRect();
 			item.setAttribute('data-first', JSON.stringify(first));
 			item.setAttribute('data-shown-from-to', JSON.stringify({ from: wasShown, to: isShown}));
 		});
 
 		items.forEach(function(item) {
-			let shown = JSON.parse(item.getAttribute('data-shown-from-to'));
-			let wasShown = shown.from;
-			let isShown = shown.to;
-			let first = JSON.parse(item.getAttribute('data-first'));
+			const shown = JSON.parse(item.getAttribute('data-shown-from-to'));
+			const wasShown = shown.from;
+			const isShown = shown.to;
+			const first = JSON.parse(item.getAttribute('data-first'));
 			item.setAttribute('aria-hidden', (!isShown).toString());
-			let last = item.getBoundingClientRect();
-			let invert = { x: first.left - last.left, y: first.top - last.top};
+			const last = item.getBoundingClientRect();
+			const keyframeFrom = {};
+			const keyframeTo = {};
+			const transform = `${first.left - last.left}px, ${first.top - last.top}px`;
+
+			// Determine keyframes for each config
+			if (wasShown && isShown) {
+				keyframeFrom.transform = `translate(${transform}) scale(1)`;
+				keyframeTo.transform = `translate(0, 0) scale(1)`;
+			} else if (wasShown && !isShown) {
+				item.style.width = `${first.width}px`;
+				item.style.height = `${first.height}px`;
+
+				keyframeFrom.transform = `translate(${first.left - listGeometry.left}px, ${first.top - listGeometry.top}px) scale(1)`;
+				keyframeFrom.visibility = 'visible';
+				keyframeTo.transform = `translate(${first.left - listGeometry.left}px, ${first.top - listGeometry.top}px) scale(0)`;
+				keyframeTo.visibility = 'hidden';
+			} else if (!wasShown && isShown) {
+				keyframeFrom.transform = `translate(${first.left - listGeometry.left}px, ${first.top - listGeometry.top}px) scale(0)`;
+				keyframeTo.transform = `translate(0, 0) scale(1)`;
+				console.log()
+			} else if (!wasShown && !isShown) {
+				keyframeFrom.transform = `scale(0)`;
+				keyframeTo.transform = `scale(0)`;
+			}
+
+			{# let invert = { x: first.left - last.left, y: first.top - last.top, scale: (isShown?1:0) - (wasShown?0:1) };
 
 			if (wasShown && !isShown) {
 				invert = { x: first.left - listGeometry.left, y: first.top - listGeometry.top };
@@ -158,20 +187,10 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 			} else if (!wasShown && !isShown) {
 				item.style.setProperty('--t', '0ms');
 			}
-			let transform = `translate(${invert.x}px, ${invert.y}px) scale(${ (!wasShown && isShown) ? '0' : '1' })`;
-			item.style.transform = transform;
-		});
-		
-		requestAnimationFrame(function() {
-			list.setAttribute('data-filtered-list', 'idle');
-			items.forEach((item) => {
-				item.removeAttribute('data-first');
-				item.removeAttribute('data-shown-from-to');
-				item.style.transform = '';
-				item.addEventListener('transitionend', () => {
-					resetItem(item);
-				}, { once: true });
-			});
+			item.style.transform = `translate(${invert.x}px, ${invert.y}px) scale(${ (!wasShown && isShown) ? '0' : '1' })`; #}
+
+			const anim = item.animate([keyframeFrom, keyframeTo], animateOptions);
+			anim.addEventListener('finish', (e) => resetItem(item));
 		});
 
 		history.replaceState(undefined, '', filter ? ('#' + hashIndicator + filter) : '#');

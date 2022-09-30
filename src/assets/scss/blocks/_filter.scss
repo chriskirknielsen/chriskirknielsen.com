@@ -24,27 +24,17 @@
 }
 
 [data-filtered-item] {
+	transition: z-index var(--t, 300ms) var(--easing-in-out);
+
 	&[aria-hidden='false'] {
 		z-index: 10;
 	}
+
 	&[aria-hidden='true'] {
 		position: absolute;
 		z-index: 0;
 
 		visibility: hidden;
 		pointer-events: none;
-
-		transform: translate(var(--xy, 0, 0)) scale(0);
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-		will-change: transform;
-
-		transition: var(--t, 300ms) var(--easing-in-out);
-		transition-property: z-index, transform, visibility;
-	}
-
-	[data-filtered-list='change'] & {
-		transition-duration: 0s;
 	}
 }
