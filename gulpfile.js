@@ -36,3 +36,4 @@ gulp.task('tokens', function (cb) {
 });
 
 gulp.task('build-css', gulp.series('tokens', 'css'));
+gulp.task('build-all', gulp.series('tokens', 'css', 'js'));

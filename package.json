@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"build": "npx eleventy",
-		"fullbuild": "gulp watch & npx eleventy --serve --port=9090",
+		"11ty": "npx eleventy",
+		"build": "gulp build-all & npx eleventy",
 		"watch": "npx eleventy --watch --port=9090",
 		"debug": "DEBUG=* npx eleventy",
 		"sass:tokens": "npx json-to-scss src/_data/tokens.json src/assets/scss/config/_tokens.scss",
