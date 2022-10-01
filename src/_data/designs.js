@@ -160,6 +160,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/god-of-war6788801_print?sku=s6-23678708p4a1v45',
 		},
 		tags: ['games'],
+		similar: ['god-of-war-leviathan-axe'],
 	},
 	{
 		slug: 'deathloop',

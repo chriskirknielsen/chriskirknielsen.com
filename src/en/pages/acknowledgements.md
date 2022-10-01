@@ -1,5 +1,5 @@
 ---
-title: Acknowledgements
+title: Acknow&shy;ledge&shy;ments
 subtitle: Or "colophon", I suppose.
 summary: Some info about this site
 permalink: /acknowledgements/

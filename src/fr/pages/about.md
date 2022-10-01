@@ -45,7 +45,7 @@ Bien que le développement front-end est mon activité principale ces jours-ci, 
 {% include 'components/about/visubezier.njk' %}
 
 <p data-about="opensource">
-J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, j'ai crée une petite extension pour VS Code nommée <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> pour visualiser les courbes de lissages en CSS, qui est bien utile, si vous voulez mon avis totalement objectif. Et j'ai la chance d'avoir été publié sur des sites tels que <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> et <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, si vous arrivez à le croire&nbsp;!</p>
+J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, j'ai crée une petite extension pour VS Code nommée <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> pour visualiser les courbes de lissages en CSS, qui est bien utile, si je puis me permettre. Et j'ai la chance d'avoir été publié sur des sites tels que <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> et <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, si vous arrivez à le croire&nbsp;!</p>
 </p>
 
 ## Créatif quand inactif
@@ -65,7 +65,7 @@ Je suis aussi un fan de musique&nbsp;! Mes satiétés sonores tournent principal
 <p class="about-quotebox" data-about="personal">Mon accent anglais est bizarre et un peu mixte sans passer par la France.</p>
 
 <p>
-J'ai principalement grandi à Lyon, en France, avec mes parents danois. J'ai passé une année en Australie étant petit, apprenant l'anglais avec l'accent du coin, et j'ai même tenu un bébé koala. Par conséquent, <strong>trois langues</strong> se battent pour le contrôle de ma matière grise ; c'est sympa. Je connais pas mal d'italien mais je perds mes moyens quand je parle à une personne locale — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> J'ai étudié le japonais au lycée, quand j'étais glandeur donc je suis mauvais mais DuoLingo <del>essaie</del> menace d'y remédier. Bref, j'aime les langues&nbsp;!
+J'ai principalement grandi à Lyon, en France, avec mes parents danois. J'ai passé une année en Australie étant petit, apprenant l'anglais avec l'accent du coin, et j'ai même tenu un bébé koala. Par conséquent, <strong>trois langues</strong> se battent pour le contrôle de ma matière grise ; c'est sympa. Je connais pas mal d'italien mais je perds mes moyens quand je parle à une personne locale — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> J'ai étudié le japonais au lycée, quand j'étais glandeur donc je suis mauvais mais DuoLingo <del>essaie</del> menace d'y remédier. Bref, les langues étrangères sont fascinantes&nbsp;!
 </p>
 
 ## Un réel professionnel
@@ -75,7 +75,7 @@ Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://w
 ## Pour discuter, c'est au clavier
 
 <p data-about="contact">
-Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je prends ça comme un compliment. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code>chriskirknielsen[arobase]gmail[point]com</code> !
+Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je prends ça comme un compliment. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code>chriskirknielsen<wbr>[arobase]gmail<wbr>[point]com</code> !
 </p>
 
 <p class="about-quotebox">Les numéros inconnus me mettent la pression.</p>

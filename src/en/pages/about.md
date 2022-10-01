@@ -46,7 +46,7 @@ Writing code and having a thing show up on the screen felt (and still feels) a l
 {% include 'components/about/visubezier.njk' %}
 
 <p data-about="opensource">
-I have contributed to a few open source projects, but only in small ways; if it counts, this little VS Code extension of mine called <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> to preview CSS easings is great, in my unbiased and trustworthy opinion. And I've been lucky enough to be featured on sites like <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> and <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, if you can believe it!</p>
+I have contributed to a few open source projects, but only in small ways; if it counts, this little VS Code extension of mine called <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> to preview CSS timing functions isn't bad, if I do say so myself. And I've been lucky enough to be featured on sites like <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> and <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, if you can believe it!</p>
 </p>
 
 ## Still creative, on occasion
@@ -66,17 +66,17 @@ I am also a music enthusiast! I listen to a lot of things, however rock- and ele
 <p class="about-quotebox" data-about="personal">My English accent is weird and kind of all over the place.</p>
 
 <p>
-I mostly grew up in Lyon, France, to Danish parents. I did spend a year in Australia as a kid, speaking English with an Aussie accent, and even held a baby koala. As a result, <strong>three languages</strong> keep overriding each other; it's not confusing at all. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I studied Japanese in high-school, at peak slacking-off mentality, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I like languages!
+I mostly grew up in Lyon, France, to Danish parents. I did spend a year in Australia as a kid, speaking English with an Aussie accent, and even held a baby koala. As a result, <strong>three languages</strong> keep overriding each other; it's not confusing at all. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I studied Japanese in high-school, at peak slacking-off mentality, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
 </p>
 
 ## Speaking of skills…
 
-I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can *program in HTML, CSS,* JavaScript, PHP, and MySQL, I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, all versioned in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder.
+I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can *program in HTML, CSS,* JavaScript, PHP, and MySQL; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, all versioned in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder.
 
 ## Fancy a chat?
 
 <p data-about="contact">
-If you got through this and thought “Wow I need to talk to Chris!”, I’ll take the compliment. You can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen[at]gmail[dot]com</code>!
+If you got through this and thought “Wow I need to talk to Chris!”, I’ll take the compliment. You can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr>[at]gmail[dot]com</code>!
 </p>
 
 <p class="about-quotebox">Unknown phone numbers give me anxiety.</p>

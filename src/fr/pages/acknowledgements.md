@@ -1,5 +1,5 @@
 ---
-title: Remerciements
+title: Remer&shy;ciements
 subtitle: Ou "colophon", je présume.
 summary: Quelques mercis sont en ordre…
 permalink: /fr/remerciements/
