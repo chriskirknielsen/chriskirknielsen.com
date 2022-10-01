@@ -108,7 +108,7 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		item.style.height = '';
 		item.removeAttribute('data-first');
 		item.removeAttribute('data-shown-from-to');
-		item.getAnimations().forEach((anim) => anim.finish());
+		item.getAnimations().forEach((anim) => anim.cancel());
 	}
 
 	function filterTo(filter, skipAnim = false) {
