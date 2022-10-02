@@ -7,11 +7,11 @@ permalink: /fr/remerciements/
 
 ## Détails techniques
 
-Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique. Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier styles comme scripts, injectés dans la page pour réduire les requêtes HTTP.
+Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique. Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier mes styles et scripts, injectés dans la page pour réduire les requêtes HTTP. Également de la partie : [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
 L'hébergement est fourni par [Netlify](https://netlify.com/), gratuitement, puisque je ne génère que peu de trafic… Pour autant, ça reste une bonne idée de les soutenir !
 
-Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.repo }}) ; prière de ne pas être un chenapan et voler le code et mettre votre nom dessus. Merci !
+Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.repo }}) pour voir les plugins et autres outils ; prière de ne pas être un chenapan et voler le code puis mettre votre nom dessus. Merci !
 
 ## Usages
 
@@ -44,8 +44,8 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
     J'adore travailler en vectoriel ! J'optimise mes travaux avec [SVGOMG](https://jakearchibald.github.io/svgomg/) puis j'ajuste manuellement pour que tout soit _pile poil_ comme je veux.
 -   [Fork](https://fork.dev/)
-    Un petit outil git pour m'éviter de grosses erreurs.
+    Une petite interface git pour m'éviter de grosses erreurs.
 -   [ImageOptim](https://imageoptim.com/mac)
     Superbe outil pour mieux compresser mes images.
 
-Merci d'être passé par ici, cher·ère inconnu·e, c'est fort aimable !
+Merci d'être passé par ici, cher·ère ami·e, c'est fort aimable !

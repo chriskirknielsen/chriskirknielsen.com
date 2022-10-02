@@ -7,11 +7,11 @@ permalink: /acknowledgements/
 
 ## Site Specs
 
-This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS and minify styles and scripts alike, then inline them to reduce HTTP requests.
+This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS, and to minify styles and scripts alike, then I inline them to reduce HTTP requests. Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
 Hosting is provided by [Netlify](https://netlify.com/), free of charge, since I don't generate much traffic… Still good to support these fine folks, though!
 
-You can check out the [full source code on GitHub]({{ metadata.repo }}), I only ask that you don't steal my code and slap your own name on it.
+You can check out the [full source code on GitHub]({{ metadata.repo }}) to see plugins and other packages used. I only ask that you don't steal my code and slap your own name on it.
 
 ## Uses
 
@@ -44,8 +44,8 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}), I only 
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
     I love working with vectors! I optimise my work with [SVGOMG](https://jakearchibald.github.io/svgomg/) and then manually tweak them to be _just right_.
 -   [Fork](https://fork.dev/)
-    A little git tool that helps me avoid making big mistakes.
+    A little git GUI that helps me avoid making big mistakes.
 -   [ImageOptim](https://imageoptim.com/mac)
     Beautiful tool to compress images better, you won't regret it.
 
-Thanks for stopping by, stranger, it is mighty kind of you!
+Thanks for stopping by, friend, it is mighty kind of you!

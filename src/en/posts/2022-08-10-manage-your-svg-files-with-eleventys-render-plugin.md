@@ -11,7 +11,7 @@ tags:
 templateEngineOverride: njk,md
 ---
 
-{% callout "Update", "🚨" %}[I have a new method below](#updated-method){% endcallout %}
+{% callout "Update", "🚨" %}[Wait! I have a new method below.](#updated-method){% endcallout %}
 
 Recently, I’ve been working on a new version of my site, still using Eleventy, and wanted to explore new ways to make things easier to maintain. One area that’s been a bit of a pain point for me was injecting SVGs into my templates (inline all the things!) with data. This is especially relevant if the SVG has a `<title>` element I want to localise in a different language based on the context, or change its `class` attribute based on where it’s injected. Let me tell you how my file got flipped-turned upside down!
 
@@ -96,6 +96,7 @@ eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {
     const filePath = `./src/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`;
     const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : isNjk ? 'njk' : 'html'; // HTML engine for vanilla SVG
     const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, svgOptions, engine);
+    return await content; // The await required since this is an async function!
 });
 ```
 
@@ -103,7 +104,7 @@ And to call a file, you'd write the following:
 ```njk{% raw %}
 {% svg "rss", { class: "icon", title: "RSS" } %}
 {% endraw %}```
-… or, for a non-NJK file, with the `isNjk` property set to `false`:
+… or, for a regular SVG file, with the `isNjk` property set to `false`:
 ```njk{% raw %}
 {% svg "grid", { isNjk: false } %}
 {% endraw %}```
