@@ -96,7 +96,11 @@ const purgeCssSafeList = {
 module.exports = function (eleventyConfig) {
 	/* Variables */
 	let jsminCache = {};
-	eleventyConfig.on('eleventy.before', () => (jsminCache = {}));
+	let svgCache = {};
+	eleventyConfig.on('eleventy.before', () => {
+		jsminCache = {};
+		svgCache = {};
+	});
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginRss);
@@ -191,7 +195,7 @@ module.exports = function (eleventyConfig) {
 		const cacheKey = rest.length > 0 ? rest[0] : null;
 
 		try {
-			if (cacheKey && jsminCache[cacheKey]) {
+			if (cacheKey && jsminCache.hasOwnProperty(cacheKey)) {
 				const cacheValue = await Promise.resolve(jsminCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
 				callback(null, cacheValue.code); // Access the code property of the cached value
 			} else {
@@ -260,6 +264,20 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => {
 		return inline ? md.renderInline(content) : md.render(content);
+	});
+
+	eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
+		const cacheKey = filename + '_' + JSON.stringify(svgOptions);
+		if (svgCache && svgCache.hasOwnProperty(cacheKey)) {
+			return await Promise.resolve(svgCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
+		}
+
+		const isNjk = svgOptions.hasOwnProperty('isNjk') ? svgOptions.isNjk : true;
+		const filePath = `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`;
+		const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : isNjk ? 'njk' : 'html'; // HTML for vanilla SVG
+		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, svgOptions, engine);
+		svgCache[cacheKey] = content;
+		return await content;
 	});
 
 	/* Transforms */
@@ -403,7 +421,11 @@ module.exports = function (eleventyConfig) {
 
 	// If gulp is running, wait a second!
 	eleventyConfig.setWatchThrottleWaitTime(750); // in milliseconds
-
+	// (async function () {
+	// 	let fi = eleventyConfig.plugins[3].plugin.File(`./${rootDir}/_includes/assets/svg/logo.svg.njk`, {}, 'njk');
+	// 	let fi2 = await (await fi)({ title: 'HOME' });
+	// 	console.log(fi2);
+	// })();
 	return {
 		templateFormats: ['md', 'njk', 'html'],
 		pathPrefix: '/',

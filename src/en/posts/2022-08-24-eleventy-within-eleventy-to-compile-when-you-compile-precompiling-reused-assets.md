@@ -32,8 +32,7 @@ Here’s how that particular section looks in that `head.njk` component of mine:
 })()
 {% endset %}
 <script>{{ headScript | jsmin | safe }}</script>
-{% endraw %}
-```
+{% endraw %}```
 
 Ultimately, this all works but here’s my “issue”: if, like me, you are seeing Eleventy warning you that the `jsmin` filter is taking up quite a bit of time by running in all the pages (once per page for every minified script), then read on: I have an idea! If not, your build is probably fast enough that you don't need to worry about this.
 
@@ -56,8 +55,7 @@ permalink: head-script.js
 })()
 {% endset %}
 {{ headScript | jsmin | safe }}
-{% endraw %}
-```
+{% endraw %}```
 
 {% callout %}
 I’m wrapping this in an Immediately-Invoked Function Expression (also called IIFE) so that the JS minifier can make variable names shorter. I’m also leaving the `script` tags out so that’ll be the responsibility of the `head` component, outputting this as a JS file and nothing else.
@@ -128,8 +126,7 @@ And now, when the main Eleventy build runs, it’ll run this beforehand, creatin
 
 ```njk{% raw %}
 <script>{% include 'assets/js/head-script.js' %}</script>
-{% endraw %}
-```
+{% endraw %}```
 
 The `jsmin` filter now runs once on the same piece of code instead of running on every single page using this layout. It’s a minor optimisation, for sure, but it does make my build time non-trivially faster, so I’ll take it. Given I have 2 scripts and about 80 pages, that's running it twice instead of 160 times, so technically an improvement of 98.75%, I guess? Someone who is good at maths please help me calculate this. My statistic is dying.
 
@@ -158,8 +155,7 @@ permalink: head-script.js
 })()
 {% endsetAsync %}
 {{ headScript | jsmin | safe }}
-{% endraw %}
-```
+{% endraw %}```
 
 {% callout %}
 The file is rendered with the HTML engine since that effectively passes it as plaintext, as [noted in the docs](https://www.11ty.dev/docs/languages/), preventing any unnecessary transformations on the file.

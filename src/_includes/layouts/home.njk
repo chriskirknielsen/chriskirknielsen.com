@@ -7,11 +7,11 @@ section: home
     <p class="visually-hidden">{{ 'homescreenTitle.visualDescription' | i18n }}</p>
     <div class="homescreen-content">
         <div class="homescreen-background" aria-hidden="true">
-            {% renderFile "homescreen-grid" | svgUrl, {} %}
+            {% svg "homescreen-grid", {isNjk:false} %}
         </div>
 
         <h1 class="homescreen-title">
-            {% renderFile "homescreen-title" | svgUrl, {} %}
+            {% svg "homescreen-title" %}
         </h1>
     </div>
 </div>
@@ -26,21 +26,21 @@ section: home
 
                 <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
                     <strong class="spaced-items">
-                        {% renderFile "question" | svgUrl, { class: "inline-icon" } %}
+                        {% svg "question", { class: "inline-icon" } %}
                         {{ 'page.quickAccess.about.label' | i18n }}
                     </strong>
                     <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
                 </a>
                 <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
                     <strong class="spaced-items">
-                        {% renderFile "shirt" | svgUrl, { class: "inline-icon" } %}
+                        {% svg "shirt", { class: "inline-icon" } %}
                         {{ 'page.quickAccess.designs.label' | i18n }}
                     </strong>
                     <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
                 </a>
                 <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
                     <strong class="spaced-items">
-                        {% renderFile "type" | svgUrl, { class: "inline-icon" } %}
+                        {% svg "type", { class: "inline-icon" } %}
                         {{ 'page.quickAccess.fonts.label' | i18n }}
                     </strong>
                     <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
@@ -81,7 +81,7 @@ section: home
                 <a href="{{ '/blog/' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
                 
                 <a href="{{ '/rss.xml' | locale_url }}" class="button">
-                    {% renderFile "rss" | svgUrl %}
+                    {% svg "rss" %}
                     <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
                     <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>
                 </a>

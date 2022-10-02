@@ -4,11 +4,13 @@ title: 'Manage your SVG files with Eleventy’s Render plugin'
 summary: Using renderFile to keep things tidy
 date: 2022-08-10
 metaImageBackground: 'https://images.unsplash.com/photo-1611764553921-437fb44f747a?ixlib=rb-1.2.1&q=60&cs=tinysrgb&fm=jpg&crop=entropy&w=900'
-templateEngineOverride: md
 tags:
     - eleventy
     - svg
+templateEngineOverride: njk,md
 ---
+
+{% callout "Update", "🚨" %}[I have a new method below](#updated-method){% endcallout %}
 
 Recently, I’ve been working on a new version of my site, still using Eleventy, and wanted to explore new ways to make things easier to maintain. One area that’s been a bit of a pain point for me was injecting SVGs into my templates (inline all the things!) with data. This is especially relevant if the SVG has a `<title>` element I want to localise in a different language based on the context, or change its `class` attribute based on where it’s injected. Let me tell you how my file got flipped-turned upside down!
 
@@ -16,10 +18,10 @@ Recently, I’ve been working on a new version of my site, still using Eleventy,
 
 In earlier versions of Eleventy, I would typically do something like this:
 
-```njk
+```njk{% raw %}
 {% set svgRssIconData = { class: 'icon', title: 'RSS' } %}
 {% include 'assets/svg/rss.svg.njk' %}
-```
+{% endraw %}```
 
 And within the `rss.svg.njk` file, I’d look for that `svgRssIconData` variable to add the class and title.
 
@@ -33,9 +35,9 @@ This works fine, but there are some improvements that can be made:
 
 With [Eleventy’s render plugin in v1.0.0](https://www.11ty.dev/docs/plugins/render/), this all becomes quite possible with the `renderFile` shortcode! After importing the plugin info my configuration file, this is how it looks:
 
-```njk
+```njk{% raw %}
 {% renderFile './src/_includes/assets/svg/rss.svg.njk', { class: 'icon', title: 'RSS' } %}
-```
+{% endraw %}```
 
 As you can see, it’s all on a single line, which scientifically means It’s Totally Better™, and the data that’s passed down is scoped — no more variables polluting the template! This crosses off the two first items on my list. What about the path?
 
@@ -49,9 +51,9 @@ eleventyConfig.addFilter('svgUrl', (filename) => `./src/_includes/assets/svg/${f
 
 And with the example above, I can now only use the filename and let the filter expand that into the full path, which the `renderFile` shortcode can use:
 
-```njk
+```njk{% raw %}
 {% renderFile 'rss' | svgUrl, { class: 'icon', title: 'RSS' } %}
-```
+{% endraw %}```
 
 That looks pretty concise and easy to remember in my book! I do wish I could wrap the string and filter in parentheses (like `('rss' | svgUrl)`) to compartmentalise each bit of code but sadly it doesn’t like that — if you know why please let me know!
 
@@ -65,18 +67,42 @@ eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./src/_includes/
 
 Since `isNjk` defaults to `true` here, I can ignore it in most cases, and set `false` in the few cases I need it:
 
-```njk
+```njk{% raw %}
 {% renderFile 'grid' | svgUrl(false) %}
-```
+{% endraw %}```
 
 What’s this `Unknown engine for ./src/_includes/assets/svg/grid.svg`? A render error? Well, the solution is to tell it to render as plain HTML using the shortcode’s third parameter to override the target file’s template engine — meaning the second argument must also be passed (`null` will do!):
 
-```njk
+```njk{% raw %}
 {% renderFile 'grid' | svgUrl(false), null, 'html' %}
-```
+{% endraw %}```
 
 I’m sure you could tell Eleventy to use the plain HTML engine instead in the configuration file but since this is a very rare case for me, I don’t mind handling the three parameters once in a while.
 
-I suppose there would be a way to pull in the plugin’s code and make a custom shortcode that wraps around this one to automate the path name and avoid adding the filter, but as you read before, I’m a bit lazy…
+~~I suppose there would be a way to pull in the plugin’s code and make a custom shortcode that wraps around this one to automate the path name and avoid adding the filter, but as you read before, I’m a bit lazy…~~ See the update below!
 
 I hope this is helpful to more than just myself! I’m fairly certain there are dozens of ways to inject SVGs into templates in Eleventy. I just happen to like this one the best (for now).
+
+<hr>
+
+## Updated method
+
+Turns out you can access the compiler within the Eleventy config file thanks to `eleventyConfig.nunjucksAsyncShortcodes.renderFile`. I now have a shorter (asynchronous!) shortcode that takes a filename and optional parameters. The `isNjk` parameter is folded into the SVG options to declutter things, so it's even easier to write!
+
+```js
+eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
+    const isNjk = svgOptions.hasOwnProperty('isNjk') ? svgOptions.isNjk : true;
+    const filePath = `./src/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`;
+    const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : isNjk ? 'njk' : 'html'; // HTML engine for vanilla SVG
+    const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, svgOptions, engine);
+});
+```
+
+And to call a file, you'd write the following:
+```njk{% raw %}
+{% svg "rss", { class: "icon", title: "RSS" } %}
+{% endraw %}```
+… or, for a non-NJK file, with the `isNjk` property set to `false`:
+```njk{% raw %}
+{% svg "grid", { isNjk: false } %}
+{% endraw %}```

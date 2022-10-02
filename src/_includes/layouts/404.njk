@@ -5,7 +5,7 @@ section: 404
 
 <button type="button" class="button-reset cdiv-clock-wrap" data-chime>
     {%- setAsync "clock_404" -%}
-    {%- renderFile "clock-404" | svgUrl, { ariaLabel: clock404Label } -%}
+    {%- svg "clock-404", { ariaLabel: clock404Label } -%}
     {%- endsetAsync -%}
     {{ clock_404 | htmlmin | safe }}
 </button>
@@ -14,7 +14,7 @@ section: 404
 
 <p class="u-textAlign-center">
     <a href="{{ localePath | url }}" class="button">
-        {% renderFile "arrow-back-double" | svgUrl, { class: "inline-icon" } %}
+        {% svg "arrow-back-double", { class: "inline-icon" } %}
         {{ 'nav.home' | i18n }}
     </a>
 </p>

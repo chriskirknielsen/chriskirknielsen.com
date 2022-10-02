@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-inner">
             <a href="{{ '/' | locale_url | url }}" class="header-logo">
-                {% renderFile "logo" | svgUrl, { title: ('nav.home' | i18n) } %}
+                {% svg "logo", { title: ('nav.home' | i18n) } %}
             </a>
 
             <nav class="header-nav" aria-label="{{ 'nav.label' | i18n }}">
