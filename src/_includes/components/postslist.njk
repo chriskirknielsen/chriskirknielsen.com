@@ -17,7 +17,7 @@
 			</h2>
 
 			<time class="postlist-date" datetime="{{ post.date | dateFormat({ format: 'machine' }) }}">{{ post.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
-			<p>{{- post.data.summary or post.excerpt -}}</p>
+			<p>{{ post.data.summary or post.excerpt }}{% if post.data.updated %} ({{ 'blog.updated' | i18n }} {{ post.data.updated | dateFormat({ format: 'nice', locale: lang }) }}){% endif %}</p>
 		</article>
 
 		{% if currYear != postYear %}{% set currYear = postYear %}{% endif %}

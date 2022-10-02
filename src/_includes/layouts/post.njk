@@ -16,6 +16,9 @@ templateName: post
 					{%- if loop.index > 1 %},{% endif %} <a href="{{ localePath + 'tags/' + tag | url }}/">{{ tag }}</a>
 				{%- endfor -%}
 			{%- endif -%}
+			{% if updated %}
+				({{ 'blog.updated' | i18n }} {{ updated | dateFormat({ format: 'nice', locale: lang }) }})
+			{% endif %}
 		</p>
 	</div>
 </header>

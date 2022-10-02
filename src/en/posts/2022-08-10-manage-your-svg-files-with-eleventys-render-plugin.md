@@ -3,6 +3,7 @@ slug: manage-your-svg-files-with-eleventys-render-plugin
 title: 'Manage your SVG files with Eleventy’s Render plugin'
 summary: Using renderFile to keep things tidy
 date: 2022-08-10
+updated: 2022-10-02
 metaImageBackground: 'https://images.unsplash.com/photo-1611764553921-437fb44f747a?ixlib=rb-1.2.1&q=60&cs=tinysrgb&fm=jpg&crop=entropy&w=900'
 tags:
     - eleventy

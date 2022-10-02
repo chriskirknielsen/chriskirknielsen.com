@@ -25,6 +25,7 @@
 			"usesHash": "uses"
 		},
 		"blog": {
+			"updated": "updated",
 			"yearLabel": "Posts for the year",
 			"original": "Read the original article",
 			"external": "Read the full article on",
