@@ -150,14 +150,15 @@
 			content: '';
 
 			position: fixed;
-			inset: 0 auto;
+			inset: auto auto 0;
 			z-index: #{layer-index('footer', 1)};
 
 			width: clamp(#{$body-bg-image-width}, (100% - #{$body-bg-min-width}) / 2 - #{$body-bg-image-gutter}, #{$body-bg-image-width} * 3);
-			height: 100vh;
-			height: 100dvh;
+			max-height: 100vh;
+			max-height: 100dvh;
+			aspect-ratio: 314/640; // Hardcoded aspect ratio for the image; yucky, I know…
 
-			background: url('#{$body-bg-image}') no-repeat 0 100% / 100% auto;
+			background: url('#{$body-bg-image}') no-repeat 50% 0 / 100% auto;
 		}
 
 		body::before {
@@ -402,14 +403,13 @@
 		&-label {
 			width: fit-content;
 			margin-block-end: 0.5em;
-			padding-block-start: 0.125em;
-			padding-block-end: 0;
-			padding-inline-end: calc(var(--size-m) + 2px);
+			margin-inline-start: calc(var(--size-m) * -1);
+			padding-block: 0.125em 0;
+			padding-inline: var(--size-m) var(--size-l);
 
 			font-size: 1.25em;
 			color: var(--t-color-primary-max);
 			background: var(--t-color-primary-min);
-			box-shadow: calc(var(--size-m) * -1) 0 0 var(--t-color-primary-min);
 
 			&::before {
 				content: '// ';
@@ -424,5 +424,10 @@
 	.codeblock {
 		--token-gray-med: #a85454;
 		--token-primary-med: #ff7e66;
+	}
+
+	.callout-label,
+	.codeblock::before {
+		clip-path: polygon(0 0, calc(100% - 0.25rem) 0, 100% 0.25rem, 100% 100%, 0 100%); // Cut the top-right corner
 	}
 }
