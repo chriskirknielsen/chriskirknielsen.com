@@ -127,7 +127,6 @@ module.exports = function (eleventyConfig) {
 
 	/* Filters */
 	eleventyConfig.addFilter('assetPath', (filename, subdir) => `./${rootDir}/_includes/assets/${subdir}/${filename}`);
-	eleventyConfig.addFilter('svgUrl', (filename, isNjk = true) => `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('fromJSON', (str) => JSON.parse(str));
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
@@ -419,13 +418,9 @@ module.exports = function (eleventyConfig) {
 	};
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
 
-	// If gulp is running, wait a second!
+	// If gulp is running, wait a tick!
 	eleventyConfig.setWatchThrottleWaitTime(750); // in milliseconds
-	// (async function () {
-	// 	let fi = eleventyConfig.plugins[3].plugin.File(`./${rootDir}/_includes/assets/svg/logo.svg.njk`, {}, 'njk');
-	// 	let fi2 = await (await fi)({ title: 'HOME' });
-	// 	console.log(fi2);
-	// })();
+
 	return {
 		templateFormats: ['md', 'njk', 'html'],
 		pathPrefix: '/',

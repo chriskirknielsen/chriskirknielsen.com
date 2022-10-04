@@ -230,10 +230,14 @@ html.no-js .about-facts {
 			content: attr(data-emoji);
 			position: absolute;
 
-			font-style: normal;
-			text-shadow: 0 0 1px #333, 0 0 2px #333, 0 0 4px #333;
+			padding: 0.25em;
 
-			animation: 1s var(--easing-circ-out) 1 both;
+			font-style: normal;
+			line-height: 1;
+			border-radius: 50%;
+			background: #3338;
+
+			animation: 1.5s var(--easing-circ-out) 1 both;
 			animation-name: aboutEmojiMove, aboutEmojiFade;
 		}
 
