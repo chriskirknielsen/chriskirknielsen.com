@@ -169,6 +169,10 @@ module.exports = function (eleventyConfig) {
 				return utcDate.toFormat('yyyy');
 			}
 			case 'nice': {
+				// In French, you usually say "1st" instead of "1" for the first of the month, but the rest of the days can be said as "13 October 1984", no ordinal needed
+				if (locale === 'fr' && parseInt(utcDate.toFormat('d'), 10) === 1) {
+					return `1er ${utcDate.toFormat('LLLL yyyy')}`;
+				}
 				return utcDate.toFormat('d LLLL yyyy');
 			}
 			case 'machine': {
