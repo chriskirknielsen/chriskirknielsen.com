@@ -14,8 +14,21 @@
 	}
 
 	&-image a {
+		position: relative;
+
 		display: block;
 		overflow: hidden;
+
+		&::after {
+			content: '';
+
+			z-index: 1;
+			position: absolute;
+			inset: auto 0 0;
+
+			height: 2em;
+			background: linear-gradient(transparent, 67%, #0003);
+		}
 	}
 
 	&-image a:is(:hover, :focus) img, // Firefox…
@@ -39,6 +52,24 @@
 
 		--ctx-bg: var(--t-bg-neutral-color);
 		background-color: var(--ctx-bg);
+	}
+
+	&-title {
+		position: relative;
+		z-index: 2;
+
+		margin-block-start: -1.25em;
+		margin-inline-start: -0.25em;
+
+		& > a {
+			padding-inline: 0.25em;
+
+			border-start-start-radius: var(--t-corner-radius);
+			border-start-end-radius: var(--t-corner-radius);
+			background-color: var(--ctx-bg);
+			-webkit-box-decoration-break: clone;
+			box-decoration-break: clone;
+		}
 	}
 
 	a[data-card-coverlink] {
