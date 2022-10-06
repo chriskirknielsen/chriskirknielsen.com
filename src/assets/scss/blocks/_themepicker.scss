@@ -46,6 +46,10 @@
 		transition-delay: 100ms;
 	}
 
+	&-toggle {
+		flex-shrink: 0;
+	}
+
 	&-icon {
 		width: 1.5em;
 		fill: currentColor;
@@ -75,7 +79,7 @@
 	&-item {
 		flex: 0 0 auto;
 		display: flex;
-		width: clamp(7rem, 33vw, 10rem);
+		min-width: clamp(7rem, 33vw, 10rem);
 
 		&:first-child {
 			margin-inline-start: auto;

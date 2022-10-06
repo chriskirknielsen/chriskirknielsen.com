@@ -7,10 +7,13 @@
 		display: flex;
 		gap: var(--header-gap);
 		align-items: center;
+		flex-wrap: wrap;
 		padding-block: var(--size-m);
 	}
 
 	&-logo {
+		flex: 0 1 auto;
+		min-width: 2rem;
 		margin-inline-end: auto;
 
 		color: var(--t-color-primary-med);
@@ -40,6 +43,7 @@
 	display: flex;
 	gap: var(--header-gap);
 	align-items: baseline;
+	flex-wrap: wrap;
 
 	&-item {
 	}
