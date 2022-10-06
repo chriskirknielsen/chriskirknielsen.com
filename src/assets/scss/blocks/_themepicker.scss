@@ -18,6 +18,8 @@
 	--picker-button-border-size: 2px;
 	--picker-text: var(--t-color-gray-min);
 	--picker-bg: var(--t-color-gray-max);
+	--picker-close-size: var(--size-m);
+	--picker-close-padding: var(--size-s);
 
 	position: absolute;
 	inset-block-end: 100%;
@@ -56,7 +58,7 @@
 	}
 
 	&-title {
-		padding-inline: calc(3 * var(--picker-gap));
+		padding-inline: calc(var(--picker-close-padding) * 2 + var(--picker-close-size) + var(--picker-gap));
 
 		text-align: center;
 		line-height: 1.1;
@@ -151,14 +153,14 @@
 		--close-bg: var(--t-color-secondary-max);
 
 		position: absolute;
-		inset-block-start: var(--picker-gap);
-		inset-inline-end: var(--picker-gap);
+		inset-block-start: var(--picker-close-padding);
+		inset-inline-end: var(--picker-close-padding);
 
 		padding: var(--size-2xs);
 
 		& > svg {
-			width: calc(2 * var(--picker-gap));
-			height: calc(2 * var(--picker-gap));
+			width: var(--picker-close-size);
+			height: var(--picker-close-size);
 		}
 	}
 }
