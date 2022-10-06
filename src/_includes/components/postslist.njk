@@ -16,8 +16,15 @@
 				</a>
 			</h2>
 
-			<time class="postlist-date" datetime="{{ post.date | dateFormat({ format: 'machine' }) }}">{{ post.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
-			<p>{{ post.data.summary or post.excerpt }}{% if post.data.updated %} ({{ 'blog.updated' | i18n }} {{ post.data.updated | dateFormat({ format: 'nice', locale: lang }) }}){% endif %}</p>
+			<p>
+				<time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
+				{% if post.data.updated %}
+				({{ 'blog.updated' | i18n }}{% if (post.data.updated | dateFormat) != (post.date | dateFormat) %}
+				<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ post.data.updated | dateFormat }}">{{ post.data.updated | dateFormat({ format: 'nice', locale: lang }) }}</time>{% endif %})
+				{% endif %}
+			</p>
+
+			<p>{{ post.data.summary or post.excerpt }}</p>
 		</article>
 
 		{% if currYear != postYear %}{% set currYear = postYear %}{% endif %}
