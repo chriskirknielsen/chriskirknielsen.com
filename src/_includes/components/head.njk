@@ -78,7 +78,7 @@
 	
 	{# Meta, SEO, etc. #}
 	<meta name="generator" content="{{ eleventy.generator }}">
-	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.defaultTheme.dark].colors.primary.max) | safe }}">
+	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.schemes.dark].colors.primary.max) | safe }}">
 
 	{% if summary %}
 	<meta name="description" content="{{ summary }}">

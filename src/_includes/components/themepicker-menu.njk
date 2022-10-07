@@ -9,7 +9,7 @@
         {% set themeColorB = themeVars['text-color'] | extractColorFromTokenVar(themeValues.colors) %}
         {% set themeColorC = themeVars['accent-color-alt'] | extractColorFromTokenVar(themeValues.colors) -%}
         <li class="themepicker-item" style="--themepicker-bg:{{ themeColorBg }}; --themepicker-a:{{ themeColorA }}; --themepicker-b:{{ themeColorB }}; --themepicker-c:{{ themeColorC }};">
-            <button class="themepicker-button" type="button" aria-pressed="false" data-theme-set="{{ themeKey }}">
+            <button class="themepicker-button" type="button" aria-pressed="false" data-theme-set="{{ themeKey }}" data-theme-bg="{{ themeColorBg }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" class="themepicker-palette">
                     <polygon points="54.04787 16.11595 30 30 5.95213 16.11595 30 2.23191 54.04787 16.11595"/>
                     <polygon points="30 30 30 57.76809 54.04787 43.88404 54.04787 16.11595 30 30"/>
