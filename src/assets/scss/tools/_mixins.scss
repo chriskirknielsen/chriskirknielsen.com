@@ -1,5 +1,5 @@
 @mixin generate-light-dark-vars($var, $light, $dark) {
-	--#{$var}: var(--t-#{$theme-scheme-light}, #{$light}) var(--t-#{$theme-scheme-dark}, #{$dark});
+	--#{$var}: var(--T-#{$theme-scheme-light}, #{$light}) var(--T-#{$theme-scheme-dark}, #{$dark});
 }
 
 @mixin generate-theme-vars($var-groups, $prefix: 't', $exclude: ()) {

@@ -2,7 +2,8 @@
 	.header {
 		&-logo {
 			& > svg {
-				--logo-transition: 420ms ease-in-out;
+				--logo-transition-duration: var(--T-dusk, 420ms) var(--T-dawn, 100ms);
+
 				transition: filter var(--logo-transition);
 
 				& path {
@@ -10,22 +11,19 @@
 					stroke: var(--t-color-primary-min);
 					stroke-width: 3;
 					stroke-opacity: 0;
-
-					transition: var(--logo-transition);
-					transition-property: fill, fill-opacity, stroke-opacity;
 				}
 			}
 
 			&:is(:hover, :focus) > svg {
-				filter: drop-shadow(0 0 0.0625rem currentColor) drop-shadow(0 0 0.25rem currentColor);
+				filter: var(--T-dusk, drop-shadow(0 0 0.0625rem currentColor) drop-shadow(0 0 0.25rem currentColor)) var(--T-dawn, none);
 			}
 
 			&:is(:hover, :focus) > svg path {
-				fill: var(--t-color-gray-max);
-				fill-opacity: 0;
-				stroke-opacity: 1;
+				fill: var(--T-dusk, var(--t-color-gray-max)) var(--T-dawn, var(--t-color-primary-med));
+				fill-opacity: var(--T-dusk, 0) var(--T-dawn, 1);
+				stroke-opacity: var(--T-dusk, 1) var(--T-dawn, 0);
 
-				animation: cknLogoNeon 300ms ease-in-out;
+				animation: var(--T-dusk, cknLogoNeon 300ms ease-in-out) var(--T-dawn, none);
 
 				&[data-c] {
 					animation-delay: 100ms;

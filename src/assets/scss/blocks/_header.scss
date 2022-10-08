@@ -21,20 +21,31 @@
 		text-decoration: none;
 
 		& > svg {
+			--logo-transition: var(--logo-transition-duration, 100ms) ease-in-out;
+
 			height: 1em;
 			width: auto;
 			overflow: visible;
 
+			transition: filter var(--logo-transition);
+
 			& path {
 				fill: var(--t-header-logo-fill, currentColor);
 
-				transition: inherit;
+				transition: var(--logo-transition);
 				transition-property: fill, fill-opacity, stroke-opacity;
 			}
 		}
 
 		&:is(:hover, :focus) > svg path {
 			fill: var(--t-header-logo-fill-active, var(--t-color-primary-min));
+
+			&[data-k] {
+				transition-delay: 50ms;
+			}
+			&[data-n] {
+				transition-delay: 100ms;
+			}
 		}
 	}
 }

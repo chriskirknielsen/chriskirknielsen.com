@@ -29,11 +29,11 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	@include generate-light-dark-vars('homescreen-floor-start', #f774b5, #1e0347);
 	@include generate-light-dark-vars('homescreen-grid-line', rebeccapurple, cyan);
 
-	@include generate-light-dark-vars('homescreen-sun-lower-end', #ff9ece, #1e1230);
 	--homescreen-sun-upper-top: #ff0095;
 	--homescreen-sun-upper-middle: #ffafa3;
 	--homescreen-sun-upper-bottom: #ffffe9;
 	--homescreen-sun-lower-top: #ff0095;
+	@include generate-light-dark-vars('homescreen-sun-lower-end', #ff9ece, #1e1230);
 	--homescreen-sun-glow: #ed23afbf;
 	--homescreen-sun-glow-alpha: #ed23af00;
 

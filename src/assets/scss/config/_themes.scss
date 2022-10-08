@@ -14,7 +14,7 @@ $theme-easing: get-token('easing');
 :root {
 	// Disable all themes by default
 	@each $theme-key in map-keys($theme-themes) {
-		--t-#{$theme-key}: var(--OFF);
+		--T-#{$theme-key}: var(--OFF);
 	}
 
 	// Define base scheme's common variables
@@ -34,7 +34,7 @@ $theme-easing: get-token('easing');
 		$scheme-var-val: '';
 		@each $scheme-theme-key in $scheme-themes {
 			$value: map-deep-get($theme-themes, $scheme-theme-key, 'vars', $scheme-var-key);
-			$scheme-var-val: $scheme-var-val + ' var(--t-#{$scheme-theme-key}, #{$value})';
+			$scheme-var-val: $scheme-var-val + ' var(--T-#{$scheme-theme-key}, #{$value})';
 		}
 		--_t-#{$scheme-var-key}: #{$scheme-var-val};
 	}
@@ -45,7 +45,7 @@ $theme-easing: get-token('easing');
 			$scheme-color-val: '';
 			@each $scheme-theme-key in $scheme-themes {
 				$value: map-deep-get($theme-themes, $scheme-theme-key, 'colors', $name, $weight);
-				$scheme-color-val: $scheme-color-val + ' var(--t-#{$scheme-theme-key}, #{$value})';
+				$scheme-color-val: $scheme-color-val + ' var(--T-#{$scheme-theme-key}, #{$value})';
 			}
 			// No underline prefix for colours, they are mandatory!
 			--t-#{$scheme-color-key}: #{$scheme-color-val};
@@ -64,10 +64,10 @@ $theme-easing: get-token('easing');
 	// The data-attribute only shows up with JS enabled, overwriting the prefers-color-scheme MQs, so only set these to ON when no JS is active
 	&:not([data-theme]) {
 		@media screen and (prefers-color-scheme: light) {
-			--t-#{$theme-scheme-light}: var(--ON);
+			--T-#{$theme-scheme-light}: var(--ON);
 		}
 		@media screen and (prefers-color-scheme: dark) {
-			--t-#{$theme-scheme-dark}: var(--ON);
+			--T-#{$theme-scheme-dark}: var(--ON);
 		}
 	}
 
@@ -79,7 +79,7 @@ $theme-easing: get-token('easing');
 
 	@each $theme-key, $theme-var-groups in $theme-themes {
 		&[data-theme='#{$theme-key}'] {
-			--t-#{$theme-key}: var(--ON);
+			--T-#{$theme-key}: var(--ON);
 
 			// If this isn't a default scheme, generate all the overwrite variables
 			@if (index(map-values($theme-schemes), $theme-key) == null) {
