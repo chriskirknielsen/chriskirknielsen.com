@@ -61,6 +61,8 @@ When inspiration strikes, <strong>I like to create designs</strong> that might l
 
 I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles take up most of my playlists. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years, but hey, it sounds neat to say you write music. I find playing around with *synthesisers incredibly fun*, and strumming a few chords on the guitar, despite not being excellent at it, is relaxing.
 
+{% include 'components/about/synth.njk' %}
+
 ## About me, not my marketable skills
 
 <p class="about-quotebox" data-about="personal">My English accent is weird and kind of all over the place.</p>
@@ -76,7 +78,7 @@ I am a professional, as proven by the fact I have a [LinkedIn profile](https://w
 ## Fancy a chat?
 
 <p data-about="contact">
-If you got through this and thought “Wow I need to talk to Chris!”, I’ll take the compliment. You can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr>[at]gmail[dot]com</code>!
+If you got through this and thought “Wow I need to talk to Chris!”, well, I’m flattered. You can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[at]gmail[dot]com</code>!
 </p>
 
 <p class="about-quotebox">Unknown phone numbers give me anxiety.</p>

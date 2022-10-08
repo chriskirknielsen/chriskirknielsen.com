@@ -60,6 +60,8 @@ Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui 
 
 Je suis aussi un fan de musique&nbsp;! Mes satiétés sonores tournent principalement autour du rock et de la musique électronique. J'ai un projet nommé [Chronoise](https://chronoise.com) pour mes modiques minces mélodies que je n'ai pas touché depuis des années mais bon, c'est tendance de dire que je fais de la musique. Je trouve que *les synthés sont super chouettes* et jouer quelques accords sur la guitare de temps en temps, même si je suis assez novice, est reposant.
 
+    {% include 'components/about/synth.njk' %}
+
 ## Des infos perso
 
 <p class="about-quotebox" data-about="personal">Mon accent anglais est bizarre et un peu mixte sans passer par la France.</p>
@@ -75,7 +77,7 @@ Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://w
 ## Pour discuter, c'est au clavier
 
 <p data-about="contact">
-Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je prends ça comme un compliment. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code>chriskirknielsen<wbr>[arobase]gmail<wbr>[point]com</code> !
+Si vous avez lu tout ceci et pensez "Wow il faut que je discute avec Chris&nbsp;!", je suis flatté. Vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail à <code><code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[arobase]gmail<wbr>[point]com</code></code> !
 </p>
 
 <p class="about-quotebox">Les numéros inconnus me mettent la pression.</p>
