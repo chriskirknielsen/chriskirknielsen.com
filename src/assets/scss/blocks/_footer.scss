@@ -42,7 +42,7 @@
 		}
 	}
 
-	&__logo {
+	&-logo {
 		grid-area: logo;
 		display: flex;
 		justify-content: center;
@@ -60,25 +60,25 @@
 		}
 	}
 
-	&__edit {
+	&-edit {
 		grid-area: edit;
 
 		text-align: center;
 	}
 
-	&__note {
+	&-note {
 		grid-area: note;
 	}
-	&__nav[data-footer-nav='extras'] {
+	&-nav[data-footer-nav='extras'] {
 		grid-area: xtra;
 	}
-	&__nav[data-footer-nav='lang'] {
+	&-nav[data-footer-nav='lang'] {
 		grid-area: lang;
 	}
-	&__nav[data-footer-nav='external'] {
+	&-nav[data-footer-nav='external'] {
 		grid-area: hyper;
 	}
-	&__nav li {
+	&-nav li {
 		// Little bit of spacing for accessibility
 		margin-block-start: 0.5em;
 	}

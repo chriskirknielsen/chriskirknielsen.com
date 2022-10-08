@@ -328,7 +328,7 @@
 		transition-timing-function: steps(8, jump-none);
 	}
 
-	.footer__logo {
+	.footer-logo {
 		position: relative;
 
 		background: linear-gradient(#4d90fb, #c2e6fb);
@@ -430,5 +430,9 @@
 	.codeblock::before {
 		--corner-cut: clamp(0.25rem, 0.375em, 0.75rem);
 		clip-path: polygon(0 0, calc(100% - var(--corner-cut)) 0, 100% var(--corner-cut), 100% 100%, 0 100%); // Cut the top-right corner
+	}
+
+	.footer-logo {
+		background-image: repeating-linear-gradient(var(--t-footer-border-color), var(--t-footer-border-color) 2px, var(--t-color-primary-med) 2px, var(--t-color-primary-med) 4px);
 	}
 }
