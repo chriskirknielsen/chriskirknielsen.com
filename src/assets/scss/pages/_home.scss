@@ -491,7 +491,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 }
 .subsection--writing {
 	grid-template-areas:
-		'post head'
+		'head head'
 		'post body'
 		'post ctas';
 }

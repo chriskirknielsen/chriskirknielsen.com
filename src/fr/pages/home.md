@@ -20,7 +20,7 @@ i18n:
                 label: 'Plus…'
                 usesPageLabel: 'Matos'
         writing:
-            heading: 'Écriture'
+            heading: 'Des pensées pour vos pensées'
             content: 'J’écris de manière très irrégulière, histoire de sortir des idées de ma tête. Si vous voulez me lire, voici le dernier article. J’ai aussi un flux RSS pour les intéressé·e·s!'
             blogLabel: 'Visiter le blog'
 ---

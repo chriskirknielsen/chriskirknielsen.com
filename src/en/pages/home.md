@@ -20,7 +20,7 @@ i18n:
                 label: 'Also…'
                 usesPageLabel: 'Uses'
         writing:
-            heading: 'Thoughts'
+            heading: 'Thoughts for your thoughts'
             content: 'I write quite infrequently, when ideas need expressing. If you want to read some of my ramblings, this is my latest. I’ve also got an RSS feed for the cool kids!'
             blogLabel: 'Visit the blog'
 ---

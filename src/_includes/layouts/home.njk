@@ -19,7 +19,7 @@ section: home
                     </filter>
                 </defs>
             </svg> #}
-            {% svg "homescreen-title" %}
+            {% svg "homescreen-title", { i18n: i18n } %}
         </h1>
     </div>
 </div>
@@ -67,7 +67,7 @@ section: home
 
     <div style="--flow-space:var(--size-2xl)">
         <div class="subsection subsection--writing">
-            <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
+            <h2 style="--area: head" class="u-textAlign-right">{{ 'page.writing.heading' | i18n }}</h2>
 
             <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
 
