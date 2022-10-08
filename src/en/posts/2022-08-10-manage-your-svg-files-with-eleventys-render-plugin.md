@@ -94,17 +94,22 @@ Turns out you can access the compiler within the Eleventy config file thanks to 
 eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
     const isNjk = svgOptions.hasOwnProperty('isNjk') ? svgOptions.isNjk : true;
     const filePath = `./src/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`;
-    const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : isNjk ? 'njk' : 'html'; // HTML engine for vanilla SVG
+    const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : (isNjk ? 'njk' : 'html'); // HTML engine for vanilla SVG if none is provided
     const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, svgOptions, engine);
     return await content; // The await required since this is an async function!
 });
 ```
 
 And to call a file, you'd write the following:
+
 ```njk{% raw %}
 {% svg "rss", { class: "icon", title: "RSS" } %}
 {% endraw %}```
+
 … or, for a regular SVG file, with the `isNjk` property set to `false`:
+
 ```njk{% raw %}
 {% svg "grid", { isNjk: false } %}
 {% endraw %}```
+
+No filter required for the path, all a bit cleaner and simpler. Neat!
