@@ -1,0 +1,94 @@
+// With a little help from: https://piccalil.li/tutorial/solution-002-toggle-switch/
+.toggleswitch {
+	$thumb-size: 0.875em;
+	$thumb-space: 0.1875em;
+
+	--toggle-duration: 150ms;
+
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	min-inline-size: min-content;
+	margin-inline: 0;
+	padding-block: 0;
+	padding-inline: 0;
+
+	border: none;
+
+	&-value,
+	&-back {
+		cursor: pointer;
+	}
+
+	&-toggle {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		margin: 0;
+
+		user-select: none;
+		cursor: pointer;
+	}
+
+	&-checkbox {
+		position: absolute;
+		inset: 0;
+
+		display: block;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+
+		opacity: 0;
+	}
+
+	&-back {
+		position: relative;
+
+		display: block;
+		width: #{$thumb-size * 2 + $thumb-space * 2};
+		height: #{$thumb-size + $thumb-space * 2};
+		overflow: hidden;
+
+		background-color: var(--t-text-color);
+		border-radius: #{$thumb-size};
+
+		transition: background-color var(--toggle-duration) var(--easing-in-out);
+	}
+
+	&-thumb {
+		position: absolute;
+		inset-block-start: #{$thumb-space};
+		inset-inline-start: #{$thumb-space};
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: #{$thumb-size};
+		height: #{$thumb-size};
+
+		color: var(--t-accent-color);
+		border-radius: #{$thumb-size};
+		background-color: var(--t-bg-color);
+
+		transform: none;
+
+		transition: transform var(--toggle-duration) var(--easing-in-out);
+		will-change: transform;
+		z-index: 1;
+	}
+
+	:focus-visible + &-back {
+		outline: 2px solid var(--t-accent-color);
+	}
+
+	:checked + &-back > &-thumb {
+		transform: translateX(#{$thumb-size});
+	}
+
+	:focus-visible + &-back > &-thumb {
+		outline: 2px solid currentColor;
+		outline-offset: -4px;
+	}
+}

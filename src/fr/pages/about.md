@@ -24,6 +24,9 @@ i18n:
         vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
         mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
         profile: "Moitié du visage de Chris avec le contour de sa tête, son nez, ses lunettes, sourcils et barbe dessinés"
+        synth:
+            instructions: "Maintenez la touche <code>Maj</code> pour changer d'octave"
+            keyboardMode: "Type de Clavier"
 ---
 
 **Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder.**
@@ -72,7 +75,7 @@ J'ai principalement grandi à Lyon, en France, avec mes parents danois. J'ai pas
 
 ## Un réel professionnel
 
-Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://www.linkedin.com/in/chriskirknielsen/) que je ne consulte jamais. Je sais *programmer en HTML, CSS,* JavaScript, PHP et MySQL, j'aime la **Jamstack** pour les sites statiques, comme Eleventy ou Hugo, et je suis tout aussi à l'aise avec un site **WordPress**. Sachez que la **suite Adobe** me tient à cœur, avec Photoshop, Illustrator et After Effects étant de bons amis. Ah, et je détiens la double-nationalité franco-danoise et une "Green Card" américaine.
+Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://www.linkedin.com/in/chriskirknielsen/) que je ne consulte jamais. Je sais programmer *en HTML, CSS, JavaScript, PHP et MySQL*, j'aime la **Jamstack** pour les sites statiques, comme Eleventy ou Hugo, et je suis tout aussi à l'aise avec un site **WordPress**. Sachez que la **suite Adobe** me tient à cœur, avec Photoshop, Illustrator et After Effects étant de bons amis. Ah, et je détiens la double-nationalité franco-danoise et une "Green Card" américaine.
 
 ## Pour discuter, c'est au clavier
 

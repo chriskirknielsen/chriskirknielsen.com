@@ -24,6 +24,9 @@ i18n:
         vhsImageAlt: "A VHS tape design inspired by {{ name }}"
         mugImageAlt: "A plain mug with a {{ name }} on it"
         profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
+        synth:
+            instructions: "Hold the <code>Shift</code> key to shift octaves"
+            keyboardMode: "Keyboard Layout"
 ---
 
 **I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">USA</span> who used to be a designer and who now likes to code.**
@@ -73,7 +76,7 @@ I mostly grew up in Lyon, France, to Danish parents. I did spend a year in Austr
 
 ## Speaking of skills…
 
-I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can *program in HTML, CSS,* JavaScript, PHP, and MySQL; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, all versioned in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder.
+I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can write in *HTML, CSS, JavaScript, PHP, and MySQL*; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, all versioned in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder.
 
 ## Fancy a chat?
 
