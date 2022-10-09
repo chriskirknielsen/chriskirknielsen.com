@@ -158,11 +158,6 @@ function getHz(note = 'A', octave = 4) {
 }
 
 function playKey(key) {
-	// Stop previous iteration of the note
-	const prevKey = pressedNotes.get(key);
-	stopKey(prevKey);
-	console.log(pressedNotes);
-
 	const type = getSynthType() || 'sine';
 	const adsr = getSynthAdsr();
 	const osc = audioContext.createOscillator();
@@ -195,9 +190,13 @@ function playKey(key) {
 		osc.frequency.value = freq;
 	}
 
+	// Stop previous iteration of the note
+	stopKey(clickedKey);
+
+	// Change state and play the note
 	key.element.setAttribute('aria-pressed', 'true');
-	pressedNotes.set(key, { osc, release, adsr, threshold });
-	pressedNotes.get(key).osc.start(0);
+	pressedNotes.set(JSON.stringify(key), { osc, release, adsr, threshold });
+	pressedNotes.get(JSON.stringify(key)).osc.start();
 }
 
 function stopKey(key) {
@@ -206,7 +205,7 @@ function stopKey(key) {
 	}
 	key.element.setAttribute('aria-pressed', 'false');
 
-	const note = pressedNotes.get(key);
+	const note = pressedNotes.get(JSON.stringify(key));
 	if (!note) {
 		return;
 	}
@@ -223,7 +222,7 @@ function stopKey(key) {
 			osc.stop();
 		}, 1000 * Math.max(adsr.release, threshold));
 
-		pressedNotes.delete(key);
+		pressedNotes.delete(JSON.stringify(key));
 	}
 }
 
@@ -327,4 +326,11 @@ document.addEventListener('keydown', (e) => {
 	playKey(key);
 });
 
-document.addEventListener('keyup', () => stopKey(clickedKey) && setTimeout(() => stopKey(clickedKey), 10), false);
+document.addEventListener(
+	'keyup',
+	() => {
+		console.log('letgo', clickedKey);
+		stopKey(clickedKey);
+	},
+	false
+);
