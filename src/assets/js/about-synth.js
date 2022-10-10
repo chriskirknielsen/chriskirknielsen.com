@@ -21,34 +21,56 @@ let isAzerty = false;
 let isShiftPressed = false;
 
 /* Functions */
+/** Remove the disabled attribute for all synth-related controls. */
 function enableSynth() {
 	Array.from(document.querySelectorAll('.about-synth-slider, .about-synth-waveform-button, .about-synth-key')).forEach((synthControl) => (synthControl.disabled = false));
 }
 
+/** Get the note associated to a keyboard key. */
 function getNoteByKey(key) {
 	return keyNoteMap.find((mapped) => (isAzerty ? mapped.keyAzerty : mapped.keyQwerty) === key) || false;
 }
 
+/** Get the keyboard key mapped to a note-octave pair. */
 function getKeyByNoteOctave(note, octave) {
 	return keyNoteMap.find((mapped) => mapped.note === note && mapped.octave === parseInt(octave, 10)) || false;
 }
 
+function getNoteOctaveByKey(key) {
+	return `${key.note}${key.octave}`;
+}
+
+/** Get the synth element mapped to a note-octave pair. */
+function getElementByNoteOctave(note, octave) {
+	return document.querySelector(`.about-synth-key[data-note="${note}"][data-octave="${octave}"]`) || false;
+}
+
+/** Get the synth element mapped to a note-octave pair. */
+function getNoteOctaveByElement(element) {
+	const note = element.getAttribute('data-note').trim().toUpperCase();
+	const octave = parseInt(element.getAttribute('data-octave'), 10);
+	return { note, octave };
+}
+
+/** Get the element, note and octave based on the key note. */
 function getKeyDataByKeyNote(keyNote) {
 	const octave = keyNote.octave + (isShiftPressed ? 1 : 0);
 	return {
-		element: document.querySelector(`[data-note="${keyNote.note}"][data-octave="${octave}"]`),
+		element: getElementByNoteOctave(keyNote.note, octave),
 		note: keyNote.note,
 		octave: octave,
 	};
 }
 
+/** Get whether the passed event is the shift key being pressed. */
 function isKeyEventShift(e) {
 	return e.key.toLowerCase() === 'shift';
 }
 
+/** Get the type of synth selected, defaults to `sine`. */
 function getSynthType() {
 	const slider = document.getElementById('synth-waveform');
-	switch (parseInt(slider.value, 10)) {
+	switch (slider ? parseInt(slider.value, 10) : 0) {
 		default:
 		case 1: {
 			return 'sine';
@@ -65,19 +87,21 @@ function getSynthType() {
 	}
 }
 
-function getSynthAdsr() {
-	const adsr = {
+/** Get the synth envelope settings. */
+function getSynthEnvelope() {
+	return {
 		attack: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-attack').value || 0))) / 10, // 0-1
 		decay: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-decay').value || 0))) / 2, // 0-5
 		sustain: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-sustain').value || 0))) * 10, // 0-100
 		release: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-release').value || 0))), // 0-10
 	};
-	return adsr;
 }
 
+/** Switch the keyboard layout based on the passed value or the state of the switch. */
 function setKeyboardLayout(forcedValue = null) {
 	if (forcedValue && typeof forcedValue === 'boolean') {
-		return (isAzerty = forcedValue);
+		isAzerty = forcedValue;
+		return;
 	}
 
 	const cbox = document.getElementById('about-synth-keyboard-layout-switch');
@@ -89,6 +113,7 @@ function setKeyboardLayout(forcedValue = null) {
 	return isAzerty;
 }
 
+/** Label relevant key on the keyboard based on the layout and shift state. */
 function reLabelKeys() {
 	const octaveShift = isShiftPressed ? 1 : 0;
 	const keys = Array.from(document.querySelectorAll('[data-note]'));
@@ -106,6 +131,7 @@ function reLabelKeys() {
 	});
 }
 
+/** Get a frequency based on a note and octave mao. */
 function getHz(note = 'A', octave = 4) {
 	const A4 = 440;
 	let N = 0;
@@ -157,9 +183,10 @@ function getHz(note = 'A', octave = 4) {
 	return A4 * Math.pow(2, N / 12);
 }
 
+/** Play a note based on the provided key data. */
 function playKey(key) {
 	const type = getSynthType() || 'sine';
-	const adsr = getSynthAdsr();
+	const envelope = getSynthEnvelope();
 	const osc = audioContext.createOscillator();
 	const freq = getHz(key.note, (key.octave || 0) + 1);
 	const threshold = 0.00001;
@@ -170,20 +197,21 @@ function playKey(key) {
 	osc.type = type;
 	osc.connect(attack);
 
-	/* Attack */
+	// Attack
 	attack.gain.setValueAtTime(0.00001, audioContext.currentTime);
-	if (adsr.attack > threshold) {
-		attack.gain.exponentialRampToValueAtTime(0.9, audioContext.currentTime + threshold + adsr.attack);
+	if (envelope.attack > threshold) {
+		attack.gain.exponentialRampToValueAtTime(0.9, audioContext.currentTime + threshold + envelope.attack);
 	} else {
 		attack.gain.exponentialRampToValueAtTime(0.9, audioContext.currentTime + threshold);
 	}
 	attack.connect(decay);
 
-	/* Decay */
-	decay.gain.setValueAtTime(1, audioContext.currentTime + adsr.attack);
-	decay.gain.exponentialRampToValueAtTime(adsr.sustain / 100, audioContext.currentTime + adsr.attack + adsr.decay);
+	// Decay
+	decay.gain.setValueAtTime(1, audioContext.currentTime + envelope.attack);
+	decay.gain.exponentialRampToValueAtTime(envelope.sustain / 100, audioContext.currentTime + envelope.attack + envelope.decay);
 	decay.connect(release);
 
+	// Release (handled in stopKey())
 	release.connect(audioContext.destination);
 
 	if (Number.isFinite(freq)) {
@@ -195,8 +223,8 @@ function playKey(key) {
 
 	// Change state and play the note
 	key.element.setAttribute('aria-pressed', 'true');
-	pressedNotes.set(JSON.stringify(key), { osc, release, adsr, threshold });
-	pressedNotes.get(JSON.stringify(key)).osc.start();
+	pressedNotes.set(getNoteOctaveByKey(key), { osc, release, envelope, threshold });
+	pressedNotes.get(getNoteOctaveByKey(key)).osc.start();
 }
 
 function stopKey(key) {
@@ -205,30 +233,29 @@ function stopKey(key) {
 	}
 	key.element.setAttribute('aria-pressed', 'false');
 
-	const note = pressedNotes.get(JSON.stringify(key));
+	const note = pressedNotes.get(getNoteOctaveByKey(key));
 	if (!note) {
 		return;
 	}
 	const osc = note.osc;
 	const release = note.release;
-	const adsr = note.adsr;
+	const envelope = note.envelope;
 	const threshold = note.threshold;
 
 	release.gain.setValueAtTime(0.9, audioContext.currentTime);
-	release.gain.exponentialRampToValueAtTime(0.00001, audioContext.currentTime + Math.max(adsr.release, threshold));
+	release.gain.exponentialRampToValueAtTime(0.00001, audioContext.currentTime + Math.max(envelope.release, threshold));
 
 	if (osc) {
 		setTimeout(() => {
 			osc.stop();
-		}, 1000 * Math.max(adsr.release, threshold));
+		}, 1000 * Math.max(envelope.release, threshold));
 
-		pressedNotes.delete(JSON.stringify(key));
+		pressedNotes.delete(getNoteOctaveByKey(key));
 	}
 }
 
 function triggerKey(element, note, octave) {
 	let key = { element, note, octave };
-	clickedKey = key;
 	playKey(key);
 }
 
@@ -291,6 +318,7 @@ document.addEventListener(
 		}
 		e.preventDefault();
 		triggerKey(element, element.getAttribute('data-note'), parseInt(element.getAttribute('data-octave'), 10));
+		clickedKey = { element, note: element.getAttribute('data-note'), octave: parseInt(element.getAttribute('data-octave'), 10) };
 		return false;
 	},
 	false
@@ -309,10 +337,9 @@ document.addEventListener('keydown', (e) => {
 	// If the user has a key focused and pressed either Enter or Space, play the focused note
 	if (pressedKey === 'ENTER' || pressedKey === ' ') {
 		const element = e.target.closest('[data-note]');
-		if (!element) {
-			return;
+		if (element) {
+			triggerKey(element, element.getAttribute('data-note'), parseInt(element.getAttribute('data-octave'), 10));
 		}
-		triggerKey(element, element.getAttribute('data-note'), parseInt(element.getAttribute('data-octave'), 10));
 		return;
 	}
 
@@ -322,15 +349,31 @@ document.addEventListener('keydown', (e) => {
 		return;
 	}
 	let key = getKeyDataByKeyNote(keyNote);
-	clickedKey = key;
 	playKey(key);
 });
 
 document.addEventListener(
 	'keyup',
-	() => {
-		console.log('letgo', clickedKey);
-		stopKey(clickedKey);
+	(e) => {
+		const pressedKey = e.key.toUpperCase();
+
+		// Keyboard shortcuts shouldn't get interrupted
+		if (e.altKey || e.metaKey || e.ctrlKey) {
+			return;
+		}
+
+		// If the user has a key focused and pressed either Enter or Space, play the focused note
+		if (pressedKey === 'ENTER' || pressedKey === ' ') {
+			return;
+		}
+
+		// Find the note associated with the keyboard key
+		const keyNote = getNoteByKey(pressedKey);
+		if (!keyNote) {
+			return;
+		}
+		let key = getKeyDataByKeyNote(keyNote);
+		stopKey(key);
 	},
 	false
 );
