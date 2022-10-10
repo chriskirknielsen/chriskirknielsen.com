@@ -16,6 +16,7 @@ const keyNoteMap = [
 	{ note: 'C', octave: 2, keyQwerty: 'K', keyAzerty: 'K' },
 ];
 const pressedNotes = new Map();
+const pressedKbkeys = new Set();
 let clickedKey = '';
 let isAzerty = false;
 let isShiftPressed = false;
@@ -190,12 +191,15 @@ function playKey(key) {
 	const osc = audioContext.createOscillator();
 	const freq = getHz(key.note, (key.octave || 0) + 1);
 	const threshold = 0.00001;
+	const gain = audioContext.createGain();
 	const attack = audioContext.createGain();
 	const decay = audioContext.createGain();
 	const release = audioContext.createGain();
 
 	osc.type = type;
-	osc.connect(attack);
+	osc.connect(gain);
+	gain.gain.value = ['sine', 'triangle'].includes(type) ? 1 : 0.25; // Lower volume for square and sawtooth
+	gain.connect(attack);
 
 	// Attack
 	attack.gain.setValueAtTime(0.00001, audioContext.currentTime);
@@ -222,9 +226,11 @@ function playKey(key) {
 	stopKey(clickedKey);
 
 	// Change state and play the note
+	const noteOctave = getNoteOctaveByKey(key);
 	key.element.setAttribute('aria-pressed', 'true');
-	pressedNotes.set(getNoteOctaveByKey(key), { osc, release, envelope, threshold });
-	pressedNotes.get(getNoteOctaveByKey(key)).osc.start();
+	pressedNotes.set(noteOctave, { osc, release, envelope, threshold });
+	pressedNotes.get(noteOctave).osc.start();
+	pressedKbkeys.add(noteOctave);
 }
 
 function stopKey(key) {
@@ -233,7 +239,8 @@ function stopKey(key) {
 	}
 	key.element.setAttribute('aria-pressed', 'false');
 
-	const note = pressedNotes.get(getNoteOctaveByKey(key));
+	const noteOctave = getNoteOctaveByKey(key);
+	const note = pressedNotes.get(noteOctave);
 	if (!note) {
 		return;
 	}
@@ -248,9 +255,10 @@ function stopKey(key) {
 	if (osc) {
 		setTimeout(() => {
 			osc.stop();
-		}, 1000 * Math.max(envelope.release, threshold));
+		}, 3000 * Math.max(envelope.release, threshold));
 
 		pressedNotes.delete(getNoteOctaveByKey(key));
+		pressedKbkeys.delete(noteOctave);
 	}
 }
 
@@ -334,6 +342,11 @@ document.addEventListener('keydown', (e) => {
 		return;
 	}
 
+	// Don't process repeated keys
+	if (e.repeat) {
+		return;
+	}
+
 	// If the user has a key focused and pressed either Enter or Space, play the focused note
 	if (pressedKey === 'ENTER' || pressedKey === ' ') {
 		const element = e.target.closest('[data-note]');
@@ -362,18 +375,26 @@ document.addEventListener(
 			return;
 		}
 
+		let key;
 		// If the user has a key focused and pressed either Enter or Space, play the focused note
 		if (pressedKey === 'ENTER' || pressedKey === ' ') {
-			return;
+			const element = e.target.closest('[data-note]');
+			if (element) {
+				key = { element, note: element.getAttribute('data-note'), octave: parseInt(element.getAttribute('data-octave'), 10) };
+			}
+		} else {
+			// Find the note associated with the keyboard key
+			const keyNote = getNoteByKey(pressedKey);
+			if (!keyNote) {
+				return;
+			}
+			key = getKeyDataByKeyNote(keyNote);
 		}
-
-		// Find the note associated with the keyboard key
-		const keyNote = getNoteByKey(pressedKey);
-		if (!keyNote) {
-			return;
-		}
-		let key = getKeyDataByKeyNote(keyNote);
 		stopKey(key);
+
+		if (pressedKbkeys.size === 0) {
+			console.log(pressedNotes);
+		}
 	},
 	false
 );
