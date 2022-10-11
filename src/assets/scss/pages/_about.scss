@@ -722,7 +722,7 @@ html.no-js .about-facts {
 		padding: 0.125em;
 
 		transform-origin: 50% 0;
-		perspective: calc(2 * var(--synth-white-keys) * 10em);
+		perspective: 512px;
 
 		&:not([disabled]):focus-visible {
 			outline: 3px solid var(--accent-color-alt);
@@ -766,7 +766,7 @@ html.no-js .about-facts {
 
 			&:not([disabled]):is(:active, [aria-pressed='true']) {
 				background: linear-gradient(var(--bg), hsl(65, 32%, 80%));
-				transform: rotateX(10deg);
+				transform: rotateX(-10deg);
 			}
 		}
 
