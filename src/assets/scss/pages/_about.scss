@@ -71,6 +71,7 @@
 	$profile-anim-glasses-delay: $profile-anim-hair-delay + $profile-anim-hair-duration * 0.5;
 	$profile-anim-glasses-duration: 0.5s;
 
+	position: relative;
 	float: right;
 
 	order: 1;
@@ -79,8 +80,6 @@
 	width: clamp(3rem, 1rem + 15vw, 4rem);
 	margin-block: var(--size-m);
 	margin-inline-start: var(--size-m);
-
-	transform: scaleX(-1);
 
 	@include above-medium {
 		margin-inline-start: 0;
@@ -99,7 +98,7 @@
 		content: '';
 		position: absolute;
 		inset-block: calc(var(--size-m) * -1);
-		inset-inline-end: 0;
+		inset-inline-start: 0;
 
 		width: 1.5px;
 
@@ -147,7 +146,7 @@
 	}
 
 	&:hover &-hair--brow {
-		transform: translateY(-2%) rotate(3deg);
+		transform: translateY(-2%) rotate(-3deg);
 	}
 }
 
