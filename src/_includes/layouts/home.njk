@@ -11,14 +11,15 @@ section: home
         </div>
 
         <h1 class="homescreen-title">
-            {# <svg xmlns='http://www.w3.org/2000/svg' style="position:absolute; pointer-events:none; left:-9999px;">
+            <svg xmlns='http://www.w3.org/2000/svg' style="position:absolute; pointer-events:none; left:-9999px;">
                 <defs>
                     <filter id='sarasquiggly'>
-                        <feTurbulence id='turbulence' baseFrequency='0.4 0.2' numOctaves='2' result='noise' seed='0' />
-                        <feDisplacementMap id='displacement' in='SourceGraphic' in2='noise' scale='-4' />
+                        <feTurbulence id="t" baseFrequency="0.2 0.1" numOctaves="2" result="n" />
+                        <feGaussianBlur stdDeviation="0.5" in="t" result="b"></feGaussianBlur>
+                        <feDisplacementMap id="d" in="SourceGraphic" in2="b" scale="-4" />
                     </filter>
                 </defs>
-            </svg> #}
+            </svg>
             {% svg "homescreen-title", { i18n: i18n } %}
         </h1>
     </div>
