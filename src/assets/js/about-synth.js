@@ -255,7 +255,7 @@ function stopKey(key) {
 	if (osc) {
 		setTimeout(() => {
 			osc.stop();
-		}, 3000 * Math.max(envelope.release, threshold));
+		}, 1000 * Math.max(envelope.release, threshold));
 
 		pressedNotes.delete(getNoteOctaveByKey(key));
 		pressedKbkeys.delete(noteOctave);

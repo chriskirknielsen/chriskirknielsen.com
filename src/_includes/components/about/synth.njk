@@ -83,7 +83,7 @@
         </div>
 
         <div class="about-synth-keys" style="--synth-white-keys: {{ whiteKeyCount + 1 }};">
-            {% for w in range(0, noteCount) %}
+            {# {% for w in range(0, noteCount) %}
                 {% set noteIndexW = w % 7 %}
                 {% set noteW = notes[ noteIndexW ] %}
                 {% set octaveW = ((w / 7) | round(0, "floor")) + (1 if (noteIndexW < 5) else 2) %}
@@ -97,6 +97,24 @@
                 {% set noteB = notes[ noteIndexB ] %}
                 {% set octaveB = ((b / 7) | round(0, "floor")) + (1 if (noteIndexB < 5) else 2) %}
                 {% if b % 7 !== 0 and ((b + 4) % 7 !== 0) %}
+                    <button type="button" style="--synth-key-index: {{ b + 1 }}" class="button-reset about-synth-key" data-key="black" data-note="{{ noteB }}#" data-octave="{{ octaveB }}" aria-label="{{ noteB }}#{{ octaveB }}" aria-pressed="false" disabled>
+                        <kbd class="about-synth-key-label"></kbd>
+                    </button>
+                {% endif %}
+            {% endfor %} #}
+
+            {% for w in range(0, noteCount) %}
+                {% set noteIndexW = w % 7 %}
+                {% set noteW = notes[ noteIndexW ] %}
+                {% set octaveW = ((w / 7) | round(0, "floor")) + (1 if (noteIndexW < 5) else 2) %}
+                <button type="button" style="--synth-key-index: {{ w + 1 }}" class="button-reset about-synth-key" data-key="white" data-note="{{ noteW }}" data-octave="{{ octaveW }}" aria-label="{{ noteW }}{{ octaveW }}" aria-pressed="false" disabled>
+                    <kbd class="about-synth-key-label"></kbd>
+                </button>
+                {% set b = w + 1 %}
+                {% set noteIndexB = b % 7 - 1 %}
+                {% set noteB = notes[ noteIndexB ] %}
+                {% set octaveB = ((b / 7) | round(0, "floor")) + (1 if (noteIndexB < 5) else 2) %}
+                {% if b % 7 !== 0 and ((b + 4) % 7 !== 0) and b < noteCount %}
                     <button type="button" style="--synth-key-index: {{ b + 1 }}" class="button-reset about-synth-key" data-key="black" data-note="{{ noteB }}#" data-octave="{{ octaveB }}" aria-label="{{ noteB }}#{{ octaveB }}" aria-pressed="false" disabled>
                         <kbd class="about-synth-key-label"></kbd>
                     </button>

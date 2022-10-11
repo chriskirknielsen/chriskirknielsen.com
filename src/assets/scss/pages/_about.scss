@@ -537,7 +537,7 @@ html.no-js .about-facts {
 	--case-color: #b9b2a8;
 	--case-color-alt: #8d7e67;
 	--accent-color: #71382d;
-	--accent-color-alt: #71382d;
+	--accent-color-alt: hsl(10, 80%, 51%);
 	--case-text-color: hsl(10, 10%, 15%);
 	--shadow-3d-out: inset 0.0625em 0.0625em 0.125em -0.0625em hsla(0, 0%, 100%, 0.5), inset -0.0625em -0.0625em 0.125em -0.0625em hsla(0, 0%, 0%, 0.5);
 	--shadow-3d-drop: 0.0625em 0.0625em 0.125em hsla(0, 0%, 0%, 0.25);
@@ -603,7 +603,7 @@ html.no-js .about-facts {
 			line-height: 1;
 			text-align: center;
 			text-transform: lowercase;
-			color: var(--accent-color-alt);
+			color: var(--accent-color);
 		}
 
 		&-line {
@@ -725,7 +725,7 @@ html.no-js .about-facts {
 		perspective: calc(2 * var(--synth-white-keys) * 10em);
 
 		&:not([disabled]):focus-visible {
-			outline: 3px solid var(--accent-color);
+			outline: 3px solid var(--accent-color-alt);
 			outline-offset: -3px;
 		}
 
@@ -753,6 +753,8 @@ html.no-js .about-facts {
 			--bg: hsl(65, 52%, 92%);
 			--fg: black;
 
+			z-index: 1;
+
 			grid-column: calc(2 * var(--synth-key-index) - 1) / span 2;
 			grid-row: 1 / span 2;
 
@@ -771,6 +773,8 @@ html.no-js .about-facts {
 		&[data-key='black'] {
 			--bg: #121619;
 			--fg: white;
+
+			z-index: 2;
 
 			grid-column: calc(2 * var(--synth-key-index) - 2) / span 2;
 			grid-row: 1 / span 1;
