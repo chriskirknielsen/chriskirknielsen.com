@@ -16,6 +16,7 @@ const keyNoteMap = [
 	{ note: 'C', octave: 2, keyQwerty: 'K', keyAzerty: 'K' },
 ];
 const pressedNotes = new Map();
+const pressedKeysShifted = new Map();
 const pressedKbkeys = new Set();
 let clickedKey = '';
 let isAzerty = false;
@@ -54,8 +55,8 @@ function getNoteOctaveByElement(element) {
 }
 
 /** Get the element, note and octave based on the key note. */
-function getKeyDataByKeyNote(keyNote) {
-	const octave = keyNote.octave + (isShiftPressed ? 1 : 0);
+function getKeyDataByKeyNote(keyNote, ignoreShift = false) {
+	const octave = keyNote.octave + (!ignoreShift && isShiftPressed ? 1 : 0);
 	return {
 		element: getElementByNoteOctave(keyNote.note, octave),
 		note: keyNote.note,
@@ -229,8 +230,8 @@ function playKey(key) {
 	const noteOctave = getNoteOctaveByKey(key);
 	key.element.setAttribute('aria-pressed', 'true');
 	pressedNotes.set(noteOctave, { osc, release, envelope, threshold });
-	pressedNotes.get(noteOctave).osc.start();
 	pressedKbkeys.add(noteOctave);
+	osc.start();
 }
 
 function stopKey(key) {
@@ -257,7 +258,7 @@ function stopKey(key) {
 			osc.stop();
 		}, 1000 * Math.max(envelope.release, threshold));
 
-		pressedNotes.delete(getNoteOctaveByKey(key));
+		pressedNotes.delete(noteOctave);
 		pressedKbkeys.delete(noteOctave);
 	}
 }
@@ -362,6 +363,7 @@ document.addEventListener('keydown', (e) => {
 		return;
 	}
 	let key = getKeyDataByKeyNote(keyNote);
+	pressedKeysShifted.set(pressedKey, isShiftPressed);
 	playKey(key);
 });
 
@@ -376,7 +378,7 @@ document.addEventListener(
 		}
 
 		let key;
-		// If the user has a key focused and pressed either Enter or Space, play the focused note
+		// If the user has a key focused and pressed either Enter or Space, stop the focused note
 		if (pressedKey === 'ENTER' || pressedKey === ' ') {
 			const element = e.target.closest('[data-note]');
 			if (element) {
@@ -389,6 +391,16 @@ document.addEventListener(
 				return;
 			}
 			key = getKeyDataByKeyNote(keyNote);
+
+			// If the shift key was pressed when the note started playing and is no longer pressed (or vice-versa), adjust the key to find by an octave
+			const wasTriggeredWithShift = pressedKeysShifted.get(pressedKey);
+			if (wasTriggeredWithShift && e.shiftKey === false) {
+				key.octave += 1;
+				key = getKeyDataByKeyNote(key, true);
+			} else if (!wasTriggeredWithShift && e.shiftKey === true) {
+				key.octave -= 1;
+				key = getKeyDataByKeyNote(key, true);
+			}
 		}
 		stopKey(key);
 	},
