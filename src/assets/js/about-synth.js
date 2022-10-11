@@ -391,10 +391,6 @@ document.addEventListener(
 			key = getKeyDataByKeyNote(keyNote);
 		}
 		stopKey(key);
-
-		if (pressedKbkeys.size === 0) {
-			console.log(pressedNotes);
-		}
 	},
 	false
 );

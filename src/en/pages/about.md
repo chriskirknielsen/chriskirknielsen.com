@@ -25,6 +25,7 @@ i18n:
         mugImageAlt: "A plain mug with a {{ name }} on it"
         profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
         synth:
+            label: "Synthesiser"
             instructions: "Hold the <code>Shift</code> key to shift octaves"
             keyboardMode: "Keyboard Layout"
 ---

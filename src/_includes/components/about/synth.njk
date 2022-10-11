@@ -1,18 +1,14 @@
 {% set notes = ['C','D','E','F','G','A','B'] %}
 {% set octaves = 2 %}
 {% set whitesPerOctave = 7 %}
-{% set noteCount = (octaves * whitesPerOctave) + 1 %}
-{% set keysStartX = 9.3 %}
-{% set keysStartY = 26.3 %}
-{% set whiteKeyWidth = 186.12 / noteCount | round(4) %}
-{% set blackKeyWidth = whiteKeyWidth * 2/3 | round(4) %}
 {% set whiteKeyCount = octaves * whitesPerOctave %}
+{% set noteCount = 1 + whiteKeyCount %}
 
 {% setAsync "synthMarkup" %}
 <div class="flow">
     <div
         class="about-synth"
-        aria-label="Synth"
+        aria-label="{{ 'page.synth.label' | i18n }}"
     >
         <div class="about-synth-groups">
             <div class="about-synth-group about-synth-speaker-wrap" aria-hidden="true">
@@ -20,7 +16,7 @@
             </div>
 
             <div class="about-synth-group">
-                <div class="about-synth-group-label" lang="en">WAVEFORM</div>
+                <div class="about-synth-group-label">WAVEFORM</div>
                 <div class="about-synth-group-content">
                     <div class="about-synth-waveform-labels">
                         <button onclick="document.getElementById('synth-waveform').value=1" type="button" class="button-reset about-synth-waveform-button" data-synth-type="sinewave" data-about-action="synth-set-type" aria-label="Sinewave waveform" lang="en" disabled>
@@ -88,21 +84,21 @@
 
         <div class="about-synth-keys" style="--synth-white-keys: {{ whiteKeyCount + 1 }};">
             {% for w in range(0, noteCount) %}
-                {% set noteIndex = w % 7 %}
-                {% set note = notes[ noteIndex ] %}
-                {% set octave = ((w / 7) | round(0, "floor")) + (1 if (noteIndex < 5) else 2) %}
-                <button type="button" style="--synth-key-index: {{ w + 1 }}" class="button-reset about-synth-key" data-key="white" data-note="{{ note }}" data-octave="{{ octave }}" aria-label="{{ note }}{{ octave }}" aria-pressed="false" disabled>
-                    <span class="about-synth-key-label"></span>
+                {% set noteIndexW = w % 7 %}
+                {% set noteW = notes[ noteIndexW ] %}
+                {% set octaveW = ((w / 7) | round(0, "floor")) + (1 if (noteIndexW < 5) else 2) %}
+                <button type="button" style="--synth-key-index: {{ w + 1 }}" class="button-reset about-synth-key" data-key="white" data-note="{{ noteW }}" data-octave="{{ octaveW }}" aria-label="{{ noteW }}{{ octaveW }}" aria-pressed="false" disabled>
+                    <kbd class="about-synth-key-label"></kbd>
                 </button>
             {% endfor %}
             
             {% for b in range(1, whiteKeyCount) %}
-                {% set noteIndex = b % 7 - 1 %}
-                {% set note = notes[ noteIndex ] %}
-                {% set octave = ((b / 7) | round(0, "floor")) + (1 if (noteIndex < 5) else 2) %}
+                {% set noteIndexB = b % 7 - 1 %}
+                {% set noteB = notes[ noteIndexB ] %}
+                {% set octaveB = ((b / 7) | round(0, "floor")) + (1 if (noteIndexB < 5) else 2) %}
                 {% if b % 7 !== 0 and ((b + 4) % 7 !== 0) %}
-                    <button type="button" style="--synth-key-index: {{ b + 1 }}" class="button-reset about-synth-key" data-key="black" data-note="{{ note }}#" data-octave="{{ octave }}" aria-label="{{ note }}#{{ octave }}" aria-pressed="false" disabled>
-                        <span class="about-synth-key-label"></span>
+                    <button type="button" style="--synth-key-index: {{ b + 1 }}" class="button-reset about-synth-key" data-key="black" data-note="{{ noteB }}#" data-octave="{{ octaveB }}" aria-label="{{ noteB }}#{{ octaveB }}" aria-pressed="false" disabled>
+                        <kbd class="about-synth-key-label"></kbd>
                     </button>
                 {% endif %}
             {% endfor %}
