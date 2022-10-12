@@ -118,7 +118,6 @@ summary: Shirt and poster designs by Christopher Kirk-Nielsen
 		// Don't animate in certain conditions
 		if (skipAnim || prefersReducedMotion || !Element.prototype.animate) {
 			items.forEach(function(item) {
-				resetItem(item); // Just in case
 				let tags = item.getAttribute('data-tags').split(',');
 				let isShown = (tags.indexOf(filter) > -1) || isShowAll;
 				item.setAttribute('aria-hidden', (!isShown).toString());
