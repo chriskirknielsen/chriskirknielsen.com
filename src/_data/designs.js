@@ -1,17 +1,5 @@
 module.exports = [
 	{
-		slug: 'retro-css',
-		name: 'Retro CSS',
-		description: 'A totally tubular t-shirt to show off how rad CSS is!',
-		img: 'retro-css.jpg',
-		links: {
-			RedBubble: 'https://www.redbubble.com/i/t-shirt/Retro-CSS-by-ckirknielsen/58081555.DYMRA',
-			TeePublic: 'https://www.teepublic.com/t-shirt/14125152-retro-css?store_id=49603',
-			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/retro-css/1831571/',
-		},
-		tags: ['dev', 'css', 'retro'],
-	},
-	{
 		slug: 'vhs-css',
 		name: 'Blank VHS CSS',
 		description: 'In a world where the web runs on VHS tapes…',
@@ -75,6 +63,18 @@ module.exports = [
 			Society6: 'https://society6.com/product/retro-blank-vhs-www-ecmascript_t-shirt?sku=s6-23525463p15a4v75a5v20a11v49',
 		},
 		tags: ['dev', 'www', 'vhs', 'retro'],
+	},
+	{
+		slug: 'retro-css',
+		name: 'Retro CSS',
+		description: 'A totally tubular t-shirt to show off how rad CSS is!',
+		img: 'retro-css.jpg',
+		links: {
+			RedBubble: 'https://www.redbubble.com/i/t-shirt/Retro-CSS-by-ckirknielsen/58081555.DYMRA',
+			TeePublic: 'https://www.teepublic.com/t-shirt/14125152-retro-css?store_id=49603',
+			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/retro-css/1831571/',
+		},
+		tags: ['dev', 'css', 'retro'],
 	},
 	{
 		slug: 'css-fact-sheet',
