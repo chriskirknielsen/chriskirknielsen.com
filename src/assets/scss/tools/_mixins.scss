@@ -56,6 +56,19 @@
 		}
 	}
 }
+
+@mixin subgrid($is: true) {
+	@if ($is == false) {
+		@supports not (grid-template-columns: subgrid) {
+			@content;
+		}
+	} @else {
+		@supports (grid-template-columns: subgrid) {
+			@content;
+		}
+	}
+}
+
 @mixin default-schemes($section: false) {
 	$section-selector: unquote(if($section != false, "[data-section='#{$section}']", ''));
 	$root-selector: unquote("#{$section-selector}:is(:root:not([data-theme]), [data-theme='dusk'], [data-theme='dawn'])");

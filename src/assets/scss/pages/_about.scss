@@ -927,7 +927,7 @@ html.no-js .about-facts {
 }
 
 @include above-medium {
-	@supports (grid-template-columns: subgrid) {
+	@include subgrid {
 		[data-section='about'] main.container {
 			// Add more columns within!
 			--container-inner-cols: 5;

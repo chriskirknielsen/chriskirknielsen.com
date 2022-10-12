@@ -10,7 +10,7 @@
 	padding-inline: 0;
 }
 
-@supports not (grid-template-columns: subgrid) {
+@include subgrid(false) {
 	.content-fullbleed:not(.page-content) {
 		min-width: 100vw; // Supersedes defined width or max-width
 		margin-inline-start: calc(50% - 50vw);
@@ -18,7 +18,7 @@
 	}
 }
 
-@supports (grid-template-columns: subgrid) {
+@include subgrid {
 	.container {
 		display: grid;
 		grid-template-columns:
