@@ -211,6 +211,7 @@ module.exports = [
 		similar: ['jak-daxter-powercell-hunters', 'sly-cooper-gentleman-thief'],
 	},
 	{
+		showInGallery: false,
 		slug: 'sly-cooper-gentleman-thief',
 		name: 'Sly Cooper, Gentle&shy;man Thief',
 		description: 'A design inspired by the charismatic thief, who also happens to be a raccoon… Sly Cooper.',
