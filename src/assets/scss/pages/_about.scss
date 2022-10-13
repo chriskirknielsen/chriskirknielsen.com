@@ -234,7 +234,7 @@ html.no-js .about-facts {
 			font-style: normal;
 			line-height: 1;
 			border-radius: 50%;
-			background: #3338;
+			background: #333;
 
 			animation: 1.5s var(--easing-circ-out) 1 both;
 			animation-name: aboutEmojiMove, aboutEmojiFade;
@@ -250,20 +250,20 @@ html.no-js .about-facts {
 
 		@media (prefers-reduced-motion: reduce) {
 			&::before {
-				transform: scale(1.5) translateX(-25%);
+				transform: translateX(-25%) scale(1.75);
 			}
 			&::after {
-				transform: scale(1.5) translateX(25%);
+				transform: translateX(25%) scale(1.75);
 			}
 		}
 	}
 }
 @keyframes aboutEmojiMove {
 	0% {
-		transform: scale(0) translate(calc(var(--about-magic-dir, 1) * -200%), 0);
+		transform: translate(calc(var(--about-magic-dir, 1) * -200%), 0) scale(0);
 	}
 	100% {
-		transform: scale(1.5) translate(calc(var(--about-magic-dir, 1) * 100%), -25%);
+		transform: translate(calc(var(--about-magic-dir, 1) * 100%), -25%) scale(1.75);
 	}
 }
 @keyframes aboutEmojiFade {
