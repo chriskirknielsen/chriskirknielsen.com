@@ -41,7 +41,7 @@ i18n:
 {%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
 {{- profile | htmlmin | safe }}
 
-As a kid, I spent hours on Microsoft Paint, until I discovered Photoshop (with a *totally* valid licence). I learned some code to customise MySpace pages, and eventually made my own website. I even paid for domains and hosting, and proclamed myself "webmaster" before I even had zits — the hubris. After graduating, I **studied graphic design** for 4 years, then did some freelancing mixing graphic design, video editing, and code for a few years with neat clients, before focusing on web development.
+As a kid, I spent hours on Microsoft Paint, until I discovered Photoshop (I had a *totally* valid licence). I learned some code to customise MySpace pages, and eventually made my own website. I even paid for domains and hosting, and proclamed myself "webmaster" before I even had zits — the hubris. After graduating, I **studied graphic design** for 4 years, then did some freelancing, juggling between graphic design, video editing, and code for a few years with neat clients, before focusing on web development.
 
 </div>
 
@@ -63,7 +63,7 @@ When inspiration strikes, <strong>I like to create designs</strong> that might l
 
 {% include 'components/about/vhs.njk' %}
 
-I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles take up most of my playlists. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years, but hey, it sounds neat to say you write music. I find playing around with *synthesisers incredibly fun*, and strumming a few chords on the guitar, despite not being excellent at it, is relaxing. Seriously, try it:
+I am also a music enthusiast! I listen to a lot of things, however rock- and electronica-oriented styles take up most of my playlists. I have a project called [Chronoise](https://chronoise.com) for my mediocre musical musings that I haven't actively worked on in years, but hey, it sounds neat to say you write music. It's relaxing to play a little bit of guitar, and I find toying around with *synthesisers incredibly fun*. Seriously, try it:
 
 {% include 'components/about/synth.njk' %}
 
@@ -72,17 +72,17 @@ I am also a music enthusiast! I listen to a lot of things, however rock- and ele
 <p class="about-quotebox" data-about="personal">My English accent is weird and kind of all over the place. But it's not French.</p>
 
 <p>
-I mostly grew up in Lyon, France, to Danish parents. I did spend a year in Australia as a kid, speaking English with an Aussie accent, and even held a baby koala. So if I blurt a word in French, sorry, <strong>three languages</strong> just keep blending up there. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I studied Japanese in high-school, at peak slacking-off mentality, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
+I grew up in Lyon, France, to Danish parents. I also spent a year in Australia as a kid, speaking English with an Aussie accent, and I even held a baby koala. So if I blurt a word in French, sorry, <strong>three languages</strong> just keep blending up there. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I studied Japanese in high-school, at peak slacking-off mentality, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
 </p>
 
 ## Speaking of skills…
 
-I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can write in *HTML, CSS, JavaScript, PHP, and MySQL*; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, neatly tracked in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder (yay paperwork!).
+I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can write in *HTML, CSS, JavaScript, PHP, and MySQL*; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, neatly tracked in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder (yay, paperwork!).
 
 ## Fancy a chat?
 
 <p data-about="contact">
-If reaching out to me after reading all of this is necessary, you can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[at]gmail[dot]com</code>!
+If you feel like reaching out to me, you can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[at]gmail[dot]com</code>!
 </p>
 
 <p class="about-quotebox">Unknown phone numbers give me anxiety.</p>
