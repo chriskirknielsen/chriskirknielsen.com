@@ -30,7 +30,7 @@ i18n:
             keyboardMode: "Type de Clavier"
 ---
 
-**Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder.**
+<p class="u-fontWeight-bold">Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder.</p>
 
 {% include 'components/about/random-fact.njk' %}
 
