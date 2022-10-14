@@ -13,6 +13,7 @@ facts:
     - 🤓 Aime regarder des vidéos YouTube de maths et physique malgré ne pas tout comprendre.
     - 🛹 Faisait du skateboard pendant un temps puis a décidé que jouer à Tony Hawk était plus sûr.
     - ⛰ Aimerait vraiment être une personne plus fréquemment dehors (à l'aide).
+    - 🏃‍♂️ Se fait un jogging quelques fois par semaine mais loin d'être prêt pour un marathon.
     - 🐈 Adore les animaux, merci de présenter votre chien.
     - 😴 Dort sur son côté mais se réveille sur son dos.
     - 📚 Aime apprendre mais aussi aider — n'hésitez pas à demander !
