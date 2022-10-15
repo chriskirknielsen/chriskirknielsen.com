@@ -1,14 +1,24 @@
-<div class="about-facts">
-<button type="button" data-fact="get" class="about-fact-get u-width100" style="--btn-justify-content:center">
+
+
+<details class="about-facts">
+<summary class="button | about-fact-get u-width100" style="--btn-justify-content:center">
 {% svg "question", { class: "inline-icon" } %}
-{{ 'page.randomFact' | i18n }}
-</button>
-<p data-fact="show" class="about-fact-show | u-marginInline-s u-padding-m u-background-bg-alt-color u-color-alt-color u-textAlign-center" hidden></p>
+<span data-cta-text="{{ 'page.randomFact' | i18n }}">{{ 'page.randomFacts' | i18n }}</span>
+</summary>
+
+<div class="about-fact-show | u-marginInline-s u-padding-m u-background-bg-alt-color u-color-alt-color u-textAlign-center">
+<ul data-facts class="list-naked">
+{% for fact in facts %}
+<li {% if ('Konami' in fact) %}class="nojs-hidden"{% endif %}>{{ fact }}</li>
+{% endfor %}
+</ul>
+</div>
+</details>
 
 <script>
 {% set aboutFactsScript %}
 (function(){
-	// The order of the facts is random on page load, but then each button click ensures a sequential fact so you can see them all if you really want without repetition
+	// The order of the facts is randomised on page load, but then each button click ensures a sequential fact so you can see them all if you really want without repetition
 	function shuffle(toShuffle) {
 		for (let i = (toShuffle.length - 1); i > 0; i -= 1) {
 			const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -16,8 +26,27 @@
 		}
 		return toShuffle;
 	}
-	const factDisplayEl = document.querySelector('[data-fact="show"]');
-	const facts = shuffle({{ facts | dump | safe }});
+	const facts = shuffle(Array.from(document.querySelectorAll('[data-facts] > li')).map(factEl => factEl.textContent));
+
+	const blockDetails = document.querySelector('.about-facts');
+	const blockDiv = Object.assign(document.createElement('div'), { className: blockDetails.className });
+
+	const ctaSummary = document.querySelector('.about-fact-get');
+	const ctaButton = Object.assign(document.createElement('button'), { className: ctaSummary.className });
+	ctaButton.style.setProperty('--btn-justify-content', ctaSummary.style.getPropertyValue('--btn-justify-content'));
+	const ctaIcon = ctaSummary.querySelector('.inline-icon');
+	const ctaText = document.createTextNode(ctaSummary.querySelector('[data-cta-text]').getAttribute('data-cta-text'));
+
+	const factDisplayP = document.querySelector('.about-fact-show');
+	const factDisplayEl = Object.assign(document.createElement('p'), { className: factDisplayP.className, hidden: true });
+	
+	ctaButton.appendChild(ctaIcon);
+	ctaButton.appendChild(ctaText);
+	blockDiv.appendChild(ctaButton);
+	blockDiv.appendChild(factDisplayEl);
+
+	blockDetails.replaceWith(blockDiv);
+
 	let currentFactIndex = -1;
 
 	function newFact() {
@@ -30,9 +59,9 @@
 		factDisplayEl.textContent = facts[newFactIndex];
 		currentFactIndex = newFactIndex;
 	}
-	document.querySelector('[data-fact="get"]').addEventListener('click', newFact);
+	document.querySelector('.about-fact-get').addEventListener('click', newFact);
 })()
 {% endset %}
-{{ aboutFactsScript | jsmin | safe }}
+{{ aboutFactsScript  | safe }}
 </script>
 </div>

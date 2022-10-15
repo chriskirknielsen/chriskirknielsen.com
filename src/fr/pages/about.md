@@ -6,7 +6,6 @@ subtitle: Un graphiste devenu développeur qui adore construire sur le web.
 summary: En apprendre plus sur Christopher Kirk-Nielsen
 permalink: /fr/a-propos/
 facts:
-    - 💜 Apprécie que vous lisiez ces faits
     - 👀 Connaît juste assez l'alphabet cyrillique pour le lire mais pas comprendre.
     - 🕰 Retour Vers Le Futur est probablement son film préféré.
     - ☕️ Avait l'habitude de boire du thé, maintenant c'est du café !
@@ -19,9 +18,11 @@ facts:
     - 📚 Aime apprendre mais aussi aider — n'hésitez pas à demander !
     - 🎸 Thrice est son group préféré, n'hésitez pas à demander une recommandation !
     - 👾 Connaît le code Konami, ceci n'est pas du tout un indice.
+    - 💜 Apprécie que vous lisiez ces faits.
 i18n:
     page:
         randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"
+        randomFacts: "Cliquez ici pour découvrir des faits aléatoires me concernant"
         vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
         mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
         profile: "Moitié du visage de Chris avec le contour de sa tête, son nez, ses lunettes, sourcils et barbe dessinés"
@@ -63,7 +64,7 @@ Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui 
 
 {% include 'components/about/vhs.njk' %}
 
-Surprise, j'aime la musique&nbsp;! J'écoute beaucoup de styles mais mes playlists tournent largement autour du (post-)rock et de la musique électronique. [Chronoise](https://chronoise.com) est mon projet pour mes modestes mélodies que je n'ai pas touché depuis des années mais bon, peut-être en {{ metadata.currentYear + 1 }}. C'est reposant de jouer un peu de guitare et je trouve que d'expérimenter avec un *synthé est super chouette*. Sérieusement, essayez par vous-même&nbsp;:
+Surprise, j'aime la musique&nbsp;! J'écoute beaucoup de styles mais mes playlists tournent largement autour du (post-)rock et de la musique électronique. [Chronoise](https://chronoise.com) est mon projet pour mes modestes mélodies que je n'ai pas touché depuis des années mais bon, peut-être en {{ metadata.currentYear + 1 }}. C'est reposant de jouer un peu de guitare et je trouve que d'expérimenter avec un *synthé est super chouette*. <span class="nojs-hidden">Sérieusement, essayez par vous-même&nbsp;:</span>
 
 {% include 'components/about/synth.njk' %}
 

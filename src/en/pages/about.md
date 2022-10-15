@@ -6,7 +6,6 @@ subtitle: A designer turned developer who loves building on the web.
 summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
 facts:
-    - 💜 Appreciates you reading through these facts.
     - 👀 Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences.
     - 🕰 Favourite movie is likely Back to the Future, despite some… problematic things.
     - ☕️ Used to drink lots of tea, but now it's coffee!
@@ -19,9 +18,11 @@ facts:
     - 📚 Loves learning but also helping — ask away about anything!
     - 🎸 Favourite band is Thrice, just ask for a recommendation!
     - 👾 Knows the Konami code, totally not a hint.
+    - 💜 Appreciates you reading through these facts.
 i18n:
     page:
         randomFact: "Click here to get a random fact about me"
+        randomFacts: "Click here to toggle random facts about me"
         vhsImageAlt: "A VHS tape design inspired by {{ name }}"
         mugImageAlt: "A plain mug with a {{ name }} on it"
         profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
@@ -64,7 +65,7 @@ When inspiration strikes, <strong>I like to create designs</strong> that might l
 
 {% include 'components/about/vhs.njk' %}
 
-Surprise, I like music! I listen to a lot of things, however, my playlists are largely (post-)rock and electronica flavoured. [Chronoise](https://chronoise.com) is a project for my mediocre musical musings that I haven't actively worked on in a while, but maybe in {{ metadata.currentYear + 1 }}. It's relaxing to play a little bit of guitar, and I find experimenting with *synthesisers incredibly fun*. Seriously, try it:
+Surprise, I like music! I listen to a lot of things, however, my playlists are largely (post-)rock and electronica flavoured. [Chronoise](https://chronoise.com) is a project for my mediocre musical musings that I haven't actively worked on in a while, but maybe in {{ metadata.currentYear + 1 }}. It's relaxing to play a little bit of guitar, and I find experimenting with *synthesisers incredibly fun*. <span class="nojs-hidden">Seriously, try it:</span>
 
 {% include 'components/about/synth.njk' %}
 
