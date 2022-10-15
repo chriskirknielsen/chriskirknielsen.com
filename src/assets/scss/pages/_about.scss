@@ -569,15 +569,18 @@ html.no-js .about-facts {
 	}
 
 	&-group {
-		flex: 1 0 auto;
+		flex: 0 0 auto;
 		display: flex;
 		flex-direction: column;
 		padding: 0.25em;
-		min-width: 15%;
-		width: clamp(4em, 15vw, 8em);
+		min-width: 2.25em;
 
 		border-radius: 0.125em;
 		box-shadow: var(--shadow-3d-out), var(--shadow-3d-drop);
+
+		&[data-synthgroup='waveform'] {
+			flex-grow: 0.25;
+		}
 
 		&-label {
 			&::before,
@@ -599,6 +602,7 @@ html.no-js .about-facts {
 			align-items: stretch;
 			gap: 0.25em;
 			width: 100%;
+			margin-block-end: 0.25em;
 
 			font-size: 0.5em;
 			line-height: 1;
@@ -612,7 +616,7 @@ html.no-js .about-facts {
 			gap: 0.5em;
 			justify-content: space-between;
 			flex-wrap: wrap;
-			margin-block-start: 0.25em;
+			margin: auto;
 		}
 
 		&-content {
@@ -662,7 +666,7 @@ html.no-js .about-facts {
 	}
 
 	&-branding {
-		flex: 1 1 20%;
+		flex: 0 1 25%;
 		display: flex;
 		flex-direction: column;
 		margin-inline-start: auto;
@@ -680,8 +684,7 @@ html.no-js .about-facts {
 			& > * {
 				display: inline-block;
 			}
-			& > :first-child {
-			}
+
 			& > :last-child {
 				-webkit-text-fill-color: transparent;
 				-webkit-text-stroke: currentColor;
@@ -785,10 +788,11 @@ html.no-js .about-facts {
 			color: var(--fg);
 			border-end-start-radius: 0.125em;
 			border-end-end-radius: 0.125em;
-			background: var(--bg) linear-gradient(#181d19 5%, #090d0e, #292f34, #121619 10%, #121619 80%, #292f34, #090d0e, #181d19 90%);
+			background: var(--bg) linear-gradient(#181d19 5%, #090d0e, #292f34, #121619 10%, #121619 80%, #292f34, #0f1415, var(--synth-black-tip, hsl(132, 5%, 15%)) 90%);
 			box-shadow: 0 0.125em 0.25em hsla(0, 0%, 0%, 0.5), var(--shadow-3d-out);
 
 			&:not([disabled]):is(:active, [aria-pressed='true']) {
+				--synth-black-tip: hsl(132, 9%, 10%);
 				margin-block-end: 0.125em;
 				box-shadow: 0 0.125em 0.125em hsla(0, 0%, 0%, 0.75), var(--shadow-3d-out);
 			}
@@ -799,8 +803,9 @@ html.no-js .about-facts {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin: 0 auto;
 
-		> label {
+		& > label {
 			font-size: 0.5em;
 		}
 	}
@@ -809,6 +814,10 @@ html.no-js .about-facts {
 		width: 100%;
 
 		line-height: 0.5;
+
+		&[data-dir='h'] {
+			display: flex;
+		}
 
 		&[data-dir='v'] {
 			width: var(--thumb-thickness);
@@ -823,6 +832,11 @@ html.no-js .about-facts {
 
 		background: transparent;
 		box-shadow: none;
+
+		[data-dir='h'] & {
+			flex: 1 0 0;
+			width: 0;
+		}
 
 		[data-dir='v'] & {
 			width: var(--track-vertical-height);

@@ -7,9 +7,9 @@ permalink: /acknowledgements/
 
 ## Site Stuff
 
-This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS, and to minify styles and scripts alike, then I inline them to reduce HTTP requests, and this whole this is hosted via [Netlify](https://netlify.com/). Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
+This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS, and to minify styles and scripts alike. I then inline that to reduce HTTP requests, and this whole thing is hosted via [Netlify](https://netlify.com/). Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
-The theme picker is more than a little inspired by [Max Böck's own](https://mxb.dev), and the synth on the [About page](/about/) is based on [Bret Cameron's tutorial](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/), and extended with envelope shaping by peeking at [Daniel Schulz's code](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+The theme picker is more than a little inspired by [Max Böck's own](https://mxb.dev), and the synth on the [About page](/about/) is based on [Bret Cameron's tutorial](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/), and extended with envelope shaping and lowpass filtering by peeking at [Daniel Schulz's code](https://iamschulz.com/building-a-synthesizer-in-javascript/).
 
 You can check out the [full source code on GitHub]({{ metadata.repo }}) to see plugins and other packages used. I only ask that you don't steal my code and slap your own name on it.
 
@@ -26,7 +26,7 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}) to see p
 -   [Fully's Remi Standing Desk](https://www.fully.com/standing-desks/remi-standing-desk.html)
     I sit a lot, so having a desk that easily goes from sitting to standing is really helpful.
 -   [ErGear Dual Monitor Arms](https://www.amazon.com/gp/product/B085Y4HW8S?linkCode=as2&tag=ratcgala-20)
-    Frees up some space on my desk with easily adjusted position, good stuff.
+    Frees up some space on my desk with easily adjusted positions, good stuff.
 -   [Sony MDR-XB50AP in-ear headphones](https://www.amazon.com/Sony-MDRXB50AP-Extra-Earbud-Headset/dp/B00JRD13T8?linkCode=as2&tag=ratcgala-20)
     Simple, reliable earbuds for "casual" audio listening, and useful for video meetings.
 -   [Sony MDR-XB950N1 over-ear headphones](https://www.amazon.com/Sony-Wireless-Headphones-Bluetooth-Canceling/dp/B07KKMGG6H?linkCode=as2&tag=ratcgala-20)
@@ -37,7 +37,7 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}) to see p
 -   [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
     I've been using Firefox since version 3 or something, and it's never disappointed me — love the CSS DevTools!
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    Love how powerful and extendable this editor is! I notably use these additions:
+    Love how powerful and customisable this editor is! I notably use these extensions:
     -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): A beautiful neon-infused theme.
     -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Keeps all my code harmoniously formatted.
     -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): My own CSS easing preview tool.

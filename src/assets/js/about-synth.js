@@ -96,6 +96,7 @@ function getSynthEnvelope() {
 		decay: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-decay').value || 0))) / 2, // 0-5
 		sustain: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-sustain').value || 0))) * 10, // 0-100
 		release: Math.min(10, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-release').value || 0))), // 0-10
+		filter: Math.min(100, Math.max(0.00001, parseFloat(document.getElementById('synth-osc-filter').value || 0))) * 10, // 0-1000
 	};
 }
 
@@ -196,6 +197,8 @@ function playKey(key) {
 	const attack = audioContext.createGain();
 	const decay = audioContext.createGain();
 	const release = audioContext.createGain();
+	const filter = audioContext.createBiquadFilter();
+	const filterOffset = 100; // Set the minimum audible frequency to offset from the input filter frequency
 
 	osc.type = type;
 	osc.connect(gain);
@@ -217,7 +220,15 @@ function playKey(key) {
 	decay.connect(release);
 
 	// Release (handled in stopKey())
-	release.connect(audioContext.destination);
+	release.connect(envelope.filter <= 1000 ? filter : audioContext.destination);
+
+	// Filter
+	if (envelope.filter <= 1000) {
+		filter.type = 'lowpass';
+		filter.frequency.value = envelope.filter + filterOffset;
+		filter.Q.value = 1;
+		filter.connect(audioContext.destination);
+	}
 
 	if (Number.isFinite(freq)) {
 		osc.frequency.value = freq;

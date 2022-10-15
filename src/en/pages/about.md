@@ -42,7 +42,7 @@ i18n:
 {%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
 {{- profile | htmlmin | safe }}
 
-As a kid, I spent hours on Microsoft Paint, until I discovered Photoshop (I had a *totally* valid licence). I learned some code to customise MySpace pages, and eventually made my own websites. I even paid for domains and hosting, and proclamed myself **"webmaster"** before I even had zits — the hubris. After graduating, I **studied graphic design** for 4 years, then did some freelancing, juggling between graphic design, video editing, and code for a few years with neat clients, before focusing on **web development.**
+As a kid, I spent hours on Microsoft Paint, until I discovered Photoshop (I had a *totally* valid licence). I learned some code to customise MySpace pages, and eventually made my own websites. I even paid for domains and hosting, and proclamed myself **"webmaster"** before I even had zits — the hubris. After graduating, I **studied graphic design** for 4 years, then did some freelancing, juggling between design work, video editing, and code for a few years with neat clients, before focusing on **web development.**
 
 </div>
 
@@ -57,7 +57,7 @@ I have contributed to a few open source projects, but only in small ways; if it 
 ## Still creative, on occasion
 
 <p data-about="creative">
-When inspiration strikes, <strong>I like to create designs</strong> that might look good on a t-shirt — still getting those creative juices flowing! You can check all those out in the <a href="/designs/">Designs "Shop"</a> if you're interested; it's got lots of dev-related designs, and a few <em class="about-emoji" data-emoji="🌴">'80s aesthetics</em> (my favourite!). I also play video games from time to time and enjoy movies, so if you want to make my day, a movie quote might work (or puns… <em>I really love puns</em>). You might want to know that <a href="/fonts/">I've created a few typefaces</a> — I consider myself a font nerd and will (try to) recognise the font used for every logo until my last breath.
+When inspiration strikes, <strong>I like to create designs</strong> that might look good on a t-shirt — still getting those creative juices flowing! You can check all those out in the <a href="/designs/">Designs "Shop"</a> if you're interested; it's got lots of dev-related designs, and a few <em class="about-emoji" data-emoji="🌴">'80s aesthetics</em> (my favourite!). I also enjoy movies and play video games from time to time, so if you want to make my day, a movie quote might work (or puns… <em>I really love puns</em>). You might want to know that <a href="/fonts/">I've created a few typefaces</a> — I consider myself a font nerd and will (try to) recognise the font used for every logo until my last breath.
 </p>
 
 <p class="about-quotebox">They used frickin’ Helvetica again! They can’t keep getting away with it!</p>
@@ -73,12 +73,12 @@ Surprise, I like music! I listen to a lot of things, however, my playlists are l
 <p class="about-quotebox" data-about="personal">My English accent is weird and kind of all over the place. But it's not French.</p>
 
 <p>
-I grew up in Lyon, France, to Danish parents. I also spent a year in Australia as a kid, speaking English with an Aussie accent, and I even held a baby koala. So if I blurt a word in French, sorry, <strong>three languages</strong> just keep blending that bald head of mine. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I took Japanese in high-school, but didn't apply myself, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
+I grew up in Lyon, France, to Danish parents. Australia was also my home for a year as a kid, speaking English with a Down Under accent, and I even held a baby koala. So if I blurt a word in French, sorry, <strong>three languages</strong> just keep blending in that bald head of mine. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I took Japanese in high-school, but didn't apply myself, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
 </p>
 
 ## Profesh A.F.
 
-I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can write in *HTML, CSS, JavaScript, PHP, and MySQL*; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, neatly tracked in repositories. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder (yay, paperwork!).
+I am a professional, as proven by the fact I have a [LinkedIn profile](https://www.linkedin.com/in/chriskirknielsen/) that I ignore. I can write in *HTML, CSS, JavaScript, PHP, and MySQL*; I favour the **Jamstack** for static sites, like Eleventy or Hugo, but I'm equally comfortable with a **WordPress** setup, neatly tracked in a repository. You'll also find that the **Adobe Creative Suite** is dear to me; my usual suspects are Photoshop, Illustrator, and After Effects. Oh, and I'm a French/Danish dual-citizen, and a US "Green Card" holder (yay, paperwork!).
 
 ## Fancy a chat?
 

@@ -15,7 +15,7 @@
                 <div class="about-synth-speaker"></div>
             </div>
 
-            <div class="about-synth-group">
+            <div class="about-synth-group" data-synthgroup="waveform">
                 <div class="about-synth-group-label">WAVEFORM</div>
                 <div class="about-synth-group-content">
                     <div class="about-synth-waveform-labels">
@@ -35,7 +35,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12"><path fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 10V2l16 8V2"/></svg>
                         </button>
                     </div>
-                    <div class="about-synth-slider-wrap">
+                    <div class="about-synth-slider-wrap" data-dir="h">
                         <input class="about-synth-slider" type="range" min="1" max="4" step="1" id="synth-waveform" value="1" disabled>
                     </div>
                 </div>
@@ -66,6 +66,18 @@
                         <label for="synth-osc-release" aria-label="Release" title="Release">RLS</label>
                         <div class="about-synth-slider-wrap" data-dir="v">
                             <input class="about-synth-slider" id="synth-osc-release" type="range" min="0" max="10" step="1" value="2" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-synth-group">
+                <div class="about-synth-group-label">Filter</div>
+                <div class="about-synth-group-line">
+                    <div  class="about-synth-slider-control">
+                        <label for="synth-osc-filter" aria-label="Lowpass Filter" title="Lowpass Filter">LPF</label>
+                        <div class="about-synth-slider-wrap" data-dir="v">
+                            <input class="about-synth-slider" id="synth-osc-filter" type="range" min="0" max="100" step="1" value="100" disabled>
                         </div>
                     </div>
                 </div>
