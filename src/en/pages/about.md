@@ -42,11 +42,11 @@ i18n:
 {%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
 {{- profile | htmlmin | safe }}
 
-As a kid, I spent hours on Microsoft Paint, until I discovered Photoshop (I had a *totally* valid licence). I learned some code to customise MySpace pages, and eventually made my own websites. I even paid for domains and hosting, and proclamed myself **"webmaster"** before I even had zits — the hubris. After graduating, I **studied graphic design** for 4 years, then did some freelancing, juggling between design work, video editing, and code for a few years with neat clients, before focusing on **web development.**
+As a kid, I spent hours on Microsoft Paint, until I discovered Photoshop (I had a *totally* valid licence). I learned some code to customise MySpace pages, and eventually made my own websites. I even paid for domains and hosting, and proclaimed myself **"webmaster"** before I even had zits — the hubris. After graduating, I **studied graphic design** for 4 years, then did some freelancing, juggling between design work, video editing, and code for a few years with neat clients, before focusing on **web development.**
 
 </div>
 
-Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, trying to make **accessible and performant** web pages, and learning new things in this constantly evolving field.
+Writing code and having a thing show up on the screen felt (and still feels) a little like <em class="about-emoji" data-emoji="✨">magic</em>. Currently, I work at MOJO PSG as a senior front-end dev with a wonderful team, striving to make **accessible and performant** web pages, and learning new things in this constantly evolving field.
 
 {% include 'components/about/visubezier.njk' %}
 
@@ -73,7 +73,7 @@ Surprise, I like music! I listen to a lot of things, however, my playlists are l
 <p class="about-quotebox" data-about="personal">My English accent is weird and kind of all over the place. But it's not French.</p>
 
 <p>
-I grew up in Lyon, France, to Danish parents. Australia was also my home for a year as a kid, speaking English with a Down Under accent, and I even held a baby koala. So if I blurt a word in French, sorry, <strong>three languages</strong> just keep blending in that bald head of mine. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I took Japanese in high-school, but didn't apply myself, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
+I grew up in Lyon, France, to Danish parents. Australia was also my home for a year as a kid, speaking English with a Down Under accent, and I even held a baby koala. So if I blurt a word in French, sorry, <strong>three languages</strong> just keep blending in that bald head of mine. I do know a decent amount of Italian but lose all composure speaking to natives — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> I took Japanese in high school, but didn't apply myself, so I'm not good at it, but DuoLingo is <del>trying</del> threatening to help. Anyways, I find languages fascinating!
 </p>
 
 ## Profesh A.F.

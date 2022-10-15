@@ -7,9 +7,9 @@ permalink: /fr/remerciements/
 
 ## Trucs Techniques
 
-Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique. Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier mes styles et scripts, injectés dans la page pour réduire les requêtes HTTP, le tout hébergé par [Netlify](https://netlify.com/). Également de la partie : [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
+Ce site est bâti avec [{{ eleventy.generator }}](https://www.11ty.dev/), un superbe générateur de site statique. Je me sers de [gulp](https://gulpjs.com/) pour compiler mon Sass en CSS et minifier mes styles et scripts. C'est ensuite injecté dans la page pour réduire les requêtes HTTP, le tout hébergé par [Netlify](https://netlify.com/). Également de la partie : [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
-Le sélecteur de thème est plus qu'un peu inspiré par [celui de Max Böck](https://mxb.dev) et le synthé sur la page [À Propos](/fr/a-propos/) est basé sur [le tutoriel de Bret Cameron](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) et amélioré avec le choix d'enveloppe en m'appuyant sur [le code de Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Böck](https://mxb.dev) et le synthé sur la page [À Propos](/fr/a-propos/) est basé sur [le tutoriel de Bret Cameron](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) et amélioré avec le choix d'enveloppe et filtre en m'appuyant sur [le code de Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
 
 Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.repo }}) pour voir les plugins et autres outils ; prière de ne pas être un chenapan et voler le code puis mettre votre nom dessus. Merci !
 
@@ -30,7 +30,7 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
 -   [Sony MDR-XB50AP in-ear headphones](https://amzn.to/3x6jtDt)
     Des écouteurs simples et durables pour une écoute détendue, et pratique pour les réunions vidéo.
 -   [Sony MDR-XB950N1 over-ear headphones](https://amzn.to/3h0jhAe)
-    Un casque de qualité pour une écoute "concentrée", avec fonction anti-bruit.
+    Un casque de qualité pour une écoute "concentrée", avec fonction réduction de bruit.
 
 ### Applis
 

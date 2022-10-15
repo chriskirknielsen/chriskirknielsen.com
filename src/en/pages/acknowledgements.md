@@ -40,7 +40,7 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}) to see p
     Love how powerful and customisable this editor is! I notably use these extensions:
     -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): A beautiful neon-infused theme.
     -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Keeps all my code harmoniously formatted.
-    -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): My own CSS easing preview tool.
+    -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): My own CSS easing function preview tool.
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
     I love working with vectors! I optimise my work with [SVGOMG](https://jakearchibald.github.io/svgomg/) and then manually tweak them to be _just right_.
 -   [Fork](https://fork.dev/)
