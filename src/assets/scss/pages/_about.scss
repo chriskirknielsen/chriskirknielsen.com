@@ -182,10 +182,13 @@
 .about-fact-get {
 	position: relative;
 	z-index: 1;
+
 	.inline-icon {
 		transition: transform 100ms;
 	}
-	&:active .inline-icon {
+
+	&:active .about-facts-icon,
+	.about-facts[open] & .about-facts-icon {
 		transform: translateY(3px);
 	}
 }
@@ -197,6 +200,19 @@
 	.about-fact-show:not([hidden]),
 	.about-facts[open] .about-fact-show {
 		animation: fadeDown 500ms var(--easing-circ-out) 1 backwards;
+	}
+}
+ul[data-facts] {
+	padding-inline-start: 1em;
+
+	list-style-position: outside;
+}
+li[data-fact-emoji] {
+	& + & {
+		margin-block-start: 0.375em;
+	}
+	&::marker {
+		content: attr(data-fact-emoji) ' ';
 	}
 }
 

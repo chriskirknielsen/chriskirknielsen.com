@@ -2,14 +2,14 @@
 
 <details class="about-facts">
 <summary class="button | about-fact-get u-width100" style="--btn-justify-content:center">
-{% svg "question", { class: "inline-icon" } %}
+{% svg "question", { class: "about-facts-icon inline-icon" } %}
 <span data-cta-text="{{ 'page.randomFact' | i18n }}">{{ 'page.randomFacts' | i18n }}</span>
 </summary>
 
 <div class="about-fact-show | u-marginInline-s u-padding-m u-background-bg-alt-color u-color-alt-color u-textAlign-center">
-<ul data-facts class="list-naked">
-{% for fact in facts %}
-<li {% if ('Konami' in fact) %}class="nojs-hidden"{% endif %}>{{ fact }}</li>
+<ul data-facts class="u-textAlign-left">
+{% for emoji, fact in facts %}
+<li data-fact-emoji="{{ emoji }}" {% if ('Konami' in fact) %}class="nojs-hidden"{% endif %}>{{ fact }}</li>
 {% endfor %}
 </ul>
 </div>
@@ -26,7 +26,7 @@
 		}
 		return toShuffle;
 	}
-	const facts = shuffle(Array.from(document.querySelectorAll('[data-facts] > li')).map(factEl => factEl.textContent));
+	const facts = shuffle(Array.from(document.querySelectorAll('[data-facts] > li')).map(factEl => `${factEl.getAttribute('data-fact-emoji')} ${factEl.textContent}`));
 
 	const blockDetails = document.querySelector('.about-facts');
 	const blockDiv = Object.assign(document.createElement('div'), { className: blockDetails.className });
@@ -34,7 +34,7 @@
 	const ctaSummary = document.querySelector('.about-fact-get');
 	const ctaButton = Object.assign(document.createElement('button'), { className: ctaSummary.className });
 	ctaButton.style.setProperty('--btn-justify-content', ctaSummary.style.getPropertyValue('--btn-justify-content'));
-	const ctaIcon = ctaSummary.querySelector('.inline-icon');
+	const ctaIcon = ctaSummary.querySelector('.about-facts-icon');
 	const ctaText = document.createTextNode(ctaSummary.querySelector('[data-cta-text]').getAttribute('data-cta-text'));
 
 	const factDisplayP = document.querySelector('.about-fact-show');
@@ -64,4 +64,3 @@
 {% endset %}
 {{ aboutFactsScript  | safe }}
 </script>
-</div>

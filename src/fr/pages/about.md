@@ -6,19 +6,19 @@ subtitle: Un graphiste devenu développeur qui adore construire sur le web.
 summary: En apprendre plus sur Christopher Kirk-Nielsen
 permalink: /fr/a-propos/
 facts:
-    - 👀 Connaît juste assez l'alphabet cyrillique pour le lire mais pas comprendre.
-    - 🕰 Retour Vers Le Futur est probablement son film préféré.
-    - ☕️ Avait l'habitude de boire du thé, maintenant c'est du café !
-    - 🤓 Aime regarder des vidéos YouTube de maths et physique malgré ne pas tout comprendre.
-    - 🛹 Faisait du skateboard pendant un temps puis a décidé que jouer à Tony Hawk était plus sûr.
-    - ⛰ Aimerait vraiment être une personne plus fréquemment dehors (à l'aide).
-    - 🏃‍♂️ Se fait un jogging quelques fois par semaine mais loin d'être prêt pour un marathon.
-    - 🐈 Adore les animaux, merci de présenter votre chien.
-    - 😴 Dort sur son côté mais se réveille sur son dos.
-    - 📚 Aime apprendre mais aussi aider — n'hésitez pas à demander !
-    - 🎸 Thrice est son group préféré, n'hésitez pas à demander une recommandation !
-    - 👾 Connaît le code Konami, ceci n'est pas du tout un indice.
-    - 💜 Apprécie que vous lisiez ces faits.
+    - ["👀", "Connaît juste assez l'alphabet cyrillique pour le lire mais pas comprendre."]
+    - ["🕰", "Retour Vers Le Futur est probablement son film préféré."]
+    - ["☕️", "Avait l'habitude de boire du thé, maintenant c'est du café !"]
+    - ["🤓", "Aime regarder des vidéos YouTube de maths et physique malgré ne pas tout comprendre."]
+    - ["🛹", "Faisait du skateboard pendant un temps puis a décidé que jouer à Tony Hawk était plus sûr."]
+    - ["⛰", "Aimerait vraiment être une personne plus fréquemment dehors (à l'aide)."]
+    - ["🏃‍♂️", "Se fait un jogging quelques fois par semaine mais loin d'être prêt pour un marathon."]
+    - ["🐈", "Adore les animaux, merci de présenter votre chien."]
+    - ["😴", "Dort sur son côté mais se réveille sur son dos."]
+    - ["📚", "Aime apprendre mais aussi aider — n'hésitez pas à demander !"]
+    - ["🎸", "Thrice est son group préféré, n'hésitez pas à demander une recommandation !"]
+    - ["👾", "Connaît le code Konami, ceci n'est pas du tout un indice."]
+    - ["💜", "Apprécie que vous lisiez ces faits."]
 i18n:
     page:
         randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"

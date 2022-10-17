@@ -226,7 +226,7 @@ function playKey(key) {
 	if (envelope.filter <= 1000) {
 		filter.type = 'lowpass';
 		filter.frequency.value = envelope.filter + filterOffset;
-		filter.Q.value = 1;
+		filter.Q.value = 1; // Resonance
 		filter.connect(audioContext.destination);
 	}
 

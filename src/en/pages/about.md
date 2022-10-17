@@ -6,19 +6,19 @@ subtitle: A designer turned developer who loves building on the web.
 summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
 facts:
-    - 👀 Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences.
-    - 🕰 Favourite movie is likely Back to the Future, despite some… problematic things.
-    - ☕️ Used to drink lots of tea, but now it's coffee!
-    - 🤓 Enjoys maths/physics YouTube videos despite not grasping everything.
-    - 🛹 Practiced skateboarding for a while, then decided playing Tony Hawk was safer.
-    - ⛰ Truly wishes to be a more outdoorsy person (help).
-    - 🏃‍♂️ Runs a few times a week, but still far from marathon-ready.
-    - 🐈 Loves animals, please introduce your pet.
-    - 😴 Sleeps on his side but wakes up on his back.
-    - 📚 Loves learning but also helping — ask away about anything!
-    - 🎸 Favourite band is Thrice, just ask for a recommendation!
-    - 👾 Knows the Konami code, totally not a hint.
-    - 💜 Appreciates you reading through these facts.
+    - ["👀", "Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences."]
+    - ["🕰", "Favourite movie is likely Back to the Future, despite some… problematic things."]
+    - ["☕️", "Used to drink lots of tea, but now it's coffee!"]
+    - ["🤓", "Enjoys maths/physics YouTube videos despite not grasping everything."]
+    - ["🛹", "Practiced skateboarding for a while, then decided playing Tony Hawk was safer."]
+    - ["⛰", "Truly wishes to be a more outdoorsy person (help)."]
+    - ["🏃‍♂️", "Runs a few times a week, but still far from marathon-ready."]
+    - ["🐈", "Loves animals, please introduce your pet."]
+    - ["😴", "Sleeps on his side but wakes up on his back."]
+    - ["📚", "Loves learning but also helping — ask away about anything!"]
+    - ["🎸", "Favourite band is Thrice, just ask for a recommendation!"]
+    - ["👾", "Knows the Konami code, totally not a hint."]
+    - ["💜", "Appreciates you reading through these facts."]
 i18n:
     page:
         randomFact: "Click here to get a random fact about me"
