@@ -137,19 +137,36 @@
 
     <div class="about-synth-instructions | nojs-hidden">
         <fieldset class="toggleswitch">
-            <label class="toggleswitch-label" for="about-synth-keyboard-layout-switch">
-                {{ 'page.synth.keyboardMode' | i18n }}{{ 'grammar.punctSp' |i18n }}:
-            </label>
+            <legend class="visually-hidden">{{ 'page.synth.keyboardMode' | i18n }}</legend>
+            <span class="toggleswitch-label" aria-hidden="true" for="about-synth-keyboard-layout-switch">
+                {{ 'page.synth.keyboardMode' | i18n }}{{ 'grammar.punctSp' | i18n }}:
+            </span>
             
-            <span class="toggleswitch-value" data-value="false">QWERTY</span>
+            <span class="toggleswitch-value" id="synth-layoutmode-off" data-value="false">
+                <span class="visually-hidden">{{ 'grammar.offWord' | i18n }}{{ 'grammar.punctSp' |i18n }}: </span>
+                QWERTY<span class="visually-hidden">.</span>
+            </span>
+
+            <span class="toggleswitch-value" id="synth-layoutmode-on" data-value="true">
+                <span class="visually-hidden">{{ 'grammar.onWord' | i18n }}{{ 'grammar.punctSp' |i18n }}: </span>
+                AZERTY<span class="visually-hidden">.</span>
+            </span>
+
             <span class="toggleswitch-toggle">
-                <input type="checkbox" role="switch" aria-checked="{% if lang == 'fr' %}true{% else %}false{% endif %}" {% if lang == 'fr' %}checked{% endif %} class="toggleswitch-checkbox" id="about-synth-keyboard-layout-switch">
+                <input
+                    type="checkbox"
+                    role="switch"
+                    aria-checked="{% if lang == 'fr' %}true{% else %}false{% endif %}"
+                    {% if lang == 'fr' %}checked{% endif %}
+                    class="toggleswitch-checkbox"
+                    id="about-synth-keyboard-layout-switch"
+                    aria-labelledby="synth-layoutmode-off synth-layoutmode-on"
+                >
 
                 <label class="toggleswitch-back" aria-hidden="true" for="about-synth-keyboard-layout-switch">
-                    <span class="toggleswitch-thumb"></span>
+                    <span class="toggleswitch-thumb" aria-label="{{ 'page.synth.keyboardMode' | i18n }}"></span>
                 </label>
             </span>
-            <span class="toggleswitch-value" data-value="true">AZERTY</span>
         </fieldset>
 
         <p>

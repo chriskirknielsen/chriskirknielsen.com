@@ -11,7 +11,9 @@
 			"quoteOpen": "“",
 			"quoteClose": "”",
 			"andWord": "and",
-			"inWord": "in"
+			"inWord": "in",
+			"onWord": "on",
+			"offWord": "off"
 		},
 		"skiplink": "Skip to content",
 		"closeLabel": "Close",
@@ -54,7 +56,7 @@
 		"rssFeed": "RSS Feed",
 		"rssHint": "Subscribe to RSS feed",
 		"langSwitchLabel": "Switch Language",
-		"themeSwitchLabel": "Switch The<span>m</span>e",
+		"themeSwitchLabel": "Switch The<span><kbd>m</kbd></span>e",
 		"themePicker": "Theme Picker",
 		"closeThemePicker": "Close theme picker"
 	}

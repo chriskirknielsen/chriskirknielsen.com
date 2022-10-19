@@ -15,6 +15,10 @@
 
 	border: none;
 
+	&-value[data-value='true'] {
+		order: 1;
+	}
+
 	&-value,
 	&-back {
 		cursor: pointer;

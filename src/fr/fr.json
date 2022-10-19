@@ -11,7 +11,9 @@
 			"quoteOpen": "« ",
 			"quoteClose": " »",
 			"andWord": "et",
-			"inWord": "dans"
+			"inWord": "dans",
+			"onWord": "actif",
+			"offWord": "inactif"
 		},
 		"skiplink": "Sauter au contenu",
 		"closeLabel": "Fermer",
@@ -52,7 +54,7 @@
 			"description": "Blog d'un développeur front-end qui aime bidouiller"
 		},
 		"langSwitchLabel": "Changer de Langue",
-		"themeSwitchLabel": "Changer de Thè<span>m</span>e",
+		"themeSwitchLabel": "Changer de Thè<span><kbd>m</kbd></span>e",
 		"themePicker": "Sélecteur de Thème",
 		"closeThemePicker": "Fermer le sélecteur de thème"
 	}
