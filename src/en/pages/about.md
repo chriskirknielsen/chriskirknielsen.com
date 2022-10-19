@@ -28,7 +28,7 @@ i18n:
         profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
         synth:
             label: "Synthesiser"
-            instructions: "Hold the <code>Shift</code> key to shift octaves"
+            instructions: "Hold the <kbd>Shift</kbd> key to shift octaves"
             keyboardMode: "Keyboard Layout"
 ---
 

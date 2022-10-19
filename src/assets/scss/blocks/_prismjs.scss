@@ -4,6 +4,7 @@
 * based on: https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/ , which is Loosely based on Monokai textmate theme by http://www.monokai.nl/
 * license: MIT; http://moox.mit-license.org/
 */
+kbd,
 code,
 pre {
 	-moz-tab-size: 4;
@@ -20,6 +21,7 @@ pre {
 	text-shadow: none;
 }
 
+kbd,
 code,
 pre:where(.codeblock),
 mark {
