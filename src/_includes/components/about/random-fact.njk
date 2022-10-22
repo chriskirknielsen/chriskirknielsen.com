@@ -62,5 +62,5 @@
 	document.querySelector('.about-fact-get').addEventListener('click', newFact);
 })()
 {% endset %}
-{{ aboutFactsScript  | safe }}
+{{ aboutFactsScript | jsmin('aboutFacts') | safe }}
 </script>

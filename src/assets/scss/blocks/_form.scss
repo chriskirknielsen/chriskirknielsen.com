@@ -76,7 +76,7 @@
 		border-radius: #{$thumb-size};
 		background-color: var(--t-bg-color);
 
-		transform: none;
+		transform: translateX(var(--toggle-thumb-offset, 0)) scale(var(--toggle-thumb-scale, 0.875));
 
 		transition: transform var(--toggle-duration) var(--easing-in-out);
 		will-change: transform;
@@ -88,7 +88,8 @@
 	}
 
 	:checked + &-back > &-thumb {
-		transform: translateX(#{$thumb-size});
+		--toggle-thumb-scale: 1;
+		--toggle-thumb-offset: #{$thumb-size};
 	}
 
 	:focus-visible + &-back > &-thumb {
