@@ -63,7 +63,6 @@
 
 	{# Icons #}
 	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
-	<link rel="icon" href="{{ '/' + assets.icons.faviconSvg | url }}">
 	<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.secondary.med }}">
 	<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
 
@@ -77,8 +76,9 @@
 	<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url | absoluteUrl(metadata.url) }}">
 	
 	{# Meta, SEO, etc. #}
-	<meta name="generator" content="{{ eleventy.generator }}">
+	<meta name="author" content="{{ metadata.author.name }}">
 	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.schemes.dark].colors.primary.max) | safe }}">
+	<meta name="generator" content="{{ eleventy.generator }}">
 
 	{% if summary %}
 	<meta name="description" content="{{ summary }}">
@@ -89,13 +89,13 @@
 	<meta property="og:site_name" content="{{ metadata.title }}">
 	<meta property="og:locale" content="{{ locale or 'en' }}">
 	<meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
-	<meta property="og:url" content="{{ (localePath or '/') | url | absoluteUrl(metadata.url) }}">
+	<meta property="og:url" content="{{ (page.url or '/') | url | absoluteUrl(metadata.url) }}">
 	
 	{% set meta_image_url %}
 		{% if customMetaImage %}
 			{{ customMetaImage | url | absoluteUrl(metadata.url) }}
 		{% else %}
-			{{ '/assets/svg/metaimage.jpg' | url | absoluteUrl(metadata.url) }}
+			{{ ('/' + assets.imagesDir + '/metaimage.jpg') | url | absoluteUrl(metadata.url) }}
 		{% endif %}
 	{% endset %}
 	<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">

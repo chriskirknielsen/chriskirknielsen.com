@@ -5,7 +5,7 @@ module.exports = {
 	author: {
 		name: 'Christopher Kirk-Nielsen',
 		email: 'chriskirknielsen@gmail.com',
-		twitter: 'https://twitter.com/ckirknielsen',
+		twitter: 'ckirknielsen',
 	},
 	copyrightStart: 2019,
 	currentYear: new Date().getFullYear(),
