@@ -27,6 +27,7 @@ i18n:
         mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
         profile: "Moitié du visage de Chris avec le contour de sa tête, son nez, ses lunettes, sourcils et barbe dessinés"
         synth:
+            skipButtons: "Sauter après les contrôles du synthé"
             label: "Synthétiseur"
             instructions: "Maintenez la touche <kbd>Maj</kbd> pour changer d'octave"
             keyboardMode: "Type de Clavier"

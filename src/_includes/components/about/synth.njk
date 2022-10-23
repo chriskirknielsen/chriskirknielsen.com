@@ -10,6 +10,8 @@
         class="about-synth"
         aria-label="{{ 'page.synth.label' | i18n }}"
     >
+        <a class="skip-link" href="#synth-after" data-skiplink="local">{{ 'page.synth.skipButtons' | i18n }}</a>
+
         <div class="about-synth-groups">
             <div class="about-synth-group about-synth-speaker-wrap" aria-hidden="true">
                 <div class="about-synth-speaker"></div>
@@ -174,6 +176,8 @@
             {{ 'page.synth.instructions' | i18n | safe }}
         </p>
     </div>
+
+    <div aria-hidden="true" id="synth-after" tabindex="-1"></div>
 </div>
 {% endsetAsync %}
 {{ synthMarkup | htmlmin | safe }}

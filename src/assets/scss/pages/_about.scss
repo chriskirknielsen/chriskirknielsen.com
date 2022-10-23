@@ -568,6 +568,8 @@ li[data-fact-emoji] {
 	--thumb-width: var(--thumb-thickness);
 	--thumb-height: calc(2 / 3 * var(--thumb-thickness));
 
+	position: relative;
+
 	display: flex;
 	flex-direction: column;
 	width: 100%;

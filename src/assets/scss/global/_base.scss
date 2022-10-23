@@ -36,14 +36,16 @@ main {
 	outline: 4px dashed var(--t-link-color-active);
 	outline-offset: 2px;
 
-	&:not(:focus-visible) {
+	&:is(:not(:focus-visible), [tabindex='-1']) {
 		outline: none;
 	}
 }
 
-[id]:target {
+[id] {
 	scroll-margin-block-start: var(--size-2xl);
+}
 
+[id]:not([tabindex='-1']):target {
 	outline: var(--size-xs) dashed var(--t-link-color-active);
 
 	animation: targetOutline 500ms var(--easing-in-out) 1500ms both;

@@ -415,7 +415,7 @@ module.exports = function (eleventyConfig) {
 				String(s)
 					.trim()
 					.normalize('NFD')
-					.replace(/([\u0300-\u036f]|[,;:.'"?!&])/g, '')
+					.replace(/([\u0300-\u036f]|[,;:.…'"?!&])/g, '')
 					.toLowerCase()
 					.replace(/\s+/g, '-')
 			), // Remove accents/punctuation in addition to regular slugification

@@ -9,6 +9,10 @@
 
 	color: var(--t-color-gray-min);
 	background-color: var(--t-color-secondary-max);
+
+	&[data-skiplink='local'] {
+		position: absolute;
+	}
 }
 
 .skip-link:not(:focus),
