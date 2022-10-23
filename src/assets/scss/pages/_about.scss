@@ -212,7 +212,7 @@ li[data-fact-emoji] {
 		margin-block-start: 0.375em;
 	}
 	&::marker {
-		content: attr(data-fact-emoji) ' ';
+		content: attr(data-fact-emoji) '\00a0'; // nbsp
 	}
 }
 
@@ -318,7 +318,7 @@ li[data-fact-emoji] {
 	margin-inline: auto;
 
 	@supports (d: path('M0 0H1')) and (cx: calc(1px * var(--c))) {
-		[data-move] {
+		& [data-move] {
 			transition: all var(--easing-in-out) 300ms;
 		}
 		&:hover [data-move='point'] {
@@ -730,7 +730,7 @@ li[data-fact-emoji] {
 		display: grid;
 		gap: 0 0.5px;
 		grid-template-columns: repeat(calc(2 * var(--synth-white-keys)), minmax(0, 1fr));
-		grid-template-rows: 2fr 1fr;
+		grid-template-rows: 3fr 2fr;
 		height: clamp(5em, 25vw, 8em);
 		padding-block: 0.125em 0.5em;
 		padding-inline: 1px;
@@ -804,7 +804,7 @@ li[data-fact-emoji] {
 
 			grid-column: calc(2 * var(--synth-key-index) - 2) / span 2;
 			grid-row: 1 / span 1;
-			margin-inline: 25%;
+			margin-inline: clamp(10%, 0.5vw, 25%);
 			padding-block-end: 1em;
 
 			color: var(--fg);
