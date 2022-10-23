@@ -44,8 +44,8 @@
 
                 <ul>
                     <li><a href="{{ localeRssUrl }}" aria-label="{{ 'rss.subscribe' | i18n }}">RSS</a></li>
-                {% for social in social %}
-                    <li><a href="{{ social.url | url }}">{{ social.name }}</a></li>
+                {% for socialPage in social %}
+                    <li><a href="{{ socialPage.url | url }}">{{ socialPage.name }}</a></li>
                 {% endfor %}
                 </ul>
             </nav>
