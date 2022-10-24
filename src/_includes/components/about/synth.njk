@@ -181,12 +181,3 @@
 </div>
 {% endsetAsync %}
 {{ synthMarkup | htmlmin | safe }}
-
-<script>
-{% set synthScript %}
-(function(){
-    {% include "assets/js/about-synth.js" %}
-})()
-{% endset %}
-{{ synthScript | jsmin('aboutSynth') | safe }}
-</script>

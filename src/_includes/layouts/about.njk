@@ -11,6 +11,16 @@ templateEngineOverride: njk, md
     {{- screensaverCss | cssmin | safe -}}
 </style>
 <script>
-    {%- set screensaverJs %}{% include "assets/js/screensaver.js" %}{% endset -%}
-    {{- screensaverJs | jsmin('screensaver') | safe -}}
+{% set aboutFactsScript %}
+    {% include "assets/js/about-facts.js" %}
+{% endset %}
+{% set synthScript %}
+    {% include "assets/js/about-synth.js" %}
+{% endset %}
+{% set screensaverJs %}
+    {% include "assets/js/screensaver.js" %}
+{% endset %}
+{{ aboutFactsScript | jsmin('aboutFacts') | safe }}
+{{ synthScript | jsmin('aboutSynth') | safe }}
+{{ screensaverJs | jsmin('screensaver') | safe }}
 </script>

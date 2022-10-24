@@ -2,9 +2,7 @@
 <style>{%- renderFile "font-face.css" | assetPath("css"), null, "njk" -%}</style>
 <script>"use strict";
 {%- set footJs %}
-(function(){
     {%- include "assets/js/themepicker-toggle.js" -%}
-})()
 {% endset -%}
 {{- footJs | replace('"use strict";', "") | jsmin('foot') | safe }}
 </script>
