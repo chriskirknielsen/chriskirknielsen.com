@@ -284,6 +284,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Transforms */
+	// Inline only the necessary CSS
 	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
 		if (!outputPath.endsWith('.html')) {
 			return content;
@@ -306,6 +307,19 @@ module.exports = function (eleventyConfig) {
 		});
 
 		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');
+	});
+
+	// Remove anchor-link if unused
+	eleventyConfig.addTransform('unused-anchor-link', (content, outputPath) => {
+		if (!outputPath.endsWith('.html')) {
+			return content;
+		}
+
+		if (content.includes('href="#anchor-link"')) {
+			return content;
+		}
+
+		return content.replace(/<svg ([^>]+) data-anchor-link>(.+)<\/svg>/s, '');
 	});
 
 	// Minify HTML output
