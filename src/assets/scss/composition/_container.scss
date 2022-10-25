@@ -10,12 +10,10 @@
 	padding-inline: 0;
 }
 
-@include subgrid(false) {
-	.content-fullbleed:not(.page-content) {
-		min-width: 100vw; // Supersedes defined width or max-width
-		margin-inline-start: calc(50% - 50vw);
-		padding-inline: calc(var(--C-content-gutter) / 2);
-	}
+.content-fullbleed:not(.page-content) {
+	min-width: 100vw; // Supersedes defined width or max-width
+	margin-inline-start: calc(50% - 50vw);
+	padding-inline: calc(var(--C-content-gutter) / 2);
 }
 
 @include subgrid {
@@ -33,13 +31,14 @@
 			[wide-end]
 			1fr
 			[fullbleed-end];
+	}
 
-		&,
-		& > .content {
-			max-width: 100%;
-			margin-inline: 0;
-			padding-inline: 0;
-		}
+	.container,
+	.container > .content,
+	.content-fullbleed:not(.page-content) {
+		max-width: 100%;
+		margin-inline: 0;
+		padding-inline: 0;
 	}
 
 	.container > * {
@@ -52,6 +51,8 @@
 
 	.content-fullbleed {
 		position: relative;
+
+		min-width: initial; // Reset the min-width defined for non-subgrid browsers
 
 		grid-column: fullbleed-start / fullbleed-end;
 

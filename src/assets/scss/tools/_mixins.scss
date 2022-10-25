@@ -57,12 +57,9 @@
 	}
 }
 
-@mixin subgrid($is: true) {
-	@if ($is == false) {
-		@supports not (grid-template-columns: subgrid) {
-			@content;
-		}
-	} @else {
+@mixin subgrid {
+	// Until subgrid behaves properly in Safari (https://bugs.webkit.org/show_bug.cgi?id=245936), restricting subgrid to Firefox
+	@-moz-document url-prefix() {
 		@supports (grid-template-columns: subgrid) {
 			@content;
 		}
