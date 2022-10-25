@@ -21,7 +21,6 @@ facts:
     - ["💜", "Apprécie que vous lisiez ces faits."]
 i18n:
     page:
-        randomFact: "Cliquez ici pour découvrir un fait aléatoire me concernant"
         randomFacts: "Cliquez ici pour découvrir des faits aléatoires me concernant"
         vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
         mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"

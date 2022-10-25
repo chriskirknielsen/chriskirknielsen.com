@@ -16,13 +16,13 @@
 	const ctaButton = Object.assign(document.createElement('button'), { className: ctaSummary.className });
 	ctaButton.style.setProperty('--btn-justify-content', ctaSummary.style.getPropertyValue('--btn-justify-content'));
 	const ctaIcon = ctaSummary.querySelector('.about-facts-icon');
-	const ctaText = document.createTextNode(ctaSummary.querySelector('[data-cta-text]').getAttribute('data-cta-text'));
+	const ctaLabel = ctaSummary.querySelector('.about-facts-label');
 
 	const factDisplayP = document.querySelector('.about-fact-show');
 	const factDisplayEl = Object.assign(document.createElement('p'), { className: factDisplayP.className, hidden: true });
 
 	ctaButton.appendChild(ctaIcon);
-	ctaButton.appendChild(ctaText);
+	ctaButton.appendChild(ctaLabel);
 	blockDiv.appendChild(ctaButton);
 	blockDiv.appendChild(factDisplayEl);
 

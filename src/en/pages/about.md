@@ -21,8 +21,7 @@ facts:
     - ["💜", "Appreciates you reading through these facts."]
 i18n:
     page:
-        randomFact: "Click here to get a random fact about me"
-        randomFacts: "Click here to toggle random facts about me"
+        randomFacts: "Click here to get random facts about me"
         vhsImageAlt: "A VHS tape design inspired by {{ name }}"
         mugImageAlt: "A plain mug with a {{ name }} on it"
         profile: "Half of Chris's head outlined, with nose, glasses, eyebrows and beard drawn"
