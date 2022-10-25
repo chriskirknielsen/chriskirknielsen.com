@@ -53,7 +53,7 @@ Writing code and having a thing show up on the screen felt (and still feels) a l
 {% include 'components/about/visubezier.njk' %}
 
 <p data-about="opensource">
-I have contributed to a few open source projects, but only in small ways; if it counts, this little VS Code extension of mine called <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> to preview CSS timing functions is worth a look. And I've been lucky enough to be featured on sites like <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> and <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, if you can believe it!</p>
+I have contributed to a few open source projects, but only in small ways; if it counts, this little VS Code extension of mine called <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> to preview CSS timing functions is worth a look. And I've been lucky enough to be featured on sites like <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> and <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, if you can believe it!
 </p>
 
 ## Still creative, on occasion

@@ -20,13 +20,13 @@
 			'edit hyper'
 			'lang xtra';
 
-		@include above-medium {
-			grid-template-areas:
-				'logo note'
-				'logo edit'
-				'logo hyper'
-				'lang xtra';
-		}
+		// @include above-medium {
+		// 	grid-template-areas:
+		// 		'logo note'
+		// 		'logo hyper'
+		// 		'edit hyper'
+		// 		'lang xtra';
+		// }
 
 		@include above-large {
 			grid-template-columns: minmax(6rem, 12rem) repeat(3, minmax(0, 1fr));
