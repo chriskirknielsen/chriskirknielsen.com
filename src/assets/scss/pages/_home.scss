@@ -92,8 +92,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--homescreen-creadev-font: var(--t-font-heading);
 
 	.u-background-bg-alt-color {
-		border-block: 2px solid var(--ctx-bg);
-		background: transparent;
+		background: hsla(294, 95%, 65%, 0.1);
 	}
 }
 
