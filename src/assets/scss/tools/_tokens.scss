@@ -39,7 +39,7 @@ $tokens: (
     "footer-bg-color": var(--t-color-gray-min),
     "footer-border-color": var(--t-color-gray-med),
     "heading-tracking": 0,
-    "heading-text-transform": none,
+    "heading-transform": none,
     "corner-radius": 4px
   ),
   "_expectedColors": (
@@ -78,7 +78,7 @@ $tokens: (
     ),
     "vars-resettable": (
       "heading-tracking": 0.0625em,
-      "heading-text-transform": uppercase,
+      "heading-transform": uppercase,
       "link-shadow-active": var(--t-link-underline-color-active),
       "header-logo-fill": var(--t-color-secondary-med)
     ),
@@ -192,7 +192,7 @@ $tokens: (
         "footer-bg-color": var(--t-color-primary-max),
         "footer-border-color": var(--t-color-primary-min),
         "corner-radius": 4px,
-        "heading-text-transform": uppercase
+        "heading-transform": uppercase
       ),
       "images": (
         "body-bg-image": 'vapor-bg.png'
@@ -299,8 +299,9 @@ $tokens: (
         "footer-bg-color": var(--t-color-gray-max),
         "footer-border-color": var(--t-color-primary-min),
         "corner-radius": 2px,
-        "heading-text-transform": uppercase,
-        "heading-tracking": -0.0875em
+        "heading-transform": uppercase,
+        "heading-tracking": -0.0875em,
+        "heading-shadow": 0 0 0.25em var(--t-color-primary-med)
       ),
       "images": (
         

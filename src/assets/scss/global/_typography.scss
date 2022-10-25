@@ -15,7 +15,8 @@ h6,
 	font-weight: var(--t-heading-weight, 700);
 	line-height: 1.125;
 	letter-spacing: var(--t-heading-tracking);
-	text-transform: var(--t-heading-text-transform, none);
+	text-transform: var(--t-heading-transform, none);
+	text-shadow: var(--t-heading-shadow, none);
 	color: var(--t-heading-color);
 }
 

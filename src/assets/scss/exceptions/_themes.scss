@@ -403,6 +403,7 @@
 			padding-inline: var(--size-m) var(--size-l);
 
 			font-size: 1.25em;
+			text-shadow: none;
 			color: var(--t-color-primary-max);
 			background: var(--t-color-primary-min);
 
@@ -428,11 +429,11 @@
 
 	.callout-label,
 	.codeblock::before {
-		--corner-cut: clamp(0.25rem, 0.375em, 0.625rem);
-		clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--corner-cut)), calc(100% - var(--corner-cut)) 100%, 0 100%); // Cut the bottom-right corner
+		--cut-size: clamp(0.25rem, 0.375em, 0.625rem);
+		clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%); // Cut the bottom-right corner
 	}
 
 	.footer-logo {
-		background-image: repeating-linear-gradient(var(--t-footer-border-color), var(--t-footer-border-color) 2px, var(--t-color-primary-med) 2px, var(--t-color-primary-med) 4px);
+		background: linear-gradient(var(--t-footer-border-color) 50%, var(--t-color-primary-med) 0) fixed 50% 50% / 100% 5px;
 	}
 }
