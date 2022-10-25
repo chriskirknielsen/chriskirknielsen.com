@@ -139,7 +139,7 @@ module.exports = [
 	},
 	{
 		slug: 'control',
-		name: 'Control',
+		name: 'Control, The Old&shy;est House',
 		description:
 			'The Oldest House has many dangers/risks. Be sure to alert the sitting/standing Director. Objects of Power are dangerous/aggressive and interacting/talking with one may result in termination/death/punishment.',
 		img: 'gameart-control.jpg',
@@ -152,7 +152,7 @@ module.exports = [
 	},
 	{
 		slug: 'god-of-war',
-		name: 'God of War',
+		name: 'God of War, Lake of Nine',
 		description: 'A peaceful moment on the Lake of Nine.',
 		img: 'gameart-gow.jpg',
 		links: {
@@ -164,7 +164,7 @@ module.exports = [
 	},
 	{
 		slug: 'deathloop',
-		name: 'DEATHLOOP',
+		name: 'DEATHLOOP, Blackreef',
 		description: 'Kill all Visionaries. Break the loop. Easy.',
 		img: 'gameart-deathloop.jpg',
 		links: {
@@ -175,7 +175,7 @@ module.exports = [
 	},
 	{
 		slug: 'dead-space',
-		name: 'Dead Space',
+		name: 'Dead Space, USG Ishimura',
 		description: 'In space, only Necromorphs can hear you scream.',
 		img: 'gameart-deadspace.jpg',
 		links: {
