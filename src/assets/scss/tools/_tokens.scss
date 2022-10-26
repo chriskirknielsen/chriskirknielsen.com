@@ -251,7 +251,7 @@ $tokens: (
         "corner-radius": 0
       ),
       "images": (
-        "homescreen-bg-image": 'unsplash-xaze-clouds.jpg'
+        "home-bg-image": 'unsplash-xaze-clouds.jpg'
       )
     ),
     "neotokyo": (
@@ -281,7 +281,7 @@ $tokens: (
         "color-scheme": dark,
         "is-dark": 1,
         "header-logo-fill": var(--t-color-primary-min),
-        "header-logo-fill-active": var(--t-color-secondary-med),
+        "header-logo-fill-active": var(--t-color-secondary-min),
         "bg-color": var(--t-color-primary-max),
         "bg-alt-color": var(--t-color-secondary-max),
         "heading-color": var(--t-color-primary-min),

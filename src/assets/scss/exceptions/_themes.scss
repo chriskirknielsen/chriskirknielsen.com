@@ -368,6 +368,19 @@
 }
 
 @include theme('neotokyo') {
+	.header {
+		&-logo {
+			& > svg {
+				--logo-filter: var(--t-header-logo-fill);
+				filter: drop-shadow(0 0 0.5em var(--logo-filter));
+			}
+
+			&:is(:hover, :focus) > svg {
+				--logo-filter: var(--t-header-logo-fill-active);
+			}
+		}
+	}
+
 	.bigboi {
 		outline: 2px solid var(--t-color-primary-med);
 	}

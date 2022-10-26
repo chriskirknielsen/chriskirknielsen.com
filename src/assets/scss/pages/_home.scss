@@ -25,71 +25,71 @@ $glare-anim-time: 1s;
 $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 @include default-schemes('home') {
-	@include generate-light-dark-vars('homescreen-sky-end', #ecb43a, #791e74);
-	@include generate-light-dark-vars('homescreen-floor-start', #f774b5, #1e0347);
-	@include generate-light-dark-vars('homescreen-grid-line', rebeccapurple, cyan);
+	@include generate-light-dark-vars('home-sky-end', #ecb43a, #791e74);
+	@include generate-light-dark-vars('home-floor-start', #f774b5, #1e0347);
+	@include generate-light-dark-vars('home-grid-line', rebeccapurple, cyan);
 
-	--homescreen-sun-upper-top: #ff0095;
-	--homescreen-sun-upper-middle: #ffafa3;
-	--homescreen-sun-upper-bottom: #ffffe9;
-	--homescreen-sun-lower-top: #ff0095;
-	@include generate-light-dark-vars('homescreen-sun-lower-end', #ff9ece, #1e1230);
-	--homescreen-sun-glow: #ed23afbf;
-	--homescreen-sun-glow-alpha: #ed23af00;
+	--home-sun-upper-top: #ff0095;
+	--home-sun-upper-middle: #ffafa3;
+	--home-sun-upper-bottom: #ffffe9;
+	--home-sun-lower-top: #ff0095;
+	@include generate-light-dark-vars('home-sun-lower-end', #ff9ece, #1e1230);
+	--home-sun-glow: #ed23afbf;
+	--home-sun-glow-alpha: #ed23af00;
 
-	--homescreen-chris-inner: #130026;
-	--homescreen-chris-upper-a: #260039;
-	--homescreen-chris-upper-b: #7a11ba;
-	--homescreen-chris-upper-c: #fd57b7;
-	--homescreen-chris-upper-d: #fddcc0;
-	--homescreen-chris-lower-a: #7e004e;
-	--homescreen-chris-lower-b: #ed23af;
-	--homescreen-chris-outline-a: #e04fab;
-	--homescreen-chris-outline-b: #4f045f;
+	--home-chris-inner: #130026;
+	--home-chris-upper-a: #260039;
+	--home-chris-upper-b: #7a11ba;
+	--home-chris-upper-c: #fd57b7;
+	--home-chris-upper-d: #fddcc0;
+	--home-chris-lower-a: #7e004e;
+	--home-chris-lower-b: #ed23af;
+	--home-chris-outline-a: #e04fab;
+	--home-chris-outline-b: #4f045f;
 
-	@include generate-light-dark-vars('homescreen-chris-depth-hue', 274, 244);
-	@include generate-light-dark-vars('homescreen-chris-depth-sat', 2, 1);
-	@include generate-light-dark-vars('homescreen-chris-depth-lux', 5%, 0%);
+	@include generate-light-dark-vars('home-chris-depth-hue', 274, 244);
+	@include generate-light-dark-vars('home-chris-depth-sat', 2, 1);
+	@include generate-light-dark-vars('home-chris-depth-lux', 5%, 0%);
 
-	--homescreen-creadev-stroke: var(--t-color-primary-max);
-	--homescreen-creadev-fill: var(--t-color-primary-min);
+	--home-creadev-stroke: var(--t-color-primary-max);
+	--home-creadev-fill: var(--t-color-primary-min);
 }
 
 @include theme('vapor', 'home') {
-	// --homescreen-sky-start: #0089da;
-	--homescreen-sky-start: #82dee800;
-	--homescreen-sky-end: #82dee8;
-	--homescreen-floor-start: #f365bc;
-	--homescreen-floor-end: #f3d4e6;
-	--homescreen-grid-line: #dcdbe1;
+	// --home-sky-start: #0089da;
+	--home-sky-start: #82dee800;
+	--home-sky-end: #82dee8;
+	--home-floor-start: #f365bc;
+	--home-floor-end: #f3d4e6;
+	--home-grid-line: #dcdbe1;
 
-	--homescreen-sun-upper-top: #ea5bc4;
-	--homescreen-sun-upper-middle: #eeafbf;
-	--homescreen-sun-upper-bottom: #f5f7b6;
-	--homescreen-sun-lower-top: #ff00c3;
-	--homescreen-sun-lower-end: #ff9ece00;
-	--homescreen-sun-glow: #f2acfa;
-	--homescreen-sun-glow-alpha: #f2acfa00;
+	--home-sun-upper-top: #ea5bc4;
+	--home-sun-upper-middle: #eeafbf;
+	--home-sun-upper-bottom: #f5f7b6;
+	--home-sun-lower-top: #ff00c3;
+	--home-sun-lower-end: #ff9ece00;
+	--home-sun-glow: #f2acfa;
+	--home-sun-glow-alpha: #f2acfa00;
 
-	--homescreen-chris-wire-hue: 300;
-	--homescreen-chris-flash-glow: #ff00ff;
-	--homescreen-chris-inner: #130026;
-	--homescreen-chris-upper-a: #50588c;
-	--homescreen-chris-upper-b: #1f7cc3;
-	--homescreen-chris-upper-c: #8bd8f4;
-	--homescreen-chris-upper-d: #cafff1;
-	--homescreen-chris-lower-a: #ff64cb;
-	--homescreen-chris-lower-b: #f4b4f4;
-	--homescreen-chris-outline-a: #f9b0ec;
-	--homescreen-chris-outline-b: #f6f3fc;
+	--home-chris-wire-hue: 300;
+	--home-chris-flash-glow: #ff00ff;
+	--home-chris-inner: #130026;
+	--home-chris-upper-a: #50588c;
+	--home-chris-upper-b: #1f7cc3;
+	--home-chris-upper-c: #8bd8f4;
+	--home-chris-upper-d: #cafff1;
+	--home-chris-lower-a: #ff64cb;
+	--home-chris-lower-b: #f4b4f4;
+	--home-chris-outline-a: #f9b0ec;
+	--home-chris-outline-b: #f6f3fc;
 
-	--homescreen-chris-depth-hue: 200;
-	--homescreen-chris-depth-sat: 2;
-	--homescreen-chris-depth-lux: 5%;
+	--home-chris-depth-hue: 200;
+	--home-chris-depth-sat: 2;
+	--home-chris-depth-lux: 5%;
 
-	--homescreen-creadev-stroke: var(--homescreen-grid-line);
-	--homescreen-creadev-fill: var(--t-color-primary-min);
-	--homescreen-creadev-font: var(--t-font-heading);
+	--home-creadev-stroke: var(--home-grid-line);
+	--home-creadev-fill: var(--t-color-primary-min);
+	--home-creadev-font: var(--t-font-heading);
 
 	.u-background-bg-alt-color {
 		background: hsla(294, 95%, 65%, 0.1);
@@ -97,41 +97,41 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 }
 
 @include theme('y2k', 'home') {
-	$homescreen-bg-image: asset-path(get-token('themes', 'y2k', 'images', 'homescreen-bg-image'));
-	--homescreen-sky-start: #4d90fb;
-	--homescreen-sky-end: #c2e6fb;
-	--homescreen-floor-start: #8fbe20;
-	--homescreen-floor-end: #395808;
+	$home-bg-image: asset-path(get-token('themes', 'y2k', 'images', 'home-bg-image'));
+	--home-sky-start: #4d90fb;
+	--home-sky-end: #c2e6fb;
+	--home-floor-start: #8fbe20;
+	--home-floor-end: #395808;
 
-	--homescreen-bg-mask: tan;
-	--homescreen-bg-image: #75a9ea url('#{$homescreen-bg-image}') no-repeat 50% 50% / cover;
+	--home-bg-mask: tan;
+	--home-bg-image: #75a9ea url('#{$home-bg-image}') no-repeat 50% 50% / cover;
 
-	--homescreen-chris-wire-hue: 90;
-	--homescreen-chris-flash-glow: #00ff00;
-	--homescreen-chris-inner: #001544;
-	--homescreen-chris-upper-a: #0060ed;
-	--homescreen-chris-upper-b: #4d90fb;
-	--homescreen-chris-upper-c: #86b4ff;
-	--homescreen-chris-upper-d: #c2e6fb;
-	--homescreen-chris-lower-a: #8fbe20;
-	--homescreen-chris-lower-b: #395808;
-	--homescreen-chris-outline-a: #84e7fc;
-	--homescreen-chris-outline-b: #0f75bd;
+	--home-chris-wire-hue: 90;
+	--home-chris-flash-glow: #00ff00;
+	--home-chris-inner: #001544;
+	--home-chris-upper-a: #0060ed;
+	--home-chris-upper-b: #4d90fb;
+	--home-chris-upper-c: #86b4ff;
+	--home-chris-upper-d: #c2e6fb;
+	--home-chris-lower-a: #8fbe20;
+	--home-chris-lower-b: #395808;
+	--home-chris-outline-a: #84e7fc;
+	--home-chris-outline-b: #0f75bd;
 
-	--homescreen-chris-depth-hue: 191;
-	--homescreen-chris-depth-sat: 2;
-	--homescreen-chris-depth-lux: 5%;
+	--home-chris-depth-hue: 191;
+	--home-chris-depth-sat: 2;
+	--home-chris-depth-lux: 5%;
 
-	--homescreen-creadev-stroke: #588dce;
-	--homescreen-creadev-stroke-width: 0.25em;
-	--homescreen-creadev-fill: white;
-	--homescreen-creadev-font: Tahoma, Verdana, Arial, sans-serif;
+	--home-creadev-stroke: #588dce;
+	--home-creadev-stroke-width: 0.25em;
+	--home-creadev-fill: white;
+	--home-creadev-font: Tahoma, Verdana, Arial, sans-serif;
 
-	.homescreen-grid {
+	.home-grid {
 		display: none;
 	}
 
-	.homescreen-background {
+	.home-background {
 		&::before,
 		&::after {
 			content: none;
@@ -140,41 +140,41 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 }
 
 @include theme('neotokyo', 'home') {
-	--homescreen-sky-start: var(--t-color-primary-max);
-	--homescreen-sky-end: var(--t-color-primary-med);
-	--homescreen-floor-start: #0c313d;
-	--homescreen-floor-end: var(--t-color-primary-max);
-	--homescreen-grid-line: var(--t-color-primary-min);
+	--home-sky-start: var(--t-color-primary-max);
+	--home-sky-end: var(--t-color-primary-med);
+	--home-floor-start: #0c313d;
+	--home-floor-end: var(--t-color-primary-max);
+	--home-grid-line: var(--t-color-primary-min);
 
-	--homescreen-sun-upper-top: #f9103d;
-	--homescreen-sun-upper-middle: #bf092d;
-	--homescreen-sun-upper-bottom: #791d4f;
-	--homescreen-sun-lower-top: #67193d;
-	--homescreen-sun-lower-end: #67193d00;
-	--homescreen-sun-glow: #ff5778;
-	--homescreen-sun-glow-alpha: #ff577800;
+	--home-sun-upper-top: #f9103d;
+	--home-sun-upper-middle: #bf092d;
+	--home-sun-upper-bottom: #791d4f;
+	--home-sun-lower-top: #67193d;
+	--home-sun-lower-end: #67193d00;
+	--home-sun-glow: #ff5778;
+	--home-sun-glow-alpha: #ff577800;
 
-	--homescreen-chris-wire-hue: 348;
-	--homescreen-chris-flash-glow: #ff0033;
-	--homescreen-chris-inner: #33000a;
-	--homescreen-chris-upper-a: #2b0214;
-	--homescreen-chris-upper-b: #6f0221;
-	--homescreen-chris-upper-c: #d30e36;
-	--homescreen-chris-upper-d: #fa1140;
-	--homescreen-chris-lower-a: #4a1225;
-	--homescreen-chris-lower-b: #bb072b;
-	--homescreen-chris-outline-a: #a3928a;
-	--homescreen-chris-outline-b: #c9bfb6;
+	--home-chris-wire-hue: 348;
+	--home-chris-flash-glow: #ff0033;
+	--home-chris-inner: #33000a;
+	--home-chris-upper-a: #2b0214;
+	--home-chris-upper-b: #6f0221;
+	--home-chris-upper-c: #d30e36;
+	--home-chris-upper-d: #fa1140;
+	--home-chris-lower-a: #4a1225;
+	--home-chris-lower-b: #bb072b;
+	--home-chris-outline-a: #a3928a;
+	--home-chris-outline-b: #c9bfb6;
 
-	--homescreen-chris-depth-hue: 348;
-	--homescreen-chris-depth-sat: 5;
-	--homescreen-chris-depth-lux: 5%;
+	--home-chris-depth-hue: 348;
+	--home-chris-depth-sat: 5;
+	--home-chris-depth-lux: 5%;
 
-	--homescreen-creadev-stroke: var(--t-color-secondary-max);
-	--homescreen-creadev-fill: var(--t-color-secondary-min);
-	--homescreen-creadev-font: var(--t-font-heading);
+	--home-creadev-stroke: var(--t-color-secondary-max);
+	--home-creadev-fill: var(--t-color-secondary-min);
+	--home-creadev-font: var(--t-font-heading);
 
-	.homescreen-title::after {
+	.home-title::after {
 		content: 'クリス';
 
 		position: absolute;
@@ -199,7 +199,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	}
 }
 
-[data-section='home'] .homescreen {
+[data-section='home'] .home {
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
@@ -219,48 +219,37 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	&-background {
 		$sun-gradient: linear-gradient(
 				180deg,
-				var(--homescreen-sun-upper-top) 0,
+				var(--home-sun-upper-top) 0,
 				12.5%,
-				var(--homescreen-sun-upper-middle) 30%,
-				var(--homescreen-sun-upper-bottom) 50%,
-				var(--homescreen-sun-lower-top) 50%,
+				var(--home-sun-upper-middle) 30%,
+				var(--home-sun-upper-bottom) 50%,
+				var(--home-sun-lower-top) 50%,
 				82.5%,
-				var(--homescreen-sun-lower-end) 100%
+				var(--home-sun-lower-end) 100%
 			)
 			no-repeat 50% 50% / 100% #{$sun-radius * 2};
 		$sun-glow-gradient: radial-gradient(
 				circle at 50% 100%,
-				var(--homescreen-sun-glow-alpha) #{$sun-radius * 0.875},
+				var(--home-sun-glow-alpha) #{$sun-radius * 0.875},
 				#{$sun-radius * 0.975},
-				var(--homescreen-sun-glow) #{$sun-radius},
-				var(--homescreen-sun-glow) #{$sun-radius + 0.1},
+				var(--home-sun-glow) #{$sun-radius},
+				var(--home-sun-glow) #{$sun-radius + 0.1},
 				#{$sun-radius + 0.2},
-				var(--homescreen-sun-glow-alpha) #{$sun-radius * 1.325}
+				var(--home-sun-glow-alpha) #{$sun-radius * 1.325}
 			)
 			no-repeat 50% 0 / 100% 50%;
 
 		/* Sky layer */
-		--homescreen-bg-mask-default: linear-gradient(tan 50%, 66.7%, #0000 95%);
-		--homescreen-bg-default:
-            /* Horizon glow */ radial-gradient(
-					ellipse 150% 20% at 50% 100%,
-					var(--homescreen-sun-glow) 0%,
-					2.5%,
-					var(--homescreen-sun-glow-alpha) 75%
-				)
-				no-repeat 50% 0 / 100% 50%,
-			/* Full sky */
-				linear-gradient(
-					var(--homescreen-sky-start, var(--ctx-bg)) 0%,
-					var(--homescreen-sky-end) 50%,
-					var(--homescreen-floor-start) 50%,
-					var(--homescreen-floor-end, var(--ctx-bg)) 100%
-				);
-		background: var(--homescreen-bg-image, var(--homescreen-bg-default));
+		--home-bg-mask-default: linear-gradient(tan 50%, 66.7%, #0000 95%);
+		--home-bg-default:
+            /* Horizon glow */ radial-gradient(ellipse 150% 20% at 50% 100%, var(--home-sun-glow) 0%, 2.5%, var(--home-sun-glow-alpha) 75%) no-repeat 50%
+				0 / 100% 50%,
+			/* Full sky */ linear-gradient(var(--home-sky-start, var(--ctx-bg)) 0%, var(--home-sky-end) 50%, var(--home-floor-start) 50%, var(--home-floor-end, var(--ctx-bg)) 100%);
+		background: var(--home-bg-image, var(--home-bg-default));
 
 		// Fade out the grid at the bottom
-		-webkit-mask-image: var(--homescreen-bg-mask, var(--homescreen-bg-mask-default));
-		mask-image: var(--homescreen-bg-mask, var(--homescreen-bg-mask-default));
+		-webkit-mask-image: var(--home-bg-mask, var(--home-bg-mask-default));
+		mask-image: var(--home-bg-mask, var(--home-bg-mask-default));
 
 		&,
 		&::before,
@@ -273,14 +262,14 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		/* Sun layer */
 		&::before {
-			--homescreen-disc-mask-default: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
-			--homescreen-lines-mask-default: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x
-				50% 100% / 100% 50%;
+			--home-disc-mask-default: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
+			--home-lines-mask-default: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50%
+				100% / 100% 50%;
 
 			background: #{$sun-gradient};
-			-webkit-mask: var(--homescreen-disc-mask, var(--homescreen-disc-mask-default)), var(--homescreen-lines-mask, var(--homescreen-lines-mask-default));
+			-webkit-mask: var(--home-disc-mask, var(--home-disc-mask-default)), var(--home-lines-mask, var(--home-lines-mask-default));
 			-webkit-mask-composite: source-out;
-			mask: var(--homescreen-disc-mask, var(--homescreen-disc-mask-default)) subtract, var(--homescreen-lines-mask, var(--homescreen-lines-mask-default));
+			mask: var(--home-disc-mask, var(--home-disc-mask-default)) subtract, var(--home-lines-mask, var(--home-lines-mask-default));
 		}
 
 		&::after {
@@ -295,11 +284,11 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		width: 100%;
 
-		filter: drop-shadow(0 0 0.5vmin var(--homescreen-grid-line, cyan));
+		filter: drop-shadow(0 0 0.5vmin var(--home-grid-line, cyan));
 
 		& > path {
 			fill: none;
-			stroke: var(--homescreen-grid-line, cyan);
+			stroke: var(--home-grid-line, cyan);
 			stroke-width: 1.5px;
 			stroke-width: clamp(0.75px, 0.1vw, 1.5px);
 			vector-effect: non-scaling-stroke;
@@ -382,13 +371,13 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		}
 
 		&__creativedeveloper-text {
-			stroke: var(--homescreen-creadev-stroke);
-			stroke-width: var(--homescreen-creadev-stroke-width, 0.1875em);
-			fill: var(--homescreen-creadev-fill);
+			stroke: var(--home-creadev-stroke);
+			stroke-width: var(--home-creadev-stroke-width, 0.1875em);
+			fill: var(--home-creadev-fill);
 			paint-order: stroke;
 
 			font-size: 1.185rem;
-			font-family: var(--homescreen-creadev-font, var(--font-fallback-sans-serif));
+			font-family: var(--home-creadev-font, var(--font-fallback-sans-serif));
 			font-weight: 300;
 
 			opacity: 1;

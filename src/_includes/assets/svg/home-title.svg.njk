@@ -1,5 +1,5 @@
 {# Define the color for the fake 3D name element #}
-{% set depth_count = 11 %}
+{% set depth_count = 7 %}
 {% set depth_min_scale = 0.95 %}
 {% set depth_close_sat = 48 %}
 {% set depth_close_lux = 26 %}
@@ -18,29 +18,29 @@
 {% set wire_color_lum_start = 100 %}
 {% set wire_color_lum_end = 50 %}
 {% set wire_count = 8 %}
-{% set wire_color = 'var(--homescreen-chris-flash-glow, cyan)' %}
+{% set wire_color = 'var(--home-chris-flash-glow, cyan)' %}
 
 {% set svgTitle %}
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="homescreen-svg">
-  <title>Chris, {{ 'homescreenTitle.creaDev' | i18n | toLowercase }}</title>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="home-svg">
+  <title>Chris, {{ 'homeTitle.creaDev' | i18n | toLowercase }}</title>
 
   <defs>
     <!-- SHAPE: Chris -->
-    <path id="homescreen-svg-chris-shape" d="M170.04,287.19h93.75v46.88h-93.75c-46.88,0,-70.31,-23.44,-70.31,-70.31v-23.44c0,-46.88,23.44,-70.31,70.31,-70.31h93.75v46.88h-93.75c-15.63,0,-23.44,7.81,-23.44,23.44v23.44c0.01,15.6,7.82,23.42,23.44,23.42zm152.35,-11.72v58.59h-46.88v-164.06h46.88v58.59h82.03v-58.59h46.88v164.06h-46.88v-58.59h-82.03zm140.62,-105.47h123.05c35.16,0,52.73,17.58,52.73,52.73c0,28.59,-11.6,45.55,-34.8,50.86l34.8,60.47h-54.02l-33.87,-58.59h-41.02v58.59h-46.88v-164.06zm46.88,46.87v11.72h76.17c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-76.17zm187.5,117.19h-46.88v-164.06h46.88v164.06zm111.33,0h-99.61v-46.88h99.61c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-46.88c-35.16,0,-52.73,-17.58,-52.73,-52.73c0,-35.16,17.58,-52.73,52.73,-52.73h99.61v46.88h-99.61c-3.91,0,-5.86,1.95,-5.86,5.86s1.95,5.86,5.86,5.86h46.88c35.16,0,52.73,17.58,52.73,52.73s-17.58,52.73,-52.73,52.73z"></path>
+    <path id="home-svg-chris-shape" d="M170.04,287.19h93.75v46.88h-93.75c-46.88,0,-70.31,-23.44,-70.31,-70.31v-23.44c0,-46.88,23.44,-70.31,70.31,-70.31h93.75v46.88h-93.75c-15.63,0,-23.44,7.81,-23.44,23.44v23.44c0.01,15.6,7.82,23.42,23.44,23.42zm152.35,-11.72v58.59h-46.88v-164.06h46.88v58.59h82.03v-58.59h46.88v164.06h-46.88v-58.59h-82.03zm140.62,-105.47h123.05c35.16,0,52.73,17.58,52.73,52.73c0,28.59,-11.6,45.55,-34.8,50.86l34.8,60.47h-54.02l-33.87,-58.59h-41.02v58.59h-46.88v-164.06zm46.88,46.87v11.72h76.17c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-76.17zm187.5,117.19h-46.88v-164.06h46.88v164.06zm111.33,0h-99.61v-46.88h99.61c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-46.88c-35.16,0,-52.73,-17.58,-52.73,-52.73c0,-35.16,17.58,-52.73,52.73,-52.73h99.61v46.88h-99.61c-3.91,0,-5.86,1.95,-5.86,5.86s1.95,5.86,5.86,5.86h46.88c35.16,0,52.73,17.58,52.73,52.73s-17.58,52.73,-52.73,52.73z"></path>
 
     <!-- MASK: Chris -->
-    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask">
-      <use xlink:href="#homescreen-svg-chris-shape" fill="#fff" />
+    <mask maskUnits="userSpaceOnUse" id="home-svg-chris-mask">
+      <use xlink:href="#home-svg-chris-shape" fill="#fff" />
     </mask>
-    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask-inverted">
+    <mask maskUnits="userSpaceOnUse" id="home-svg-chris-mask-inverted">
       <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
-      <use xlink:href="#homescreen-svg-chris-shape" fill="#000" />
+      <use xlink:href="#home-svg-chris-shape" fill="#000" />
     </mask>
-    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask-outline">
-      <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="#fff" stroke-width="2" />
+    <mask maskUnits="userSpaceOnUse" id="home-svg-chris-mask-outline">
+      <use xlink:href="#home-svg-chris-shape" fill="none" stroke="#fff" stroke-width="2" />
     </mask>
-    <mask maskUnits="userSpaceOnUse" id="homescreen-svg-chris-mask-outline-double">
-      <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="#fff" stroke-width="4" />
+    <mask maskUnits="userSpaceOnUse" id="home-svg-chris-mask-outline-double">
+      <use xlink:href="#home-svg-chris-shape" fill="none" stroke="#fff" stroke-width="4" />
     </mask>
 
     <!-- FILTER: Flash Glow -->
@@ -74,7 +74,7 @@
       <feGaussianBlur in="violetShadeGlow_thicken" stdDeviation="2" result="violetShadeGlow_blurred" />
 
       <!-- Change the color -->
-      <feFlood flood-color="var(--homescreen-chris-inner)" result="violetShadeGlow_glowColor" />
+      <feFlood flood-color="var(--home-chris-inner)" result="violetShadeGlow_glowColor" />
 
       <!-- Color in the glows -->
       <feComposite in="violetShadeGlow_glowColor" in2="violetShadeGlow_blurred" operator="in" result="violetShadeGlow_colored" />
@@ -95,7 +95,7 @@
       <feGaussianBlur in="violetShadeGlow2_thicken" stdDeviation="8" result="violetShadeGlow2_blurred" />
 
       <!-- Change the color -->
-      <feFlood flood-color="var(--homescreen-chris-inner)" result="violetShadeGlow_glowColor" />
+      <feFlood flood-color="var(--home-chris-inner)" result="violetShadeGlow_glowColor" />
 
       <!-- Color in the glows -->
       <feComposite in="violetShadeGlow2_glowColor" in2="violetShadeGlow2_blurred" operator="in" result="violetShadeGlow2_colored" />
@@ -109,23 +109,23 @@
 
     <!-- GRADIENT: Outline -->
     <linearGradient id="gradientPinkPurple" gradientUnits="userSpaceOnUse" x1="480" y1="169.998" x2="480" y2="334.06">
-      <stop offset=".42" stop-color="var(--homescreen-chris-outline-b)"/>
-      <stop offset=".64" stop-color="var(--homescreen-chris-outline-a)"/>
-      <stop offset=".77" stop-color="var(--homescreen-chris-outline-b)"/>
+      <stop offset=".42" stop-color="var(--home-chris-outline-b)"/>
+      <stop offset=".64" stop-color="var(--home-chris-outline-a)"/>
+      <stop offset=".77" stop-color="var(--home-chris-outline-b)"/>
     </linearGradient>
 
     <!-- GRADIENT: Main -->
     <linearGradient id="gradientDuskTop" gradientUnits="userSpaceOnUse" x1="480" y1="169.998" x2="480" y2="334.06">
-      <stop offset="0" stop-color="var(--homescreen-chris-upper-a)"/>
-      <stop offset=".167" stop-color="var(--homescreen-chris-upper-b)"/>
-      <stop offset=".333" stop-color="var(--homescreen-chris-upper-c)"/>
-      <stop offset=".5" stop-color="var(--homescreen-chris-upper-d)"/>
-      <stop offset="1" stop-color="var(--homescreen-chris-upper-d)"/>
+      <stop offset="0" stop-color="var(--home-chris-upper-a)"/>
+      <stop offset=".167" stop-color="var(--home-chris-upper-b)"/>
+      <stop offset=".333" stop-color="var(--home-chris-upper-c)"/>
+      <stop offset=".5" stop-color="var(--home-chris-upper-d)"/>
+      <stop offset="1" stop-color="var(--home-chris-upper-d)"/>
     </linearGradient>
 
     <linearGradient id="gradientDuskBottom" gradientUnits="userSpaceOnUse" x1="480" y1="169.998" x2="480" y2="334.06">
-      <stop offset=".5" stop-color="var(--homescreen-chris-lower-a)"/>
-      <stop offset="1" stop-color="var(--homescreen-chris-lower-b)"/>
+      <stop offset=".5" stop-color="var(--home-chris-lower-a)"/>
+      <stop offset="1" stop-color="var(--home-chris-lower-b)"/>
     </linearGradient>
 
     <!-- GRADIENT: Shine Spots -->
@@ -144,61 +144,61 @@
   </defs>
 
   <!-- Chris -->
-  <g class="homescreen-svg__chris-group homescreen-svg__group" role="img" aria-label="Chris">
+  <g class="home-svg__chris-group home-svg__group" role="img" aria-label="Chris">
 
     <!-- Wires -->
-    <g class="homescreen-svg__wires" style="--wire-count: {{ wire_count }};">
+    <g class="home-svg__wires" style="--wire-count: {{ wire_count }};">
       {% for w in range(0, wire_count) -%}
         {% set wire_lum = wire_color_lum_end + (wire_color_lum_start - wire_color_lum_end) * (w/wire_count) %}
-        <use xlink:href="#homescreen-svg-chris-shape" class="homescreen-svg__wire" fill="none" stroke="hsla(var(--homescreen-chris-wire-hue, 180), 100%, {{ wire_lum }}%, .8)" stroke-width="2" style="--w: {{ w }};" />
+        <use xlink:href="#home-svg-chris-shape" class="home-svg__wire" fill="none" stroke="hsla(var(--home-chris-wire-hue, 180), 100%, {{ wire_lum }}%, .8)" stroke-width="2" style="--w: {{ w }};" />
       {%- endfor %}
     </g>
     
-    <g class="homescreen-svg__chris-main">
+    <g class="home-svg__chris-main">
       <!-- Fake depth layers -->
-      <g stroke-width="2.5" class="homescreen-svg__chris-depth-group">
+      <g stroke-width="2.5" class="home-svg__chris-depth-group">
       {% for d in range(0, depth_count) -%}
         {% set depth_sat = depth_far_sat + (depth_close_sat - depth_far_sat) * (d/depth_count) %}
         {% set depth_lux = depth_far_lux + (depth_close_lux - depth_far_lux) * (d/depth_count) %}
         {% set depth_scale_x = (1 - depth_min_scale * depth_factor_x) * (d/depth_count) + depth_min_scale * depth_factor_x %}
         {% set depth_scale_y = (1 - depth_min_scale * depth_factor_y) * (d/depth_count) + depth_min_scale * depth_factor_y %}
-        {% set color_h %}calc(var(--homescreen-chris-depth-hue)){% endset %}
-        {% set color_s %}calc(var(--homescreen-chris-depth-sat, 1) * {{ depth_sat | round(3) }}%){% endset %}
-        {% set color_l %}calc(var(--homescreen-chris-depth-lux, 0%) + {{ depth_lux | round(3) }}%){% endset %}
+        {% set color_h %}calc(var(--home-chris-depth-hue)){% endset %}
+        {% set color_s %}calc(var(--home-chris-depth-sat, 1) * {{ depth_sat | round(3) }}%){% endset %}
+        {% set color_l %}calc(var(--home-chris-depth-lux, 0%) + {{ depth_lux | round(3) }}%){% endset %}
         <use
-          xlink:href="#homescreen-svg-chris-shape"
-          class="homescreen-svg__group homescreen-svg__chris-depth"
+          xlink:href="#home-svg-chris-shape"
+          class="home-svg__group home-svg__chris-depth"
           style="transform: scale({{ depth_scale_x | round(3) }}, {{ depth_scale_y | round(3) }}); color: hsl({{ color_h }}, {{ color_s }}, {{ color_l }});" />
       {%- endfor %}
       </g>
 
       <!-- Outline -->
-      <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="url(#gradientPinkPurple)" stroke-width="3" />
+      <use xlink:href="#home-svg-chris-shape" fill="none" stroke="url(#gradientPinkPurple)" stroke-width="3" />
 
       <!-- Gradient -->
-      <g mask="url(#homescreen-svg-chris-mask)">
+      <g mask="url(#home-svg-chris-mask)">
         <rect x="0%" y="0" width="100%" height="100%" fill="url(#gradientDuskTop)" />
         <path fill="url(#gradientDuskBottom)" d="M0 257v247h971V249H866c-5 0-18 7-22 7l-10-2-16 3-13-2c-10 0-16-4-26-4-8 0-13 4-18 4l-22 1h-13c-6 0-10-3-16-3-11 0-14-5-25-5l-7 1-7-1c-3 0-19 9-23 9l-13 1-11-1-12 1c-2 0-11-4-17-4-18 0-21-6-30-6-7 0-14 7-21 7s-16 3-20 3-9-5-17-5-10 5-20 5-15-4-22-4c-13 0-15-6-22-6-8 0-11 2-15 2s-10 6-18 6l-20 1c-6 0-10-3-15-3l-21-3c-5 0-18 4-26 4s-10-3-14-3c-9 0-14-5-20-5-4 0-16 4-22 4l-118 9c-9 0-15-8-24-8l-6 1-10-1c-10 0-16 5-22 5H0z" />
       </g>
 
       <!-- Inner Shadow  -->
-      <g mask="url(#homescreen-svg-chris-mask)">
-        <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="var(--homescreen-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow)" />
-        <use xlink:href="#homescreen-svg-chris-shape" fill="none" stroke="var(--homescreen-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow2)" />
+      <g mask="url(#home-svg-chris-mask)">
+        <use xlink:href="#home-svg-chris-shape" fill="none" stroke="var(--home-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow)" />
+        <use xlink:href="#home-svg-chris-shape" fill="none" stroke="var(--home-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow2)" />
       </g>
 
       <!-- Shine Overlay (hide initially, show with CSS) -->
-      <g mask="url(#homescreen-svg-chris-mask)">
-        <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="homescreen-svg__name-shineOver" style="opacity:0" />
+      <g mask="url(#home-svg-chris-mask)">
+        <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="home-svg__name-shineOver" style="opacity:0" />
       </g>
 
       <!-- Outline Overlay (hide initially, show with CSS) -->
-      <g mask="url(#homescreen-svg-chris-mask-outline-double)">
-        <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="homescreen-svg__name-shineOver homescreen-svg__name-shineOver--delayed" style="opacity:0" />
+      <g mask="url(#home-svg-chris-mask-outline-double)">
+        <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="home-svg__name-shineOver home-svg__name-shineOver--delayed" style="opacity:0" />
       </g>
 
       <!-- Shine Spots -->
-      <g mask="url(#homescreen-svg-chris-mask-outline)">
+      <g mask="url(#home-svg-chris-mask-outline)">
         <circle fill="url(#gradientShine)" cx="119" cy="178.95" r="48.81"/>
         <circle fill="url(#gradientShine)" cx="735.67" cy="168.52" r="36.76"/>
         <ellipse fill="url(#gradientShine)" cx="523.35" cy="173.84" rx="63.03" ry="26.07"/>
@@ -213,24 +213,24 @@
 
       {# <circle fill="url(#gradientShine)" cx="736" cy="173" r="12" /> #}
 
-      <g class="homescreen-svg__glare-group">
-        <g class="homescreen-svg__glare homescreen-svg__group">
+      <g class="home-svg__glare-group">
+        <g class="home-svg__glare home-svg__group">
           <ellipse fill="url(#gradientShine)" cx="0" cy="0" ry="16" rx="4" />
           <ellipse fill="url(#gradientShine)" cx="0" cy="0" rx="16" ry="4" />
         </g>
       </g>
     </g>
 
-    <g class="homescreen-svg__chris-flash">
-      <use xlink:href="#homescreen-svg-chris-shape" fill="{{ shine_color }}" stroke="{{ shine_color }}" filter="url(#flashGlow)" />
-      {# <use xlink:href="#homescreen-svg-chris-shape"  fill="{{ shine_color }}" stroke="{{ shine_color }}" /> #}
+    <g class="home-svg__chris-flash">
+      <use xlink:href="#home-svg-chris-shape" fill="{{ shine_color }}" stroke="{{ shine_color }}" filter="url(#flashGlow)" />
+      {# <use xlink:href="#home-svg-chris-shape"  fill="{{ shine_color }}" stroke="{{ shine_color }}" /> #}
     </g>
   </g>
 
   <!-- Creative Developer -->
-  <g class="homescreen-svg__creativedeveloper-text homescreen-svg__group" letter-spacing=".7em">
+  <g class="home-svg__creativedeveloper-text home-svg__group" letter-spacing=".7em">
     <text text-anchor="middle" x="50%" y="387">
-      {{ 'homescreenTitle.creaDev' | i18n | toUppercase }}
+      {{ 'homeTitle.creaDev' | i18n | toUppercase }}
     </text>
   </g>
 </svg>
