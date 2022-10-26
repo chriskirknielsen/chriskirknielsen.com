@@ -127,15 +127,10 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--home-creadev-fill: white;
 	--home-creadev-font: Tahoma, Verdana, Arial, sans-serif;
 
-	.home-grid {
+	.home-grid,
+	.home-background::before,
+	.home-background::after {
 		display: none;
-	}
-
-	.home-background {
-		&::before,
-		&::after {
-			content: none;
-		}
 	}
 }
 
@@ -377,7 +372,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			paint-order: stroke;
 
 			font-size: 1.185rem;
-			font-family: var(--home-creadev-font, var(--font-fallback-sans-serif));
+			font-family: var(--home-creadev-font, var(--fontstack-sans-serif));
 			font-weight: 300;
 
 			opacity: 1;

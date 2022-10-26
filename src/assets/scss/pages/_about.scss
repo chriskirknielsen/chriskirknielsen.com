@@ -948,7 +948,7 @@ li[data-fact-emoji] {
 	padding: var(--size-m);
 
 	font-size: 0.875em;
-	font-family: var(--quotebox-font, var(--font-fallback-serif));
+	font-family: var(--quotebox-font, var(--fontstack-serif));
 	font-weight: var(--quotebox-weight, bold);
 	font-style: var(--quotebox-style, italic);
 	text-transform: var(--quotebox-transform, none);

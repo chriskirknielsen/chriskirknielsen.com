@@ -290,7 +290,7 @@
 	}
 
 	.about-quotebox {
-		--quotebox-font: Courier, var(--font-fallback-monospace);
+		--quotebox-font: Courier, var(--fontstack-monospace);
 		--quotebox-style: normal;
 		--quotebox-weight: 400;
 	}
@@ -311,7 +311,7 @@
 
 			font-size: 1rem;
 			font-weight: 300;
-			font-family: var(--font-fallback-monospace);
+			font-family: var(--fontstack-monospace);
 			color: white;
 
 			&::before {
@@ -371,12 +371,12 @@
 	.header {
 		&-logo {
 			& > svg {
-				--logo-filter: var(--t-header-logo-fill);
-				filter: drop-shadow(0 0 0.5em var(--logo-filter));
+				--nt-logo-filter: var(--t-header-logo-fill);
+				filter: drop-shadow(0 0 0.5em var(--nt-logo-filter));
 			}
 
 			&:is(:hover, :focus) > svg {
-				--logo-filter: var(--t-header-logo-fill-active);
+				--nt-logo-filter: var(--t-header-logo-fill-active);
 			}
 		}
 	}
@@ -397,6 +397,7 @@
 
 		&::before {
 			content: '';
+
 			position: absolute;
 			inset: 0.5em -0.5em -0.5em 0.5em;
 			z-index: -1;

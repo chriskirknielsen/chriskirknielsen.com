@@ -78,7 +78,7 @@ blockquote {
 	& > :last-child::after {
 		color: var(--t-color-secondary-med, currentColor);
 		font-weight: bold;
-		font-family: var(--font-fallback-serif);
+		font-family: var(--fontstack-serif);
 	}
 }
 

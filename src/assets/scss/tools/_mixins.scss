@@ -10,8 +10,8 @@
 					$stack: ();
 
 					@each $family in $families {
-						@if (is-list(map-deep-get(get-token('fontFallback'), $family))) {
-							$stack: append($stack, 'var(--font-fallback-#{$family})', $separator: 'comma');
+						@if (is-list(map-deep-get(get-token('fontstack'), $family))) {
+							$stack: append($stack, 'var(--fontstack-#{$family})', $separator: 'comma');
 						} @else {
 							$stack: append($stack, $family, $separator: 'comma');
 						}
