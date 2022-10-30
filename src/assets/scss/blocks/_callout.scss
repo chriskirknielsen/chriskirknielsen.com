@@ -9,13 +9,13 @@
 	padding: var(--size-m);
 	padding-block-start: 0;
 
-	border-inline-start: 2px solid var(--t-color-primary-med);
+	border-inline-start: 2px solid var(--t-color-main-med);
 
 	&-label {
 		display: block;
 		padding-block-end: 0.5em;
 
 		font-size: 1.5em;
-		color: var(--t-color-primary-min);
+		color: var(--t-color-main-min);
 	}
 }

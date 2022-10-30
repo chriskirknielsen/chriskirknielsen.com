@@ -151,7 +151,7 @@
 	&-close {
 		--close-color: currentColor;
 		--close-border: transparent;
-		--close-bg: var(--t-color-secondary-max);
+		--close-bg: var(--t-color-aux-max);
 
 		position: absolute;
 		inset-block-start: var(--picker-close-padding);

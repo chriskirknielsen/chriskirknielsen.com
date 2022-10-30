@@ -63,7 +63,7 @@
 
 	{# Icons #}
 	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
-	<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.secondary.med }}">
+	<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.aux.med }}">
 	<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
 
 	{# Page alternates #}
@@ -77,7 +77,7 @@
 	
 	{# Meta, SEO, etc. #}
 	<meta name="author" content="{{ metadata.author.name }}">
-	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.schemes.dark].colors.primary.max) | safe }}">
+	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.schemes.dark].colors.main.max) | safe }}">
 	<meta name="generator" content="{{ eleventy.generator }}">
 
 	{% if summary %}

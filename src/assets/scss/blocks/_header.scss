@@ -16,7 +16,7 @@
 		min-width: 2rem;
 		margin-inline-end: auto;
 
-		color: var(--t-color-primary-med);
+		color: var(--t-color-main-med);
 		font-size: 2rem;
 		text-decoration: none;
 
@@ -38,7 +38,7 @@
 		}
 
 		&:is(:hover, :focus) > svg path {
-			fill: var(--t-header-logo-fill-active, var(--t-color-primary-min));
+			fill: var(--t-header-logo-fill-active, var(--t-color-main-min));
 
 			&[data-k] {
 				transition-delay: 50ms;

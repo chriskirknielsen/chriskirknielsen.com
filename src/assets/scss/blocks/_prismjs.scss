@@ -17,7 +17,7 @@ pre {
 	word-wrap: normal;
 	font-family: var(--fontstack-monospace);
 	font-size: 1rem;
-	color: var(--t-color-secondary-med);
+	color: var(--t-color-aux-med);
 	text-shadow: none;
 }
 
@@ -30,7 +30,7 @@ mark {
 }
 
 mark {
-	color: var(--t-color-secondary-med);
+	color: var(--t-color-aux-med);
 }
 
 :not(pre) > code {
@@ -48,7 +48,7 @@ pre > code {
 	padding: var(--C-content-gutter);
 	padding-inline-start: calc(var(--C-content-gutter) - var(--codeblock-border));
 
-	border-inline-start: var(--codeblock-border) solid var(--t-color-secondary-med, currentColor);
+	border-inline-start: var(--codeblock-border) solid var(--t-color-aux-med, currentColor);
 }
 
 pre.codeblock {
@@ -81,7 +81,7 @@ pre.codeblock {
 
 			line-height: 1;
 			color: var(--ctx-bg);
-			background: var(--t-color-secondary-med);
+			background: var(--t-color-aux-med);
 
 			font-size: 0.75em;
 			letter-spacing: 0.125em;
@@ -106,7 +106,7 @@ pre.codeblock {
 :not(pre) > code[class*='language-'] {
 	padding: 0.15em 0.2em 0.05em;
 	border-radius: 0.3em;
-	border: 2px solid var(--t-color-primary-med);
+	border: 2px solid var(--t-color-main-med);
 }
 
 .token.namespace {
@@ -127,7 +127,7 @@ pre.codeblock {
 .token.important,
 .token.deleted,
 code.language-markup .token.tag {
-	color: var(--token-primary-med, var(--t-color-primary-med));
+	color: var(--token-main-med, var(--t-color-main-med));
 }
 .token.attr-name,
 .token.string,
@@ -136,11 +136,11 @@ code.language-markup .token.tag {
 .token.property .language-css .token.string,
 .style .token.string,
 code.language-markup .token.attr-value {
-	color: var(--t-color-primary-min);
+	color: var(--t-color-main-min);
 }
 .token.selector,
 .token.inserted {
-	color: var(--t-color-secondary-min);
+	color: var(--t-color-aux-min);
 }
 .token.regex,
 .token.statement,
@@ -148,7 +148,7 @@ code.language-markup .token.attr-name,
 code.language-markup .token.style,
 code.language-markup .token.script,
 code.language-markup .token.script .token.keyword {
-	color: var(--t-color-secondary-med);
+	color: var(--t-color-aux-med);
 }
 .token.placeholder,
 .token.variable,

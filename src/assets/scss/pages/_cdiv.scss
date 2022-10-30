@@ -17,12 +17,12 @@
 
 	&-numerals,
 	&-hands {
-		fill: var(--t-color-primary-min);
+		fill: var(--t-color-main-min);
 	}
 
 	&-rings {
 		fill: none;
-		stroke: var(--t-color-primary-min);
+		stroke: var(--t-color-main-min);
 		stroke-width: 3;
 	}
 

@@ -8,7 +8,7 @@
 
 				& path {
 					fill-opacity: 1;
-					stroke: var(--t-color-primary-min);
+					stroke: var(--t-color-main-min);
 					stroke-width: 3;
 					stroke-opacity: 0;
 				}
@@ -19,7 +19,7 @@
 			}
 
 			&:is(:hover, :focus) > svg path {
-				fill: var(--T-dusk, var(--t-color-gray-max)) var(--T-dawn, var(--t-color-primary-med));
+				fill: var(--T-dusk, var(--t-color-gray-max)) var(--T-dawn, var(--t-color-main-med));
 				fill-opacity: var(--T-dusk, 0) var(--T-dawn, 1);
 				stroke-opacity: var(--T-dusk, 1) var(--T-dawn, 0);
 
@@ -54,7 +54,7 @@
 
 	.bigboi {
 		@include generate-light-dark-vars('bigboi-outline-color', white, black);
-		@include generate-light-dark-vars('bigboi-line-color', var(--t-color-primary-med), var(--t-color-secondary-med));
+		@include generate-light-dark-vars('bigboi-line-color', var(--t-color-main-med), var(--t-color-aux-med));
 		--bigboi-bg-mask: radial-gradient(ellipse at center, rgba(0 0 0 / 20%), rgba(0 0 0 / 0%));
 
 		position: relative;
@@ -92,8 +92,8 @@
 		padding-block-start: var(--size-xl);
 
 		background: linear-gradient(90deg, transparent, var(--ctx-bg)) 100% 0 repeat-y,
-			repeating-linear-gradient(var(--t-color-primary-med) 0, var(--t-color-primary-med) 2px, transparent 2px, transparent 6px) 0 0 repeat-x,
-			linear-gradient(90deg, var(--t-color-primary-med), var(--ctx-bg)) 0 100% no-repeat;
+			repeating-linear-gradient(var(--t-color-main-med) 0, var(--t-color-main-med) 2px, transparent 2px, transparent 6px) 0 0 repeat-x,
+			linear-gradient(90deg, var(--t-color-main-med), var(--ctx-bg)) 0 100% no-repeat;
 		background-size: 100% 1.25em, 100% 1.25em, 100% 0.11em;
 
 		&-label {
@@ -104,14 +104,14 @@
 			padding: 0 var(--C-content-gutter);
 
 			font-size: max(var(--size-xl), 1.75em);
-			color: var(--t-color-primary-min);
-			text-shadow: 0.075em 0.075em 0 var(--ctx-bg), 0.125em 0.125em 0 var(--t-color-primary-med);
+			color: var(--t-color-main-min);
+			text-shadow: 0.075em 0.075em 0 var(--ctx-bg), 0.125em 0.125em 0 var(--t-color-main-med);
 			background-color: var(--ctx-bg);
 		}
 	}
 
 	.about-quotebox {
-		box-shadow: 0.5em 0.5em 2em -1em var(--t-color-primary-med);
+		box-shadow: 0.5em 0.5em 2em -1em var(--t-color-main-med);
 	}
 }
 
@@ -122,7 +122,7 @@
 	$body-bg-image-gutter: 2rem;
 
 	body {
-		background: linear-gradient(45deg, var(--t-color-secondary-max), var(--t-color-primary-max)) fixed;
+		background: linear-gradient(45deg, var(--t-color-aux-max), var(--t-color-main-max)) fixed;
 	}
 
 	@media (min-width: calc(#{$body-bg-min-width} + #{$body-bg-image-width * 2} + #{$body-bg-image-gutter} * 2)) {
@@ -156,7 +156,7 @@
 
 		color: var(--t-color-gray-max);
 		border: 0;
-		background: var(--t-color-primary-med);
+		background: var(--t-color-main-med);
 	}
 
 	.about-quotebox {
@@ -173,7 +173,7 @@
 			inset: 0.5em -0.5em -0.5em 0.5em;
 			z-index: -1;
 
-			border: 2px solid var(--t-color-secondary-med);
+			border: 2px solid var(--t-color-aux-med);
 		}
 	}
 
@@ -190,12 +190,12 @@
 		}
 
 		// Pixelated text shadow
-		text-shadow: 2px 2px 0 var(--t-color-primary-max), 4px 4px 0 var(--t-color-primary-max), 6px 6px 0 var(--t-color-primary-max), 8px 8px 0 var(--t-color-primary-max);
+		text-shadow: 2px 2px 0 var(--t-color-main-max), 4px 4px 0 var(--t-color-main-max), 6px 6px 0 var(--t-color-main-max), 8px 8px 0 var(--t-color-main-max);
 	}
 }
 
 @include theme('y2k') {
-	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-primary-min), var(--t-color-primary-max));
+	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-main-min), var(--t-color-main-max));
 	--t-scrollbar-color: #7c7c7c;
 	--t-scrollbar-bg: #dddddd;
 
@@ -338,9 +338,9 @@
 		& > svg {
 			overflow: visible;
 
-			stroke: var(--t-color-secondary-min);
+			stroke: var(--t-color-aux-min);
 			stroke-width: 1px;
-			fill: var(--t-color-secondary-med);
+			fill: var(--t-color-aux-med);
 			fill: url('#logo-ie-grad');
 		}
 
@@ -382,7 +382,7 @@
 	}
 
 	.bigboi {
-		outline: 2px solid var(--t-color-primary-med);
+		outline: 2px solid var(--t-color-main-med);
 	}
 
 	.about-quotebox {
@@ -402,12 +402,12 @@
 			inset: 0.5em -0.5em -0.5em 0.5em;
 			z-index: -1;
 
-			border: 2px solid var(--t-color-secondary-med);
+			border: 2px solid var(--t-color-aux-med);
 		}
 	}
 
 	.callout {
-		border-inline-start-color: var(--t-color-primary-min);
+		border-inline-start-color: var(--t-color-main-min);
 
 		&-label {
 			width: fit-content;
@@ -418,8 +418,8 @@
 
 			font-size: 1.25em;
 			text-shadow: none;
-			color: var(--t-color-primary-max);
-			background: var(--t-color-primary-min);
+			color: var(--t-color-main-max);
+			background: var(--t-color-main-min);
 
 			&::before {
 				content: '// ';
@@ -438,7 +438,7 @@
 
 	.codeblock {
 		--token-gray-med: #a85454;
-		--token-primary-med: #ff7e66;
+		--token-main-med: #ff7e66;
 	}
 
 	.callout-label,
@@ -448,6 +448,6 @@
 	}
 
 	.footer-logo {
-		background: linear-gradient(var(--t-footer-border-color) 50%, var(--t-color-primary-med) 0) fixed 50% 50% / 100% 5px;
+		background: linear-gradient(var(--t-footer-border-color) 50%, var(--t-color-main-med) 0) fixed 50% 50% / 100% 5px;
 	}
 }
