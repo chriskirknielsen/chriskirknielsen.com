@@ -12,7 +12,7 @@ i18n:
                 content: 'Pour en apprendre un peu (ou beaucoup ?) sur moi, c’est par ici. C’est pour le moins… exhaustif.'
             designs:
                 label: 'Mes t-shirts et affiches'
-                content: 'Je crée des designs, et j’en ai fait une "boutique". Vous y trouverez du dev, un peu de pop-culture…'
+                content: 'Je crée des designs, et j’en ai fait une "boutique" : dev, cinéma, gaming…'
             fonts:
                 label: 'Mes quelques typos'
                 content: 'Ayant une passion pour les typos, voici quelques humbles police d’écriture.'

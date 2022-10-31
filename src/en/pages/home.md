@@ -12,7 +12,7 @@ i18n:
                 content: 'If you want to learn more about me, this is the place. It should cover quite a bit…'
             designs:
                 label: 'Shirts and posters I designed'
-                content: 'I design things sometimes and made a “shop”. Lots of dev stuff, a little pop-culture…'
+                content: 'I design things sometimes and made a “shop”: dev stuff, movies, games…'
             fonts:
                 label: 'A few typefaces I’ve worked on'
                 content: 'I’ve always thought fonts to be cool so making my own had to happen.'
