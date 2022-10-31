@@ -48,4 +48,4 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
 -   [ImageOptim](https://imageoptim.com/mac)
     Superbe outil pour mieux compresser mes images.
 
-Merci d'être passé par ici, cher·ère ami·e, c'est fort aimable !
+Merci d'être passé par ici, cher·ère ami·e, c'est fort aimable ! 👋

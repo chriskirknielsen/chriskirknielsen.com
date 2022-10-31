@@ -48,4 +48,4 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}) to see p
 -   [ImageOptim](https://imageoptim.com/mac)
     Beautiful tool to compress images better, you won't regret it.
 
-Thanks for stopping by, friend, it is mighty kind of you!
+Thanks for stopping by, friend, it is mighty kind of you! 👋

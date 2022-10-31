@@ -1,7 +1,7 @@
 module.exports = {
 	title: 'chriskirknielsen',
 	url: 'https://chriskirknielsen.com',
-	repo: 'https://github.com/chriskirknielsen/dotcom',
+	repo: 'https://github.com/chriskirknielsen/chriskirknielsen.com',
 	author: {
 		name: 'Christopher Kirk-Nielsen',
 		email: 'chriskirknielsen@gmail.com',
