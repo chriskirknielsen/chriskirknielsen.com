@@ -172,6 +172,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/deathloop_print?sku=s6-23684963p4a1v45',
 		},
 		tags: ['games'],
+		similar: ['deathloop-fourpounder'],
 	},
 	{
 		slug: 'dead-space',
@@ -183,6 +184,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/dead-space6791094_print?sku=s6-23685021p4a1v45',
 		},
 		tags: ['games'],
+		similar: ['dead-space-plasma-cutter'],
 	},
 	{
 		slug: 'jak-daxter-powercell-hunters',
