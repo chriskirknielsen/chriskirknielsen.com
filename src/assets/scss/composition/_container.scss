@@ -36,6 +36,7 @@
 	.container,
 	.container > .content,
 	.content-fullbleed:not(.page-content) {
+		min-width: 100%;
 		max-width: 100%;
 		margin-inline: 0;
 		padding-inline: 0;
