@@ -137,7 +137,7 @@ module.exports = function (eleventyConfig) {
 		locale = locale || context.lang || defaultLang;
 		return collection.filter((item) => item?.data?.lang === locale);
 	});
-	eleventyConfig.addFilter('striphyphenchars', (str) => str.replace(/(&shy;|<wbr>)/gm, ''));
+	eleventyConfig.addFilter('stripHyphenChars', (str) => str.replace(/(&shy;|<wbr>)/gm, ''));
 	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
 	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));

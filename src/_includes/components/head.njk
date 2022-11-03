@@ -1,7 +1,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title | striphyphenchars }} | {{ metadata.title }}</title>
+	<title>{{ title | stripHyphenChars }} | {{ metadata.title }}</title>
 	
 	{%- if fontSpecimen -%}		
 		{# Initialise variable outside loop scope #}
