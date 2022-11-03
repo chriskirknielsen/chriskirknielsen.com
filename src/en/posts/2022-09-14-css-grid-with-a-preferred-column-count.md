@@ -1,5 +1,4 @@
 ---
-slug: css-grid-with-a-preferred-column-count
 title: 'CSS Grid with a preferred column count'
 summary: Set up a CSS grid with a specific ideal number of columns.
 date: 2022-09-13
