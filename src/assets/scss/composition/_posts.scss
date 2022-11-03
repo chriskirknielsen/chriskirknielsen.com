@@ -8,10 +8,11 @@
 
 		position: absolute;
 		inset-inline-end: calc(100% + 0.25em);
-		inset-block-start: 0.75em;
+		inset-block: 0 0.125em;
 
 		width: 1em;
 		height: 1em;
+		margin: auto 0;
 
 		font-size: 0.5em;
 
