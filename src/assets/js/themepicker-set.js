@@ -15,6 +15,9 @@ window.setTheme = function (theme) {
 };
 window.getTheme = function () {
 	let activeTheme = localStorage.getItem(themeStore);
+	if (!activeTheme) {
+		return false; // If the user hasn't set an override, respect the `prefers-color-scheme` setting
+	}
 	if (!themeKeys.includes(activeTheme)) {
 		const mq = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		activeTheme = themeDefault[mq ? 'dark' : 'light'];
