@@ -89,6 +89,30 @@ module.exports = [
 		tags: ['dev', 'css'],
 	},
 	{
+		slug: 'duotype-css',
+		name: 'Radical Duotype CSS',
+		description: 'Represent CSS with radical double-typography style!',
+		img: 'duotype-css.jpg',
+		links: {
+			RedBubble: 'https://www.redbubble.com/i/sticker/Radical-Duotype-Cascading-Stylesheets-by-ckirknielsen/130796947.JCQM3?asc=u',
+			TeePublic: 'https://www.teepublic.com/sticker/36307529-radical-duotype-cascading-stylesheets',
+			DesignByHumans: 'https://www.designbyhumans.com/shop/sticker/radical-duotype-cascading-stylesheets/1871221/',
+		},
+		tags: ['dev', 'css'],
+	},
+	{
+		slug: 'duotype-semantic-markup',
+		name: 'Radical Duotype HTML',
+		description: 'Represent HTML (not just divs) with radical double-typography style!',
+		img: 'duotype-semantic-markup.jpg',
+		links: {
+			RedBubble: 'https://www.redbubble.com/i/sticker/Radical-Duotype-Semantic-Markup-by-ckirknielsen/130797216.JCQM3?asc=u',
+			TeePublic: 'https://www.teepublic.com/sticker/36307530-radical-duotype-semantic-markup',
+			DesignByHumans: 'https://www.designbyhumans.com/shop/sticker/radical-duotype-semantic-markup/1871223/',
+		},
+		tags: ['dev', 'html'],
+	},
+	{
 		slug: 'www-explorer',
 		name: 'World Wide Web Explorer',
 		description: 'Explore the spaces between what connects us all: the World Wide Web!',
