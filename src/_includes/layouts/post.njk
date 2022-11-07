@@ -1,56 +1,59 @@
 ---
-layout: layouts/base.njk
 templateName: post
 ---
 
-<header class="bigboi | content-fullbleed container">
-	<div class="bigboi-inner | content">
-		<h1 id="{{ title | slugify }}">{{ title }}</h1>
-		<p>
-			<time datetime="{{ date | dateFormat }}">
-				{{- date | dateFormat({ format: 'nice', locale: lang }) -}}
-			</time>
-			{{ 'grammar.inWord' | i18n }}
-			{%- if tags -%}
-				{%- for tag in tags | filterOut(systemtags) -%}
-					{%- if loop.index > 1 %},{% endif %} <a href="{{ localePath + 'tags/' + tag | url }}/">{{ tag }}</a>
-				{%- endfor -%}
-			{%- endif -%}
-			{% if updated %}
-				({{ 'blog.updated' | i18n }}{% if (updated | dateFormat) != (date | dateFormat) %}
-				<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ updated | dateFormat }}">{{ updated | dateFormat({ format: 'nice', locale: lang }) }}</time>{% endif %})
-			{% endif %}
-		</p>
+{% extends "layouts/base.njk" %}
+
+{% block layoutContent %}
+	<header class="bigboi | content-fullbleed container">
+		<div class="bigboi-inner | content">
+			<h1 id="{{ title | slugify }}">{{ title }}</h1>
+			<p>
+				<time datetime="{{ date | dateFormat }}">
+					{{- date | dateFormat({ format: 'nice', locale: lang }) -}}
+				</time>
+				{{ 'grammar.inWord' | i18n }}
+				{%- if tags -%}
+					{%- for tag in tags | filterOut(systemtags) -%}
+						{%- if loop.index > 1 %},{% endif %} <a href="{{ localePath + 'tags/' + tag | url }}/">{{ tag }}</a>
+					{%- endfor -%}
+				{%- endif -%}
+				{% if updated %}
+					({{ 'blog.updated' | i18n }}{% if (updated | dateFormat) != (date | dateFormat) %}
+					<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ updated | dateFormat }}">{{ updated | dateFormat({ format: 'nice', locale: lang }) }}</time>{% endif %})
+				{% endif %}
+			</p>
+		</div>
+	</header>
+
+	{% if original %}
+	<p class="post-original">
+		<span class="u-fontItalic">{{ 'blog.original' | i18n }}{{ 'grammar.punctSp' | i18n }}:</span>
+		<a href="{{ original | url }}" rel="nofollow"><span class="u-fontBold">{{ originalTitle or original }}</span></a>
+	</p>
+	{% endif %}
+
+	<div class="page-content | content-fullbleed container | flow fluid">
+		{{ layoutContent | safe }}
 	</div>
-</header>
 
-{% if original %}
-<p class="post-original">
-	<span class="u-fontItalic">{{ 'blog.original' | i18n }}{{ 'grammar.punctSp' | i18n }}:</span>
-	<a href="{{ original | url }}" rel="nofollow"><span class="u-fontBold">{{ originalTitle or original }}</span></a>
-</p>
-{% endif %}
+	{% if externalUrl %}
+	<p class="post-external">
+		<a href="{{ externalUrl }}" class="button">
+			{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}
+			{% svg "arrow-next", { class: 'inline-icon' } %}
+		</a>
+	</p>
+	{% endif %}
 
-<div class="page-content | content-fullbleed container | flow fluid">
-	{{ layoutContent | safe }}
-</div>
-
-{% if externalUrl %}
-<p class="post-external">
-	<a href="{{ externalUrl }}" class="button">
-		{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}
-		{% svg "arrow-next", { class: 'inline-icon' } %}
-	</a>
-</p>
-{% endif %}
-
-{% if not original and not externalUrl %}
-<footer class="post-footer">
-	<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar" tabindex="-1">
-		<img src="{{ ('/' + assets.imagesDir + '/profile.jpg') | url }}" alt="" width="64" height="64">
-	</a>
-	
-	<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url) }) | safe }}</p>
-	<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: ("https://twitter.com/intent/tweet?text=" + ("@" + metadata.author.twitter + " " + (page.url | absoluteUrl(metadata.url))) | urlencode), shopUrl: '/designs/' }) | safe }}</p>
-</footer>
-{% endif %}
+	{% if not original and not externalUrl %}
+	<footer class="post-footer">
+		<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar" tabindex="-1">
+			<img src="{{ ('/' + assets.imagesDir + '/profile.jpg') | url }}" alt="" width="64" height="64">
+		</a>
+		
+		<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url) }) | safe }}</p>
+		<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: ("https://twitter.com/intent/tweet?text=" + ("@" + metadata.author.twitter + " " + (page.url | absoluteUrl(metadata.url))) | urlencode), shopUrl: '/designs/' }) | safe }}</p>
+	</footer>
+	{% endif %}
+{% endblock %}

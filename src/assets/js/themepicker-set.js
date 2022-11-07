@@ -19,7 +19,7 @@ window.getTheme = function () {
 		return false; // If the user hasn't set an override, respect the `prefers-color-scheme` setting
 	}
 	if (!themeKeys.includes(activeTheme)) {
-		const mq = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const mq = window.matchMedia('(prefers-color-scheme:dark)').matches;
 		activeTheme = themeDefault[mq ? 'dark' : 'light'];
 	}
 	return activeTheme;

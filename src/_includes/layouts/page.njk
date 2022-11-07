@@ -1,25 +1,28 @@
 ---
-layout: layouts/base.njk
 templateName: page
 ---
 
-<header class="bigboi | content-fullbleed container">
-	<div class="bigboi-inner | content" style="--flow-space: var(--size-m)">
-		<h1>{{ (pageTitle or title) | safe }}</h1>
-		
-		<p class="u-fontWeight-bold">{{ subtitle }}</p>
+{% extends "layouts/base.njk" %}
 
-		{% if backlink %}
-		<p class="u-marginBlockStart-m">
-			<a href="{{ backlink.url | url }}" class="button" data-backlink>
-				{% svg "arrow-back", { class: "inline-icon" } %}
-				{{ backlink.label }}
-			</a>
-		</p>
-		{% endif %}
-    </div>
-</header>
+{% block layoutContent %}
+	<header class="bigboi | content-fullbleed container">
+		<div class="bigboi-inner | content" style="--flow-space: var(--size-m)">
+			<h1>{{ (pageTitle or title) | safe }}</h1>
+			
+			<p class="u-fontWeight-bold">{{ subtitle }}</p>
 
-<div class="page-content | content-fullbleed container | flow fluid">
-	{{ layoutContent | safe }}
-</div>
+			{% if backlink %}
+			<p class="u-marginBlockStart-m">
+				<a href="{{ backlink.url | url }}" class="button" data-backlink>
+					{% svg "arrow-back", { class: "inline-icon" } %}
+					{{ backlink.label }}
+				</a>
+			</p>
+			{% endif %}
+		</div>
+	</header>
+
+	<div class="page-content | content-fullbleed container | flow fluid">
+		{{ layoutContent | safe }}
+	</div>
+{% endblock %}

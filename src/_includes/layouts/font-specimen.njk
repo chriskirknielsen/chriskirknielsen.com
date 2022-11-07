@@ -2,10 +2,58 @@
 tags: [fonts]
 ---
 
+{% extends "components/head.njk" %}
+
+{% set isMiniSite = true %}
+
+{# Initialise variable outside loop scope #}
+{%- set fontSpecimenStyles = '' -%}
+
+{%- for fontSpecimenName, fontSpecimensFaces in fontSpecimen -%}
+	{# Preload the "default" font #}
+	{%- set fontPreload -%}<link rel="preload" href="{{ './' + fontSpecimensFaces[0].file | url }}" as="font" type="font/woff2" crossorigin>{% endset %}
+	
+	{%- set fontSpecimenStyles -%}
+		{%- for fontSpecimenFace in fontSpecimensFaces -%}
+		@font-face {
+			font-family: '{{ fontSpecimenName }}';
+			src: url('{{ './' + fontSpecimenFace.file | url }}') format('woff2');
+			font-weight: {{ fontSpecimenFace.weight or 400 }};
+			font-style: {{ fontSpecimenFace.style or 'normal' }};
+			font-display: swap;
+		}
+		{%- endfor -%}
+		.specimen { font-family: '{{ fontSpecimenName }}', {{ (fontSpecimenFallback | safe) or 'sans-serif' }}; }
+	{%- endset -%}
+{%- endfor -%}
+
+{% block headStart %}
 <!doctype html>
 <html lang="en">
-{% set isMiniSite = true %}
-{% include "components/head.njk" %}
+<head>
+	{{ fontPreload }}
+{% endblock %}
+{# include "components/head.njk" #}
+{% block headEnd %}
+	<style>
+	{%- if fontSpecimenStyles -%}
+		{{- fontSpecimenStyles | cssmin | safe -}}
+	{%- endif -%}
+
+	{%- if styleOverrides -%}
+		{# Add page-specific styles inline #}
+		{%- set pageStyleGroup = "" -%}
+
+		{%- for styleOverride in styleOverrides -%}
+			{%- set pagestylelink %}{{ assets.fontSpecimenStyles }}/{{ styleOverride | trim(' ') }}.css{% endset -%}
+			{%- set pagestyle %}{% include pagestylelink %}{% endset -%}
+			{%- set pageStyleGroup = pageStyleGroup + pagestyle -%}
+		{%- endfor -%}
+
+		{{- pageStyleGroup | cssmin | safe -}}
+	{%- endif -%}
+	</style>
+</head>
 
 <body>
 	<main class="content flow" id="content">
@@ -73,3 +121,4 @@ tags: [fonts]
 </body>
 
 </html>
+{% endblock %}

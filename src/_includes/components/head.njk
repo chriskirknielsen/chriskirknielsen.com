@@ -1,104 +1,64 @@
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title | stripHyphenChars }} | {{ metadata.title }}</title>
-	
-	{%- if fontSpecimen -%}		
-		{# Initialise variable outside loop scope #}
-		{%- set fontSpecimenStyles = '' -%}
+{% block headStart %}{% endblock %}
 
-		{%- for fontSpecimenName, fontSpecimensFaces in fontSpecimen -%}
-			{# Preload the "default" font #}
-			<link rel="preload" href="{{ './' + fontSpecimensFaces[0].file | url }}" as="font" type="font/woff2" crossorigin>
-			
-			{%- set fontSpecimenStyles -%}
-				{%- for fontSpecimenFace in fontSpecimensFaces -%}
-				@font-face {
-					font-family: '{{ fontSpecimenName }}';
-					src: url('{{ './' + fontSpecimenFace.file | url }}') format('woff2');
-					font-weight: {{ fontSpecimenFace.weight or 400 }};
-					font-style: {{ fontSpecimenFace.style or 'normal' }};
-					font-display: swap;
-				}
-				{%- endfor -%}
-				.specimen { font-family: '{{ fontSpecimenName }}', {{ (fontSpecimenFallback | safe) or 'sans-serif' }}; }
-			{%- endset -%}
-		{%- endfor -%}
-	{%- endif -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title | stripHyphenChars }} | {{ metadata.title }}</title>
 
-	{# Synchronous JS #}
-	{% if not isMiniSite %}
-	{% set themeScript %}
-	(function(){
-		document.documentElement.classList.remove('no-js');
-		const themeKeys = {{ tokens.themes | keys | dump | safe }};
-		const themeDefault = {{ tokens.schemes | dump | safe }};
-		{% include "assets/js/themepicker-set.js" %}
-	})()
-	{% endset %}
-	<script>{{- themeScript | jsmin('head') | safe -}}</script>
+{% if not isMiniSite %}
+{# Synchronous JS #}
+{% set themeScript %}
+(function(){
+	document.documentElement.classList.remove('no-js');
+	const themeKeys = {{ tokens.themes | keys | dump | safe }};
+	const themeDefault = {{ tokens.schemes | dump | safe }};
+	{% include "assets/js/themepicker-set.js" %}
+})()
+{% endset %}
+<script>{{- themeScript | jsmin('head') | safe -}}</script>
+
+{# Synchronous CSS #}
+<style id="inline-styles">/*INLINE_CSS*/</style>
+{% endif -%}
+
+{# Icons #}
+<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
+<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.aux.med }}">
+<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
+
+{# Page alternates #}
+<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absoluteUrl(metadata.url) }}">
+{% for link in page.url | locale_links %}
+<link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | absoluteUrl(metadata.url) }}">
+{% endfor %}
+
+{# RSS feed #}
+<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url | absoluteUrl(metadata.url) }}">
+
+{# Meta, SEO, etc. #}
+<meta name="author" content="{{ metadata.author.name }}">
+<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.schemes.dark].colors.main.max) | safe }}">
+<meta name="generator" content="{{ eleventy.generator }}">
+
+{% if summary %}
+<meta name="description" content="{{ summary }}">
+<meta name="og:description" content="{{ summary }}">
+{% endif %}
+
+<meta property="og:title" content="{{ title }} | {{ metadata.title }}">
+<meta property="og:site_name" content="{{ metadata.title }}">
+<meta property="og:locale" content="{{ locale or 'en' }}">
+<meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ (page.url or '/') | url | absoluteUrl(metadata.url) }}">
+
+{% set meta_image_url %}
+	{% if customMetaImage %}
+		{{ customMetaImage | url | absoluteUrl(metadata.url) }}
+	{% else %}
+		{{ ('/' + assets.imagesDir + '/metaimage.jpg') | url | absoluteUrl(metadata.url) }}
 	{% endif %}
+{% endset %}
+<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">
+<meta name="twitter:image:alt" property="og:image:alt" content="{{ title }}" />
+<meta name="twitter:card" content="summary" />
 
-	{# Synchronous CSS #}
-	<style id="inline-styles">
-		{%- if not isMiniSite %}/*INLINE_CSS*/{% endif -%}
-
-		{%- if fontSpecimenStyles -%}
-			{{- fontSpecimenStyles | cssmin | safe -}}
-		{%- endif -%}
-
-		{%- if styleOverrides -%}
-			{# Add page-specific styles inline #}
-			{%- set pageStyleGroup = "" -%}
-
-			{%- for styleOverride in styleOverrides -%}
-				{%- set pagestylelink %}{{ assets.fontSpecimenStyles }}/{{ styleOverride | trim(' ') }}.css{% endset -%}
-				{%- set pagestyle %}{% include pagestylelink %}{% endset -%}
-				{%- set pageStyleGroup = pageStyleGroup + pagestyle -%}
-			{%- endfor -%}
-
-			{{- pageStyleGroup | cssmin | safe -}}
-		{%- endif -%}
-	</style>
-
-	{# Icons #}
-	<link rel="icon" href="{{ '/' + assets.icons.faviconPng | url }}" type="image/png">
-	<link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.aux.med }}">
-	<link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
-
-	{# Page alternates #}
-	<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absoluteUrl(metadata.url) }}">
-	{% for link in page.url | locale_links %}
-    <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | absoluteUrl(metadata.url) }}">
-	{% endfor %}
-	
-	{# RSS feed #}
-	<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url | absoluteUrl(metadata.url) }}">
-	
-	{# Meta, SEO, etc. #}
-	<meta name="author" content="{{ metadata.author.name }}">
-	<meta name="theme-color" content="{{ (metaThemeColorOverride or tokens.themes[tokens.schemes.dark].colors.main.max) | safe }}">
-	<meta name="generator" content="{{ eleventy.generator }}">
-
-	{% if summary %}
-	<meta name="description" content="{{ summary }}">
-	<meta name="og:description" content="{{ summary }}">
-	{% endif %}
-	
-	<meta property="og:title" content="{{ title }} | {{ metadata.title }}">
-	<meta property="og:site_name" content="{{ metadata.title }}">
-	<meta property="og:locale" content="{{ locale or 'en' }}">
-	<meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
-	<meta property="og:url" content="{{ (page.url or '/') | url | absoluteUrl(metadata.url) }}">
-	
-	{% set meta_image_url %}
-		{% if customMetaImage %}
-			{{ customMetaImage | url | absoluteUrl(metadata.url) }}
-		{% else %}
-			{{ ('/' + assets.imagesDir + '/metaimage.jpg') | url | absoluteUrl(metadata.url) }}
-		{% endif %}
-	{% endset %}
-	<meta name="twitter:image" property="og:image" content="{{ meta_image_url | trim }}">
-	<meta name="twitter:image:alt" property="og:image:alt" content="{{ title }}" />
-	<meta name="twitter:card" content="summary" />
-</head>
+{% block headEnd %}{% endblock %}

@@ -1,34 +1,37 @@
 ---
-layout: layouts/base.njk
 section: 404
 ---
 
-<button type="button" class="button-reset cdiv-clock-wrap" data-chime>
-    {%- setAsync "clock_404" -%}
-    {%- svg "clock-404", { ariaLabel: clock404Label } -%}
-    {%- endsetAsync -%}
-    {{ clock_404 | htmlmin | safe }}
-</button>
+{% extends "layouts/base.njk" %}
 
-{{ layoutContent | safe }}
+{% block layoutContent %}
+    <button type="button" class="button-reset cdiv-clock-wrap" data-chime>
+        {%- setAsync "clock_404" -%}
+        {%- svg "clock-404", { ariaLabel: clock404Label } -%}
+        {%- endsetAsync -%}
+        {{ clock_404 | htmlmin | safe }}
+    </button>
 
-<p class="u-textAlign-center">
-    <a href="{{ localePath | url }}" class="button">
-        {% svg "arrow-back-double", { class: "inline-icon" } %}
-        {{ 'nav.home' | i18n }}
-    </a>
-</p>
+    {{ layoutContent | safe }}
 
-<audio id="cdiv-sfx" src="{{ '/' + assets.audio + '/bttf-chime.mp3' | url }}"></audio>
+    <p class="u-textAlign-center">
+        <a href="{{ localePath | url }}" class="button">
+            {% svg "arrow-back-double", { class: "inline-icon" } %}
+            {{ 'nav.home' | i18n }}
+        </a>
+    </p>
 
-<script>
-{%- set chimeScript -%}
-    document.querySelector('[data-chime]').addEventListener('click', function() {
-        var audio = document.getElementById('cdiv-sfx');
-        if (!audio.playing) {
-            audio.play();
-        }
-    });
-{%- endset -%}
-{{- chimeScript | jsmin | safe -}}
-</script>
+    <audio id="cdiv-sfx" src="{{ '/' + assets.audio + '/bttf-chime.mp3' | url }}"></audio>
+
+    <script>
+    {%- set chimeScript -%}
+        document.querySelector('[data-chime]').addEventListener('click', function() {
+            var audio = document.getElementById('cdiv-sfx');
+            if (!audio.playing) {
+                audio.play();
+            }
+        });
+    {%- endset -%}
+    {{- chimeScript | jsmin | safe -}}
+    </script>
+{% endblock %}

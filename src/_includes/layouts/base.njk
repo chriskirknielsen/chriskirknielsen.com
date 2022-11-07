@@ -1,7 +1,9 @@
 <!doctype html>
 <html {% if section %} data-section="{{ section }}"{% endif %} lang="{{ lang }}" class="no-js">
 
-{% include "components/head.njk" %}
+<head>
+	{% include "components/head.njk" %}
+</head>
 
 <body>
 	<a class="skip-link" href="#content" data-skiplink>{{ 'skiplink' | i18n }}</a>
@@ -9,7 +11,7 @@
 	{% include "components/header.njk" %}
 	
 	<main class="main | container flow" id="content" tabindex="-1">
-		{{ layoutContent | safe }}
+		{% block layoutContent %}{{ layoutContent | safe }}{% endblock %}
 	</main>
 
 	{% include "components/footer.njk" %}

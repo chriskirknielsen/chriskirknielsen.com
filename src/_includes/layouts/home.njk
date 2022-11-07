@@ -1,100 +1,103 @@
 ---
-layout: layouts/base.njk
 section: home
 ---
 
-<div class="content-fullbleed home">
-    <p class="visually-hidden">{{ 'homeTitle.visualDescription' | i18n }}</p>
-    <div class="home-content">
-        <div class="home-background" aria-hidden="true">
-            {% svg "home-grid", {isNjk:false} %}
+{% extends "layouts/base.njk" %}
+
+{% block layoutContent %}
+    <div class="content-fullbleed home">
+        <p class="visually-hidden">{{ 'homeTitle.visualDescription' | i18n }}</p>
+        <div class="home-content">
+            <div class="home-background" aria-hidden="true">
+                {% svg "home-grid", {isNjk:false} %}
+            </div>
+
+            <h1 class="home-title">
+                <svg xmlns="http://www.w3.org/2000/svg" class="visually-hidden">
+                    <defs>
+                        <filter id="sarasquiggly">{# Sara Soueidan has great articles on SVG filters! #}
+                            <feTurbulence id="t" baseFrequency="0.2 0.3" numOctaves="2" result="n" />
+                            <feGaussianBlur stdDeviation=".5" in="t" result="b"/>
+                            <feDisplacementMap id="d" in="SourceGraphic" in2="b" scale="-4" />
+                        </filter>
+                    </defs>
+                </svg>
+                {% svg "home-title", { i18n: i18n } %}
+            </h1>
+        </div>
+    </div>
+
+    <div class="page-content | content-fullbleed container | flow fluid">
+        {{ layoutContent | safe }}
+
+        <div class="content-fullbleed | u-background-bg-alt-color u-paddingBlock-2xl">
+            <div class="container">
+                <div class="subsection subsection--quickaccess">
+                    <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
+
+                    <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
+                        <strong class="spaced-items">
+                            {% svg "question", { class: "inline-icon" } %}
+                            {{ 'page.quickAccess.about.label' | i18n }}
+                        </strong>
+                        <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
+                    </a>
+                    <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
+                        <strong class="spaced-items">
+                            {% svg "shirt", { class: "inline-icon" } %}
+                            {{ 'page.quickAccess.designs.label' | i18n }}
+                        </strong>
+                        <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
+                    </a>
+                    <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
+                        <strong class="spaced-items">
+                            {% svg "type", { class: "inline-icon" } %}
+                            {{ 'page.quickAccess.fonts.label' | i18n }}
+                        </strong>
+                        <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
+                    </a>
+
+                    <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l);">
+                        <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
+
+                        {% for socialPage in social %}
+                            <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <h1 class="home-title">
-            <svg xmlns="http://www.w3.org/2000/svg" class="visually-hidden">
-                <defs>
-                    <filter id="sarasquiggly">{# Sara Soueidan has great articles on SVG filters! #}
-                        <feTurbulence id="t" baseFrequency="0.2 0.3" numOctaves="2" result="n" />
-                        <feGaussianBlur stdDeviation=".5" in="t" result="b"/>
-                        <feDisplacementMap id="d" in="SourceGraphic" in2="b" scale="-4" />
-                    </filter>
-                </defs>
-            </svg>
-            {% svg "home-title", { i18n: i18n } %}
-        </h1>
-    </div>
-</div>
+        <div style="--flow-space:var(--size-2xl)">
+            <div class="subsection subsection--writing">
+                <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
 
-<div class="page-content | content-fullbleed container | flow fluid">
-    {{ layoutContent | safe }}
+                <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
 
-    <div class="content-fullbleed | u-background-bg-alt-color u-paddingBlock-2xl">
-        <div class="container">
-            <div class="subsection subsection--quickaccess">
-                <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
+                {% set latestposts = collections["post_" + lang] | reverse %}
+                {% set latestpost = latestposts[0] %}
+                <a href="{{ latestpost.url | url }}" class="button | flow" data-button="tile" style="--area: post">
+                    <time datetime="{{ latestpost.date | dateFormat }}">{{ latestpost.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
 
-                <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
-                    <strong class="spaced-items">
-                        {% svg "question", { class: "inline-icon" } %}
-                        {{ 'page.quickAccess.about.label' | i18n }}
-                    </strong>
-                    <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
-                </a>
-                <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
-                    <strong class="spaced-items">
-                        {% svg "shirt", { class: "inline-icon" } %}
-                        {{ 'page.quickAccess.designs.label' | i18n }}
-                    </strong>
-                    <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
-                </a>
-                <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
-                    <strong class="spaced-items">
-                        {% svg "type", { class: "inline-icon" } %}
-                        {{ 'page.quickAccess.fonts.label' | i18n }}
-                    </strong>
-                    <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
+                    <h2 class="h3 | u-marginBlockStart-2xs">
+                        {{- latestpost.data.title -}}
+                    </h2>
+
+                    <p class="u-color-gray-min u-marginBlockStart-2xs">
+                        {{- latestpost.data.summary or latestpost.excerpt -}}
+                    </p>
                 </a>
 
-                <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l);">
-                    <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
-
-                    {% for socialPage in social %}
-                        <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
-                    {% endfor %}
+                <p class="spaced-items inlined-items" style="--area: ctas">
+                    <a href="{{ '/blog/' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
+                    
+                    <a href="{{ '/rss.xml' | locale_url }}" class="button">
+                        {% svg "rss" %}
+                        <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
+                        <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>
+                    </a>
                 </p>
             </div>
         </div>
-    </div>
-
-    <div style="--flow-space:var(--size-2xl)">
-        <div class="subsection subsection--writing">
-            <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
-
-            <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
-
-            {% set latestposts = collections["post_" + lang] | reverse %}
-            {% set latestpost = latestposts[0] %}
-            <a href="{{ latestpost.url | url }}" class="button | flow" data-button="tile" style="--area: post">
-                <time datetime="{{ latestpost.date | dateFormat }}">{{ latestpost.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
-
-                <h2 class="h3 | u-marginBlockStart-2xs">
-                    {{- latestpost.data.title -}}
-                </h2>
-
-                <p class="u-color-gray-min u-marginBlockStart-2xs">
-                    {{- latestpost.data.summary or latestpost.excerpt -}}
-                </p>
-            </a>
-
-            <p class="spaced-items inlined-items" style="--area: ctas">
-                <a href="{{ '/blog/' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
-                
-                <a href="{{ '/rss.xml' | locale_url }}" class="button">
-                    {% svg "rss" %}
-                    <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
-                    <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>
-                </a>
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
+{% endblock %}
