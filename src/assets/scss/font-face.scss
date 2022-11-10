@@ -38,8 +38,8 @@ $custom-fonts: ();
 	@font-face {
 		font-family: '#{$font-name}';
 		src: local('#{$font-name}'), #{$font-alts-inject} #{$font-formats-inject};
-		font-style: #{$font-style};
 		font-weight: #{$font-weight};
+		font-style: #{$font-style};
 		font-display: swap;
 	}
 }
