@@ -6,6 +6,7 @@ module.exports = {
 		name: 'Christopher Kirk-Nielsen',
 		email: 'chriskirknielsen@gmail.com',
 		twitter: 'ckirknielsen',
+		mastodon: '@chriskirknielsen',
 	},
 	copyrightStart: 2019,
 	currentYear: new Date().getFullYear(),
