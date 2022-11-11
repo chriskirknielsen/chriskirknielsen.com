@@ -1,12 +1,14 @@
 :root {
-	color-scheme: var(--t-color-scheme);
-}
-
-body {
 	// Define some contextual colour variables
 	--ctx-color: var(--t-text-color);
 	--ctx-bg: var(--t-bg-color);
 
+	color: var(--ctx-color);
+	background-color: var(--ctx-bg);
+	color-scheme: var(--t-color-scheme);
+}
+
+body {
 	display: flex;
 	flex-direction: column;
 
@@ -14,8 +16,6 @@ body {
 	line-height: var(--C-base-line-height);
 	text-underline-offset: 0.125em;
 	hyphens: auto;
-	color: var(--ctx-color);
-	background-color: var(--ctx-bg);
 }
 
 main {

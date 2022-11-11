@@ -47,6 +47,12 @@ dd {
 }
 
 /* Set core body defaults */
+html {
+	overflow-x: hidden;
+	overflow-x: clip;
+	overflow-y: auto;
+}
+
 html:focus-within {
 	scroll-behavior: smooth;
 }
@@ -57,9 +63,6 @@ body {
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	font-family: sans-serif;
-	overflow-x: hidden;
-	overflow-x: clip;
-	overflow-y: auto;
 }
 
 /* A elements that don't have a class get default styles */

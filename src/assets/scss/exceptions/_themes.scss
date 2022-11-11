@@ -121,9 +121,7 @@
 	$body-bg-image-width: 128px;
 	$body-bg-image-gutter: 2rem;
 
-	body {
-		background: linear-gradient(45deg, var(--t-color-aux-max), var(--t-color-main-max)) fixed;
-	}
+	background: linear-gradient(45deg, var(--t-color-aux-max), var(--t-color-main-max)) fixed;
 
 	@media (min-width: calc(#{$body-bg-min-width} + #{$body-bg-image-width * 2} + #{$body-bg-image-gutter} * 2)) {
 		body::before,
