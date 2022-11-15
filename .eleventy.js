@@ -406,7 +406,6 @@ module.exports = function (eleventyConfig) {
 					['height', 16],
 					['class', 'heading-anchor-symbol'],
 					['aria-hidden', 'true'],
-					['focusable', 'false'],
 				],
 			});
 			const svgUseTokenOpen = Object.assign(new state.Token('use_open', 'use', 1), {
