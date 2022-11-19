@@ -1,18 +1,27 @@
----
-tags: [designs]
-pagination:
-    data: designs
-    size: 1
-    alias: design
-    addAllPagesToCollections: true
-eleventyComputed:
-    permalink: "designs/{{ design.slug | slug }}/"
-    pageTitle: "{{ design.name | safe }}"
-    title: "{{ design.name | stripHyphenChars | safe }} — Design"
-    subtitle: "{{ design.description | safe }}"
-    summary: "{{ design.description | safe }} | Design by Christopher Kirk-Nielsen"
-    customMetaImage: "{{ '/' + assets.imagesDir + '/designs/' + design.img }}"
-backlink: { url: "/designs/", label: "Back to Designs" }
+---js
+{
+	tags: ['designs'],
+	pagination: {
+		data: 'designs',
+		size: 1,
+		alias: 'design',
+		addAllPagesToCollections: true,
+		before: function(paginationData, fullData) {
+			paginationData.sort((a,b) => new Date(a.date) - new Date(b.date));
+			return paginationData;
+		}
+	},
+	eleventyComputed: {
+		permalink: "designs/{{ design.slug | slug }}/",
+		pageTitle: "{{ design.name | safe }}",
+		title: "{{ design.name | stripHyphenChars | safe }} — Design",
+		subtitle: "{{ design.description | safe }}",
+		summary: "{{ design.description | safe }} | Design by Christopher Kirk-Nielsen",
+		customMetaImage: "{{ '/' + assets.imagesDir + '/designs/' + design.img }}",
+		date: (data) => new Date(data.design.date),
+	},
+	backlink: { url: "/designs/", label: "Back to Designs" }
+}
 ---
 
 <article class="standbyme">
@@ -23,6 +32,7 @@ backlink: { url: "/designs/", label: "Back to Designs" }
 	{% endif %}
 
 	<div class="standbyme-narrow | flow | u-padding-l">
+
 	{% if design.links %}
 		<h2>Available on</h2>
 		<ul class="flow">

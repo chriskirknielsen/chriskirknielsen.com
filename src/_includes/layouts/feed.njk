@@ -1,8 +1,8 @@
 {%- set collectionPostsLocale = collections[collectionPostsLocaleName] -%}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>{{ metadata.title }}</title>
-    <subtitle>{{ metadata.localisedContent.feed.subtitle }}</subtitle>
+    <title>{{ feedTitle or metadata.title }}</title>
+    <subtitle>{{ feedSubtitle or ('rss.description' | i18n) }}</subtitle>
     <link href="{{ metadata.url }}/{{ permalink }}" rel="self" />
     <link href="{{ metadata.url }}" />
     <updated>{{ collectionPostsLocale | rssLastUpdatedDate }}</updated>
@@ -11,14 +11,19 @@
         <name>{{ metadata.author.name }}</name>
         <email>{{ metadata.author.email }}</email>
     </author>
-    {%- for post in collectionPostsLocale | reverse%}
+    {%- for post in collectionPostsLocale | reverse %}
     {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
     <entry>
         <title>{{ post.data.title }}</title>
         <link href="{{ absolutePostUrl }}" />
-        <updated>{{ post.date | rssDate }}</updated>
+        {% set postDate = post.date %}
+        {% if post.data and post.data.date %}{% set postDate = post.data.date %}{% endif %}
+        <updated>{{ postDate | dateFormat({ format: 'rfc2822', lang: lang }) }}</updated>
         <id>{{ absolutePostUrl }}</id>
-        <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+        <content type="html">
+            {%- if injectDescription %}<p>{{ post.data.subtitle }}</p>{% endif %}
+            {{- post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) -}}
+        </content>
     </entry>
     {%- endfor %}
 </feed>

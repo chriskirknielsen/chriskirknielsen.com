@@ -7,7 +7,16 @@ templateName: page
 {% block layoutContent %}
 	<header class="bigboi | content-fullbleed container">
 		<div class="bigboi-inner | content" style="--flow-space: var(--size-m)">
-			<h1>{{ (pageTitle or title) | safe }}</h1>
+			<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">
+				<h1>{{ (pageTitle or title) | safe }}</h1>
+
+				{% if bigboiButton %}
+				<a href="{{ bigboiButton.url | url }}" class="button">
+					{% if bigboiButton.icon %}{% svg "rss", { class: 'inline-icon' } %}{% endif %}
+					<span>{{ bigboiButton.label }}</span>
+				</a>
+				{% endif %}
+			</div>		
 			
 			<p class="u-fontWeight-bold">{{ subtitle }}</p>
 

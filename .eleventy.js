@@ -163,20 +163,30 @@ module.exports = function (eleventyConfig) {
 		const format = opts.format || 'machine';
 		const locale = opts.locale || defaultLang;
 		const dateObj = new Date(date);
-		const utcDate = DateTime.fromJSDate(dateObj).toUTC().setLocale(locale);
+		const utcDate = DateTime.fromJSDate(dateObj).toUTC();
+
 		switch (format) {
+			case 'obj': {
+				return new Date(utcDate.toISO());
+			}
+			case 'rfc2822': {
+				return utcDate.toRFC2822();
+			}
+			case 'iso': {
+				return utcDate.toISO();
+			}
 			case 'year': {
 				return utcDate.toFormat('yyyy');
+			}
+			case 'machine': {
+				return utcDate.toFormat('yyyy-MM-dd');
 			}
 			case 'nice': {
 				// In French, you usually say "1st" instead of "1" for the first of the month, but the rest of the days can be said as "13 October 1984", no ordinal needed
 				if (locale === 'fr' && parseInt(utcDate.toFormat('d'), 10) === 1) {
 					return `1er ${utcDate.toFormat('LLLL yyyy')}`;
 				}
-				return utcDate.toFormat('d LLLL yyyy');
-			}
-			case 'machine': {
-				return utcDate.toFormat('yyyy-MM-dd');
+				return utcDate.setLocale(locale).toFormat('d LLLL yyyy');
 			}
 		}
 	});
@@ -377,6 +387,9 @@ module.exports = function (eleventyConfig) {
 		[`${rootDir}/assets/fonts`]: '/assets/fonts',
 	});
 
+	/* Watch targets */
+	eleventyConfig.addWatchTarget(`./${rootDir}/follow.11ty.js`);
+
 	/* Markdown */
 	let markdownItOptions = {
 		html: true,
@@ -436,14 +449,12 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
 
 	// If gulp is running, wait a tick!
-	eleventyConfig.setWatchThrottleWaitTime(1000); // in milliseconds
+	// eleventyConfig.setWatchThrottleWaitTime(1000); // in milliseconds
 
 	return {
-		templateFormats: ['md', 'njk', 'html'],
 		pathPrefix: '/',
 		markdownTemplateEngine: 'njk',
 		htmlTemplateEngine: 'njk',
-		dataTemplateEngine: 'njk',
 		passthroughFileCopy: true,
 		dir: {
 			input: rootDir,

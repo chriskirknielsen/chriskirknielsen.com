@@ -36,10 +36,12 @@
 		"gulp-sass": "^5.1.0",
 		"gulp-terser": "^2.1.0",
 		"json-to-scss": "^1.6.2",
-		"sass": "^1.54.0"
+		"sass": "^1.54.0",
+		"dotenv": "^16.0.3"
 	},
 	"dependencies": {
 		"@11ty/eleventy": "^2.0.0-canary.16",
+		"@11ty/eleventy-activity-feed": "^1.0.5",
 		"@11ty/eleventy-plugin-rss": "^1.2.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
 		"clean-css": "^5.3.1",

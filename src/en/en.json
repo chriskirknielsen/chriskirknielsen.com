@@ -53,8 +53,6 @@
 			"subscribe": "Subscribe to RSS feed",
 			"description": "Blog of a front-end developer who likes to tinker"
 		},
-		"rssFeed": "RSS Feed",
-		"rssHint": "Subscribe to RSS feed",
 		"langSwitchLabel": "Switch Language",
 		"themeSwitchLabel": "Switch The<span><kbd>m</kbd></span>e",
 		"themePicker": "Theme Picker",
