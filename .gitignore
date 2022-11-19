@@ -3,6 +3,7 @@ node_modules/
 design/
 package-lock.json
 *.code-workspace
+.env
 
 # Design files
 *.sketch
