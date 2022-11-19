@@ -11,6 +11,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/retro-blank-vhs-css_t-shirt?sku=s6-21377318p15a4v136a5v20a11v49',
 		},
 		tags: ['dev', 'www', 'css', 'vhs', 'retro'],
+		date: '2021-03-17',
 	},
 	{
 		slug: 'vhs-html',
@@ -24,6 +25,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/retro-blank-vhs-html_t-shirt?sku=s6-21377261p15a4v97a5v18a11v49',
 		},
 		tags: ['dev', 'www', 'html', 'vhs', 'retro'],
+		date: '2021-03-17',
 	},
 	{
 		slug: 'vhs-svg',
@@ -37,6 +39,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/retro-blank-vhs-svg_t-shirt?sku=s6-21377348p15a4v136a5v18a11v49',
 		},
 		tags: ['dev', 'www', 'svg', 'vhs', 'retro'],
+		date: '2021-08-11',
 	},
 	{
 		slug: 'vhs-js',
@@ -50,6 +53,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/retro-blank-vhs-javascript-ecmascript_t-shirt?sku=s6-21377364p15a4v97a5v18a11v49',
 		},
 		tags: ['dev', 'www', 'js', 'vhs', 'retro'],
+		date: '2021-08-11',
 	},
 	{
 		slug: 'vhs-www',
@@ -63,6 +67,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/retro-blank-vhs-www-ecmascript_t-shirt?sku=s6-23525463p15a4v75a5v20a11v49',
 		},
 		tags: ['dev', 'www', 'vhs', 'retro'],
+		date: '2022-03-20',
 	},
 	{
 		slug: 'retro-css',
@@ -75,6 +80,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/retro-css/1831571/',
 		},
 		tags: ['dev', 'css', 'retro'],
+		date: '2020-09-17',
 	},
 	{
 		slug: 'css-fact-sheet',
@@ -87,6 +93,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/css-fact-sheet/1831576/',
 		},
 		tags: ['dev', 'css'],
+		date: '2020-09-17',
 	},
 	{
 		slug: 'duotype-css',
@@ -99,6 +106,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/sticker/radical-duotype-cascading-stylesheets/1871221/',
 		},
 		tags: ['dev', 'css'],
+		date: '2022-11-06',
 	},
 	{
 		slug: 'duotype-semantic-markup',
@@ -111,6 +119,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/sticker/radical-duotype-semantic-markup/1871223/',
 		},
 		tags: ['dev', 'html'],
+		date: '2022-11-06',
 	},
 	{
 		slug: 'www-explorer',
@@ -124,6 +133,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/world-wide-web-explorer_t-shirt?sku=s6-23447756p15a4v84a5v18a11v49',
 		},
 		tags: ['dev', 'www', 'retro'],
+		date: '2022-03-14',
 	},
 	{
 		slug: 'vaporwave-css',
@@ -136,6 +146,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/vaporwave-css/1835097/',
 		},
 		tags: ['dev', 'css', 'retro'],
+		date: '2022-05-15',
 	},
 	{
 		slug: 'css-retro-vhs',
@@ -148,6 +159,7 @@ module.exports = [
 		},
 		tags: ['dev', 'css', 'vhs', 'retro'],
 		similar: ['js-retro-vhs'],
+		date: '2021-12-24',
 	},
 	{
 		slug: 'js-retro-vhs',
@@ -160,6 +172,7 @@ module.exports = [
 		},
 		tags: ['dev', 'js', 'vhs', 'retro'],
 		similar: ['css-retro-vhs'],
+		date: '2022-03-01',
 	},
 	{
 		slug: 'control',
@@ -172,6 +185,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/control6788779_print?sku=s6-23678622p4a1v45',
 		},
 		tags: ['games'],
+		date: '2021-10-23',
 		similar: ['control-service-weapon'],
 	},
 	{
@@ -184,6 +198,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/god-of-war6788801_print?sku=s6-23678708p4a1v45',
 		},
 		tags: ['games'],
+		date: '2021-10-23',
 		similar: ['god-of-war-leviathan-axe'],
 	},
 	{
@@ -196,6 +211,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/deathloop_print?sku=s6-23684963p4a1v45',
 		},
 		tags: ['games'],
+		date: '2021-12-31',
 		similar: ['deathloop-fourpounder'],
 	},
 	{
@@ -208,6 +224,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/dead-space6791094_print?sku=s6-23685021p4a1v45',
 		},
 		tags: ['games'],
+		date: '2022-01-23',
 		similar: ['dead-space-plasma-cutter'],
 	},
 	{
@@ -221,6 +238,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/powercell-hunters/1809059/',
 		},
 		tags: ['games'],
+		date: '2021-08-09',
 		similar: ['crash-bandicoot-wumpa-hoarder', 'sly-cooper-gentleman-thief'],
 	},
 	{
@@ -234,6 +252,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/wumpa-hoarder/1831579/',
 		},
 		tags: ['games'],
+		date: '2021-11-14',
 		similar: ['jak-daxter-powercell-hunters', 'sly-cooper-gentleman-thief'],
 	},
 	{
@@ -248,6 +267,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/gentleman-thief/1831582/',
 		},
 		tags: ['games'],
+		date: '2022-04-10',
 		similar: ['jak-daxter-powercell-hunters', 'crash-bandicoot-wumpa-hoarder'],
 	},
 	{
@@ -268,6 +288,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/the-synth-element-symbols/1831898/',
 		},
 		tags: ['tv-movies'],
+		date: '2022-04-24',
 	},
 	{
 		slug: 'outatime-trilogy',
@@ -279,6 +300,7 @@ module.exports = [
 			Society6: 'https://society6.com/product/outatime-trilogy6857092_sticker',
 		},
 		tags: ['tv-movies'],
+		date: '2022-04-24',
 	},
 	{
 		slug: 'it-crowd-four-five-fire',
@@ -291,6 +313,7 @@ module.exports = [
 			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/four-i-mean-five-i-mean-fire/1834133/',
 		},
 		tags: ['tv-movies'],
+		date: '2022-05-09',
 	},
 
 	// Below are designs that are hidden but still accessible via their unique URL
@@ -307,6 +330,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/poster-and-art/24392079-control-fbc-service-weapon',
 		},
 		tags: ['games', 'gaming-arsenal'],
+		date: '2021-10-23',
 		similar: ['control'],
 	},
 	{
@@ -321,6 +345,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/poster-and-art/26802077-deathloop-fourpounder',
 		},
 		tags: ['games', 'gaming-arsenal'],
+		date: '2021-12-31',
 		similar: ['deathloop'],
 	},
 	{
@@ -336,6 +361,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/poster-and-art/24830737-god-of-war-leviathan-axe',
 		},
 		tags: ['games', 'gaming-arsenal'],
+		date: '2021-10-23',
 		similar: ['god-of-war'],
 	},
 	{
@@ -350,6 +376,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/poster-and-art/28918532-the-last-of-us-switchblade',
 		},
 		tags: ['games', 'gaming-arsenal'],
+		date: '2022-03-27',
 	},
 	{
 		showInGallery: false,
@@ -363,6 +390,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/poster-and-art/25205497-ratchet-and-clank-omniwrench-millenium',
 		},
 		tags: ['games', 'gaming-arsenal'],
+		date: '2022-04-03',
 	},
 	{
 		showInGallery: false,
@@ -376,6 +404,7 @@ module.exports = [
 			TeePublic: 'https://www.teepublic.com/poster-and-art/27453494-dead-space-plasma-cutter',
 		},
 		tags: ['games', 'gaming-arsenal'],
+		date: '2022-01-23',
 		similar: ['dead-space'],
 	},
 ];
