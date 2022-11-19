@@ -48,6 +48,7 @@ dd {
 
 /* Set core body defaults */
 html {
+	height: 100%;
 	overflow-x: hidden;
 	overflow-x: clip;
 	overflow-y: auto;
@@ -58,8 +59,7 @@ html:focus-within {
 }
 
 body {
-	min-height: 100vh;
-	min-height: 100dvh;
+	min-height: 100%;
 
 	text-rendering: optimizeSpeed;
 	font-family: sans-serif;
