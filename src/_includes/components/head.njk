@@ -32,7 +32,7 @@
 {% endfor %}
 
 {# RSS feed #}
-<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/rss.xml' | locale_url | absoluteUrl(metadata.url) }}">
+<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ (rssFeedOverride or ('/rss.xml' | locale_url)) | absoluteUrl(metadata.url) }}">
 
 {# Meta, SEO, etc. #}
 <meta name="author" content="{{ metadata.author.name }}">
