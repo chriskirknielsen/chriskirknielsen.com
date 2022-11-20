@@ -73,6 +73,13 @@ rssFeedOverride: '/designs.xml'
 				{{ ('loading="lazy"' | safe) if loop.index >= 8 }}
 				/>
 			</a>
+
+			{% if design.variant %}
+			<div class="cardblock-badge | spaced-items inlined-items">
+				{% svg "arrow-bidir", { class: "inline-icon" } %}
+				Variant available
+			</div>
+			{% endif %}
 		</div>
 		{% endif %}
 

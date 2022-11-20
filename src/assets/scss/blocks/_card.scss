@@ -1,4 +1,7 @@
 .cardblock {
+	--cardblock-border-thickness: 1px;
+	--cardblock-border: var(--cardblock-border-thickness) solid var(--t-heading-color);
+
 	position: relative;
 
 	flex: 1 1 0;
@@ -6,10 +9,11 @@
 	flex-direction: column;
 	overflow: hidden;
 
-	border: 1px solid var(--t-heading-color);
+	border: var(--cardblock-border);
 	border-radius: var(--t-corner-radius);
 
 	&-image {
+		position: relative;
 		flex-shrink: 0;
 	}
 
@@ -42,6 +46,22 @@
 		background: var(--t-color-gray-med);
 
 		transition: transform 250ms var(--easing-in-out);
+	}
+
+	&-badge {
+		position: absolute;
+		inset-block-start: 0.5rem;
+		inset-inline-end: calc(-1 * var(--cardblock-border-thickness));
+
+		width: auto;
+		padding: 0.25em 0.5em;
+
+		font-size: 0.75rem;
+
+		color: var(--t-bg-color);
+		border: var(--cardblock-border);
+		border-radius: var(--t-corner-radius) 0 0 var(--t-corner-radius);
+		background: var(--t-text-color);
 	}
 
 	&-content {

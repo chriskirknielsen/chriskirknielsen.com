@@ -43,6 +43,17 @@
 	{% endif %}
 
 	{% if design.note %}<p class="u-fontStyle-italic">{% markdown true %}{{ design.note }}{% endmarkdown %}</p>{% endif %}
+	
+	{% if design.variant %}
+		<h2 class="h3">Variant{% if (design.variant | length) != 1 %}s{% endif %}</h2>
+		<ul class="flow">
+			{%- for variantSlug in design.variant %}
+			{% set variantDesign = designs | find('slug', variantSlug) %}
+			<li><a href="{{ '/designs/' + (variantDesign.slug | slug) + '/' | url }}">{{ variantDesign.name | safe }}</a></li>
+			{% endfor -%}
+		</ul>
+	{% endif %}
+	
 	{% if design.similar %}
 		<h2 class="h3">Similar designs</h2>
 		<ul class="flow">
