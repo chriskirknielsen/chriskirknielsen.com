@@ -33,6 +33,9 @@
 
 {# RSS feed #}
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ (rssFeedOverride or ('/rss.xml' | locale_url)) | absoluteUrl(metadata.url) }}">
+{% if lang == 'en' %}
+<link rel="alternate" href="/follow.rss" title="{{ metadata.author.name }}'s' Activity Feed" type="application/rss+xml">
+{% endif %}
 
 {# Meta, SEO, etc. #}
 <meta name="author" content="{{ metadata.author.name }}">

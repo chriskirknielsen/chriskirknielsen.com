@@ -16,7 +16,7 @@ templateName: page
 					<span>{{ bigboiButton.label }}</span>
 				</a>
 				{% endif %}
-			</div>		
+			</div>
 			
 			<p class="u-fontWeight-bold">{{ subtitle }}</p>
 
@@ -32,6 +32,6 @@ templateName: page
 	</header>
 
 	<div class="page-content | content-fullbleed container | flow fluid">
-		{{ layoutContent | safe }}
+		{% block pageContent %}{{ layoutContent | safe }}{% endblock %}
 	</div>
 {% endblock %}
