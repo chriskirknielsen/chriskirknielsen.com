@@ -30,6 +30,11 @@
 [[redirects]]
   from = "/art"
   to = "/designs"
+[[redirects]]
+  from = "/follow/"
+  to = "/follow.rss"
+  status = 301
+  force = true
 
 ## Uses redirect
 [[redirects]]
