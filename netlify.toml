@@ -3,13 +3,6 @@
   publish = "_site"
   command = "eleventy"
 
-## Netlify cache plugin
-[[plugins]]
-package = "netlify-plugin-cache"
-
-  [plugins.inputs]
-  paths = [ ".cache" ]
-
 ## Cache control for CSS files
 [[headers]]
   for = "/assets/css/*.css"
