@@ -23,7 +23,7 @@
         <updated>{{ postDate | dateFormat({ format: 'rfc2822', lang: lang }) }}</updated>
         <id>{{ absolutePostUrl }}</id>
         <content type="html">
-            {%- if injectDescription %}<p>{{ post.data.subtitle }}</p>{% endif %}
+            {%- if injectDescription %}{{ '<p>' | escape }}{{ post.data.subtitle }}{{ '</p>' | escape }}{% endif %}
             {{- postTemplateContent | htmlToAbsoluteUrls(absolutePostUrl) -}}
         </content>
     </entry>
