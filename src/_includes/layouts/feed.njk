@@ -13,6 +13,8 @@
     </author>
     {%- for post in collectionPostsLocale | reverse %}
     {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset %}
+    {% set postTemplateContent = post.templateContent %}
+    {%- if stripScripts %}{% set postTemplateContent = postTemplateContent | stripScripts %}{% endif %}
     <entry>
         <title>{{ post.data.title }}</title>
         <link href="{{ absolutePostUrl }}" />
@@ -22,7 +24,7 @@
         <id>{{ absolutePostUrl }}</id>
         <content type="html">
             {%- if injectDescription %}<p>{{ post.data.subtitle }}</p>{% endif %}
-            {{- post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) -}}
+            {{- postTemplateContent | htmlToAbsoluteUrls(absolutePostUrl) -}}
         </content>
     </entry>
     {%- endfor %}

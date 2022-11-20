@@ -1,6 +1,5 @@
 ---js
 {
-	layout: false,
 	tags: ['designs'],
 	pagination: {
 		data: 'designs',
@@ -25,9 +24,6 @@
 }
 ---
 
-{% extends "layouts/page.njk" %}
-
-{% block pageContent %}
 <article class="standbyme">
 	{% if design.img %}
 	<div class="standbyme-wide">
@@ -69,6 +65,5 @@
 	{% endif %}
 	</div>
 </article>
-{% endblock %}
 
-{% block footAppend %}<script>{%- include "assets/js/design-backlink.js" -%}</script>{% endblock %}
+<script>{%- include "assets/js/design-backlink.js" -%}</script>
