@@ -54,9 +54,10 @@ module.exports = [
 		},
 		tags: ['dev', 'www', 'js', 'vhs', 'retro'],
 		date: '2021-08-11',
-		similar: ['vhs-js-dark'],
+		variant: ['vhs-js-dark'],
 	},
 	{
+		showInGallery: false,
 		slug: 'vhs-js-dark',
 		name: 'Blank VHS JS (Dark)',
 		description: 'In a world where the web runs on VHS tapes…',
@@ -69,7 +70,7 @@ module.exports = [
 		},
 		tags: ['dev', 'www', 'js', 'vhs', 'retro'],
 		date: '2022-11-20',
-		similar: ['vhs-js'],
+		variant: ['vhs-js'],
 	},
 	{
 		slug: 'vhs-www',
@@ -202,7 +203,7 @@ module.exports = [
 		},
 		tags: ['games'],
 		date: '2021-10-23',
-		similar: ['control-service-weapon'],
+		variant: ['control-service-weapon'],
 	},
 	{
 		slug: 'god-of-war',
@@ -215,7 +216,7 @@ module.exports = [
 		},
 		tags: ['games'],
 		date: '2021-10-23',
-		similar: ['god-of-war-leviathan-axe'],
+		variant: ['god-of-war-leviathan-axe'],
 	},
 	{
 		slug: 'deathloop',
@@ -228,7 +229,7 @@ module.exports = [
 		},
 		tags: ['games'],
 		date: '2021-12-31',
-		similar: ['deathloop-fourpounder'],
+		variant: ['deathloop-fourpounder'],
 	},
 	{
 		slug: 'dead-space',
@@ -241,7 +242,7 @@ module.exports = [
 		},
 		tags: ['games'],
 		date: '2022-01-23',
-		similar: ['dead-space-plasma-cutter'],
+		variant: ['dead-space-plasma-cutter'],
 	},
 	{
 		slug: 'jak-daxter-powercell-hunters',
@@ -290,12 +291,6 @@ module.exports = [
 		slug: 'synth-element',
 		name: 'The Synth Element',
 		description: 'A cross-over between The Fifth Element and synth waveforms.',
-		note: `Stone variations:
-		[TeePublic](https://www.teepublic.com/t-shirt/19884472-the-synth-element-stones),
-		[RedBubble](https://www.redbubble.com/i/t-shirt/The-Synth-Element-Stones-by-ckirknielsen/108914203.UHLBD),
-		[Society6](https://society6.com/product/the-synth-element-stones_mug),
-		[DesignByHumans](https://www.designbyhumans.com/shop/t-shirt/men/the-synth-element-stones/1831897/)
-		`,
 		img: 'synth-element.jpg',
 		links: {
 			TeePublic: 'https://www.teepublic.com/t-shirt/19884473-the-synth-element-symbols',
@@ -305,6 +300,23 @@ module.exports = [
 		},
 		tags: ['tv-movies'],
 		date: '2022-04-24',
+		variant: ['synth-element-stone'],
+	},
+	{
+		showInGallery: false,
+		slug: 'synth-element-stone',
+		name: 'The Synth Element (Stones)',
+		description: 'A cross-over between The Fifth Element and synth waveforms.',
+		img: 'synth-element-stones.jpg',
+		links: {
+			TeePublic: 'https://www.teepublic.com/t-shirt/19884472-the-synth-element-stones',
+			RedBubble: 'https://www.redbubble.com/i/t-shirt/The-Synth-Element-Stones-by-ckirknielsen/108914203.UHLBD',
+			Society6: 'https://society6.com/product/the-synth-element-stones_mug',
+			DesignByHumans: 'https://www.designbyhumans.com/shop/t-shirt/men/the-synth-element-stones/1831897/',
+		},
+		tags: ['tv-movies'],
+		date: '2022-04-24',
+		variant: ['synth-element'],
 	},
 	{
 		slug: 'outatime-trilogy',
@@ -330,7 +342,7 @@ module.exports = [
 		},
 		tags: ['tv-movies'],
 		date: '2022-11-19',
-		similar: ['lone-pine-mall'],
+		variant: ['lone-pine-mall'],
 	},
 	{
 		showInGallery: false,
@@ -345,7 +357,7 @@ module.exports = [
 		},
 		tags: ['tv-movies'],
 		date: '2022-11-19',
-		similar: ['twin-pines-mall'],
+		variant: ['twin-pines-mall'],
 	},
 	{
 		slug: 'it-crowd-four-five-fire',
@@ -376,7 +388,7 @@ module.exports = [
 		},
 		tags: ['games', 'gaming-arsenal'],
 		date: '2021-10-23',
-		similar: ['control'],
+		variant: ['control'],
 	},
 	{
 		showInGallery: false,
@@ -391,7 +403,7 @@ module.exports = [
 		},
 		tags: ['games', 'gaming-arsenal'],
 		date: '2021-12-31',
-		similar: ['deathloop'],
+		variant: ['deathloop'],
 	},
 	{
 		showInGallery: false,
@@ -407,7 +419,7 @@ module.exports = [
 		},
 		tags: ['games', 'gaming-arsenal'],
 		date: '2021-10-23',
-		similar: ['god-of-war'],
+		variant: ['god-of-war'],
 	},
 	{
 		showInGallery: false,
@@ -450,6 +462,6 @@ module.exports = [
 		},
 		tags: ['games', 'gaming-arsenal'],
 		date: '2022-01-23',
-		similar: ['dead-space'],
+		variant: ['dead-space'],
 	},
 ];
