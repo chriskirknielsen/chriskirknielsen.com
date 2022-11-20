@@ -246,7 +246,7 @@ module.exports = [
 	},
 	{
 		slug: 'jak-daxter-powercell-hunters',
-		name: 'Jak & Daxter, Power&shy;cell Hunters',
+		name: 'Jak &amp; Daxter, Power&shy;cell Hunters',
 		description: 'A design inspired by one of my favourite video games: Jak And Daxter.',
 		img: 'powercell-hunters.jpg',
 		links: {
@@ -438,7 +438,7 @@ module.exports = [
 	{
 		showInGallery: false,
 		slug: 'ratchet-clank-omniwrench',
-		name: 'Ratchet & Clank, Omni&shy;wrench',
+		name: 'Ratchet &amp; Clank, Omni&shy;wrench',
 		description: 'A poster presenting a versatile tool in Ratchet & Clank.',
 		img: 'rc-wrench.jpg',
 		links: {
