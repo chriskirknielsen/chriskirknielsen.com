@@ -44,7 +44,7 @@
 
 	{% if design.note %}<p class="u-fontStyle-italic">{% markdown true %}{{ design.note }}{% endmarkdown %}</p>{% endif %}
 	{% if design.similar %}
-		<h2 class="h3">Similar designs:</h2>
+		<h2 class="h3">Similar designs</h2>
 		<ul class="flow">
 			{%- for otherDesignSlug in design.similar %}
 			{% set otherDesign = designs | find('slug', otherDesignSlug) %}

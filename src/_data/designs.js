@@ -54,6 +54,22 @@ module.exports = [
 		},
 		tags: ['dev', 'www', 'js', 'vhs', 'retro'],
 		date: '2021-08-11',
+		similar: ['vhs-js-dark'],
+	},
+	{
+		slug: 'vhs-js-dark',
+		name: 'Blank VHS JS (Dark)',
+		description: 'In a world where the web runs on VHS tapes…',
+		note: '(for posters, RedBubble or Society6 are recommended)',
+		img: 'vhs-js-dark.jpg',
+		links: {
+			RedBubble: 'https://www.redbubble.com/i/t-shirt/Retro-Blank-VHS-JavaScript-ECMAScript-Dark-Variant-by-ckirknielsen/132703092.FB110.XYZ',
+			TeePublic: 'https://www.teepublic.com/t-shirt/36698589-retro-blank-vhs-javascript-ecmascript-dark-variant',
+			Society6: 'https://society6.com/product/retro-blank-vhs-javascript-ecmascript-dark-variant_t-shirt',
+		},
+		tags: ['dev', 'www', 'js', 'vhs', 'retro'],
+		date: '2022-11-20',
+		similar: ['vhs-js'],
 	},
 	{
 		slug: 'vhs-www',
