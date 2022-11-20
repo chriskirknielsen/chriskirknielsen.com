@@ -101,7 +101,7 @@ module.exports = [
 		description: 'Represent CSS with radical double-typography style!',
 		img: 'duotype-css.jpg',
 		links: {
-			RedBubble: 'https://www.redbubble.com/i/sticker/Radical-Duotype-Cascading-Stylesheets-by-ckirknielsen/130796947.JCQM3?asc=u',
+			RedBubble: 'https://www.redbubble.com/i/sticker/Radical-Duotype-Cascading-Stylesheets-by-ckirknielsen/130796947.QK27K',
 			TeePublic: 'https://www.teepublic.com/sticker/36307529-radical-duotype-cascading-stylesheets',
 			DesignByHumans: 'https://www.designbyhumans.com/shop/sticker/radical-duotype-cascading-stylesheets/1871221/',
 		},
@@ -114,7 +114,7 @@ module.exports = [
 		description: 'Represent HTML (not just divs) with radical double-typography style!',
 		img: 'duotype-semantic-markup.jpg',
 		links: {
-			RedBubble: 'https://www.redbubble.com/i/sticker/Radical-Duotype-Semantic-Markup-by-ckirknielsen/130797216.JCQM3?asc=u',
+			RedBubble: 'https://www.redbubble.com/i/sticker/Radical-Duotype-Semantic-Markup-by-ckirknielsen/130797216.QK27K',
 			TeePublic: 'https://www.teepublic.com/sticker/36307530-radical-duotype-semantic-markup',
 			DesignByHumans: 'https://www.designbyhumans.com/shop/sticker/radical-duotype-semantic-markup/1871223/',
 		},
@@ -301,6 +301,20 @@ module.exports = [
 		},
 		tags: ['tv-movies'],
 		date: '2022-04-24',
+	},
+	{
+		slug: 'twin-lone-pines-mall',
+		name: 'Lone/Twin Pine(s) Mall',
+		description: 'Typographically accurate sign for the mall sign in Hill Valley, California!',
+		img: 'twin-lone-pines-mall.jpg',
+		links: {
+			'RedBubble (Twin)': 'https://www.redbubble.com/i/sticker/Twin-Pines-Mall-Hill-Valley-CA-by-ckirknielsen/132619127.QK27K',
+			'RedBubble (Lone)': 'https://www.redbubble.com/i/sticker/Lone-Pine-Mall-Hill-Valley-CA-by-ckirknielsen/132619380.QK27K',
+			'TeePublic (Twin)': 'https://www.teepublic.com/sticker/36675377-twin-pines-mall-hill-valley-ca',
+			'TeePublic (Lone)': 'https://www.teepublic.com/sticker/36675620-lone-pine-mall-hill-valley-ca',
+		},
+		tags: ['tv-movies'],
+		date: '2022-11-19',
 	},
 	{
 		slug: 'it-crowd-four-five-fire',
