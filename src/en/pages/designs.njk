@@ -73,6 +73,8 @@ rssFeedOverride: '/designs.xml'
 				{{ ('loading="lazy"' | safe) if loop.index >= 8 }}
 				/>
 			</a>
+			
+			{% if design.variant %}<div class="cardblock-badge">Variant available</div>{% endif %}
 		</div>
 		{% endif %}
 

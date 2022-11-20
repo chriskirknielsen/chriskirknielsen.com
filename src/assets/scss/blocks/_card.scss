@@ -10,6 +10,7 @@
 	border-radius: var(--t-corner-radius);
 
 	&-image {
+		position: relative;
 		flex-shrink: 0;
 	}
 
@@ -42,6 +43,21 @@
 		background: var(--t-color-gray-med);
 
 		transition: transform 250ms var(--easing-in-out);
+	}
+
+	&-badge {
+		position: absolute;
+		inset-block-start: 0.5rem;
+		inset-inline-end: 0;
+
+		width: auto;
+		padding: 0.25em 0.5em;
+
+		font-size: 0.75rem;
+
+		color: var(--t-text-color);
+		border-radius: var(--t-corner-radius) 0 0 var(--t-corner-radius);
+		background: var(--t-bg-color);
 	}
 
 	&-content {
