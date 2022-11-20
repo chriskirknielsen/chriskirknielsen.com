@@ -20,7 +20,7 @@
         <link href="{{ absolutePostUrl }}" />
         {% set postDate = post.date %}
         {% if post.data and post.data.date %}{% set postDate = post.data.date %}{% endif %}
-        <updated>{{ postDate | dateFormat({ format: 'rfc2822', lang: lang }) }}</updated>
+        <updated>{{ postDate | dateFormat({ format: 'iso', lang: lang }) }}</updated>
         <id>{{ absolutePostUrl }}</id>
         <content type="html">
             {%- if injectDescription %}{{ '<p>' | escape }}{{ post.data.subtitle }}{{ '</p>' | escape }}{% endif %}
