@@ -1,8 +1,13 @@
 module.exports = [
+	// {
+	// 	key: 'twitter',
+	// 	name: 'Twitter',
+	// 	url: 'https://twitter.com/ckirknielsen',
+	// },
 	{
-		key: 'twitter',
-		name: 'Twitter',
-		url: 'https://twitter.com/ckirknielsen',
+		key: 'mastodon',
+		name: 'Mastodon',
+		url: 'https://mastodon.social/chriskirknielsen',
 	},
 
 	{
