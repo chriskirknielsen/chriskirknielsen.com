@@ -389,7 +389,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Watch targets */
-	eleventyConfig.addWatchTarget(`./${rootDir}/follow.11ty.js`);
+	// eleventyConfig.watchIgnores.add(`./${rootDir}/**/*.scss`);
 
 	/* Markdown */
 	let markdownItOptions = {
