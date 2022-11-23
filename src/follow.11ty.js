@@ -21,7 +21,7 @@ class FollowFeed {
 		feed.addSource('twitterUser', 'Twitter', 'ckirknielsen', '974614220124942337');
 
 		return feed.toRssFeed({
-			title: `${metadata.author.name}'s Activity Feed`,
+			title: `${metadata.title} — Activity Feed`,
 			language: 'en',
 			url: `${metadata.url}/follow/`,
 			subtitle: 'One Feed to rule them all, and in the web, bind them.',
