@@ -53,7 +53,7 @@ templateName: post
 		</a>
 		
 		<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url) }) | safe }}</p>
-		<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ twitterUrl: ("https://twitter.com/intent/tweet?text=" + ("@" + metadata.author.twitter + " " + (page.url | absoluteUrl(metadata.url))) | urlencode), shopUrl: '/designs/' }) | safe }}</p>
+		<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialUrl: "https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }}", shopUrl: '/designs/' }) | safe }}</p>
 	</footer>
 	{% endif %}
 {% endblock %}
