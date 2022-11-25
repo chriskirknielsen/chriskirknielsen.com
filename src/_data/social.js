@@ -7,7 +7,7 @@ module.exports = [
 	{
 		key: 'mastodon',
 		name: 'Mastodon',
-		url: 'https://mastodon.social/chriskirknielsen',
+		url: 'https://mastodon.social/@chriskirknielsen',
 	},
 
 	{
