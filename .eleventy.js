@@ -19,7 +19,6 @@ const htmlmin = require('html-minifier');
 const templite = require('templite');
 const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
-const terser = require('terser');
 const esbuild = require('esbuild');
 
 // Plugins
@@ -432,14 +431,16 @@ module.exports = function (eleventyConfig) {
 				const cacheValue = await Promise.resolve(jsminCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
 				callback(null, cacheValue.code); // Access the code property of the cached value
 			} else {
-				const minified = minify(code);
+				const minified = esbuild.transform(code, {
+					minify: true,
+				});
 				if (cacheKey) {
 					jsminCache[cacheKey] = minified; // Store the promise which has the minified output (an object with a code property)
 				}
 				callback(null, (await minified).code); // Await and use the return value in the callback
 			}
 		} catch (err) {
-			console.error('Terser error: ', err);
+			console.error('jsmin error: ', err);
 			callback(null, code); // Fail gracefully.
 		}
 	});
