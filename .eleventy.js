@@ -8,13 +8,19 @@ const defaultLang = 'en';
 
 // Tools
 const util = require('util');
+const path = require('node:path');
+const glob = require('glob');
+const fs = require('fs');
+const jsonSass = require('json-sass');
 const deepmerge = require('deepmerge');
 const { PurgeCSS } = require('purgecss');
 const { DateTime } = require('luxon');
 const htmlmin = require('html-minifier');
 const templite = require('templite');
 const CleanCSS = require('clean-css');
-const { minify } = require('terser');
+const sass = require('sass'); // dart-sass
+const terser = require('terser');
+const esbuild = require('esbuild');
 
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
@@ -97,9 +103,222 @@ module.exports = function (eleventyConfig) {
 	/* Variables */
 	let jsminCache = {};
 	let svgCache = {};
-	eleventyConfig.on('eleventy.before', () => {
+
+	// Precompile Sass and JS files
+	eleventyConfig.on('eleventy.before', function (config) {
 		jsminCache = {};
 		svgCache = {};
+
+		/**
+		 * Compile a list of files from the src/assets folder to src/_includes/assets.
+		 * @param {Object} settings Configuration for the compiler.
+		 * @param {string} settings.inFolder
+		 * @param {string} settings.inExt
+		 * @param {string} settings.outFolder
+		 * @param {string} [settings.outExt]
+		 * @param {function} [settings.filterFn]
+		 * @param {function} settings.compileFn
+		 * @returns {Promise<string[]>} List of output files.
+		 */
+		const compileAssets = (settings) => {
+			const _requiredSettings = ['inFolder', 'inExt', 'compileFn'];
+			// Check all the correct data is passed
+			if (_requiredSettings.some((s) => !settings.hasOwnProperty(s))) {
+				throw 'The settings object is missing required properties: '.concat(_requiredSettings.filter((s) => !settings.hasOwnProperty(s)).join(', '));
+			}
+
+			// If the output extension is missing, use the input extension
+			if (!settings.hasOwnProperty('outExt')) {
+				settings.outExt = settings.inExt;
+			}
+
+			// If the output folder is missing, use the input folder
+			if (!settings.hasOwnProperty('outFolder')) {
+				settings.outFolder = settings.inFolder;
+			}
+
+			// Create a promise so we can mark it as resolved when all the files are compiled
+			return new Promise((resolve, reject) => {
+				// Grab a list of all the files matching the folder and extension
+				const inputFolder = `${rootDir}/assets/${settings.inFolder}`;
+				return glob(`${inputFolder}/**/*.${settings.inExt}`, './', (globError, inputFiles) => {
+					if (globError) {
+						return reject(globError);
+					}
+
+					// Filter the found files if the a function is provided, or else run a basic boolean check
+					const filteredInputFiles = inputFiles.filter(typeof settings.filterFn === 'function' ? settings.filterFn : (file) => Boolean(file));
+
+					// Generate each file
+					const compiledFiles = filteredInputFiles.map(async (inputPath) => {
+						// Get the parsed path for the file
+						const parsed = path.parse(inputPath);
+
+						// Compute the output folder name, taking whatever is after the base asset folder and removingleading and trailing slashes
+						const outputFolder = parsed.dir
+							.split(inputFolder)
+							.pop()
+							.replace(/^(\/)+/, '')
+							.replace(/(\/)+$/, '')
+							.trim();
+
+						// Compute the final output folder, checking if the output folder has a value to append a slash if needed
+						const folder = `${rootDir}/_includes/assets/${settings.outFolder}/${outputFolder.length > 0 ? outputFolder + '/' : ''}`;
+
+						// Compute the final path with the file name
+						const outputPath = `${folder}${parsed.name}.${settings.outExt}`;
+
+						// Compile the input file with the provided compiler
+						const result = await settings.compileFn(parsed);
+
+						// Return a promise that handles generating the target output file
+						return new Promise((success, failure) =>
+							// Create the folder structure if it doesn't exist
+							fs.mkdir('./' + folder, { recursive: true }, (err, path) => {
+								if (err) {
+									return failure(err);
+								}
+
+								// Write the file with the provided result
+								fs.writeFile(outputPath, result, { flag: 'w' }, (error) => {
+									if (error) {
+										return failure(error);
+									}
+									success(outputPath);
+								});
+							})
+						);
+					});
+
+					Promise.all(compiledFiles).then((savedFiles) => resolve(savedFiles));
+				});
+			});
+		};
+
+		// Compile the JSON token file to a Sass file first
+		const json = new Promise((resolve, reject) => {
+			resolve(
+				fs
+					.createReadStream(`${rootDir}/_data/tokens.json`)
+					.pipe(jsonSass({ prefix: '$tokens: ' }))
+					.pipe(fs.createWriteStream(`${rootDir}/assets/scss/tools/_tokens.scss`))
+			);
+		});
+
+		// const styles = new Promise((resolve, reject) => {
+		// 	return glob(`${rootDir}/assets/scss/**/*.scss`, './', (error, scssFiles) => {
+		// 		const inputFolder = `${rootDir}/assets/scss`;
+		// 		const mainScssFiles = scssFiles.filter((path) => !path.split('/').pop().startsWith('_'));
+		// 		const compiledCss = mainScssFiles.map(async (inputPath) => {
+		// 			const parsed = path.parse(inputPath);
+		// 			if (!inputPath.startsWith(inputFolder) || parsed.name.startsWith('_')) {
+		// 				return;
+		// 			}
+		// 			const outputFolder = parsed.dir
+		// 				.split(inputFolder)
+		// 				.pop()
+		// 				.replace(/^(\/)+/, '')
+		// 				.replace(/(\/)+$/, '');
+		// 			const folder = `${rootDir}/_includes/assets/css/${outputFolder.length > 0 ? outputFolder + '/' : ''}`;
+		// 			const outputPath = `${folder}${parsed.name}.css`;
+
+		// 			let result = sass.compile(inputPath, {
+		// 				loadPaths: [parsed.dir || '.', config.dir.includes],
+		// 				style: 'compressed',
+		// 				precision: 4,
+		// 			});
+
+		// 			return new Promise((success, failure) =>
+		// 				fs.mkdir('./' + folder, { recursive: true }, (err, path) => {
+		// 					if (err) return failure(err);
+
+		// 					fs.writeFile(outputPath, result.css, { flag: 'w' }, (error) => {
+		// 						if (error) failure(error);
+		// 						else success(outputPath);
+		// 					});
+		// 				})
+		// 			);
+		// 		});
+
+		// 		Promise.all(compiledCss).then((newCss) => {
+		// 			resolve(newCss);
+		// 		});
+		// 	});
+		// });
+
+		// const scripts = new Promise((resolve, reject) => {
+		// 	return glob(`${rootDir}/assets/js/**/*.js`, './', (error, jsFiles) => {
+		// 		const inputFolder = `${rootDir}/assets/js`;
+		// 		const minifiedJs = jsFiles.map(async (inputPath) => {
+		// 			const parsed = path.parse(inputPath);
+		// 			if (!inputPath.startsWith(inputFolder)) {
+		// 				return;
+		// 			}
+		// 			const outputFolder = parsed.dir
+		// 				.split(inputFolder)
+		// 				.pop()
+		// 				.replace(/^(\/)+/, '')
+		// 				.replace(/(\/)+$/, '');
+		// 			const folder = `${rootDir}/_includes/assets/js/${outputFolder.length > 0 ? outputFolder + '/' : ''}`;
+		// 			const outputPath = `${folder}${parsed.name}.js`;
+
+		// 			let result = await esbuild.build({
+		// 				target: 'es2020',
+		// 				entryPoints: [inputPath],
+		// 				minify: true,
+		// 				bundle: true,
+		// 				write: false,
+		// 			});
+
+		// 			return new Promise((success, failure) =>
+		// 				fs.mkdir('./' + folder, { recursive: true }, (err, path) => {
+		// 					if (err) return failure(err);
+
+		// 					fs.writeFile(outputPath, result.outputFiles[0].text, { flag: 'w' }, (error) => {
+		// 						if (error) failure(error);
+		// 						else success(outputPath);
+		// 					});
+		// 				})
+		// 			);
+		// 		});
+
+		// 		Promise.all(minifiedJs).then((newJs) => {
+		// 			resolve(newJs);
+		// 		});
+		// 	});
+		// });
+
+		const styles = compileAssets({
+			inFolder: 'scss',
+			inExt: 'scss',
+			outFolder: 'css',
+			outExt: 'css',
+			filterFn: (inputPath) => !inputPath.startsWith(`${rootDir}/assets/scss`) || !inputPath.split('/').pop().startsWith('_'),
+			compileFn: async (parsed) => {
+				const result = sass.compile(`${parsed.dir}/${parsed.base}`, {
+					loadPaths: [parsed.dir || '.', config.dir.includes],
+					style: 'compressed',
+					precision: 4,
+				});
+				return result.css;
+			},
+		});
+		const scripts = compileAssets({
+			inFolder: 'js',
+			inExt: 'js',
+			compileFn: async (parsed) => {
+				const result = await esbuild.build({
+					target: 'es2020',
+					entryPoints: [`${parsed.dir}/${parsed.base}`],
+					minify: true,
+					bundle: true,
+					write: false,
+				});
+				return result.outputFiles[0].text;
+			},
+		});
+
+		return Promise.all([json.then(() => styles), scripts]);
 	});
 
 	/* Plugins */
@@ -382,14 +601,22 @@ module.exports = function (eleventyConfig) {
 	/* Passthroughs */
 	eleventyConfig.addPassthroughCopy({
 		[`${rootDir}/_includes/assets/css`]: '/assets/css',
-		// [`${rootDir}/_includes/assets/js`]: '/assets/js',
+		[`${rootDir}/_includes/assets/js`]: '/assets/js',
 		[`${rootDir}/assets/img`]: '/assets/img',
 		[`${rootDir}/assets/audio`]: '/assets/audio',
 		[`${rootDir}/assets/fonts`]: '/assets/fonts',
 	});
 
 	/* Watch targets */
-	// eleventyConfig.watchIgnores.add(`./${rootDir}/**/*.scss`);
+	eleventyConfig.addWatchTarget(`./${rootDir}/assets/`);
+	eleventyConfig.addWatchTarget(`./${rootDir}/assets/scss/`);
+	eleventyConfig.addWatchTarget(`./${rootDir}/assets/scss/**/*.scss`);
+	eleventyConfig.addWatchTarget(`./${rootDir}/assets/js/`);
+	eleventyConfig.addWatchTarget(`./${rootDir}/assets/js/**/*.js`);
+
+	eleventyConfig.watchIgnores.add(`./${rootDir}/assets/scss/tools/_tokens.scss`);
+	eleventyConfig.watchIgnores.add(`./${rootDir}/_includes/assets/css/**/*`);
+	eleventyConfig.watchIgnores.add(`./${rootDir}/_includes/assets/js/**/*`);
 
 	/* Markdown */
 	let markdownItOptions = {
@@ -448,9 +675,6 @@ module.exports = function (eleventyConfig) {
 			), // Remove accents/punctuation in addition to regular slugification
 	};
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
-
-	// If gulp is running, wait a tick!
-	// eleventyConfig.setWatchThrottleWaitTime(1000); // in milliseconds
 
 	return {
 		pathPrefix: '/',

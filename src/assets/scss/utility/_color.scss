@@ -1,12 +1,10 @@
 @each $name, $set in get-token('_expectedColors') {
 	@each $weight in $set {
 		$value: 'var(--t-color-#{$name}-#{$weight})';
-		.u-color-#{$name}-#{$weight} {
-			color: #{$value};
+		.u-color-#{'' + $name}-#{$weight} {
 			--ctx-color: #{$value};
 		}
-		.u-background-#{$name}-#{$weight} {
-			background-color: #{$value};
+		.u-background-#{'' + $name}-#{$weight} {
 			--ctx-bg: #{$value};
 		}
 	}
@@ -18,18 +16,18 @@ $extra-bg-colors: ('bg-color', 'bg-alt-color');
 @each $x-color in $extra-text-colors {
 	.u-color-#{$x-color} {
 		--ctx-color: var(--t-#{$x-color});
-		color: var(--ctx-color);
 	}
 }
 
 @each $x-background in $extra-bg-colors {
 	.u-background-#{$x-background} {
 		--ctx-bg: var(--t-#{$x-background});
-		background-color: var(--ctx-bg);
 	}
 }
 
-.u-background-extend {
-	// h/t SelenIT2: https://twitter.com/SelenIT2/status/1534496667944239107
-	border-image: conic-gradient(var(--ctx-bg) 0 0) fill 1/0/0 50vmax;
+[class*='u-color'] {
+	color: var(--ctx-color);
+}
+[class*='u-background'] {
+	background-color: var(--ctx-bg);
 }

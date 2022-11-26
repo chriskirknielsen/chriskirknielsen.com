@@ -1,347 +1,347 @@
 $tokens: (
-  "_assetsPath": '/assets/img/themes',
-  "_layerOrder": (body, main, footer, header, themepicker),
-  "constants": (
-    "base-line-height": 1.5,
-    "heading-line-height": 1.1,
-    "content-width": 60rem,
-    "content-gutter": var(--size-m)
+  _assetsPath: '/assets/img/themes',
+  _layerOrder: (body, main, footer, header, themepicker),
+  constants: (
+    base-line-height: 1.5,
+    heading-line-height: 1.1,
+    content-width: 60rem,
+    content-gutter: var(--size-m)
   ),
-  "vars": (
-    "color-scheme": dark light,
-    "is-dark": 0,
-    "font-heading": Helvetica,
-    "font-body": Georgia,
-    "bg-color": white,
-    "bg-alt-color": #ccc,
-    "bg-neutral-color": var(--t-color-gray-max),
-    "text-color": black,
-    "text-alt-color": red,
-    "accent-color": var(--t-color-main-med),
-    "heading-color": rebeccapurple,
-    "header-logo-fill": currentColor,
-    "link-color": blue,
-    "link-underline-color": var(--t-link-color),
-    "link-color-active": purple,
-    "link-underline-color-active": transparent,
-    "link-shadow-active": transparent,
-    "bigboi-bg-color": var(--t-bg-neutral-color),
-    "bigboi-text-color": var(--t-color-gray-min),
-    "cta-border-color": var(--t-color-gray-med),
-    "cta-border-color-active": var(--t-color-main-med),
-    "cta-border-width": 1px,
-    "cta-text-color": var(--t-color-aux-med),
-    "cta-bg": var(--t-color-aux-med),
-    "cta-bg-active": var(--t-color-aux-med),
-    "cta-box-shadow-active": none,
-    "cta-transition-duration": 0ms,
-    "footer-text-color": var(--t-color-gray-max),
-    "footer-bg-color": var(--t-color-gray-min),
-    "footer-border-color": var(--t-color-gray-med),
-    "heading-tracking": 0,
-    "heading-transform": none,
-    "corner-radius": 4px
+  vars: (
+    color-scheme: dark light,
+    is-dark: 0,
+    font-heading: Helvetica,
+    font-body: Georgia,
+    bg-color: white,
+    bg-alt-color: #ccc,
+    bg-neutral-color: var(--t-color-gray-max),
+    text-color: black,
+    text-alt-color: red,
+    accent-color: var(--t-color-main-med),
+    heading-color: rebeccapurple,
+    header-logo-fill: currentColor,
+    link-color: blue,
+    link-underline-color: var(--t-link-color),
+    link-color-active: purple,
+    link-underline-color-active: transparent,
+    link-shadow-active: transparent,
+    bigboi-bg-color: var(--t-bg-neutral-color),
+    bigboi-text-color: var(--t-color-gray-min),
+    cta-border-color: var(--t-color-gray-med),
+    cta-border-color-active: var(--t-color-main-med),
+    cta-border-width: 1px,
+    cta-text-color: var(--t-color-aux-med),
+    cta-bg: var(--t-color-aux-med),
+    cta-bg-active: var(--t-color-aux-med),
+    cta-box-shadow-active: none,
+    cta-transition-duration: 0ms,
+    footer-text-color: var(--t-color-gray-max),
+    footer-bg-color: var(--t-color-gray-min),
+    footer-border-color: var(--t-color-gray-med),
+    heading-tracking: 0,
+    heading-transform: none,
+    corner-radius: 4px
   ),
-  "_expectedColors": (
-    "gray": (min, med, max),
-    "main": (min, med, max),
-    "aux": (min, med, max)
+  _expectedColors: (
+    gray: (min, med, max),
+    main: (min, med, max),
+    aux: (min, med, max)
   ),
-  "schemes": (
-    "light": dawn,
-    "dark": dusk
+  schemes: (
+    light: dawn,
+    dark: dusk
   ),
-  "schemeCommonVars": (
-    "fonts": (
-      "heading": ('Marvin Visions Big', sans-serif),
-      "body": (sans-serif)
+  schemeCommonVars: (
+    fonts: (
+      heading: ('Marvin Visions Big', sans-serif),
+      body: (sans-serif)
     ),
-    "vars": (
-      "bg-color": var(--t-color-main-max),
-      "bg-alt-color": var(--t-color-aux-max),
-      "heading-color": var(--t-color-main-min),
-      "text-color": var(--t-color-gray-min),
-      "text-alt-color": var(--t-color-aux-min),
-      "accent-color": var(--t-color-main-med),
-      "accent-color-alt": var(--t-color-aux-med),
-      "link-color": var(--t-color-main-min),
-      "link-underline-color": var(--t-color-main-med),
-      "link-color-active": var(--t-color-main-min),
-      "cta-border-color": var(--t-color-gray-med),
-      "cta-border-color-active": var(--t-color-aux-min),
-      "cta-text-color": var(--t-color-main-min),
-      "cta-bg": var(--t-color-gray-max),
-      "cta-bg-active": var(--t-color-gray-max),
-      "footer-text-color": var(--t-color-gray-min),
-      "footer-bg-color": var(--t-color-gray-max),
-      "footer-border-color": var(--t-color-gray-med)
+    vars: (
+      bg-color: var(--t-color-main-max),
+      bg-alt-color: var(--t-color-aux-max),
+      heading-color: var(--t-color-main-min),
+      text-color: var(--t-color-gray-min),
+      text-alt-color: var(--t-color-aux-min),
+      accent-color: var(--t-color-main-med),
+      accent-color-alt: var(--t-color-aux-med),
+      link-color: var(--t-color-main-min),
+      link-underline-color: var(--t-color-main-med),
+      link-color-active: var(--t-color-main-min),
+      cta-border-color: var(--t-color-gray-med),
+      cta-border-color-active: var(--t-color-aux-min),
+      cta-text-color: var(--t-color-main-min),
+      cta-bg: var(--t-color-gray-max),
+      cta-bg-active: var(--t-color-gray-max),
+      footer-text-color: var(--t-color-gray-min),
+      footer-bg-color: var(--t-color-gray-max),
+      footer-border-color: var(--t-color-gray-med)
     ),
-    "vars-resettable": (
-      "heading-tracking": 0.0625em,
-      "heading-transform": uppercase,
-      "link-shadow-active": var(--t-link-underline-color-active),
-      "header-logo-fill": var(--t-color-aux-med)
+    vars-resettable: (
+      heading-tracking: 0.0625em,
+      heading-transform: uppercase,
+      link-shadow-active: var(--t-link-underline-color-active),
+      header-logo-fill: var(--t-color-aux-med)
     ),
-    "images": (
+    images: (
       
     ),
-    "custom-font": (
-      "name": Marvin Visions Big,
-      "altLocalNames": ('Marvin Visions Big Bold'),
-      "filename": MarvinVisionsBig-Bold,
-      "formats": (woff2),
-      "style": normal,
-      "weight": 700
+    custom-font: (
+      name: Marvin Visions Big,
+      altLocalNames: ('Marvin Visions Big Bold'),
+      filename: MarvinVisionsBig-Bold,
+      formats: (woff2),
+      style: normal,
+      weight: 700
     )
   ),
-  "themes": (
-    "dusk": (
-      "label": Dusk,
-      "vars": (
-        "color-scheme": dark,
-        "is-dark": 1,
-        "cta-transition-duration": 400ms,
-        "cta-box-shadow-active": '0 0 0.75em var(--t-color-aux-med), 0 0 0.5em var(--t-color-aux-med) inset',
-        "link-underline-color-active": hsl(320, 88%, 22%)
+  themes: (
+    dusk: (
+      label: Dusk,
+      vars: (
+        color-scheme: dark,
+        is-dark: 1,
+        cta-transition-duration: 400ms,
+        cta-box-shadow-active: '0 0 0.75em var(--t-color-aux-med), 0 0 0.5em var(--t-color-aux-med) inset',
+        link-underline-color-active: hsl(320, 88%, 22%)
       ),
-      "colors": (
-        "gray": (
-          "min": hsl(225, 15%, 95%),
-          "med": hsl(227, 5%, 63%),
-          "max": hsl(233, 12%, 13%)
+      colors: (
+        gray: (
+          min: hsl(225, 15%, 95%),
+          med: hsl(227, 5%, 63%),
+          max: hsl(233, 12%, 13%)
         ),
-        "main": (
-          "min": hsl(33, 100%, 88%),
-          "med": hsl(323, 99%, 58%),
-          "max": hsl(263, 45%, 13%)
+        main: (
+          min: hsl(33, 100%, 88%),
+          med: hsl(323, 99%, 58%),
+          max: hsl(263, 45%, 13%)
         ),
-        "aux": (
-          "min": hsl(254, 50%, 95%),
-          "med": hsl(177, 77%, 44%),
-          "max": hsl(195, 90%, 12%)
+        aux: (
+          min: hsl(254, 50%, 95%),
+          med: hsl(177, 77%, 44%),
+          max: hsl(195, 90%, 12%)
         )
       )
     ),
-    "dawn": (
-      "label": Dawn,
-      "vars": (
-        "color-scheme": light,
-        "is-dark": 0,
-        "cta-transition-duration": 0ms,
-        "cta-box-shadow-active": '0 0 0 0.125em var(--t-color-main-med)',
-        "link-underline-color-active": pink
+    dawn: (
+      label: Dawn,
+      vars: (
+        color-scheme: light,
+        is-dark: 0,
+        cta-transition-duration: 0ms,
+        cta-box-shadow-active: '0 0 0 0.125em var(--t-color-main-med)',
+        link-underline-color-active: pink
       ),
-      "colors": (
-        "gray": (
-          "min": hsl(233, 12%, 13%),
-          "med": hsl(227, 5%, 63%),
-          "max": hsl(39, 100%, 96%)
+      colors: (
+        gray: (
+          min: hsl(233, 12%, 13%),
+          med: hsl(227, 5%, 63%),
+          max: hsl(39, 100%, 96%)
         ),
-        "main": (
-          "min": hsl(263, 100%, 26%),
-          "med": hsl(332, 83%, 44%),
-          "max": hsl(33, 100%, 90%)
+        main: (
+          min: hsl(263, 100%, 26%),
+          med: hsl(332, 83%, 44%),
+          max: hsl(33, 100%, 90%)
         ),
-        "aux": (
-          "min": hsl(195, 90%, 12%),
-          "med": hsl(181, 46%, 34%),
-          "max": hsl(254, 39%, 85%)
+        aux: (
+          min: hsl(195, 90%, 12%),
+          med: hsl(181, 46%, 34%),
+          max: hsl(254, 39%, 85%)
         )
       )
     ),
-    "vapor": (
-      "label": Vapor,
-      "colors": (
-        "gray": (
-          "min": hsl(233, 12%, 13%),
-          "med": hsl(231, 3%, 46%),
-          "max": hsl(39, 100%, 96%)
+    vapor: (
+      label: Vapor,
+      colors: (
+        gray: (
+          min: hsl(233, 12%, 13%),
+          med: hsl(231, 3%, 46%),
+          max: hsl(39, 100%, 96%)
         ),
-        "main": (
-          "min": hsl(261, 100%, 31%),
-          "med": hsl(291, 71%, 43%),
-          "max": hsl(331, 95%, 92%)
+        main: (
+          min: hsl(261, 100%, 31%),
+          med: hsl(291, 71%, 43%),
+          max: hsl(331, 95%, 92%)
         ),
-        "aux": (
-          "min": hsl(193, 94%, 20%),
-          "med": hsl(182, 86%, 30%),
-          "max": hsl(174, 95%, 92%)
+        aux: (
+          min: hsl(193, 94%, 20%),
+          med: hsl(182, 86%, 30%),
+          max: hsl(174, 95%, 92%)
         )
       ),
-      "fonts": (
-        "heading": ('VCR OSD Mono', monospace),
-        "body": (monospace)
+      fonts: (
+        heading: ('VCR OSD Mono', monospace),
+        body: (monospace)
       ),
-      "vars": (
-        "color-scheme": light,
-        "is-dark": 0,
-        "bg-color": var(--t-color-main-max),
-        "bg-alt-color": var(--t-color-aux-max),
-        "heading-color": var(--t-color-main-min),
-        "text-color": var(--t-color-gray-min),
-        "text-alt-color": var(--t-color-gray-min),
-        "accent-color": var(--t-color-main-med),
-        "accent-color-alt": var(--t-color-aux-med),
-        "link-color": var(--t-color-main-med),
-        "link-color-active": var(--t-color-gray-min),
-        "link-underline-color": var(--t-color-aux-med),
-        "link-underline-color-active": var(--t-color-gray-max),
-        "cta-border-color": var(--t-color-main-med),
-        "cta-border-color-active": var(--t-color-aux-med),
-        "footer-text-color": var(--t-color-main-min),
-        "footer-bg-color": var(--t-color-main-max),
-        "footer-border-color": var(--t-color-main-min),
-        "corner-radius": 4px,
-        "heading-transform": uppercase
+      vars: (
+        color-scheme: light,
+        is-dark: 0,
+        bg-color: var(--t-color-main-max),
+        bg-alt-color: var(--t-color-aux-max),
+        heading-color: var(--t-color-main-min),
+        text-color: var(--t-color-gray-min),
+        text-alt-color: var(--t-color-gray-min),
+        accent-color: var(--t-color-main-med),
+        accent-color-alt: var(--t-color-aux-med),
+        link-color: var(--t-color-main-med),
+        link-color-active: var(--t-color-gray-min),
+        link-underline-color: var(--t-color-aux-med),
+        link-underline-color-active: var(--t-color-gray-max),
+        cta-border-color: var(--t-color-main-med),
+        cta-border-color-active: var(--t-color-aux-med),
+        footer-text-color: var(--t-color-main-min),
+        footer-bg-color: var(--t-color-main-max),
+        footer-border-color: var(--t-color-main-min),
+        corner-radius: 4px,
+        heading-transform: uppercase
       ),
-      "images": (
-        "body-bg-image": 'vapor-bg.png'
+      images: (
+        body-bg-image: 'vapor-bg.png'
       ),
-      "custom-font": (
-        "name": VCR OSD Mono,
-        "filename": VCROSDMONO,
-        "formats": (woff2),
-        "style": normal,
-        "weight": 400
+      custom-font: (
+        name: VCR OSD Mono,
+        filename: VCROSDMONO,
+        formats: (woff2),
+        style: normal,
+        weight: 400
       )
     ),
-    "y2k": (
-      "label": Y2K,
-      "colors": (
-        "gray": (
-          "min": #2d2d2d,
-          "med": #a0a0a0,
-          "max": #eeeeee
+    y2k: (
+      label: Y2K,
+      colors: (
+        gray: (
+          min: #2d2d2d,
+          med: #a0a0a0,
+          max: #eeeeee
         ),
-        "main": (
-          "min": #131b7f,
-          "med": #09757c,
-          "max": #2073cf
+        main: (
+          min: #131b7f,
+          med: #09757c,
+          max: #2073cf
         ),
-        "aux": (
-          "min": #053c77,
-          "med": #086ead,
-          "max": #ebcb23
+        aux: (
+          min: #053c77,
+          med: #086ead,
+          max: #ebcb23
         )
       ),
-      "fonts": (
-        "heading": ('Tahoma', 'Verdana', sans-serif),
-        "body": ('Times New Roman', serif)
+      fonts: (
+        heading: ('Tahoma', 'Verdana', sans-serif),
+        body: ('Times New Roman', serif)
       ),
-      "vars": (
-        "color-scheme": light,
-        "is-dark": 0,
-        "bg-color": #ffffff,
-        "bg-alt-color": #d8ecff,
-        "heading-color": var(--t-color-main-min),
-        "text-color": #000000,
-        "text-alt-color": var(--t-color-gray-max),
-        "accent-color": var(--t-color-main-med),
-        "accent-color-alt": var(--t-color-aux-min),
-        "link-color": var(--t-color-main-min),
-        "link-color-active": var(--t-color-main-med),
-        "cta-bg": #c0c0c0,
-        "cta-bg-active": var(--t-color-gray-med),
-        "cta-bg-hover": var(--t-color-gray-max),
-        "cta-text-color": var(--t-color-gray-min),
-        "cta-text-color-active": var(--t-color-main-min),
-        "cta-border-color": var(--t-color-gray-max) var(--t-color-gray-min) var(--t-color-gray-min) var(--t-color-gray-max),
-        "cta-border-color-active": var(--t-color-gray-min) var(--t-color-gray-max) var(--t-color-gray-max) var(--t-color-gray-min),
-        "cta-box-shadow-active": 0 0 0 1px var(--t-color-gray-min),
-        "corner-radius": 0
+      vars: (
+        color-scheme: light,
+        is-dark: 0,
+        bg-color: #ffffff,
+        bg-alt-color: #d8ecff,
+        heading-color: var(--t-color-main-min),
+        text-color: #000000,
+        text-alt-color: var(--t-color-gray-max),
+        accent-color: var(--t-color-main-med),
+        accent-color-alt: var(--t-color-aux-min),
+        link-color: var(--t-color-main-min),
+        link-color-active: var(--t-color-main-med),
+        cta-bg: #c0c0c0,
+        cta-bg-active: var(--t-color-gray-med),
+        cta-bg-hover: var(--t-color-gray-max),
+        cta-text-color: var(--t-color-gray-min),
+        cta-text-color-active: var(--t-color-main-min),
+        cta-border-color: var(--t-color-gray-max) var(--t-color-gray-min) var(--t-color-gray-min) var(--t-color-gray-max),
+        cta-border-color-active: var(--t-color-gray-min) var(--t-color-gray-max) var(--t-color-gray-max) var(--t-color-gray-min),
+        cta-box-shadow-active: 0 0 0 1px var(--t-color-gray-min),
+        corner-radius: 0
       ),
-      "images": (
-        "home-bg-image": 'unsplash-xaze-clouds.jpg'
+      images: (
+        home-bg-image: 'unsplash-xaze-clouds.jpg'
       )
     ),
-    "neotokyo": (
-      "label": Neo-Tokyo,
-      "colors": (
-        "gray": (
-          "min": #ffd7d7,
-          "med": #7d5f5f,
-          "max": #130303
+    neotokyo: (
+      label: Neo-Tokyo,
+      colors: (
+        gray: (
+          min: #ffd7d7,
+          med: #7d5f5f,
+          max: #130303
         ),
-        "main": (
-          "min": #f3050c,
-          "med": #801818,
-          "max": #240000
+        main: (
+          min: #f3050c,
+          med: #801818,
+          max: #240000
         ),
-        "aux": (
-          "min": #a5f1df,
-          "med": #22c6cf,
-          "max": #08011f
+        aux: (
+          min: #a5f1df,
+          med: #22c6cf,
+          max: #08011f
         )
       ),
-      "fonts": (
-        "heading": ('Syncopate', sans-serif),
-        "body": (sans-serif)
+      fonts: (
+        heading: ('Syncopate', sans-serif),
+        body: (sans-serif)
       ),
-      "vars": (
-        "color-scheme": dark,
-        "is-dark": 1,
-        "header-logo-fill": var(--t-color-main-min),
-        "header-logo-fill-active": var(--t-color-aux-min),
-        "bg-color": var(--t-color-main-max),
-        "bg-alt-color": var(--t-color-aux-max),
-        "heading-color": var(--t-color-main-min),
-        "text-color": var(--t-color-gray-min),
-        "text-alt-color": var(--t-color-gray-min),
-        "accent-color": var(--t-color-main-min),
-        "accent-color-alt": var(--t-color-aux-min),
-        "datetime-color": var(--t-color-aux-min),
-        "link-color": var(--t-color-main-min),
-        "link-color-active": var(--t-color-gray-min),
-        "link-underline-color": var(--t-color-aux-med),
-        "link-underline-color-active": var(--t-color-main-med),
-        "bigboi-bg-color": var(--t-color-aux-max),
-        "cta-border-color-active": var(--t-color-main-min),
-        "footer-text-color": var(--t-color-gray-min),
-        "footer-bg-color": var(--t-color-aux-max),
-        "footer-border-color": var(--t-color-main-min),
-        "corner-radius": 2px,
-        "heading-transform": uppercase,
-        "heading-tracking": -0.0875em,
-        "heading-shadow": 0 0 0.25em var(--t-color-main-med)
+      vars: (
+        color-scheme: dark,
+        is-dark: 1,
+        header-logo-fill: var(--t-color-main-min),
+        header-logo-fill-active: var(--t-color-aux-min),
+        bg-color: var(--t-color-main-max),
+        bg-alt-color: var(--t-color-aux-max),
+        heading-color: var(--t-color-main-min),
+        text-color: var(--t-color-gray-min),
+        text-alt-color: var(--t-color-gray-min),
+        accent-color: var(--t-color-main-min),
+        accent-color-alt: var(--t-color-aux-min),
+        datetime-color: var(--t-color-aux-min),
+        link-color: var(--t-color-main-min),
+        link-color-active: var(--t-color-gray-min),
+        link-underline-color: var(--t-color-aux-med),
+        link-underline-color-active: var(--t-color-main-med),
+        bigboi-bg-color: var(--t-color-aux-max),
+        cta-border-color-active: var(--t-color-main-min),
+        footer-text-color: var(--t-color-gray-min),
+        footer-bg-color: var(--t-color-aux-max),
+        footer-border-color: var(--t-color-main-min),
+        corner-radius: 2px,
+        heading-transform: uppercase,
+        heading-tracking: -0.0875em,
+        heading-shadow: 0 0 0.25em var(--t-color-main-med)
       ),
-      "images": (
+      images: (
         
       ),
-      "custom-font": (
-        "name": Syncopate,
-        "filename": Syncopate-Bold,
-        "formats": (woff2),
-        "style": normal,
-        "weight": 700
+      custom-font: (
+        name: Syncopate,
+        filename: Syncopate-Bold,
+        formats: (woff2),
+        style: normal,
+        weight: 700
       )
     )
   ),
-  "typeScale": (
-    "0": clamp(1.00rem, calc(0.81rem + 0.94vw), 1.38rem),
-    "1": clamp(1.20rem, calc(1.03rem + 0.87vw), 1.55rem),
-    "2": clamp(1.44rem, calc(1.29rem + 0.75vw), 1.74rem),
-    "3": clamp(1.73rem, calc(1.61rem + 0.57vw), 1.96rem),
-    "4": clamp(2.07rem, calc(2.01rem + 0.32vw), 2.20rem),
-    "5": clamp(2.48rem, calc(2.49rem - 0.03vw), 2.49rem)
+  typeScale: (
+    0: clamp(1.00rem, calc(0.81rem + 0.94vw), 1.38rem),
+    1: clamp(1.20rem, calc(1.03rem + 0.87vw), 1.55rem),
+    2: clamp(1.44rem, calc(1.29rem + 0.75vw), 1.74rem),
+    3: clamp(1.73rem, calc(1.61rem + 0.57vw), 1.96rem),
+    4: clamp(2.07rem, calc(2.01rem + 0.32vw), 2.20rem),
+    5: clamp(2.48rem, calc(2.49rem - 0.03vw), 2.49rem)
   ),
-  "size": (
-    "2xs": 0.25rem,
-    "xs": 0.50rem,
-    "s": 0.75rem,
-    "m": 1rem,
-    "l": 1.5rem,
-    "xl": 2rem,
-    "2xl": 4rem
+  size: (
+    2xs: 0.25rem,
+    xs: 0.50rem,
+    s: 0.75rem,
+    m: 1rem,
+    l: 1.5rem,
+    xl: 2rem,
+    2xl: 4rem
   ),
-  "fontstack": (
-    "serif": ('Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida Serif', 'Lucida', 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', 'Georgia', 'serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
-    "sans-serif": ('system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
-    "monospace": ('Monaco', 'Consolas', 'Andale Mono', 'Courier New', 'monospace', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol')
+  fontstack: (
+    serif: ('Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida Serif', 'Lucida', 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', 'Georgia', 'serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
+    sans-serif: ('system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
+    monospace: ('Monaco', 'Consolas', 'Andale Mono', 'Courier New', 'monospace', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol')
   ),
-  "easing": (
-    "in": cubic-bezier(0, 0.75, 1, 1),
-    "out": cubic-bezier(0, 0, 0.25, 1),
-    "circ-out": cubic-bezier(0, 0, 0, 1),
-    "in-out": cubic-bezier(0.67, 0, 0.33, 1)
+  easing: (
+    in: cubic-bezier(0, 0.75, 1, 1),
+    out: cubic-bezier(0, 0, 0.25, 1),
+    circ-out: cubic-bezier(0, 0, 0, 1),
+    in-out: cubic-bezier(0.67, 0, 0.33, 1)
   )
 );
