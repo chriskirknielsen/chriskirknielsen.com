@@ -84,7 +84,7 @@ I am a professional, as proven by the fact I have a [LinkedIn profile](https://w
 ## Fancy a chat?
 
 <p data-about="contact">
-If you feel like reaching out to me, you can send me a tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[at]gmail[dot]com</code>!
+If you feel like reaching out to me, you can send me a message <a href="https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }}">@chriskirknielsen</a>, or email me if needed at <code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[at]gmail[dot]com</code>!
 </p>
 
 <p class="about-quotebox">Unknown phone numbers give me anxiety.</p>

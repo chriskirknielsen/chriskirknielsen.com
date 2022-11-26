@@ -83,7 +83,7 @@ Je suis un vrai pro, prouvé par le fait que j'ai un [profil LinkedIn](https://w
 ## Pour discuter, c'est au clavier
 
 <p data-about="contact">
-Si vous souhaitez me parler, vous pouvez envoyer un tweet <a href="https://twitter.com/ckirknielsen">@ckirknielsen</a> ou envoyer un e-mail si besoin à <code><code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[arobase]gmail<wbr>[point]com</code></code> !
+Si vous souhaitez me parler, vous pouvez envoyer un message via <a href="https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }}">@chriskirknielsen</a> ou envoyer un e-mail si besoin à <code><code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[arobase]gmail<wbr>[point]com</code></code> !
 </p>
 
 <p class="about-quotebox">Les numéros inconnus me mettent la pression.</p>

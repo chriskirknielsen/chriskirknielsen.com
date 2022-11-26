@@ -162,7 +162,7 @@ permalink: head-script.js
 The file is rendered with the HTML engine since that effectively passes it as plaintext, as [noted in the docs](https://www.11ty.dev/docs/languages/), preventing any unnecessary transformations on the file.
 {% endcallout %}
 
-One caveat is that those files get rendered at the root of the main build due to the `permalink` in the frontmatter, but I'm sure that could be worked around. And that’s it. That’s my hacky solution. But then [on Twitter, I was asked about if I had tried a global data file](https://twitter.com/eleven_ty/status/1562480526396919808)… here’s what I came up with.
+One caveat is that those files get rendered at the root of the main build due to the `permalink` in the frontmatter, but I'm sure that could be worked around. And that’s it. That’s my hacky solution. But then [on Twitter, I was asked about if I had tried a global data file](https://twitter.11ty.dev/1562480526396919808/)… here’s what I came up with.
 
 ## Using a global data file instead
 
@@ -172,7 +172,7 @@ I couldn’t make it work. Maybe I need more caffeine but couldn't figure out wh
 
 ## Quick update
 
-After publishing this post, [Zach proposed using a custom cache solution](https://twitter.com/eleven_ty/status/1562796287786754049) which is indeed a great idea! I made a minor adjustment to set a particular cache key (so the filter can be called like `… | jsmin('someKey')`), but the idea is the same:
+After publishing this post, [Zach proposed using a custom cache solution](https://twitter.11ty.dev/1562796287786754049/) which is indeed a great idea! I made a minor adjustment to set a particular cache key (so the filter can be called like `… | jsmin('someKey')`), but the idea is the same:
 
 ```js
 // ...
