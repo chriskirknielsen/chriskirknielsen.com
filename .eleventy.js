@@ -194,98 +194,13 @@ module.exports = function (eleventyConfig) {
 			});
 		};
 
-		// Compile the JSON token file to a Sass file first
-		const json = new Promise((resolve, reject) => {
-			resolve(
-				fs
-					.createReadStream(`${rootDir}/_data/tokens.json`)
-					.pipe(jsonSass({ prefix: '$tokens: ' }))
-					.pipe(fs.createWriteStream(`${rootDir}/assets/scss/tools/_tokens.scss`))
-			);
-		});
-
-		// const styles = new Promise((resolve, reject) => {
-		// 	return glob(`${rootDir}/assets/scss/**/*.scss`, './', (error, scssFiles) => {
-		// 		const inputFolder = `${rootDir}/assets/scss`;
-		// 		const mainScssFiles = scssFiles.filter((path) => !path.split('/').pop().startsWith('_'));
-		// 		const compiledCss = mainScssFiles.map(async (inputPath) => {
-		// 			const parsed = path.parse(inputPath);
-		// 			if (!inputPath.startsWith(inputFolder) || parsed.name.startsWith('_')) {
-		// 				return;
-		// 			}
-		// 			const outputFolder = parsed.dir
-		// 				.split(inputFolder)
-		// 				.pop()
-		// 				.replace(/^(\/)+/, '')
-		// 				.replace(/(\/)+$/, '');
-		// 			const folder = `${rootDir}/_includes/assets/css/${outputFolder.length > 0 ? outputFolder + '/' : ''}`;
-		// 			const outputPath = `${folder}${parsed.name}.css`;
-
-		// 			let result = sass.compile(inputPath, {
-		// 				loadPaths: [parsed.dir || '.', config.dir.includes],
-		// 				style: 'compressed',
-		// 				precision: 4,
-		// 			});
-
-		// 			return new Promise((success, failure) =>
-		// 				fs.mkdir('./' + folder, { recursive: true }, (err, path) => {
-		// 					if (err) return failure(err);
-
-		// 					fs.writeFile(outputPath, result.css, { flag: 'w' }, (error) => {
-		// 						if (error) failure(error);
-		// 						else success(outputPath);
-		// 					});
-		// 				})
-		// 			);
-		// 		});
-
-		// 		Promise.all(compiledCss).then((newCss) => {
-		// 			resolve(newCss);
-		// 		});
-		// 	});
-		// });
-
-		// const scripts = new Promise((resolve, reject) => {
-		// 	return glob(`${rootDir}/assets/js/**/*.js`, './', (error, jsFiles) => {
-		// 		const inputFolder = `${rootDir}/assets/js`;
-		// 		const minifiedJs = jsFiles.map(async (inputPath) => {
-		// 			const parsed = path.parse(inputPath);
-		// 			if (!inputPath.startsWith(inputFolder)) {
-		// 				return;
-		// 			}
-		// 			const outputFolder = parsed.dir
-		// 				.split(inputFolder)
-		// 				.pop()
-		// 				.replace(/^(\/)+/, '')
-		// 				.replace(/(\/)+$/, '');
-		// 			const folder = `${rootDir}/_includes/assets/js/${outputFolder.length > 0 ? outputFolder + '/' : ''}`;
-		// 			const outputPath = `${folder}${parsed.name}.js`;
-
-		// 			let result = await esbuild.build({
-		// 				target: 'es2020',
-		// 				entryPoints: [inputPath],
-		// 				minify: true,
-		// 				bundle: true,
-		// 				write: false,
-		// 			});
-
-		// 			return new Promise((success, failure) =>
-		// 				fs.mkdir('./' + folder, { recursive: true }, (err, path) => {
-		// 					if (err) return failure(err);
-
-		// 					fs.writeFile(outputPath, result.outputFiles[0].text, { flag: 'w' }, (error) => {
-		// 						if (error) failure(error);
-		// 						else success(outputPath);
-		// 					});
-		// 				})
-		// 			);
-		// 		});
-
-		// 		Promise.all(minifiedJs).then((newJs) => {
-		// 			resolve(newJs);
-		// 		});
-		// 	});
-		// });
+		// Compile the JSON tokens file to a Sass file first
+		const tokens = Promise.resolve(
+			fs
+				.createReadStream(`${rootDir}/_data/tokens.json`)
+				.pipe(jsonSass({ prefix: '$tokens: ' }))
+				.pipe(fs.createWriteStream(`${rootDir}/assets/scss/tools/_tokens.scss`))
+		);
 
 		const styles = compileAssets({
 			inFolder: 'scss',
@@ -317,7 +232,7 @@ module.exports = function (eleventyConfig) {
 			},
 		});
 
-		return Promise.all([json.then(() => styles), scripts]);
+		return Promise.all([tokens.then(() => styles), scripts]);
 	});
 
 	/* Plugins */
