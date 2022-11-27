@@ -256,7 +256,7 @@ module.exports = function (eleventyConfig) {
 		preAttributes: {
 			tabindex: 0,
 			class: (context) => `${context.language ? 'language-' + context.language : ''} codeblock content-wide`.trim(),
-			'data-lang': (context) => (context.language ? context.language.toUpperCase() : ''),
+			'data-lang': (context) => (context.language && context.language !== 'text' ? context.language.toUpperCase() : ''),
 		},
 	});
 	eleventyConfig.addPlugin(EleventyRenderPlugin);

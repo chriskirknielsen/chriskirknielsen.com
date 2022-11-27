@@ -67,8 +67,7 @@ pre.codeblock {
 		--codeblock-lang: 1.5rem;
 
 		&::before {
-			content: '.' attr(data-lang);
-
+			content: attr(data-lang);
 			position: absolute;
 			inset: 0 0 auto 0;
 			z-index: 2;

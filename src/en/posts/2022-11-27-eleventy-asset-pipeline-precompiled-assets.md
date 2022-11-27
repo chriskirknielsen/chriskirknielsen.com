@@ -30,7 +30,7 @@ I have my assets in `/src/assets/scss` and `/src/assets/js`, and the resulting f
 
 First, the packages I use need to be installed, in my case via npm:
 
-```bash
+```text
 npm install glob json-sass sass esbuild
 ```
 
