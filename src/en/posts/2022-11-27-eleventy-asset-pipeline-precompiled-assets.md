@@ -53,7 +53,7 @@ module.exports = function (eleventyConfig) {
          * @param {string} settings.inExt Extension of the input files.
          * @param {string} [settings.outFolder] Optional. Name of the output folder. Defaults to the same name as `inFolder`.
          * @param {string} [settings.outExt] Optional. Extension of the output files. Defaults to the same extension as `inExt`.
-         * @param {function} [settings.filterFn] Optional. Function run against the list of file paths retuning a boolean describing if the file should be compiled.
+         * @param {function} [settings.filterFn] Optional. Function run against the list of file paths returning a boolean describing if the file should be compiled.
          * @param {function} settings.compileFn Compiler for the provided files.
          * @returns {Promise<string[]>} List of output files.
          */
@@ -81,7 +81,7 @@ module.exports = function (eleventyConfig) {
 			}
 
             return new Promise((resolve, reject) => {
-                /* Here goes all the file-fiding, compilation, and output logic */
+                /* Here goes all the file-finding, compilation, and output logic */
             });
         };
     });
@@ -90,7 +90,7 @@ module.exports = function (eleventyConfig) {
 
 This `compileAssets` function is trying to be forgiving: if you're taking JS files, it's likely you'll want JS in the output as well, so the name and extensions can be omitted and will be copied for the output. Some other cases though, like Sass, will require a different output. The callback for the `before` event needs to know when everything is done so it can run the actual build, so I am making heavy use of the [`Promise` API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). I also have to handle my JSON file for the design tokens before the Sass compilation runs, furthering my need for promises.
 
-Okay so the scaffholding is in place, but that promise is still looking pretty sad, so here's what needs to happen:
+Okay so the scaffolding is in place, but that promise is still looking pretty sad, so here's what needs to happen:
 1. Find files by glob
 1. Filter files I don't need (e.g. Sass files starting with `_`)
 1. Iterate over each file and get their path information
@@ -149,7 +149,7 @@ const compiledFiles = filteredInputFiles.map(async (inputPath) => {
 
     // Return a promise that handles generating the target output file
     return new Promise((success, failure) =>
-        // Create the folder structure if it doesn't exist, including subfolders thanks to `recursirve: true`
+        // Create the folder structure if it doesn't exist, including subfolders thanks to `recursive: true`
         fs.mkdir('./' + folder, { recursive: true }, (dirErr, path) => {
             if (dirErr) {
                 return failure(dirErr);
@@ -174,7 +174,7 @@ Promise.all(compiledFiles).then((savedFiles) => resolve(savedFiles));
 
 Quite a bit going on here! Since I have some assets that live in subfolders, I need to grab whatever is after the common source folder path, so `outputPath` is a bit heavy-handed. Then the `compileFn` is called on the `parsed` file path object — the defined function must be able to work with that, which I'll demonstrate below! Then I have a promise to place my file in the correct folder using `fs`. Once done, I can resolve the promise with `success(outputPath)`. And finally, I resolve the "factory's" promise when all the compiled file promises have succeeded.
 
-I think this is fairly straightforward pieces but the fact that we have multiple layers of promises does make it a little confusing. I hope the variable names I used help keep this understandable!
+I think this is a fairly straightforward piece but the fact that we have multiple layers of promises does make it a little confusing. I hope the variable names I used help keep this understandable!
 
 At this point, the `compileAssets` function is ready to get to work. Within the context of the `eleventy.before` handler, below the function definition, I compile my Sass and JS files:
 
@@ -277,7 +277,7 @@ module.exports = function (eleventyConfig) {
          * @param {string} settings.inExt Extension of the input files.
          * @param {string} [settings.outFolder] Optional. Name of the output folder. Defaults to the same name as `inFolder`.
          * @param {string} [settings.outExt] Optional. Extension of the output files. Defaults to the same extension as `inExt`.
-         * @param {function} [settings.filterFn] Optional. Function run against the list of file paths retuning a boolean describing if the file should be compiled.
+         * @param {function} [settings.filterFn] Optional. Function run against the list of file paths returning a boolean describing if the file should be compiled.
          * @param {function} settings.compileFn Compiler for the provided files.
          * @returns {Promise<string[]>} List of output files.
          */
