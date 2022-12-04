@@ -7,7 +7,7 @@ permalink: /acknowledgements/
 
 ## Site Stuff
 
-This site is built with [{{ eleventy.generator }}](https://www.11ty.dev/), a fantastic static site generator. I run [gulp](https://gulpjs.com/) in front of my build to compile my Sass to CSS, and to minify styles and scripts alike. I then inline that to reduce HTTP requests, and this whole thing is hosted via [Netlify](https://netlify.com/). Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
+This site is built with [Eleventy](https://www.11ty.dev/), a fantastic static site generator. I [pre-compile](/blog/eleventy-asset-pipeline-precompiled-assets/) my Sass files to CSS, and minify my scripts. I then inline that to reduce HTTP requests, and this whole thing is hosted via [Netlify](https://netlify.com/). Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
 The theme picker is more than a little inspired by [Max Böck's own](https://mxb.dev), and the synth on the [About page](/about/) is based on [Bret Cameron's tutorial](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/), and extended with envelope shaping and lowpass filtering by peeking at [Daniel Schulz's code](https://iamschulz.com/building-a-synthesizer-in-javascript/).
 
