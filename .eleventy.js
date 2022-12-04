@@ -103,6 +103,8 @@ module.exports = function (eleventyConfig) {
 	let svgCache = {};
 
 	eleventyConfig.on('eleventy.before', function (config) {
+		let beforeStart = performance.now(); // Track execution time
+
 		// Reset caches
 		jsminCache = {};
 		svgCache = {};
@@ -149,7 +151,10 @@ module.exports = function (eleventyConfig) {
 			},
 		});
 
-		return Promise.all([tokens.then(() => styles), scripts]);
+		return Promise.all([tokens.then(() => styles), scripts]).then((pipelines) => {
+			console.log(`\x1b[33m[11ty] Ran eleventy.before in ${((performance.now() - beforeStart) / 1000).toFixed(2)} seconds`);
+			return pipelines;
+		});
 	});
 
 	/* Plugins */
