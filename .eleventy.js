@@ -325,10 +325,11 @@ module.exports = function (eleventyConfig) {
 		const uniqueId = `co-${new Date().getTime().toString(36)}`;
 		const context = this?.ctx || this.context?.environments;
 		const lang = context.lang || defaultLang;
+		const emojiStyleAttr = emoji ? `style="--callout-emoji: '${emoji}'"` : '';
 		pseudo ||= translations.callout[lang];
 
 		return `<div class="callout" aria-labelledby="${uniqueId}">
-			<p id="${uniqueId}" class="h3 | callout-label"${emoji ? ' style="--callout-emoji: \'' + emoji + '\'"' : ''}>${pseudo}</p>
+			<p id="${uniqueId}" class="h3 | callout-label" ${emojiStyleAttr}>${pseudo}</p>
 			<p>${md.renderInline(content.trim())}</p>
 		</div>`;
 	});
