@@ -181,7 +181,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Filters */
-	eleventyConfig.addFilter('assetPath', (filename, subdir) => `./${rootDir}/_includes/assets/${subdir}/${filename}`);
+	eleventyConfig.addFilter('incPath', (filename, incDir = '', subdir = '') => `./${rootDir}/_includes/${incDir ? incDir + '/' : ''}${subdir ? subdir + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('fromJSON', (str) => JSON.parse(str));
 	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));

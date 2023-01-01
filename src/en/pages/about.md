@@ -7,7 +7,7 @@ summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
 facts:
     - ["👀", "Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences."]
-    - ["🕰", "Favourite movie is likely Back to the Future, despite some… problematic things."]
+    - ["🕰", "Favourite movie is likely Back to the Future, though the dad is a creep."]
     - ["☕️", "Used to drink lots of tea, but now it's coffee!"]
     - ["🤓", "Enjoys maths/physics YouTube videos despite not grasping everything."]
     - ["🛹", "Practiced skateboarding for a while, then decided playing Tony Hawk was safer."]

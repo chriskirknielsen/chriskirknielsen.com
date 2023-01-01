@@ -1,0 +1,35 @@
+<article class="cardblock" {{ (gridItemAttrs or '') | safe }}>
+    {% if gridItemImage %}
+    <div class="cardblock-image">
+        <a href="{{ gridItemPermalink }}" aria-label="{{ gridItemTitle }}" tabindex="-1">
+            <img
+            src="{{ gridItemImage + '?nf_resize=fit&w=400' | url }}"
+            srcset="
+                {{ gridItemImage + '?nf_resize=fit&w=300' | url }} 300w,
+                {{ gridItemImage | url }} 600w
+            "
+            sizes="
+                (max-width: 575px) 90vw,
+                (max-width: 847px) 40vw,
+                (max-width: 1023px) 30vw,
+                300px
+            "
+            alt=""
+            width="600"
+            height="600"
+            {{ ('loading="lazy"' | safe) if gridItemLazyImage }}
+            />
+        </a>
+
+        {% if gridItemImageDecorator -%}{{ gridItemImageDecorator | safe }}{%- endif %}
+    </div>
+    {% endif %}
+
+    <div class="cardblock-content">
+        <h2 class="cardblock-title | h5 | u-marginBlockEnd-s">
+            <a href="{{ gridItemPermalink }}" class="heading-link"{% if gridCoverlink %} data-card-coverlink{% endif %}>{{- gridItemTitle | safe -}}</a>
+        </h2>
+        
+        {{ gridItemContent | safe }}
+    </div>
+</article>

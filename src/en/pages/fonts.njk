@@ -4,43 +4,17 @@ subtitle: A collection of (nerdy) typefaces I made in my spare time
 summary: You might find a cool, nerdy font by Christopher Kirk-Nielsen here
 ---
 
-{% set fontslist = collections.fonts %}
 <div class="gridlist" data-grid-cols="3">
-{% for font in fontslist %}
-  {% set fontPermalink = font.url | url %}
-  <article class="cardblock">
-		{% if font.data.customMetaImage %}
-		<div class="cardblock-image">
-			<a href="{{ fontPermalink }}" aria-label="{{ font.data.title }}" tabindex="-1">
-				<img
-				src="{{ font.data.customMetaImage + '?nf_resize=fit&w=400' | url }}"
-				srcset="
-					{{ font.data.customMetaImage + '?nf_resize=fit&w=300' | url }} 300w,
-					{{ font.data.customMetaImage | url }} 600w
-				"
-				sizes="
-					(max-width: 575px) 90vw,
-					(max-width: 847px) 40vw,
-					(max-width: 1023px) 30vw,
-					300px
-				"
-				alt=""
-				width="600"
-				height="600"
-				/>
-			</a>
-		</div>
-		{% endif %}
-
-		<div class="cardblock-content">
-			<h2 class="cardblock-title | h5 | u-marginBlockEnd-s">
-				<a href="{{ fontPermalink }}" class="heading-link" data-card-coverlink>{{- font.data.title | safe -}}</a>
-			</h2>
-			
-			<p class="u-marginBlockStart-auto u-fontSize-smallest">
-				{{- font.data.summary -}}
-			</p>
-		</div>
-	</article>
+{% for font in collections.fonts %}
+	{% set fontDesc %}<p class="u-marginBlockStart-auto u-fontSize-smallest">{{ font.data.summary }}</p>{% endset %}
+    {% renderFile "griditem.njk" | incPath("components"), {
+		gridItem: font,
+		gridCoverlink: true,
+		gridItemTitle: font.data.title,
+		gridItemImage: font.data.customMetaImage,
+		gridItemPermalink: (font.url | url),
+		gridItemContent: fontDesc,
+		gridItemLazyImage: loop.index >= 8
+	} %}
 {% endfor %}
 </div>
