@@ -5,6 +5,11 @@ summary: Christopher Kirk-Nielsen, a creative developer
 permalink: /
 i18n:
     page:
+        latest:
+            heading: 'Currently enjoying'
+            bookLabel: 'Book'
+            gameLabel: 'Video game'
+            showLabel: 'TV show'
         quickAccess:
             heading: 'Jump right in'
             about:

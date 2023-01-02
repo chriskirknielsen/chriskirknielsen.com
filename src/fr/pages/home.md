@@ -5,6 +5,11 @@ summary: Christopher Kirk-Nielsen, développeur créatif
 permalink: /fr/
 i18n:
     page:
+        latest:
+            heading: 'En ce moment'
+            bookLabel: 'Livre'
+            gameLabel: 'Jeu vidéo'
+            showLabel: 'Série télé'
         quickAccess:
             heading: 'Accès Rapide'
             about:

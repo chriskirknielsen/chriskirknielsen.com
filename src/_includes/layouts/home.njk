@@ -30,6 +30,13 @@ section: home
     <div class="page-content | content-fullbleed container | flow fluid">
         {{ layoutContent | safe }}
 
+        <h2>{{ 'page.latest.heading' | i18n }}</h2>
+        <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at center, currentColor 0.125em, transparent calc(0.125em + 1px))">
+            {% if not latest.book.hide %}<li><span aria-label="{{ 'page.latest.bookLabel' | i18n }}">📚</span>&nbsp;{{ latest.book.title }} ({{ latest.book.author }})</li>{% endif %}
+            {% if not latest.game.hide %}<li><span aria-label="{{ 'page.latest.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ latest.game.title }} ({{ latest.game.platform }})</li>{% endif %}
+            {% if not latest.show.hide %}<li><span aria-label="{{ 'page.latest.showLabel' | i18n }}">📺</span>&nbsp;{{ latest.show.title }} (S{{ latest.show.season }})</li>{% endif %}
+        </ul>
+
         <div class="content-fullbleed | u-background-bg-alt-color u-paddingBlock-2xl">
             <div class="container">
                 <div class="subsection subsection--quickaccess">

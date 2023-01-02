@@ -12,7 +12,7 @@
 
 			letter-spacing: 0.75em;
 			letter-spacing: max(0.5rem, 0.75em); // Ensure there is at least 8px between items
-			background: linear-gradient(90deg, transparent calc(50% - 1px), currentColor 0, currentColor calc(50% + 1px), transparent 0);
+			background: var(--separator, linear-gradient(90deg, transparent calc(50% - 1px), currentColor 0, currentColor calc(50% + 1px), transparent 0));
 			opacity: 0.75;
 		}
 	}

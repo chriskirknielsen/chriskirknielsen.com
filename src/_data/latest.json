@@ -1,0 +1,14 @@
+{
+	"book": {
+		"title": "The Anomaly",
+		"author": "Hervé Le Tellier"
+	},
+	"game": {
+		"title": "Cyberpunk 2077",
+		"platform": "PS5"
+	},
+	"show": {
+		"title": "Brooklyn Nine-Nine",
+		"season": 6
+	}
+}
