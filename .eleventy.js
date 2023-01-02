@@ -33,6 +33,13 @@ const pageAssets = require('./internal_modules/eleventy-plugin-page-assets-mxbck
 const assetCompiler = require('./config/asset-compiler.js');
 
 // Helpers
+function htmlMinify(code) {
+	return htmlmin.minify(code, {
+		useShortDoctype: true,
+		removeComments: true,
+		collapseWhitespace: true,
+	});
+}
 function trueType(val) {
 	return Object.prototype.toString.call(val).slice(8, -1).toLowerCase();
 }
@@ -248,11 +255,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter('htmlmin', function (code) {
-		return htmlmin.minify(code, {
-			useShortDoctype: true,
-			removeComments: true,
-			collapseWhitespace: true,
-		});
+		return htmlMinify(code);
 	});
 
 	eleventyConfig.addFilter('cssmin', function (code) {
@@ -397,12 +400,7 @@ module.exports = function (eleventyConfig) {
 			return content;
 		}
 
-		let minified = htmlmin.minify(content, {
-			useShortDoctype: true,
-			removeComments: true,
-			collapseWhitespace: true,
-		});
-		return minified;
+		return htmlMinify(content);
 	});
 
 	/* Collections */
