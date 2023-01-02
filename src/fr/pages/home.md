@@ -10,6 +10,7 @@ i18n:
             bookLabel: 'Livre'
             gameLabel: 'Jeu vidéo'
             showLabel: 'Série télé'
+            seasonLabel: 'Saison'
         quickAccess:
             heading: 'Accès Rapide'
             about:
