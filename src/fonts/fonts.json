@@ -1,7 +1,7 @@
 {
-    "layout": "layouts/font-specimen.njk",
-    "templateEngineOverride": "njk",
-    "eleventyComputed": {
-        "customMetaImage": "{{ page.url }}/{{ customMetaImage }}"
-    }
+	"layout": "layouts/font-specimen.njk",
+	"templateEngineOverride": "njk",
+	"eleventyComputed": {
+		"customMetaImage": "{{ page.url | removeTrailingSlash }}/{{ customMetaImage }}"
+	}
 }
