@@ -119,7 +119,7 @@
 				content: '';
 
 				position: absolute;
-				top: calc(var(--picker-button-border-size) * -1);
+				inset-block-start: calc(var(--picker-button-border-size) * -1);
 				inset-inline: 0;
 
 				width: 0;

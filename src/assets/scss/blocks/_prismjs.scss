@@ -187,8 +187,8 @@ pre[data-line] .line-highlight:before,
 pre[data-line] .line-highlight[data-end]:after {
 	content: attr(data-start);
 	position: absolute;
-	top: 0.4em;
-	left: 0.6em;
+	inset-block-start: 0.4em;
+	inset-inline-start: 0.6em;
 	min-width: 1em;
 	padding: 0.2em 0.5em;
 	background-color: rgba(255, 255, 255, 0.4);
@@ -203,6 +203,6 @@ pre[data-line] .line-highlight[data-end]:after {
 }
 pre[data-line] .line-highlight[data-end]:after {
 	content: attr(data-end);
-	top: auto;
-	bottom: 0.4em;
+	inset-block-start: auto;
+	inset-block-end: 0.4em;
 }
