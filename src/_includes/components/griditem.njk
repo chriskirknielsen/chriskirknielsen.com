@@ -3,12 +3,15 @@
     <div class="cardblock-image">
         <a href="{{ gridItemPermalink }}" aria-label="{{ gridItemTitle }}" tabindex="-1">
             <img
-            src="{{ gridItemImage + '?nf_resize=fit&w=400' | url }}"
+            src="{{ gridItemImage + '?nf_resize=fit&w=300' | url }}"
             srcset="
+                {{ gridItemImage + '?nf_resize=fit&w=128' | url }} 128w,
                 {{ gridItemImage + '?nf_resize=fit&w=300' | url }} 300w,
                 {{ gridItemImage | url }} 600w
             "
             sizes="
+                (max-width: 331px) 90vw,
+                (max-width: 455px) 6.5rem,
                 (max-width: 575px) 90vw,
                 (max-width: 847px) 40vw,
                 (max-width: 1023px) 30vw,

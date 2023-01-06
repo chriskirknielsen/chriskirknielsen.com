@@ -1,9 +1,16 @@
 .gridlist {
+	$content-max-width: get-token('constants', 'content-width');
+	--gridlist-cell-size: 12.5rem;
+
+	container: gridlist / inline-size;
+
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(var(--gridlist-cell-size), 1fr));
 	gap: var(--size-l);
 
-	&[data-grid-cols='3'] {
-		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+	@media (min-width: calc(#{$content-max-width} * 2/3)) {
+		&[data-grid-cols='3'] {
+			--gridlist-cell-size: 16rem;
+		}
 	}
 }

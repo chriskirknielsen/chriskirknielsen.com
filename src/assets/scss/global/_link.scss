@@ -5,6 +5,7 @@
 	text-decoration-line: underline;
 	text-decoration-color: var(--t-link-underline-color, currentColor);
 	text-decoration-skip-ink: auto;
+	text-decoration-thickness: max(1px, 0.01625em);
 
 	&:where(:hover, :focus) {
 		color: var(--t-link-color-active);
