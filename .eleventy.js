@@ -360,8 +360,8 @@ module.exports = function (eleventyConfig) {
 
 	async function imageShortcode(src, alt, caption = '', options = {}) {
 		const sizes = options.sizes || '100vw, (max-width:60rem) 40rem';
-		const formats = options.formats || ['avif', 'jpeg'];
-		const widths = options.widths || [300, 600, 960];
+		const formats = options.formats || ['jpeg'];
+		const widths = options.widths || [480, 800];
 		const imageUrlPath = options.urlPath || '/images/';
 		const imageOutputDir = options.outputDir || `./${outputDir}/images/`;
 
@@ -385,6 +385,8 @@ module.exports = function (eleventyConfig) {
 			decoding: 'async',
 		};
 
+		console.log(src, imageData);
+
 		const imageMarkup = Image.generateHTML(imageData, imageAttributes, {
 			whitespaceMode: 'inline',
 		});
@@ -396,7 +398,7 @@ module.exports = function (eleventyConfig) {
 		return imageMarkup;
 	}
 	eleventyConfig.addAsyncShortcode('image', imageShortcode);
-	eleventyConfig.addAsyncShortcode('localimage', function (src, alt, caption = '', options = {}) {
+	eleventyConfig.addAsyncShortcode('localimage', async function (src, alt, caption = '', options = {}) {
 		// Define the local image path
 		const parts = this.page.inputPath.split('/');
 		parts.pop();
