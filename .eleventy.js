@@ -23,7 +23,6 @@ const esbuild = require('esbuild');
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
-const Image = require('@11ty/eleventy-img');
 const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
