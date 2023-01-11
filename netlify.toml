@@ -3,6 +3,15 @@
   publish = "_site"
   command = "eleventy"
 
+[[plugins]]
+package = "netlify-plugin-cache"
+
+  [plugins.inputs]
+  paths = [
+    "_site/images", # Eleventy Image Disk Cache
+    ".cache" # Remote Asset Cache
+  ]
+
 ## Cache control for CSS files
 [[headers]]
   for = "/assets/css/*.css"

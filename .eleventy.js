@@ -9,6 +9,7 @@ const defaultLang = 'en';
 // Tools
 const util = require('util');
 const fs = require('fs');
+const path = require('node:path');
 const jsonSass = require('json-sass');
 const deepmerge = require('deepmerge');
 const { PurgeCSS } = require('purgecss');
@@ -22,6 +23,7 @@ const esbuild = require('esbuild');
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
+const Image = require('@11ty/eleventy-img');
 const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
@@ -182,7 +184,7 @@ module.exports = function (eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pageAssets, {
 		mode: 'directory',
-		postsMatching: `${rootDir}/fonts/*/*.njk`,
+		postsMatching: [`${rootDir}/fonts/*/*.njk`],
 		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2',
 		silent: true,
 	});
@@ -356,6 +358,67 @@ module.exports = function (eleventyConfig) {
 		return await content;
 	});
 
+	async function imageShortcode(src, alt, caption = '', options = {}) {
+		const sizes = options.sizes || '100vw, (max-width:60rem) 40rem';
+		const formats = options.formats || ['avif', 'jpeg'];
+		const widths = options.widths || [300, 600, 960];
+		const imageUrlPath = options.urlPath || '/images/';
+		const imageOutputDir = options.outputDir || `./${outputDir}/images/`;
+
+		let imageData = await Image(src, {
+			widths,
+			formats,
+			urlPath: imageUrlPath,
+			outputDir: imageOutputDir,
+			filenameFormat: function (id, src, width, format, options) {
+				const extension = path.extname(src);
+				const name = path.basename(src, extension);
+
+				return `${name}-${id}-${width}w.${format}`;
+			},
+		});
+
+		let imageAttributes = {
+			alt,
+			sizes,
+			loading: 'lazy',
+			decoding: 'async',
+		};
+
+		const imageMarkup = Image.generateHTML(imageData, imageAttributes, {
+			whitespaceMode: 'inline',
+		});
+
+		if (caption) {
+			return `<figure>${imageMarkup}<figcaption>${caption}</figcaption></figure>`;
+		}
+
+		return imageMarkup;
+	}
+	eleventyConfig.addAsyncShortcode('image', imageShortcode);
+	eleventyConfig.addAsyncShortcode('localimage', function (src, alt, caption = '', options = {}) {
+		// Define the local image path
+		const parts = this.page.inputPath.split('/');
+		parts.pop();
+		parts.push(src);
+		const localSrc = parts.join('/');
+
+		// Define the output path
+		let urlPath = this.page.outputPath.split('/');
+		urlPath.pop();
+		// options.outputDir = urlPath.join('/');
+		// options.urlPath = './'; // Same folder as the content
+
+		return imageShortcode(localSrc, alt, caption, options);
+	});
+	eleventyConfig.addPairedShortcode('gallery', function (pictures, addClass = null) {
+		const galleryClasses = ['image-gallery', 'content-wide'];
+		if (addClass) {
+			galleryClasses.push(addClass);
+		}
+		return `<div class="${galleryClasses.join(' ')}">${pictures.trim()}</div>`;
+	});
+
 	/* Transforms */
 	// Inline only the necessary CSS
 	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
@@ -405,22 +468,14 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Collections */
-	eleventyConfig.addCollection('page_all', function (collection) {
-		return [].concat(locales.map((locale) => collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/*.{md,njk}`)));
-	});
-
-	eleventyConfig.addCollection('post_all', function (collection) {
-		return [].concat(locales.map((locale) => collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/*.{md,njk}`)));
-	});
-
 	// Loop over locales and get each page and post into its own collection
 	locales.forEach((locale) => {
 		eleventyConfig.addCollection(`page_${locale}`, function (collection) {
-			return collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/*.{md,njk}`);
+			return collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/**/*.{md,njk}`);
 		});
 
 		eleventyConfig.addCollection(`post_${locale}`, function (collection) {
-			return collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/*.{md,njk}`);
+			return collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/**/*.{md,njk}`);
 		});
 	});
 

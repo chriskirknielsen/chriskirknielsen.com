@@ -1,0 +1,48 @@
+.image-gallery {
+	display: grid;
+	gap: var(--size-m);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+	align-items: stretch;
+	max-width: #{get-token('constants', 'content-width') * 0.8};
+	margin-inline: auto;
+
+	& img {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	& picture {
+		display: flex;
+		flex-direction: column;
+
+		& > img {
+			flex-grow: 1;
+		}
+	}
+
+	& > figure {
+		display: flex;
+		flex-direction: column;
+
+		& > :is(picture, img) {
+			flex-grow: 1;
+		}
+
+		& > figcaption {
+			padding-block: var(--size-xs);
+			padding-inline: var(--size-s);
+
+			font-size: 0.75em;
+			text-align: center;
+			background-color: var(--t-bg-neutral-color);
+		}
+	}
+
+	& > :is(figure, picture, img) {
+		overflow: hidden;
+
+		border: var(--cardblock-border);
+		border-radius: var(--t-corner-radius);
+		box-shadow: 0 0 1em -0.375em var(--t-accent-color);
+	}
+}

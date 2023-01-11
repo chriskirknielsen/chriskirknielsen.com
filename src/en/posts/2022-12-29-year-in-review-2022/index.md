@@ -2,6 +2,7 @@
 title: 'Year in review: 2022'
 summary: 'An absolute brain dump about all the web development I learned this year… not.'
 metaImageBackground: 'https://images.unsplash.com/photo-1523634921619-37ce98c1877f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNhbGVuZGFyJTIwbm90ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60'
+updated: 2023-01-10
 tags:
     - personal
 ---
@@ -10,7 +11,7 @@ Far from having a super interesting life, it’s nice to look back and see what 
 
 ## Some kind of intro
 
-The very first day of the year was marked by the washing machine’s pipe going for a ride and spilling water all over the utility room, it was a blast drying it over the following days. The end of 2021 and start of 2022 was pretty bad because the rental house had broken heating while it was freezing outside (usually around 0°C/32°F, but frequently enough it dipped below). The owner wasn’t a bad person but didn’t hire the best guy for the job, and after over half a dozen visits, I was just tired of dealing with the whole situation, which never improved. I wore way too many layers and had a space heater on often that kept me from shivering (I get cold very easily). The upside was that whether I was sitting in my chair in my office, or relaxed on the couch, the cats would bundle up on me. I’ll take it.
+The very first day of the year was marked by the washing machine’s pipe going for a ride and spilling water all over the utility room, it was a blast drying it over the following days. The end of 2021 and start of 2022 was pretty bad because the rental house had broken heating while it was freezing outside (usually around 0°C/32°F, but frequently enough it dipped below). The owner wasn’t a bad person but didn’t hire the best guy for the job, and after over half a dozen visits, I was just tired of dealing with the whole situation, which never improved. I wore way too many layers and had a space heater on often that kept me from shivering (I get cold very easily). The upside was that whether I sat in my chair in my office, or relaxed on the couch, the cats would bundle up on me. I’ll take it.
 
 I also enjoyed being bestowed yet another avuncular title at the end of January, so I am now “Uncle Chris” to five nieces. The fact my sister and her family with four kids are in Australia, and my brother with his fiancée and little one are in the UK, I don’t feel great about not being “there”, even via FaceTime. Definitely something I should work on this coming year.
 
@@ -38,6 +39,10 @@ I went to the office, said hello — in person — to people I had not seen sinc
 
 I also finished Horizon: Forbidden West! I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. Later this year I also started Cyberpunk 2077 (not beaten yet!), and I enjoyed God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up!
 
+{% gallery %}
+{% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day." %}
+{% endgallery %}
+
 ### Owning too much stuff
 
 As Summer rolled around and the lease expiring on the 31st of July, it was time to Sell Some Shit™. Facebook Marketplace, Offer Up, Craigslist… it can be a goldmine for some people but I really hate it. Between the scams, the “I’ll take it for five dollars” and the “I’m super interested”-but-then-never-reply-again, it’s just a lot of stress. I think it went as well as it could have, and a very small “strip mall” area close to the house had a donation container. I’d say there was probably about 15% of the house’s stuff in there over the weeks. Hopefully it does come in handy for some folks! This gave some room to have several dozen cardboard boxes to pack what was going to Cincinnati. I hate moving. I hate it so much. “Why do I have so much crap?”, I always ask myself, and yet the very next week I place a $100 order on Amazon for stuff I maybe-kinda need that will clutter up any space freed by selling/donating. Ugh.
@@ -58,6 +63,10 @@ The three cats got used to the place very quickly, always a good sign! I also to
 
 I also did some work on myself: in September, I decided to start running. My dad has run a fair share of marathons, and still runs 10 Km every Sunday despite being over 60 years old — figured I could do a little running as I approached 30. I’ve been quite inactive my whole life (praise be my metabolism, for now) so it was something I really wanted to do. From the end of September to the end of November, I managed to go from 2 Km to 5.5 Km runs, about three times a week. And I live on a hill so I get that extra calf exercise!
 
+{% gallery %}
+{% localimage "cincy-view.jpg", "A high vantage point of a city taken from a park where most trees have lost their leaves, framing the photo with naked branches. The rooftops below and the hills in the far back are covered in a light layer of snow. The skies are grey and cloudy. And for a moment, everything just looks quiet and halted in time.", "Look at that view!" %}
+{% endgallery %}
+
 ## Fall
 
 ### Trying my best
@@ -67,6 +76,10 @@ October rolled in with a little hint of Autumn. Could have used a few more golde
 ### New site site, same me
 
 I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on Twitter (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
+
+{% gallery %}
+{% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is were you are now!" %}
+{% endgallery %}
 
 ### Seeing family: not
 
@@ -82,6 +95,10 @@ November was a quiet month as things started to wind down for the end of the yea
 
 The following week, I tripped and fell while on my morning run. Nothing major, but I scraped up my knee and both hands. And it tore a hole in my running pants! Thanks, uneven side walk tile. I have not gone running since then, but soon… That same night, the aforementioned concert event: [Bad Omens](https://youtu.be/Aibxit_PpAg). It’s a band I only recently discovered, but I listened to them so much that an opportunity to see them, at walking distance from the apartment, was too good to pass up. It was a nice show, great tunes and energy, alas, I was the only person wearing a mask within a ten-mile radius, so you might have guessed it: COVID finally got me. My symptoms were not bad and I kept working to keep me busy, though I probably should have taken a day off to play video games. Next time…
 
+{% gallery %}
+{% localimage "covid-test.jpg", "An at-home COVID-19 test showing both the control and the test lines, meaning it is positive." %}
+{% endgallery %}
+
 ### Birthday
 
 Around came my birthday. Yay, I’m 30. Testing positive with COVID meant staying inside. I still feel like high school was a handful of years ago, and don’t feel old, however I do believe I’ve matured. I’m so much more sensitive to politics, human rights, the climate, and all that stuff that pieces of shit in power suppress and dismiss. As a straight white male, I have acknowledged my privilege (I was definitely aware in the past but the past decade has been oh-so eye-opening) and want to make sure that I listen to the voices of people who are not like me. It can be uncomfortable, but that is such an easy burden for me compared to what other folks go through every day.
@@ -92,13 +109,13 @@ I reached 365 days in a row of Japanese with DuoLingo, but I still suck at it. I
 
 ### Intoxicated, never again (part deux)
 
-As the year ends, they threw a little holiday party for the people in my office. I was at that point done with COVID and no longer contagious, and a couple of extra at-home tests eased my fears of getting my co-workers sick (I would not want to ruin anybody’s holidays!). I had a great time that night, but not unlike Thanksgiving, I had a little too much and I do not remember the tail-end of the evening (I don’t *need* to share this but I feel I should to hold myself accountable, or something?). A nasty blizzard picked up at that time and I was driven home by a co-worker, bless his soul.
+As the year ends, they threw a little holiday party for the people in my office. I was at that point done with COVID and no longer contagious, and a couple of extra at-home tests eased my fears of getting my co-workers sick (I would not want to ruin anybody’s holidays!). I had a great time that night, but not unlike Thanksgiving, I had a little too much and I do not remember the tail-end of the evening (I don’t _need_ to share this but I feel I should to hold myself accountable, or something?). A nasty blizzard picked up at that time and I was driven home by a co-worker, bless his soul.
 
 So, I have sworn to myself to drink a glass of water between drinks from now on, and to count my glasses. I seemingly behaved myself and ~~did not vomit~~ (update: I did), but I do want to remember seeing all these fantastic folks properly since, well, who knows when the next time will be? It had been three years after all. And given my limited social interactions in a new city where I only know colleagues, I want to cherish and remember those moments a little more than a blur and/or straight-up missing parts of my memory—not super good. **Ah, alcohol, what a concept!**
 
 ### It's not Snow bad
 
-I am not a huge Christmas person, but I do enjoy the vibe, the weird ornaments, and the cookies. I even got a tiny plastic tree that the cats did not ruin, much to my surprise. While not on my mother’s level, I tried to replicate some of her dishes with *frikadeller* (basically flattened meatballs), caramelised potatoes and red cabbage, and as a non-Danish extra, a little *coquito* to wash it all down (took me a couple of tries to get it right, though). A mild success, all things considered.
+I am not a huge Christmas person, but I do enjoy the vibe, the weird ornaments, and the cookies. I even got a tiny plastic tree that the cats did not ruin, much to my surprise. While not on my mother’s level, I tried to replicate some of her dishes with _frikadeller_ (basically flattened meatballs), caramelised potatoes and red cabbage, and as a non-Danish extra, a little _coquito_ to wash it all down (took me a couple of tries to get it right, though). A mild success, all things considered.
 
 ## Sum (kind of outro)
 
@@ -109,4 +126,3 @@ They do not always bring much
 So, let's make them count**
 
 _PS: This isn’t about code, sorry if that’s why you clicked!_
-_PPS: Sorry, I could have added pictures but I don't want to handle images within my blog posts, maybe later!_
