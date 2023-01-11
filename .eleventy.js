@@ -357,27 +357,83 @@ module.exports = function (eleventyConfig) {
 		return await content;
 	});
 
-	eleventyConfig.addAsyncShortcode('localimage', async function (src, alt, caption = '', options = {}) {
-		const sizes = ['100vw', '(max-width:60rem) 50rem'].join(', ');
-		const widths = options.widths || [480, 800];
-		const srcset = widths.map((w) => `./${src}?nf_resize=fit&w=${w} ${w}w`);
-		srcset.push(`./${src} 1200w`);
-
-		const imageMarkup = `<img src="./${src}" alt="${alt}" srcset="${srcset.join(', ')}" sizes="${sizes}" loading="lazy" decoding="async" />`;
-
-		if (caption) {
-			return `<figure>${imageMarkup}<figcaption>${caption}</figcaption></figure>`;
-		}
-
-		return imageMarkup;
-	});
-	eleventyConfig.addPairedShortcode('gallery', function (pictures, addClass = null) {
+	function imageGalleryShortcode(pictures, addClass = null) {
 		const galleryClasses = ['image-gallery', 'content-wide'];
 		if (addClass) {
 			galleryClasses.push(addClass);
 		}
 		return `<div class="${galleryClasses.join(' ')}">${pictures.trim()}</div>`;
+	}
+	eleventyConfig.addAsyncShortcode('localimage', async function (src, alt, caption = '', options = {}) {
+		if (typeof alt === 'undefined') {
+			throw `The ${src} image does not have an alt attribute! (empty string is allowed)`;
+		}
+
+		const autoGallery = options.hasOwnProperty('autoGallery') ? options.autoGallery : true; // By default, an image will be automatically wrapped in a gallery
+		const sizes = ['100vw', '(max-width:60rem) 50rem'].join(', ');
+		const widths = options.widths || [480, 800, 1200];
+		const srcset = widths.map((w) => `./${src}?nf_resize=fit&w=${w} ${w}w`);
+
+		const attrs = {
+			loading: 'lazy',
+			decoding: 'async',
+		};
+
+		// Assign a ratio to the image
+		if (options.ratio) {
+			// If the ratio is passed as a string, parse it to a number
+			if (typeof options.ratio === 'string') {
+				attrs['data-ratio'] = options.ratio; // Store the initial ratio provided
+				if (options.ratio.includes('/')) {
+					let ratioParts = options.ratio.split('/');
+					options.ratio = parseFloat(ratioParts[0]) / parseFloat(ratioParts[1]);
+				} else {
+					options.ratio = parseFloat(options.ratio);
+				}
+			}
+
+			// If only one dimension was provided, calculate the other based on the ratio
+			if (options.width && !options.height) {
+				options.height = options.width / options.ratio;
+			} else if (!options.width && options.height) {
+				options.height = options.height * options.ratio;
+			} else if (!options.width && !options.height) {
+				// If not dimensions were provided, assume a 1000px height and determine the width based on the ratio
+				options.width = Math.floor(options.ratio * 1000);
+				options.height = 1000;
+			}
+		}
+
+		// Set the width and height attributes
+		if (options.width) {
+			attrs.width = options.width;
+		}
+		if (options.height) {
+			attrs.height = options.height;
+		}
+
+		const attrsStr = Object.entries(attrs)
+			.map((attr) => `${attr[0]}="${attr[1]}"`)
+			.join(' ');
+
+		const imageMarkup = `<a href="./${src}"><img src="./${src}?nf_resize=fit&w=${widths.at(-2)}" alt="${alt}" srcset="${srcset.join(
+			', '
+		)}" sizes="${sizes}" ${attrsStr} /></a>`;
+
+		let output;
+		if (caption) {
+			output = `<figure>${imageMarkup}<figcaption>${caption}</figcaption></figure>`;
+		} else {
+			output = imageMarkup;
+		}
+
+		if (autoGallery) {
+			return imageGalleryShortcode(output);
+		}
+
+		return output;
 	});
+	eleventyConfig.addPairedShortcode('gallery', imageGalleryShortcode);
 
 	/* Transforms */
 	// Inline only the necessary CSS

@@ -39,9 +39,7 @@ I went to the office, said hello — in person — to people I had not seen sinc
 
 I also finished Horizon: Forbidden West! I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. Later this year I also started Cyberpunk 2077 (not beaten yet!), and I enjoyed God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up!
 
-{% gallery %}
-{% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day." %}
-{% endgallery %}
+{% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day.", "", { ratio: "16/9" } %}
 
 ### Owning too much stuff
 
@@ -63,9 +61,7 @@ The three cats got used to the place very quickly, always a good sign! I also to
 
 I also did some work on myself: in September, I decided to start running. My dad has run a fair share of marathons, and still runs 10 Km every Sunday despite being over 60 years old — figured I could do a little running as I approached 30. I’ve been quite inactive my whole life (praise be my metabolism, for now) so it was something I really wanted to do. From the end of September to the end of November, I managed to go from 2 Km to 5.5 Km runs, about three times a week. And I live on a hill so I get that extra calf exercise!
 
-{% gallery %}
-{% localimage "cincy-view.jpg", "A high vantage point of a city taken from a park where most trees have lost their leaves, framing the photo with naked branches. The rooftops below and the hills in the far back are covered in a light layer of snow. The skies are grey and cloudy. And for a moment, everything just looks quiet and halted in time.", "Look at that view!" %}
-{% endgallery %}
+{% localimage "cincy-view.jpg", "A high vantage point of a city taken from a park where most trees have lost their leaves, framing the photo with naked branches. The rooftops below and the hills in the far back are covered in a light layer of snow. The skies are grey and cloudy. And for a moment, everything just looks quiet and halted in time.", "Look at that view!", { ratio: 1663/1247 } %}
 
 ## Fall
 
@@ -77,9 +73,7 @@ October rolled in with a little hint of Autumn. Could have used a few more golde
 
 I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on Twitter (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
 
-{% gallery %}
-{% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!" %}
-{% endgallery %}
+{% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!", { ratio: 1200/676 } %}
 
 ### Seeing family: not
 
@@ -95,9 +89,7 @@ November was a quiet month as things started to wind down for the end of the yea
 
 The following week, I tripped and fell while on my morning run. Nothing major, but I scraped up my knee and both hands. And it tore a hole in my running pants! Thanks, uneven side walk tile. I have not gone running since then, but soon… That same night, the aforementioned concert event: [Bad Omens](https://youtu.be/Aibxit_PpAg). It’s a band I only recently discovered, but I listened to them so much that an opportunity to see them, at walking distance from the apartment, was too good to pass up. It was a nice show, great tunes and energy, alas, I was the only person wearing a mask within a ten-mile radius, so you might have guessed it: COVID finally got me. My symptoms were not bad and I kept working to keep me busy, though I probably should have taken a day off to play video games. Next time…
 
-{% gallery %}
-{% localimage "covid-test.jpg", "An at-home COVID-19 test showing both the control and the test lines, meaning it is positive." %}
-{% endgallery %}
+{% localimage "covid-test.jpg", "An at-home COVID-19 test showing both the control and the test lines, meaning it is positive.", "", { ratio: 1420/700 } %}
 
 ### Birthday
 

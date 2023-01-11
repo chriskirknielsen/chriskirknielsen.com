@@ -2,8 +2,8 @@
 	display: grid;
 	gap: var(--size-m);
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+	justify-items: center;
 	align-items: stretch;
-	max-width: #{get-token('constants', 'content-width') * 0.8};
 	margin-inline: auto;
 
 	& img {
@@ -11,7 +11,7 @@
 		object-fit: cover;
 	}
 
-	& picture {
+	& :is(picture, a) {
 		display: flex;
 		flex-direction: column;
 
@@ -24,7 +24,7 @@
 		display: flex;
 		flex-direction: column;
 
-		& > :is(picture, img) {
+		& > :is(picture, img, a) {
 			flex-grow: 1;
 		}
 
@@ -38,7 +38,8 @@
 		}
 	}
 
-	& > :is(figure, picture, img) {
+	& > :is(figure, picture, a, img) {
+		width: min(100%, #{get-token('constants', 'content-width') * 0.8});
 		overflow: hidden;
 
 		border: var(--cardblock-border);
