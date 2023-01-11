@@ -367,7 +367,7 @@ module.exports = function (eleventyConfig) {
 
 		console.log(src);
 		fs.readFile(src, 'utf8', (err, data) => {
-			console.log(data);
+			console.log('IMAGE_DATA:', data);
 		});
 
 		let imageData = await Image(src, {
