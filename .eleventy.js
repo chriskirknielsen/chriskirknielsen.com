@@ -365,6 +365,13 @@ module.exports = function (eleventyConfig) {
 		const imageUrlPath = options.urlPath || '/images/';
 		const imageOutputDir = options.outputDir || `./${outputDir}/images/`;
 
+		console.log(src);
+		if (src.indexOf('covid') > -1) {
+			fs.readFile(src, 'utf8', (err, data) => {
+				console.log(data);
+			});
+		}
+
 		let imageData = await Image(src, {
 			widths,
 			formats,
@@ -384,8 +391,9 @@ module.exports = function (eleventyConfig) {
 			loading: 'lazy',
 			decoding: 'async',
 		};
-
-		console.log(src, imageData);
+		if (src.indexOf('covid') > -1) {
+			console.log(imageData);
+		}
 
 		const imageMarkup = Image.generateHTML(imageData, imageAttributes, {
 			whitespaceMode: 'inline',
