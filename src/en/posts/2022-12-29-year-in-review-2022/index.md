@@ -78,7 +78,7 @@ October rolled in with a little hint of Autumn. Could have used a few more golde
 I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on Twitter (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
 
 {% gallery %}
-{% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is were you are now!" %}
+{% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!" %}
 {% endgallery %}
 
 ### Seeing family: not

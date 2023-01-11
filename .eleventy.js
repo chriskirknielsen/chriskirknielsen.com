@@ -184,7 +184,7 @@ module.exports = function (eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pageAssets, {
 		mode: 'directory',
-		postsMatching: [`${rootDir}/fonts/*/*.njk`],
+		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/*/index.{njk,md}`],
 		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2',
 		silent: true,
 	});
@@ -358,64 +358,19 @@ module.exports = function (eleventyConfig) {
 		return await content;
 	});
 
-	async function imageShortcode(src, alt, caption = '', options = {}) {
-		const sizes = options.sizes || '100vw, (max-width:60rem) 40rem';
-		const formats = options.formats || ['jpeg'];
+	eleventyConfig.addAsyncShortcode('localimage', async function (src, alt, caption = '', options = {}) {
+		const sizes = ['100vw', '(max-width:60rem) 50rem'].join(', ');
 		const widths = options.widths || [480, 800];
-		const imageUrlPath = options.urlPath || '/images/';
-		const imageOutputDir = options.outputDir || `./${outputDir}/images/`;
+		const srcset = widths.map((w) => `./${src}?nf_resize=fit&w=${w} ${w}w`);
+		srcset.push(`./${src} 1200w`);
 
-		console.log(src);
-		fs.readFile(src, 'utf8', (err, data) => {
-			console.log('IMAGE_DATA:', data);
-		});
-
-		let imageData = await Image(src, {
-			widths,
-			formats,
-			urlPath: imageUrlPath,
-			outputDir: imageOutputDir,
-			filenameFormat: function (id, src, width, format, options) {
-				const extension = path.extname(src);
-				const name = path.basename(src, extension);
-
-				return `${name}-${id}-${width}w.${format}`;
-			},
-		});
-
-		let imageAttributes = {
-			alt,
-			sizes,
-			loading: 'lazy',
-			decoding: 'async',
-		};
-		console.log(imageData);
-
-		const imageMarkup = Image.generateHTML(imageData, imageAttributes, {
-			whitespaceMode: 'inline',
-		});
+		const imageMarkup = `<img src="./${src}" alt="${alt}" srcset="${srcset.join(', ')}" sizes="${sizes}" loading="lazy" decoding="async" />`;
 
 		if (caption) {
 			return `<figure>${imageMarkup}<figcaption>${caption}</figcaption></figure>`;
 		}
 
 		return imageMarkup;
-	}
-	eleventyConfig.addAsyncShortcode('image', imageShortcode);
-	eleventyConfig.addAsyncShortcode('localimage', async function (src, alt, caption = '', options = {}) {
-		// Define the local image path
-		const parts = this.page.inputPath.split('/');
-		parts.pop();
-		parts.push(src);
-		const localSrc = parts.join('/');
-
-		// Define the output path
-		let urlPath = this.page.outputPath.split('/');
-		urlPath.pop();
-		// options.outputDir = urlPath.join('/');
-		// options.urlPath = './'; // Same folder as the content
-
-		return imageShortcode(localSrc, alt, caption, options);
 	});
 	eleventyConfig.addPairedShortcode('gallery', function (pictures, addClass = null) {
 		const galleryClasses = ['image-gallery', 'content-wide'];
