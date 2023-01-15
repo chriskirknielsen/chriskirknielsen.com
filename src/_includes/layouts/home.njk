@@ -31,7 +31,7 @@ section: home
         {{ layoutContent | safe }}
 
         <h2>{{ 'page.latest.heading' | i18n }}</h2>
-        <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at center, currentColor 0.125em, transparent calc(0.125em + 1px))">
+        <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
             {% if not latest.book.hide %}
                 <li>
                     <span aria-label="{{ 'page.latest.bookLabel' | i18n }}">📚</span>&nbsp;{{ latest.book.title }}

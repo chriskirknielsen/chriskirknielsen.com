@@ -390,16 +390,18 @@
 
 	:where(button, .button):where(:not(.button-reset)):where(:not(.themepicker-button, .themepicker-close)) {
 		position: relative;
-		isolation: isolate;
+		isolation: isolate; // Remove from global stacking context (so the ::before pseudo can use z-index:-1 without going below parent elements)
 
 		border: var(--btn-border-size, var(--t-cta-border-width)) solid transparent;
 		background: none;
+		box-shadow: none;
+		filter: drop-shadow(var(--btn-box-shadow, 0));
 
 		&::before {
 			content: '';
 
 			position: absolute;
-			inset: calc(var(--btn-border-size, var(--t-cta-border-width)) * -1);
+			inset: calc(var(--btn-border-size, var(--t-cta-border-width)) * -0.99); // Not using -1 so subpixel values can avoid being cut off
 			z-index: -1;
 
 			clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%);
@@ -410,10 +412,16 @@
 			border-radius: var(--btn-border-radius, var(--t-corner-radius));
 
 			background-color: var(--btn-background-color, var(--t-cta-bg));
-			background-image: linear-gradient(135deg, var(--btn-background-color, var(--t-cta-bg)) 50%, var(--btn-border-color, var(--t-cta-border-color, currentColor)) 50.1%);
+			background-image: linear-gradient(135deg, var(--btn-background-color, var(--t-cta-bg)) 49.9%, var(--btn-border-color, var(--t-cta-border-color, currentColor)) 50%);
 			background-repeat: no-repeat;
 			background-size: var(--cut-size) var(--cut-size);
 			background-position: 100% 100%;
+		}
+
+		&[data-backlink] {
+			&::before {
+				transform: scaleX(-1); // Make the cut sit at the bottom-left instead
+			}
 		}
 	}
 
