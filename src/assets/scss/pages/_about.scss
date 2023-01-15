@@ -1005,10 +1005,10 @@ li[data-fact-emoji] {
 		}
 
 		[data-about='contact'] {
-			grid-column: container-start / span calc(var(--container-inner-cols) - 1);
+			grid-column: container-start / span calc(var(--container-inner-cols) - 2);
 		}
 		[data-about='contact'] + .about-quotebox {
-			grid-column: span 1;
+			grid-column: span 2;
 			margin: 0;
 		}
 

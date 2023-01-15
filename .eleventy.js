@@ -398,7 +398,7 @@ module.exports = function (eleventyConfig) {
 			} else if (!options.width && options.height) {
 				options.height = options.height * options.ratio;
 			} else if (!options.width && !options.height) {
-				// If not dimensions were provided, assume a 1000px height and determine the width based on the ratio
+				// If no dimensions were provided, assume a 1000px height and determine the width based on the ratio
 				options.width = Math.floor(options.ratio * 1000);
 				options.height = 1000;
 			}

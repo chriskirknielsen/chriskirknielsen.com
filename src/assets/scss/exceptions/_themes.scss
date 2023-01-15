@@ -366,6 +366,8 @@
 }
 
 @include theme('neotokyo') {
+	--cut-size: clamp(0.25rem, 0.375em, 0.75rem);
+
 	.header {
 		&-logo {
 			& > svg {
@@ -384,6 +386,35 @@
 		background: linear-gradient(var(--ctx-bg), var(--ctx-bg) #{$neotokyo-bigboi-bg-size * 0.5}, var(--t-color-main-max) 0, var(--t-color-main-max) #{$neotokyo-bigboi-bg-size})
 			50% 50% / 100% 3px;
 		outline: 2px solid var(--t-color-main-med);
+	}
+
+	:where(button, .button):where(:not(.button-reset)):where(:not(.themepicker-button, .themepicker-close)) {
+		position: relative;
+		isolation: isolate;
+
+		border: var(--btn-border-size, var(--t-cta-border-width)) solid transparent;
+		background: none;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			inset: calc(var(--btn-border-size, var(--t-cta-border-width)) * -1);
+			z-index: -1;
+
+			clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%);
+
+			border-width: var(--btn-border-size, var(--t-cta-border-width));
+			border-style: var(--btn-border-style, solid);
+			border-color: var(--btn-border-color, var(--t-cta-border-color, currentColor));
+			border-radius: var(--btn-border-radius, var(--t-corner-radius));
+
+			background-color: var(--btn-background-color, var(--t-cta-bg));
+			background-image: linear-gradient(135deg, var(--btn-background-color, var(--t-cta-bg)) 50%, var(--btn-border-color, var(--t-cta-border-color, currentColor)) 50.1%);
+			background-repeat: no-repeat;
+			background-size: var(--cut-size) var(--cut-size);
+			background-position: 100% 100%;
+		}
 	}
 
 	.about-quotebox {
@@ -444,7 +475,6 @@
 
 	.callout-label,
 	.codeblock::before {
-		--cut-size: clamp(0.25rem, 0.375em, 0.625rem);
 		clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%); // Cut the bottom-right corner
 	}
 
