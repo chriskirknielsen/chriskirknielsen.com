@@ -9,6 +9,7 @@ module.exports = {
 		mastodon: 'chriskirknielsen',
 		mastodonInstance: 'mastodon.social',
 	},
+	tweetArchiveUrl: 'https://tweets.chriskirknielsen.com/',
 	copyrightStart: 2019,
 	currentYear: new Date().getFullYear(),
 	defaultLocale: 'en',
