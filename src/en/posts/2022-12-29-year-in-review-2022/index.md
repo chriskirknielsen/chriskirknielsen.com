@@ -2,114 +2,76 @@
 title: 'Year in review: 2022'
 summary: 'An absolute brain dump about all the web development I learned this year… not.'
 metaImageBackground: 'https://images.unsplash.com/photo-1523634921619-37ce98c1877f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNhbGVuZGFyJTIwbm90ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60'
-updated: 2023-01-10
+updated: 2023-01-15
 tags:
     - personal
 ---
 
-Far from having a super interesting life, it’s nice to look back and see what 2022 looked like. For context, I was living in Dayton, Ohio in the US since May 2021, having moved from New York City, where I had lived since late 2016. I have added titles to each section so you can skip anything that is not interesting to you. Go ahead, I won't take any offence!
+Far from having a super interesting life, it’s nice to look back and see what 2022 looked like. I have added titles to each section so you can skip anything that is not interesting to you. Go ahead, I won't take any offence!
 
-## Some kind of intro
+## Days in Dayton, Ohio
 
-The very first day of the year was marked by the washing machine’s pipe going for a ride and spilling water all over the utility room, it was a blast drying it over the following days. The end of 2021 and start of 2022 was pretty bad because the rental house had broken heating while it was freezing outside (usually around 0°C/32°F, but frequently enough it dipped below). The owner wasn’t a bad person but didn’t hire the best guy for the job, and after over half a dozen visits, I was just tired of dealing with the whole situation, which never improved. I wore way too many layers and had a space heater on often that kept me from shivering (I get cold very easily). The upside was that whether I sat in my chair in my office, or relaxed on the couch, the cats would bundle up on me. I’ll take it.
+I had moved into a rental house in May 2021, from NYC to Dayton, Ohio. Going from a small 1-bedroom apartment to a 3-bedroom house was quite a change, but it was not all fantastic. The house had many issues (broken heating all winter long) and it was quite into the suburbs. Lacking a car, aside from the occasional Uber/Lyft trip, it was a bit of a stay-at-home situation.
 
-I also enjoyed being bestowed yet another avuncular title at the end of January, so I am now “Uncle Chris” to five nieces. The fact my sister and her family with four kids are in Australia, and my brother with his fiancée and little one are in the UK, I don’t feel great about not being “there”, even via FaceTime. Definitely something I should work on this coming year.
+Luckily, Dayton has a bunch of bars and breweries but Warped Wing was the go-to (a friend who grew up there sent a bunch of very useful recommendations but WW was the one that stuck). I was (and am) still very conscious of COVID being a threat, so despite being indoors, it’s basically a warehouse. There’s a lot of air circulation, and having gone there at least twice a month for six months without getting sick, I think it worked out. It was a good way to go out without feeling too scared like I would have at a movie theatre or a concert (more on this later…).
 
-## Spring
+## Mental Health is important
 
-### Going out, as a treat
+March 2022 was when I started going to therapy. Well, remotely, anyways. I’m an anxious introverted person and I touch my face, play with my beard, still bite my nails a little (though, to my credit, a lot less than in middle school!), so I started talking about all that and what I can work on to become more comfortable and speak up for myself more (confrontation? no thanks). Mental health is still quite stigmatised and I’ve seen so many things recently that just scare me for the future. Therapy is healthy, and yes, even for men! Who’d have thunk! Even though each session isn’t a major breakthrough, it’s good to go back and think about the week’s events and process things after taking a step back.
 
-Once the weather got nicer, going out was a more common occurrence. Dayton has a bunch of bars and breweries but Warped Wing was the go-to (a friend who grew up there sent a bunch of very useful recommendations but WW was the one that stuck). I was (and am) still very conscious of COVID being a threat, so despite being indoors, it’s basically a warehouse. There’s a lot of air circulation, and having gone there at least twice a month for six months without getting sick, I think it worked out. It was a good way to go out without feeling too scared like I would have at a movie theatre or a concert (more on this later…).
+## Moving to Cincinnati
 
-### Mental health is important
+This Dayton situation would not work out (mainly due to the carless suburban life), and this house would be a nightmare for another year. My job has an office based in Cincinnati, and my boss just so happened to find a listing on Craigslist of his exact apartment from a few years ago (it was even his old photos of the place) and told me good things, so I planned a trip down to Cincy via Greyhound buses mid-June. Got to see some colleagues at the office I hadn't seen since 2019, yikes! The apartment looked nice and I signed a hold on the spot. Peace of mind achieved.
 
-March 2022 was also when I started going to therapy. Well, remotely, anyways. I’m an anxious introverted person and I touch my face, play with my beard, still bite my nails a little (though, to my credit, a lot less than in middle school!), so I started talking about all that and what I can work on to become more comfortable and speak up for myself more (confrontation? no thanks). Mental health is still quite stigmatised and I’ve seen so many things recently that just scare me for the future. Therapy is healthy, and yes, even for men! Who’d have thunk! Even though each session isn’t a major breakthrough, it’s good to go back and think about the week’s events and process things after taking a step back.
+It was then time to Sell Some Shit™. Facebook Marketplace, Offer Up, Craigslist… it can be a goldmine for some people but I really hate it. Between the scams, the “I’ll take it for five dollars” and the “I’m super interested”-but-then-never-reply-again, it’s just a lot of stress. I think it went as well as it could have, and a very small “strip mall” area close to the house had a donation container. I’d say there was probably about 15% of the house’s stuff in there over the weeks.
 
-### Gotta move!
+I hate moving. I hate it so much. “Why do I have so much crap?”, I always ask myself, and yet the very next week I place a $100 order on Amazon for stuff I maybe-kinda need that will clutter up any space freed by selling/donating. Ugh. At least, the three cats got used to the place very quickly, always a good sign!
 
-When May rolled around, it was clear: this Dayton situation would not work out (mainly due to the lack of owning a vehicle while living in a suburban area, requiring a lot of walking or ridesharing), and this house would be a nightmare for another year. My job has an office based in Cincinnati, and my boss just so happened to find a listing on Craigslist of his exact apartment from a few years ago (it was even his old photos of the place) and told me good things, so I planned a trip down to Cincy via Greyhound buses mid-June.
+## Video Games
 
-## Summer
-
-### Visiting
-
-I went to the office, said hello — in person — to people I had not seen since the office get-together in October 2019. Wow, time flies when there’s a pandemic, eh? Then I walked up the hill (it was warm, I was sweaty) and visited the place: the owner was very nice and I stayed for an hour checking the place out and talking with them, eventually signing a hold. Peace of mind: no need to look for a place and come back down to see it in person! (did the sight-unseen thing for Dayton and that was a mistake so, never again)
-
-### Video games
-
-I also finished Horizon: Forbidden West! I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. Later this year I also started Cyberpunk 2077 (not beaten yet!), and I enjoyed God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up!
+I finished Horizon: Forbidden West: I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. I also started Cyberpunk 2077, which I am really enjoying (not beaten yet!), I loved God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up! Also, it's more of a gamified activity, but I managed to do 365 days in a row on DuoLingo for learning Japanese! I still suck at it.
 
 {% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day.", "", { ratio: "16/9" } %}
 
-### Owning too much stuff
+## Projects abound
 
-As Summer rolled around and the lease expiring on the 31st of July, it was time to Sell Some Shit™. Facebook Marketplace, Offer Up, Craigslist… it can be a goldmine for some people but I really hate it. Between the scams, the “I’ll take it for five dollars” and the “I’m super interested”-but-then-never-reply-again, it’s just a lot of stress. I think it went as well as it could have, and a very small “strip mall” area close to the house had a donation container. I’d say there was probably about 15% of the house’s stuff in there over the weeks. Hopefully it does come in handy for some folks! This gave some room to have several dozen cardboard boxes to pack what was going to Cincinnati. I hate moving. I hate it so much. “Why do I have so much crap?”, I always ask myself, and yet the very next week I place a $100 order on Amazon for stuff I maybe-kinda need that will clutter up any space freed by selling/donating. Ugh.
+I took up my boss on his offer to drive me to a hardware store and got some wood planks, and I built a frame to secure the TV onto the wall (landlord said no drilling!), and honestly it looks good given I made it. I really enjoy making things, either [designing shirts](/designs/), or actually building stuff in real life. It's very satistfying, especially with this TV frame that I even planned out on paper, measured twice, all that good stuff.
 
-### Grown up friends
-
-I keep in touch with friends back in France (that’s where I grew up!) and while we might not be all super close friends or talking daily, it’s nice to see that couples I met back in 2015/2016, before moving, were getting married. Hurray for them! COVID still looms but it adds a little colour to the world (for us non-billionaire folks anyways).
-
-### Moving
-
-The move itself went well. Lots of stress as the movers were booked to show up around 10am, then I got a text saying they were actually going to be there at 2pm, and at 9.45am I get another text telling me they’ll be there in five. **Oh boy.** Time to pack the last stuff and clean this house! The guys were very nice and I think aside from one plastic crate, nothing got broken, so overall, a success. The new apartment is up a flight of stairs so I definitely felt bad they had to haul all that, and I helped as I could to carry things up the stairs, and up to the second floor (they got the mattress though, that I cannot do). It was a tiring day for all parties involved.
-
-### Settling in
-
-The three cats got used to the place very quickly, always a good sign! I also took up my boss on his offer to drive me to a hardware store and got some wood planks, and I built a frame to secure the TV onto the wall (landlord said no drilling!), and honestly it looks good given I made it.
-
-### Runner, runner, chicken dinner
+## Running 5Ks and getting intoxicated
 
 I also did some work on myself: in September, I decided to start running. My dad has run a fair share of marathons, and still runs 10 Km every Sunday despite being over 60 years old — figured I could do a little running as I approached 30. I’ve been quite inactive my whole life (praise be my metabolism, for now) so it was something I really wanted to do. From the end of September to the end of November, I managed to go from 2 Km to 5.5 Km runs, about three times a week. And I live on a hill so I get that extra calf exercise!
 
 {% localimage "cincy-view.jpg", "A high vantage point of a city taken from a park where most trees have lost their leaves, framing the photo with naked branches. The rooftops below and the hills in the far back are covered in a light layer of snow. The skies are grey and cloudy. And for a moment, everything just looks quiet and halted in time.", "Look at that view!", { ratio: 1663/1247 } %}
 
-## Fall
+In other health-related stuff, I went out with a few co-workers before Thanksgiving and had too much to drink. I later got even more drunk for the office Holiday party and even vomited (in the bathroom luckily). I was told I behaved but this has definitely eaten at me and I don't like not being fully aware, especially if I'm seeing fantastic folks I haven't seen in over three years — I'd like to remember that, especially not knowing when the next time will be! (also when I have very limited social interactions in a new city) A nasty blizzard picked up after the party and a co-worker drove me home, bless his soul.
 
-### Trying my best
+## New site site, same me
 
-October rolled in with a little hint of Autumn. Could have used a few more golden and crimson leaves but it was at least noticeable. It stayed relatively warm so I could run without a ton of layers, which I appreciate, though I’d prefer this planet not to be fucked by our climate-changing activities, err… I'm not going full vegetarian or anything, but I've been using non-meat alternatives for dishes I make frequently that might use beef. Can’t complain, and with seasoning, the difference is minimal. I still indulge in the occasional hamburger but I’m sticking to poultry and fish as much as I can. Plus I can’t afford a good steak, and even if I could, I’d probably ruin it. I may be French but my cooking skills are still pretty basic. I think cooking is quite enjoyable but what I don’t enjoy is getting all the ingredients. _I don’t want three pounds of cilantro, just a handful, please!_
-
-### New site site, same me
-
-I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on Twitter (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
+I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on [Twitter]({{ metadata.tweetArchiveUrl }}) (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
 
 {% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!", { ratio: 1200/676 } %}
 
-### Seeing family: not
+## COVID and Concert
 
-I started looking at flights to back to see my family for the holidays but it turns out my green card stuff still hasn’t been processed and I must wait some more, so I could not be sure to be able to return to the US. A bit sad but postponing the trip is probably for the best. Having done it a few times now, I can with 100% confidence tell you: flying for the holidays is quite horrible. Especially across an ocean. Next Summer seems more reasonable!
-
-### Intoxicated, never again
-
-November was a quiet month as things started to wind down for the end of the year. I went out with a few co-workers before Thanksgiving and had too much to drink. No vomiting or passing out, but when I got home I was definitely hammered (and straight to sleep!). While I had a good time and was told I behaved fine, I just don’t like that image of myself, and then not remembering my conversations. Definitely needed food beforehand and water during… For Thanksgiving, I was so utterly not hungry (body was hung-the-fuck-over) but still managed to get a little bite of Turkey, mashed taters, greens, and of course, pumpkin pie.
-
-## Winter
-
-### Fall (the other kind), concerts, and COVID
-
-The following week, I tripped and fell while on my morning run. Nothing major, but I scraped up my knee and both hands. And it tore a hole in my running pants! Thanks, uneven side walk tile. I have not gone running since then, but soon… That same night, the aforementioned concert event: [Bad Omens](https://youtu.be/Aibxit_PpAg). It’s a band I only recently discovered, but I listened to them so much that an opportunity to see them, at walking distance from the apartment, was too good to pass up. It was a nice show, great tunes and energy, alas, I was the only person wearing a mask within a ten-mile radius, so you might have guessed it: COVID finally got me. My symptoms were not bad and I kept working to keep me busy, though I probably should have taken a day off to play video games. Next time…
+At the end of November, I tripped and fell while on my morning run. Nothing major, but I scraped up my knee and both hands. And it tore a hole in my running pants! Thanks, uneven side walk tile. I have not gone running since then, but soon… That same night, the aforementioned concert event: [Bad Omens](https://youtu.be/Aibxit_PpAg). It’s a band I only recently discovered, but I listened to them so much that an opportunity to see them, at walking distance from the apartment, was too good to pass up. It was a nice show, great tunes and energy, alas, I was the only person wearing a mask within a ten-mile radius, so you might have guessed it: COVID finally got me. My symptoms were not bad and I kept working to keep me busy, though I probably should have taken a day off to play video games. Next time…
 
 {% localimage "covid-test.jpg", "An at-home COVID-19 test showing both the control and the test lines, meaning it is positive.", "", { ratio: 1420/700 } %}
 
-### Birthday
+## Seeing family: not this time
 
-Around came my birthday. Yay, I’m 30. Testing positive with COVID meant staying inside. I still feel like high school was a handful of years ago, and don’t feel old, however I do believe I’ve matured. I’m so much more sensitive to politics, human rights, the climate, and all that stuff that pieces of shit in power suppress and dismiss. As a straight white male, I have acknowledged my privilege (I was definitely aware in the past but the past decade has been oh-so eye-opening) and want to make sure that I listen to the voices of people who are not like me. It can be uncomfortable, but that is such an easy burden for me compared to what other folks go through every day.
+I started looking at flights to back to see my family for the holidays but it turns out my green card stuff still hasn’t been processed and I must wait some more, so I could not be sure to be able to return to the US. A bit sad but postponing the trip is probably for the best. Having done it a few times now, I can with 100% confidence tell you: flying for the holidays is quite horrible. Especially across an ocean.
 
-### DuoLingo
+As I was bestowed yet another avuncular title at the end of January, now “Uncle Chris” to five nieces, seeing family sounds like a good thing. The fact my sister and her family with four kids are in Australia, and my brother with his fiancée and little one are in the UK, I don’t feel great about not being “there”, even via FaceTime. Definitely something I should work on this coming year.
 
-I reached 365 days in a row of Japanese with DuoLingo, but I still suck at it. I can recognise quite a few things through repetition but I surely wouldn't be able to hold a conversation. It is still pretty satisfying to read a sentence and correctly understand all that it says. Granted it's short and simple but I'll enjoy my little victories, and you should enjoy yours.
+## Birthday
 
-### Intoxicated, never again (part deux)
+December 11th, my special day. Yay, I’m 30. Testing positive with COVID meant staying inside. I still feel like high school was a handful of years ago, and don’t feel old, however I do believe I’ve matured. I’m so much more sensitive to politics, human rights, the climate, and all that stuff that pieces of shit in power suppress and dismiss. As a straight white male, I have acknowledged my privilege (I was definitely aware in the past but the past decade has been oh-so eye-opening) and want to make sure that I listen to the voices of people who are not like me. It can be uncomfortable, but that is such an easy burden for me compared to what other folks go through every day.
 
-As the year ends, they threw a little holiday party for the people in my office. I was at that point done with COVID and no longer contagious, and a couple of extra at-home tests eased my fears of getting my co-workers sick (I would not want to ruin anybody’s holidays!). I had a great time that night, but not unlike Thanksgiving, I had a little too much and I do not remember the tail-end of the evening (I don’t _need_ to share this but I feel I should to hold myself accountable, or something?). A nasty blizzard picked up at that time and I was driven home by a co-worker, bless his soul.
-
-So, I have sworn to myself to drink a glass of water between drinks from now on, and to count my glasses. I seemingly behaved myself and ~~did not vomit~~ (update: I did), but I do want to remember seeing all these fantastic folks properly since, well, who knows when the next time will be? It had been three years after all. And given my limited social interactions in a new city where I only know colleagues, I want to cherish and remember those moments a little more than a blur and/or straight-up missing parts of my memory—not super good. **Ah, alcohol, what a concept!**
-
-### It's not Snow bad
+## It's not Snow bad
 
 I am not a huge Christmas person, but I do enjoy the vibe, the weird ornaments, and the cookies. I even got a tiny plastic tree that the cats did not ruin, much to my surprise. While not on my mother’s level, I tried to replicate some of her dishes with _frikadeller_ (basically flattened meatballs), caramelised potatoes and red cabbage, and as a non-Danish extra, a little _coquito_ to wash it all down (took me a couple of tries to get it right, though). A mild success, all things considered.
 
-## Sum (kind of outro)
+<hr>
 
 Well, this certainly turned into quite a brain dump. I don’t lead an eventful life, but I suppose there’s always something to be said. And I’m aware of my luck. This year, the heat (and AC!) works, I still have my job that I enjoy quite a lot, I’m learning new things all the time, my COVID episode was short and pretty painless, and all my loved ones who also got it are doing pretty well… maybe sometimes, not too much going on can be good to realise you’d like a little more to go on? I dunno, averaged on D+ for my philosophy classes in high-school, I don’t have smart insights. But I can try a haiku?
 
