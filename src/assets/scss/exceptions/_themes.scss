@@ -395,7 +395,10 @@
 		border: var(--btn-border-size, var(--t-cta-border-width)) solid transparent;
 		background: none;
 		box-shadow: none;
-		filter: drop-shadow(var(--btn-box-shadow, 0));
+
+		&:is(:hover, :focus) {
+			filter: drop-shadow(0 0 0.5em hsla(183, 72%, 47%, 0.5));
+		}
 
 		&::before {
 			content: '';
