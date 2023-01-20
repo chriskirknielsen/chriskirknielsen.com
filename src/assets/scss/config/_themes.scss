@@ -90,5 +90,6 @@ $theme-easing: get-token('easing');
 
 	// Composed custom properties
 	--cardblock-border-thickness: 1px;
-	--cardblock-border: var(--cardblock-border-thickness) solid var(--t-heading-color);
+	--cardblock-border-color: var(--t-heading-color);
+	--cardblock-border: var(--cardblock-border-thickness) solid var(--cardblock-border-color);
 }
