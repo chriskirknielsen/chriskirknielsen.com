@@ -370,7 +370,7 @@ module.exports = function (eleventyConfig) {
 		}
 
 		const autoGallery = options.hasOwnProperty('autoGallery') ? options.autoGallery : true; // By default, an image will be automatically wrapped in a gallery
-		const sizes = ['100vw', '(max-width:60rem) 50rem'].join(', ');
+		const sizes = ['100vw', '(min-width: 50rem) 50rem'].join(', ');
 		const widths = options.widths || [480, 800, 1200];
 		const srcset = widths.map((w) => `./${src}?nf_resize=fit&w=${w} ${w}w`);
 
@@ -384,6 +384,7 @@ module.exports = function (eleventyConfig) {
 			// If the ratio is passed as a string, parse it to a number
 			if (typeof options.ratio === 'string') {
 				attrs['data-ratio'] = options.ratio; // Store the initial ratio provided
+
 				if (options.ratio.includes('/')) {
 					let ratioParts = options.ratio.split('/');
 					options.ratio = parseFloat(ratioParts[0]) / parseFloat(ratioParts[1]);
@@ -411,6 +412,9 @@ module.exports = function (eleventyConfig) {
 		if (options.height) {
 			attrs.height = options.height;
 		}
+
+		let ratioString = options.ratio || `${options.width} / ${options.height}`;
+		attrs.style = `aspect-ratio:${ratioString};`;
 
 		const attrsStr = Object.entries(attrs)
 			.map((attr) => `${attr[0]}="${attr[1]}"`)
