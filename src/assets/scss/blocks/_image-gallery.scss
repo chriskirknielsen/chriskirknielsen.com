@@ -4,7 +4,6 @@
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
 	justify-items: center;
 	align-items: stretch;
-	margin-inline: auto;
 
 	& img {
 		width: 100%;
@@ -39,7 +38,8 @@
 	}
 
 	& > :is(figure, picture, a, img) {
-		width: min(100%, #{get-token('constants', 'content-width') * 0.8});
+		width: 100%;
+		max-width: #{get-token('constants', 'content-width') * 0.8};
 		overflow: hidden;
 
 		border: var(--cardblock-border);

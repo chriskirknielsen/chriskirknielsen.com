@@ -413,16 +413,14 @@ module.exports = function (eleventyConfig) {
 			attrs.height = options.height;
 		}
 
-		let ratioString = options.ratio || `${options.width} / ${options.height}`;
+		let ratioString = attrs['data-ratio'] || options.ratio || `${options.width} / ${options.height}`;
 		attrs.style = `aspect-ratio:${ratioString};`;
 
 		const attrsStr = Object.entries(attrs)
 			.map((attr) => `${attr[0]}="${attr[1]}"`)
 			.join(' ');
 
-		const imageMarkup = `<a href="./${src}"><img src="./${src}?nf_resize=fit&w=${widths.at(-2)}" alt="${alt}" srcset="${srcset.join(
-			', '
-		)}" sizes="${sizes}" ${attrsStr} /></a>`;
+		const imageMarkup = `<a href="./${src}"><img src="./${src}?nf_resize=fit&w=${widths.at(-2)}" alt="${alt}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
 
 		let output;
 		if (caption) {
@@ -432,6 +430,7 @@ module.exports = function (eleventyConfig) {
 		}
 
 		if (autoGallery) {
+			// TODO: Remove this requirement and make the stylesheet :not(.gallery) > :is(a, picture, img, figure) or something
 			return imageGalleryShortcode(output);
 		}
 
@@ -585,6 +584,10 @@ module.exports = function (eleventyConfig) {
 			), // Remove accents/punctuation in addition to regular slugification
 	};
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
+
+	eleventyConfig.setServerOptions({
+		domDiff: false, // Due to runtime JS (mainly themes), it is preferrable to get a fresh copy of the DOM
+	});
 
 	return {
 		pathPrefix: '/',
