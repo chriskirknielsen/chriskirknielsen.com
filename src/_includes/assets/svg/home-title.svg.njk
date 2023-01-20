@@ -28,6 +28,11 @@
     <!-- SHAPE: Chris -->
     <path id="home-svg-chris-shape" d="M170.04,287.19h93.75v46.88h-93.75c-46.88,0,-70.31,-23.44,-70.31,-70.31v-23.44c0,-46.88,23.44,-70.31,70.31,-70.31h93.75v46.88h-93.75c-15.63,0,-23.44,7.81,-23.44,23.44v23.44c0.01,15.6,7.82,23.42,23.44,23.42zm152.35,-11.72v58.59h-46.88v-164.06h46.88v58.59h82.03v-58.59h46.88v164.06h-46.88v-58.59h-82.03zm140.62,-105.47h123.05c35.16,0,52.73,17.58,52.73,52.73c0,28.59,-11.6,45.55,-34.8,50.86l34.8,60.47h-54.02l-33.87,-58.59h-41.02v58.59h-46.88v-164.06zm46.88,46.87v11.72h76.17c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-76.17zm187.5,117.19h-46.88v-164.06h46.88v164.06zm111.33,0h-99.61v-46.88h99.61c3.9,0,5.86,-1.95,5.86,-5.86s-1.96,-5.86,-5.86,-5.86h-46.88c-35.16,0,-52.73,-17.58,-52.73,-52.73c0,-35.16,17.58,-52.73,52.73,-52.73h99.61v46.88h-99.61c-3.91,0,-5.86,1.95,-5.86,5.86s1.95,5.86,5.86,5.86h46.88c35.16,0,52.73,17.58,52.73,52.73s-17.58,52.73,-52.73,52.73z"></path>
 
+    <!-- CLIP-PATH: Chris -->
+    <clipPath id="home-svg-chris-clip" clipPathUnits="userSpaceOnUse">
+      <use xlink:href="#home-svg-chris-shape"/>
+    </clipPath>
+
     <!-- MASK: Chris -->
     <mask maskUnits="userSpaceOnUse" id="home-svg-chris-mask">
       <use xlink:href="#home-svg-chris-shape" fill="#fff" />
@@ -176,19 +181,19 @@
       <use xlink:href="#home-svg-chris-shape" fill="none" stroke="url(#gradientPinkPurple)" stroke-width="3" />
 
       <!-- Gradient -->
-      <g mask="url(#home-svg-chris-mask)">
+      <g clip-path="url(#home-svg-chris-clip)">
         <rect x="0%" y="0" width="100%" height="100%" fill="url(#gradientDuskTop)" />
         <path fill="url(#gradientDuskBottom)" d="M0 257v247h971V249H866c-5 0-18 7-22 7l-10-2-16 3-13-2c-10 0-16-4-26-4-8 0-13 4-18 4l-22 1h-13c-6 0-10-3-16-3-11 0-14-5-25-5l-7 1-7-1c-3 0-19 9-23 9l-13 1-11-1-12 1c-2 0-11-4-17-4-18 0-21-6-30-6-7 0-14 7-21 7s-16 3-20 3-9-5-17-5-10 5-20 5-15-4-22-4c-13 0-15-6-22-6-8 0-11 2-15 2s-10 6-18 6l-20 1c-6 0-10-3-15-3l-21-3c-5 0-18 4-26 4s-10-3-14-3c-9 0-14-5-20-5-4 0-16 4-22 4l-118 9c-9 0-15-8-24-8l-6 1-10-1c-10 0-16 5-22 5H0z" />
       </g>
 
       <!-- Inner Shadow  -->
-      <g mask="url(#home-svg-chris-mask)">
+      <g clip-path="url(#home-svg-chris-clip)">
         <use xlink:href="#home-svg-chris-shape" fill="none" stroke="var(--home-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow)" />
         <use xlink:href="#home-svg-chris-shape" fill="none" stroke="var(--home-chris-inner)" stroke-width="1" filter="url(#violetShadeGlow2)" />
       </g>
 
       <!-- Shine Overlay (hide initially, show with CSS) -->
-      <g mask="url(#home-svg-chris-mask)">
+      <g clip-path="url(#home-svg-chris-clip)">
         <rect x="78.13" y="161.21" fill="url(#gradientShineOver)" width="804.73" height="186.89" class="home-svg__name-shineOver" style="opacity:0" />
       </g>
 
