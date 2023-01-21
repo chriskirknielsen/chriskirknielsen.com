@@ -129,35 +129,35 @@ module.exports = function (eleventyConfig) {
 		);
 
 		const styles = compileAssets({
-			inFolder: 'scss',
-			inExt: 'scss',
-			outFolder: 'css',
-			outExt: 'css',
-			filterFn: (inputPath) => !inputPath.split('/').pop().startsWith('_'),
-			compileFn: async (parsed) => {
-				const result = sass.compile(`${parsed.dir}/${parsed.base}`, {
-					loadPaths: [parsed.dir || '.', config.dir.includes],
-					style: 'compressed',
-					precision: 4,
-				});
-				return result.css;
-			},
-		});
+				inFolder: 'scss',
+				inExt: 'scss',
+				outFolder: 'css',
+				outExt: 'css',
+				filterFn: (inputPath) => !inputPath.split('/').pop().startsWith('_'),
+				compileFn: async (parsed) => {
+					const result = sass.compile(`${parsed.dir}/${parsed.base}`, {
+						loadPaths: [parsed.dir || '.', config.dir.includes],
+						style: 'compressed',
+						precision: 4,
+					});
+					return result.css;
+				},
+			});
 
 		const scripts = compileAssets({
-			inFolder: 'js',
-			inExt: 'js',
-			compileFn: async (parsed) => {
-				const result = await esbuild.build({
-					target: 'es2020',
-					entryPoints: [`${parsed.dir}/${parsed.base}`],
-					minify: true,
-					bundle: true,
-					write: false,
-				});
-				return result.outputFiles[0].text;
-			},
-		});
+				inFolder: 'js',
+				inExt: 'js',
+				compileFn: async (parsed) => {
+					const result = await esbuild.build({
+						target: 'es2020',
+						entryPoints: [`${parsed.dir}/${parsed.base}`],
+						minify: true,
+						bundle: true,
+						write: false,
+					});
+					return result.outputFiles[0].text;
+				},
+			});
 
 		return Promise.all([tokens.then(() => styles), scripts]).then((pipelines) => {
 			console.log(`\x1b[33m[11ty] Ran eleventy.before in ${((performance.now() - beforeStart) / 1000).toFixed(2)} seconds`);
@@ -369,7 +369,7 @@ module.exports = function (eleventyConfig) {
 			throw `The ${src} image does not have an alt attribute! (empty string is allowed)`;
 		}
 
-		const autoGallery = options.hasOwnProperty('autoGallery') ? options.autoGallery : true; // By default, an image will be automatically wrapped in a gallery
+		const isGroupContext = options.hasOwnProperty('group') && options.group; // Whether the image is part of a group
 		const sizes = ['100vw', '(min-width: 50rem) 50rem'].join(', ');
 		const widths = options.widths || [480, 800, 1200];
 		const srcset = widths.map((w) => `./${src}?nf_resize=fit&w=${w} ${w}w`);
@@ -413,7 +413,7 @@ module.exports = function (eleventyConfig) {
 			attrs.height = options.height;
 		}
 
-		let ratioString = attrs['data-ratio'] || options.ratio || `${options.width} / ${options.height}`;
+		let ratioString = attrs['data-ratio'] || parseFloat(options.ratio.toFixed(4)).toString() || `${options.width} / ${options.height}`;
 		attrs.style = `aspect-ratio:${ratioString};`;
 
 		const attrsStr = Object.entries(attrs)
@@ -429,8 +429,8 @@ module.exports = function (eleventyConfig) {
 			output = imageMarkup;
 		}
 
-		if (autoGallery) {
-			// TODO: Remove this requirement and make the stylesheet :not(.gallery) > :is(a, picture, img, figure) or something
+		// If not grouped in a gallery (wrapped in a {% gallery %} shortcode pair), make it a single-image gallery
+		if (!isGroupContext) {
 			return imageGalleryShortcode(output);
 		}
 
