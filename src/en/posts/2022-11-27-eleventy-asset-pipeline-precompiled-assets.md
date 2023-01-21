@@ -181,7 +181,7 @@ At this point, the `compileAssets` function is ready to get to work. Within the 
 ```js
 /* Previous code omitted for brevity */
 
-const styles = compileAssets({
+const styles = () => compileAssets({
     inFolder: 'scss',
     inExt: 'scss',
     outFolder: 'css',
@@ -197,7 +197,7 @@ const styles = compileAssets({
     },
 });
 
-const scripts = compileAssets({
+const scripts = () => compileAssets({
     inFolder: 'js',
     inExt: 'js',
     compileFn: async (parsed) => {
@@ -239,7 +239,7 @@ const tokens = new Promise((resolve, reject) =>
 Nice and easy! Last thing is to indeed tell Eleventy to build. This is achieved by returning a promise, since this is an asynchronous setup. Eleventy will wait until the promise is resolved. For me, it's a chained promise of JSON then Sass, and in parallel, the JS files. This is accomplished with a neat one-liner:
 
 ```js
-return Promise.all([tokens.then(() => styles), scripts]);
+return Promise.all([tokens.then(styles), scripts()]);
 ```
 
 The final piece of the puzzle is to handle how Eleventy watches the input and output files, or else it's headed straight for Infinite Loop Land! With `v2.0.0-canary.18`, this is a breeze:
@@ -377,7 +377,7 @@ module.exports = function (eleventyConfig) {
                 )
         );
 
-        const styles = compileAssets({
+        const styles = () => compileAssets({
             inFolder: 'scss',
             inExt: 'scss',
             outFolder: 'css',
@@ -392,7 +392,7 @@ module.exports = function (eleventyConfig) {
                 return result.css;
             },
         });
-        const scripts = compileAssets({
+        const scripts = () => compileAssets({
             inFolder: 'js',
             inExt: 'js',
             compileFn: async (parsed) => {
@@ -407,7 +407,7 @@ module.exports = function (eleventyConfig) {
             },
         });
 
-        return Promise.all([tokens.then(() => styles), scripts]);
+        return Promise.all([tokens.then(styles), scripts()]);
     });
 
     eleventyConfig.addWatchTarget(`./${rootDir}/assets/scss/**/*.scss`);

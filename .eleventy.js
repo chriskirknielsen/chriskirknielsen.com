@@ -161,7 +161,7 @@ module.exports = function (eleventyConfig) {
 				},
 			});
 
-		return Promise.all([tokens.then(styles), scripts]).then((pipelines) => {
+		return Promise.all([tokens.then(styles), scripts()]).then((pipelines) => {
 			console.log(`\x1b[33m[11ty] Ran eleventy.before in ${((performance.now() - beforeStart) / 1000).toFixed(2)} seconds`);
 			return pipelines;
 		});
