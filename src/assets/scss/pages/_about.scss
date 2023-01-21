@@ -468,18 +468,18 @@ li[data-fact-emoji] {
 			font-size: 1.5em;
 
 			opacity: var(--mug-opacity, 1);
-			filter: blur(0.125em);
+			filter: grayscale(1) blur(0.125em);
 			transform: translateX(var(--mug-posX, 0px)) translateY(calc(var(--mug-posY, 0px) + var(--mug-offset, 0px))) rotate(-90deg);
 		}
 
 		&::before {
 			--mug-posX: -0.1em;
-			--mug-posY: 0.3em;
+			--mug-posY: 0.2em;
 		}
 
 		&::after {
 			--mug-posX: 0.1em;
-			--mug-posY: 0.6em;
+			--mug-posY: 0.4em;
 			transition-delay: 200ms !important;
 		}
 
