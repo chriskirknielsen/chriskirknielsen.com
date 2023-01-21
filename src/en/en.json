@@ -31,7 +31,7 @@
 			"yearLabel": "Posts for the year",
 			"original": "Read the original article",
 			"external": "Read the full article on",
-			"writtenByAuthor": "Post written by <a href=\"{{aboutUrl}}\">{{ author }}</a>",
+			"writtenByAuthor": "Post written by <a href=\"{{aboutUrl}}\" id=\"{{aboutLinkId}}\">{{ author }}</a>",
 			"commentsAndSupport": "If you have a comment, please <a href=\"{{ socialUrl }}\">tag me on Mastodon</a> to chat. If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>? Thanks a ton!"
 		},
 		"callout": "Note",
