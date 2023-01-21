@@ -128,7 +128,8 @@ module.exports = function (eleventyConfig) {
 				.pipe(fs.createWriteStream(`${config.inputDir}/assets/scss/tools/_tokens.scss`).on('finish', resolve).on('error', reject))
 		);
 
-		const styles = compileAssets({
+		const styles = () =>
+			compileAssets({
 				inFolder: 'scss',
 				inExt: 'scss',
 				outFolder: 'css',
@@ -144,7 +145,8 @@ module.exports = function (eleventyConfig) {
 				},
 			});
 
-		const scripts = compileAssets({
+		const scripts = () =>
+			compileAssets({
 				inFolder: 'js',
 				inExt: 'js',
 				compileFn: async (parsed) => {
@@ -159,7 +161,7 @@ module.exports = function (eleventyConfig) {
 				},
 			});
 
-		return Promise.all([tokens.then(() => styles), scripts]).then((pipelines) => {
+		return Promise.all([tokens.then(styles), scripts]).then((pipelines) => {
 			console.log(`\x1b[33m[11ty] Ran eleventy.before in ${((performance.now() - beforeStart) / 1000).toFixed(2)} seconds`);
 			return pipelines;
 		});
