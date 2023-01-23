@@ -1,0 +1,22 @@
+{
+	"home": {
+		"title": "Cincinnati",
+		"detail": "OH, USA",
+		"blurb": "Following 4 years in NYC, 1 in Dayton, OH, and now I am in Cincinnati. I wish I were closer to hiking areas but maybe that'll be for the next move…"
+	},
+	"book": {
+		"title": "The Anomaly",
+		"detail": "Hervé Le Tellier",
+		"blurb": "A friend recommended this award-winning book, an after my Secret Santa at work got it for me, I've been reading it little after little. So far, pretty happy with how it's going!"
+	},
+	"game": {
+		"title": "GTA: Vice City",
+		"detail": "PS5",
+		"blurb": "I saw sale after sale on the GTA Trilogy, and desppite many reports of it being pretty broken, nostalgia got the best of me. I beat GTA3 and I am now onto reliving the '80s in Vice City. Definitely a defining game for me and my love of retro aesthetics!"
+	},
+	"show": {
+		"title": "Brooklyn Nine-Nine",
+		"detail": 7,
+		"blurb": "I stopped in the middle of season 6 some time in 2018, and I've elected to finally watch the rest of it. A couple of episodes here and there is a perfect non-rhythm for me to enjoy!"
+	}
+}

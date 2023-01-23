@@ -5,12 +5,6 @@ summary: Christopher Kirk-Nielsen, a creative developer
 permalink: /
 i18n:
     page:
-        latest:
-            heading: 'Currently enjoying'
-            bookLabel: 'Book'
-            gameLabel: 'Video game'
-            showLabel: 'TV show'
-            seasonLabel: 'Season'
         quickAccess:
             heading: 'Jump right in'
             about:
@@ -25,6 +19,7 @@ i18n:
             also:
                 label: 'Also…'
                 usesPageLabel: 'Uses'
+                nowPageLabel: 'Now'
         writing:
             heading: 'Thoughts for your thoughts'
             content: 'I write quite infrequently, when ideas need expressing. If you want to read some of my ramblings, this is my latest. I’ve also got an RSS feed for the cool kids!'

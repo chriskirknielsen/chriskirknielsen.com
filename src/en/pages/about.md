@@ -5,6 +5,7 @@ pageTitle: Hello, I'm Chris (he/him)
 subtitle: A designer turned developer who loves building on the web.
 summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
+bigboiButton: { url: '/now/', label: 'Now' }
 facts:
     - ["👀", "Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences."]
     - ["🕰", "Favourite movie is likely Back to the Future, though the dad is a creep."]
@@ -35,7 +36,6 @@ i18n:
 <p class="u-fontWeight-bold">I'm a <span class="about-country" data-flag="🇫🇷" data-icon="🥖">French</span> <span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">Dane</span> living in the <span class="about-country" data-flag="🇺🇸" data-icon="🏈">USA</span> who used to be a designer and who now likes to code.</p>
 
 {% include 'components/about/random-fact.njk' %}
-
 
 ## Typing away, every day
 

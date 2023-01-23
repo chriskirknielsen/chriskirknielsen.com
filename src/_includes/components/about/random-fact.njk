@@ -1,16 +1,16 @@
-
-
+{% mdsafe %}
 <details class="about-facts">
-<summary class="button | about-fact-get u-width100" style="--btn-justify-content:center">
-{% svg "question", { class: "about-facts-icon inline-icon" } %}
-<span class="about-facts-label">{{ 'page.randomFacts' | i18n }}</span>
-</summary>
+    <summary class="button | about-fact-get u-width100" style="--btn-justify-content:center">
+        {% svg "question", { class: "about-facts-icon inline-icon" } %}
+        <span class="about-facts-label">{{ 'page.randomFacts' | i18n }}</span>
+    </summary>
 
-<div class="about-fact-show | u-marginInline-s u-padding-m u-background-bg-alt-color u-color-alt-color u-textAlign-center">
-<ul data-facts class="u-textAlign-left">
-{% for emoji, fact in facts %}
-<li data-fact-emoji="{{ emoji }}" {% if ('Konami' in fact) %}class="nojs-hidden"{% endif %}>{{ fact }}</li>
-{% endfor %}
-</ul>
-</div>
+    <div class="about-fact-show | u-marginInline-s u-padding-m u-background-bg-alt-color u-color-alt-color u-textAlign-center">
+        <ul data-facts class="u-textAlign-left">
+        {% for emoji, fact in facts %}
+            <li data-fact-emoji="{{ emoji }}" {% if ('Konami' in fact) %}class="nojs-hidden"{% endif %}>{{ fact }}</li>
+        {% endfor %}
+        </ul>
+    </div>
 </details>
+{% endmdsafe %}

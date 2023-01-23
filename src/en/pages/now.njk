@@ -1,0 +1,52 @@
+---
+title: Now
+subtitle: What am I doing these days?
+permalink: /now/
+layout: layouts/page.njk
+section: now
+templateEngineOverride: njk, md
+---
+
+{% mdsafe %}
+{% if not now.home.hide %}
+<h2>Living</h2>
+<p>
+    <span aria-hidden="true">🏠</span>
+    <strong>{{ now.home.title }}
+    {% if now.home.detail %}({{ now.home.detail }}){% endif %}</strong>
+    {% if now.home.blurb %}<br>{{ now.home.blurb }}{% endif %}
+</p>
+{% endif %}
+
+{% if not now.book.hide %}
+<h2>Reading</h2>
+<p>
+    <span aria-hidden="true">📚</span>
+    <strong>{{ now.book.title }}
+    {% if now.book.detail %}({{ now.book.detail }}){% endif %}</strong>
+    {% if now.book.blurb %}<br>{{ now.book.blurb }}{% endif %}
+</p>
+{% endif %}
+
+{% if not now.game.hide %}
+<h2>Gaming</h2>
+<p>
+    <span aria-hidden="true">🕹️</span>
+    <strong>{{ now.game.title }}
+    {% if now.game.detail %}({{ now.game.detail }}){% endif %}</strong>
+    {% if now.game.blurb %}<br>{{ now.game.blurb }}{% endif %}
+</p>
+{% endif %}
+
+{% if not now.show.hide %}
+<h2>Binging</h2>
+<p>
+    <span aria-hidden="true">📺</span>
+    <strong>{{ now.show.title }}
+    {% if now.show.detail %}(Season {{ now.show.detail }}){% endif %}</strong>
+    {% if now.show.blurb %}<br>{{ now.show.blurb }}{% endif %}
+</p>
+{% endif %}
+{% endmdsafe %}
+
+[What's this Now page?](https://nownownow.com/about)

@@ -30,28 +30,6 @@ section: home
     <div class="page-content | content-fullbleed container | flow fluid">
         {{ layoutContent | safe }}
 
-        <h2>{{ 'page.latest.heading' | i18n }}</h2>
-        <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
-            {% if not latest.book.hide %}
-                <li>
-                    <span aria-label="{{ 'page.latest.bookLabel' | i18n }}">📚</span>&nbsp;{{ latest.book.title }}
-                    {% if latest.book.author %}({{ latest.book.author }}){% endif %}
-                </li>
-            {% endif %}
-            {% if not latest.game.hide %}
-                <li>
-                    <span aria-label="{{ 'page.latest.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ latest.game.title }}
-                    {% if latest.game.platform %}({{ latest.game.platform }}){% endif %}
-                </li>
-            {% endif %}
-            {% if not latest.show.hide %}
-                <li>
-                    <span aria-label="{{ 'page.latest.showLabel' | i18n }}">📺</span>&nbsp;{{ latest.show.title }}
-                    {% if latest.show.season %}(<span arial-label="{{ 'page.latest.seasonLabel' | i18n }}">S</span>{{ latest.show.season }}){% endif %}
-                </li>
-            {% endif %}
-        </ul>
-
         <div class="content-fullbleed | u-background-bg-alt-color u-paddingBlock-2xl">
             <div class="container">
                 <div class="subsection subsection--quickaccess">
@@ -79,8 +57,12 @@ section: home
                         <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.fonts.content' | i18n }}</span>
                     </a>
 
-                    <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-l); --btn-font-size: 0.75em;">
+                    <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-m); --btn-font-size: 0.75em;">
                         <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
+                        
+                        {% if lang == 'en' %}
+                            <a href="{{ '/now/' | locale_url }}" class="button">{{ 'page.quickAccess.also.nowPageLabel' | i18n }}</a>
+                        {% endif %}
 
                         {% for socialPage in social %}
                             <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>

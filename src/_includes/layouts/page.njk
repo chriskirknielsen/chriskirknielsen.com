@@ -6,8 +6,8 @@ templateName: page
 
 {% block layoutContent %}
 	<header class="bigboi | content-fullbleed container">
-		<div class="bigboi-inner | content" style="--flow-space: var(--size-m)">
-			<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">
+		<div class="bigboi-inner | content | {% if bigboiButton %}flow{% endif %}" style="--flow-space: var(--size-m)">
+			{% if bigboiButton %}<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">{% endif %}
 				<h1>{{ (pageTitle or title) | safe }}</h1>
 
 				{% if bigboiButton %}
@@ -16,7 +16,7 @@ templateName: page
 					<span>{{ bigboiButton.label }}</span>
 				</a>
 				{% endif %}
-			</div>
+			{% if bigboiButton %}</div>{% endif %}
 			
 			<p class="u-fontWeight-bold">{{ subtitle }}</p>
 

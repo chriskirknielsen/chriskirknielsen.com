@@ -3,9 +3,10 @@ layout: layouts/home.njk
 title: Accueil
 summary: Christopher Kirk-Nielsen, développeur créatif
 permalink: /fr/
+templateEngineOverride: njk,md
 i18n:
     page:
-        latest:
+        now:
             heading: 'En ce moment'
             bookLabel: 'Livre'
             gameLabel: 'Jeu vidéo'
@@ -25,6 +26,7 @@ i18n:
             also:
                 label: 'Plus…'
                 usesPageLabel: 'Matos'
+                nowPageLabel: 'Maintenant'
         writing:
             heading: 'Des pensées pour vos pensées'
             content: 'J’écris de manière très irrégulière, histoire de sortir des idées de ma tête. Si vous voulez me lire, voici le dernier article. J’ai aussi un flux RSS pour les intéressé·e·s!'
@@ -32,3 +34,27 @@ i18n:
 ---
 
 Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder sur le web qui travaille chez MOJO PSG.
+
+{% mdsafe %}
+<h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" class="heading-anchor">Now</a>)</h2>
+<ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
+{% if not now.book.hide %}
+    <li>
+        <span aria-label="{{ 'page.now.bookLabel' | i18n }}">📚</span>&nbsp;{{ now.book.title }}
+        {% if now.book.detail %}({{ now.book.detail }}){% endif %}
+    </li>
+{% endif %}
+{% if not now.game.hide %}
+    <li>
+        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ now.game.title }}
+        {% if now.game.detail %}({{ now.game.detail }}){% endif %}
+    </li>
+{% endif %}
+{% if not now.show.hide %}
+    <li>
+        <span aria-label="{{ 'page.now.showLabel' | i18n }}">📺</span>&nbsp;{{ now.show.title }}
+        {% if now.show.detail %}(<span arial-label="{{ 'page.now.seasonLabel' | i18n }}">S</span>{{ now.show.detail }}){% endif %}
+    </li>
+{% endif %}
+</ul>
+{% endmdsafe %}

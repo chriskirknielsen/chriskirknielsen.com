@@ -34,6 +34,9 @@ const pageAssets = require('./internal_modules/eleventy-plugin-page-assets-mxbck
 const assetCompiler = require('./config/asset-compiler.js');
 
 // Helpers
+function mdsafe(content) {
+	return content.replace(/(\t|\n|\r|(    ))/g, ' ');
+}
 function htmlMinify(code) {
 	return htmlmin.minify(code, {
 		useShortDoctype: true,
@@ -191,6 +194,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Filters */
+	eleventyConfig.addFilter('mdsafe', mdsafe);
 	eleventyConfig.addFilter('incPath', (filename, incDir = '', subdir = '') => `./${rootDir}/_includes/${incDir ? incDir + '/' : ''}${subdir ? subdir + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('fromJSON', (str) => JSON.parse(str));
@@ -328,6 +332,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Shortcodes */
+	eleventyConfig.addPairedShortcode('mdsafe', mdsafe);
 	eleventyConfig.addPairedShortcode('callout', function (content, pseudo = '', emoji = '') {
 		const uniqueId = `co-${new Date().getTime().toString(36)}`;
 		const context = this?.ctx || this.context?.environments;
