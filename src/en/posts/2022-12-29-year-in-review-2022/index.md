@@ -27,17 +27,11 @@ It was then time to Sell Some Shit™. Facebook Marketplace, Offer Up, Craigslis
 
 I hate moving. I hate it so much. “Why do I have so much crap?”, I always ask myself, and yet the very next week I place a $100 order on Amazon for stuff I maybe-kinda need that will clutter up any space freed by selling/donating. Ugh. At least, the three cats got used to the place very quickly, always a good sign!
 
-## Video Games
-
-I finished Horizon: Forbidden West: I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. I also started Cyberpunk 2077, which I am really enjoying (not beaten yet!), I loved God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up! Also, it's more of a gamified activity, but I managed to do 365 days in a row on DuoLingo for learning Japanese! I still suck at it.
-
-{% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day.", "", { ratio: "16/9" } %}
-
 ## Projects abound
 
 I took up my boss on his offer to drive me to a hardware store and got some wood planks, and I built a frame to secure the TV onto the wall (landlord said no drilling!), and honestly it looks good given I made it. I really enjoy making things, either [designing shirts](/designs/), or actually building stuff in real life. It's very satistfying, especially with this TV frame that I even planned out on paper, measured twice, all that good stuff.
 
-## Running 5Ks and getting intoxicated
+## Health & things
 
 I also did some work on myself: in September, I decided to start running. My dad has run a fair share of marathons, and still runs 10 Km every Sunday despite being over 60 years old — figured I could do a little running as I approached 30. I’ve been quite inactive my whole life (praise be my metabolism, for now) so it was something I really wanted to do. From the end of September to the end of November, I managed to go from 2 Km to 5.5 Km runs, about three times a week. And I live on a hill so I get that extra calf exercise!
 
@@ -50,6 +44,12 @@ In other health-related stuff, I went out with a few co-workers before Thanksgiv
 I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on [Twitter]({{ metadata.tweetArchiveUrl }}) (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
 
 {% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!", { ratio: 1200/676 } %}
+
+## Video Games
+
+I finished Horizon: Forbidden West: I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. I also started Cyberpunk 2077, which I am really enjoying (not beaten yet!), I loved God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up! Also, it's more of a gamified activity, but I managed to do 365 days in a row on DuoLingo for learning Japanese! I still suck at it.
+
+{% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day.", "", { ratio: "16/9" } %}
 
 ## COVID and Concert
 
