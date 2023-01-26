@@ -2,21 +2,24 @@
 	"home": {
 		"title": "Cincinnati",
 		"detail": "OH, USA",
-		"blurb": "Following 4 years in NYC, and 1 in Dayton, OH, I am now in Cincinnati. I wish I were closer to hiking areas to see a bit more nature, but maybe that'll be for the next move…"
+		"blurb": "Following 4 years in NYC, and 1 in Dayton, OH, I am now in Cincinnati. I wish I were closer to hiking areas to see a bit more nature, but maybe that'll be for the next move…!"
 	},
 	"book": {
-		"title": "The Anomaly",
-		"detail": "Hervé Le Tellier",
-		"blurb": "A friend recommended this award-winning book, an after my Secret Santa at work got it for me, I've been reading it little by little. So far, pretty happy with how it's going!"
+		"title": "L'Anomalie",
+		"detail": "Hervé Le Tellier, in French",
+		"blurb": "A friend recommended this award-winning book, an after my Secret Santa at work got it for me, I've been reading it little by little. So far, pretty happy with how it's going!",
+		"link": "https://www.goodreads.com/book/show/53970536-l-anomalie"
 	},
 	"game": {
-		"title": "GTA: Vice City",
+		"title": "GTA: Vice City — Definitive Edition",
 		"detail": "PS5",
-		"blurb": "I saw sale after sale on the GTA Trilogy, and desppite many reports of it being pretty broken, nostalgia got the best of me. I beat GTA3 and I am now onto reliving the '80s in Vice City. Definitely a defining game for me and my love of retro aesthetics!"
+		"blurb": "I saw sale after sale on the GTA Trilogy, and desppite many reports of it being pretty broken, nostalgia got the best of me. I beat GTA3 and I am now onto reliving the '80s in Vice City. Definitely a defining game for me and my love of retro aesthetics!",
+		"link": "https://psnprofiles.com/trophies/14599-grand-theft-auto-vice-city/JaKhris"
 	},
 	"show": {
 		"title": "Brooklyn Nine-Nine",
 		"detail": 7,
-		"blurb": "I stopped in the middle of season 6 some time in 2018, and I've elected to finally watch the rest of it. A couple of episodes here and there is a perfect non-rhythm for me to enjoy!"
+		"blurb": "I stopped in the middle of season 6 some time in 2018, and I've elected to finally watch the rest of it. A couple of episodes here and there is a perfect non-rhythm for me to enjoy!",
+		"link": "https://www.serializd.com/show/48891"
 	}
 }

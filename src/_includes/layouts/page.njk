@@ -12,7 +12,7 @@ templateName: page
 
 				{% if bigboiButton %}
 				<a href="{{ bigboiButton.url | url }}" class="button">
-					{% if bigboiButton.icon %}{% svg "rss", { class: 'inline-icon' } %}{% endif %}
+					{% if bigboiButton.icon %}{% svg bigboiButton.icon, { class: 'inline-icon' } %}{% endif %}
 					<span>{{ bigboiButton.label }}</span>
 				</a>
 				{% endif %}

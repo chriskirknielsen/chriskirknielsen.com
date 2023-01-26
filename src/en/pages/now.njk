@@ -4,6 +4,7 @@ subtitle: What am I doing these days?
 permalink: /now/
 layout: layouts/page.njk
 section: now
+bigboiButton: { url: "https://nownownow.com/about", label: "What is this?", icon: "question" }
 templateEngineOverride: njk, md
 ---
 
@@ -22,8 +23,10 @@ templateEngineOverride: njk, md
 <h2>Reading</h2>
 <p>
     <span aria-hidden="true">📚</span>
-    <strong>{{ now.book.title }}
-    {% if now.book.detail %}({{ now.book.detail }}){% endif %}</strong>
+    {% if now.book.link %}<a href="{{ now.book.link | url }}">{% endif %}
+        <strong>{{ now.book.title }}
+        {% if now.book.detail %}({{ now.book.detail }}){% endif %}</strong>
+    {% if now.book.link %}</a>{% endif %}
     {% if now.book.blurb %}<br>{{ now.book.blurb }}{% endif %}
 </p>
 {% endif %}
@@ -32,8 +35,10 @@ templateEngineOverride: njk, md
 <h2>Gaming</h2>
 <p>
     <span aria-hidden="true">🕹️</span>
-    <strong>{{ now.game.title }}
-    {% if now.game.detail %}({{ now.game.detail }}){% endif %}</strong>
+    {% if now.game.link %}<a href="{{ now.game.link | url }}">{% endif %}
+        <strong>{{ now.game.title }}
+        {% if now.game.detail %}({{ now.game.detail }}){% endif %}</strong>
+    {% if now.game.link %}</a>{% endif %}
     {% if now.game.blurb %}<br>{{ now.game.blurb }}{% endif %}
 </p>
 {% endif %}
@@ -42,11 +47,11 @@ templateEngineOverride: njk, md
 <h2>Watching</h2>
 <p>
     <span aria-hidden="true">📺</span>
-    <strong>{{ now.show.title }}
-    {% if now.show.detail %}(Season {{ now.show.detail }}){% endif %}</strong>
+    {% if now.show.link %}<a href="{{ now.show.link | url }}">{% endif %}
+        <strong>{{ now.show.title }}
+        {% if now.show.detail %}(Season {{ now.show.detail }}){% endif %}</strong>
+    {% if now.show.link %}</a>{% endif %}
     {% if now.show.blurb %}<br>{{ now.show.blurb }}{% endif %}
 </p>
 {% endif %}
 {% endmdsafe %}
-
-[What's this Now page?](https://nownownow.com/about)
