@@ -38,22 +38,27 @@ Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. 
 {% mdsafe %}
 <h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" class="heading-anchor">Now</a>)</h2>
 <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
-{% if not now.book.hide %}
+{% set nowBook = now.book | getFirst %}
+{% if now.book %}
     <li>
-        <span aria-label="{{ 'page.now.bookLabel' | i18n }}">📚</span>&nbsp;{{ now.book.title }}
-        {% if now.book.detail %}({{ now.book.detail }}){% endif %}
+        <span aria-label="{{ 'page.now.bookLabel' | i18n }}">📚</span>&nbsp;{{ nowBook.title }}
+        {% if nowBook.detail %}({{ nowBook.detail }}){% endif %}
     </li>
 {% endif %}
-{% if not now.game.hide %}
+
+{% set nowGame = now.game | getFirst %}
+{% if now.game %}
     <li>
-        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ now.game.title }}
-        {% if now.game.detail %}({{ now.game.detail }}){% endif %}
+        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ nowGame.title }}
+        {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}
     </li>
 {% endif %}
-{% if not now.show.hide %}
+
+{% set nowShow = now.show | getFirst %}
+{% if now.show %}
     <li>
-        <span aria-label="{{ 'page.now.showLabel' | i18n }}">📺</span>&nbsp;{{ now.show.title }}
-        {% if now.show.detail %}(<span arial-label="{{ 'page.now.seasonLabel' | i18n }}">S</span>{{ now.show.detail }}){% endif %}
+        <span aria-label="{{ 'page.now.showLabel' | i18n }}">📺</span>&nbsp;{{ nowShow.title }}
+        {% if nowShow.detail %}(<span arial-label="{{ 'page.now.seasonLabel' | i18n }}">S</span>{{ nowShow.detail }}){% endif %}
     </li>
 {% endif %}
 </ul>

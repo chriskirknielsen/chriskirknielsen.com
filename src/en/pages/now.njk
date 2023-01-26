@@ -9,7 +9,7 @@ templateEngineOverride: njk, md
 ---
 
 {% mdsafe %}
-{% if not now.home.hide %}
+{% if now.home %}
 <h2>Living</h2>
 <p>
     <span aria-hidden="true">🏠</span>
@@ -19,39 +19,59 @@ templateEngineOverride: njk, md
 </p>
 {% endif %}
 
-{% if not now.book.hide %}
+{% if now.book %}
 <h2>Reading</h2>
-<p>
-    <span aria-hidden="true">📚</span>
-    {% if now.book.link %}<a href="{{ now.book.link | url }}">{% endif %}
-        <strong>{{ now.book.title }}
-        {% if now.book.detail %}({{ now.book.detail }}){% endif %}</strong>
-    {% if now.book.link %}</a>{% endif %}
-    {% if now.book.blurb %}<br>{{ now.book.blurb }}{% endif %}
-</p>
+{% for nowBook in now.book | getList %}
+    <p>
+        <span aria-hidden="true">📚</span>
+        {% if nowBook.link %}<a href="{{ nowBook.link | url }}">{% endif %}
+            <strong>{{ nowBook.title }}
+            {% if nowBook.detail %}({{ nowBook.detail }}){% endif %}</strong>
+        {% if nowBook.link %}</a>{% endif %}
+        {% if nowBook.blurb %}<br>{{ nowBook.blurb }}{% endif %}
+    </p>
+{% endfor %}
 {% endif %}
 
-{% if not now.game.hide %}
+{% if now.game %}
 <h2>Gaming</h2>
-<p>
-    <span aria-hidden="true">🕹️</span>
-    {% if now.game.link %}<a href="{{ now.game.link | url }}">{% endif %}
-        <strong>{{ now.game.title }}
-        {% if now.game.detail %}({{ now.game.detail }}){% endif %}</strong>
-    {% if now.game.link %}</a>{% endif %}
-    {% if now.game.blurb %}<br>{{ now.game.blurb }}{% endif %}
-</p>
+{% for nowGame in now.game | getList %}
+    <p>
+        <span aria-hidden="true">🕹️</span>
+        {% if nowGame.link %}<a href="{{ nowGame.link | url }}">{% endif %}
+            <strong>{{ nowGame.title }}
+            {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}</strong>
+        {% if nowGame.link %}</a>{% endif %}
+        {% if nowGame.blurb %}<br>{{ nowGame.blurb }}{% endif %}
+    </p>
+{% endfor %}
 {% endif %}
 
-{% if not now.show.hide %}
+{% if now.show %}
 <h2>Watching</h2>
-<p>
-    <span aria-hidden="true">📺</span>
-    {% if now.show.link %}<a href="{{ now.show.link | url }}">{% endif %}
-        <strong>{{ now.show.title }}
-        {% if now.show.detail %}(Season {{ now.show.detail }}){% endif %}</strong>
-    {% if now.show.link %}</a>{% endif %}
-    {% if now.show.blurb %}<br>{{ now.show.blurb }}{% endif %}
-</p>
+{% for nowShow in now.show | getList %}
+    <p>
+        <span aria-hidden="true">📺</span>
+        {% if nowShow.link %}<a href="{{ nowShow.link | url }}">{% endif %}
+            <strong>{{ nowShow.title }}
+            {% if nowShow.detail %}(Season {{ nowShow.detail }}){% endif %}</strong>
+        {% if nowShow.link %}</a>{% endif %}
+        {% if nowShow.blurb %}<br>{{ nowShow.blurb }}{% endif %}
+    </p>
+{% endfor %}
+{% endif %}
+
+{% if now.show %}
+<h2>Listening</h2>
+{% for nowMusic in now.music | getList %}
+    <p>
+        <span aria-hidden="true">🎧</span>
+        {% if nowMusic.link %}<a href="{{ nowMusic.link | url }}">{% endif %}
+            <strong>{{ nowMusic.title }}
+            {% if nowMusic.detail %}({{ nowMusic.detail }}){% endif %}</strong>
+        {% if nowMusic.link %}</a>{% endif %}
+        {% if nowMusic.blurb %}<br>{{ nowMusic.blurb }}{% endif %}
+    </p>
+{% endfor %}
 {% endif %}
 {% endmdsafe %}

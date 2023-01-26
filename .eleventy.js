@@ -230,6 +230,8 @@ module.exports = function (eleventyConfig) {
 			return flip ? bool === false : bool !== false;
 		})
 	);
+	eleventyConfig.addFilter('getFirst', (listOrItem) => (Array.isArray(listOrItem) ? listOrItem[0] : listOrItem)); // Gets the first item, and if it is not an array, returns the value as-is
+	eleventyConfig.addFilter('getList', (listOrItem) => (Array.isArray(listOrItem) ? listOrItem : [listOrItem])); // Gets the list of items, and if it is not an array, returns the value wrapped in an array
 	eleventyConfig.addFilter('dateFormat', (date, opts = {}) => {
 		const format = opts.format || 'machine';
 		const locale = opts.locale || defaultLang;
