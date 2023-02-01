@@ -1,0 +1,6 @@
+.now-list > li + li {
+	margin-block-start: var(--size-xs);
+}
+.now-list > li::marker {
+	content: var(--marker, '•') ' ';
+}
