@@ -2,7 +2,6 @@
 title: 'CSS Grid with a preferred column count'
 summary: Set up a CSS grid with a specific ideal number of columns.
 date: 2022-09-13
-metaImageBackground: 'https://images.unsplash.com/photo-1561386384-b4eac7f8724b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGNvbHVtbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60'
 tags:
     - quick-tip
     - css

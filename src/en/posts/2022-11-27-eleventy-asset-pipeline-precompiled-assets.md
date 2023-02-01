@@ -1,7 +1,6 @@
 ---
 title: 'Eleventy Asset Pipeline: Precompiled Assets without Gulp'
 summary: Precompiled Sass and JS files that become part of the source folder.
-metaImageBackground: 'https://images.unsplash.com/photo-1543674892-7d64d45df18b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2060&q=80'
 tags:
     - eleventy
     - javascript
