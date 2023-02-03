@@ -18,7 +18,7 @@ class FollowFeed {
 		feed.addSource('atom', 'Blog', `${metadata.url}/rss.xml`);
 		feed.addSource('atom', 'Designs', `${metadata.url}/designs.xml`);
 		feed.addSource('rss', 'Mastodon', `https://${metadata.author.mastodonInstance}/users/${metadata.author.mastodon}.rss`);
-		feed.addSource('twitterUser', 'Twitter', 'ckirknielsen', '974614220124942337');
+		// feed.addSource('twitterUser', 'Twitter', 'ckirknielsen', '974614220124942337');
 
 		return feed.toRssFeed({
 			title: `${metadata.title} — Activity Feed`,
