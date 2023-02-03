@@ -39,10 +39,12 @@ templateName: post
 
 	{% if externalUrl %}
 	<p class="post-external">
-		<a href="{{ externalUrl }}" class="button">
-			{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}
-			{% svg "arrow-next", { class: 'inline-icon' } %}
-		</a>
+		{% set externalLinkLabel %}{{ 'blog.external' | i18n }} {{ externalHost or externalUrl }}{% endset %}
+		{% component "button", {
+			url: externalUrl,
+			label: externalLinkLabel,
+			icon: 'arrow-next'
+		} %}
 	</p>
 	{% endif %}
 

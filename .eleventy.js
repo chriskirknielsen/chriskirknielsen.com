@@ -365,6 +365,11 @@ module.exports = function (eleventyConfig) {
 		svgCache[cacheKey] = content;
 		return await content;
 	});
+	eleventyConfig.addAsyncShortcode('component', async function (filename, componentOptions = {}) {
+		const filePath = `./${rootDir}/_includes/components/${filename}.njk`;
+		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, componentOptions, 'njk');
+		return await content;
+	});
 
 	function imageGalleryShortcode(pictures, addClass = null) {
 		const galleryClasses = ['image-gallery', 'content-wide'];

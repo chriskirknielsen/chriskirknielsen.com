@@ -11,10 +11,12 @@ templateName: page
 				<h1>{{ (pageTitle or title) | safe }}</h1>
 
 				{% if bigboiButton %}
-				<a href="{{ bigboiButton.url | url }}" class="button">
-					{% if bigboiButton.icon %}{% svg bigboiButton.icon, { class: 'inline-icon' } %}{% endif %}
-					<span>{{ bigboiButton.label }}</span>
-				</a>
+					{% component "button", {
+						url: bigboiButton.url | url,
+						label: bigboiButton.label,
+						icon: bigboiButton.icon or false,
+						iconBefore: bigboiButton.iconBefore or false
+					} %}
 				{% endif %}
 			{% if bigboiButton %}</div>{% endif %}
 			
@@ -22,10 +24,13 @@ templateName: page
 
 			{% if backlink %}
 			<p class="u-marginBlockStart-m">
-				<a href="{{ backlink.url | url }}" class="button" data-backlink>
-					{% svg "arrow-back", { class: "inline-icon" } %}
-					{{ backlink.label }}
-				</a>
+				{% component "button", {
+					url: backlink.url | url,
+					linkAttr: 'data-backlink',
+					label: backlink.label,
+					icon: 'arrow-back',
+					iconBefore: true
+				} %}
 			</p>
 			{% endif %}
 		</div>

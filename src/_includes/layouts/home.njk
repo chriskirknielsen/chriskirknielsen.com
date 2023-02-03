@@ -58,14 +58,23 @@ section: home
                     </a>
 
                     <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-s); --btn-font-size: 0.75em;">
-                        <a href="{{ '/acknowledgements/' | locale_url }}#{{ 'nav.usesHash' | i18n }}" class="button">{{ 'page.quickAccess.also.usesPageLabel' | i18n }}</a>
+                        {% component "button", {
+                            url: ('/acknowledgements/' | locale_url)+'#'+('nav.usesHash' | i18n),
+                            label: 'page.quickAccess.also.usesPageLabel' | i18n
+                        } %}
                         
                         {% if lang == 'en' %}
-                            <a href="{{ '/now/' | locale_url }}" class="button">{{ 'page.quickAccess.also.nowPageLabel' | i18n }}</a>
+                            {% component "button", {
+                                url: '/now/' | locale_url,
+                                label:  'page.quickAccess.also.nowPageLabel' | i18n
+                            } %}
                         {% endif %}
 
                         {% for socialPage in social %}
-                            <a href="{{ socialPage.url }}" class="button">{{ socialPage.name }}</a>
+                            {% component "button", {
+                                url: socialPage.url,
+                                label: socialPage.name
+                            } %}
                         {% endfor %}
                     </p>
                 </div>
@@ -95,11 +104,14 @@ section: home
                 <p class="spaced-items inlined-items" style="--area: ctas">
                     <a href="{{ '/blog/' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
                     
-                    <a href="{{ '/rss.xml' | locale_url }}" class="button">
-                        {% svg "rss" %}
-                        <span class="visually-hidden">{{ 'rss.subscribe' | i18n }}</span>
-                        <span aria-hidden="true">{{ 'rss.feed' | i18n }}</span>
-                    </a>
+                    {% component "button", {
+                        url: '/rss.xml' | locale_url,
+                        label: {
+                            aria: 'rss.subscribe' | i18n,
+                            plain: 'rss.feed' | i18n
+                        },
+                        icon: 'rss'
+                    } %}
                 </p>
             </div>
         </div>

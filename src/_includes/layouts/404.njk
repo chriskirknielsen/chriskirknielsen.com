@@ -15,10 +15,12 @@ section: 404
     {{ layoutContent | safe }}
 
     <p class="u-textAlign-center">
-        <a href="{{ localePath | url }}" class="button">
-            {% svg "arrow-back-double", { class: "inline-icon" } %}
-            {{ 'nav.home' | i18n }}
-        </a>
+        {% component "button", {
+			url: localePath | url,
+			label: 'nav.home' | i18n,
+			icon: 'arrow-back-double',
+            iconBefore: true
+		} %}
     </p>
 
     <audio id="cdiv-sfx" src="{{ '/' + assets.audio + '/bttf-chime.mp3' | url }}"></audio>
