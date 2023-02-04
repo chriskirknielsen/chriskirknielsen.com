@@ -56,7 +56,7 @@ templateName: post
 		</a>
 		
 		<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url), aboutLinkId: aboutLinkId }) | safe }}</p>
-		<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialUrl: "https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }}", shopUrl: '/designs/' }) | safe }}</p>
+		<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe }}</p>
 	</footer>
 	{% endif %}
 {% endblock %}
