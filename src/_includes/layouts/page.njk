@@ -20,7 +20,7 @@ templateName: page
 				{% endif %}
 			{% if bigboiButton %}</div>{% endif %}
 			
-			<p class="u-fontWeight-bold">{{ subtitle }}</p>
+			<p class="u-fontWeight-bold">{{ subtitle or summary }}</p>
 
 			{% if backlink %}
 			<p class="u-marginBlockStart-m">

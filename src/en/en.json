@@ -23,6 +23,7 @@
 			"blog": "Blog",
 			"about": "About",
 			"designs": "Designs",
+			"projects": "Projects",
 			"acknowledgements": "Thanks / Uses",
 			"usesHash": "uses"
 		},
@@ -33,6 +34,9 @@
 			"external": "Read the full article on",
 			"writtenByAuthor": "Post written by <a href=\"{{aboutUrl}}\" id=\"{{aboutLinkId}}\">{{ author }}</a>",
 			"commentsAndSupport": "If you have a comment, please <a href=\"{{ socialUrl }}\">tag me on Mastodon</a> to chat. If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\">shirt design of mine</a>? Thanks a ton!"
+		},
+		"projects": {
+			"view": "View the project"
 		},
 		"callout": "Note",
 		"latestPost": "Latest Post",

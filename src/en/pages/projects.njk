@@ -1,0 +1,19 @@
+---
+title: "Projects"
+summary: Some of the things I've made, either passion projects or real-world work.
+---
+
+<div class="gridlist" data-grid-cols="3">
+{% for project in collections.projects | reverse %}
+	{% set projectDesc %}<p class="u-marginBlockStart-auto u-fontSize-smallest">{{ project.data.summary or project.data.subtitle }}</p>{% endset %}
+    {% component "griditem", {
+		gridItem: project,
+		gridCoverlink: true,
+		gridItemTitle: project.data.title,
+		gridItemImage: project.data.customMetaImage,
+		gridItemPermalink: (project.url | url),
+		gridItemContent: projectDesc,
+		gridItemLazyImage: loop.index >= 8
+	} %}
+{% endfor %}
+</div>
