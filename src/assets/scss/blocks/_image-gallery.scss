@@ -10,7 +10,7 @@
 		object-fit: cover;
 	}
 
-	& :is(picture, a) {
+	& :is(picture, a:not(figcaption > a)) {
 		display: flex;
 		flex-direction: column;
 

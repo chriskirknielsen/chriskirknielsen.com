@@ -10,11 +10,17 @@ rssFeedOverride: '/designs.xml'
 
 <div class="u-textAlign-center">
 	<p class="visually-hidden">Shops:</p>
-	<ol class="inline-list | u-fontWeight-bold u-fontSize-smallest">
+	<ul class="inline-list | u-fontWeight-bold u-fontSize-smallest">
 		{% for merchStore, merchUrl in metadata.merch %}
-			<li><a href="{{ merchUrl | url }}">{{ merchStore }}</a>
+			{% set storeIconName %}store-icon-{{ merchStore | lower}}{% endset %}
+			<li class="store-item">
+				<a href="{{ merchUrl | url }}">
+					{% svg storeIconName, { class: 'store-icon', ariaHidden: true } %}
+					{{ merchStore }}
+				</a>
+			</li>
 		{% endfor %}
-	</ol>
+	</ul>
 </div>
 
 <hr>
