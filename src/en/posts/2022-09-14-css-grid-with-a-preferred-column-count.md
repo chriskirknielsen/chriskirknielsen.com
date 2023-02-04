@@ -38,6 +38,6 @@ This results in a grid that will have up to `--_cols` columns, but that will sho
 
 There is a little more going on for each grid item and its logo (`<img>` or `<svg>`), leveraging those `--_min` and `--_max` variables, but they do not define the column sizes so I’ve left them out from the code above, but you’ll find all them in the CodePen demo. Here’s how that looks in action (if your browser supports grid, custom properties and max functions, that is — I’ve removed flex and var-less/min-max-less fallbacks for conciseness, but always favour progressive enhancement in client work!):
 
-{% codepen "https://codepen.io/chriskirknielsen/pen/oNdzOwJ/", "result", "480" %}
+{% codepen "https://codepen.io/chriskirknielsen/pen/oNdzOwJ/" %}
 
 This is one of many possible ways to make this work, and I have likely over-engineered this, so if you have ideas to simplify this code, I’d love to know. In the meantime, keep on making cool things!

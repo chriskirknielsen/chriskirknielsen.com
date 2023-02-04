@@ -34,7 +34,7 @@ I took up my boss on his offer to drive me to a hardware store and got some wood
 
 I also did some work on myself: in September, I decided to start running. My dad has run a fair share of marathons, and still runs 10 Km every Sunday despite being over 60 years old — figured I could do a little running as I approached 30. I’ve been quite inactive my whole life (praise be my metabolism, for now) so it was something I really wanted to do. From the end of September to the end of November, I managed to go from 2 Km to 5.5 Km runs, about three times a week. And I live on a hill so I get that extra calf exercise!
 
-{% localimage "cincy-view.jpg", "A high vantage point of a city taken from a park where most trees have lost their leaves, framing the photo with naked branches. The rooftops below and the hills in the far back are covered in a light layer of snow. The skies are grey and cloudy. And for a moment, everything just looks quiet and halted in time.", "Look at that view!", { ratio: 1663/1247 } %}
+{% image "./cincy-view.jpg", "A high vantage point of a city taken from a park where most trees have lost their leaves, framing the photo with naked branches. The rooftops below and the hills in the far back are covered in a light layer of snow. The skies are grey and cloudy. And for a moment, everything just looks quiet and halted in time.", "Look at that view!", { ratio: 1663/1247 } %}
 
 In other health-related stuff, I went out with a few co-workers before Thanksgiving and had too much to drink. I later got even more drunk for the office Holiday party and even vomited (in the bathroom luckily). I was told I behaved but this has definitely eaten at me and I don't like not being fully aware, especially if I'm seeing fantastic folks I haven't seen in over three years — I'd like to remember that, especially not knowing when the next time will be! (also when I have very limited social interactions in a new city) A nasty blizzard picked up after the party and a co-worker drove me home, bless his soul.
 
@@ -42,19 +42,19 @@ In other health-related stuff, I went out with a few co-workers before Thanksgiv
 
 I launched a new version of my website on Halloween after working on it for a while whenever I had time, and shared it on [Twitter]({{ metadata.tweetArchiveUrl }}) (RIP, [I've migrated to Mastodon](https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }})). I have a strong distaste for being “in the spotlight” but it got so many nice comments, including from people I really look up to, so I’ll accept it for a short moment. Let’s call it a Halloween costume: Extroverted Chris!
 
-{% localimage "site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!", { ratio: 1200/676 } %}
+{% image "./site-themes.jpg", "A cropped view of the chriskirknielsen.com homepage with all 5 themes applied, each shown as a partial slice across the page from left to right: retrowave, retrowave-ish but during daytime, vaporwave, old-school, and dystopian.", "Hey, this is where you are now!", { ratio: 1200/676 } %}
 
 ## Video Games
 
 I finished Horizon: Forbidden West: I appreciate story-driven video games a lot with well-built lore and strong characters, and this hit the mark. A little _too much_ talking at times but overall, a fine game. I also started Cyberpunk 2077, which I am really enjoying (not beaten yet!), I loved God of War Ragnarök _a lot_, and Outer Wilds's Echoes of the Eye additional content was excellent. It's nice to visit other worlds, you know? Which reminds me: I only read one book this year (Recursion by Blake Crouch: it was good). I need to read more, and I have books lined up! Also, it's more of a gamified activity, but I managed to do 365 days in a row on DuoLingo for learning Japanese! I still suck at it.
 
-{% localimage "gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day.", "", { ratio: "16/9" } %}
+{% image "./gowr-axe.jpg", "A close-up of Kratos's axe in God of War Ragnarök, viewed from below with Kratos visible but blurry, close to a tree on a clear day.", "", { ratio: "16/9" } %}
 
 ## COVID and Concert
 
 At the end of November, I tripped and fell while on my morning run. Nothing major, but I scraped up my knee and both hands. And it tore a hole in my running pants! Thanks, uneven side walk tile. I have not gone running since then, but soon… That same night, the aforementioned concert event: [Bad Omens](https://youtu.be/Aibxit_PpAg). It’s a band I only recently discovered, but I listened to them so much that an opportunity to see them, at walking distance from the apartment, was too good to pass up. It was a nice show, great tunes and energy, alas, I was the only person wearing a mask within a ten-mile radius, so you might have guessed it: COVID finally got me. My symptoms were not bad and I kept working to keep me busy, though I probably should have taken a day off to play video games. Next time…
 
-{% localimage "covid-test.jpg", "An at-home COVID-19 test showing both the control and the test lines, meaning it is positive.", "", { ratio: 1420/700 } %}
+{% image "./covid-test.jpg", "An at-home COVID-19 test showing both the control and the test lines, meaning it is positive.", "", { ratio: 1420/700 } %}
 
 ## Seeing family: not this time
 

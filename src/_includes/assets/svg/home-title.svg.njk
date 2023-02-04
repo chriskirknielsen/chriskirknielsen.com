@@ -22,7 +22,7 @@
 
 {% set svgTitle %}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="home-svg">
-  <title>Chris, {{ 'homeTitle.creaDev' | i18n | toLowercase }}</title>
+  <title>Chris, {{ 'homeTitle.creaDev' | i18n | lower }}</title>
 
   <defs>
     <!-- SHAPE: Chris -->
@@ -235,7 +235,7 @@
   <!-- Creative Developer -->
   <g class="home-svg__creativedeveloper-text home-svg__group" letter-spacing=".7em">
     <text text-anchor="middle" x="50%" y="387">
-      {{ 'homeTitle.creaDev' | i18n | toUppercase }}
+      {{ 'homeTitle.creaDev' | i18n | upper }}
     </text>
   </g>
 </svg>

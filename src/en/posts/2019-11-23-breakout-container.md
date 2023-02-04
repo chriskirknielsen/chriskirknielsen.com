@@ -90,7 +90,7 @@ A media query is not necessary since negative padding values are invalid. 👍
 
 Let's have a look at the complete code all together now:
 
-{% codepen "https://codepen.io/chriskirknielsen/pen/abzoJWr/", "html,css", "480"  %}
+{% codepen "https://codepen.io/chriskirknielsen/pen/abzoJWr/", "html,css" %}
 
 ## More reading
 

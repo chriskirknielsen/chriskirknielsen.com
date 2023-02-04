@@ -23,7 +23,6 @@ const esbuild = require('esbuild');
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
-const pluginBlogTools = require('eleventy-plugin-blog-tools');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
@@ -172,7 +171,6 @@ module.exports = function (eleventyConfig) {
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginRss);
-	eleventyConfig.addPlugin(pluginBlogTools);
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		templateFormats: ['md', 'html', 'njk'],
 		preAttributes: {
@@ -209,8 +207,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter('removeTrailingSlash', (str) => str.trim().replace(/\/$/g, ''));
 	eleventyConfig.addFilter('stripHyphenChars', (str) => str.replace(/(&shy;|<wbr>)/gm, ''));
 	eleventyConfig.addFilter('stripScripts', (str) => str.replace(/(<script( [^>]+)?>(.+)<\/script>)/gim, '')); // Not 100% reliable, however I don't usually add `</script>` inside a script tag so it should be safe!
-	eleventyConfig.addFilter('toLowercase', (str) => str.toLowerCase());
-	eleventyConfig.addFilter('toUppercase', (str) => str.toUpperCase());
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
 	eleventyConfig.addFilter('filterOut', (list, values) => list.filter((value) => !values.includes(value)));
 	eleventyConfig.addFilter('find', (array, prop, value) => array.find((item) => item[prop] === value));
@@ -351,6 +347,21 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => {
 		return inline ? md.renderInline(content) : md.render(content);
 	});
+	eleventyConfig.addShortcode('codepen', function (url, tabs = 'result', height = '480', theme = '') {
+		const path = new URL(url).pathname;
+		const id = path.split('/')[3];
+		let markup = `<p class="codepen" data-height="${height}" data-theme-id="${theme}" data-default-tab="${tabs}" data-slug-hash="${id}">
+			<a href="${url}" class="button">See the Pen</a>
+		</p>`;
+
+		// Only inject the CodePen embed once per page
+		if (!this.page.hasOwnProperty('__codepen_embed_script_injected__')) {
+			markup += `<script async src="https://static.codepen.io/assets/embed/ei.js"></script>`;
+			this.page.__codepen_embed_script_injected__ = true;
+		}
+
+		return markup;
+	});
 
 	eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
 		const cacheKey = filename + '_' + JSON.stringify(svgOptions);
@@ -378,19 +389,30 @@ module.exports = function (eleventyConfig) {
 		}
 		return `<div class="${galleryClasses.join(' ')}">${pictures.trim()}</div>`;
 	}
-	eleventyConfig.addAsyncShortcode('localimage', async function (src, alt, caption = '', options = {}) {
+	function imageShortcode(src, alt, caption = '', options = {}) {
 		if (typeof alt === 'undefined') {
 			throw `The ${src} image does not have an alt attribute! (empty string is allowed)`;
+		}
+
+		if (!options.ratio && !options.width && !options.height) {
+			throw `The ${src} image does not have a ratio or width/height attributes. At least two of the three must be provided.`;
 		}
 
 		const isGroupContext = options.hasOwnProperty('group') && options.group; // Whether the image is part of a group
 		const sizes = ['100vw', '(min-width: 50rem) 50rem'].join(', ');
 		const widths = options.widths || [480, 800, 1200];
-		const srcset = widths.map((w) => `./${src}?nf_resize=fit&w=${w} ${w}w`);
+		const srcset = widths.map((w) => `${src}?nf_resize=fit&w=${w} ${w}w`);
+		if (alt.indexOf('"') > -1) {
+			alt = alt.split('"').join('&quot;');
+		}
+		if (alt.indexOf('<') > -1) {
+			alt = alt.split('<').join('&lt;');
+		}
 
 		const attrs = {
 			loading: 'lazy',
 			decoding: 'async',
+			alt: alt,
 		};
 
 		// Assign a ratio to the image
@@ -427,14 +449,14 @@ module.exports = function (eleventyConfig) {
 			attrs.height = options.height;
 		}
 
-		let ratioString = attrs['data-ratio'] || parseFloat(options.ratio.toFixed(4)).toString() || `${options.width} / ${options.height}`;
+		let ratioString = attrs['data-ratio'] || options.ratio ? parseFloat(options.ratio.toFixed(4)).toString() : `${options.width} / ${options.height}`;
 		attrs.style = `aspect-ratio:${ratioString};`;
 
 		const attrsStr = Object.entries(attrs)
 			.map((attr) => `${attr[0]}="${attr[1]}"`)
 			.join(' ');
 
-		const imageMarkup = `<a href="./${src}"><img src="./${src}?nf_resize=fit&w=${widths.at(-2)}" alt="${alt}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
+		const imageMarkup = `<a href="./${src}"><img src="./${src}?nf_resize=fit&w=${widths.at(-2)}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
 
 		let output;
 		if (caption) {
@@ -449,7 +471,9 @@ module.exports = function (eleventyConfig) {
 		}
 
 		return output;
-	});
+	}
+
+	eleventyConfig.addShortcode('image', imageShortcode);
 	eleventyConfig.addPairedShortcode('gallery', imageGalleryShortcode);
 
 	/* Transforms */

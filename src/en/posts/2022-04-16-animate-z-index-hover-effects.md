@@ -22,7 +22,7 @@ To me, animating from `1` to `10` is reasonable, as it gives the value 10 discre
 In most cases, there will be some collision at that mid-point between two neighbouring elements since they are taking more space than their dedicated tile, but depending on your expansion style and transition speed, users should be fooled into thinking the layers are moving correctly.
 
 Finally, here’s a little demo to show you the end result:
-{% codepen "https://codepen.io/chriskirknielsen/pen/zYpmzgj/", "result", "480" %}
+{% codepen "https://codepen.io/chriskirknielsen/pen/zYpmzgj/" %}
 
 {% callout %} Here, I am using a pseudo-element behind the tile that expands via `clip-path` (this allows to have an absolute "growth" size), but this idea can be applied to a tile that grows with something like `transform: scale(1.1)` as well.{% endcallout %}
 

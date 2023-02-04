@@ -31,7 +31,7 @@ rssFeedOverride: '/designs.xml'
 
 	{% for tag in activeDesigns | pluck('tags') | flatten | unique | sort %}
 	<div class="filtering-item">
-		<input type="radio" name="filter" id="filter-{{ tag }}" class="visually-hidden" value="{{ tag | toLowercase }}">
+		<input type="radio" name="filter" id="filter-{{ tag }}" class="visually-hidden" value="{{ tag | lower }}">
 		<label for="filter-{{ tag }}" class="filtering-tag | button">{{ tag }}</label>
 	</div>
 	{% endfor %}
