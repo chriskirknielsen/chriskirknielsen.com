@@ -10,7 +10,7 @@ module.exports = {
 		mastodonInstance: 'mastodon.social',
 	},
 	tweetArchiveUrl: 'https://tweets.chriskirknielsen.com/',
-	copyrightStart: 2019,
+	copyrightStart: 1992,
 	currentYear: new Date().getFullYear(),
 	defaultLocale: 'en',
 	locales: { en: 'English', fr: 'Français' },
