@@ -85,7 +85,7 @@
 	}
 
 	.cardblock {
-		box-shadow: 0 0.25em 1em -0.5em var(--t-accent-color);
+		box-shadow: var(--T-dusk, 0 0.25em 1em -0.5em var(--t-accent-color)) var(--T-dawn, 0 0.25em 0 -1px var(--t-accent-color), 0 0.25em 0 var(--cardblock-border-color));
 	}
 
 	.callout {
