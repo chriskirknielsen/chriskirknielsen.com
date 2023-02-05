@@ -1,7 +1,7 @@
 ---
 title: Runestone Futhark
 summary: A microapp to help learn how to read and spell in Norse Runes
-customMetaImage: futhark.jpg
+customMetaImage: futhark-cover.jpg
 externalUrl: https://codepen.io/chriskirknielsen/full/OJwvQRe
 date: 2023-01-31
 ---

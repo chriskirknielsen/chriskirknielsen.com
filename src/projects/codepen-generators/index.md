@@ -18,7 +18,7 @@ A mouthful of a title but basically a grainy gradient that kinda looks like a pl
 
 Liam Neeson is a gem. He's a great actor and has gravitas. He's also played in a lot of movies relatively recently that have a similar "vibe", following the "Taken" movie formula. As such, it got me thinking, could we predict his next movie using this generator?
 
-I grabbed a bunch of images of him, created a bunch of fake titles and taglines (in two parts), and some results are very believable, while others are just plain hilarious (at least to me!). Have fun!
+I grabbed a handful of photos of him, created a bunch of fake titles and taglines (in two parts), and some results are very believable, while others are just plain hilarious (at least to me!). Have fun!
 
 {% codepen "https://codepen.io/chriskirknielsen/pen/ExwRYXO", "result", 560 %}
 

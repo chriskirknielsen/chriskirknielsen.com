@@ -17,3 +17,17 @@ summary: Some of the things I've made, either passion projects or real-world wor
 	} %}
 {% endfor %}
 </div>
+
+<div class="spaced-items inlined-items" style="--spaced-items-gap: var(--size-xs);">
+	<p class="u-fontWeight-bold">Personal site archive:</p>
+	{% set oldSites = [2020, 2018, 2016] %}
+	<ul class="inline-list">
+		{% for oldSiteYear in oldSites %}
+			<li>
+				<a href="https://{{ oldSiteYear }}.chriskirknielsen.com">
+					{{ oldSiteYear }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
