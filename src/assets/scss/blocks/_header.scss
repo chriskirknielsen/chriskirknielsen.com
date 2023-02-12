@@ -13,11 +13,11 @@
 
 	&-logo {
 		flex: 0 1 auto;
-		min-width: 2rem;
+		min-width: 1em;
 		margin-inline-end: auto;
 
 		color: var(--t-color-main-med);
-		font-size: 2rem;
+		font-size: clamp(1rem, 1rem + (2 - 1) * ((100vw - 20rem) / (32 - 20)), 2rem);
 		text-decoration: none;
 
 		& > svg {
