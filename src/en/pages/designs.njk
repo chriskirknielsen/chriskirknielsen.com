@@ -10,7 +10,7 @@ rssFeedOverride: '/designs.xml'
 
 <div class="u-textAlign-center">
 	<p class="visually-hidden">Shops:</p>
-	<ul class="inline-list | u-fontWeight-bold u-fontSize-smallest">
+	<ul class="inline-list | u-fontWeight-bold u-fontSize-smallest" style="--lh:var(--C-base-line-height)">
 		{% for merchStore, merchUrl in metadata.merch %}
 			{% set storeIconName %}store-icon-{{ merchStore | lower}}{% endset %}
 			<li class="store-item">
