@@ -10,6 +10,9 @@
 		htmlEl.setAttribute(pickerAttr, newIsOpenStatus ? 'open' : 'closed');
 		toggleBtn.setAttribute('aria-expanded', newIsOpenStatus.toString());
 		pickerEl.inert = !newIsOpenStatus;
+		if (newIsOpenStatus) {
+			pickerEl.querySelector('[data-theme-set][aria-pressed="true"]').scrollIntoView({ inline: 'center' }); // Ensure the selected theme is highlighted and visible
+		}
 		return newIsOpenStatus;
 	}
 	document.addEventListener('click', function (e) {
