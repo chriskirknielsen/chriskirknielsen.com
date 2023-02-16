@@ -12,7 +12,7 @@ It was also the project that convinced me to switch over my search (at the time)
 
 {% image "./rg-homepage.jpg", "Ratchet Galaxy's homepage as it currently stands", "", { width: 1280, height: 720 } %}
 
-Given the previous logo was making use of a reworked font I remade, [RG Future](/fonts/rg-future/), I was working on fonts, designs, icons, markup, styles, interactivity… basically everything besides the back-end — quite a massive project! I redesigned the RG logo when the 2021 game was announced, whose logo had a new typeface treatment that I replicated for the update.
+Given the previous logo was making use of a reworked font I remade, [RG Future](/fonts/rg-future/), I was working on fonts, designs, icons, markup, styles, interactivity… basically everything besides the back-end — quite a massive project! I redesigned the RG logo when the 2021 game was announced, whose logo had a new typeface treatment that I replicated for the update… and created a typeface for it, too: [RG Dimensions](/fonts/rg-dimensions/).
 
 {% gallery %}
 {% image "./rg-logo-2018.jpg", "Ratchet-Galaxy's logo in 2018, with a flat aspect and more sharp letters.", "2018: before", { width: 1280, height: 640, group: true } %}
