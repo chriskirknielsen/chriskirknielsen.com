@@ -4,7 +4,7 @@ subtitle: What am I doing these days?
 permalink: /now/
 layout: layouts/page.njk
 section: now
-bigboiButton: { url: "https://nownownow.com/about", label: "What is this?", icon: "question" }
+bigboiButton: { url: "https://nownownow.com/about", label: "What this is", icon: "question" }
 templateEngineOverride: njk, md
 ---
 
@@ -15,7 +15,7 @@ templateEngineOverride: njk, md
     <li>
         <strong>{{ now.home.title }}
         {% if now.home.detail %}({{ now.home.detail }}){% endif %}</strong>
-        {% if now.home.blurb %}<br>{{ now.home.blurb }}{% endif %}
+        {% if now.home.blurb %}<br>{{ now.home.blurb | safe }}{% endif %}
     </li>
 </ul>
 {% endif %}
@@ -30,7 +30,7 @@ templateEngineOverride: njk, md
             <strong>{{ nowBook.title }}
             {% if nowBook.detail %}({{ nowBook.detail }}){% endif %}</strong>
         {% if nowBook.link %}</a>{% endif %}
-        {% if nowBook.blurb %}<br>{{ nowBook.blurb }}{% endif %}
+        {% if nowBook.blurb %}<br>{{ nowBook.blurb | safe }}{% endif %}
     </li>
     {% endfor %}
 </ul>
@@ -46,7 +46,7 @@ templateEngineOverride: njk, md
             <strong>{{ nowGame.title }}
             {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}</strong>
         {% if nowGame.link %}</a>{% endif %}
-        {% if nowGame.blurb %}<br>{{ nowGame.blurb }}{% endif %}
+        {% if nowGame.blurb %}<br>{{ nowGame.blurb | safe }}{% endif %}
     </li>
     {% endfor %}
 </ul>
@@ -62,7 +62,7 @@ templateEngineOverride: njk, md
             <strong>{{ nowShow.title }}
             {% if nowShow.detail %}(Season {{ nowShow.detail }}){% endif %}</strong>
         {% if nowShow.link %}</a>{% endif %}
-        {% if nowShow.blurb %}<br>{{ nowShow.blurb }}{% endif %}
+        {% if nowShow.blurb %}<br>{{ nowShow.blurb | safe }}{% endif %}
     </li>
     {% endfor %}
 </ul>
@@ -78,7 +78,7 @@ templateEngineOverride: njk, md
             <strong>{{ nowMusic.title }}
             {% if nowMusic.detail %}({{ nowMusic.detail }}){% endif %}</strong>
         {% if nowMusic.link %}</a>{% endif %}
-        {% if nowMusic.blurb %}<br>{{ nowMusic.blurb }}{% endif %}
+        {% if nowMusic.blurb %}<br>{{ nowMusic.blurb | safe }}{% endif %}
     </li>
     {% endfor %}
 </ul>
