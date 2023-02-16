@@ -10,7 +10,7 @@ templateEngineOverride: njk, md
 
 {% macro nowList(nowItems, marker, detailPrefix = false) %}
 <ul class="now-list" style="--marker:'{{ marker }}'">
-    {% for nowItem in nowItems %}
+    {% for nowItem in nowItems | getList %}
     <li>
         {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
             <strong>{{ nowItem.title }}
@@ -26,27 +26,27 @@ templateEngineOverride: njk, md
 
 {% if now.home %}
     <h2>Living</h2>
-    {{ nowList(now.home | getList, "🏠") }}
+    {{ nowList(now.home, "🏠") }}
 {% endif %}
 
 {% if now.show %}
     <h2>Listening</h2>
-    {{ nowList(now.music | getList, "🎧") }}
+    {{ nowList(now.music, "🎧") }}
 {% endif %}
 
 {% if now.book %}
     <h2>Reading</h2>
-    {{ nowList(now.book | getList, "📚") }}
+    {{ nowList(now.book, "📚") }}
 {% endif %}
 
 {% if now.show %}
     <h2>Watching</h2>
-    {{ nowList(now.show | getList, "📺", "Season") }}
+    {{ nowList(now.show, "📺", "Season") }}
 {% endif %}
 
 {% if now.game %}
     <h2>Playing</h2>
-    {{ nowList(now.game | getList, "🕹️") }}
+    {{ nowList(now.game, "🕹️") }}
 {% endif %}
 
 {%- endmdsafe -%}
