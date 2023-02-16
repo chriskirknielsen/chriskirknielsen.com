@@ -5,7 +5,7 @@ summary: Some info about this site
 permalink: /acknowledgements/
 ---
 
-## Site Stuff
+## Colophon
 
 This site is built with [Eleventy](https://www.11ty.dev/), a fantastic static site generator. I [pre-compile](/blog/eleventy-asset-pipeline-precompiled-assets/) my Sass files to CSS, and minify my scripts. I then inline that to reduce HTTP requests, and this whole thing is hosted via [Netlify](https://netlify.com/). Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 

@@ -46,19 +46,19 @@ Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. 
     </li>
 {% endif %}
 
-{% set nowGame = now.game | getFirst %}
-{% if now.game %}
-    <li>
-        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ nowGame.title }}
-        {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}
-    </li>
-{% endif %}
-
 {% set nowShow = now.show | getFirst %}
 {% if now.show %}
     <li>
         <span aria-label="{{ 'page.now.showLabel' | i18n }}">📺</span>&nbsp;{{ nowShow.title }}
         {% if nowShow.detail %}(<span arial-label="{{ 'page.now.seasonLabel' | i18n }}">S</span>{{ nowShow.detail }}){% endif %}
+    </li>
+{% endif %}
+
+{% set nowGame = now.game | getFirst %}
+{% if now.game %}
+    <li>
+        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ nowGame.title }}
+        {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}
     </li>
 {% endif %}
 </ul>

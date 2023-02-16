@@ -8,79 +8,45 @@ bigboiButton: { url: "https://nownownow.com/about", label: "What this is", icon:
 templateEngineOverride: njk, md
 ---
 
-{% mdsafe %}
-{% if now.home %}
-<h2>Living</h2>
-<ul class="now-list" style="--marker:'🏠'">
+{% macro nowList(nowItems, marker, detailPrefix = false) %}
+<ul class="now-list" style="--marker:'{{ marker }}'">
+    {% for nowItem in nowItems %}
     <li>
-        <strong>{{ now.home.title }}
-        {% if now.home.detail %}({{ now.home.detail }}){% endif %}</strong>
-        {% if now.home.blurb %}<br>{{ now.home.blurb | safe }}{% endif %}
+        {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
+            <strong>{{ nowItem.title }}
+            {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }} {% endif %}{{ nowItem.detail }}){% endif %}</strong>
+        {% if nowItem.link %}</a>{% endif %}
+        {% if nowItem.blurb %}<br>{{ nowItem.blurb | safe }}{% endif %}
     </li>
+    {% endfor %}
 </ul>
+{% endmacro %}
+
+{%- mdsafe -%}
+
+{% if now.home %}
+    <h2>Living</h2>
+    {{ nowList(now.home | getList, "🏠") }}
+{% endif %}
+
+{% if now.show %}
+    <h2>Listening</h2>
+    {{ nowList(now.music | getList, "🎧") }}
 {% endif %}
 
 {% if now.book %}
-<h2>Reading</h2>
-{% set bookList = now.book | getList %}
-<ul class="now-list" style="--marker:'📚'">
-    {% for nowBook in bookList %}
-    <li>
-        {% if nowBook.link %}<a href="{{ nowBook.link | url }}">{% endif %}
-            <strong>{{ nowBook.title }}
-            {% if nowBook.detail %}({{ nowBook.detail }}){% endif %}</strong>
-        {% if nowBook.link %}</a>{% endif %}
-        {% if nowBook.blurb %}<br>{{ nowBook.blurb | safe }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
+    <h2>Reading</h2>
+    {{ nowList(now.book | getList, "📚") }}
+{% endif %}
+
+{% if now.show %}
+    <h2>Watching</h2>
+    {{ nowList(now.show | getList, "📺", "Season") }}
 {% endif %}
 
 {% if now.game %}
-<h2>Gaming</h2>
-{% set gameList = now.game | getList %}
-<ul class="now-list" style="--marker:'🕹️'">
-    {% for nowGame in gameList %}
-    <li>
-        {% if nowGame.link %}<a href="{{ nowGame.link | url }}">{% endif %}
-            <strong>{{ nowGame.title }}
-            {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}</strong>
-        {% if nowGame.link %}</a>{% endif %}
-        {% if nowGame.blurb %}<br>{{ nowGame.blurb | safe }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
+    <h2>Playing</h2>
+    {{ nowList(now.game | getList, "🕹️") }}
 {% endif %}
 
-{% if now.show %}
-<h2>Watching</h2>
-{% set showList = now.show | getList %}
-<ul class="now-list" style="--marker:'📺'">
-    {% for nowShow in showList %}
-    <li>
-        {% if nowShow.link %}<a href="{{ nowShow.link | url }}">{% endif %}
-            <strong>{{ nowShow.title }}
-            {% if nowShow.detail %}(Season {{ nowShow.detail }}){% endif %}</strong>
-        {% if nowShow.link %}</a>{% endif %}
-        {% if nowShow.blurb %}<br>{{ nowShow.blurb | safe }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-
-{% if now.show %}
-<h2>Listening</h2>
-{% set musicList = now.music | getList %}
-<ul class="now-list" style="--marker:'🎧'">
-    {% for nowMusic in musicList %}
-    <li>
-        {% if nowMusic.link %}<a href="{{ nowMusic.link | url }}">{% endif %}
-            <strong>{{ nowMusic.title }}
-            {% if nowMusic.detail %}({{ nowMusic.detail }}){% endif %}</strong>
-        {% if nowMusic.link %}</a>{% endif %}
-        {% if nowMusic.blurb %}<br>{{ nowMusic.blurb | safe }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endmdsafe %}
+{%- endmdsafe -%}
