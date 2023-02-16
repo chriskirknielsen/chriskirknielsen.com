@@ -187,7 +187,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pageAssets, {
 		mode: 'directory',
 		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/**/index.{njk,md}`, `${rootDir}/projects/**/index.{njk,md}`],
-		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2',
+		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2|*.zip',
 		silent: true,
 	});
 
