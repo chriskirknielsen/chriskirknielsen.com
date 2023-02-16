@@ -456,7 +456,7 @@ module.exports = function (eleventyConfig) {
 			.map((attr) => `${attr[0]}="${attr[1]}"`)
 			.join(' ');
 
-		const imageMarkup = `<a href="./${src}"><img src="./${src}?nf_resize=fit&w=${widths.at(-2)}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
+		const imageMarkup = `<a href="${src}"><img src="${src}?nf_resize=fit&w=${widths.at(-2)}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
 
 		let output;
 		if (caption) {
