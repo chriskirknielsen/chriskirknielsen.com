@@ -348,7 +348,7 @@ code,
 		border-radius: inherit;
 
 		transition: inherit;
-		clip-path: polygon(0 50%, 1em 0, calc(100% - 1em) 0, 100% 50%, calc(100% - 1em) 100%, 1em 100%);
+		clip-path: polygon(0 50%, 0.75em 0, calc(100% - 0.75em) 0, 100% 50%, calc(100% - 0.75em) 100%, 0.75em 100%);
 	}
 
 	&::before {
