@@ -79,16 +79,22 @@
 	}
 
 	&-title {
-		margin-inline-start: -0.25em;
+		--title-padding-inline: 0.25em;
+
+		margin-inline-start: calc(-1 * var(--title-padding-inline));
+
+		pointer-events: none; // Remove pointer events so the cursor can click the link on the empty space at the end of the title
 
 		& > a {
-			padding-inline: 0.25em;
+			padding-inline: var(--title-padding-inline);
 
 			border-start-start-radius: var(--t-corner-radius);
 			border-start-end-radius: var(--t-corner-radius);
 			background-color: var(--ctx-bg);
 			-webkit-box-decoration-break: clone;
 			box-decoration-break: clone;
+
+			pointer-events: auto; // Restore interactivity for the link
 		}
 	}
 
