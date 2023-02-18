@@ -154,6 +154,7 @@
 
 		color: var(--t-color-gray-max);
 		border: 0;
+		border-radius: var(--t-corner-radius) 1em 1em var(--t-corner-radius);
 		background: var(--t-color-main-med);
 	}
 
@@ -507,7 +508,7 @@
 		font-size: 1.25em;
 		text-shadow: none;
 		color: var(--t-color-main-max);
-		background: var(--t-color-main-min);
+		background: linear-gradient(90deg, #00000000, #00000032) var(--t-color-main-min);
 	}
 
 	.callout-label {
