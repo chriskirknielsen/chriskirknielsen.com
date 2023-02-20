@@ -1,21 +1,23 @@
-// Constants
+// Data constants
 const rootDir = 'src'; // Root folder
 const outputDir = '_site'; // Build destination folder
 const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = Object.keys(metadata.locales);
 const defaultLang = 'en';
+const dictionaries = locales.reduce((localesData, locale) => {
+	const localeData = require(`./${rootDir}/${locale}/${locale}.json`);
+	localesData[locale] = localeData.i18n;
+	return localesData;
+}, {});
 
 // Tools
 const util = require('util');
 const fs = require('fs');
-const path = require('node:path');
 const jsonSass = require('json-sass');
-const deepmerge = require('deepmerge');
 const { PurgeCSS } = require('purgecss');
 const { DateTime } = require('luxon');
 const htmlmin = require('html-minifier');
-const templite = require('templite');
 const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
 const esbuild = require('esbuild');
@@ -27,7 +29,6 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const md = new markdownIt().disable('code');
-const pageAssets = require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix');
 const assetCompiler = require('./config/asset-compiler.js');
 
 // Helpers
@@ -41,63 +42,8 @@ function htmlMinify(code) {
 		collapseWhitespace: true,
 	});
 }
-function trueType(val) {
-	return Object.prototype.toString.call(val).slice(8, -1).toLowerCase();
-}
-function createLangDictionary(lang, object, translations = {}) {
-	if (!object) {
-		return translations;
-	}
-	for (const [key, value] of Object.entries(object)) {
-		// Create the property if it does not exist
-		if (typeof translations[key] === 'undefined') {
-			translations[key] = {};
-		}
-		// If it's an object, recursively assign
-		if (trueType(value) === 'object') {
-			translations[key] = deepmerge(createLangDictionary(lang, value, translations[key]), translations[key]);
-		} else {
-			// End of the line: set the translation value
-			translations[key][lang] = value;
-		}
-	}
-	return translations;
-}
-function buildDictionary() {
-	const translations = {};
-	for (const locale of locales) {
-		const { i18n } = require(`./${rootDir}/${locale}/${locale}.json`);
-
-		createLangDictionary(locale, i18n, translations);
-	}
-	return translations;
-}
-function getDeep(obj, keys) {
-	if (!obj || trueType(obj) !== 'object') {
-		throw `The provided obj is not an object.`;
-	}
-	if (typeof keys === 'string') {
-		keys = keys.split('.').map((key) => key.trim());
-	}
-	if (keys.length === 0) {
-		return false;
-	}
-
-	while (keys.length > 0) {
-		const key = keys.shift();
-		if (!obj.hasOwnProperty(key)) {
-			return false;
-		}
-		obj = obj[key];
-		if (typeof obj === 'undefined') {
-			return false;
-		}
-	}
-	return obj;
-}
 
 // Config
-const translations = buildDictionary();
 const purgeCssSafeList = {
 	_global: [':is', ':where', 'translated-rtl', ':target'],
 	home: ['home'],
@@ -182,13 +128,17 @@ module.exports = function (eleventyConfig) {
 		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
 	});
-	eleventyConfig.addPlugin(pageAssets, {
+	eleventyConfig.addPlugin(require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix'), {
 		mode: 'directory',
 		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/**/index.{njk,md}`, `${rootDir}/projects/**/index.{njk,md}`],
 		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2|*.zip',
 		silent: true,
 	});
 	eleventyConfig.addPlugin(require('./config/markdown-it.js')); // Markdown Anchors
+	eleventyConfig.addPlugin(require('./config/i18n.js'), {
+		defaultLanguage: defaultLang,
+		dictionaries: dictionaries,
+	});
 
 	/* Filters */
 	eleventyConfig.addFilter('mdsafe', mdsafe);
@@ -290,31 +240,6 @@ module.exports = function (eleventyConfig) {
 		}
 	});
 
-	eleventyConfig.addFilter('i18n', function (key, data = {}) {
-		// Find the page context
-		const context = this?.ctx || this.context?.environments;
-
-		// Determine the target language, or use the default
-		const lang = context.lang || defaultLang;
-
-		// Extend the dictionary if a i18n object exists
-		const addIns = context?.i18n;
-
-		// Build the full dictionary for the page
-		const fullDictionary = createLangDictionary(lang, addIns, structuredClone(translations));
-
-		// Find the nested value of the translation, or the default language one, or just display the key
-		let translation = getDeep(fullDictionary, `${key}.${lang}`);
-		if (translation === false) {
-			translation = getDeep(fullDictionary, `${key}.${defaultLang}`);
-		}
-		if (translation === false) {
-			translation = key;
-		}
-		translation = templite(translation, data);
-		return translation;
-	});
-
 	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
 		// If it's not a variable, render the value as is
 		if (!varValue.trim().startsWith('var(--')) {
@@ -335,7 +260,7 @@ module.exports = function (eleventyConfig) {
 		const context = this?.ctx || this.context?.environments;
 		const lang = context.lang || defaultLang;
 		const emojiStyleAttr = emoji ? `style="--callout-emoji: '${emoji}'"` : '';
-		pseudo ||= translations.callout[lang];
+		pseudo ||= dictionaries[lang].callout;
 
 		return `<div class="callout" aria-labelledby="${uniqueId}">
 			<p id="${uniqueId}" class="h3 | callout-label" ${emojiStyleAttr}>${pseudo}</p>
