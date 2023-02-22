@@ -6,7 +6,7 @@ bigboiButton: { url: '/designs.xml', icon: 'rss', label: 'Design Feed' }
 rssFeedOverride: '/designs.xml'
 ---
 
-{% set activeDesigns = designs | filterBoolProp('showInGallery') %}
+{% set activeDesigns = designs | selectattr('showInGallery') %}
 
 <div class="u-textAlign-center">
 	<p class="visually-hidden">Shops:</p>

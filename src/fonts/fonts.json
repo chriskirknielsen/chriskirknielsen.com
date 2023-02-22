@@ -1,5 +1,6 @@
 {
 	"layout": "layouts/font-specimen.njk",
+	"tags": ["fonts"],
 	"templateEngineOverride": "njk",
 	"eleventyComputed": {
 		"customMetaImage": "{{ page.url | removeTrailingSlash }}/{{ customMetaImage }}"

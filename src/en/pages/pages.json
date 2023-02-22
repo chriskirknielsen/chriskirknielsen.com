@@ -1,4 +1,5 @@
 {
-  "layout": "layouts/page.njk",
-  "permalink": "{{ page.fileSlug | slug }}/index.html"
+	"layout": "layouts/page.njk",
+	"permalink": "{{ page.fileSlug | slug }}/index.html",
+	"tags": ["page", "page_en"]
 }

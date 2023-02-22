@@ -1,4 +1,4 @@
-module.exports = [
+const designs = [
 	{
 		slug: 'vhs-css',
 		name: 'Blank VHS CSS',
@@ -465,3 +465,11 @@ module.exports = [
 		variant: ['dead-space'],
 	},
 ];
+
+// By default, if the showInGallery prop is missing, infer the design should be shown
+module.exports = designs.map((design) => {
+	if (design.hasOwnProperty('showInGallery')) {
+		return design;
+	}
+	return Object.assign(design, { showInGallery: true });
+});

@@ -29,7 +29,7 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const md = new markdownIt().disable('code');
-const assetCompiler = require('./config/asset-compiler.js');
+const assetCompiler = require('./config/tools/asset-compiler.js');
 
 // Helpers
 function mdsafe(content) {
@@ -128,53 +128,40 @@ module.exports = function (eleventyConfig) {
 		defaultLanguage: defaultLang, // Required, this site uses "en"
 		errorMode: 'allow-fallback',
 	});
+	eleventyConfig.addPlugin(require('./config/filters/i18n.js'), {
+		defaultLanguage: defaultLang,
+		dictionaries: dictionaries,
+	});
 	eleventyConfig.addPlugin(require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix'), {
 		mode: 'directory',
 		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/**/index.{njk,md}`, `${rootDir}/projects/**/index.{njk,md}`],
 		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2|*.zip',
 		silent: true,
 	});
-	eleventyConfig.addPlugin(require('./config/markdown-it.js')); // Markdown Anchors
-	eleventyConfig.addPlugin(require('./config/i18n.js'), {
-		defaultLanguage: defaultLang,
-		dictionaries: dictionaries,
-	});
+	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js')); // Markdown Anchors
 
 	/* Filters */
+	eleventyConfig.addPlugin(require('./config/filters/string.js'));
+	eleventyConfig.addPlugin(require('./config/filters/object.js'));
 	eleventyConfig.addFilter('mdsafe', mdsafe);
 	eleventyConfig.addFilter('incPath', (filename, incDir = '', subdir = '') => `./${rootDir}/_includes/${incDir ? incDir + '/' : ''}${subdir ? subdir + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
-	eleventyConfig.addFilter('fromJSON', (str) => JSON.parse(str));
-	eleventyConfig.addFilter('keys', (obj) => Object.keys(obj));
-	eleventyConfig.addFilter('values', (obj) => Object.values(obj));
 	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
 		// Determine the target language, or use the default
 		const context = this?.ctx || this.context?.environments;
 		locale = locale || context.lang || defaultLang;
 		return collection.filter((item) => item?.data?.lang === locale);
 	});
-	eleventyConfig.addFilter('removeTrailingSlash', (str) => str.trim().replace(/\/$/g, ''));
-	eleventyConfig.addFilter('stripHyphenChars', (str) => str.replace(/(&shy;|<wbr>)/gm, ''));
-	eleventyConfig.addFilter('stripScripts', (str) => str.replace(/(<script( [^>]+)?>(.+)<\/script>)/gim, '')); // Not 100% reliable, however I don't usually add `</script>` inside a script tag so it should be safe!
 	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
+	eleventyConfig.addFilter('unique', (arr) => [...new Set(arr)]);
+	eleventyConfig.addFilter('flatten', (array) => array.flat(Infinity));
 	eleventyConfig.addFilter('filterOut', (list, values) => list.filter((value) => !values.includes(value)));
 	eleventyConfig.addFilter('find', (array, prop, value) => array.find((item) => item[prop] === value));
-	eleventyConfig.addFilter('unique', (arr) => [...new Set(arr)]);
-	eleventyConfig.addFilter('flatten', function (array) {
-		const flatten = (arr) => arr.reduce((acc, cur) => acc.concat(Array.isArray(cur) ? flatten(cur) : cur), []);
-		return flatten(array);
-	});
 	eleventyConfig.addFilter('removePrivateProps', (arr) => arr.filter((item) => String(item).startsWith('_')));
 	eleventyConfig.addFilter('pluck', function (list, key) {
 		const arr = Array.isArray(list) ? list : Object.values(list);
 		return arr.map((o) => o[key]);
 	});
-	eleventyConfig.addFilter('filterBoolProp', (array, property, flip = false) =>
-		array.filter((obj) => {
-			const bool = obj[property];
-			return flip ? bool === false : bool !== false;
-		})
-	);
 	eleventyConfig.addFilter('getFirst', (listOrItem) => (Array.isArray(listOrItem) ? listOrItem[0] : listOrItem)); // Gets the first item, and if it is not an array, returns the value as-is
 	eleventyConfig.addFilter('getList', (listOrItem) => (Array.isArray(listOrItem) ? listOrItem : [listOrItem])); // Gets the list of items, and if it is not an array, returns the value wrapped in an array
 	eleventyConfig.addFilter('dateFormat', (date, opts = {}) => {
@@ -209,6 +196,19 @@ module.exports = function (eleventyConfig) {
 		}
 	});
 
+	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
+		// If it's not a variable, render the value as is
+		if (!varValue.trim().startsWith('var(--')) {
+			return varValue;
+		}
+
+		// Find the colour group and weight, then pick the value out from the theme colours
+		const colorInfo = varValue.match(/var\(\s*--t-color-([a-z]+)-(min|med|max)\s*\)/);
+		const colorGroup = colorInfo[1];
+		const colorWeight = colorInfo[2];
+		return themeColors[colorGroup][colorWeight];
+	});
+
 	eleventyConfig.addFilter('htmlmin', function (code) {
 		return htmlMinify(code);
 	});
@@ -240,52 +240,11 @@ module.exports = function (eleventyConfig) {
 		}
 	});
 
-	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
-		// If it's not a variable, render the value as is
-		if (!varValue.trim().startsWith('var(--')) {
-			return varValue;
-		}
-
-		// Find the colour group and weight, then pick the value out from the theme colours
-		const colorInfo = varValue.match(/var\(\s*--t-color-([a-z]+)-(min|med|max)\s*\)/);
-		const colorGroup = colorInfo[1];
-		const colorWeight = colorInfo[2];
-		return themeColors[colorGroup][colorWeight];
-	});
-
 	/* Shortcodes */
 	eleventyConfig.addPairedShortcode('mdsafe', mdsafe);
-	eleventyConfig.addPairedShortcode('callout', function (content, pseudo = '', emoji = '') {
-		const uniqueId = `co-${new Date().getTime().toString(36)}`;
-		const context = this?.ctx || this.context?.environments;
-		const lang = context.lang || defaultLang;
-		const emojiStyleAttr = emoji ? `style="--callout-emoji: '${emoji}'"` : '';
-		pseudo ||= dictionaries[lang].callout;
-
-		return `<div class="callout" aria-labelledby="${uniqueId}">
-			<p id="${uniqueId}" class="h3 | callout-label" ${emojiStyleAttr}>${pseudo}</p>
-			<p>${md.renderInline(content.trim())}</p>
-		</div>`;
-	});
-
-	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => {
-		return inline ? md.renderInline(content) : md.render(content);
-	});
-	eleventyConfig.addShortcode('codepen', function (url, tabs = 'result', height = '480', theme = '') {
-		const path = new URL(url).pathname;
-		const id = path.split('/')[3];
-		let markup = `<p class="codepen" data-height="${height}" data-theme-id="${theme}" data-default-tab="${tabs}" data-slug-hash="${id}">
-			<a href="${url}" class="button">See the Pen</a>
-		</p>`;
-
-		// Only inject the CodePen embed once per page
-		if (!this.page.hasOwnProperty('__codepen_embed_script_injected__')) {
-			markup += `<script async src="https://static.codepen.io/assets/embed/ei.js"></script>`;
-			this.page.__codepen_embed_script_injected__ = true;
-		}
-
-		return markup;
-	});
+	eleventyConfig.addPlugin(require('./config/shortcodes/callout.js'), { dictionaries, md });
+	eleventyConfig.addPlugin(require('./config/shortcodes/codepen.js'));
+	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => (inline ? md.renderInline(content) : md.render(content)));
 
 	eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
 		const cacheKey = filename + '_' + JSON.stringify(svgOptions);
@@ -305,100 +264,9 @@ module.exports = function (eleventyConfig) {
 		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, componentOptions, 'njk');
 		return await content;
 	});
-
-	function imageGalleryShortcode(pictures, addClass = null) {
-		const galleryClasses = ['image-gallery', 'content-wide'];
-		if (addClass) {
-			galleryClasses.push(addClass);
-		}
-		return `<div class="${galleryClasses.join(' ')}">${pictures.trim()}</div>`;
-	}
-	function imageShortcode(src, alt, caption = '', options = {}) {
-		if (typeof alt === 'undefined') {
-			throw `The ${src} image does not have an alt attribute! (empty string is allowed)`;
-		}
-
-		if (!options.ratio && !options.width && !options.height) {
-			throw `The ${src} image does not have a ratio or width/height attributes. At least two of the three must be provided.`;
-		}
-
-		const isGroupContext = options.hasOwnProperty('group') && options.group; // Whether the image is part of a group
-		const sizes = ['100vw', '(min-width: 50rem) 50rem'].join(', ');
-		const widths = options.widths || [480, 800, 1200];
-		const srcset = widths.map((w) => `${src}?nf_resize=fit&w=${w} ${w}w`);
-		if (alt.indexOf('"') > -1) {
-			alt = alt.split('"').join('&quot;');
-		}
-		if (alt.indexOf('<') > -1) {
-			alt = alt.split('<').join('&lt;');
-		}
-
-		const attrs = {
-			loading: 'lazy',
-			decoding: 'async',
-			alt: alt,
-		};
-
-		// Assign a ratio to the image
-		if (options.ratio) {
-			// If the ratio is passed as a string, parse it to a number
-			if (typeof options.ratio === 'string') {
-				attrs['data-ratio'] = options.ratio; // Store the initial ratio provided
-
-				if (options.ratio.includes('/')) {
-					let ratioParts = options.ratio.split('/');
-					options.ratio = parseFloat(ratioParts[0]) / parseFloat(ratioParts[1]);
-				} else {
-					options.ratio = parseFloat(options.ratio);
-				}
-			}
-
-			// If only one dimension was provided, calculate the other based on the ratio
-			if (options.width && !options.height) {
-				options.height = options.width / options.ratio;
-			} else if (!options.width && options.height) {
-				options.height = options.height * options.ratio;
-			} else if (!options.width && !options.height) {
-				// If no dimensions were provided, assume a 1000px height and determine the width based on the ratio
-				options.width = Math.floor(options.ratio * 1000);
-				options.height = 1000;
-			}
-		}
-
-		// Set the width and height attributes
-		if (options.width) {
-			attrs.width = options.width;
-		}
-		if (options.height) {
-			attrs.height = options.height;
-		}
-
-		let ratioString = attrs['data-ratio'] || options.ratio ? parseFloat(options.ratio.toFixed(4)).toString() : `${options.width} / ${options.height}`;
-		attrs.style = `aspect-ratio:${ratioString};`;
-
-		const attrsStr = Object.entries(attrs)
-			.map((attr) => `${attr[0]}="${attr[1]}"`)
-			.join(' ');
-
-		const imageMarkup = `<a href="${src}"><img src="${src}?nf_resize=fit&w=${widths.at(-2)}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
-
-		let output;
-		if (caption) {
-			output = `<figure>${imageMarkup}<figcaption>${caption}</figcaption></figure>`;
-		} else {
-			output = imageMarkup;
-		}
-
-		// If not grouped in a gallery (wrapped in a {% gallery %} shortcode pair), make it a single-image gallery
-		if (!isGroupContext) {
-			return imageGalleryShortcode(output);
-		}
-
-		return output;
-	}
-
-	eleventyConfig.addShortcode('image', imageShortcode);
-	eleventyConfig.addPairedShortcode('gallery', imageGalleryShortcode);
+	eleventyConfig.addPlugin(require('./config/shortcodes/image-gallery.js'), {
+		galleryClasses: ['image-gallery', 'content-wide'],
+	});
 
 	/* Transforms */
 	// Inline only the necessary CSS
@@ -433,30 +301,6 @@ module.exports = function (eleventyConfig) {
 		}
 
 		return htmlMinify(content);
-	});
-
-	/* Collections */
-	// Loop over locales and get each page and post into its own collection
-	locales.forEach((locale) => {
-		eleventyConfig.addCollection(`page_${locale}`, function (collection) {
-			return collection.getFilteredByGlob(`./${rootDir}/${locale}/pages/**/*.{md,njk}`);
-		});
-
-		eleventyConfig.addCollection(`post_${locale}`, function (collection) {
-			return collection.getFilteredByGlob(`./${rootDir}/${locale}/posts/**/*.{md,njk}`);
-		});
-	});
-
-	// Only _published_ content in the `/fonts/` directory
-	eleventyConfig.addCollection('fonts', function (collection) {
-		return collection
-			.getFilteredByGlob(`./${rootDir}/fonts/**/index.njk`)
-			.filter(function (item) {
-				return !item.data.draft;
-			})
-			.sort(function (a, b) {
-				return a.inputPath.localeCompare(b.inputPath); // sort by path - ascending
-			});
 	});
 
 	/* Passthroughs */
