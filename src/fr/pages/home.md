@@ -39,7 +39,7 @@ Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. 
 <h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" class="heading-anchor">Now</a>)</h2>
 <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
 {% set nowBook = now.book | getFirst %}
-{% if now.book %}
+{% if nowBook %}
     <li>
         <span aria-label="{{ 'page.now.bookLabel' | i18n }}">📚</span>&nbsp;{{ nowBook.title }}
         {% if nowBook.detail %}({{ nowBook.detail }}){% endif %}
@@ -47,7 +47,7 @@ Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. 
 {% endif %}
 
 {% set nowShow = now.show | getFirst %}
-{% if now.show %}
+{% if nowShow %}
     <li>
         <span aria-label="{{ 'page.now.showLabel' | i18n }}">📺</span>&nbsp;{{ nowShow.title }}
         {% if nowShow.detail %}(<span arial-label="{{ 'page.now.seasonLabel' | i18n }}">S</span>{{ nowShow.detail }}){% endif %}
@@ -55,7 +55,7 @@ Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. 
 {% endif %}
 
 {% set nowGame = now.game | getFirst %}
-{% if now.game %}
+{% if nowGame %}
     <li>
         <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ nowGame.title }}
         {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}
