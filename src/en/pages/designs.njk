@@ -76,7 +76,7 @@ rssFeedOverride: '/designs.xml'
 		</ul>
 	{% endset%}
 
-    {% renderFile "griditem.njk" | incPath("components"), {
+    {% component "griditem", {
 		gridItem: design,
 		gridItemAttrs: designAttrs,
 		gridItemTitle: design.name,

@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig, options = {}) {
 	if (!options || !options.hasOwnProperty('md')) {
-		throw new Error('The callout shortcode requires a Markdown rendered passed as `options.md`.');
+		throw new Error('The callout shortcode requires a Markdown renderer passed as `options.md`.');
 	}
 
 	options = Object.assign({ dictionaries: { en: { callout: 'Note' } } }, options);

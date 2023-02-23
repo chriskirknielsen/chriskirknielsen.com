@@ -1,6 +1,7 @@
 // Data constants
 const rootDir = 'src'; // Root folder
 const outputDir = '_site'; // Build destination folder
+const includesDir = '_includes'; // Include folder
 const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = Object.keys(metadata.locales);
@@ -16,7 +17,6 @@ const util = require('util');
 const fs = require('fs');
 const jsonSass = require('json-sass');
 const { PurgeCSS } = require('purgecss');
-const { DateTime } = require('luxon');
 const htmlmin = require('html-minifier');
 const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
@@ -32,9 +32,6 @@ const md = new markdownIt().disable('code');
 const assetCompiler = require('./config/tools/asset-compiler.js');
 
 // Helpers
-function mdsafe(content) {
-	return content.replace(/(\t|\n|\r|(    ))/g, ' ');
-}
 function htmlMinify(code) {
 	return htmlmin.minify(code, {
 		useShortDoctype: true,
@@ -47,21 +44,19 @@ function htmlMinify(code) {
 const purgeCssSafeList = {
 	_global: [':is', ':where', 'translated-rtl', ':target'],
 	home: ['home'],
-	blog: [], // Article list links and external article button
+	blog: [],
 	about: [],
 };
 
 module.exports = function (eleventyConfig) {
 	/* Variables */
 	let jsminCache = {};
-	let svgCache = {};
 
 	eleventyConfig.on('eleventy.before', function (config) {
 		let beforeStart = performance.now(); // Track execution time
 
-		// Reset caches
+		// Reset cache
 		jsminCache = {};
-		svgCache = {};
 
 		// Precompile Sass and JS files with the asset compiler
 		const compileAssets = (settings) => assetCompiler(settings, config);
@@ -143,57 +138,15 @@ module.exports = function (eleventyConfig) {
 	/* Filters */
 	eleventyConfig.addPlugin(require('./config/filters/string.js'));
 	eleventyConfig.addPlugin(require('./config/filters/object.js'));
-	eleventyConfig.addFilter('mdsafe', mdsafe);
-	eleventyConfig.addFilter('incPath', (filename, incDir = '', subdir = '') => `./${rootDir}/_includes/${incDir ? incDir + '/' : ''}${subdir ? subdir + '/' : ''}${filename}`);
+	eleventyConfig.addPlugin(require('./config/filters/array.js'));
+	eleventyConfig.addPlugin(require('./config/filters/date.js'), { defaultLanguage: defaultLang });
+	eleventyConfig.addFilter('incPath', (filename, incDir = '') => `./${rootDir}/${includesDir}/${incDir ? incDir + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
 		// Determine the target language, or use the default
 		const context = this?.ctx || this.context?.environments;
 		locale = locale || context.lang || defaultLang;
 		return collection.filter((item) => item?.data?.lang === locale);
-	});
-	eleventyConfig.addFilter('includes', (list, value) => list.includes(value));
-	eleventyConfig.addFilter('unique', (arr) => [...new Set(arr)]);
-	eleventyConfig.addFilter('flatten', (array) => array.flat(Infinity));
-	eleventyConfig.addFilter('filterOut', (list, values) => list.filter((value) => !values.includes(value)));
-	eleventyConfig.addFilter('find', (array, prop, value) => array.find((item) => item[prop] === value));
-	eleventyConfig.addFilter('removePrivateProps', (arr) => arr.filter((item) => String(item).startsWith('_')));
-	eleventyConfig.addFilter('pluck', function (list, key) {
-		const arr = Array.isArray(list) ? list : Object.values(list);
-		return arr.map((o) => o[key]);
-	});
-	eleventyConfig.addFilter('getFirst', (listOrItem) => (Array.isArray(listOrItem) ? listOrItem[0] : listOrItem)); // Gets the first item, and if it is not an array, returns the value as-is
-	eleventyConfig.addFilter('getList', (listOrItem) => (Array.isArray(listOrItem) ? listOrItem : [listOrItem])); // Gets the list of items, and if it is not an array, returns the value wrapped in an array
-	eleventyConfig.addFilter('dateFormat', (date, opts = {}) => {
-		const format = opts.format || 'machine';
-		const locale = opts.locale || defaultLang;
-		const dateObj = new Date(date);
-		const utcDate = DateTime.fromJSDate(dateObj).toUTC();
-
-		switch (format) {
-			case 'obj': {
-				return new Date(utcDate.toISO());
-			}
-			case 'rfc2822': {
-				return utcDate.toRFC2822();
-			}
-			case 'iso': {
-				return utcDate.toISO();
-			}
-			case 'year': {
-				return utcDate.toFormat('yyyy');
-			}
-			case 'machine': {
-				return utcDate.toFormat('yyyy-MM-dd');
-			}
-			case 'nice': {
-				// In French, you usually say "1st" instead of "1" for the first of the month, but the rest of the days can be said as "13 October 1984", no ordinal needed
-				if (locale === 'fr' && parseInt(utcDate.toFormat('d'), 10) === 1) {
-					return `1er ${utcDate.toFormat('LLLL yyyy')}`;
-				}
-				return utcDate.setLocale(locale).toFormat('d LLLL yyyy');
-			}
-		}
 	});
 
 	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
@@ -241,31 +194,14 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Shortcodes */
-	eleventyConfig.addPairedShortcode('mdsafe', mdsafe);
+	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { md });
 	eleventyConfig.addPlugin(require('./config/shortcodes/callout.js'), { dictionaries, md });
 	eleventyConfig.addPlugin(require('./config/shortcodes/codepen.js'));
-	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => (inline ? md.renderInline(content) : md.render(content)));
-
-	eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
-		const cacheKey = filename + '_' + JSON.stringify(svgOptions);
-		if (svgCache && svgCache.hasOwnProperty(cacheKey)) {
-			return await Promise.resolve(svgCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
-		}
-
-		const isNjk = svgOptions.hasOwnProperty('isNjk') ? svgOptions.isNjk : true;
-		const filePath = `./${rootDir}/_includes/assets/svg/${filename}.svg${isNjk ? '.njk' : ''}`;
-		const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : isNjk ? 'njk' : 'html'; // HTML for vanilla SVG
-		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, svgOptions, engine);
-		svgCache[cacheKey] = content;
-		return await content;
-	});
-	eleventyConfig.addAsyncShortcode('component', async function (filename, componentOptions = {}) {
-		const filePath = `./${rootDir}/_includes/components/${filename}.njk`;
-		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, componentOptions, 'njk');
-		return await content;
-	});
-	eleventyConfig.addPlugin(require('./config/shortcodes/image-gallery.js'), {
-		galleryClasses: ['image-gallery', 'content-wide'],
+	eleventyConfig.addPlugin(require('./config/shortcodes/image-gallery.js'), { galleryClasses: ['image-gallery', 'content-wide'] });
+	eleventyConfig.addPlugin(require('./config/shortcodes/render-include.js'), {
+		svgAssetFolder: `./${rootDir}/${includesDir}/assets/svg`,
+		componentsFolder: `./${rootDir}/${includesDir}/components`,
+		cacheSvg: true,
 	});
 
 	/* Transforms */
@@ -285,7 +221,7 @@ module.exports = function (eleventyConfig) {
 		}
 		const purgeCSSResults = await new PurgeCSS().purge({
 			content: [{ raw: content }],
-			css: [`${rootDir}/_includes/${assets.style}`],
+			css: [`${rootDir}/${includesDir}/${assets.style}`],
 			keyframes: true, // Removes unused keyframes
 			safelist: safeSelectors,
 			dynamicAttributes: ['data-theme', 'aria-pressed'],
@@ -305,8 +241,8 @@ module.exports = function (eleventyConfig) {
 
 	/* Passthroughs */
 	eleventyConfig.addPassthroughCopy({
-		[`${rootDir}/_includes/assets/css`]: '/assets/css',
-		[`${rootDir}/_includes/assets/js`]: '/assets/js',
+		[`${rootDir}/${includesDir}/assets/css`]: '/assets/css',
+		[`${rootDir}/${includesDir}/assets/js`]: '/assets/js',
 		[`${rootDir}/assets/img`]: '/assets/img',
 		[`${rootDir}/assets/audio`]: '/assets/audio',
 		[`${rootDir}/assets/fonts`]: '/assets/fonts',
@@ -317,8 +253,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addWatchTarget(`./${rootDir}/assets/js/**/*.js`);
 
 	eleventyConfig.watchIgnores.add(`./${rootDir}/assets/scss/tools/_tokens.scss`);
-	eleventyConfig.watchIgnores.add(`./${rootDir}/_includes/assets/css/**/*`);
-	eleventyConfig.watchIgnores.add(`./${rootDir}/_includes/assets/js/**/*`);
+	eleventyConfig.watchIgnores.add(`./${rootDir}/${includesDir}/assets/css/**/*`);
+	eleventyConfig.watchIgnores.add(`./${rootDir}/${includesDir}/assets/js/**/*`);
 
 	eleventyConfig.setServerOptions({
 		domDiff: false, // Due to runtime JS (mainly themes), it is preferrable to get a fresh copy of the DOM
@@ -332,6 +268,7 @@ module.exports = function (eleventyConfig) {
 		dir: {
 			input: rootDir,
 			output: outputDir,
+			includes: includesDir,
 		},
 	};
 };
