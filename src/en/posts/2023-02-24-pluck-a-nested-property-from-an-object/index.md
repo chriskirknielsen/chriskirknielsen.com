@@ -43,7 +43,7 @@ function array_pluck($list, $prop) {
 $japanese = array_pluck($array, 'ja'); // ['one' => 'ichi', 'two' => 'ni', 'three' => 'san']
 ```
 
-It feels a little convoluted but it still makes sense, I think. Now, we need to do the same in JavaScript, and we have different approaches. Here's what I came up with (that doesn't require additiona blocks like a `for` loop), with the magic of `Object.fromEntries`.
+It feels a little convoluted but it still makes sense, I think. Now, we need to do the same in JavaScript, and we have different approaches. Here's what I came up with (that doesn't require additional blocks like a `for` loop), with the magic of `Object.fromEntries`.
 
 ## Keys and values
 
