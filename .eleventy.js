@@ -140,7 +140,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(require('./config/filters/object.js'));
 	eleventyConfig.addPlugin(require('./config/filters/array.js'));
 	eleventyConfig.addPlugin(require('./config/filters/date.js'), { defaultLanguage: defaultLang });
-	eleventyConfig.addFilter('incPath', (filename, incDir = '') => `./${rootDir}/${includesDir}/${incDir ? incDir + '/' : ''}${filename}`);
+	eleventyConfig.addFilter('incPath', (filename, dirName = '') => `./${rootDir}/${includesDir}/${dirName ? dirName + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
 	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
 		// Determine the target language, or use the default
@@ -195,9 +195,15 @@ module.exports = function (eleventyConfig) {
 
 	/* Shortcodes */
 	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { md });
-	eleventyConfig.addPlugin(require('./config/shortcodes/callout.js'), { dictionaries, md });
 	eleventyConfig.addPlugin(require('./config/shortcodes/codepen.js'));
-	eleventyConfig.addPlugin(require('./config/shortcodes/image-gallery.js'), { galleryClasses: ['image-gallery', 'content-wide'] });
+	eleventyConfig.addPlugin(require('./config/shortcodes/callout.js'), {
+		labelByLang: Object.fromEntries(Object.keys(dictionaries).map((dictLang) => [dictLang, dictionaries[dictLang].callout])),
+		defaultLanguage: defaultLang,
+		md,
+	});
+	eleventyConfig.addPlugin(require('./config/shortcodes/image-gallery.js'), {
+		galleryClasses: ['image-gallery', 'content-wide'],
+	});
 	eleventyConfig.addPlugin(require('./config/shortcodes/render-include.js'), {
 		svgAssetFolder: `./${rootDir}/${includesDir}/assets/svg`,
 		componentsFolder: `./${rootDir}/${includesDir}/components`,
