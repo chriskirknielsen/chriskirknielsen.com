@@ -7,7 +7,14 @@
 
 	& :is(img, video) {
 		width: 100%;
+	}
+
+	& img {
 		object-fit: cover;
+	}
+
+	& video {
+		height: auto;
 	}
 
 	& :is(picture, a:not(figcaption > a)) {
