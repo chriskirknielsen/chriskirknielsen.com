@@ -21,6 +21,7 @@ const htmlmin = require('html-minifier');
 const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
 const esbuild = require('esbuild');
+const assetCompiler = require('./config/tools/asset-compiler.js');
 
 // Plugins
 const { EleventyI18nPlugin } = require('@11ty/eleventy');
@@ -29,7 +30,6 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const md = new markdownIt().disable('code');
-const assetCompiler = require('./config/tools/asset-compiler.js');
 
 // Helpers
 function htmlMinify(code) {
@@ -133,7 +133,7 @@ module.exports = function (eleventyConfig) {
 		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2|*.zip',
 		silent: true,
 	});
-	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js')); // Markdown Anchors
+	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js')); // Markdown Lib + Anchors
 
 	/* Filters */
 	eleventyConfig.addPlugin(require('./config/filters/string.js'));
@@ -142,12 +142,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(require('./config/filters/date.js'), { defaultLanguage: defaultLang });
 	eleventyConfig.addFilter('incPath', (filename, dirName = '') => `./${rootDir}/${includesDir}/${dirName ? dirName + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
-	eleventyConfig.addFilter('collectionInLocale', function (collection, locale = null) {
-		// Determine the target language, or use the default
-		const context = this?.ctx || this.context?.environments;
-		locale = locale || context.lang || defaultLang;
-		return collection.filter((item) => item?.data?.lang === locale);
-	});
 
 	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
 		// If it's not a variable, render the value as is
@@ -207,7 +201,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(require('./config/shortcodes/render-include.js'), {
 		svgAssetFolder: `./${rootDir}/${includesDir}/assets/svg`,
 		componentsFolder: `./${rootDir}/${includesDir}/components`,
-		cacheSvg: true,
+		cacheSvg: true, // While serving locally, set to `false` if editing SVG assets so the cache doesn't persist across builds
 	});
 
 	/* Transforms */

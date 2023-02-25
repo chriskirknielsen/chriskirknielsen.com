@@ -27,5 +27,5 @@
   </div>
 </header>
 
-{% set postslist = collections[ tag ] | collectionInLocale %}
+{% set postslist = collections[ tag ] | filterToLocale %}
 {% include "components/postslist.njk" %}

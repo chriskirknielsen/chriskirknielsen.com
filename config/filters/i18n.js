@@ -97,6 +97,7 @@ module.exports = function (eleventyConfig, options = {}) {
 	const { dictionaries, defaultLanguage } = options;
 	const translations = buildDictionaries(dictionaries);
 
+	/** Retrieve the translation for a provided key (can be nested as key.subkey). */
 	eleventyConfig.addFilter('i18n', function (key, data = {}) {
 		// Find the page context
 		const context = this?.ctx || this.context?.environments;
@@ -120,5 +121,13 @@ module.exports = function (eleventyConfig, options = {}) {
 		}
 		translation = templite(translation, data);
 		return translation;
+	});
+
+	/** Filter down items in a collection that only match the provided, contextual, or default locale. */
+	eleventyConfig.addFilter('filterToLocale', function (collection, locale = null) {
+		// Determine the target language, or use the default
+		const context = this?.ctx || this.context?.environments;
+		locale ||= context.lang || defaultLanguage; // If the locale is not provided, us the context, and if that isn't reliable, use the default language
+		return collection.filter((item) => item?.data?.lang === locale);
 	});
 };
