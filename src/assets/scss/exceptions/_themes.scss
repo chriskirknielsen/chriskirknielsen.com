@@ -1,53 +1,48 @@
 @include default-schemes {
-	.header {
-		&-logo {
-			& > svg {
-				--logo-transition-duration: var(--T-dusk, 420ms) var(--T-dawn, 100ms);
-
-				transition: filter var(--logo-transition);
-
-				& path {
-					fill-opacity: 1;
-					stroke: var(--t-color-main-min);
-					stroke-width: 3;
-					stroke-opacity: 0;
-				}
+	.header-logo {
+		& > svg {
+			& use {
+				fill-opacity: 1;
+				stroke: var(--t-color-main-min);
+				stroke-width: var(--T-dusk, 3) var(--T-dawn, var(--logo-stroke-width, 0));
+				stroke-opacity: var(--T-dusk, 0) var(--T-dawn, 1);
+				clip-path: var(--T-dusk, none) var(--T-dawn, var(--logo-letter-clip));
 			}
+		}
 
-			&:is(:hover, :focus) > svg {
-				filter: var(--T-dusk, drop-shadow(0 0 0.0625rem currentColor) drop-shadow(0 0 0.25rem currentColor)) var(--T-dawn, none);
+		&:is(:hover, :focus) > svg {
+			filter: var(--T-dusk, drop-shadow(0 0 0.0625rem currentColor) drop-shadow(0 0 0.25rem currentColor)) var(--T-dawn, none);
+		}
+
+		&:is(:hover, :focus) > svg use {
+			fill: var(--T-dusk, var(--t-color-gray-max)) var(--T-dawn, var(--t-header-logo-fill));
+			fill-opacity: var(--T-dusk, 0) var(--T-dawn, 1);
+			stroke-opacity: 1;
+
+			animation: var(--T-dusk, cknLogoNeon 300ms ease-in-out) var(--T-dawn, none);
+
+			&[data-c] {
+				animation-delay: 100ms;
 			}
-
-			&:is(:hover, :focus) > svg path {
-				fill: var(--T-dusk, var(--t-color-gray-max)) var(--T-dawn, var(--t-color-main-med));
-				fill-opacity: var(--T-dusk, 0) var(--T-dawn, 1);
-				stroke-opacity: var(--T-dusk, 1) var(--T-dawn, 0);
-
-				animation: var(--T-dusk, cknLogoNeon 300ms ease-in-out) var(--T-dawn, none);
-
-				&[data-c] {
-					animation-delay: 100ms;
-				}
-				&[data-n] {
-					animation-delay: 300ms;
-				}
+			&[data-n] {
+				animation-delay: 300ms;
 			}
+		}
 
-			@keyframes cknLogoNeon {
-				0%,
-				40%,
-				80% {
-					stroke-opacity: 0;
-				}
-				20% {
-					stroke-opacity: 0.5;
-				}
-				60% {
-					stroke-opacity: 0.75;
-				}
-				100% {
-					stroke-opacity: 1;
-				}
+		@keyframes cknLogoNeon {
+			0%,
+			40%,
+			80% {
+				stroke-opacity: 0;
+			}
+			20% {
+				stroke-opacity: 0.5;
+			}
+			60% {
+				stroke-opacity: 0.75;
+			}
+			100% {
+				stroke-opacity: 1;
 			}
 		}
 	}
@@ -375,16 +370,14 @@
 @include theme('neotokyo') {
 	--cut-size: clamp(0.25rem, 0.375em, 0.75rem);
 
-	.header {
-		&-logo {
-			& > svg {
-				--nt-logo-filter: var(--t-header-logo-fill);
-				filter: drop-shadow(0 0 0.5em var(--nt-logo-filter));
-			}
+	.header-logo {
+		& > svg {
+			--nt-logo-filter: var(--t-header-logo-fill);
+			filter: drop-shadow(0 0 0.5em var(--nt-logo-filter));
+		}
 
-			&:is(:hover, :focus) > svg {
-				--nt-logo-filter: var(--t-header-logo-fill-active);
-			}
+		&:is(:hover, :focus) > svg {
+			--nt-logo-filter: var(--t-header-logo-fill-active);
 		}
 	}
 

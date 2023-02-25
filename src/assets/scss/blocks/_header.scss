@@ -21,7 +21,8 @@
 		text-decoration: none;
 
 		& > svg {
-			--logo-transition: var(--logo-transition-duration, 100ms) ease-in-out;
+			--logo-transition: 420ms ease-in-out;
+			--logo-stroke-width: 0;
 
 			height: 1em;
 			width: auto;
@@ -29,23 +30,26 @@
 
 			transition: filter var(--logo-transition);
 
-			& path {
+			& use {
 				fill: var(--t-header-logo-fill, currentColor);
+				stroke: var(--t-header-logo-fill-active, var(--t-color-main-min));
+				stroke-width: var(--logo-stroke-width, 0);
+				clip-path: var(--logo-letter-clip, none); // Self-masking to only reveal the stroke inside the shape
 
 				transition: var(--logo-transition);
-				transition-property: fill, fill-opacity, stroke-opacity;
+				transition-property: fill, fill-opacity, stroke-opacity, stroke-width;
+
+				&[data-k] {
+					transition-delay: 100ms;
+				}
+				&[data-n] {
+					transition-delay: 200ms;
+				}
 			}
 		}
 
-		&:is(:hover, :focus) > svg path {
-			fill: var(--t-header-logo-fill-active, var(--t-color-main-min));
-
-			&[data-k] {
-				transition-delay: 50ms;
-			}
-			&[data-n] {
-				transition-delay: 100ms;
-			}
+		&:is(:hover, :focus) > svg use {
+			--logo-stroke-width: 16;
 		}
 	}
 }
