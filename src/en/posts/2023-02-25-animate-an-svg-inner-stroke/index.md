@@ -9,7 +9,7 @@ tags:
 
 If you have any theme besides "**Dusk**" selected on my website, you'll see a little animation on hover that fills in each letter of my logo. In case you _are_ using that theme, here's what that looks like:
 
-{% video "./ckn-logo-anim.mp4", "The CKN logo letter each fill in from the edges one after another", "", { width: 660, height: 364 } %}
+{% video "./ckn-logo-anim.mp4", "The CKN logo letters each fill in from the edges one after another", "", { width: 660, height: 364 } %}
 
 Users of software like Adobe Illustrator will know that you can determine on which edge the stroke sits. By default, it's in the centre, shared across both (so a 2px stroke wil have 1px inside the shape, 1px outside), but you can also select either to have it only "outside" or "inside". The issue is that you can't export an SVG with that feature (well, you can but it will offset the path or convert it to a shape instead): SVG only supports the centre stroke (for now).
 
@@ -64,6 +64,16 @@ Which all in all looks like this:
 
 {% codepen "https://codepen.io/chriskirknielsen/pen/NWLRayE" %}
 
-You could definitely use masks (white rectangle covering the SVG, black fill on the letter) instead of clip-paths if you wanted to make the stroke grow outwards with a transparent shape. In the case of a solid fill, I'd say layer a copy of the shape below (so the fill appears above the stroke), or even better: use `paint-order="stroke"` to paint the stroke first, which avoids having to duplicate the shape.
+## Sure, we can invert it
+
+You could definitely use masks (white rectangle covering the SVG, black fill on the letter) instead of clip-paths if you wanted to make the stroke grow outwards with a transparent shape. But you'll need to make sure to create a single mask, or else each letter can spill onto the other. Compare this not great version:
+
+{% codepen "https://codepen.io/chriskirknielsen/pen/MWqjBNo" %}
+
+… to this most excellent one:
+
+{% codepen "https://codepen.io/chriskirknielsen/pen/vYzXzGo" %}
+
+In the case of a solid fill, I'd say layer a copy of the shape below (so the fill shows up above the stroke), or even better: use `paint-order="stroke"` to paint the stroke first, which avoids having to duplicate the shape.
 
 Now this is pretty simple but I thought it was fun enough to share. Plus, I really love SVG so if I get an excuse to write about it, I'll take it!
