@@ -66,4 +66,4 @@ Which all in all looks like this:
 
 You could definitely use masks (white rectangle covering the SVG, black fill on the letter) instead of clip-paths if you wanted to make the stroke grow outwards with a transparent shape. In the case of a solid fill, I'd say layer a copy of the shape below (so the fill appears above the stroke), or even better: use `paint-order="stroke"` to paint the stroke first, which avoids having to duplicate the shape.
 
-Now this is pretty simple but I thought it was fun enough to share. Any excuse to talk about SVG should not be ignored.
+Now this is pretty simple but I thought it was fun enough to share. Plus, I really love SVG so if I get an excuse to write about it, I'll take it!
