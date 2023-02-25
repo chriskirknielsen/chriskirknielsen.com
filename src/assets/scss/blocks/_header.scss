@@ -21,7 +21,7 @@
 		text-decoration: none;
 
 		& > svg {
-			--logo-transition: 420ms ease-in-out;
+			--logo-transition: var(--logo-transition-duration, 420ms) var(--logo-transition-easing, var(--easing-circ-out));
 			--logo-stroke-width: 0;
 
 			height: 1em;

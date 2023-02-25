@@ -1,6 +1,8 @@
 @include default-schemes {
 	.header-logo {
 		& > svg {
+			--logo-transition-duration: var(--T-dusk, 200ms) var(--T-dawn, 420ms);
+
 			& use {
 				fill-opacity: 1;
 				stroke: var(--t-color-main-min);
@@ -224,6 +226,10 @@
 			outline-offset: -4px;
 			outline: 1px dotted #4c4c4c;
 		}
+	}
+
+	.header-logo > svg {
+		--logo-transition-easing: steps(3);
 	}
 
 	hr {
