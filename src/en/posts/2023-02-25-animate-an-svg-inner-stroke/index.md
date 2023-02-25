@@ -20,7 +20,7 @@ I thought it would be cool to have the letters fill in from the sides instead of
 Yikes. Not exactly what I'm after. The stroke should only be contained inside the shape itself, like… clipped? Ah, a clip path! Use a path, apply a stroke to it, and clip it to itself. That should work. I'll define a `<clipPath>` for each letter inside `<defs>`. But I don't want to have the path in the clip path element, and then repeat it as its own path… Well, SVG is _Super Very Good™_, because I can absolutely do something like this:
 
 ```html
-<svg ect…>
+<svg etc...>
 	<defs>
 		<clipPath id="letter-c-clip">
 			<path id="letter-c-path" d="…" />
@@ -34,7 +34,7 @@ This allows me to define a path as a clip, and then later reference the path its
 Anyways, so I have my clips defined, now I need to add the shapes. Easy enough, I'll use `<use>`! Set the `clip-path` attribute and that's all I need in the markup section.
 
 ```html
-<use href="url(#letter-c-path)" clip-path="url(#letter-c-path)"/>
+<use href="#letter-c-path" clip-path="url(#letter-c-clip)"/>
 ```
 
 Now all I need is to set the adjusted CSS to change the stroke width on `use` instead (though there are many ways to do this, e.g.: assign a `data-letter="c"` attribute and select `[data-letter]`).
