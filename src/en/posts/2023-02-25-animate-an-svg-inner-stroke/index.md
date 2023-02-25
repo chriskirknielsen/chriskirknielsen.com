@@ -31,11 +31,15 @@ Yikes. Not exactly what I'm after. The stroke should only be contained inside th
 
 This allows me to define a path as a clip, and then later reference the path itself as a regular shape. Gosh, SVG is so cool.
 
-Anyways, so I have my clips defined, now I need to add the shapes. Easy enough, I'll use `<use>`! Set the `clip-path` attribute and that's all I need in the markup section.
+Anyways, so I have my clips defined, now I need to add the shapes. Easy enough, I'll use `<use>`! Set the `href` and `clip-path` attributes, and that's all I need in the markup section.
 
 ```html
 <use href="#letter-c-path" clip-path="url(#letter-c-clip)"/>
 ```
+
+{% callout %}
+I'm being a little lazy and using SVG 2.0's spec where you don't prefix the attribute with `xlink:`, but if backward browser compatibility is of concern, make sure to use `xlink:href` and to add the corresponding namespace definition on your `<svg>` element.
+{% endcallout %}
 
 Now all I need is to set the adjusted CSS to change the stroke width on `use` instead (though there are many ways to do this, e.g.: assign a `data-letter="c"` attribute and select `[data-letter]`).
 
