@@ -130,7 +130,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix'), {
 		mode: 'directory',
 		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/**/index.{njk,md}`, `${rootDir}/projects/**/index.{njk,md}`],
-		assetsMatching: '*.jpg|*.png|*.gif|*.otf|*.woff|*.woff2|*.zip',
+		assetsMatching: '*.jpg|*.png|*.gif|*.mp4|*.otf|*.woff|*.woff2|*.zip',
 		silent: true,
 	});
 	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js')); // Markdown Lib + Anchors
@@ -195,7 +195,7 @@ module.exports = function (eleventyConfig) {
 		defaultLanguage: defaultLang,
 		md,
 	});
-	eleventyConfig.addPlugin(require('./config/shortcodes/image-gallery.js'), {
+	eleventyConfig.addPlugin(require('./config/shortcodes/media-gallery.js'), {
 		galleryClasses: ['image-gallery', 'content-wide'],
 	});
 	eleventyConfig.addPlugin(require('./config/shortcodes/render-include.js'), {

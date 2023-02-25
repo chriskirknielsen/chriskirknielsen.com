@@ -10,19 +10,23 @@ function imageGalleryShortcode(pictures, addClass = []) {
 	return `<div class="${galleryClasses.join(' ')}">${pictures.trim()}</div>`;
 }
 
-function imageShortcode(src, alt, caption = '', options = {}) {
+function mediaShortcode(type, src, alt, caption = '', options = {}) {
+	if (!['image', 'video'].includes(type)) {
+		throw new Error(`The type parameter must either be image or video.`);
+	}
 	if (typeof alt === 'undefined') {
-		throw `The ${src} image does not have an alt attribute! (empty string is allowed)`;
+		throw new Error(`The ${src} ${type} does not have an alt attribute! (empty string is allowed)`);
 	}
 
 	if (!options.ratio && !options.width && !options.height) {
-		throw `The ${src} image does not have a ratio or width/height attributes. At least two of the three must be provided.`;
+		throw new Error(`The ${src} ${type} does not have a ratio or width/height attributes. At least two of the three must be provided.`);
 	}
 
-	const isGroupContext = options.hasOwnProperty('group') && options.group; // Whether the image is part of a group
+	const isGroupContext = type === 'image' && options.hasOwnProperty('group') && options.group; // Whether the image is part of a group
 	const sizes = ['100vw', '(min-width: 50rem) 50rem'].join(', ');
 	const widths = options.widths || [480, 800, 1200];
 	const srcset = widths.map((w) => `${src}?nf_resize=fit&w=${w} ${w}w`);
+
 	if (alt.indexOf('"') > -1) {
 		alt = alt.split('"').join('&quot;');
 	}
@@ -30,13 +34,15 @@ function imageShortcode(src, alt, caption = '', options = {}) {
 		alt = alt.split('<').join('&lt;');
 	}
 
-	const attrs = {
-		loading: 'lazy',
-		decoding: 'async',
-		alt: alt,
-	};
+	let attrs = {};
 
-	// Assign a ratio to the image
+	if (type === 'video') {
+		attrs = { controls: '', playsinline: '', muted: '', loop: '', 'aria-label': alt };
+	} else if (type === 'image') {
+		attrs = { loading: 'lazy', decoding: 'async', alt: alt, srcset: srcset.join(','), sizes: sizes };
+	}
+
+	// Assign a ratio to the media
 	if (options.ratio) {
 		// If the ratio is passed as a string, parse it to a number
 		if (typeof options.ratio === 'string') {
@@ -77,16 +83,21 @@ function imageShortcode(src, alt, caption = '', options = {}) {
 		.map((attr) => `${attr[0]}="${attr[1]}"`)
 		.join(' ');
 
-	const imageMarkup = `<a href="${src}"><img src="${src}?nf_resize=fit&w=${widths.at(-2)}" srcset="${srcset.join(',')}" sizes="${sizes}" ${attrsStr} /></a>`;
+	let mediaMarkup = '';
+	if (type === 'video') {
+		mediaMarkup = `<video src="${src}" ${attrsStr}></video>`;
+	} else if (type === 'image') {
+		mediaMarkup = `<a href="${src}"><img src="${src}?nf_resize=fit&w=${widths.at(-2)}" ${attrsStr} /></a>`;
+	}
 
 	let output;
 	if (caption) {
-		output = `<figure>${imageMarkup}<figcaption>${caption}</figcaption></figure>`;
+		output = `<figure>${mediaMarkup}<figcaption>${caption}</figcaption></figure>`;
 	} else {
-		output = imageMarkup;
+		output = mediaMarkup;
 	}
 
-	// If not grouped in a gallery (wrapped in a {% gallery %} shortcode pair), make it a single-image gallery
+	// If not grouped in a gallery (wrapped in a {% gallery %} shortcode pair), make it a single-media gallery
 	if (!isGroupContext) {
 		return imageGalleryShortcode(output, options._galleryClasses);
 	}
@@ -94,9 +105,18 @@ function imageShortcode(src, alt, caption = '', options = {}) {
 	return output;
 }
 
+function imageShortcode(src, alt, caption = '', options = {}) {
+	return mediaShortcode('image', src, alt, caption, options);
+}
+
+function videoShortcode(src, alt, caption = '', options = {}) {
+	return mediaShortcode('video', src, alt, caption, options);
+}
+
 module.exports = function (eleventyConfig, options = {}) {
 	const galleryClasses = options.galleryClasses || null;
 
 	eleventyConfig.addShortcode('image', (src, alt = '', caption = '', opts = {}) => imageShortcode(src, alt, caption, Object.assign({ _galleryClasses: galleryClasses }, opts)));
+	eleventyConfig.addShortcode('video', (src, alt = '', caption = '', opts = {}) => videoShortcode(src, alt, caption, Object.assign({ _galleryClasses: galleryClasses }, opts)));
 	eleventyConfig.addPairedShortcode('gallery', (pictures) => imageGalleryShortcode(pictures, galleryClasses));
 };

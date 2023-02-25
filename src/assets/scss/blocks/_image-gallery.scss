@@ -5,7 +5,7 @@
 	justify-items: center;
 	align-items: stretch;
 
-	& img {
+	& :is(img, video) {
 		width: 100%;
 		object-fit: cover;
 	}
@@ -14,7 +14,7 @@
 		display: flex;
 		flex-direction: column;
 
-		& > img {
+		& > :is(img, video) {
 			flex-grow: 1;
 		}
 	}
@@ -37,7 +37,7 @@
 		}
 	}
 
-	& > :is(figure, picture, a, img) {
+	& > :is(figure, picture, a, img, video) {
 		width: 100%;
 		max-width: #{get-token('constants', 'content-width') * 0.8};
 		overflow: hidden;
