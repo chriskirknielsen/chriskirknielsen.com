@@ -9,10 +9,12 @@
 		width: 100%;
 	}
 
+	// Images can be clicked to be seen fully
 	& img {
 		object-fit: cover;
 	}
 
+	// Videos should appear without any cropping
 	& video {
 		height: auto;
 	}
