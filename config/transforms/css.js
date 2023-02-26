@@ -1,4 +1,5 @@
 const { PurgeCSS } = require('purgecss');
+const CleanCSS = require('clean-css');
 
 module.exports = function (eleventyConfig, options = {}) {
 	if (!options.placeholder) {
@@ -40,5 +41,10 @@ module.exports = function (eleventyConfig, options = {}) {
 		});
 
 		return content.replace(placeholder, purgeCSSResults[0].css || '');
+	});
+
+	/** Add ability to minify inline CSS. */
+	eleventyConfig.addFilter('cssmin', function (code) {
+		return new CleanCSS({}).minify(code).styles;
 	});
 };

@@ -16,7 +16,6 @@ const dictionaries = locales.reduce((localesData, locale) => {
 const util = require('util');
 const fs = require('fs');
 const jsonSass = require('json-sass');
-const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
 const esbuild = require('esbuild');
 const assetCompiler = require('./config/tools/asset-compiler.js');
@@ -145,10 +144,6 @@ module.exports = function (eleventyConfig) {
 		return themeColors[colorGroup][colorWeight];
 	});
 
-	eleventyConfig.addFilter('cssmin', function (code) {
-		return new CleanCSS({}).minify(code).styles;
-	});
-
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, ...rest) {
 		const callback = rest.pop();
 		const cacheKey = rest.length > 0 ? rest[0] : null;
@@ -189,13 +184,13 @@ module.exports = function (eleventyConfig) {
 		cacheSvg: true, // While serving locally, set to `false` if editing SVG assets so the cache doesn't persist across builds
 	});
 
-	/* Transforms */
-	eleventyConfig.addPlugin(require('./config/transforms/htmlmin.js'), {
+	/* Transforms (and related filters) */
+	eleventyConfig.addPlugin(require('./config/transforms/html.js'), {
 		useShortDoctype: true,
 		removeComments: true,
 		collapseWhitespace: true,
 	});
-	eleventyConfig.addPlugin(require('./config/transforms/purge-css.js'), {
+	eleventyConfig.addPlugin(require('./config/transforms/css.js'), {
 		placeholder: '/*INLINE_CSS*/',
 		pathToCss: [`${rootDir}/${includesDir}/${assets.style}`],
 		dynamicAttributes: ['data-theme', 'aria-pressed'],
