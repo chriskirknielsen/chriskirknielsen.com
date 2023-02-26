@@ -1,5 +1,5 @@
 ---
-title: 'Animate an SVG shape‘s inner stroke'
+title: "Animate an SVG shape's inner stroke"
 summary: 'Grow a stroke on an SVG shape but only covering the inner part'
 tags:
     - quick-tip

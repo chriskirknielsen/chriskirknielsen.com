@@ -24,6 +24,7 @@ module.exports = function (eleventyConfig, options = {}) {
 	const { svgAssetFolder, componentsFolder, cacheSvg } = options;
 	const svgCache = {}; // If caching is enabled, this object will be used to store recurring SVGs
 
+	/** Render an SVG from the SVG assets folder. */
 	eleventyConfig.addAsyncShortcode('svg', async function (filename, svgOptions = {}) {
 		const cacheKey = filename + '_' + quickHash(JSON.stringify(svgOptions));
 
@@ -41,6 +42,7 @@ module.exports = function (eleventyConfig, options = {}) {
 		return await content;
 	});
 
+	/** Render a component from the component folder. */
 	eleventyConfig.addAsyncShortcode('component', async function (filename, componentOptions = {}) {
 		const filePath = `${componentsFolder}/${filename}.njk`;
 		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, componentOptions, 'njk');

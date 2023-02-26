@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig, options = {}) {
 	if (!options || !options.hasOwnProperty('md')) {
-		throw new Error('The markdown shortcode requires a Markdown renderer passed as `options.md`.');
+		throw new Error('The `options` argument expects a `md` property to use as a Markdown renderer.');
 	}
 	const md = options.md;
 
