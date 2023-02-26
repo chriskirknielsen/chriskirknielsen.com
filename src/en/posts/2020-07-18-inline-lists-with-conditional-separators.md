@@ -78,10 +78,12 @@ The line break and tab between `</a>` and `</li>` will be counted as whitespace 
 <ul class="inline-list">
 	<li><a href="/en">English</a></li>
 	<li><!--
-        --><a href="/fr">Français</a
-		><!--
+        --><a href="/fr">Français</a><!--
     --></li>
-	<li><a href="/da">Dansk</a></li>
+	<li
+		><a href="/da"
+		>Dansk</a
+	></li>
 </ul>
 ```
 
