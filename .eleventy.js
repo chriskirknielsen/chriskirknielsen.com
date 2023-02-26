@@ -16,7 +16,6 @@ const dictionaries = locales.reduce((localesData, locale) => {
 const util = require('util');
 const fs = require('fs');
 const jsonSass = require('json-sass');
-const htmlmin = require('html-minifier');
 const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
 const esbuild = require('esbuild');
@@ -29,15 +28,6 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const md = new markdownIt().disable('code');
-
-// Helpers
-function htmlMinify(code) {
-	return htmlmin.minify(code, {
-		useShortDoctype: true,
-		removeComments: true,
-		collapseWhitespace: true,
-	});
-}
 
 // Config
 const purgeCssSafeList = {
@@ -155,10 +145,6 @@ module.exports = function (eleventyConfig) {
 		return themeColors[colorGroup][colorWeight];
 	});
 
-	eleventyConfig.addFilter('htmlmin', function (code) {
-		return htmlMinify(code);
-	});
-
 	eleventyConfig.addFilter('cssmin', function (code) {
 		return new CleanCSS({}).minify(code).styles;
 	});
@@ -204,6 +190,11 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Transforms */
+	eleventyConfig.addPlugin(require('./config/transforms/htmlmin.js'), {
+		useShortDoctype: true,
+		removeComments: true,
+		collapseWhitespace: true,
+	});
 	eleventyConfig.addPlugin(require('./config/transforms/purge-css.js'), {
 		placeholder: '/*INLINE_CSS*/',
 		pathToCss: [`${rootDir}/${includesDir}/${assets.style}`],
@@ -218,15 +209,6 @@ module.exports = function (eleventyConfig) {
 				return purgeCssSafeList.blog;
 			}
 		},
-	});
-
-	// Minify HTML output
-	eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
-		if (!outputPath.endsWith('.html')) {
-			return content;
-		}
-
-		return htmlMinify(content);
 	});
 
 	/* Passthroughs */
