@@ -10,15 +10,15 @@ function quickHash(s) {
 		h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
 	}
 
-	return Math.abs(h).toString(16); // Absolutely unnecessary, h would suffice, but the hash look more like hashes as a hex…
+	return Math.abs(h).toString(16); // Absolutely unnecessary, purely aesthetic, h would suffice, but the hash look more like a proper hash as a hex…
 }
 
 module.exports = function (eleventyConfig, options = {}) {
 	if (typeof options.svgAssetFolder !== 'string') {
-		throw new Error('The svg shortcode requires a folder path passed as `options.svgAssetFolder`.');
+		throw new Error('The `options` argument expects a `svgAssetFolder` property to use as a folder path for the `svg` shortcode.');
 	}
 	if (typeof options.componentsFolder !== 'string') {
-		throw new Error('The component shortcode requires a folder path passed as `options.componentsFolder`.');
+		throw new Error('The `options` argument expects a `componentsFolder` property to use as a folder path for the `component` shortcode.');
 	}
 
 	const { svgAssetFolder, componentsFolder, cacheSvg } = options;

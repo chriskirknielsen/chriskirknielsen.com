@@ -1,9 +1,9 @@
 const { DateTime } = require('luxon');
 
 module.exports = function (eleventyConfig, options = {}) {
-	// Like the EleventyI18nPlugin, don't assume English as the default and explicitely require a language.
+	// Like the EleventyI18nPlugin, don't assume English as the default and explicitly require a language.
 	if (!options.defaultLanguage) {
-		throw new Error('A default language as a string is required for fallback behaviour as a `defaultLanguage` property on the `options` object.');
+		throw new Error('The `options` argument expects a `defaultLanguage` property to use for fallback behaviour.');
 	}
 
 	const { defaultLanguage } = options;

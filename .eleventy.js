@@ -16,7 +16,6 @@ const dictionaries = locales.reduce((localesData, locale) => {
 const util = require('util');
 const fs = require('fs');
 const jsonSass = require('json-sass');
-const { PurgeCSS } = require('purgecss');
 const htmlmin = require('html-minifier');
 const CleanCSS = require('clean-css');
 const sass = require('sass'); // dart-sass
@@ -205,29 +204,20 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Transforms */
-	// Inline only the necessary CSS
-	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
-		if (!outputPath.endsWith('.html')) {
-			return content;
-		}
-
-		let safeSelectors = purgeCssSafeList._global;
-		if (/\/(index\.html|fr\/index\.html)/.exec(outputPath)) {
-			safeSelectors = safeSelectors.concat(purgeCssSafeList.home);
-		} else if (/\/(about|fr\/a-propos)/.exec(outputPath)) {
-			safeSelectors = safeSelectors.concat(purgeCssSafeList.about);
-		} else if (/\/(blog|tags)\//.exec(outputPath)) {
-			safeSelectors = safeSelectors.concat(purgeCssSafeList.blog);
-		}
-		const purgeCSSResults = await new PurgeCSS().purge({
-			content: [{ raw: content }],
-			css: [`${rootDir}/${includesDir}/${assets.style}`],
-			keyframes: true, // Removes unused keyframes
-			safelist: safeSelectors,
-			dynamicAttributes: ['data-theme', 'aria-pressed'],
-		});
-
-		return content.replace('/*INLINE_CSS*/', purgeCSSResults[0].css || '');
+	eleventyConfig.addPlugin(require('./config/transforms/purge-css.js'), {
+		placeholder: '/*INLINE_CSS*/',
+		pathToCss: [`${rootDir}/${includesDir}/${assets.style}`],
+		dynamicAttributes: ['data-theme', 'aria-pressed'],
+		safelist: purgeCssSafeList._global,
+		getPageSafelist: (outputPath) => {
+			if (new RegExp(`${outputDir}\/(index\.html|fr\/index\.html)`).exec(outputPath)) {
+				return purgeCssSafeList.home;
+			} else if (new RegExp(`${outputDir}\/(about|fr\/a-propos)`).exec(outputPath)) {
+				return purgeCssSafeList.about;
+			} else if (new RegExp(`${outputDir}\/(blog|tags)\/`).exec(outputPath)) {
+				return purgeCssSafeList.blog;
+			}
+		},
 	});
 
 	// Minify HTML output

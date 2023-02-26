@@ -84,14 +84,16 @@ function getDeep(obj, keys) {
 
 // Define the filter
 module.exports = function (eleventyConfig, options = {}) {
-	// Like the EleventyI18nPlugin, don't assume English as the default and explicitely require a language.
+	// Like the EleventyI18nPlugin, don't assume English as the default and explicitly require a language.
 	if (!options.defaultLanguage || typeof options.defaultLanguage !== 'string') {
-		throw new Error('A default language as a string is required for fallback behaviour as a `defaultLanguage` property on the `options` object.');
+		throw new Error('The `options` argument expects a `defaultLanguage` property to use for fallback behaviour.');
 	}
 
 	// If the dictionaries aren't valid, none of this will work
 	if (!options.dictionaries || trueType(options.dictionaries) !== 'object') {
-		throw new Error('A object with one or more locales is required as a property on the `options` object, e.g.: `{ en: { home: "Homepage" }, fr: { home: "Accueil" } }`.');
+		throw new Error(
+			'The `options` argument expects a `dictionaries` property to use as a translation map for the default callout heading, e.g.: `{ en: { home: "Homepage" }, fr: { home: "Accueil" } }`.'
+		);
 	}
 
 	const { dictionaries, defaultLanguage } = options;

@@ -58,8 +58,6 @@ use {
 [data-n] { --delay: 400ms; }
 
 svg:is(:hover, :focus) use {
-	outline: 0;
-
 	stroke-width: 16;
 }
 ```

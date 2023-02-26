@@ -1,11 +1,11 @@
 module.exports = function (eleventyConfig, options = {}) {
-	// Like the EleventyI18nPlugin, don't assume English as the default and explicitely require a language.
+	// Like the EleventyI18nPlugin, don't assume English as the default and explicitly require a language.
 	if (!options.defaultLanguage || typeof options.defaultLanguage !== 'string') {
-		throw new Error('A default language as a string is required for fallback behaviour as a `defaultLanguage` property on the `options` object.');
+		throw new Error('The `options` argument expects a `defaultLanguage` property to use for fallback behaviour.');
 	}
 
 	if (!options || !options.hasOwnProperty('md')) {
-		throw new Error('The callout shortcode requires a Markdown renderer passed as `options.md`.');
+		throw new Error('The `options` argument expects a `md` property to use as a Markdown renderer.');
 	}
 
 	options = Object.assign({ labelByLang: { en: 'Note' } }, options);
