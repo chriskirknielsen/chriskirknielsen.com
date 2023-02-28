@@ -1,5 +1,6 @@
 const { PurgeCSS } = require('purgecss');
 const CleanCSS = require('clean-css');
+const lightningcss = require('lightningcss');
 
 module.exports = function (eleventyConfig, options = {}) {
 	if (!options.placeholder) {
@@ -44,7 +45,7 @@ module.exports = function (eleventyConfig, options = {}) {
 	});
 
 	/** Add ability to minify inline CSS. */
-	eleventyConfig.addFilter('cssmin', function (code) {
-		return new CleanCSS({}).minify(code).styles;
+	eleventyConfig.addAsyncFilter('cssmin', async function (code) {
+		return (await lightningcss.transform({ code: Buffer.from(code), minify: true, sourceMap: false })).code;
 	});
 };
