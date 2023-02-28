@@ -13,10 +13,11 @@ module.exports = function (eleventyConfig, options = {}) {
 	// Default values
 	options = Object.assign(
 		{
-			keyframes: true,
+			keyframes: true, // Removes unused keyframes
 			safelist: [],
+			blocklist: [],
 			dynamicAttributes: [],
-			getPageSafelist: () => [],
+			getPageList: (path) => [],
 		},
 		options
 	);
@@ -24,7 +25,7 @@ module.exports = function (eleventyConfig, options = {}) {
 	if (!Array.isArray(options.pathToCss)) {
 		options.pathToCss = [options.pathToCss];
 	}
-	const { pathToCss, placeholder, keyframes, getPageSafelist, dynamicAttributes } = options;
+	const { pathToCss, placeholder, keyframes, getPageList, dynamicAttributes } = options;
 
 	/** Inline only the necessary CSS based on the page content and outputPath, if provided */
 	eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
@@ -32,12 +33,15 @@ module.exports = function (eleventyConfig, options = {}) {
 			return content;
 		}
 
-		const safelist = options.safelist.concat(getPageSafelist(outputPath) || []);
+		const pageList = getPageList(outputPath) || {};
+		const safelist = options.safelist.concat(pageList.safe || []);
+		const blocklist = options.blocklist.concat(pageList.block || []);
 		const purgeCSSResults = await new PurgeCSS().purge({
 			content: [{ raw: content }],
 			css: pathToCss,
-			keyframes, // Removes unused keyframes
+			keyframes,
 			safelist,
+			blocklist,
 			dynamicAttributes,
 		});
 

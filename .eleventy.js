@@ -29,11 +29,10 @@ const markdownIt = require('markdown-it');
 const md = new markdownIt().disable('code');
 
 // Config
-const purgeCssSafeList = {
-	_global: [':is', ':where', 'translated-rtl', ':target'],
-	home: ['home'],
-	blog: [],
-	about: [],
+const purgeCssList = {
+	_global: { safe: [':is', ':where', 'translated-rtl', ':target'], block: [] },
+	home: { safe: ['data-section=home'], block: ['data-section=about'] },
+	about: { safe: ['data-section=about'], block: ['data-section=home'] },
 };
 
 module.exports = function (eleventyConfig) {
@@ -166,14 +165,13 @@ module.exports = function (eleventyConfig) {
 		placeholder: '/*INLINE_CSS*/',
 		pathToCss: [`${rootDir}/${includesDir}/${assets.style}`],
 		dynamicAttributes: ['data-theme', 'aria-pressed'],
-		safelist: purgeCssSafeList._global,
-		getPageSafelist: (outputPath) => {
+		safelist: purgeCssList._global.safe,
+		blocklist: purgeCssList._global.block,
+		getPageList: (outputPath) => {
 			if (new RegExp(`${outputDir}\/(index\.html|fr\/index\.html)`).exec(outputPath)) {
-				return purgeCssSafeList.home;
+				return purgeCssList.home;
 			} else if (new RegExp(`${outputDir}\/(about|fr\/a-propos)`).exec(outputPath)) {
-				return purgeCssSafeList.about;
-			} else if (new RegExp(`${outputDir}\/(blog|tags)\/`).exec(outputPath)) {
-				return purgeCssSafeList.blog;
+				return purgeCssList.about;
 			}
 		},
 	});
