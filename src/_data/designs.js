@@ -199,7 +199,6 @@ const designs = [
 		img: 'gameart-control.jpg',
 		links: {
 			RedBubble: 'https://www.redbubble.com/i/art-print/Control-by-ckirknielsen/106874139.1G4ZT',
-			Society6: 'https://society6.com/product/control6788779_print?sku=s6-23678622p4a1v45',
 		},
 		tags: ['games'],
 		date: '2021-10-23',
@@ -212,7 +211,6 @@ const designs = [
 		img: 'gameart-gow.jpg',
 		links: {
 			RedBubble: 'https://www.redbubble.com/i/art-print/God-of-War-by-ckirknielsen/106870471.1G4ZT',
-			Society6: 'https://society6.com/product/god-of-war6788801_print?sku=s6-23678708p4a1v45',
 		},
 		tags: ['games'],
 		date: '2021-10-23',
@@ -225,7 +223,6 @@ const designs = [
 		img: 'gameart-deathloop.jpg',
 		links: {
 			RedBubble: 'https://www.redbubble.com/i/art-print/DEATHLOOP-by-ckirknielsen/106881338.1G4ZT',
-			Society6: 'https://society6.com/product/deathloop_print?sku=s6-23684963p4a1v45',
 		},
 		tags: ['games'],
 		date: '2021-12-31',
@@ -238,7 +235,6 @@ const designs = [
 		img: 'gameart-deadspace.jpg',
 		links: {
 			RedBubble: 'https://www.redbubble.com/i/art-print/Dead-Space-by-ckirknielsen/106878842.1G4ZT',
-			Society6: 'https://society6.com/product/dead-space6791094_print?sku=s6-23685021p4a1v45',
 		},
 		tags: ['games'],
 		date: '2022-01-23',
@@ -382,7 +378,6 @@ const designs = [
 		description: 'A poster showcasing a powerful handgun found in Control.',
 		img: 'control-service-weapon.jpg',
 		links: {
-			Society6: 'https://society6.com/product/control-fbc-service-weapon_print?sku=s6-21852486p4a1v1',
 			RedBubble: 'https://www.redbubble.com/i/poster/Control-FBC-Service-Weapon-by-ckirknielsen/89267833.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/24392079-control-fbc-service-weapon',
 		},
@@ -397,7 +392,6 @@ const designs = [
 		description: 'A poster showcasing a stylish gun from DEATHLOOP.',
 		img: 'deathloop-fourpounder.jpg',
 		links: {
-			Society6: 'https://society6.com/product/deathloop-fourpounder_print?sku=s6-22763844p4a1v45',
 			RedBubble: 'https://www.redbubble.com/i/poster/DEATHLOOP-Fourpounder-by-ckirknielsen/97903910.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/26802077-deathloop-fourpounder',
 		},
@@ -412,7 +406,6 @@ const designs = [
 		description: 'A poster showcasing a mythical axe from God of War.',
 		img: 'gow-axe.jpg',
 		links: {
-			Society6: 'https://society6.com/product/god-of-war-leviathan-axe6077739_print?sku=s6-22068849p4a1v1',
 			RedBubble: 'https://www.redbubble.com/i/poster/God-of-War-Leviathan-Axe-by-ckirknielsen/91430397.LVTDI',
 			'RedBubble (Alt)': 'https://www.redbubble.com/i/poster/God-of-War-Leviathan-Axe-Alt-Version-by-ckirknielsen/106755016.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/24830737-god-of-war-leviathan-axe',
@@ -428,7 +421,6 @@ const designs = [
 		description: "A poster illustrating Ellie's signature knife in The Last of Us.",
 		img: 'tlou-switchblade.jpg',
 		links: {
-			Society6: 'https://society6.com/product/the-last-of-us-switchblade_print?sku=s6-23590071p4a1v45',
 			RedBubble: 'https://www.redbubble.com/i/poster/The-Last-of-Us-Switchblade-by-ckirknielsen/106050948.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/28918532-the-last-of-us-switchblade',
 		},
@@ -442,7 +434,6 @@ const designs = [
 		description: 'A poster presenting a versatile tool in Ratchet & Clank.',
 		img: 'rc-wrench.jpg',
 		links: {
-			Society6: 'https://society6.com/product/ratchet-clank-omniwrench-millenium_print?sku=s6-22239725p4a1v1',
 			RedBubble: 'https://www.redbubble.com/i/poster/Ratchet-and-Clank-Omniwrench-Millenium-by-ckirknielsen/93357003.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/25205497-ratchet-and-clank-omniwrench-millenium',
 		},
@@ -456,7 +447,6 @@ const designs = [
 		description: 'A poster presenting an essential engineering tool in Dead Space.',
 		img: 'ds-plasma-cutter.jpg',
 		links: {
-			Society6: 'https://society6.com/product/dead-space-plasma-cutter6489712_print?sku=s6-22965519p4a1v45',
 			RedBubble: 'https://www.redbubble.com/i/poster/Dead-Space-Plasma-Cutter-by-ckirknielsen/99996925.LVTDI',
 			TeePublic: 'https://www.teepublic.com/poster-and-art/27453494-dead-space-plasma-cutter',
 		},
