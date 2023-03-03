@@ -7,9 +7,11 @@
 		const pickerAttr = 'data-themepicker';
 		const prevIsOpenStatus = htmlEl.getAttribute(pickerAttr) === 'open';
 		const newIsOpenStatus = force !== null ? JSON.parse(force) : !prevIsOpenStatus;
+		const newFocus = newIsOpenStatus ? pickerEl : toggleBtn; // Determine which element to focus
 		htmlEl.setAttribute(pickerAttr, newIsOpenStatus ? 'open' : 'closed');
 		toggleBtn.setAttribute('aria-expanded', newIsOpenStatus.toString());
 		pickerEl.inert = !newIsOpenStatus;
+		newFocus.focus();
 		return newIsOpenStatus;
 	}
 	document.addEventListener('click', function (e) {
@@ -37,7 +39,7 @@
 
 			// Scroll to top if opening the picker
 			if (newStatus) {
-				document.body.scrollIntoView({ block: 'start', behavior: 'smooth' });
+				// document.body.scrollIntoView({ block: 'start', behavior: 'smooth' });
 			}
 		}
 	});
