@@ -1,7 +1,14 @@
 const esbuild = require('esbuild');
 
 module.exports = function (eleventyConfig, options = {}) {
-	const jsminCache = options.useCache ? {} : null;
+	let jsminCache = options.useCache ? {} : null;
+
+	if (options.useCache) {
+		eleventyConfig.on('eleventy.before', function () {
+			jsminCache = {}; // Reset cache
+			return true; // Ensure the event callback is signaled as completed
+		});
+	}
 
 	/** Minify a block of JavaScript code and optionally caches the result for reuse if a key is provided. */
 	eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, ...rest) {
