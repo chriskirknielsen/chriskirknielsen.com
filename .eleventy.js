@@ -6,11 +6,7 @@ const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = Object.keys(metadata.locales);
 const defaultLang = 'en';
-const dictionaries = locales.reduce((localesData, locale) => {
-	const localeData = require(`./${rootDir}/${locale}/${locale}.json`);
-	localesData[locale] = localeData.i18n;
-	return localesData;
-}, {});
+const dictionaries = Object.fromEntries(locales.map((locale) => [locale, require(`./${rootDir}/${locale}/${locale}.json`).i18n]));
 
 // Tools
 const util = require('util');
@@ -66,21 +62,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(require('./config/filters/array.js'));
 	eleventyConfig.addPlugin(require('./config/filters/date.js'), { defaultLanguage: defaultLang });
 	eleventyConfig.addPlugin(require('./config/filters/jsmin.js'), { useCache: true });
+	eleventyConfig.addPlugin(require('./config/filters/color-token-var.js'));
 	eleventyConfig.addFilter('incPath', (filename, dirName = '') => `./${rootDir}/${includesDir}/${dirName ? dirName + '/' : ''}${filename}`);
 	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
-
-	eleventyConfig.addFilter('extractColorFromTokenVar', (varValue, themeColors) => {
-		// If it's not a variable, render the value as is
-		if (!varValue.trim().startsWith('var(--')) {
-			return varValue;
-		}
-
-		// Find the colour group and weight, then pick the value out from the theme colours
-		const colorInfo = varValue.match(/var\(\s*--t-color-([a-z]+)-(min|med|max)\s*\)/);
-		const colorGroup = colorInfo[1];
-		const colorWeight = colorInfo[2];
-		return themeColors[colorGroup][colorWeight];
-	});
 
 	/* Shortcodes */
 	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { markdownEngine: md });
