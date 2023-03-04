@@ -1,20 +1,23 @@
 const path = require('node:path');
 const fs = require('fs');
 const glob = require('glob');
+const jsonSass = require('json-sass');
+const sass = require('sass'); // dart-sass
+const esbuild = require('esbuild');
 
 /**
  * Compile a list of files from the src/assets folder to src/_includes/assets.
- * @param {Object} settings Configuration for the compiler.
+ * @param {object} settings Configuration for the compiler.
  * @param {string} settings.inFolder Name of the input folder.
  * @param {string} settings.inExt Extension of the input files.
  * @param {string} [settings.outFolder] Optional. Name of the output folder. Defaults to the same name as `inFolder`.
  * @param {string} [settings.outExt] Optional. Extension of the output files. Defaults to the same extension as `inExt`.
  * @param {function} [settings.filterFn] Optional. Function run against the list of file paths retuning a boolean describing if the file should be compiled.
  * @param {function} settings.compileFn Compiler for the provided files.
- * @param {Object} config Configuration for the Eleventy folders.
+ * @param {object} config Configuration for the Eleventy folders.
  * @returns {Promise<string[]>} List of output files.
  */
-module.exports = function (settings, config) {
+function assetCompiler(settings, config) {
 	const _requiredSettings = ['inFolder', 'inExt', 'compileFn'];
 
 	// Check all the correct data is passed
@@ -93,6 +96,65 @@ module.exports = function (settings, config) {
 
 			// Resolve the `compileAssets` promise when all the files are processed
 			Promise.all(compiledFiles).then((savedFiles) => resolve(savedFiles));
+		});
+	});
+}
+
+module.exports = function (eleventyConfig, options) {
+	/** Pre-compiles all Sass and JS to the assets folder that is used while building. */
+	eleventyConfig.on('eleventy.before', function (config) {
+		let beforeStart = performance.now(); // Track execution time
+
+		const tokensFileInput = `${config.inputDir}/_data/tokens.json`;
+		const tokensFileOutput = `${config.inputDir}/assets/scss/tools/_tokens.scss`;
+
+		// Precompile Sass and JS files with the asset compiler
+		const compileAssets = (settings) => assetCompiler(settings, config);
+
+		// Compile the JSON tokens file to a Sass file first
+		const tokens = new Promise((resolve, reject) =>
+			fs
+				.createReadStream(tokensFileInput)
+				.pipe(jsonSass({ prefix: '$tokens: ' }))
+				.pipe(fs.createWriteStream(tokensFileOutput).on('finish', resolve).on('error', reject))
+		);
+
+		const styles = () =>
+			compileAssets({
+				inFolder: 'scss',
+				inExt: 'scss',
+				outFolder: 'css',
+				outExt: 'css',
+				filterFn: (inputPath) => !inputPath.split('/').pop().startsWith('_'),
+				compileFn: async (parsed) => {
+					const result = sass.compile(`${parsed.dir}/${parsed.base}`, {
+						loadPaths: [parsed.dir || '.', config.dir.includes],
+						style: 'compressed',
+						precision: 4,
+					});
+					return result.css;
+				},
+			});
+
+		const scripts = () =>
+			compileAssets({
+				inFolder: 'js',
+				inExt: 'js',
+				compileFn: async (parsed) => {
+					const result = await esbuild.build({
+						target: 'es2020',
+						entryPoints: [`${parsed.dir}/${parsed.base}`],
+						minify: true,
+						bundle: true,
+						write: false,
+					});
+					return result.outputFiles[0].text;
+				},
+			});
+
+		return Promise.all([tokens.then(styles), scripts()]).then((pipelines) => {
+			console.log(`\x1b[33m[11ty] Ran eleventy.before in ${((performance.now() - beforeStart) / 1000).toFixed(2)} seconds`);
+			return pipelines;
 		});
 	});
 };

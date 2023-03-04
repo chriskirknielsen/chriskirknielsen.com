@@ -14,15 +14,9 @@ const dictionaries = locales.reduce((localesData, locale) => {
 
 // Tools
 const util = require('util');
-const fs = require('fs');
-const jsonSass = require('json-sass');
-const sass = require('sass'); // dart-sass
-const esbuild = require('esbuild');
-const assetCompiler = require('./config/tools/asset-compiler.js');
 
 // Plugins
-const { EleventyI18nPlugin } = require('@11ty/eleventy');
-const { EleventyRenderPlugin } = require('@11ty/eleventy');
+const { EleventyI18nPlugin, EleventyRenderPlugin } = require('@11ty/eleventy');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
@@ -36,58 +30,8 @@ const purgeCssList = {
 };
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.on('eleventy.before', function (config) {
-		let beforeStart = performance.now(); // Track execution time
-
-		// Precompile Sass and JS files with the asset compiler
-		const compileAssets = (settings) => assetCompiler(settings, config);
-
-		// Compile the JSON tokens file to a Sass file first
-		const tokens = new Promise((resolve, reject) =>
-			fs
-				.createReadStream(`${config.inputDir}/_data/tokens.json`)
-				.pipe(jsonSass({ prefix: '$tokens: ' }))
-				.pipe(fs.createWriteStream(`${config.inputDir}/assets/scss/tools/_tokens.scss`).on('finish', resolve).on('error', reject))
-		);
-
-		const styles = () =>
-			compileAssets({
-				inFolder: 'scss',
-				inExt: 'scss',
-				outFolder: 'css',
-				outExt: 'css',
-				filterFn: (inputPath) => !inputPath.split('/').pop().startsWith('_'),
-				compileFn: async (parsed) => {
-					const result = sass.compile(`${parsed.dir}/${parsed.base}`, {
-						loadPaths: [parsed.dir || '.', config.dir.includes],
-						style: 'compressed',
-						precision: 4,
-					});
-					return result.css;
-				},
-			});
-
-		const scripts = () =>
-			compileAssets({
-				inFolder: 'js',
-				inExt: 'js',
-				compileFn: async (parsed) => {
-					const result = await esbuild.build({
-						target: 'es2020',
-						entryPoints: [`${parsed.dir}/${parsed.base}`],
-						minify: true,
-						bundle: true,
-						write: false,
-					});
-					return result.outputFiles[0].text;
-				},
-			});
-
-		return Promise.all([tokens.then(styles), scripts()]).then((pipelines) => {
-			console.log(`\x1b[33m[11ty] Ran eleventy.before in ${((performance.now() - beforeStart) / 1000).toFixed(2)} seconds`);
-			return pipelines;
-		});
-	});
+	/* Before Build */
+	eleventyConfig.addPlugin(require('./config/before/asset-compiler.js'));
 
 	/* Plugins */
 	eleventyConfig.addPlugin(pluginRss);
@@ -139,12 +83,12 @@ module.exports = function (eleventyConfig) {
 	});
 
 	/* Shortcodes */
-	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { md });
+	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { markdownEngine: md });
 	eleventyConfig.addPlugin(require('./config/shortcodes/codepen.js'));
 	eleventyConfig.addPlugin(require('./config/shortcodes/callout.js'), {
 		labelByLang: Object.fromEntries(Object.keys(dictionaries).map((dictLang) => [dictLang, dictionaries[dictLang].callout])),
 		defaultLanguage: defaultLang,
-		md,
+		markdownEngine: md,
 	});
 	eleventyConfig.addPlugin(require('./config/shortcodes/media-gallery.js'), {
 		galleryClasses: ['image-gallery', 'content-wide'],
