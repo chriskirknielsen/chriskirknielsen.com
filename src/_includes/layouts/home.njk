@@ -13,15 +13,6 @@ section: home
             </div>
 
             <h1 class="home-title">
-                <svg xmlns="http://www.w3.org/2000/svg" class="visually-hidden">
-                    <defs>
-                        <filter id="sarasquiggly">{# Sara Soueidan has great articles on SVG filters! #}
-                            <feTurbulence id="t" baseFrequency="0.2 0.3" numOctaves="2" result="n" />
-                            <feGaussianBlur stdDeviation=".5" in="t" result="b"/>
-                            <feDisplacementMap id="d" in="SourceGraphic" in2="b" scale="-4" />
-                        </filter>
-                    </defs>
-                </svg>
                 {% svg "home-title", { i18n: i18n } %}
             </h1>
         </div>

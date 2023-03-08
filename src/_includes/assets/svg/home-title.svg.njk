@@ -109,7 +109,13 @@
       <feComponentTransfer>
         <feFuncA type="linear" slope="0.25"/>
       </feComponentTransfer>
+    </filter>
 
+    <!-- Sara Soueidan has great articles on SVG filters! -->
+    <filter id="sarasquiggly">
+      <feTurbulence baseFrequency="0.2 0.3" numOctaves="2" result="t" />
+      <feGaussianBlur stdDeviation=".5" in="t" result="b"/>
+      <feDisplacementMap id="d" in="SourceGraphic" in2="b" scale="-4" />
     </filter>
 
     <!-- GRADIENT: Outline -->
