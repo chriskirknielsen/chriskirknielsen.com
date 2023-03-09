@@ -1,9 +1,11 @@
-:root {
+body {
 	--themepicker-height: 9rem;
+	--themepicker-transition: 300ms;
 
-	transition: transform 300ms ease-in-out;
+	transition: transform var(--themepicker-transition) ease-in-out;
+	will-change: transform; // Last-resort improvement which does help a bit!
 
-	&[data-themepicker='open'] {
+	[data-themepicker='open'] > & {
 		transform: translateY(var(--themepicker-height));
 	}
 }
@@ -40,12 +42,12 @@
 
 	transform: translateY(-50%);
 
-	transition: transform 300ms var(--easing-in-out);
+	transition: transform var(--themepicker-transition) var(--easing-in-out);
 
 	[data-themepicker='open'] & {
 		transform: translateY(0%);
 
-		transition-delay: 100ms;
+		transition-delay: calc(var(--themepicker-transition) / 3); // Slight transition when opening
 	}
 
 	&-toggle {
