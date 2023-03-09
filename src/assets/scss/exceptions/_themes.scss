@@ -116,6 +116,10 @@
 
 		border-radius: calc(2 * var(--t-corner-radius)) calc(2 * var(--t-corner-radius)) 0 0;
 	}
+
+	.u-background-bg-alt-color {
+		@include generate-light-dark-vars('ctx-bg', hsl(33, 100%, 82%), hsl(263, 41%, 22%));
+	}
 }
 
 @include theme('vapor') {
