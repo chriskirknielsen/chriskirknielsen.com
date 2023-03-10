@@ -131,13 +131,16 @@
 	background: linear-gradient(45deg, var(--t-color-aux-max), var(--t-color-main-max)) fixed;
 
 	@media (min-width: calc(#{$body-bg-min-width} + #{$body-bg-image-width * 2} + #{$body-bg-image-gutter} * 2)) {
+		body {
+			will-change: initial; // Cancel performance boost to ensure the background image stays fixed in the right spot
+		}
 		body::before,
 		body::after {
 			content: '';
 
 			position: fixed;
 			inset: auto auto 0;
-			z-index: #{layer-index('footer', 1)};
+			z-index: #{layer-index('footer', 1)}; // Layer them over the footer
 
 			width: clamp(#{$body-bg-image-width}, (100% - #{$body-bg-min-width}) / 2 - #{$body-bg-image-gutter}, #{$body-bg-image-width} * 3);
 			max-height: 100vh;
