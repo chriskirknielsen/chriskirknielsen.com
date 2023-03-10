@@ -5,6 +5,12 @@ summary: Christopher Kirk-Nielsen, a creative developer
 permalink: /
 i18n:
     page:
+        description: |
+            A
+            creative developer
+            with zero awards
+            working at MOJO
+            based in Cincy
         quickAccess:
             heading: 'Jump right in'
             about:
@@ -26,4 +32,4 @@ i18n:
             blogLabel: 'Visit the blog'
 ---
 
-Hello, and welcome! My name is **Christopher Kirk-Nielsen** but please call me **Chris**. I’m an award-non-winning designer-turned-developer who loves building on the web, working at MOJO.
+<!-- Hello, and welcome! My name is **Christopher Kirk-Nielsen** but please call me **Chris**. I’m an award-non-winning designer-turned-developer who loves building on the web, working at MOJO. -->

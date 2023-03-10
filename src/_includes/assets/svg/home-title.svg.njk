@@ -239,10 +239,15 @@
   </g>
 
   <!-- Creative Developer -->
-  <g class="home-svg__creativedeveloper-text home-svg__group" letter-spacing=".7em">
-    <text text-anchor="middle" x="50%" y="387">
-      {{ 'homeTitle.creaDev' | i18n | upper }}
-    </text>
+  <g class="home-svg__desc-text home-svg__group">
+    {% set descriptionLineStart = 370 %}
+    {% set descriptionLineHeight = 33 %}
+    {% for descLine in 'page.description' | i18n | trim | upper | nlsplit %}
+      <text text-anchor="middle" x="50%" y="{{ descriptionLineStart + loop.index0 * descriptionLineHeight }}">
+        {{ descLine | safe }}
+      </text>
+    {% endfor %}
+    {# <text text-anchor="middle" x="50%" y="387">{{ 'homeTitle.creaDev' | i18n | upper }}</text> #}
   </g>
 </svg>
 {% endset %}

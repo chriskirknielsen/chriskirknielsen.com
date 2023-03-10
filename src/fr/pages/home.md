@@ -6,6 +6,12 @@ permalink: /fr/
 templateEngineOverride: njk,md
 i18n:
     page:
+        description: |
+            Un
+            développeur créatif
+            sans récompense
+            qui bosse chez MOJO
+            situé à Cincinnati
         now:
             heading: 'En ce moment'
             bookLabel: 'Livre'
@@ -33,7 +39,7 @@ i18n:
             blogLabel: 'Visiter le blog'
 ---
 
-Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder sur le web qui travaille chez MOJO PSG.
+<!-- Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder sur le web qui travaille chez MOJO PSG. -->
 
 {% mdsafe %}
 <h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" class="heading-anchor">Now</a>)</h2>

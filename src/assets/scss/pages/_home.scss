@@ -369,17 +369,23 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			animation-timing-function: steps(1);
 		}
 
-		&__creativedeveloper-text {
+		&__desc-text {
+			--ls: 0.7em; // Letter-spacing
+			--x: translateX(calc(var(--ls) * 0.5)); // X-offset
+
 			stroke: var(--home-creadev-stroke);
 			stroke-width: var(--home-creadev-stroke-width, 0.1875em);
 			fill: var(--home-creadev-fill);
 			paint-order: stroke;
 
-			font-size: 1.185rem;
+			// font-size: 1.185rem;
+			font-size: clamp(1.125rem, calc(2rem + ((1vw - 0.2rem) * -3.125)), 2rem);
 			font-family: var(--home-creadev-font, var(--fontstack-sans-serif));
 			font-weight: 300;
+			letter-spacing: var(--ls);
 
 			opacity: 1;
+			transform: var(--x, none);
 
 			animation-name: svgMarkCreaDev;
 			animation-duration: #{$creadev-anim-time};
@@ -446,11 +452,11 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	@keyframes svgMarkCreaDev {
 		0% {
 			opacity: 0.0001;
-			transform: scaleX(1.25);
+			transform: var(--x, translate(0)) scaleX(1.25);
 		}
 		100% {
 			opacity: 1;
-			transform: scaleX(1);
+			transform: var(--x, translate(0)) scaleX(1);
 		}
 	}
 
