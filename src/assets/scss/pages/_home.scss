@@ -17,10 +17,10 @@ $flash-anim-delay: $wire-final-end - $wire-step-delay * $wire-count;
 $flash-anim-time: 1.25s;
 $chris-anim-time: 1.25s;
 $chris-anim-delay: $flash-anim-delay + $flash-anim-time * 0.5;
-$creadev-anim-delay: $chris-anim-delay + $chris-anim-time * 0.25;
-$creadev-anim-time: 1.5s;
+$desc-anim-delay: $chris-anim-delay + $chris-anim-time * 0.25;
+$desc-anim-time: 1.5s;
 $shine-anim-time: 1.5s;
-$shine-anim-delay: 1.25s + $creadev-anim-delay;
+$shine-anim-delay: 1.25s + $desc-anim-delay;
 $glare-anim-time: 1s;
 $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
@@ -51,8 +51,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	@include generate-light-dark-vars('home-chris-depth-sat', 2, 1);
 	@include generate-light-dark-vars('home-chris-depth-lux', 5%, 0%);
 
-	--home-creadev-stroke: var(--t-color-main-max);
-	--home-creadev-fill: var(--t-color-main-min);
+	--home-desc-stroke: var(--t-color-main-max);
+	--home-desc-fill: var(--t-color-main-min);
 }
 
 @include theme('vapor', 'home') {
@@ -87,9 +87,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--home-chris-depth-sat: 2;
 	--home-chris-depth-lux: 5%;
 
-	--home-creadev-stroke: var(--home-grid-line);
-	--home-creadev-fill: var(--t-color-main-min);
-	--home-creadev-font: var(--t-font-heading);
+	--home-desc-stroke: var(--home-grid-line);
+	--home-desc-fill: var(--t-color-main-min);
+	--home-desc-font: var(--t-font-heading);
 
 	.u-background-bg-alt-color {
 		background: hsla(294, 95%, 65%, 0.1);
@@ -122,10 +122,10 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--home-chris-depth-sat: 2;
 	--home-chris-depth-lux: 5%;
 
-	--home-creadev-stroke: #588dce;
-	--home-creadev-stroke-width: 0.25em;
-	--home-creadev-fill: white;
-	--home-creadev-font: Tahoma, Verdana, Arial, sans-serif;
+	--home-desc-stroke: #588dce;
+	--home-desc-stroke-width: 0.25em;
+	--home-desc-fill: white;
+	--home-desc-font: Tahoma, Verdana, Arial, sans-serif;
 
 	.home-grid,
 	.home-background::before,
@@ -165,9 +165,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--home-chris-depth-sat: 5;
 	--home-chris-depth-lux: 5%;
 
-	--home-creadev-stroke: var(--t-color-aux-max);
-	--home-creadev-fill: var(--t-color-aux-min);
-	--home-creadev-font: var(--t-font-heading);
+	--home-desc-stroke: var(--t-color-aux-max);
+	--home-desc-fill: var(--t-color-aux-min);
+	--home-desc-font: var(--t-font-heading);
 
 	.home-title::after {
 		/* [1]: Hack to ensure the letter-spacing doesn't add more space at the end of the word, gross! */
@@ -194,7 +194,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		filter: url('#sarasquiggly');
 
-		animation: svgMarkCreaDev #{$creadev-anim-time} #{$creadev-anim-delay - ($creadev-anim-time * 0.25)} both var(--easing-circ-out);
+		animation: svgMarkCreaDev #{$desc-anim-time} #{$desc-anim-delay - ($desc-anim-time * 0.25)} both var(--easing-circ-out);
 	}
 }
 
@@ -373,14 +373,14 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			--ls: 0.7em; // Letter-spacing
 			--x: translateX(calc(var(--ls) * 0.5)); // X-offset
 
-			stroke: var(--home-creadev-stroke);
-			stroke-width: var(--home-creadev-stroke-width, 0.1875em);
-			fill: var(--home-creadev-fill);
+			stroke: var(--home-desc-stroke);
+			stroke-width: var(--home-desc-stroke-width, 0.1875em);
+			fill: var(--home-desc-fill);
 			paint-order: stroke;
 
 			// font-size: 1.185rem;
 			font-size: clamp(1.125rem, calc(2rem + ((1vw - 0.2rem) * -3.125)), 2rem);
-			font-family: var(--home-creadev-font, var(--fontstack-sans-serif));
+			font-family: var(--home-desc-font, var(--fontstack-sans-serif));
 			font-weight: 300;
 			letter-spacing: var(--ls);
 
@@ -388,8 +388,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			transform: var(--x, none);
 
 			animation-name: svgMarkCreaDev;
-			animation-duration: #{$creadev-anim-time};
-			animation-delay: #{$creadev-anim-delay};
+			animation-duration: #{$desc-anim-time};
+			animation-delay: #{$desc-anim-delay};
 			animation-fill-mode: both;
 			animation-timing-function: var(--easing-circ-out);
 		}
