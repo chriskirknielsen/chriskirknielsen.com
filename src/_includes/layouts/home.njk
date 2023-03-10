@@ -12,8 +12,8 @@ section: home
                 {% svg "home-grid", {isNjk:false} %}
             </div>
 
-            <h1 class="home-title">
-                {% svg "home-title", { i18n: i18n } %}
+            <h1 class="home-title" aria-labelledby="home-title">
+                {% svg "home-title", { i18n: i18n, titleId: 'home-title' } %}
             </h1>
         </div>
     </div>

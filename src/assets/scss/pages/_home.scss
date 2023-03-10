@@ -18,7 +18,7 @@ $flash-anim-time: 1.25s;
 $chris-anim-time: 1.25s;
 $chris-anim-delay: $flash-anim-delay + $flash-anim-time * 0.5;
 $desc-anim-delay: $chris-anim-delay + $chris-anim-time * 0.25;
-$desc-anim-time: 1.5s;
+$desc-anim-time: 2s;
 $shine-anim-time: 1.5s;
 $shine-anim-delay: 1.25s + $desc-anim-delay;
 $glare-anim-time: 1s;
@@ -174,6 +174,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		--ls: 0.25em;
 
 		content: 'クリス';
+		pointer-events: none;
 
 		position: absolute;
 		inset: 0;
@@ -181,6 +182,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		display: flex; /* 1 */
 		justify-content: center;
 		align-items: center;
+		height: 1.4em; // 1em at least to ensure the text isn't cut off, and 1.4em=magic number, approx. height of the CHRIS block
+		margin: auto; // Centering that bad boi
 
 		text-indent: calc(-1 * var(--ls)); /* 1 */
 		direction: rtl; /* 1 */
@@ -194,7 +197,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		filter: url('#sarasquiggly');
 
-		animation: svgMarkCreaDev #{$desc-anim-time} #{$desc-anim-delay - ($desc-anim-time * 0.25)} both var(--easing-circ-out);
+		animation: svgMarkCreaDev #{$desc-anim-time * 1.25} #{$desc-anim-delay - ($desc-anim-time * 0.25)} both var(--easing-out);
 	}
 }
 
@@ -371,7 +374,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		&__desc-text {
 			--ls: 0.7em; // Letter-spacing
-			--x: translateX(calc(var(--ls) * 0.5)); // X-offset
+			--x: translateX(
+				calc((var(--ls) + var(--home-desc-stroke-width, 0.1875em)) * 0.5)
+			); // X-offset (counteracts the letter-spacing gap after the word, and stroke-width offset)
 
 			stroke: var(--home-desc-stroke);
 			stroke-width: var(--home-desc-stroke-width, 0.1875em);
@@ -381,17 +386,22 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			// font-size: 1.185rem;
 			font-size: clamp(1.125rem, calc(2rem + ((1vw - 0.2rem) * -3.125)), 2rem);
 			font-family: var(--home-desc-font, var(--fontstack-sans-serif));
-			font-weight: 300;
+			font-weight: 400;
+			text-transform: uppercase;
 			letter-spacing: var(--ls);
 
 			opacity: 1;
 			transform: var(--x, none);
 
-			animation-name: svgMarkCreaDev;
-			animation-duration: #{$desc-anim-time};
-			animation-delay: #{$desc-anim-delay};
-			animation-fill-mode: both;
-			animation-timing-function: var(--easing-circ-out);
+			& > text {
+				transform-box: fill-box;
+
+				animation-name: revealWord;
+				animation-duration: #{$desc-anim-time};
+				animation-delay: calc(#{$desc-anim-delay} + var(--li, 0) * 120ms);
+				animation-fill-mode: both;
+				animation-timing-function: var(--easing-circ-out);
+			}
 		}
 
 		&__glare-group {
@@ -452,11 +462,25 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	@keyframes svgMarkCreaDev {
 		0% {
 			opacity: 0.0001;
-			transform: var(--x, translate(0)) scaleX(1.25);
+			transform: var(--x, translateX(0)) scaleX(1.25);
 		}
 		100% {
 			opacity: 1;
-			transform: var(--x, translate(0)) scaleX(1);
+			transform: var(--x, translateX(0)) scaleX(1);
+		}
+	}
+
+	@keyframes revealWord {
+		// clip-path extends past the boundaries to ensure no clipping on the stroke, and to give the line-height some wiggle room
+		from {
+			clip-path: polygon(-20% -120%, 120% -120%, 120% -120%, -20% -120%);
+			transform: translateY(120%);
+			filter: blur(8px);
+		}
+		to {
+			clip-path: polygon(-20% -120%, 120% -120%, 120% 120%, -20% 120%);
+			transform: translateY(0%);
+			filter: blur(0);
 		}
 	}
 

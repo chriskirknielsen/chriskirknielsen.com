@@ -22,7 +22,7 @@
 
 {% set svgTitle %}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="home-svg">
-  <title>Chris, {{ 'homeTitle.creaDev' | i18n | lower }}</title>
+  <title id="{{ titleId }}">Chris, {{ 'page.description' | i18n | trim | nlsplit | join(' ') }}</title>
 
   <defs>
     <!-- SHAPE: Chris -->
@@ -239,11 +239,11 @@
   </g>
 
   <!-- Creative Developer -->
-  <g class="home-svg__desc-text home-svg__group">
+  <g class="home-svg__desc-text">
     {% set descriptionLineStart = 370 %}
     {% set descriptionLineHeight = 33 %}
-    {% for descLine in 'page.description' | i18n | trim | upper | nlsplit %}
-      <text text-anchor="middle" x="50%" y="{{ descriptionLineStart + loop.index0 * descriptionLineHeight }}">
+    {% for descLine in 'page.description' | i18n | trim | nlsplit %}
+      <text text-anchor="middle" x="50%" y="{{ descriptionLineStart + loop.index0 * descriptionLineHeight }}" style="--li:{{ loop.index0 }}">
         {{ descLine | safe }}
       </text>
     {% endfor %}

@@ -7,7 +7,7 @@ templateEngineOverride: njk,md
 i18n:
     page:
         description: |
-            Un
+            Juste un
             développeur créatif
             sans récompense
             qui bosse chez MOJO

@@ -6,9 +6,9 @@ permalink: /
 i18n:
     page:
         description: |
-            A
+            Just a
+            non-award-winning
             creative developer
-            with zero awards
             working at MOJO
             based in Cincy
         quickAccess:
