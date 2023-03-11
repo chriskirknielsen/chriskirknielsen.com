@@ -48,6 +48,7 @@ rssFeedOverride: '/designs.xml'
 	{% set designPermalink = '/designs/' + design.slug + '/' | url %}
 	{% set designAttrs %}
 		id="{{ design.slug }}"
+		style="view-transition-name:{{ design.slug }}"
 		data-filtered-item
 		data-tags="{%- for tag in design.tags -%}
 			{{ tag }}
@@ -110,19 +111,41 @@ rssFeedOverride: '/designs.xml'
 	function filterTo(filter, skipAnim = false) {
 		let isShowAll = (filter === '');
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		history.replaceState(undefined, '', filter ? ('#' + hashIndicator + filter) : '#');
 		
 		// Don't animate in certain conditions
-		if (skipAnim || prefersReducedMotion || !Element.prototype.animate) {
-			items.forEach(function(item) {
-				let tags = item.getAttribute('data-tags').split(',');
-				let isShown = (tags.indexOf(filter) > -1) || isShowAll;
-				item.setAttribute('aria-hidden', (!isShown).toString());
-			});
+		if (skipAnim || prefersReducedMotion || !Element.prototype.animate || document.startViewTransition) {
+			const doViewTransition = (!skipAnim && !prefersReducedMotion && document.startViewTransition);
+			const updateFilteredItems = () => {
+				const visibleWidth = items.find(i => i.getAttribute('aria-hidden') !== 'true').getBoundingClientRect().width;
+				items.forEach(function(item) {
+					let tags = item.getAttribute('data-tags').split(',');
+					let isShown = (tags.indexOf(filter) > -1) || isShowAll;
+
+					item.setAttribute('aria-hidden', (!isShown).toString());
+
+					if (doViewTransition) {
+						item.style.width = (isShown) ? '' : `${visibleWidth}px`;
+						item.style.transition = (isShown) ? '' : 'none';
+						item.style.viewTransitionName = (isShown) ? item.getAttribute('id') : `none`;
+						item.querySelector('ul').style.viewTransitionName = (isShown) ? `${item.getAttribute('id')}-list` : `none`; //TODO Figure out if we can make it niced when it disappears
+						// item.querySelector('.cardblock-content').style.viewTransitionName = (isShown) ? `${item.getAttribute('id')}-content` : `none`; // Causes the pseudo element in neotokyo to vanish
+					}
+				});
+			}
+
+			if (doViewTransition) {
+				document.startViewTransition(updateFilteredItems);
+			}
+			else {
+				updateFilteredItems();
+			}
 			return;
 		}
 
 		const animateOptions = {
-			duration: 500,
+			duration: 300,
 			easing: getComputedStyle(items[0]).transitionTimingFunction || 'ease-in-out',
 		};
 		const listGeometry = list.getBoundingClientRect();
@@ -140,7 +163,7 @@ rssFeedOverride: '/designs.xml'
 		});
 
 		// Then apply the change so all objects can calculate their new geometry after the change (taking sibling position into account)
-		items.forEach(function(item,i) {
+		items.forEach(function(item, i) {
 			const shown = item.getAttribute('data-shown-from-to').split(',').map((i) => parseInt(i,10));
 			const isShown = shown[1] === 1;
 			item.setAttribute('aria-hidden', (!isShown).toString());
@@ -190,8 +213,6 @@ rssFeedOverride: '/designs.xml'
 			const anim = item.animate([keyframeFrom, keyframeTo], animateOptions);
 			anim.addEventListener('finish', (e) => resetItem(item));
 		});
-
-		history.replaceState(undefined, '', filter ? ('#' + hashIndicator + filter) : '#');
 	}
 
 	if (initialHash.indexOf(hashIndicator) === 0) {

@@ -24,9 +24,13 @@
 }
 
 [data-filtered-item] {
-	@media (prefers-reduced-motion: no-preference) {
-		transition: var(--t, 300ms) var(--easing-in-out);
-		transition-property: visibility, z-index;
+	transition: var(--t, 300ms) var(--easing-in-out);
+	transition-property: visibility, z-index;
+
+	@media (prefers-reduced-motion: reduce) {
+		&[aria-hidden='true'] {
+			display: none;
+		}
 	}
 
 	&[aria-hidden='false'] {

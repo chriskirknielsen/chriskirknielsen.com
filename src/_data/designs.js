@@ -193,7 +193,7 @@ const designs = [
 	},
 	{
 		slug: 'control',
-		name: 'Control, The Old&shy;est House',
+		name: 'The Old&shy;est House',
 		description:
 			'The Oldest House has many dangers/risks. Be sure to alert the sitting/standing Director. Objects of Power are dangerous/aggressive and interacting/talking with one may result in termination/death/punishment.',
 		img: 'gameart-control.jpg',
@@ -206,7 +206,7 @@ const designs = [
 	},
 	{
 		slug: 'god-of-war',
-		name: 'God of War, Lake of Nine',
+		name: 'Lake of Nine',
 		description: 'A peaceful moment on the Lake of Nine.',
 		img: 'gameart-gow.jpg',
 		links: {
@@ -218,7 +218,7 @@ const designs = [
 	},
 	{
 		slug: 'deathloop',
-		name: 'DEATHLOOP, Blackreef',
+		name: 'Blackreef',
 		description: 'Kill all Visionaries. Break the loop. Easy.',
 		img: 'gameart-deathloop.jpg',
 		links: {
@@ -230,7 +230,7 @@ const designs = [
 	},
 	{
 		slug: 'dead-space',
-		name: 'Dead Space, USG Ishimura',
+		name: 'USG Ishimura',
 		description: 'In space, only Necromorphs can hear you scream.',
 		img: 'gameart-deadspace.jpg',
 		links: {
@@ -242,7 +242,7 @@ const designs = [
 	},
 	{
 		slug: 'jak-daxter-powercell-hunters',
-		name: 'Jak &amp; Daxter, Power&shy;cell Hunters',
+		name: 'Power&shy;cell Hunters',
 		description: 'A design inspired by one of my favourite video games: Jak And Daxter.',
 		img: 'powercell-hunters.jpg',
 		links: {
@@ -256,8 +256,8 @@ const designs = [
 	},
 	{
 		slug: 'crash-bandicoot-wumpa-hoarder',
-		name: 'Crash Bandi&shy;coot, Wumpa Hoarder',
-		description: 'A design inspired by the wild, Wumpa-loving bandicoot: Crash!',
+		name: 'Wumpa Hoarder',
+		description: 'A design inspired by the wild, Wumpa-loving bandicoot: Crash Bandicoot!',
 		img: 'wumpa-hoarder.jpg',
 		links: {
 			// RedBubble: 'https://www.redbubble.com/i/t-shirt/Wumpa-Hoarder-by-ckirknielsen/94462053.4AE2Y',
@@ -271,7 +271,7 @@ const designs = [
 	{
 		showInGallery: false,
 		slug: 'sly-cooper-gentleman-thief',
-		name: 'Sly Cooper, Gentle&shy;man Thief',
+		name: 'Gentle&shy;man Thief',
 		description: 'A design inspired by the charismatic thief, who also happens to be a raccoon… Sly Cooper.',
 		img: 'gentleman-thief.jpg',
 		links: {
