@@ -1,5 +1,4 @@
 const { PurgeCSS } = require('purgecss');
-const CleanCSS = require('clean-css');
 const lightningcss = require('lightningcss');
 
 module.exports = function (eleventyConfig, options = {}) {

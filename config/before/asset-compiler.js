@@ -128,6 +128,7 @@ module.exports = function (eleventyConfig, options) {
 				filterFn: (inputPath) => !inputPath.split('/').pop().startsWith('_'),
 				compileFn: async (parsed) => {
 					const result = sass.compile(`${parsed.dir}/${parsed.base}`, {
+						charset: false,
 						loadPaths: [parsed.dir || '.', config.dir.includes],
 						style: 'compressed',
 						precision: 4,
