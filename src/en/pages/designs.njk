@@ -91,6 +91,63 @@ rssFeedOverride: '/designs.xml'
 {% endfor %}
 </div>
 
+<style>
+{% set viewTransitionDuration %}300ms{% endset %}
+{% set designsStyles %}
+* {
+	view-transition-name: none;
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+	animation-timing-function: var(--t-custom-easing, cubic-bezier(0.67, 0, 0.33, 1));
+	animation-duration: {{ viewTransitionDuration }};
+}
+
+/* Entry transition */
+::view-transition-new(*):only-child {
+	animation: fadeIn {{ viewTransitionDuration }} cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+@keyframes fadeIn {
+	0% {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+::view-transition-group:has(::view-transition-new(*):only-child) {
+	z-index: 10;
+}
+::view-transition-group:has(::view-transition-old(*):only-child) {
+	z-index: 0;
+}
+
+/* Exit transition */
+::view-transition-old(*):only-child {
+	animation: fadeOut {{ viewTransitionDuration }} cubic-bezier(0.6, 0.04, 0.98, 0.335) both;
+}
+@keyframes fadeOut {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+.footer {
+	view-transition-name: footer;
+}
+{% endset %}
+{{- designsStyles | safe -}}
+</style>
+
 <script>
 {% set designsFilter %}
 (function() {
@@ -130,14 +187,24 @@ rssFeedOverride: '/designs.xml'
 						item.style.width = (isShown) ? '' : `${visibleWidth}px`;
 						item.style.transition = (isShown) ? '' : 'none';
 						item.style.viewTransitionName = (isShown) ? item.getAttribute('id') : `none`;
-						item.querySelector('ul').style.viewTransitionName = (wasShown && isShown) ? `${item.getAttribute('id')}-list` : `none`; //TODO Figure out if we can make it niced when it disappears
+						item.querySelector('ul').style.viewTransitionName = (wasShown && isShown) ? `${item.getAttribute('id')}-list` : `none`;
 						// item.querySelector('.cardblock-content').style.viewTransitionName = (isShown) ? `${item.getAttribute('id')}-content` : `none`; // Causes the pseudo element in neotokyo to vanish
 					}
 				});
 			}
 
 			if (doViewTransition) {
-				document.startViewTransition(updateFilteredItems);
+				const transition = document.startViewTransition(updateFilteredItems);
+				transition.finished.then(() => {
+					items.forEach(function(item) {
+						let isShown = item.getAttribute('aria-hidden') === 'false';
+
+						if (isShown) {
+							// Ensure the next transition is correctly played if going from visible to visible
+							item.querySelector('ul').style.viewTransitionName =  `${item.getAttribute('id')}-list`;
+						}
+					});
+				});
 			}
 			else {
 				updateFilteredItems();

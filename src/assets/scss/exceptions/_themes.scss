@@ -207,6 +207,7 @@
 	--y2k-bar-grad: linear-gradient(90deg, var(--t-color-main-min), var(--t-color-main-max));
 	--t-scrollbar-color: #7c7c7c;
 	--t-scrollbar-bg: #dddddd;
+	--t-custom-easing: steps(8, jump-none);
 
 	&::-webkit-scrollbar,
 	& ::-webkit-scrollbar,
@@ -338,7 +339,7 @@
 	}
 
 	[data-filtered-item] {
-		transition-timing-function: steps(8, jump-none);
+		transition-timing-function: var(--t-custom-easing);
 	}
 
 	.footer-logo {
