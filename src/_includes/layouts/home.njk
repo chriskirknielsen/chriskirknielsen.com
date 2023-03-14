@@ -49,6 +49,8 @@ section: home
                     </a>
 
                     <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-s); --btn-font-size: 0.75em;">
+                        {% svg "plus" %}
+
                         {% component "button", {
                             url: ('/acknowledgements/' | locale_url)+'#'+('nav.usesHash' | i18n),
                             label: 'page.quickAccess.also.usesPageLabel' | i18n
@@ -62,10 +64,12 @@ section: home
                         {% endif %}
 
                         {% for socialPage in social %}
-                            {% component "button", {
-                                url: socialPage.url,
-                                label: socialPage.name
-                            } %}
+                            {% if socialPage.showOnHome %}
+                                {% component "button", {
+                                    url: socialPage.url,
+                                    label: socialPage.name
+                                } %}
+                            {% endif %}
                         {% endfor %}
                     </p>
                 </div>

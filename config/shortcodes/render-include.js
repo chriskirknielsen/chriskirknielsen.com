@@ -33,6 +33,9 @@ module.exports = function (eleventyConfig, options = {}) {
 		}
 
 		const isNjk = svgOptions.hasOwnProperty('isNjk') ? svgOptions.isNjk : true;
+		if (!svgOptions.hasOwnProperty('title') && !svgOptions.hasOwnProperty('ariaLabel')) {
+			svgOptions.ariaHidden = true; // Ensure SVGs are hidden from the a11y tree if no title or label is provided
+		}
 		const filePath = `${svgAssetFolder}/${filename}.svg${isNjk ? '.njk' : ''}`;
 		const engine = svgOptions.hasOwnProperty('engine') ? svgOptions.engine : isNjk ? 'njk' : 'html'; // HTML for vanilla SVG
 		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, svgOptions, engine);

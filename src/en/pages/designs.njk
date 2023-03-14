@@ -9,13 +9,13 @@ rssFeedOverride: '/designs.xml'
 {% set activeDesigns = designs | selectattr('showInGallery') %}
 
 <div class="u-textAlign-center">
-	<p class="visually-hidden">Shops:</p>
-	<ul class="inline-list | u-fontWeight-bold u-fontSize-smallest" style="--lh:var(--C-base-line-height)">
+	<h2 class="visually-hidden" id="designs-shops-label">Shops</h2>
+	<ul class="inline-list | u-fontWeight-bold u-fontSize-smallest" style="--lh:var(--C-base-line-height)" aria-labelledby="designs-shops-label">
 		{% for merchStore, merchUrl in metadata.merch %}
 			{% set storeIconName %}store-icon-{{ merchStore | lower}}{% endset %}
 			<li class="store-item">
 				<a href="{{ merchUrl | url }}">
-					{% svg storeIconName, { class: 'store-icon', ariaHidden: true } %}
+					{% svg storeIconName, { class: 'store-icon' } %}
 					{{ merchStore }}
 				</a>
 			</li>

@@ -1,3 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" {% if class %}class="{{ class }}"{% endif %} fill="currentColor">
+<svg xmlns="http://www.w3.org/2000/svg" {% if class %}class="{{ class }}"{% endif %} {% if ariaHidden %}aria-hidden="true"{% endif %} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+	{% if title %}<title>{{ title }}</title>{% endif %}
 	<path d="M2 2h20v6h-1a5.3 5.3 0 0 0-2.6-4.4 9 9 0 0 0-3.8-.6v15.5a2.8 2.8 0 0 0 .7 2.2 4.5 4.5 0 0 0 2.6.5v.8H6.1v-.8a4.3 4.3 0 0 0 2.6-.5 2.8 2.8 0 0 0 .7-2.2V3a9.3 9.3 0 0 0-3.8.6A5 5 0 0 0 3 8H2Z"/>
 </svg>

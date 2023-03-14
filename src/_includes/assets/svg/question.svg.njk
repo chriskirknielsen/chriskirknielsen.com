@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" {% if class %}class="{{ class }}"{% endif %} fill="currentColor">
-	<rect x="10" y="18" width="4" height="4" />
+<svg xmlns="http://www.w3.org/2000/svg" {% if class %}class="{{ class }}"{% endif %} {% if ariaHidden %}aria-hidden="true"{% endif %} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    {% if title %}<title>{{ title }}</title>{% endif %}
+    <rect x="10" y="18" width="4" height="4" />
     <polygon points="20 2 4 2 2 4 2 10 6 10 6 6 18 6 18 10 12 10 10 12 10 16 14 16 14 14 20 14 22 12 22 4 20 2" />
 </svg>

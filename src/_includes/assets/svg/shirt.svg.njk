@@ -1,3 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" {% if class %}class="{{ class }}"{% endif %} fill="currentColor">
+<svg xmlns="http://www.w3.org/2000/svg" {% if class %}class="{{ class }}"{% endif %} {% if ariaHidden %}aria-hidden="true"{% endif %} width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+	{% if title %}<title>{{ title }}</title>{% endif %}
 	<path d="M15.4 2a3.8 3.8 0 0 1-6.8 0L.8 5.3l2.3 5 2.2-1V21h13.4V9.3l2.2 1 2.3-5Z"/>
 </svg>

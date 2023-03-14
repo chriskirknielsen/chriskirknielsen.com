@@ -1,7 +1,7 @@
 <article class="cardblock" {{ (gridItemAttrs or '') | safe }}>
     {% if gridItemImage %}
     <div class="cardblock-image">
-        <a href="{{ gridItemPermalink }}" aria-label="{{ gridItemTitle }}" tabindex="-1">
+        <a href="{{ gridItemPermalink }}" aria-label="{{ gridItemTitle }}" tabindex="-1" aria-hidden="true">
             <img
             src="{{ gridItemImage + '?nf_resize=fit&w=300' | url }}"
             srcset="
