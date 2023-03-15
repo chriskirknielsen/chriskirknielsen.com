@@ -17,6 +17,7 @@ h6,
 	letter-spacing: var(--t-heading-tracking);
 	text-transform: var(--t-heading-transform, none);
 	text-shadow: var(--t-heading-shadow, none);
+	text-wrap: balance;
 	color: var(--t-heading-color);
 }
 
