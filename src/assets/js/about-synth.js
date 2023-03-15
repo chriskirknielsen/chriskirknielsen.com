@@ -22,6 +22,7 @@
 	let clickedKey = '';
 	let isAzerty = false;
 	let isShiftPressed = false;
+	let isSynthVisible = false;
 
 	/* Functions */
 	/** Remove the disabled attribute for all synth-related controls. */
@@ -189,6 +190,10 @@
 
 	/** Play a note based on the provided key data. */
 	function playKey(key) {
+		if (!isSynthVisible) {
+			return; // Only play the note when the synth component is in the viewport
+		}
+
 		const type = getSynthType() || 'sine';
 		const envelope = getSynthEnvelope();
 		const osc = audioContext.createOscillator();
@@ -418,4 +423,20 @@
 		},
 		false
 	);
+
+	/* Intersection Observer insuring notes can't play when the synth isn't in the viewport */
+	const target = document.querySelector('.about-synth');
+	const observer = new IntersectionObserver(
+		function (entries) {
+			entries.forEach((entry) => {
+				isSynthVisible = entry.isIntersecting;
+			});
+		},
+		{
+			root: null,
+			rootMargin: '20px', // Allow a little extra space
+			threshold: [0.0, 0.05, 0.1, 0.25, 1.0],
+		}
+	);
+	observer.observe(target);
 })();
