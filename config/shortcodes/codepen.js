@@ -3,7 +3,7 @@ module.exports = function (eleventyConfig) {
 		const path = new URL(url).pathname;
 		const id = path.split('/')[3];
 		let markup = `<p class="codepen" data-height="${height}" data-theme-id="${theme}" data-default-tab="${tabs}" data-slug-hash="${id}">
-			<a href="${url}" class="button">See the Pen</a>
+			<a href="${url}" class="cta">See the Pen</a>
 		</p>`;
 
 		// Only inject the CodePen embed once per page

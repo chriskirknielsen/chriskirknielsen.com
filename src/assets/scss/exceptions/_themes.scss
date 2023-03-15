@@ -75,7 +75,7 @@
 		}
 	}
 
-	:where(button, .button):is(:hover, :focus) {
+	:where(button, .cta):is(:hover, :focus) {
 		transition-property: box-shadow, border-color;
 		transition-duration: var(--t-cta-transition-duration, 0ms);
 		transition-timing-function: cubic-bezier(0.33, 1.5, 0.33, -0.2);
@@ -227,7 +227,7 @@
 		outline: 1px dotted currentColor;
 	}
 
-	:where(button, .button) {
+	:where(button, .cta) {
 		--btn-line-height: 1.2;
 
 		&:focus {
@@ -402,7 +402,7 @@
 		outline: 2px solid var(--t-color-main-med);
 	}
 
-	:where(button, .button):where(:not(.button-reset)):where(:not(.themepicker-button, .themepicker-close)) {
+	:where(button, .cta):where(:not(.button-reset)):where(:not(.themepicker-button, .themepicker-close)) {
 		position: relative;
 		isolation: isolate; // Remove from global stacking context (so the ::before pseudo can use z-index:-1 without going below parent elements)
 

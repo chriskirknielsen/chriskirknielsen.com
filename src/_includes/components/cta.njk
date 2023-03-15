@@ -1,8 +1,8 @@
-{# I know I'm calling this a button when it's actually a link, I'm genuinely sorry #}
 {% set iconBefore = iconBefore or false %}
 {% set iconClass = iconClass or 'inline-icon' %}
+{% set ctaType = 'a' if url else 'button' %}
 {% setAsync "iconRender" %}{% if icon %}{% svg icon, { class: iconClass } %}{% endif %}{% endsetAsync %}
-<a href="{{ url }}" class="button" {{ linkAttr }}>
+<{{ctaType}} {% if url %}href="{{url}}"{% else %}type="button"{% endif %} class="cta" {{ ctaAttr | safe }}>
 	{% if icon and iconBefore %}{{ iconRender | safe }}{% endif %}
     {% if label.aria %}
         <span class="visually-hidden">{{ label.aria }}</span>
@@ -11,4 +11,4 @@
         <span>{{ label }}</span>
     {% endif %}
 	{% if icon and not iconBefore %}{{ iconRender | safe }}{% endif %}
-</a>
+</{{ctaType}}>

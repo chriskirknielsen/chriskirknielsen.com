@@ -5,7 +5,7 @@ pageTitle: Hello, I'm Chris (he/him)
 subtitle: A designer turned developer who loves building on the web.
 summary: Learn more about Christopher Kirk-Nielsen
 permalink: /about/
-bigboiButton: { url: '/now/', label: 'Now' }
+bigboiCta: { url: '/now/', label: 'Now' }
 facts:
     - ["👀", "Kinda knows the Cyrillic alphabet enough to read — but not understand — sentences."]
     - ["🕰", "Favourite movie is likely Back to the Future, though the dad is a creep."]

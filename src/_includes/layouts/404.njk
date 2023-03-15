@@ -15,12 +15,12 @@ section: 404
     {{ layoutContent | safe }}
 
     <p class="u-textAlign-center">
-        {% component "button", {
+        {% component "cta", {
 			url: localePath | url,
 			label: 'nav.home' | i18n,
 			icon: 'arrow-back-double',
             iconBefore: true,
-            linkAttr: 'data-backlink'
+            ctaAttr: 'data-backlink'
 		} %}
     </p>
 

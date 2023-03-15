@@ -2,7 +2,7 @@
 title: Designs
 subtitle: A collection of posters and shirt designs I've made, available across multiple online shops.
 summary: Shirt, poster and sticker designs by Christopher Kirk-Nielsen
-bigboiButton: { url: '/designs.xml', icon: 'rss', label: 'Design Feed' }
+bigboiCta: { url: '/designs.xml', icon: 'rss', label: 'Design Feed' }
 rssFeedOverride: '/designs.xml'
 ---
 
@@ -32,13 +32,13 @@ rssFeedOverride: '/designs.xml'
 
 	<div class="filtering-item">
 		<input type="radio" name="filter" class="visually-hidden" id="filter-all" value="" checked>
-		<label for="filter-all" class="filtering-tag | button">All</label>
+		<label for="filter-all" class="filtering-tag | cta">All</label>
 	</div>
 
 	{% for tag in activeDesigns | pluck('tags') | flatten | unique | sort %}
 	<div class="filtering-item">
 		<input type="radio" name="filter" id="filter-{{ tag }}" class="visually-hidden" value="{{ tag | lower }}">
-		<label for="filter-{{ tag }}" class="filtering-tag | button">{{ tag }}</label>
+		<label for="filter-{{ tag }}" class="filtering-tag | cta">{{ tag }}</label>
 	</div>
 	{% endfor %}
 </fieldset>

@@ -1,4 +1,4 @@
-:where(button, .button):where(:not(.button-reset)) {
+:where(button, .cta):where(:not(.button-reset)) {
 	display: var(--btn-display, inline-flex);
 	align-items: center;
 	justify-content: var(--btn-justify-content, start);
@@ -35,11 +35,11 @@
 		--btn-box-shadow: var(--t-cta-box-shadow-active, none);
 	}
 
-	&[data-button='icon'] {
+	&[data-cta='icon'] {
 		--btn-padding-inline: var(--btn-padding-block, var(--size-2xs));
 	}
 
-	&[data-button='tile'] {
+	&[data-cta='tile'] {
 		--btn-display: block;
 		--btn-padding-block: var(--size-xs);
 		--btn-padding-inline: var(--size-m);

@@ -26,21 +26,21 @@ section: home
                 <div class="subsection subsection--quickaccess">
                     <h2 style="--area: head">{{ 'page.quickAccess.heading' | i18n }}</h2>
 
-                    <a href="{{ '/about/' | locale_url }}" class="button" data-button="tile" style="--area: url1">
+                    <a href="{{ '/about/' | locale_url }}" class="cta" data-cta="tile" style="--area: url1">
                         <strong class="spaced-items">
                             {% svg "question", { class: "inline-icon" } %}
                             {{ 'page.quickAccess.about.label' | i18n }}
                         </strong>
                         <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.about.content' | i18n }}</span>
                     </a>
-                    <a href="{{ '/designs/' | locale_url }}" class="button" data-button="tile" style="--area: url2; align-self: end;">
+                    <a href="{{ '/designs/' | locale_url }}" class="cta" data-cta="tile" style="--area: url2; align-self: end;">
                         <strong class="spaced-items">
                             {% svg "shirt", { class: "inline-icon" } %}
                             {{ 'page.quickAccess.designs.label' | i18n }}
                         </strong>
                         <span class="u-color-gray-min u-marginBlockStart-2xs u-display-block">{{ 'page.quickAccess.designs.content' | i18n }}</span>
                     </a>
-                    <a href="{{ '/fonts/' }}" class="button" data-button="tile" style="--area: url3">
+                    <a href="{{ '/fonts/' }}" class="cta" data-cta="tile" style="--area: url3">
                         <strong class="spaced-items">
                             {% svg "type", { class: "inline-icon" } %}
                             {{ 'page.quickAccess.fonts.label' | i18n }}
@@ -51,13 +51,13 @@ section: home
                     <p class="spaced-items inlined-items" style="--area: also; --spaced-items-gap: var(--size-s); --btn-font-size: 0.75em;">
                         {% svg "plus" %}
 
-                        {% component "button", {
+                        {% component "cta", {
                             url: ('/acknowledgements/' | locale_url)+'#'+('nav.usesHash' | i18n),
                             label: 'page.quickAccess.also.usesPageLabel' | i18n
                         } %}
                         
                         {% if lang == 'en' %}
-                            {% component "button", {
+                            {% component "cta", {
                                 url: '/now/' | locale_url,
                                 label:  'page.quickAccess.also.nowPageLabel' | i18n
                             } %}
@@ -65,7 +65,7 @@ section: home
 
                         {% for socialPage in social %}
                             {% if socialPage.showOnHome %}
-                                {% component "button", {
+                                {% component "cta", {
                                     url: socialPage.url,
                                     label: socialPage.name
                                 } %}
@@ -84,7 +84,7 @@ section: home
 
                 {% set latestposts = collections["post_" + lang] | reverse %}
                 {% set latestpost = latestposts[0] %}
-                <a href="{{ latestpost.url | url }}" class="button | flow" data-button="tile" style="--area: post">
+                <a href="{{ latestpost.url | url }}" class="cta | flow" data-cta="tile" style="--area: post">
                     <time datetime="{{ latestpost.date | dateFormat }}">{{ latestpost.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
 
                     <h2 class="h3 | u-marginBlockStart-2xs">
@@ -99,7 +99,7 @@ section: home
                 <p class="spaced-items inlined-items" style="--area: ctas">
                     <a href="{{ '/blog/' | locale_url }}">{{ 'page.writing.blogLabel' | i18n }}</a>
                     
-                    {% component "button", {
+                    {% component "cta", {
                         url: '/rss.xml' | locale_url,
                         label: {
                             aria: 'rss.subscribe' | i18n,

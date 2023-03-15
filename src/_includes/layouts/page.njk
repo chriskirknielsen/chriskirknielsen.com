@@ -6,27 +6,27 @@ templateName: page
 
 {% block layoutContent %}
 	<header class="bigboi | content-fullbleed container">
-		<div class="bigboi-inner | content | {% if bigboiButton %}flow{% endif %}" style="--flow-space: var(--size-m)">
-			{% if bigboiButton %}<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">{% endif %}
+		<div class="bigboi-inner | content | {% if bigboiCta %}flow{% endif %}" style="--flow-space: var(--size-m)">
+			{% if bigboiCta %}<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">{% endif %}
 				<h1>{{ (pageTitle or title) | safe }}</h1>
 
-				{% if bigboiButton %}
-					{% component "button", {
-						url: bigboiButton.url | url,
-						label: bigboiButton.label,
-						icon: bigboiButton.icon or false,
-						iconBefore: bigboiButton.iconBefore or false
+				{% if bigboiCta %}
+					{% component "cta", {
+						url: bigboiCta.url | url,
+						label: bigboiCta.label,
+						icon: bigboiCta.icon or false,
+						iconBefore: bigboiCta.iconBefore or false
 					} %}
 				{% endif %}
-			{% if bigboiButton %}</div>{% endif %}
+			{% if bigboiCta %}</div>{% endif %}
 			
 			<p class="u-fontWeight-bold">{{ subtitle or summary }}</p>
 
 			{% if backlink %}
 			<p class="u-marginBlockStart-m">
-				{% component "button", {
+				{% component "cta", {
 					url: backlink.url | url,
-					linkAttr: 'data-backlink',
+					ctaAttr: 'data-backlink',
 					label: backlink.label,
 					icon: 'arrow-back',
 					iconBefore: true
