@@ -29,7 +29,7 @@
     {% endif %}
 
     <div class="cardblock-content">
-        <h2 class="cardblock-title | h5 | u-marginBlockEnd-s">
+        <h2 class="cardblock-title | h5 | u-marginBlockEnd-{{ gridItemTitleSpacer or 's' }}">
             <a href="{{ gridItemPermalink }}" class="heading-link"{% if gridCoverlink %} data-card-coverlink{% endif %}>{{- gridItemTitle | safe -}}</a>
         </h2>
         

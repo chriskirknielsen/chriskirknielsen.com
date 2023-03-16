@@ -33,7 +33,7 @@
 	}
 
 	&-image a:is(:hover, :focus) img, // Firefox…
-	&:has(a:is(:hover, :focus)) &-image img {
+	&:has(&-title a:is(:hover, :focus)) &-image img {
 		transform: scale(1.0625) rotate(1deg);
 	}
 
@@ -129,13 +129,19 @@
 			}
 		}
 
+		&-title {
+			--title-padding-inline: 0px;
+		}
+		&-title > a {
+			background: none;
+		}
 		&-image + &-content > &-title {
 			margin-block-start: 0;
 		}
 
 		&-content {
 			flex: 1 1 auto;
-			padding: var(--size-s);
+			padding: var(--size-s) var(--size-m);
 		}
 
 		&-badge > span {

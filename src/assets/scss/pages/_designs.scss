@@ -6,4 +6,25 @@
 	width: 2em;
 	margin-inline: auto;
 	margin-block-end: 0.25em;
+
+	fill: var(--t-text-color);
+}
+
+.store-icon-inline {
+	width: 1.5em;
+}
+
+.store-icon-inline > use {
+	fill: currentColor;
+}
+
+.store-icon-linkwrap {
+	color: var(--t-text-color);
+
+	&:is(:hover, :focus) {
+		color: var(--t-link-color-active);
+		border-radius: 50%;
+		outline: 2px solid var(--t-link-color);
+		outline-offset: 3px;
+	}
 }

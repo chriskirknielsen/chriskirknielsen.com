@@ -1,6 +1,6 @@
 ---
 title: Designs
-subtitle: A collection of posters and shirt designs I've made, available across multiple online shops.
+subtitle: A collection of posters and shirt designs I've made, available across multiple print-on-demand shops.
 summary: Shirt, poster and sticker designs by Christopher Kirk-Nielsen
 bigboiCta: { url: '/designs.xml', icon: 'rss', label: 'Design Feed' }
 rssFeedOverride: '/designs.xml'
@@ -12,13 +12,17 @@ rssFeedOverride: '/designs.xml'
 	<h2 class="visually-hidden" id="designs-shops-label">Shops</h2>
 	<ul class="inline-list | u-fontWeight-bold u-fontSize-smallest" style="--lh:var(--C-base-line-height)" aria-labelledby="designs-shops-label">
 		{% for merchStore, merchUrl in metadata.merch %}
-			{% set storeIconName %}store-icon-{{ merchStore | lower}}{% endset %}
+			{% set storeIconName %}store-icon-{{ merchStore | lower }}{% endset %}
+			{% if merchStore == 'CottonBureau' %}
+				<li hidden>{% svg storeIconName, { class: 'store-icon', id: storeIconName } %}</li>
+			{% else %}
 			<li class="store-item">
 				<a href="{{ merchUrl | url }}">
-					{% svg storeIconName, { class: 'store-icon' } %}
+					{% svg storeIconName, { class: 'store-icon', id: storeIconName } %}
 					{{ merchStore }}
 				</a>
 			</li>
+			{% endif %}
 		{% endfor %}
 	</ul>
 </div>
@@ -43,7 +47,7 @@ rssFeedOverride: '/designs.xml'
 	{% endfor %}
 </fieldset>
 
-<div class="gridlist u-marginBlockStart-xl" data-filtered-list>
+<div class="gridlist u-marginBlockStart-xl" data-filtered-list style="--spaced-items-gap:var(--size-m);">
 {% for design in activeDesigns %}
 	{% set designPermalink = '/designs/' + design.slug + '/' | url %}
 	{% set designAttrs %}
@@ -65,12 +69,16 @@ rssFeedOverride: '/designs.xml'
 		{% endif %}
 	{%- endsetAsync %}
 	{% set designLinks %}
-		<ul role="list" class="inline-list | u-marginBlockStart-auto u-fontSize-smallest" style="view-transition-name:{{ design.slug }}-list">
+		<ul role="list" class="spaced-items inlined-items | u-marginBlockStart-auto u-fontSize-smallest" style="view-transition-name:{{ design.slug }}-list;">
 			{%- for site, url in design.links %}
+			{% set siteIconId %}store-icon-{{ site | lower }}{% endset %}
 			<li>
-				<a href="{{ url | url }}">
-					<span class="visually-hidden">{{ design.name | striptags }} on</span>
-					{{ site }}
+				<a href="{{ url | url }}" class="store-icon-linkwrap | u-display-block">
+					<span class="visually-hidden">{{ design.name | striptags }} on {{ site }}</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1080 1080" class="store-icon-inline" aria-hidden="true">
+						<title>{{ site }}</title>
+						<use href="#{{ siteIconId }}" fill="currentColor" />
+					</svg>
 				</a>
 			</li>
 			{% endfor -%}
@@ -81,6 +89,7 @@ rssFeedOverride: '/designs.xml'
 		gridItem: design,
 		gridItemAttrs: designAttrs,
 		gridItemTitle: design.name,
+		gridItemTitleSpacer: 'm',
 		gridItemImage: '/' + assets.imagesDir + '/designs/' + design.img,
 		gridItemPermalink: designPermalink,
 		gridCoverlink: false,
