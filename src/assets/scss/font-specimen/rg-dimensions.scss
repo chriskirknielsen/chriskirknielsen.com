@@ -255,13 +255,23 @@ code {
 
 .demo-grid-heading {
 	&::before {
-		content: none;
+		content: '';
+
+		position: static;
+		inset: 0;
+
+		display: inline-block;
+		height: 1em;
+		width: 0;
 	}
 
-	padding: 0.5em 1em 0.25em;
+	align-items: center;
+	padding: 0.25em 1em;
 
 	text-align: left;
 	font-size: 1rem;
+	font-style: italic;
+	line-height: 1;
 	color: var(--palette-04, rebeccapurple);
 	background: linear-gradient(-45deg, transparent 0.5em, var(--palette-06, orange) 0, var(--palette-07, yellow));
 
