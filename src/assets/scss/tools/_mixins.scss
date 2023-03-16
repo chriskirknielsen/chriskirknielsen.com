@@ -36,7 +36,11 @@
 		}
 	}
 }
-
+@mixin above-small {
+	@media screen and (min-width: 25em) {
+		@content; // 740px
+	}
+}
 @mixin above-medium {
 	@media screen and (min-width: 46.25em) {
 		@content; // 740px

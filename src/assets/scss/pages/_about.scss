@@ -593,7 +593,7 @@ li[data-fact-emoji] {
 		box-shadow: var(--shadow-3d-out), var(--shadow-3d-drop);
 
 		&[data-synthgroup='waveform'] {
-			flex-grow: 0.25;
+			flex-grow: 1;
 		}
 
 		&-label {
@@ -681,7 +681,7 @@ li[data-fact-emoji] {
 
 	&-branding {
 		flex: 0 1 25%;
-		display: flex;
+		display: none;
 		flex-direction: column;
 		margin-inline-start: auto;
 
@@ -961,6 +961,16 @@ li[data-fact-emoji] {
 	color: var(--t-color-main-max);
 	border-radius: var(--quotebox-corner-radius, calc(4 * var(--t-corner-radius)));
 	background: var(--t-color-main-min) radial-gradient(farthest-corner at var(--qbgrad-pos, 100% 100%), var(--t-color-main-min), 66.7%, var(--t-color-main-med));
+}
+
+@include above-small {
+	.about-synth-branding {
+		display: flex;
+	}
+
+	.about-synth-group[data-synthgroup='waveform'] {
+		flex-grow: 0.25;
+	}
 }
 
 @include above-medium {
