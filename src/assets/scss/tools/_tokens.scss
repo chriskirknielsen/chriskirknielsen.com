@@ -5,7 +5,8 @@ $tokens: (
     base-line-height: 1.5,
     heading-line-height: 1.1,
     content-width: 60rem,
-    content-gutter: var(--size-m)
+    content-gutter: var(--size-m),
+    base-duration: 250ms
   ),
   vars: (
     color-scheme: dark light,
@@ -341,7 +342,7 @@ $tokens: (
     monospace: ('Monaco', 'Consolas', 'Andale Mono', 'Courier New', 'monospace', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol')
   ),
   easing: (
-    in: cubic-bezier(0, 0.75, 1, 1),
+    in: cubic-bezier(0.75, 0, 1, 1),
     out: cubic-bezier(0, 0, 0.25, 1),
     circ-out: cubic-bezier(0.075, 0.82, 0.165, 1),
     in-out: cubic-bezier(0.67, 0, 0.33, 1)

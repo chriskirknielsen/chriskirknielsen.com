@@ -21,7 +21,7 @@
 			fill-opacity: var(--T-dusk, 0) var(--T-dawn, 1);
 			stroke-opacity: 1;
 
-			animation: var(--T-dusk, cknLogoNeon 300ms ease-in-out) var(--T-dawn, none);
+			animation: var(--T-dusk, cknLogoNeon var(--C-base-duration) var(--easing-in-out)) var(--T-dawn, none);
 
 			&[data-c] {
 				animation-delay: 100ms;
@@ -157,6 +157,10 @@
 			inset-inline-end: 0;
 			transform: scaleX(-1);
 		}
+	}
+
+	:where(button, .cta):where(:not(.button-reset)) {
+		transition: box-shadow var(--C-base-duration) var(--easing-in-out);
 	}
 
 	.postlist-yeargroup {

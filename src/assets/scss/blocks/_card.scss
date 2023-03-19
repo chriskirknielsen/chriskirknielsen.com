@@ -42,7 +42,7 @@
 
 		background: var(--t-color-gray-med);
 
-		transition: transform 250ms var(--easing-in-out);
+		transition: transform var(--C-base-duration) var(--easing-in-out);
 	}
 
 	&-badge {

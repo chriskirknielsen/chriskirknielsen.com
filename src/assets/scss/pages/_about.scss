@@ -4,7 +4,7 @@
 	&::after {
 		content: '';
 		filter: opacity(0);
-		transition: filter 200ms;
+		transition: filter var(--C-base-duration) var(--easing-in-out);
 	}
 
 	&:hover {
@@ -319,7 +319,7 @@ li[data-fact-emoji] {
 
 	@supports (d: path('M0 0H1')) and (cx: calc(1px * var(--c))) {
 		& [data-move] {
-			transition: all var(--easing-in-out) 300ms;
+			transition: all var(--C-base-duration) var(--easing-in-out);
 		}
 		&:hover [data-move='point'] {
 			cx: calc(1px * var(--cx));

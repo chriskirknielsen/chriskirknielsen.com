@@ -24,7 +24,7 @@
 }
 
 [data-filtered-item] {
-	transition: var(--t, 300ms) var(--easing-in-out);
+	transition: var(--t, var(--C-base-duration)) var(--easing-in-out);
 	transition-property: visibility, z-index;
 
 	@media (prefers-reduced-motion: reduce) {

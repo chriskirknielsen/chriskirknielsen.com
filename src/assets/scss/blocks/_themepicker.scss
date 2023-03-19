@@ -1,8 +1,8 @@
 body {
 	--themepicker-height: 9rem;
-	--themepicker-transition: 300ms;
+	--themepicker-transition: var(--C-base-duration);
 
-	transition: transform var(--themepicker-transition) ease-in-out;
+	transition: transform var(--themepicker-transition) var(--easing-in-out);
 	will-change: transform; // Last-resort improvement which does help a bit!
 
 	[data-themepicker='open'] > & {
