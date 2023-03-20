@@ -4,6 +4,7 @@ summary: Making a logo and a t-shirt design celebrating CSS in a retro style
 customMetaImage: soc2021-cover.jpg
 externalUrl: https://2021.stateofcss.com/en-US/
 date: 2021-12-24
+projectButtonLabel: View survey
 ---
 
 {% set shirtData = designs | find('slug', 'css-retro-vhs') %}

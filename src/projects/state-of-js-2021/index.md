@@ -4,6 +4,7 @@ summary: Making a logo and a t-shirt design celebrating JS in a retro style
 customMetaImage: soj2021-cover.jpg
 externalUrl: https://2021.stateofjs.com/en-US/
 date: 2022-03-01
+projectButtonLabel: View survey
 ---
 
 {% set shirtData = designs | find('slug', 'js-retro-vhs') %}

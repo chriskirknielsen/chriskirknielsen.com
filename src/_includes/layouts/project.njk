@@ -10,7 +10,7 @@ backlink: { url: "/projects/", label: "Back to Projects" }
 <p class="post-external">
 	{% component "cta", {
 		url: externalUrl,
-		label: 'projects.view' | i18n,
+		label: projectButtonLabel or ('projects.view' | i18n),
 		icon: 'arrow-next'
 	} %}
 </p>

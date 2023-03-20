@@ -51,7 +51,7 @@ i18n:
 {% include 'components/about/visubezier.njk' %}
 
 <p data-about="opensource">
-J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, cette petite extension pour VS Code nommée <a href="https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier">VisuBezier</a> pour visualiser les courbes de lissages en CSS que j'ai créée vaut le coup d'œil. Et j'ai la chance d'avoir été publié sur des sites tels que <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> et <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, si vous arrivez à le croire&nbsp;!
+J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, cette petite extension pour VS Code nommée <a href="/projects/visubezier/">VisuBezier</a> pour visualiser les courbes de lissages en CSS que j'ai créée vaut le coup d'œil. Et j'ai la chance d'avoir été publié sur des sites tels que <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> et <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, si vous arrivez à le croire&nbsp;!
 </p>
 
 ## Créatif quand inactif
