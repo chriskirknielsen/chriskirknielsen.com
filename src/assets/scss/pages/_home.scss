@@ -132,6 +132,10 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	.home-background::after {
 		display: none;
 	}
+
+	.main {
+		--flow-space: 0px; // Make the title block flush with the next content block
+	}
 }
 
 @include theme('neotokyo', 'home') {
@@ -291,7 +295,6 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		& > path {
 			fill: none;
 			stroke: var(--home-grid-line, cyan);
-			stroke-width: 1.5px;
 			stroke-width: clamp(0.75px, 0.1vw, 1.5px);
 			vector-effect: non-scaling-stroke;
 		}
