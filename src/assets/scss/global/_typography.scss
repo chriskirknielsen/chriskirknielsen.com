@@ -13,7 +13,7 @@ h6,
 .heading {
 	font-family: var(--t-font-heading);
 	font-weight: var(--t-heading-weight, 700);
-	line-height: 1.125;
+	line-height: var(--t-heading-leading, 1.125);
 	letter-spacing: var(--t-heading-tracking);
 	text-transform: var(--t-heading-transform, none);
 	text-shadow: var(--t-heading-shadow, none);

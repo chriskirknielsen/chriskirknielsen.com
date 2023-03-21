@@ -941,7 +941,7 @@ li[data-fact-emoji] {
 
 .about-quotebox {
 	--flow-space: var(--size-xl);
-	--qbgrad-pos: calc(100% * (1 - var(--t-is-dark))) calc(100% * (1 - var(--t-is-dark)));
+	--quotebox-grad-pos: calc(100% * (1 - var(--t-is-dark))) calc(100% * (1 - var(--t-is-dark)));
 
 	align-self: center;
 	display: flex;
@@ -960,7 +960,13 @@ li[data-fact-emoji] {
 
 	color: var(--t-color-main-max);
 	border-radius: var(--quotebox-corner-radius, calc(4 * var(--t-corner-radius)));
-	background: var(--t-color-main-min) radial-gradient(farthest-corner at var(--qbgrad-pos, 100% 100%), var(--t-color-main-min), 66.7%, var(--t-color-main-med));
+	background: var(--t-color-main-min)
+		radial-gradient(
+			farthest-corner at var(--quotebox-grad-pos, 100% 100%),
+			var(--quotebox-bg-start, var(--t-color-main-min)),
+			66.7%,
+			var(--quotebox-bg-end, var(--t-color-main-med))
+		);
 }
 
 @include above-small {

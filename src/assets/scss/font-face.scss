@@ -34,6 +34,9 @@ $custom-fonts: ();
 	$font-formats-inject: zip($font-formats-list);
 	$font-style: map-get($font, 'style');
 	$font-weight: map-get($font, 'weight');
+	$font-ascent-override: map-get($font, 'ascent-override');
+	$font-descent-override: map-get($font, 'descent-override');
+	$font-line-gap-override: map-get($font, 'line-gap-override');
 
 	@font-face {
 		font-family: '#{$font-name}';
@@ -41,5 +44,14 @@ $custom-fonts: ();
 		font-weight: #{$font-weight};
 		font-style: #{$font-style};
 		font-display: swap;
+		@if ($font-ascent-override) {
+			ascent-override: $font-ascent-override;
+		}
+		@if ($font-descent-override) {
+			descent-override: $font-descent-override;
+		}
+		@if ($font-line-gap-override) {
+			line-gap-override: $font-line-gap-override;
+		}
 	}
 }

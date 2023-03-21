@@ -553,3 +553,19 @@
 		background: linear-gradient(var(--t-footer-border-color) 50%, var(--t-color-main-med) 0) fixed 50% 50% / 100% 5px;
 	}
 }
+
+@include theme('campfire') {
+	.about-quotebox {
+		--quotebox-bg-start: var(--t-color-aux-min);
+		--quotebox-bg-end: var(--t-color-aux-med);
+	}
+
+	.bigboi {
+		outline: 1px solid var(--t-color-aux-min);
+	}
+
+	.footer-logo > svg {
+		fill: var(--t-color-main-max);
+		filter: url(#sarasquiggly); // Only availaible on the homepage, but that's okay
+	}
+}

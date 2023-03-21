@@ -317,6 +317,68 @@ $tokens: (
         style: normal,
         weight: 700
       )
+    ),
+    campfire: (
+      label: Campfire,
+      colors: (
+        gray: (
+          min: hsl(35, 37%, 84%),
+          med: hsl(171, 11%, 45%),
+          max: hsl(15, 100%, 6%)
+        ),
+        main: (
+          min: hsl(41, 100%, 50%),
+          med: hsl(22, 93%, 48%),
+          max: hsl(9, 80%, 8%)
+        ),
+        aux: (
+          min: hsl(55, 53%, 67%),
+          med: hsl(104, 30%, 53%),
+          max: hsl(171, 16%, 12%)
+        )
+      ),
+      fonts: (
+        heading: (Hagona, Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', serif),
+        body: (sans-serif)
+      ),
+      vars: (
+        color-scheme: dark,
+        is-dark: 1,
+        bg-color: var(--t-color-main-max),
+        bg-alt-color: var(--t-color-aux-max),
+        heading-color: var(--t-color-main-min),
+        heading-tracking: 0.0125em,
+        heading-leading: 1.25,
+        text-color: var(--t-color-gray-min),
+        text-alt-color: var(--t-color-gray-min),
+        accent-color: var(--t-color-main-med),
+        accent-color-alt: var(--t-color-aux-med),
+        header-logo-fill: var(--t-color-main-min),
+        header-logo-fill-active: var(--t-color-aux-med),
+        link-color: var(--t-color-aux-min),
+        link-color-active: var(--t-color-main-med),
+        link-underline-color: var(--t-color-main-med),
+        link-underline-color-active: var(--t-color-gray-max),
+        bigboi-bg-color: var(--t-color-aux-max),
+        cta-border-color: var(--t-color-main-med),
+        cta-border-color-active: var(--t-color-aux-med),
+        cta-box-shadow-active: '0 0 0 2px var(--t-color-main-max), 0 0 0 4px var(--t-color-main-med), 0 0 0 6px var(--t-color-main-min)',
+        footer-text-color: var(--t-color-main-min),
+        footer-bg-color: var(--t-color-gray-max),
+        footer-border-color: var(--t-color-main-min),
+        corner-radius: 2px
+      ),
+      images: (
+        home-bg-image: 'campfire-landscape.svg'
+      ),
+      custom-font: (
+        name: Hagona,
+        filename: Hagona,
+        formats: (woff2),
+        style: normal,
+        weight: 700,
+        ascent-override: 112.5%
+      )
     )
   ),
   typeScale: (
