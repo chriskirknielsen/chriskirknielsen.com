@@ -133,8 +133,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		display: none;
 	}
 
-	.main {
-		--flow-space: 0px; // Make the title block flush with the next content block
+	&[lang='en'] .main {
+		--flow-space: 0px; // Make the title block flush with the next content block on the English homepage
 	}
 }
 
@@ -192,7 +192,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		text-indent: calc(-1 * var(--ls)); /* 1 */
 		direction: rtl; /* 1 */
 		font-family: serif;
-		font-size: calc(min(100vw, 60rem) * 0.125);
+		font-size: calc(min(100vw, var(--home-title-max-width)) * 0.125);
 		line-height: 1em;
 		font-weight: 900;
 		letter-spacing: var(--ls);
@@ -354,6 +354,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	}
 }
 
+[data-section='home'] {
+	--home-title-max-width: 60rem;
+}
 
 [data-section='home'] .home {
 	display: flex;
@@ -373,6 +376,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	}
 
 	&-background {
+		isolation: isolate;
+		pointer-events: none;
+
 		$sun-gradient: linear-gradient(
 				180deg,
 				var(--home-sun-upper-top) 0,
@@ -385,7 +391,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			)
 			no-repeat 50% 50% / 100% #{$sun-radius * 2};
 		$sun-glow-gradient: radial-gradient(
-				circle at 50% 100%,
+				circle at 50% var(--home-sun-glow-pos-y, 100%),
 				var(--home-sun-glow-alpha) #{$sun-radius * 0.875},
 				#{$sun-radius * 0.975},
 				var(--home-sun-glow) #{$sun-radius},
@@ -393,7 +399,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 				#{$sun-radius + 0.2},
 				var(--home-sun-glow-alpha) #{$sun-radius * 1.325}
 			)
-			no-repeat 50% 0 / 100% 50%;
+			no-repeat 50% 0 / 100% var(--home-sun-glow-size-y, 50%);
 
 		/* Sky layer */
 		--home-bg-mask-default: linear-gradient(tan 50%, 66.7%, #0000 95%);
@@ -422,6 +428,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			--home-lines-mask-default: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50%
 				100% / 100% 50%;
 
+			z-index: 2;
+
 			background: #{$sun-gradient};
 			-webkit-mask: var(--home-disc-mask, var(--home-disc-mask-default)), var(--home-lines-mask, var(--home-lines-mask-default));
 			-webkit-mask-composite: source-out;
@@ -429,6 +437,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		}
 
 		&::after {
+			z-index: 4;
+
 			background: #{$sun-glow-gradient};
 		}
 	}
@@ -436,7 +446,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	&-grid {
 		contain: content;
 		position: relative;
-		top: 50%; // Leave 50% for the background, and use the remaining 50% for the floor
+		inset-block-start: 50%; // Leave 50% for the background, and use the remaining 50% for the floor
+		z-index: 6;
 
 		width: 100%;
 
@@ -456,7 +467,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		max-width: 100%; // Counter the default h1's max-width of 60ch
 
 		& > svg {
-			width: 60rem;
+			width: var(--home-title-max-width);
 			contain: content;
 		}
 	}

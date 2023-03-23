@@ -133,7 +133,8 @@ code.language-markup .token.tag {
 .token.string,
 .token.entity,
 .token.url,
-.token.property .language-css .token.string,
+.token.property,
+.language-css .token.string,
 .style .token.string,
 code.language-markup .token.attr-value {
 	color: var(--t-color-main-min);
