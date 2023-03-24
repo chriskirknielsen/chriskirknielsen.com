@@ -29,12 +29,13 @@ tags: [fonts]
 
 {% block headStart %}
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 	{{ fontPreload }}
 {% endblock %}
 {# include "components/head.njk" #}
 {% block headEnd %}
+	<script>document.documentElement.classList.remove('no-js')</script>
 	<style>
 	{%- if fontSpecimenStyles -%}
 		{{- fontSpecimenStyles | cssmin | safe -}}

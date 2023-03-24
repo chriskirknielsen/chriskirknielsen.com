@@ -190,6 +190,35 @@ a {
 	}
 }
 
+html:not(.no-js) .preview-fallback,
+html.no-js .preview-interactive-piece {
+	display: none;
+}
+
+.preview-fallback-input {
+	appearance: none;
+	width: 100%;
+
+	text-align: center;
+	line-height: inherit;
+	font-size: var(--preview-fallback-font-size, 4rem);
+
+	color: inherit;
+	background: transparent;
+	border: 0;
+	border-bottom: 2px solid currentColor;
+
+	&:focus {
+		outline: 2px solid currentColor;
+	}
+}
+
+.fallback-warning {
+	margin-block-start: 2em;
+
+	text-align: center;
+}
+
 .preview-option {
 	$cbox-size: 1.25rem;
 	$check-size: 0.25rem;

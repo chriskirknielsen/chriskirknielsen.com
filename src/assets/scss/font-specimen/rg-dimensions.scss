@@ -210,6 +210,10 @@ code {
 	}
 }
 
+.preview-fallback-input {
+	--preview-fallback-font-size: clamp(2rem, calc(4rem + (4 - 2) * ((100vw - 20rem) / (64 - 20))), 4rem);
+}
+
 .preview-option {
 	input[type='checkbox'] + label::before {
 		border-radius: 2px;

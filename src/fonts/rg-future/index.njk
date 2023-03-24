@@ -49,13 +49,19 @@ fontSpecimenFallback: 'Impact'
 
 <div class="full color-alt bg-alt padding-block">
     <form class="full-content preview" id="font-previewer">
-        <div class="preview-input-wrap">
+        <div class="preview-fallback">
+			<label for="font-preview-fallback" class="visually-hidden">Preview:</label>
+			<input type="text" id="font-preview-fallback" class="specimen specimen-dlig preview-fallback-input" value="{{ fontSpecimenSampleDefault }}" placeholder="Type anything" />
+			<p class="fallback-warning">To get a rich preview, you may need JavaScript enabled or a better Internet service.</p>
+		</div>
+
+        <div class="preview-input-wrap preview-interactive-piece">
             <label for="preview-input">Preview:</label>
             <input type="text" placeholder="Type anything" id="preview-input" />
             <button type="button" id="preview-update">Update</button>
         </div>
 
-        <output for="preview-input">
+        <output for="preview-input" class="preview-interactive-piece">
             <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%" gradientTransform="scale(2 1)">
@@ -86,7 +92,7 @@ fontSpecimenFallback: 'Impact'
             </svg>
         </output>
 
-        <div class="preview-actions">
+        <div class="preview-actions preview-interactive-piece">
             <div class="preview-options flow" style="--flow: 0.5rem;">
                 <p class="preview-option">
                     <input type="checkbox" name="italic" data-preview-option id="preview-option-italic" checked />
