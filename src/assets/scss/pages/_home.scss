@@ -204,14 +204,20 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 }
 
 @include theme('campfire', 'home') {
-	--home-bg-image: linear-gradient(var(--home-sky-start), var(--home-sky-end) 75%, var(--home-floor-start) 0, var(--home-floor-start) 82.5%, var(--home-floor-end) 0);
+	--home-bg-image: linear-gradient(var(--home-sky-start), 33%, var(--home-sky-end) 50%, var(--home-floor-start) 0, var(--home-floor-start) 75%, var(--home-floor-end) 0);
 	--home-bg-mask: tan;
 	--home-lines-mask: linear-gradient(transparent, transparent);
-	--home-sun-glow-pos-y: 50%;
-	--home-sun-glow-size-y: 100%;
 
-	--home-sky-start: #ffaf1c;
-	--home-sky-end: #ffdbc5;
+	--home-sun-radius: 10vmin;
+	--home-sun-pos-x: 75%;
+	--home-sun-pos-y: 40%;
+	--home-sun-grad-scale: 1.25; // Adds a little extra sizing to compensate for the non-centred position
+	--home-sun-glow-pos-y: var(--home-sun-pos-y, 50%);
+	--home-sun-glow-size-y: 100%;
+	--home-sun-glow-factor: 2;
+
+	--home-sky-start: #ffaf1c00;
+	--home-sky-end: #ffaf1c;
 	--home-floor-start: #500202;
 	--home-floor-end: var(--t-bg-color);
 
@@ -237,9 +243,9 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--home-chris-outline-a: #ff851b;
 	--home-chris-outline-b: #ffb774;
 
-	--home-chris-depth-hue: 40;
-	--home-chris-depth-sat: 2;
-	--home-chris-depth-lux: 5%;
+	--home-chris-depth-hue: 30;
+	--home-chris-depth-sat: 20;
+	--home-chris-depth-lux: 10%;
 
 	--home-desc-stroke: var(--t-color-main-max);
 	--home-desc-fill: var(--t-color-main-min);
@@ -270,13 +276,15 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 [data-section='home'] {
 	--home-title-max-width: 60rem;
+	--home-sun-radius: 20vmin;
+	--home-sun-blind-size: calc(var(--home-sun-radius) / 12);
 }
 
 [data-section='home'] .home {
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
-	min-height: calc(var(--home-sun-radius) * 3);
+	min-height: calc(max(20vmin, var(--home-sun-radius)) * 3);
 
 	contain: content;
 	isolation: isolate;
@@ -290,17 +298,13 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	}
 
 	&-background {
-		--home-sun-radius: 20vmin;
-		--home-sun-blind-size: calc(var(--home-sun-radius) / 12);
-
 		isolation: isolate;
 		pointer-events: none;
 
 		/* Sky layer */
 		--home-bg-mask-default: linear-gradient(tan 50%, 66.7%, #0000 95%);
 		--home-bg-default:
-            /* Horizon glow */ radial-gradient(ellipse 150% 20% at 50% 100%, var(--home-sun-glow) 0%, 2.5%, var(--home-sun-glow-alpha) 75%) no-repeat 50%
-				0 / 100% 50%,
+		/* Horizon glow */ radial-gradient(ellipse 150% 20% at 50% 100%, var(--home-sun-glow) 0%, 2.5%, var(--home-sun-glow-alpha) 75%) no-repeat 50% 0 / 100% 50%,
 			/* Full sky */ linear-gradient(var(--home-sky-start, var(--ctx-bg)) 0%, var(--home-sky-end) 50%, var(--home-floor-start) 50%, var(--home-floor-end, var(--ctx-bg)) 100%);
 		background: var(--home-bg-image, var(--home-bg-default));
 
@@ -319,7 +323,12 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		/* Sun layer */
 		&::before {
-			--home-disc-mask-default: radial-gradient(circle at 50% 50%, tan calc(var(--home-sun-radius) * 0.99), transparent calc(var(--home-sun-radius) * 1.01)) no-repeat 50% 50%;
+			--home-disc-mask-default: radial-gradient(
+					circle at var(--home-sun-pos-x, 50%) var(--home-sun-pos-y, 50%),
+					tan calc(var(--home-sun-radius) * 0.99),
+					transparent calc(var(--home-sun-radius) * 1.01)
+				)
+				no-repeat 50% 50% / 100% 100%;
 			--home-lines-mask-default: repeating-linear-gradient(
 					tan 0,
 					tan var(--home-sun-blind-size),
@@ -331,7 +340,6 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			z-index: 2;
 
 			background: linear-gradient(
-					180deg,
 					var(--home-sun-upper-top) 0,
 					12.5%,
 					var(--home-sun-upper-middle) 30%,
@@ -340,7 +348,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 					82.5%,
 					var(--home-sun-lower-end) 100%
 				)
-				no-repeat 50% 50% / 100% calc(var(--home-sun-radius) * 2);
+				no-repeat 0 var(--home-sun-pos-y, 50%) / 100% calc(var(--home-sun-radius) * 2 * var(--home-sun-grad-scale, 1));
 			-webkit-mask: var(--home-disc-mask, var(--home-disc-mask-default)), var(--home-lines-mask, var(--home-lines-mask-default));
 			-webkit-mask-composite: source-out;
 			mask: var(--home-disc-mask, var(--home-disc-mask-default)) subtract, var(--home-lines-mask, var(--home-lines-mask-default));
@@ -350,13 +358,13 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			z-index: 4;
 
 			background: radial-gradient(
-					circle at 50% var(--home-sun-glow-pos-y, 100%),
+					circle at var(--home-sun-pos-x, 50%) var(--home-sun-glow-pos-y, 100%),
 					var(--home-sun-glow-alpha) calc(var(--home-sun-radius) * 0.875),
 					calc(var(--home-sun-radius) * 0.975),
 					var(--home-sun-glow) var(--home-sun-radius),
 					var(--home-sun-glow) calc(var(--home-sun-radius) * 1.005),
 					calc(var(--home-sun-radius) * 1.01),
-					var(--home-sun-glow-alpha) calc(var(--home-sun-radius) * 1.325)
+					var(--home-sun-glow-alpha) calc(var(--home-sun-radius) * var(--home-sun-glow-factor, 1.325))
 				)
 				no-repeat 50% 0 / 100% var(--home-sun-glow-size-y, 50%);
 		}
