@@ -65,7 +65,13 @@ fontSpecimenFallback: 'fantasy'
 
 <div class="full color-alt bg-alt padding-block">
     <form class="full-content preview" id="font-previewer">
-        <div class="preview-input-wrap">
+		<div class="preview-fallback">
+			<label for="font-preview-fallback" class="visually-hidden">Preview:</label>
+			<input type="text" id="font-preview-fallback" class="specimen specimen-dlig preview-fallback-input" value="{{ fontSpecimenSampleDefault }}" placeholder="Type anything" />
+			<p class="fallback-warning">To get a rich preview, you may need JavaScript enabled or a better Internet service.</p>
+		</div>
+
+        <div class="preview-input-wrap preview-interactive-piece">
             <label for="preview-input">Preview:</label>
             <input type="text" placeholder="Type anything" id="preview-input" />
             <button type="button" id="preview-update">Update</button>
@@ -74,7 +80,7 @@ fontSpecimenFallback: 'fantasy'
         <p class="preview-warning" id="preview-jak-warning" hidden>Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!</p>
         <p class="preview-warning" id="preview-daxter-warning" hidden>Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!</p>
 
-        <output for="preview-input">
+        <output for="preview-input" class="preview-interactive-piece">
             <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%">
@@ -110,7 +116,7 @@ fontSpecimenFallback: 'fantasy'
             </svg>
         </output>
 
-        <div class="preview-actions">
+        <div class="preview-actions preview-interactive-piece">
             <div class="preview-options flow" style="--flow: 0.5rem;">
                 <p class="preview-option">
                     <input type="checkbox" name="dlig" data-preview-option id="preview-option-dlig" checked />
@@ -157,7 +163,7 @@ fontSpecimenFallback: 'fantasy'
     </p>
 </div>
 
-<h2>Ligatures (click code to copy)</h2>
+<h2>Ligatures<span class="preview-interactive-piece"> (click code to copy)</span></h2>
 {% set ligaList = ['JaKandDAXTER', 'JaK', '&nbsp;and&nbsp;', 'DAXTER', 'JaKh', 'XTER', 'II', 'III', 'IV', 'KrI', 'Pro', 'TER', 'ER', 'KI', 'Kh', 'Ko', 'Kr', 'LA', 'LE', 'Le', 'Ll', 'Lo', 'RO', 'TE', 'XT', 'le', 'li', 'll', 'ls', 'lu', 'rI', 'ri', 'rr', 'ss', 'tt'] %}
 <p class="specimen-set-demo specimen specimen-dlig">
     {% for liga in ligaList %}
