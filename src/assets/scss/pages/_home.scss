@@ -263,14 +263,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		height: 100%;
 
 		$home-bg-extra-image: asset-path(get-token('themes', 'campfire', 'images', 'home-bg-image'));
-		/* prettier-ignore */
-		--home-bg-peaks: url("#{$home-bg-extra-image}");
+		--home-bg-peaks: url('#{$home-bg-extra-image}');
 		background: var(--home-bg-peaks) no-repeat 50% 50% / 100% 100%;
-	}
-
-	.u-background-bg-alt-color {
-		// background: hsl(171, 25%, 10%);
-		background: transparent;
 	}
 }
 
