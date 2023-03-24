@@ -1,8 +1,6 @@
 @use 'sass:math';
 
 $grid-line-anim-time: 4s;
-$sun-radius: 20vmin;
-$sun-blind-size: math.div($sun-radius, 12);
 $mark-depth-factor-x: 1;
 $mark-depth-factor-y: 0.9;
 $wire-count: 8;
@@ -278,7 +276,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
-	min-height: #{$sun-radius * 3};
+	min-height: calc(var(--home-sun-radius) * 3);
 
 	contain: content;
 	isolation: isolate;
@@ -292,30 +290,11 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	}
 
 	&-background {
+		--home-sun-radius: 20vmin;
+		--home-sun-blind-size: calc(var(--home-sun-radius) / 12);
+
 		isolation: isolate;
 		pointer-events: none;
-
-		$sun-gradient: linear-gradient(
-				180deg,
-				var(--home-sun-upper-top) 0,
-				12.5%,
-				var(--home-sun-upper-middle) 30%,
-				var(--home-sun-upper-bottom) 50%,
-				var(--home-sun-lower-top) 50%,
-				82.5%,
-				var(--home-sun-lower-end) 100%
-			)
-			no-repeat 50% 50% / 100% #{$sun-radius * 2};
-		$sun-glow-gradient: radial-gradient(
-				circle at 50% var(--home-sun-glow-pos-y, 100%),
-				var(--home-sun-glow-alpha) #{$sun-radius * 0.875},
-				#{$sun-radius * 0.975},
-				var(--home-sun-glow) #{$sun-radius},
-				var(--home-sun-glow) #{$sun-radius + 0.1},
-				#{$sun-radius + 0.2},
-				var(--home-sun-glow-alpha) #{$sun-radius * 1.325}
-			)
-			no-repeat 50% 0 / 100% var(--home-sun-glow-size-y, 50%);
 
 		/* Sky layer */
 		--home-bg-mask-default: linear-gradient(tan 50%, 66.7%, #0000 95%);
@@ -340,13 +319,28 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 		/* Sun layer */
 		&::before {
-			--home-disc-mask-default: radial-gradient(circle at 50% 50%, tan #{$sun-radius * 0.99}, transparent #{$sun-radius * 1.01}) no-repeat 50% 50%;
-			--home-lines-mask-default: repeating-linear-gradient(tan 0, tan #{$sun-blind-size}, transparent #{$sun-blind-size}, transparent #{$sun-blind-size * 2}) repeat-x 50%
-				100% / 100% 50%;
+			--home-disc-mask-default: radial-gradient(circle at 50% 50%, tan calc(var(--home-sun-radius) * 0.99), transparent calc(var(--home-sun-radius) * 1.01)) no-repeat 50% 50%;
+			--home-lines-mask-default: repeating-linear-gradient(
+					tan 0,
+					tan var(--home-sun-blind-size),
+					transparent var(--home-sun-blind-size),
+					transparent calc(var(--home-sun-blind-size) * 2)
+				)
+				repeat-x 50% 100% / 100% 50%;
 
 			z-index: 2;
 
-			background: #{$sun-gradient};
+			background: linear-gradient(
+					180deg,
+					var(--home-sun-upper-top) 0,
+					12.5%,
+					var(--home-sun-upper-middle) 30%,
+					var(--home-sun-upper-bottom) 50%,
+					var(--home-sun-lower-top) 50%,
+					82.5%,
+					var(--home-sun-lower-end) 100%
+				)
+				no-repeat 50% 50% / 100% calc(var(--home-sun-radius) * 2);
 			-webkit-mask: var(--home-disc-mask, var(--home-disc-mask-default)), var(--home-lines-mask, var(--home-lines-mask-default));
 			-webkit-mask-composite: source-out;
 			mask: var(--home-disc-mask, var(--home-disc-mask-default)) subtract, var(--home-lines-mask, var(--home-lines-mask-default));
@@ -355,7 +349,16 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 		&::after {
 			z-index: 4;
 
-			background: #{$sun-glow-gradient};
+			background: radial-gradient(
+					circle at 50% var(--home-sun-glow-pos-y, 100%),
+					var(--home-sun-glow-alpha) calc(var(--home-sun-radius) * 0.875),
+					calc(var(--home-sun-radius) * 0.975),
+					var(--home-sun-glow) var(--home-sun-radius),
+					var(--home-sun-glow) calc(var(--home-sun-radius) * 1.005),
+					calc(var(--home-sun-radius) * 1.01),
+					var(--home-sun-glow-alpha) calc(var(--home-sun-radius) * 1.325)
+				)
+				no-repeat 50% 0 / 100% var(--home-sun-glow-size-y, 50%);
 		}
 	}
 
