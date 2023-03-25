@@ -138,16 +138,11 @@ body {
 	&-palette {
 		flex: 0 0 auto;
 		width: 1.5em;
+		aspect-ratio: 1;
 
-		& > :nth-child(1) {
-			fill: var(--themepicker-a);
-		}
-		& > :nth-child(2) {
-			fill: var(--themepicker-b);
-		}
-		& > :nth-child(3) {
-			fill: var(--themepicker-c);
-		}
+		border-radius: 50%;
+		background: conic-gradient(from -60deg, var(--themepicker-a) 120deg, var(--themepicker-b) 120deg 240deg, var(--themepicker-c) 240deg);
+		box-shadow: 0 0 0.5em -0.25em var(--themepicker-b);
 	}
 
 	&-close {
