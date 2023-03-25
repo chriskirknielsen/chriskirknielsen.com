@@ -361,15 +361,24 @@ html.no-js .preview-interactive-piece {
 	background: var(--bg-alt, #1d122f);
 }
 
-// Footer
+// Header/Footer
+
+header {
+	padding: 0.25em;
+}
+
 footer {
 	padding: $gutter;
+}
 
+header,
+footer {
 	font-family: var(--body-font, sans-serif);
 	text-align: center;
 	outline: 2px solid currentColor;
 }
 
+// Code
 .ligature-set-demo {
 	display: flex;
 	flex-wrap: wrap;
@@ -377,7 +386,6 @@ footer {
 	justify-content: flex-start;
 }
 
-// Code
 code,
 .ligature-sample-code {
 	padding: 0.25em 0.5em;
