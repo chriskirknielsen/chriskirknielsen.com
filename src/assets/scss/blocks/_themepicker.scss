@@ -116,8 +116,21 @@ body {
 			--picker-button-border-color: var(--themepicker-b);
 		}
 
+		// "Swatch" disc next to theme label
+		&::before {
+			content: '';
+
+			flex: 0 0 auto;
+			display: inline-block;
+			width: 1.5em;
+			aspect-ratio: 1;
+
+			border-radius: 50%;
+			background: conic-gradient(from -60deg, var(--themepicker-a) 120deg, var(--themepicker-b) 120deg 240deg, var(--themepicker-c) 240deg);
+		}
+
 		&[aria-pressed='true'] {
-			&::before {
+			&::after {
 				content: '';
 
 				position: absolute;
@@ -128,21 +141,11 @@ body {
 				height: 0;
 				margin: 0 auto;
 
-				border-width: 0.5em 0.325em 0 0.325em;
+				border-width: 0.5em 0.5em 0;
 				border-style: solid;
 				border-color: var(--themepicker-b) transparent transparent;
 			}
 		}
-	}
-
-	&-palette {
-		flex: 0 0 auto;
-		width: 1.5em;
-		aspect-ratio: 1;
-
-		border-radius: 50%;
-		background: conic-gradient(from -60deg, var(--themepicker-a) 120deg, var(--themepicker-b) 120deg 240deg, var(--themepicker-c) 240deg);
-		box-shadow: 0 0 0.5em -0.25em var(--themepicker-b);
 	}
 
 	&-close {
