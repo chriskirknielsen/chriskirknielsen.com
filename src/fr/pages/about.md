@@ -17,6 +17,7 @@ facts:
     - ["😴", "Dort sur son côté mais se réveille sur son dos."]
     - ["📚", "Aime apprendre mais aussi aider — n'hésitez pas à demander !"]
     - ["🎸", "Thrice est son group préféré, n'hésitez pas à demander une recommandation !"]
+    - ["🤭", "A une passion pour les jeux de mots, rigolos ou non !"]
     - ["👾", "Connaît le code Konami, ceci n'est pas du tout un indice."]
     - ["💜", "Apprécie que vous lisiez ces faits."]
 i18n:
@@ -57,7 +58,7 @@ J'ai contribué à quelques projets open source mais rien de folichon ; si ça c
 ## Créatif quand inactif
 
 <p data-about="creative">
-Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui passeraient bien sur un t-shirt — la passion créative&nbsp;! Vous pouvez voir tout ce beau monde dans la <a href="/designs/">"Boutique"</a> si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (un style favori&nbsp;!). J'adore les films et apprécie un bon jeu vidéo par moments, alors si vous souhaitez me faire sourire, une citation de film devrait le faire (ou un jeu de mots, <em>je suis passionné de jeux de mots&nbsp;!</em>). Si ça vous intéresse, <a href="/fonts/">j'ai créé des polices d'écriture</a> — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas&nbsp;!
+Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui passeraient bien sur un t-shirt — la passion créative&nbsp;! Vous pouvez voir tout ce beau monde dans la <a href="/designs/">"Boutique"</a> si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (un style favori&nbsp;!). J'adore les films et apprécie un bon jeu vidéo par moments, alors si vous souhaitez me faire sourire, une citation de film devrait le faire. Si ça vous intéresse, <a href="/fonts/">j'ai créé des polices d'écriture</a> — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas&nbsp;!
 </p>
 
 <p class="about-quotebox">Ils ont encore utilisé de la foutue Helvetica&nbsp;! Ils peuvent pas continuer comme ça&nbsp;!</p>

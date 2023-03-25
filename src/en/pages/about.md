@@ -18,6 +18,7 @@ facts:
     - ["😴", "Sleeps on his side but wakes up on his back."]
     - ["📚", "Loves learning but also helping — ask away about anything!"]
     - ["🎸", "Favourite band is Thrice, just ask for a recommendation!"]
+    - ["🧢", "Really likes puns and any kind of wordplay — please send dad jokes."]
     - ["👾", "Knows the Konami code, totally not a hint."]
     - ["💜", "Appreciates you reading through these facts."]
 i18n:
@@ -58,7 +59,7 @@ I have contributed to a few open source projects, but only in small ways; if it 
 ## Still creative, on occasion
 
 <p data-about="creative">
-When inspiration strikes, <strong>I like to create designs</strong> that might look good on a t-shirt — still getting those creative juices flowing! You can check all those out in the <a href="/designs/">Designs "Shop"</a> if you're interested; it's got lots of dev-related designs, and a few <em class="about-emoji" data-emoji="🌴">'80s aesthetics</em> (my favourite!). I also enjoy movies and play video games from time to time, so if you want to make my day, a movie quote might work (or puns… <em>I really love puns</em>). You might want to know that <a href="/fonts/">I've created a few typefaces</a> — I consider myself a font nerd and will (try to) recognise the font used for every logo until my last breath.
+When inspiration strikes, <strong>I like to create designs</strong> that might look good on a t-shirt — still getting those creative juices flowing! You can check all those out in the <a href="/designs/">Designs "Shop"</a> if you're interested; it's got lots of dev-related designs, and a few <em class="about-emoji" data-emoji="🌴">'80s aesthetics</em> (my favourite!). I also enjoy movies and play video games from time to time, so if you want to make my day, try a movie quote on me. You might want to know that <a href="/fonts/">I've created a few typefaces</a> — I consider myself a font nerd and will (try to) recognise the font used for every logo until my last breath.
 </p>
 
 <p class="about-quotebox">They used frickin’ Helvetica again! They can’t keep getting away with it!</p>
