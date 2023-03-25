@@ -208,16 +208,18 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 	--home-bg-mask: tan;
 	--home-lines-mask: linear-gradient(transparent, transparent);
 
-	--home-sun-radius: 10vmin;
-	--home-sun-pos-x: 75%;
+	--home-sun-radius: 7.5vmin;
+	--home-sun-pos-x: 66.7%;
 	--home-sun-pos-y: 40%;
 	--home-sun-grad-scale: 1.25; // Adds a little extra sizing to compensate for the non-centred position
 	--home-sun-glow-pos-y: var(--home-sun-pos-y, 50%);
 	--home-sun-glow-size-y: 100%;
 	--home-sun-glow-factor: 2;
 
-	--home-sky-start: #ffaf1c00;
-	--home-sky-end: #ffaf1c;
+	// --home-sky-start: #ffaf1c00;
+	// --home-sky-end: #ffaf1c;
+	--home-sky-start: #531d00;
+	--home-sky-end: #ff6f00;
 	--home-floor-start: #500202;
 	--home-floor-end: var(--t-bg-color);
 
@@ -235,8 +237,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 	--home-chris-upper-a: #c83e29;
 	--home-chris-upper-b: #ed4238;
-	--home-chris-upper-c: #ff6c40;
-	--home-chris-upper-d: #ffe682;
+	--home-chris-upper-c: #ff8940;
+	--home-chris-upper-d: #ffe063;
 	--home-chris-lower-a: #530031;
 	--home-chris-lower-b: #ff3c00;
 
