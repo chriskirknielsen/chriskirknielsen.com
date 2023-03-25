@@ -370,6 +370,13 @@ footer {
 	outline: 2px solid currentColor;
 }
 
+.ligature-set-demo {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25em;
+	justify-content: flex-start;
+}
+
 // Code
 code,
 .ligature-sample-code {
@@ -386,6 +393,7 @@ code,
 	--easing: cubic-bezier(0.8, 0, 0.2, 1);
 	position: relative;
 
+	flex: 0 1 auto;
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: center;
@@ -400,31 +408,51 @@ code,
 
 	transition: background-color 200ms var(--easing);
 
-	&:hover,
-	&:focus-within {
+	html:not(.no-js) &:is(:hover, :focus-within) {
 		background-color: var(--bg-alt);
 	}
+}
 
-	.ligature-sample-code {
-		margin-block-start: 0.25em;
+.ligature-sample-code {
+	margin-block-start: 0.25em;
 
-		text-align: center;
-		font-size: 0.75rem;
+	text-align: center;
+	font-size: 0.75rem;
 
-		transition: all 200ms var(--easing);
-		transition-property: color, background-color;
+	transition: all 200ms var(--easing);
+	transition-property: color, background-color;
 
-		&:hover,
-		&:focus {
+	&:is(:hover, :focus) {
+		&:where(button) {
 			background-color: var(--bg-main);
 		}
-
-		&.copied {
-			color: var(--bg-alt);
-			background-color: var(--color-main);
-
-			animation: codePress 200ms var(--easing) 1;
+		&:where(input) {
+			background-color: var(--color-alt, white);
+			color: var(--bg-main, black);
 		}
+	}
+
+	&.copied {
+		color: var(--bg-alt);
+		background-color: var(--color-main);
+
+		animation: codePress 200ms var(--easing) 1;
+	}
+
+	html.no-js &:is(button) {
+		height: 1px;
+		margin: 0;
+		padding: 0 0.75em;
+		overflow: hidden;
+
+		white-space: nowrap;
+		border: 0;
+		background: none;
+	}
+
+	html.no-js &:is(input) {
+		min-width: max(3ch, 100%);
+		width: 0;
 	}
 }
 
