@@ -10,8 +10,6 @@
         {% set themeColorC = themeVars['accent-color-alt'] | extractColorFromTokenVar(themeValues.colors) -%}
         <li class="themepicker-item" style="--themepicker-bg:{{ themeColorBg }}; --themepicker-a:{{ themeColorA }}; --themepicker-b:{{ themeColorB }}; --themepicker-c:{{ themeColorC }};">
             <button class="themepicker-button" type="button" aria-pressed="false" data-theme-set="{{ themeKey }}" data-theme-bg="{{ themeColorBg }}">
-                <div class="themepicker-palette" aria-hidden="true"></div>
-
                 <span class="themepicker-label">{{ themeValues.label }}</span>
             </button>
         </li>
