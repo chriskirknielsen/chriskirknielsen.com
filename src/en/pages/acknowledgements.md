@@ -20,7 +20,7 @@ The theme picker is more than a little inspired by [Max Böck's own](https://mxb
         <li><strong>Vapor:</strong> A vaporwave interpretation of a theme which was a lot of fun to make, I'll thank Sophie Koonin here again for embracing this aesthetic!</li>
         <li><strong>Y2K:</strong> I grew up using Windows 98 and XP, so I kinda had to make this one. (I had lots of fun with the footer logo)</li>
         <li><strong>Neo-Tokyo:</strong> Retrowave is cool, but dystopian cyberpunk styles are cool too — a little Akira-flavoured!</li>
-        <li><strong>Campfire:</strong> Opposite from the previous one, this takes heavy inspiration from the video game Firewatch and <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>'s beautiful artwork, and goes for a "national parks" vibe.</li>
+        <li><strong>Campfire:</strong> Opposite from the previous one, this takes heavy inspiration from the video game Firewatch and <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>'s beautiful artwork, and goes for a "national parks" vibe. (also, <a href="https://alistairshepherd.uk/">Alistair</a> did it better)</li>
     </ul>
 </details>
 {% endmdsafe %}
