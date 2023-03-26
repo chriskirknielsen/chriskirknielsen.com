@@ -32,7 +32,7 @@
             </nav>
 
             <nav aria-labelledby="footer-language-links-title" class="footer-nav" data-footer-nav="lang">
-                <h2 class="h4" id="footer-language-links-title">{{ 'langLabel' | i18n }}</h2>
+                <h2 class="h4" id="footer-language-links-title">{{ 'langLabel' | i18n | safe }}</h2>
                 <ul>
                 {% for locale, langName in metadata.locales %}
                     <li><a href="{{ '/' | locale_url(locale) }}" hreflang="{{ locale }}">{{ langName }}</a></li>

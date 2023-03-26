@@ -1,6 +1,6 @@
 ---
 title: Remer&shy;ciements
-subtitle: Ou "colophon", je présume.
+subtitle: Une page un peu fourre-tout…
 summary: Quelques mercis sont en ordre…
 permalink: /fr/remerciements/
 ---
@@ -9,7 +9,20 @@ permalink: /fr/remerciements/
 
 Ce site est bâti avec [Eleventy](https://www.11ty.dev/), un superbe générateur de site statique. Je [pré-compile mes fichiers](/blog/eleventy-asset-pipeline-precompiled-assets/) Sass en CSS et minifie mes scripts. C'est ensuite injecté dans la page pour réduire les requêtes HTTP, le tout hébergé par [Netlify](https://netlify.com/). Également de la partie : [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
-Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Böck](https://mxb.dev) et le synthé sur la page [À Propos](/fr/a-propos/) est basé sur [le tutoriel de Bret Cameron](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) et amélioré avec le choix d'enveloppe et filtre en m'appuyant sur [le code de Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Böck](https://mxb.dev), tandis que le côté éclectique est inspiré par [le site de Sophie Koonin](https://localghost.dev/). Le synthé sur la page [À Propos](/fr/a-propos/) est basé sur [le tutoriel de Bret Cameron](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) et amélioré avec le choix d'enveloppe et filtre en m'appuyant sur [le code de Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+
+{% mdsafe %}
+<details>
+    <summary class="cta | u-width100" style="--btn-justify-content:center">Plus de détails sur les thèmes 🎨</summary>
+    <ul class="u-marginBlockStart-s">
+        <li><strong>Dusk:</strong> Infusé de néon, ce thème inspiré par le style retrowave est grosso-modo toute ma personnalité.</li>
+        <li><strong>Dawn:</strong> Ce thème blanc-très-crème vise à être un mode clair de Dusk.</li>
+        <li><strong>Vapor:</strong> Une interprétation vaporwave d'un thème qui était très amusant à faire, je remercie une fois de plus Sophie Koonin qui a adopté cette esthétique !</li>
+        <li><strong>Y2K:</strong> J'ai grandi avec Windows 98 et XP, donc j'étais un peu obligé de faire ce thème. (je me suis bien amusé sur le logo du pied de page)</li>
+        <li><strong>Neo-Tokyo:</strong> Le retrowave c'est cool, mais le style cyberpunk dystopique est cool aussi — un peu à la sauce Akira !</li>
+    </ul>
+</details>
+{% endmdsafe %}
 
 Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.repo }}) pour voir les plugins et autres outils ; prière de ne pas être un chenapan et voler le code puis mettre votre nom dessus. Merci !
 
