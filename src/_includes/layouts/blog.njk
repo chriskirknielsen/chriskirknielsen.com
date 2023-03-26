@@ -10,15 +10,17 @@ section: blog
 	<header class="bigboi | content-fullbleed container">
 		<div class="bigboi-inner | content | flow" style="--flow-space: var(--size-m)">
 			<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">
-				<h1>{{ title }}</h1>
+				<div class="bigboi-inner-content">
+					<h1>{{ title }}</h1>
+					<p class="u-fontWeight-bold">{{ subtitle }}</p>
+				</div>
+				
 				{% component "cta", {
 					url: '/rss.xml' | locale_url,
 					label: 'rss.feed' | i18n,
 					icon: 'rss'
 				} %}
 			</div>
-			
-			<p class="u-fontWeight-bold">{{ subtitle }}</p>
 		</div>
 	</header>
 

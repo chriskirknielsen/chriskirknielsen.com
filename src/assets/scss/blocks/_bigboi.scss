@@ -9,5 +9,10 @@
 
 	&-inner {
 		position: relative;
+
+		&-content {
+			flex: 1 1 0;
+			min-width: min(100%, 24rem);
+		}
 	}
 }
