@@ -1,6 +1,6 @@
 ---
 title: Acknow&shy;ledge&shy;ments
-subtitle: Or "colophon", I suppose.
+subtitle: A bit of a catch-all page.
 summary: Some info about this site
 permalink: /acknowledgements/
 ---
@@ -9,7 +9,20 @@ permalink: /acknowledgements/
 
 This site is built with [Eleventy](https://www.11ty.dev/), a fantastic static site generator. I [pre-compile](/blog/eleventy-asset-pipeline-precompiled-assets/) my Sass files to CSS, and minify my scripts. I then inline that to reduce HTTP requests, and this whole thing is hosted via [Netlify](https://netlify.com/). Also used: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
-The theme picker is more than a little inspired by [Max Böck's own](https://mxb.dev), and the synth on the [About page](/about/) is based on [Bret Cameron's tutorial](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/), and extended with envelope shaping and lowpass filtering by peeking at [Daniel Schulz's code](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+The theme picker is more than a little inspired by [Max Böck's own](https://mxb.dev), while the eclecticism is inspired by [Sophie Koonin's site](https://localghost.dev/). The synth on the [About page](/about/) is based on [Bret Cameron's tutorial](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/), and extended with envelope shaping and lowpass filtering by peeking at [Daniel Schulz's code](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+
+{% mdsafe %}
+<details>
+    <summary class="cta | u-width100" style="--btn-justify-content:center">More info about themes 🎨</summary>
+    <ul class="u-marginBlockStart-s">
+        <li><strong>Dusk:</strong> A neon-infused, retrowave-inspired theme which is basically my entire personality.</li>
+        <li><strong>Dawn:</strong> This very-off-white theme aims to be a light-mode version of Dusk.</li>
+        <li><strong>Vapor:</strong> A vaporwave interpretation of a theme which was a lot of fun to make, I'll thank Sophie Koonin here again for embracing this aesthetic!</li>
+        <li><strong>Y2K:</strong> I grew up using Windows 98 and XP, so I kinda had to make this one. (I had lots of fun with the footer logo)</li>
+        <li><strong>Neo-Tokyo:</strong> Retrowave is cool, but dystopian cyberpunk styles are cool too — a little Akira-flavoured!</li>
+    </ul>
+</details>
+{% endmdsafe %}
 
 You can check out the [full source code on GitHub]({{ metadata.repo }}) to see plugins and other packages used. I only ask that you don't steal my code and slap your own name on it.
 
