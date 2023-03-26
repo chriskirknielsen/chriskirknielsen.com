@@ -45,6 +45,8 @@ You can check out the [full source code on GitHub]({{ metadata.repo }}) to see p
     Simple, reliable earbuds for "casual" audio listening, and useful for video meetings.
 -   [Sony MDR-XB950N1 over-ear headphones](https://www.amazon.com/Sony-Wireless-Headphones-Bluetooth-Canceling/dp/B07KKMGG6H?linkCode=as2&tag=ratcgala-20)
     Quality earphones for more "focused" listening, with noise-cancelling.
+-   [Novation Launchkey 37 MIDI keyboard](https://www.amazon.com/gp/product/B086N4W81X?linkCode=as2&tag=ratcgala-20)
+    I made music a lot in the past, and this little toy is great to slowly get back into it!
 
 ### Apps
 

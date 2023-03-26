@@ -37,14 +37,16 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
     Un grand écran pour du grand code.
 -   [Autonomous AI ErgoChair 2](https://www.autonomous.ai/office-chairs/ergonomic-chair/?rid=7a4b2c) _(attention : ceci contient un ID de parrainage vous offrant une réduction)_
     Je crois que ceci est récemment devenu la ErgoChair Pro mais c'est vraiment une **bonne** chaise.
--   [Fully's Remi Standing Desk](https://www.fully.com/standing-desks/remi-standing-desk.html)
+-   [Fully Remi bureau adjustable](https://www.fully.com/standing-desks/remi-standing-desk.html)
     Je suis souvent assis, du coup avoir un bureau qui change facilement entre position assise et debout est très pratique.
 -   [ErGear Dual Monitor Arms](https://amzn.to/35Y3rQm)
     Libère de l'espace sur mon bureau avec un positionnement facile à régler.
--   [Sony MDR-XB50AP in-ear headphones](https://amzn.to/3x6jtDt)
+-   [Sony MDR-XB50AP écouteurs intra](https://amzn.to/3x6jtDt)
     Des écouteurs simples et durables pour une écoute détendue, et pratique pour les réunions vidéo.
--   [Sony MDR-XB950N1 over-ear headphones](https://amzn.to/3h0jhAe)
+-   [Sony MDR-XB950N1 casque audio](https://amzn.to/3h0jhAe)
     Un casque de qualité pour une écoute "concentrée", avec fonction réduction de bruit.
+-   [Novation Launchkey 37 clavier MIDI](https://www.amazon.com/gp/product/B086N4W81X?linkCode=as2&tag=ratcgala-20)
+    Je faisais beaucoup de musique avant, et ce petit jouet est parfait pour se remettre dans le bain !
 
 ### Applis
 
