@@ -20,6 +20,7 @@ Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Bö
         <li><strong>Vapor:</strong> Une interprétation vaporwave d'un thème qui était très amusant à faire, je remercie une fois de plus Sophie Koonin qui a adopté cette esthétique !</li>
         <li><strong>Y2K:</strong> J'ai grandi avec Windows 98 et XP, donc j'étais un peu obligé de faire ce thème. (je me suis bien amusé sur le logo du pied de page)</li>
         <li><strong>Neo-Tokyo:</strong> Le retrowave c'est cool, mais le style cyberpunk dystopique est cool aussi — un peu à la sauce Akira !</li>
+        <li><strong>Campfire:</strong> À l'opposé du thème précédent, celui-ci s'inspire fortement du jeu vidéo Firewatch et des superbes œuvres de <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>, sur un style plutôt "parcs nationaux".</li>
     </ul>
 </details>
 {% endmdsafe %}
