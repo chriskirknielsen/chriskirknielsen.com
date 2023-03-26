@@ -6,9 +6,12 @@ templateName: page
 
 {% block layoutContent %}
 	<header class="bigboi | content-fullbleed container">
-		<div class="bigboi-inner | content | {% if bigboiCta %}flow{% endif %}" style="--flow-space: var(--size-m)">
-			{% if bigboiCta %}<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">{% endif %}
-				<h1>{{ (pageTitle or title) | safe }}</h1>
+		<div class="bigboi-inner | content | flow" style="--flow-space: var(--size-m)">
+			<div class="spaced-items inlined-items" style="--spaced-items-justify:space-between">
+				<div class="bigboi-inner-content">
+					<h1>{{ (pageTitle or title) | safe }}</h1>
+					<p class="u-fontWeight-bold">{{ subtitle or summary }}</p>
+				</div>
 
 				{% if bigboiCta %}
 					{% component "cta", {
@@ -18,9 +21,7 @@ templateName: page
 						iconBefore: bigboiCta.iconBefore or false
 					} %}
 				{% endif %}
-			{% if bigboiCta %}</div>{% endif %}
-			
-			<p class="u-fontWeight-bold">{{ subtitle or summary }}</p>
+			</div>
 
 			{% if backlink %}
 			<p class="u-marginBlockStart-m">

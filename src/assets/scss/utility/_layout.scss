@@ -1,6 +1,6 @@
 .spaced-items {
 	display: flex;
-	gap: var(--spaced-items-gap, 0.75em);
+	gap: var(--spaced-items-gap, var(--flow-space, 0.75em));
 	justify-content: var(--spaced-items-justify, initial);
 }
 
