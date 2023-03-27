@@ -15,12 +15,12 @@ The theme picker is more than a little inspired by [Max Böck's own](https://mxb
 <details>
     <summary class="cta | u-width100" style="--btn-justify-content:center">More info about themes 🎨</summary>
     <ul class="u-marginBlockStart-s">
-        <li><strong>Dusk:</strong> A neon-infused, retrowave-inspired theme which is basically my entire personality. It uses the gorgeous <a href="https://www.readvisions.com/marvin">Marvin Visions</a> typeface.</li>
+        <li><strong>Dusk:</strong> A neon-infused, retrowave-inspired theme which is basically my entire online personality. It uses the gorgeous <a href="https://www.readvisions.com/marvin">Marvin Visions</a> typeface.</li>
         <li><strong>Dawn:</strong> This very-off-white theme aims to be a light-mode version of Dusk.</li>
         <li><strong>Vapor:</strong> A vaporwave interpretation of a theme which was a lot of fun to make, I'll thank Sophie Koonin here again for embracing this aesthetic! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> was the obvious typeface choice.</li>
         <li><strong>Y2K:</strong> I grew up using Windows 98 and XP, so I kinda had to make this one. (I had lots of fun with the footer logo)</li>
-        <li><strong>Neo-Tokyo:</strong> Retrowave is cool, but dystopian cyberpunk styles are cool too — a little Akira-flavoured! The wide-as-heck headings are set with <a href="https://fonts.google.com/specimen/Syncopate">Syncopate</a>.</li>
-        <li><strong>Campfire:</strong> Opposite from the previous one, this takes heavy inspiration from the video game Firewatch and <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>'s beautiful artwork, and goes for a "national parks" vibe, with headings looking perfect in <a href="https://www.dafont.com/hagona.font">Hagona</a>, and the shape of Mount Blanc in the homepage background, which is sometimes visible from my home town. (also, <a href="https://alistairshepherd.uk/">Alistair</a> did it better)</li>
+        <li><strong>Neo-Tokyo:</strong> Retrowave is cool, but dystopian cyberpunk styles are cool too — a little Akira-flavoured! The wide-as-heck headings are set in <a href="https://fonts.google.com/specimen/Syncopate">Syncopate</a>.</li>
+        <li><strong>Campfire:</strong> Opposite from the previous one, this takes heavy inspiration from the video game Firewatch and <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>'s beautiful artwork, and goes for a "national parks" vibe, with headings looking perfect in <a href="https://www.dafont.com/hagona.font">Hagona</a>, and the shape of Mount Blanc in the homepage background, which is sometimes visible from my home town. The hero sections used most of <a href="https://codepen.io/scottkellum/details/poOWGQg">Scott Kellum</a>'s code for generative topography. (oh and also, <a href="https://alistairshepherd.uk/">Alistair</a> did all this better)</li>
     </ul>
 </details>
 {% endmdsafe %}
