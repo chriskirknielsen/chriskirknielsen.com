@@ -19,6 +19,7 @@ facts:
     - ["📚", "Loves learning but also helping — ask away about anything!"]
     - ["🎸", "Favourite band is Thrice, just ask for a recommendation!"]
     - ["🧢", "Really likes puns and any kind of wordplay — please send dad jokes."]
+    - ["🔢", "Likes to take a Sudoku break once in a while."]
     - ["👾", "Knows the Konami code, totally not a hint."]
     - ["💜", "Appreciates you reading through these facts."]
 i18n:

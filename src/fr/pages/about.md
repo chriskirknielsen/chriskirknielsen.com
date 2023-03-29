@@ -18,6 +18,7 @@ facts:
     - ["📚", "Aime apprendre mais aussi aider — n'hésitez pas à demander !"]
     - ["🎸", "Thrice est son group préféré, n'hésitez pas à demander une recommandation !"]
     - ["🤭", "A une passion pour les jeux de mots, rigolos ou non !"]
+    - ["🔢", "Aime prendre une petite pause Sudoku ça et là."]
     - ["👾", "Connaît le code Konami, ceci n'est pas du tout un indice."]
     - ["💜", "Apprécie que vous lisiez ces faits."]
 i18n:
