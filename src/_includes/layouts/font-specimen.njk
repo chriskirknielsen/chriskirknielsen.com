@@ -56,13 +56,52 @@ tags: [fonts]
 	</style>
 </head>
 
+{% macro fontPreviewer(svgPreview, previewOptions='', defaultText='Type Anything', warningMessages='') %}
+	<form class="full-content preview" id="font-previewer">
+		<div class="preview-fallback">
+			<label for="font-preview-fallback" class="visually-hidden">Preview:</label>
+			<input type="text" id="font-preview-fallback" class="specimen specimen-dlig preview-fallback-input" value="{{ defaultText }}" placeholder="Type anything" />
+			<p class="fallback-warning">To get a rich preview, you may need JavaScript enabled or a better Internet service.</p>
+		</div>
+
+        <div class="preview-input-wrap preview-interactive-piece">
+            <label for="preview-input">Preview:</label>
+            <input type="text" placeholder="Type anything" id="preview-input" />
+            <button type="button" id="preview-update">Update</button>
+        </div>
+
+		{% if warningMessages %}
+			{% for warningMessageId, warningMessageMarkup in warningMessages %}
+			<p class="preview-warning" id="{{ warningMessageId }}" hidden>{{ warningMessageMarkup | safe }}</p>
+			{% endfor %}
+		{% endif %}
+
+        <output for="preview-input" class="preview-interactive-piece">
+            {{ svgPreview | safe }}
+        </output>
+
+        <div class="preview-actions preview-interactive-piece">
+            <div class="preview-options flow" style="--flow: 0.5rem;">
+				{% for optKey, optData in previewOptions %}
+                <p class="preview-option">
+                    <input type="checkbox" name="{{ optKey }}" data-preview-option id="preview-option-{{ optKey }}" {% if optData.default %}checked{% endif %} />
+                    <label for="preview-option-{{ optKey }}">{{ optData.label }}</label>
+                </p>
+				{% endfor %}
+            </div>
+
+            <button type="button" id="save-preview" class="preview-save" hidden>Save as PNG</button>
+        </div>
+    </form>
+{% endmacro %}
+
 <body>
 	<header class="header">
 		<p class="text-center"><a href="{{ '/fonts/' | url }}">A font by Christopher Kirk-Nielsen</a></p>
 	</header>
 
 	<main class="content flow" id="content">
-		{{ layoutContent | safe }}
+		{% block layoutContent %}{{ layoutContent | safe }}{% endblock %}
 	</main>
 
 	<footer class="footer">
@@ -85,9 +124,9 @@ tags: [fonts]
 			fontPreviewOutput.textContent = fontPreviewInput.value.trim() || '{{ fontSpecimenSampleDefault | safe }}';
 		}
 
-		function updateFontPreviewOptions (e) {
-			var previewOptions = e.target.closest('[data-preview-option]') || false;
-			if (!previewOptions) { previewOptions = [].slice.call(document.querySelectorAll('[data-preview-option]')); }
+		function updateFontPreviewOptions(e = null) {
+			var previewOptions = !e ? false : e.target.closest('[data-preview-option]') || false;
+			if (!previewOptions) { previewOptions = Array.from(document.querySelectorAll('[data-preview-option]')); }
 			else { previewOptions = [previewOptions]; }
 
 			previewOptions.forEach(function (previewOption) {
@@ -119,6 +158,8 @@ tags: [fonts]
 			e.preventDefault();
 			return false;
 		});
+		updateFontPreviewText();
+		updateFontPreviewOptions();
 	{% endset %}
 	{{ fontSpecimenScripts | jsmin | safe }}
 	</script>

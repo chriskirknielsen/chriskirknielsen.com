@@ -10,6 +10,9 @@ fontSpecimenSampleDefault: 'Naughty Ottsel'
 fontSpecimenFallback: 'fantasy'
 ---
 
+{% extends "layouts/font-specimen.njk" %}
+
+{% block layoutContent %}
 <div class="main-heading-block">
     {% set svgPortalViewBoxSize = 643.668 %}
     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 {{ svgPortalViewBoxSize }} {{ svgPortalViewBoxSize }}" class="main-heading-bg">
@@ -65,22 +68,7 @@ fontSpecimenFallback: 'fantasy'
 
 <div class="full color-alt bg-alt padding-block">
     <form class="full-content preview" id="font-previewer">
-		<div class="preview-fallback">
-			<label for="font-preview-fallback" class="visually-hidden">Preview:</label>
-			<input type="text" id="font-preview-fallback" class="specimen specimen-dlig preview-fallback-input" value="{{ fontSpecimenSampleDefault }}" placeholder="Type anything" />
-			<p class="fallback-warning">To get a rich preview, you may need JavaScript enabled or a better Internet service.</p>
-		</div>
-
-        <div class="preview-input-wrap preview-interactive-piece">
-            <label for="preview-input">Preview:</label>
-            <input type="text" placeholder="Type anything" id="preview-input" />
-            <button type="button" id="preview-update">Update</button>
-        </div>
-
-        <p class="preview-warning" id="preview-jak-warning" hidden>Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!</p>
-        <p class="preview-warning" id="preview-daxter-warning" hidden>Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!</p>
-
-        <output for="preview-input" class="preview-interactive-piece">
+        {% set svgPreview %}
             <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%">
@@ -102,11 +90,16 @@ fontSpecimenFallback: 'fantasy'
                         <feTurbulence baseFrequency="0.05 0.05" result="turb" numOctaves="2" />
                         <feDisplacementMap in="SourceGraphic" in2="turb" result="displace" scale="5" xChannelSelector="R" yChannelSelector="R"/>
                         <feGaussianBlur in="displace" stdDeviation="2" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -12" result="goo" />
+                        <feColorMatrix in="blur" mode="matrix" values="
+                            1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 24 -12
+                        " result="goo" />
                     </filter>
 
                     <symbol id="sample-text">
-                        <text class="specimen specimen-dlig" style="font-size:128px" text-anchor="middle" x="50%" y="200" id="preview-output">{{ fontSpecimenSampleDefault }}</text>
+                        <text class="specimen" style="font-size:128px" text-anchor="middle" x="50%" y="200" id="preview-output">{{ fontSpecimenSampleDefault }}</text>
                     </symbol>
                 </defs>
                 
@@ -114,22 +107,17 @@ fontSpecimenFallback: 'fantasy'
                 <use xlink:href="#sample-text" fill="#262425" stroke="#262425" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#noise)" transform="translate(-0.5 -0.5)" aria-hidden="true"/>
                 <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
             </svg>
-        </output>
+        {% endset %}
+        {% set previewOptions = {
+            "dlig": { default: true, label: "Enable Ligatures" },
+            "ss01": { default: false, label: "Enable Stylistic Alternates" }
+        } %}
+        {% set previewWarnings = {
+            "preview-jak-warning": 'Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!',
+            "preview-daxter-warning": 'Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!'
+        } %}
 
-        <div class="preview-actions preview-interactive-piece">
-            <div class="preview-options flow" style="--flow: 0.5rem;">
-                <p class="preview-option">
-                    <input type="checkbox" name="dlig" data-preview-option id="preview-option-dlig" checked />
-                    <label for="preview-option-dlig">Enable Ligatures</label>
-                </p>
-                <p class="preview-option">
-                    <input type="checkbox" name="ss01" data-preview-option id="preview-option-ss01" />
-                    <label for="preview-option-ss01">Enable Stylistic Alternates</label>
-                </p>
-            </div>
-
-            <button type="button" id="save-preview" class="preview-save" hidden>Save as PNG</button>
-        </div>
+        {{ fontPreviewer(svgPreview, previewOptions, fontSpecimenSampleDefault, previewWarnings) }}
     </form>
 </div>
 
@@ -238,3 +226,4 @@ fontSpecimenFallback: 'fantasy'
         libInput.setAttribute('tabindex', '-1');
     })
 </script>
+{% endblock %}

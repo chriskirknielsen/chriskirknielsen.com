@@ -1,5 +1,4 @@
 {
-	"layout": "layouts/font-specimen.njk",
 	"tags": ["fonts"],
 	"templateEngineOverride": "njk",
 	"eleventyComputed": {
