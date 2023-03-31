@@ -24,28 +24,28 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 @include default-schemes('home') {
 	@include generate-light-dark-vars('home-sky-end', #ecb43a, #791e74);
-	@include generate-light-dark-vars('home-floor-start', #f774b5, #1e0347);
+	@include generate-light-dark-vars('home-floor-start', #ef4d78, #1e0347);
 	@include generate-light-dark-vars('home-grid-line', rebeccapurple, cyan);
 
-	--home-sun-upper-top: #ff0095;
+	@include generate-light-dark-vars('home-sun-upper-top', #ff0059, #ff0095);
 	--home-sun-upper-middle: #ffafa3;
 	--home-sun-upper-bottom: #ffffe9;
 	--home-sun-lower-top: #ff0095;
 	@include generate-light-dark-vars('home-sun-lower-end', #ff9ece, #1e1230);
-	--home-sun-glow: #ed23afbf;
-	--home-sun-glow-alpha: #ed23af00;
+	@include generate-light-dark-vars('home-sun-glow', #ff2572, #ed23afbf);
+	@include generate-light-dark-vars('home-sun-glow-alpha', #ff257200, #ed23af00);
 
-	--home-chris-inner: #130026;
-	--home-chris-upper-a: #260039;
-	--home-chris-upper-b: #7a11ba;
-	--home-chris-upper-c: #fd57b7;
-	--home-chris-upper-d: #fddcc0;
-	--home-chris-lower-a: #7e004e;
-	--home-chris-lower-b: #ed23af;
-	--home-chris-outline-a: #e04fab;
-	--home-chris-outline-b: #4f045f;
+	@include generate-light-dark-vars('home-chris-inner', #260017, #130026);
+	@include generate-light-dark-vars('home-chris-upper-a', #7d2500, #260039);
+	@include generate-light-dark-vars('home-chris-upper-b', #ba1138, #7a11ba);
+	@include generate-light-dark-vars('home-chris-upper-c', #fd5775, #fd57b7);
+	@include generate-light-dark-vars('home-chris-upper-d', #fdcbc0, #fddcc0);
+	@include generate-light-dark-vars('home-chris-lower-a', #7e0011, #7e004e);
+	@include generate-light-dark-vars('home-chris-lower-b', #f32c5a, #ed23af);
+	@include generate-light-dark-vars('home-chris-outline-a', #e04f4f, #e04fab);
+	@include generate-light-dark-vars('home-chris-outline-b', #5f0415, #4f045f);
 
-	@include generate-light-dark-vars('home-chris-depth-hue', 274, 244);
+	@include generate-light-dark-vars('home-chris-depth-hue', 350, 244);
 	@include generate-light-dark-vars('home-chris-depth-sat', 2, 1);
 	@include generate-light-dark-vars('home-chris-depth-lux', 5%, 0%);
 
