@@ -52,7 +52,11 @@ fontSpecimenFallback: 'Impact'
 
 <div class="full color-alt bg-alt padding-block">
     <form class="full-content preview" id="font-previewer">
-        {% set svgPreview %}
+        {% set previewOptions = {
+            "italic": { default: true, label: "Enable Italics" }
+        } %}
+
+        {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault) %}
             <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%" gradientTransform="scale(2 1)">
@@ -81,12 +85,7 @@ fontSpecimenFallback: 'Impact'
                 <use xlink:href="#sample-text" fill="#36312d" stroke="#36312d" stroke-width="10" stroke-linecap="butt" stroke-linejoin="butt"/>
                 <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
             </svg>
-        {% endset %}
-        {% set previewOptions = {
-            "italic": { default: true, label: "Enable Italics" }
-        } %}
-
-        {{ fontPreviewer(svgPreview, previewOptions, fontSpecimenSampleDefault) }}
+        {% endcall %}
     </form>
 </div>
 

@@ -54,7 +54,13 @@ fontSpecimenFallback: '"Helvetica Extended Black", "Helvetica Extended", "Helvet
 
 <div class="full color-alt bg-alt padding-block">
     <form class="full-content preview" id="font-previewer">
-        {% set svgPreview %}
+        {% set previewOptions = {
+            "italic": { default: true, label: "Enable Italics" },
+            "dlig": { default: true, label: "Enable Ligatures" },
+            "ss01": { default: true, label: "Enable Stylistic Alternates" }
+        } %}
+
+        {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault) %}
             <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="100%" y2="0" gradientTransform="scale(1 2)">
@@ -83,14 +89,7 @@ fontSpecimenFallback: '"Helvetica Extended Black", "Helvetica Extended", "Helvet
                 <use xlink:href="#sample-text" fill="#1a1c1c" transform="translate(-1 1)"/>
                 <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
             </svg>
-        {% endset %}
-        {% set previewOptions = {
-            "italic": { default: true, label: "Enable Italics" },
-            "dlig": { default: true, label: "Enable Ligatures" },
-            "ss01": { default: true, label: "Enable Stylistic Alternates" }
-        } %}
-
-        {{ fontPreviewer(svgPreview, previewOptions, fontSpecimenSampleDefault) }}
+        {% endcall %}
     </form>
 </div>
 

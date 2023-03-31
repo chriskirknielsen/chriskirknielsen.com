@@ -68,7 +68,16 @@ fontSpecimenFallback: 'fantasy'
 
 <div class="full color-alt bg-alt padding-block">
     <form class="full-content preview" id="font-previewer">
-        {% set svgPreview %}
+        {% set previewOptions = {
+            "dlig": { default: true, label: "Enable Ligatures" },
+            "ss01": { default: false, label: "Enable Stylistic Alternates" }
+        } %}
+        {% set previewWarnings = {
+            "preview-jak-warning": 'Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!',
+            "preview-daxter-warning": 'Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!'
+        } %}
+
+        {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault, previewWarnings) %}
             <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%">
@@ -107,17 +116,7 @@ fontSpecimenFallback: 'fantasy'
                 <use xlink:href="#sample-text" fill="#262425" stroke="#262425" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#noise)" transform="translate(-0.5 -0.5)" aria-hidden="true"/>
                 <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
             </svg>
-        {% endset %}
-        {% set previewOptions = {
-            "dlig": { default: true, label: "Enable Ligatures" },
-            "ss01": { default: false, label: "Enable Stylistic Alternates" }
-        } %}
-        {% set previewWarnings = {
-            "preview-jak-warning": 'Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!',
-            "preview-daxter-warning": 'Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!'
-        } %}
-
-        {{ fontPreviewer(svgPreview, previewOptions, fontSpecimenSampleDefault, previewWarnings) }}
+        {% endcall %}
     </form>
 </div>
 
