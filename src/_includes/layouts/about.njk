@@ -6,6 +6,7 @@ templateEngineOverride: njk, md
 
 {{ layoutContent | safe }}
 
+{% svg "dvd-logo", {isNjk: false} %}
 <style>
     {%- set screensaverCss %}{% include "assets/css/screensaver.css" %}{% endset -%}
     {{- screensaverCss | cssmin | safe -}}
