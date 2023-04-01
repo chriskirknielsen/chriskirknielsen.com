@@ -18,6 +18,8 @@
 	inset: 0;
 	z-index: 99;
 
+	display: flex;
+
 	background: black;
 
 	& div {
@@ -34,22 +36,8 @@
 		animation: scrsvrY calc(#{$screensaver-animation-time} * var(--scrnsvr-speed-y, 1)) linear var(--scrnsvr-delay-y, -314ms) alternate infinite both;
 
 		& > use {
-			color: var(--scrnsvr-logo-fill, white);
 			fill: var(--scrnsvr-logo-fill, white);
 		}
-	}
-
-	&--corner-collision::before {
-		content: '🎉';
-
-		position: absolute;
-		inset: 0;
-
-		width: 1em;
-		height: 1em;
-		margin: auto;
-
-		font-size: 50vmin;
 	}
 
 	& .confetti {
@@ -70,16 +58,38 @@
 	}
 }
 
+@media (prefers-reduced-motion: reduce) {
+	.screensaver {
+		& div {
+			margin: auto;
+		}
+		& div,
+		& svg {
+			animation: none;
+		}
+		& svg > use {
+			animation: scrsvrRainbow 10s linear 0s infinite both !important;
+		}
+	}
+
+	#dvd-logo,
+	#dvd-logo * {
+		transition: initial !important;
+	}
+}
+
 @keyframes scrsvrX {
 	to {
 		transform: translateX(calc(100vw - 100%));
 	}
 }
+
 @keyframes scrsvrY {
 	to {
 		transform: translateY(calc(100vh - 100%));
 	}
 }
+
 @keyframes scrsvrConfettiTransform {
 	20% {
 		translate: calc(var(--confetti-translate, 50) * 1vw) -100vh;
@@ -89,6 +99,20 @@
 		translate: calc(var(--confetti-translate, 50) * 1vw) 200%;
 	}
 }
+
+@keyframes scrsvrRainbow {
+	0%,
+	100% {
+		fill: hsl(0, 100%, 50%);
+	}
+	@for $p from 1 to 10 {
+		$a: 36 * $p;
+		#{$p*10%} {
+			fill: hsl($a, 100%, 50%);
+		}
+	}
+}
+
 @keyframes scrsvrConfettiFlip {
 	to {
 		scale: var(--confetti-scale, 1) 0;
