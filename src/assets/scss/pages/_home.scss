@@ -325,13 +325,8 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 					transparent calc(var(--home-sun-radius) * 1.01)
 				)
 				no-repeat 50% 50% / 100% 100%;
-			--home-lines-mask-default: repeating-linear-gradient(
-					tan 0,
-					tan var(--home-sun-blind-size),
-					transparent var(--home-sun-blind-size),
-					transparent calc(var(--home-sun-blind-size) * 2)
-				)
-				repeat-x 50% 100% / 100% 50%;
+			--home-lines-mask-default: repeating-linear-gradient(tan 0, tan var(--home-sun-blind-size), transparent 0, transparent calc(var(--home-sun-blind-size) * 2)) repeat-x
+				50% 100% / 100% 50%;
 
 			z-index: 2;
 
