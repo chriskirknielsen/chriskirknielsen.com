@@ -133,6 +133,10 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 	&[lang='en'] .main {
 		--flow-space: 0px; // Make the title block flush with the next content block on the English homepage
+
+		& > .page-content > * {
+			--flow-space: initial; // Cancel the above override
+		}
 	}
 }
 
