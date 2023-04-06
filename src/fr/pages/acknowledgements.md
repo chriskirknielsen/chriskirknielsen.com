@@ -13,7 +13,7 @@ Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Bö
 
 {% mdsafe %}
 <details>
-    <summary class="cta | u-width100 u-marginBlockEnd-s" style="--btn-justify-content:center">Plus de détails sur les thèmes 🎨</summary>
+    <summary class="cta | u-width100 u-marginBlockEnd-s" style="--btn-justify-content:center">Plus de détails sur les thèmes &amp; typos 🎨</summary>
     <div class="u-marginBlockStart-s">
         <ul>
             <li><strong>Dusk:</strong> Infusé de néon, ce thème inspiré par le style retrowave est grosso-modo toute ma personnalité en ligne. La superbe typo <a href="https://www.readvisions.com/marvin">Marvin Visions</a> est utilisée.</li>

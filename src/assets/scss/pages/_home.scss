@@ -408,27 +408,13 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 
 			opacity: 0;
 			transform: scale(var(--w-scale-x), var(--w-scale-y)); // translateY(calc(var(--w-translateY) * -1%));
-
-			animation-name: fadeInOut;
-			animation-iteration-count: 1;
-			animation-fill-mode: both;
-			animation-duration: #{$wire-anim-time};
-			animation-timing-function: steps(1);
-			animation-delay: calc(#{$wire-init-delay} + var(--w-delay));
+			animation: fadeInOut #{$wire-anim-time} steps(1) calc(#{$wire-init-delay} + var(--w-delay)) 1 both;
 		}
 
 		&__chris-flash {
 			opacity: 0.0001;
-			animation-name: fadeInOut;
-			animation-iteration-count: 1;
-			animation-timing-function: ease;
-			animation-delay: #{$flash-anim-delay};
+			animation: fadeInOut #{$flash-anim-time} ease #{$flash-anim-delay} 1 both;
 			pointer-events: none;
-		}
-
-		&__chris-flash {
-			animation-fill-mode: both;
-			animation-duration: #{$flash-anim-time};
 		}
 
 		&__group {
