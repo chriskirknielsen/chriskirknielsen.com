@@ -428,24 +428,12 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			stroke: currentColor;
 
 			opacity: 1;
-
-			// Backfill from 100% scale to the faked depth
-			animation-name: svgMarkUnreset;
-			animation-fill-mode: backwards;
-			animation-duration: 1s;
-			animation-delay: #{$chris-anim-delay - $wire-step-delay * ($wire-count * 0.5)};
-			animation-timing-function: var(--easing-out);
+			animation: svgMarkUnreset 1s var(--easing-out) #{$chris-anim-delay - $wire-step-delay * ($wire-count * 0.5)} 1 backwards; // Backfill from 100% scale to the faked depth
 		}
 
 		&__chris-main {
 			opacity: 0;
-
-			animation-name: svgMarkReset;
-			animation-iteration-count: 1;
-			animation-fill-mode: forwards;
-			animation-duration: 0.1s;
-			animation-delay: #{$chris-anim-delay};
-			animation-timing-function: steps(1);
+			animation: svgMarkReset 0.1s steps(1) #{$chris-anim-delay} 1 forwards;
 		}
 
 		&__desc-text {
