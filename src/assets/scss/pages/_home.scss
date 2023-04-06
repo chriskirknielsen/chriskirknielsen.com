@@ -460,11 +460,7 @@ $glare-anim-delay: $shine-anim-delay + $shine-anim-time * 0.5;
 			& > text {
 				transform-box: fill-box;
 
-				animation-name: revealWord;
-				animation-duration: #{$desc-anim-time};
-				animation-delay: calc(#{$desc-anim-delay} + var(--li, 0) * 120ms);
-				animation-fill-mode: both;
-				animation-timing-function: var(--easing-circ-out);
+				animation: revealWord #{$desc-anim-time} var(--easing-circ-out) calc(#{$desc-anim-delay} + var(--li, 0) * 120ms) both;
 			}
 		}
 
