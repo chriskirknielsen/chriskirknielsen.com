@@ -7,7 +7,11 @@
 		}
 		return toShuffle;
 	}
-	const facts = shuffle(Array.from(document.querySelectorAll('[data-facts] > li')).map((factEl) => `${factEl.getAttribute('data-fact-emoji')} ${factEl.textContent}`));
+	const facts = shuffle(
+		Array.from(document.querySelectorAll('[data-facts] > li')).map(
+			(factEl) => `<span aria-hidden="true">${factEl.getAttribute('data-fact-emoji')}</span> ${factEl.textContent}`
+		)
+	);
 
 	const blockDetails = document.querySelector('.about-facts');
 	const blockDiv = Object.assign(document.createElement('div'), { className: blockDetails.className });
@@ -37,7 +41,7 @@
 			factDisplayEl.hidden = false;
 		}
 
-		factDisplayEl.textContent = facts[newFactIndex];
+		factDisplayEl.innerHTML = facts[newFactIndex];
 		currentFactIndex = newFactIndex;
 	}
 	document.querySelector('.about-fact-get').addEventListener('click', newFact);
