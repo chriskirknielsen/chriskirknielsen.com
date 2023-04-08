@@ -45,6 +45,12 @@
 		--btn-padding-inline: var(--size-m);
 	}
 
+	&:any-link:not([data-cta='tile']) > span,
+	&:any-link[data-cta='tile'] > :is(strong, h2, h3) {
+		text-decoration: underline;
+		text-underline-offset: var(--btn-underline-offset, 0.1875em);
+	}
+
 	& :is(.icon, .inline-icon) {
 		width: 0.9em;
 		height: auto;
