@@ -4,7 +4,6 @@
 {% set whiteKeyCount = octaves * whitesPerOctave %}
 {% set noteCount = 1 + whiteKeyCount %}
 
-{% setAsync "synthMarkup" %}
 <div class="flow">
     <div
         id="synth"
@@ -184,5 +183,3 @@
 
     <div aria-hidden="true" id="synth-after" tabindex="-1" style="--flow-space:0"></div>
 </div>
-{% endsetAsync %}
-{{ synthMarkup | htmlmin | safe }}

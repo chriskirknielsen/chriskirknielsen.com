@@ -10,7 +10,7 @@ module.exports = function (eleventyConfig, options = {}) {
 		options
 	);
 
-	/** Add ability to minify inline markup. Also useful to bypass Markdown parsing.  */
+	/** Add ability to minify inline markup. Also useful to bypass Markdown parsing. */
 	eleventyConfig.addFilter('htmlmin', function (content) {
 		return htmlmin.minify(content, minifyOpts);
 	});
