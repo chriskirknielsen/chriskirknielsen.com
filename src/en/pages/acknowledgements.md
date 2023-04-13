@@ -12,9 +12,9 @@ This site is built with [Eleventy](https://www.11ty.dev/), a fantastic static si
 The theme picker is more than a little inspired by [Max Böck's own](https://mxb.dev), while the eclecticism is inspired by [Sophie Koonin's site](https://localghost.dev/). The synth on the [About page](/about/) is based on [Bret Cameron's tutorial](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/), and extended with envelope shaping and lowpass filtering by peeking at [Daniel Schulz's code](https://iamschulz.com/building-a-synthesizer-in-javascript/).
 
 {% mdsafe %}
-<details>
-    <summary class="cta | u-width100" style="--btn-justify-content:center">More info about themes &amp; fonts 🎨</summary>
-    <div class="u-marginBlockStart-s">
+<details class="expander">
+    <summary class="cta expander-cta | u-width100" style="--btn-justify-content:center">More info about themes &amp; fonts 🎨</summary>
+    <div class="expander-content">
         <ul>
             <li><strong>Dusk:</strong> A neon-infused, retrowave-inspired theme which is basically my entire online personality. It uses the gorgeous <a href="https://www.readvisions.com/marvin">Marvin Visions</a> typeface.</li>
             <li><strong>Dawn:</strong> This very-off-white theme aims to be a light-mode version of Dusk, with enough changes to give it its own spin.</li>

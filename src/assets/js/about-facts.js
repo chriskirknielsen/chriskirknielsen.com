@@ -39,6 +39,7 @@
 
 		if (factDisplayEl.hidden || currentFactIndex === -1) {
 			factDisplayEl.hidden = false;
+			blockDiv.setAttribute('data-open', 'true');
 		}
 
 		factDisplayEl.innerHTML = facts[newFactIndex];

@@ -1,0 +1,40 @@
+.expander {
+	position: relative;
+
+	&-cta {
+		position: relative;
+		z-index: 1;
+
+		.inline-icon {
+			transition: transform 100ms;
+		}
+	}
+
+	&-cta:active .inline-icon,
+	&[open] & .inline-icon {
+		transform: translateY(3px);
+	}
+
+	&-content {
+		margin-inline: var(--size-s);
+		padding: var(--size-m);
+		color: inherit;
+		border-end-start-radius: calc(2 * var(--t-corner-radius));
+		border-end-end-radius: calc(2 * var(--t-corner-radius));
+		background-color: var(--t-bg-alt-color);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		&:is([open], [data-open='true']) &-content {
+			animation: fadeDown 500ms var(--easing-circ-out) 1 backwards;
+		}
+	}
+}
+
+@keyframes fadeDown {
+	from {
+		opacity: 0;
+		transform: translateY(calc(-1 * var(--size-m)));
+		margin-block-end: -2em;
+	}
+}
