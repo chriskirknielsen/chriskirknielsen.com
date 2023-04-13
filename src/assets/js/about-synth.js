@@ -303,9 +303,10 @@
 			return true;
 		}
 
-		e.preventDefault();
 		const forcedVal = label.getAttribute('data-value') === 'true';
 		cbox.checked = forcedVal;
+		cbox.dispatchEvent(new Event('change', { bubbles: true }));
+		e.preventDefault();
 
 		return false;
 	});

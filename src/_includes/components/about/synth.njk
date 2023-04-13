@@ -8,8 +8,9 @@
     <div
         id="synth"
         class="about-synth"
-        aria-label="{{ 'page.synth.label' | i18n }}"
     >
+        <p class="visually-hidden">{{ 'page.synth.label' | i18n }}</p>
+
         <a class="skip-link" href="#synth-after" data-skiplink="local">{{ 'page.synth.skipButtons' | i18n }}</a>
 
         <div class="about-synth-groups">
@@ -142,21 +143,18 @@
     </div>
 
     <div class="about-synth-instructions | nojs-hidden">
-        <fieldset class="toggleswitch">
-            <legend class="visually-hidden">{{ 'page.synth.keyboardMode' | i18n }}</legend>
-            <span class="toggleswitch-label" aria-hidden="true" for="about-synth-keyboard-layout-switch">
-                {{ 'page.synth.keyboardMode' | i18n }}{{ 'grammar.punctSp' | i18n }}:
-            </span>
+        <div class="toggleswitch">
+            <label class="toggleswitch-label" for="about-synth-keyboard-layout-switch">{{ 'page.synth.keyboardMode' | i18n }}{{ 'grammar.punctSp' | i18n }}:</label>
             
-            <span class="toggleswitch-value" id="synth-layoutmode-off" data-value="false">
+            <button type="button" class="button-reset toggleswitch-value" id="synth-layoutmode-off" data-value="false">
                 <span class="visually-hidden">{{ 'grammar.offWord' | i18n }}{{ 'grammar.punctSp' |i18n }}: </span>
                 QWERTY<span class="visually-hidden">.</span>
-            </span>
+            </button>
 
-            <span class="toggleswitch-value" id="synth-layoutmode-on" data-value="true">
+            <button type="button" class="button-reset toggleswitch-value" id="synth-layoutmode-on" data-value="true">
                 <span class="visually-hidden">{{ 'grammar.onWord' | i18n }}{{ 'grammar.punctSp' |i18n }}: </span>
                 AZERTY<span class="visually-hidden">.</span>
-            </span>
+            </button>
 
             <span class="toggleswitch-toggle">
                 <input
@@ -170,10 +168,10 @@
                 >
 
                 <label class="toggleswitch-back" aria-hidden="true" for="about-synth-keyboard-layout-switch">
-                    <span class="toggleswitch-thumb" aria-label="{{ 'page.synth.keyboardMode' | i18n }}"></span>
+                    <span class="toggleswitch-thumb"></span>
                 </label>
             </span>
-        </fieldset>
+        </div>
 
         <p>
             {% svg "info", { class: 'inline-icon' } %}
