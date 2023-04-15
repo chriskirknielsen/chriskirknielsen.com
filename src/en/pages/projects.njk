@@ -18,16 +18,30 @@ summary: Some of the things I've made, either passion projects or real-world wor
 {% endfor %}
 </div>
 
-<div class="spaced-items inlined-items" style="--spaced-items-gap: var(--size-xs);">
-	<p class="u-fontWeight-bold">Personal site archive:</p>
-	{% set oldSites = [2020, 2018, 2016] %}
-	<ul class="inline-list">
-		{% for oldSiteYear in oldSites %}
-			<li>
-				<a href="https://{{ oldSiteYear }}.chriskirknielsen.com">
-					{{ oldSiteYear }}
-				</a>
-			</li>
-		{% endfor %}
-	</ul>
-</div>
+<h2 class="h4">Previous personal site archives</h2>
+{% set oldSites = [2020, 2018, 2016] %}
+<ul class="inline-list">
+	{% for oldSiteYear in oldSites %}
+		<li>
+			<a href="https://{{ oldSiteYear }}.chriskirknielsen.com">
+				{{ oldSiteYear }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
+
+<h2 class="h4">Random mini projects</h2>
+{% set miniProjects = {
+	"One-Page Calendar (2023)": "https://one-page-calendar.netlify.app/",
+	"srcsetsizes (2021)": "https://srcsetsizes.netlify.app/",
+	"Casualty Friday (2013)": "https://casualty-friday.netlify.app/"
+} %}
+<ul>
+	{% for miniProjectName, miniProjectUrl in miniProjects %}
+		<li>
+			<a href="{{ miniProjectUrl | url }}">
+				{{ miniProjectName }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
