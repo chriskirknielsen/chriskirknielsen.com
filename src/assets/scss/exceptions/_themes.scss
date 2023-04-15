@@ -247,7 +247,7 @@
 	hr {
 		height: unset;
 		border-radius: 0;
-		border: 2px ridge var(--t-color-gray-med);
+		border: 3px outset var(--t-color-gray-med);
 	}
 
 	.filtering-item input[type='radio']:focus-visible + label {
