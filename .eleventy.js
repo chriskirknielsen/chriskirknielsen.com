@@ -54,7 +54,11 @@ module.exports = function (eleventyConfig) {
 		assetsMatching: '*.jpg|*.png|*.gif|*.mp4|*.otf|*.woff|*.woff2|*.zip',
 		silent: true,
 	});
-	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js'), { anchorSvgClass: 'heading-anchor-symbol', anchorSvgId: 'anchor-link' }); // Markdown Lib + Anchors
+	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js'), {
+		anchorClass: 'heading-anchor',
+		anchorSvgId: 'anchor-link',
+		anchorSvgClass: 'heading-anchor-symbol',
+	});
 
 	/* Filters */
 	eleventyConfig.addPlugin(require('./config/filters/string.js'));

@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 
 /* Markdown */
 module.exports = (eleventyConfig, options = {}) => {
-	if (typeof options.anchorSvgClass !== 'string' || typeof options.anchorSvgId !== 'string') {
+	if (['anchorSvgClass', 'anchorSvgId', 'anchorClass'].some((key) => typeof options[key] !== 'string')) {
 		throw new Error('Both the `anchorSvgClass` and `anchorSvgId` properties must be provided on the options argument.');
 	}
 
@@ -18,17 +18,19 @@ module.exports = (eleventyConfig, options = {}) => {
 				.toLowerCase()
 				.replace(/\s+/g, '-')
 		);
-	const { anchorSvgClass, anchorSvgId } = options;
+	const { anchorSvgClass, anchorSvgId, anchorClass } = options;
+
 	let markdownItOptions = {
 		html: true,
 		breaks: true,
 		linkify: true,
 	};
+
 	let markdownItAnchorOptions = {
 		permalink: true,
 		permalinkSpace: false,
 		permalinkSymbol: '#',
-		permalinkClass: 'heading-anchor',
+		permalinkClass: anchorClass,
 		renderPermalink: (slug, opts, state, idx) => {
 			// Based on https://nicolas-hoizey.com/articles/2021/02/25/accessible-anchor-links-with-markdown-it-and-eleventy/
 			// Itself based on fifth version from https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
@@ -66,6 +68,8 @@ module.exports = (eleventyConfig, options = {}) => {
 		},
 		slugify: slugify,
 	};
+
+	/** Configure the markdown-it library to use. */
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
 
 	/** Take markup content and automatically create anchors for headings. Should only be used when content is not Markdown. */
@@ -95,7 +99,7 @@ module.exports = (eleventyConfig, options = {}) => {
 
 			const text = h.text(); // Get the heading content
 			const slug = slugify(text); // Create a slug from the content
-			const inner = `<a class="heading-anchor" href="#${slug}"><svg width="16" height="16" class="heading-anchor-symbol" aria-hidden="true"><use xlink:href="#anchor-link"></use></svg>${text}</a>`; //
+			const inner = `<a class="${anchorClass}" href="#${slug}"><svg width="16" height="16" class="${anchorSvgClass}" aria-hidden="true"><use xlink:href="#${anchorSvgId}"></use></svg>${text}</a>`; //
 			h.attr('id', slug);
 			h.attr('tabindex', '-1');
 			h.html(inner);
@@ -105,13 +109,13 @@ module.exports = (eleventyConfig, options = {}) => {
 		return $.html();
 	});
 
-	// Remove anchor-link if unused
+	/** Remove anchor-link symbol if unused */
 	eleventyConfig.addTransform('unused-anchor-link', (content, outputPath) => {
 		if (!outputPath.endsWith('.html')) {
 			return content;
 		}
 
-		if (content.includes('href="#anchor-link"')) {
+		if (content.includes(`href="#${anchorSvgId}"`)) {
 			return content;
 		}
 
