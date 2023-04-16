@@ -1,9 +1,24 @@
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
+const cheerio = require('cheerio');
 
 /* Markdown */
-module.exports = (eleventyConfig) => {
+module.exports = (eleventyConfig, options = {}) => {
+	if (typeof options.anchorSvgClass !== 'string' || typeof options.anchorSvgId !== 'string') {
+		throw new Error('Both the `anchorSvgClass` and `anchorSvgId` properties must be provided on the options argument.');
+	}
+
+	const slugify = (s) =>
+		encodeURIComponent(
+			String(s)
+				.trim()
+				.normalize('NFD')
+				.replace(/([\u0300-\u036f]|[,;:.…'"?!&])/g, '')
+				.toLowerCase()
+				.replace(/\s+/g, '-')
+		);
+	const { anchorSvgClass, anchorSvgId } = options;
 	let markdownItOptions = {
 		html: true,
 		breaks: true,
@@ -30,12 +45,12 @@ module.exports = (eleventyConfig) => {
 				attrs: [
 					['width', 16],
 					['height', 16],
-					['class', 'heading-anchor-symbol'],
+					['class', anchorSvgClass],
 					['aria-hidden', 'true'],
 				],
 			});
 			const svgUseTokenOpen = Object.assign(new state.Token('use_open', 'use', 1), {
-				attrs: [['xlink:href', '#anchor-link']],
+				attrs: [['xlink:href', `#${anchorSvgId}`]],
 			});
 			const svgUseTokenClose = Object.assign(new state.Token('use_close', 'svg', -1));
 			const svgSymbolTokenClose = Object.assign(new state.Token('svg_close', 'svg', -1));
@@ -49,17 +64,46 @@ module.exports = (eleventyConfig) => {
 			// insert the anchor closing after the heading opening and the content token + the tokens before the content
 			state.tokens.splice(idx + 2 + tokensBeforeContent.length, 0, ...tokensAfterContent);
 		},
-		slugify: (s) =>
-			encodeURIComponent(
-				String(s)
-					.trim()
-					.normalize('NFD')
-					.replace(/([\u0300-\u036f]|[,;:.…'"?!&])/g, '')
-					.toLowerCase()
-					.replace(/\s+/g, '-')
-			), // Remove accents/punctuation in addition to regular slugification
+		slugify: slugify,
 	};
 	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
+
+	/** Take markup content and automatically create anchors for headings. Should only be used when content is not Markdown. */
+	eleventyConfig.addFilter('autoHeadingAnchors', (markup) => {
+		// If this isnt' a string, there isn't anything we can do!
+		if (typeof markup !== 'string') {
+			return markup;
+		}
+
+		const $ = cheerio.load(markup, null, false); // Load the contents into cheerio to get a DOM representation
+		const headings = $('h2, h3, h4, h5, h6'); // Look for all semantic headings
+
+		// If there are no headings, just return the content
+		if (headings.length === 0) {
+			return markup;
+		}
+
+		// Iterate over each heading
+		headings.each(function () {
+			const h = $(this);
+			const innerLinks = h.find('a');
+
+			// If there is already a link within, do not process the node
+			if (innerLinks.length > 0) {
+				return h;
+			}
+
+			const text = h.text(); // Get the heading content
+			const slug = slugify(text); // Create a slug from the content
+			const inner = `<a class="heading-anchor" href="#${slug}"><svg width="16" height="16" class="heading-anchor-symbol" aria-hidden="true"><use xlink:href="#anchor-link"></use></svg>${text}</a>`; //
+			h.attr('id', slug);
+			h.attr('tabindex', '-1');
+			h.html(inner);
+			return h;
+		});
+
+		return $.html();
+	});
 
 	// Remove anchor-link if unused
 	eleventyConfig.addTransform('unused-anchor-link', (content, outputPath) => {
