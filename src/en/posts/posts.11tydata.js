@@ -3,7 +3,11 @@ module.exports = {
 	tags: ['post', 'post_en'],
 	language: 'en',
 	eleventyComputed: {
-		date: '{{ date or page.date }}',
-		permalink: 'blog/{{ (slug or page.fileSlug) | slug }}/index.html',
+		date: function (data) {
+			return data.date || data.page.date;
+		},
+		permalink: function (data) {
+			return `blog/${this.slug(data.slug || data.page.fileSlug)}/index.html`;
+		},
 	},
 };

@@ -3,7 +3,11 @@ module.exports = {
 	tags: ['projects'],
 	language: 'en',
 	eleventyComputed: {
-		permalink: 'projects/{{ (slug or page.fileSlug) | slug }}/index.html',
-		customMetaImage: '{{ page.url | removeTrailingSlash }}/{{ customMetaImage }}',
+		permalink: function (data) {
+			return `projects/${this.slug(data.slug || data.page.fileSlug)}/index.html`;
+		},
+		customMetaImage: function (data) {
+			return `${this.removeTrailingSlash(data.page.url)}/${data.customMetaImage}`;
+		},
 	},
 };
