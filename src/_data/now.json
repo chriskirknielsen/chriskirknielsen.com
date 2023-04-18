@@ -18,18 +18,23 @@
 	},
 	"show": [
 		{
-			"title": "Night Sky",
-			"detail": 1,
-			"blurb": "Just finished watching this little single-season show. I quite enjoyed it, but felt like another episode, or season, would have been nice to dive deeper into the mystery!",
-			"link": "https://www.serializd.com/show/111894"
+			"title": "Trailer Park Boys",
+			"detail": 4,
+			"blurb": "This is a fun, if dark-humoured, mockumentary show that's been great to watch during lunch breaks. I had never watched any of it but knew of a couple of memes, and now I get it. Bubbles is the best part of the show!",
+			"link": "https://www.serializd.com/show/3796"
 		}
 	],
 	"music": [
 		{
-			"title": "The Artist In The Ambulance - Revisited",
-			"detail": "Thrice",
-			"blurb": "My favourite band decided to re-record their amazing album for its 20th anniversary. <em>What. A. Treat!</em>",
-			"link": "https://www.last.fm/music/Thrice/The+Artist+in+the+Ambulance+-+Revisited"
+			"title": "So Much (for) Stardust",
+			"detail": "Fall Out Boy",
+			"blurb": "While I was never a superfan, I started really listening to FOB's music after their peak of success while I was in high school. Now I can just enjoy it, and their latest album is excellent. Don't miss out!",
+			"link": "https://www.last.fm/music/Fall+Out+Boy/So+Much+(for)+Stardust"
 		}
-	]
+	],
+	"sports": {
+		"title": "Running",
+		"detail": "10Km",
+		"blurb": "I started running back in September 2022, and I am now training for my first race in May, which is a 10K. I will sweat. I might swear. But I will go through with this."
+	}
 }

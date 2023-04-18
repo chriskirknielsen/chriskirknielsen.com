@@ -29,9 +29,14 @@ templateEngineOverride: njk, md
     {{ nowList(now.home, "🏠") }}
 {% endif %}
 
-{% if now.show %}
+{% if now.music %}
     <h2>Listening</h2>
     {{ nowList(now.music, "🎧") }}
+{% endif %}
+
+{% if now.sports %}
+    <h2>Training</h2>
+    {{ nowList(now.sports, "🏃‍♂️") }}
 {% endif %}
 
 {% if now.book %}
