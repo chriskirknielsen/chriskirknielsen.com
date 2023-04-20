@@ -5,19 +5,19 @@ summary: Et par ting jeg skal sig tak for
 permalink: /da/anerkendelse/
 ---
 
-## Trucs Techniques
+## Tekniske Ting
 
-Ce site est bâti avec [Eleventy](https://www.11ty.dev/), un superbe générateur de site statique. Je [pré-compile mes fichiers](/blog/eleventy-asset-pipeline-precompiled-assets/) Sass en CSS et minifie mes scripts. C'est ensuite injecté dans la page pour réduire les requêtes HTTP, le tout hébergé par [Netlify](https://netlify.com/). Également de la partie : [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
+Denne hjemmeside er bygget med [Eleventy](https://www.11ty.dev/), en statisk hjemmesidegenerator. Jeg [prækompilerer mine filer](/blog/eleventy-asset-pipeline-precompiled-assets/), med Sass til CSS og jeg minificerer script-filerne. Den kode er direkte sæt ind i hver side, alt hostet på [Netlify](https://netlify.com/). Jeg bruger også: [PurgeCSS](https://purgecss.com), [ImageOptim](https://imageoptim.com/mac), [GlyphHanger](https://github.com/zachleat/glyphhanger), [SVGOMG](https://jakearchibald.github.io/svgomg/)…
 
-Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Böck](https://mxb.dev), tandis que le côté éclectique est inspiré par [le site de Sophie Koonin](https://localghost.dev/). Le synthé sur la page [À Propos](/fr/a-propos/) est basé sur [le tutoriel de Bret Cameron](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) et amélioré avec le choix d'enveloppe et filtre en m'appuyant sur [le code de Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
+Temavælgeren er lidt (meget) inspireret af [Max Böcks egen](https://mxb.dev), og den sjov side er inspireret af [Sophie Koonins hjemmeside](https://localghost.dev/). Synthen på [Om mig](/en/om-mig/) siden kommer fra [Bret Camerons idé](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) og er bedre tak til lidt kode fra [Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
 
 {% mdsafe %}
 <details class="expander">
-    <summary class="cta expander-cta | u-width100 u-marginBlockEnd-s" style="--btn-justify-content:center">Plus de détails sur les thèmes &amp; typos 🎨</summary>
+    <summary class="cta expander-cta | u-width100 u-marginBlockEnd-s" style="--btn-justify-content:center">Mere om tema og skrifttyper 🎨</summary>
     <div class="expander-content">
         <ul>
-            <li><strong>Dusk:</strong> Infusé de néon, ce thème inspiré par le style retrowave est grosso-modo toute ma personnalité en ligne. La superbe typo <a href="https://www.readvisions.com/marvin">Marvin Visions</a> est utilisée.</li>
-            <li><strong>Dawn:</strong> Ce thème blanc-très-crème vise à être un mode clair de Dusk, avec assez de différences pour lui donner son propre <em>twist</em>.</li>
+            <li><strong>Dusk:</strong> Et neon-fyldt, retrowave-inspireret tema, som basisk er hele min online personlighed. Den bruger den smukke <a href="https://www.readvisions.com/marvin">Marvin Visions</a> skrifttype.</li>
+            <li><strong>Dawn:</strong> Dette næsten-hvide tema prøver at være en lys-mode version af Dusk, med lige nok forskel!</li>
             <li><strong>Vapor:</strong> Une interprétation vaporwave d'un thème qui était très amusant à faire, je remercie une fois de plus Sophie Koonin qui a adopté cette esthétique ! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> était la seule typo qui fonctionnerait bien.</li>
             <li><strong>Y2K:</strong> J'ai grandi avec Windows 98 et XP, donc j'étais un peu obligé de faire ce thème, en tant que petit hommage. Ne ratz pas le logo du pied de page.</li>
             <li><strong>Neo-Tokyo:</strong> Le retrowave c'est cool, mais le style cyberpunk dystopique est cool aussi. Celui-ci est un peu à la sauce Akira ! Les titres bien larges utilisent <a href="https://fonts.google.com/specimen/Syncopate">Syncopate</a>.</li>

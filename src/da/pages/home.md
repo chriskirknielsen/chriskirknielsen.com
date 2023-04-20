@@ -11,7 +11,7 @@ i18n:
             Kreativ webdev
             uden priser
             der arbejder hos MOJO
-            der bor i Cincinnati
+            og bor i Cincinnati
         now:
             heading: 'Lige nu'
             bookLabel: 'Bog'
