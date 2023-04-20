@@ -6,6 +6,14 @@ layout: layouts/page.njk
 section: now
 bigboiCta: { url: "https://nownownow.com/about", label: "What this is", icon: "question" }
 templateEngineOverride: njk, md
+nowInfo: {
+    home: { heading: "Living", emoji: "🏠" },
+    music: { heading: "Listening", emoji: "🎧" },
+    sports: { heading: "Training", emoji: "🏃‍♂️" },
+    book: { heading: "Reading", emoji: "📚" },
+    show: { heading: "Watching", emoji: "📺", detail: "Season" },
+    game: { heading: "Playing", emoji: "🕹️" },
+}
 ---
 
 {% macro nowList(nowItems, marker, detailPrefix = false) %}
@@ -23,35 +31,10 @@ templateEngineOverride: njk, md
 {% endmacro %}
 
 {%- mdsafe -%}
-
-{% if now.home %}
-    <h2>Living</h2>
-    {{ nowList(now.home, "🏠") }}
-{% endif %}
-
-{% if now.music %}
-    <h2>Listening</h2>
-    {{ nowList(now.music, "🎧") }}
-{% endif %}
-
-{% if now.sports %}
-    <h2>Training</h2>
-    {{ nowList(now.sports, "🏃‍♂️") }}
-{% endif %}
-
-{% if now.book %}
-    <h2>Reading</h2>
-    {{ nowList(now.book, "📚") }}
-{% endif %}
-
-{% if now.show %}
-    <h2>Watching</h2>
-    {{ nowList(now.show, "📺", "Season") }}
-{% endif %}
-
-{% if now.game %}
-    <h2>Playing</h2>
-    {{ nowList(now.game, "🕹️") }}
-{% endif %}
-
+{% for nowKey, nowData in nowInfo %}
+    {% if now[nowKey] %}
+        <h2>{{ nowData.heading }}</h2>
+        {{ nowList(now[nowKey], nowData.emoji, nowData.detail or false) }}
+    {% endif %}
+{% endfor %}
 {%- endmdsafe -%}
