@@ -1,0 +1,66 @@
+{
+	"dir": "ltr",
+	"lang": "da",
+	"locale": "da",
+	"localePath": "/da/",
+	"localeRoot": "da/",
+	"localeRssUrl": "/da/rss.xml",
+	"i18n": {
+		"grammar": {
+			"punctSp": "",
+			"quoteOpen": "\"",
+			"quoteClose": "\"",
+			"andWord": "og",
+			"inWord": "i",
+			"onWord": "aktiv",
+			"offWord": "inaktiv"
+		},
+		"skiplink": "Gå til indhold",
+		"closeLabel": "Luk",
+		"nav": {
+			"label": "Navigation",
+			"home": "Hjem",
+			"blog": "Blog",
+			"about": "Om mig",
+			"designs": "Shop",
+			"projects": "Projekter",
+			"acknowledgements": "Anerkendelse",
+			"usesHash": "bruger"
+		},
+		"blog": {
+			"updated": "opdateret",
+			"yearLabel": "Artikler for",
+			"original": "Læs den originale artikel",
+			"external": "Læs hele artiklen på",
+			"writtenByAuthor": "Artikel skrevet af <a href=\"{{aboutUrl}}\" id=\"{{aboutLinkId}}\">{{ author }}</a>",
+			"commentsAndSupport": "Hvis du har en kommentar, <a href=\"{{ socialUrl }}\">tag mig på Mastodon</a> for at diskutere! Hvis du vil støtte mig, kan du <a href=\"{{ shopUrl }}\">bestille en af mine t-shirts</a>. Tusind tak skal du hav!"
+		},
+		"projects": {
+			"view": "Se projektet"
+		},
+		"callout": "Note",
+		"latestPost": "Seneste artikel",
+		"tagged": "Etiketter",
+		"blobBacklinkLabel": "Tilbage til bloggen",
+		"homeTitle": {
+			"creaDev": "Un Développeur créatif",
+			"visualDescription": "Chris en grosses lettres, dans un style fortement inspiré des années 80 avec des couleurs néon, une grille en perspective et un large soleil stylisé dans le fond"
+		},
+		"allRights": "Tous droits réservés",
+		"langLabel": "Langue",
+		"fixErrorPR": "Éditer sur GitHub",
+		"footerAdditionalLinks": "En Bonus",
+		"customFonts": "Polices d'Écriture",
+		"tweetArchive": "Archive de Tweets",
+		"externalLinks": "Hyper&shy;liens",
+		"rss": {
+			"feed": "RSS feed",
+			"subscribe": "Abonner på RSS feed",
+			"description": "Blog om en frontend-webdev, der kan lide at pille ved"
+		},
+		"langSwitchLabel": "Skift Sprog",
+		"themeSwitchLabel": "Skift Te<span><kbd>m</kbd></span>a",
+		"themePicker": "Temavælger",
+		"closeThemePicker": "Luk temavælger"
+	}
+}

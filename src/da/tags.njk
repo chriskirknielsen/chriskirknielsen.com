@@ -1,0 +1,3 @@
+---
+layout: layouts/tags.njk
+---
