@@ -25,6 +25,7 @@ const purgeCssList = {
 	about: { safe: ['data-section=about'], block: ['data-section=home'] },
 };
 
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
 	/* Before Build */
 	eleventyConfig.addPlugin(require('./config/before/asset-compiler.js'));
