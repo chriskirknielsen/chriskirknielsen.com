@@ -1,99 +1,99 @@
 ---
 layout: layouts/about.njk
 templateEngineOverride: njk
-title: À Propos
-pageTitle: Salut, moi c'est Chris (il/lui)
-subtitle: Un graphiste devenu développeur qui adore construire sur le web.
-summary: En apprendre plus sur Christopher Kirk-Nielsen
+title: Om mig
+pageTitle: Hejsa, jeg hedder Chris (han/ham)
+subtitle: En designer, der blev webdev, og som elsker at bygge på nettet.
+summary: Få mere at vide om Christopher Kirk-Nielsen
 permalink: /da/om-mig/
 facts:
-    - ["👀", "Connaît juste assez l'alphabet cyrillique pour le lire mais pas comprendre."]
-    - ["🕰", "Retour Vers Le Futur est probablement son film préféré."]
-    - ["☕️", "Avait l'habitude de boire du thé, maintenant c'est du café !"]
-    - ["🤓", "Aime regarder des vidéos YouTube de maths et physique malgré ne pas tout comprendre."]
-    - ["🛹", "Faisait du skateboard pendant un temps puis a décidé que jouer à Tony Hawk était plus sûr."]
-    - ["⛰", "Aimerait vraiment être une personne plus fréquemment dehors (à l'aide)."]
-    - ["🏃‍♂️", "Se fait un jogging quelques fois par semaine mais loin d'être prêt pour un marathon."]
-    - ["🐈", "Adore les animaux, merci de présenter votre chien."]
-    - ["😴", "Dort sur son côté mais se réveille sur son dos."]
-    - ["📚", "Aime apprendre mais aussi aider — n'hésitez pas à demander !"]
-    - ["🎸", "Thrice est son group préféré, n'hésitez pas à demander une recommandation !"]
-    - ["🤭", "A une passion pour les jeux de mots, rigolos ou non !"]
-    - ["🔢", "Aime prendre une petite pause Sudoku ça et là."]
-    - ["👾", "Connaît le code Konami, ceci n'est pas du tout un indice."]
-    - ["💜", "Apprécie que vous lisiez ces faits."]
+    - ["👀", "Kender det kyrilliske alfabet nok til at læse - men ikke forstå - sætninger."]
+    - ["🕰", "Yndlingsfilm er sandsynligvis Back to the Future, selvom faren er en kryb."]
+    - ["☕️", "Plejede at drikke masser af te, men nu er det kaffe!"]
+    - ["🤓", "Nyder matematik/fysik YouTube-videoer, selvom han ikke forstår alt."]
+    - ["🛹", "Øvede sig på skateboard i et stykke tid, og besluttede så at det var mere sikkert at spille Tony Hawk."]
+    - ["⛰", "Ønsker virkelig at være en mere udendørs person (hjælp)."]
+    - ["🏃‍♂️", "Løber et par gange om ugen, men stadig langt fra maratonklar."]
+    - ["🐈", "Elsker dyr, være sød at introducér dit kæledyr."]
+    - ["😴", "Sover på siden, men vågner på ryggen."]
+    - ["📚", "Elsker at lære, men også at hjælpe - spørg væk om hvad som helst!"]
+    - ["🎸", "Yndlingsband er Thrice, bare spørg om en anbefaling!"]
+    - ["🤭", "Kan virkelig godt lide ordspil - send gerne far vittigheder."]
+    - ["🔢", "Holder gerne en Sudoku-pause en gang imellem."]
+    - ["👾", "Kender Konami-koden, slet ikke en antydning."]
+    - ["💜", "Sætter pris på, at du læser disse fakta igennem."]
 i18n:
     page:
-        randomFacts: "Cliquez ici pour découvrir des faits aléatoires me concernant"
-        vhsImageAlt: "Une face avant de boîte VHS inspiré par le {{ name }}"
-        mugImageAlt: "Une tasse banale avec un design {{ name }} dessus"
-        profile: "Moitié du visage de Chris avec le contour de sa tête, son nez, ses lunettes, sourcils et barbe dessinés"
+        randomFacts: "Klik her for at få tilfældige fakta om mig"
+        vhsImageAlt: "En VHS æske med {{ name }}-tema"
+        mugImageAlt: "En kop med {{ name }} tegnet på"
+        profile: "Halvdelen af Chris' ansigt med omridset af hans hoved, næse, briller, øjenbryn og skæg tegnet"
         synth:
-            skipButtons: "Sauter après les contrôles du synthé"
-            label: "Synthétiseur"
-            instructions: "Maintenez la touche <kbd>Maj</kbd> pour changer d'octave"
-            keyboardMode: "Type de Clavier"
+            skipButtons: "Hop forbi synth-kontroller"
+            label: "Synthetisør"
+            instructions: "Hold ned på <kbd>Shift</kbd> til skifte oktav"
+            keyboardMode: "Tastaturtype"
 ---
 
-<p class="u-fontWeight-bold">Je suis un <span class="about-country" data-flag="🇫🇷" data-icon="🥖">franco</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">danois</span> vivant aux <span class="about-country" data-flag="🇺🇸" data-icon="🏈">États-Unis</span> qui était graphiste et qui aime désormais coder.</p>
+<p class="u-fontWeight-bold">Jeg er en <span class="about-country" data-flag="🇫🇷" data-icon="🥖">fransk</span>-<span class="about-country" data-flag="🇩🇰" data-icon="🧜‍♀️">dansker</span> der bor i <span class="about-country" data-flag="🇺🇸" data-icon="🏈">USA</span>, som var designer, og som nu godt kan lide at kode.</p>
 
 {% include 'components/about/random-fact.njk' %}
 
-<h2 id="christopher-un-developpeur">Christopher, un développeur</h2>
+<h2 id="tung-tastatur-bruger">Tung tastatur bruger</h2>
 
 <div class="about-first">
     {%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
     {{- profile | htmlmin | safe }}
 
     <p>
-        Étant gamin, je passais des heures sur Microsoft Paint, jusquà ce que je découvre Photoshop (avec une licence <em>totalement</em> valide). J'ai appris à personnaliser des pages MySpace et j'ai fini par créer mes propres sites. J'ai même dépensé de l'argent sur un domaine et un hébergement, me proclamant <strong>"webmaster"</strong> avant mon premier bouton d'acné — quelle audace. Après le bac, j'ai suivi <strong>4 ans d'études de graphisme</strong>, puis j'ai travaillé en freelance pour des clients de renom à jongler entre du design, du montage vidéo et du code, avant de me concentrer sur le <strong>développement sur le web.</strong>
+        Som barn brugte jeg timer på Microsoft Paint, indtil jeg opdagede Photoshop (jeg havde en <em>fuldstændig</em> gyldig licens). Jeg lærte noget kode til at skift MySpace-sider og så lavede mine egne hjemmesider. Jeg betalte endda for domæner og hosting og kaldte mig selv til <strong>"webmaster"</strong>, før jeg overhovedet havde bumser - hybrisen. Jeg studerede <strong>grafisk design i 4 år</strong>, og så bliv jeg freelancer, jonglerede mellem designarbejde, videoredigering og kode i et par år med seje kunder, inden jeg fokuserede på <strong>webdev</strong>.
     </p>
 </div>
 
 <p>
-    Écrire des lignes de code et voir quelque chose apparaître à l'écran était (et est toujours) un peu <em class="about-emoji" data-emoji="✨">magique</em>. Actuellement, je travaille chez MOJO comme développeur front-end senior avec une merveilleuse équipe, m'efforçant à créer des sites <strong>accessibles et optimisés</strong>, tout en apprenant de nouvelles choses dans ce domaine en perpétuelle évolution.
+    At skrive kode og få en ting vist på skærmen føltes (og føles stadig) lidt som <em class="about-emoji" data-emoji="✨">magi</em>. I øjeblikket arbejder jeg hos MOJO PSG som senior frontend-webdev med et vidunderligt kolleger, der stræber efter at gøre <strong>tilgængelige og effektive websider</strong> og lære nye ting hele tiden.
 </p>
 
 {% include 'components/about/visubezier.njk' %}
 
 <p data-about="opensource">
-    J'ai contribué à quelques projets open source mais rien de folichon ; si ça compte, cette petite extension pour VS Code nommée <a href="/projects/visubezier/">VisuBezier</a> pour visualiser les courbes de lissages en CSS que j'ai créée vaut le coup d'œil. Et j'ai la chance d'avoir été publié sur des sites tels que <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> et <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, si vous arrivez à le croire&nbsp;!
+    Jeg har hjulpet på nogle få open source-projekter, men kun i små måder; hvis det tæller, er min lille VS Code plugin, <a href="/projects/visubezier/">VisuBezier</a>, til at se hvordan en CSS cubic-bezier funktion ser ud. Og jeg har været så heldig at blive vist på sider som <a href="https://css-tricks.com/author/chriskirknielsen/">CSS-Tricks</a> og <a href="https://www.smashingmagazine.com/author/chriskirknielsen/">Smashing Magazine</a>, hvis du kan tro det!
 </p>
 
-<h2 id="creatif-quand-inactif">Créatif quand inactif</h2>
+<h2 id="stadig-lidt-kreativ">Stadig lidt kreativ</h2>
 
 <p data-about="creative">
-Quand je me sens inventif, <strong>j'aime créer des illustrations</strong> qui passeraient bien sur un t-shirt — la passion créative&nbsp;! Vous pouvez voir tout ce beau monde dans la <a href="/designs/" hreflang="en">"Boutique"</a> si ça vous chante ; des designs de dev et un peu inspiré par <em class="about-emoji" data-emoji="🌴">les années 80</em> (un style favori&nbsp;!). J'adore les films et apprécie un bon jeu vidéo par moments, alors si vous souhaitez me faire sourire, une citation de film devrait le faire. Si ça vous intéresse, <a href="/fonts/" hreflang="en">j'ai créé des polices d'écriture</a> — je suis un peu un mordu de typo qui tentera de reconnaître la police utilisée dans chaque logo jusqu'à son trépas&nbsp;!
+    Når inspirationen slår til, kan jeg godt lide at kom op med designs, der kan se godt ud på en t-shirt - stadig få de kreative saft til at flyde! Du kan se alle dem ud i <a href="/designs/" hreflang="en">Designs "Shop"</a>, hvis du er interesseret; den har masser af webdev designs og et par <em class="about-emoji" data-emoji="🌴">80'er-æstetik</em> (min favorit!). Jeg nyder også film og spiller videospil en gang i mellem, så hvis du vil gøre mig glade, prøv et filmcitat! Du vil måske vide, at <a href="/fonts/" hreflang="en">jeg har lavet et par skrifttyper</a> - jeg kalder mig selv en skriftnørd og prøver at genkende den skrifttype, der bruges til hvert logo.
 </p>
 
-<p class="about-quotebox">Ils ont encore utilisé de la foutue Helvetica&nbsp;! Ils peuvent pas continuer comme ça&nbsp;!</p>
+<p class="about-quotebox">Pis og papir, de brugte Helvetica igen! Det kan de ikke være bekendt!</p>
 
 {% include 'components/about/vhs.njk' %}
 
 <p>
-    Surprise, j'aime la musique&nbsp;! J'écoute beaucoup de styles mais mes playlists tournent largement autour du (post-)rock et de la musique électronique. <a href="https://chronoise.com">Chronoise</a> est mon projet pour mes modestes mélodies que je n'ai pas touché depuis des années mais bon, peut-être en {{ metadata.currentYear + 1 }}. C'est reposant de jouer un peu de guitare et je trouve que d'expérimenter avec un <em>synthé est super chouette</em>. <span class="nojs-hidden">Sérieusement, essayez par vous-même&nbsp;:</span>
+    Stor overraskelse! Jeg kan godt lide musik. Jeg lytter til mange ting, men mine playlister er i høj grad (post-)rock og elektronika. <a href="https://chronoise.com">Chronoise</a> er et projekt for mit gennemsnitlige musikalske forfatterskab, som jeg ikke har arbejdet aktivt på i et stykke tid, men måske i {{ metadata.currentYear + 1 }}. Det er afslappende at spille en lille smule guitar, og jeg synes, det er <em>utrolig fedt</em> at eksperimentere med synthesizere. <span class="nojs-hidden">Prøv selv:</span>
 </p>
 
 {% include 'components/about/synth.njk' %}
 
-<h2 id="des-infos-perso">Des infos perso</h2>
+<h2 id="en-fransk-dansker">En fransk dansker?</h2>
 
-<p class="about-quotebox" data-about="personal">Mon accent anglais est bizarre et un peu mixte, sans passer par la France.</p>
-
-<p>
-    J'ai principalement grandi à Lyon, en France, avec mes parents danois. L'Australie a aussi été ma maison pendant un an quand j'étais petit, apprenant l'anglais avec l'accent du coin, et j'ai même tenu un bébé koala. Par conséquent, si je sors un mot dans une autre langue, c'est que <strong>trois langues</strong> se mélangent fréquemment dans mon crâne chauve. Je connais pas mal d'italien mais je perds mes moyens quand je parle à une personne locale — <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> J'ai étudié le japonais au lycée mais n'étais pas studieux donc je suis mauvais mais DuoLingo <del>essaie</del> menace d'y remédier. Bref, les langues étrangères sont fascinantes&nbsp;!
-</p>
-
-<h2 id="un-reel-professionnel">Un réel professionnel</h2>
+<p class="about-quotebox" data-about="personal">Jeg har en mærkelig engelsk accent, som ikke er fransk eller dansk.</p>
 
 <p>
-    Je suis un vrai pro, prouvé par le fait que j'ai un <a href="https://www.linkedin.com/in/chriskirknielsen/">profil LinkedIn</a> que je ne consulte jamais. Je sais programmer <em>en HTML, CSS, JavaScript, PHP et MySQL</em>, j'aime la <strong>Jamstack</strong> pour les sites statiques, comme Eleventy ou Hugo, et je suis tout aussi à l'aise avec un site <strong>WordPress</strong>. Sachez que la <strong>suite Adobe</strong> me tient à cœur, avec Photoshop, Illustrator et After Effects étant de bons amis. Ah, et je détiens la double-nationalité franco-danoise et une "Green Card" américaine (les joies de la paperasse).
+    Jeg voksede op i Lyon, Frankrig, med danske forældre, så jeg snakker gerne dansk, men er ikke som en "rigtig" dansker. Australien var også mit hjem i et år som barn, og talte engelsk med en Down Under-accent, og jeg holdt en babykoala! Så hvis jeg afslører et ord på engelsk, undskyld, <strong>tre sprog</strong> bliver bare ved med at blande sig i mit skaldede hoved. Jeg kan også snakke lidt italiensk, men jeg mister al fatningen, når jeg taler med italiener - <em lang="it" class="about-emoji" data-emoji="🤌">che peccato!</em> Jeg studerede japansk i gymnasiet, men var en dårlig elev, så jeg er forfærdeligt, men DuoLingo <del>forsøger</del> truer med at hjælpe. Jeg synes i hvert fald sprog er fascinerende!
 </p>
 
-<h2 id="pour-discuter-c-est-au-clavier">Pour discuter, c'est au clavier</h2>
+<h2 id="en-rigtig-professionel">En rigtig professionel</h2>
+
+<p>
+    Jeg er super-duper professionel, hvilket bevises af, at jeg har en <a href="https://www.linkedin.com/in/chriskirknielsen/">LinkedIn-profil</a>, som jeg aldrig ser på. Jeg kan skrive kode i <em>HTML, CSS, JavaScript, PHP og MySQL</em>; jeg elsker at bruge <strong>Jamstack</strong> til at lave statiske websider, lige som Eleventy eller Hugo, men jeg er lige så komfortabel med en <strong>WordPress</strong> webside. Jeg er også glade at bruge <strong>Adobe Creative Suite</strong> apps, som Photoshop, Illustrator og After Effects. Åh, og jeg er en fransk/dansk dobbelt statsborger og har en amerikansk "Green Card" (yay, papirarbejde!).
+</p>
+
+<h2 id="skal-vi-snakke">Skal vi snakke?</h2>
 
 <p data-about="contact">
-    Si vous souhaitez me parler, vous pouvez envoyer un message via <a href="https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }}">@chriskirknielsen</a> ou envoyer un e-mail si besoin à <code><code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[arobase]gmail<wbr>[point]com</code></code> !
+    Hvis du har lyst til at kontakte mig, kan du sende mig en besked på <a href="https://{{ metadata.author.mastodonInstance }}/@{{ metadata.author.mastodon }}">@chriskirknielsen</a> eller maile mig om nødvendigt på <code>chriskirknielsen<wbr><span class="visually-hidden" aria-hidden="true" style="user-select:none;">contact</span>[at]gmail<wbr>[punktum]com</code> !
 </p>
 
-<p class="about-quotebox">Les numéros inconnus me mettent la pression.</p>
+<p class="about-quotebox">Ukendte telefonnumre giver mig angst.</p>
