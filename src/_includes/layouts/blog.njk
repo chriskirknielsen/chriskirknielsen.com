@@ -24,7 +24,11 @@ section: blog
 		</div>
 	</header>
 
-	{{ layoutContent | safe }}
+	{% if collections['post_'+lang] | length %}
+		{{ layoutContent | safe }}
+	{% else %}
+		<p class="h1 u-textAlign-center">🤷</p>
+	{% endif %}
 
 	{% include "components/postslist.njk" %}
 {% endblock %}
