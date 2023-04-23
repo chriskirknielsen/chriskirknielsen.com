@@ -77,6 +77,7 @@ section: home
             </div>
         </div>
 
+        {% if collections['post_'+lang] | length %}
         <div style="--flow-space:var(--size-2xl)">
             <div class="subsection subsection--writing">
                 <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
@@ -111,5 +112,6 @@ section: home
                 </p>
             </div>
         </div>
+        {% endif %}
     </section>
 {% endblock %}
