@@ -13,7 +13,7 @@ Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Bö
 
 {% mdsafe %}
 <details class="expander">
-    <summary class="cta expander-cta | u-width100 u-marginBlockEnd-s" style="--btn-justify-content:center">Plus de détails sur les thèmes &amp; typos 🎨</summary>
+    <summary class="cta expander-cta | u-width100" style="--btn-justify-content:center">Plus de détails sur les thèmes &amp; typos 🎨</summary>
     <div class="expander-content">
         <ul>
             <li><strong>Dusk:</strong> Infusé de néon, ce thème inspiré par le style retrowave est grosso-modo toute ma personnalité en ligne. La superbe typo <a href="https://www.readvisions.com/marvin">Marvin Visions</a> est utilisée.</li>
@@ -33,7 +33,7 @@ Vous pouvez consulter [l'intégralité du code source sur GitHub]({{ metadata.re
 
 ### Matos
 
--   [2019 16" MacBook Pro](https://www.apple.com/macbook-pro-16/) (Intel Core i7, 16 GB de RAM et SDD de 500 GB)
+-   [2019 16" MacBook Pro](https://www.apple.com/macbook-pro-16/) (Intel Core i7, 16 GB de RAM et SSD de 500 GB)
     Un bon ordinateur avec une vraie touche Échap, après toutes ces années avec une touche tactile.
 -   [Écran Dell U2518D](https://amzn.to/3dgLwYT)
     Un grand écran pour du grand code.
