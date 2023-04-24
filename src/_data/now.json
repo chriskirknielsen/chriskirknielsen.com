@@ -7,15 +7,22 @@
 	"book": {
 		"title": "Billy Summers",
 		"detail": "Stephen King",
-		"blurb": "Always happy to dive into a King book! I haven't read much of this one yet but enjoying it so far!",
+		"blurb": "The setup so far has been super interesting even if nothing has really happened. I guess King is a writer that can make anything interesting. Eager to read some more!",
 		"link": "https://www.goodreads.com/book/show/56852407-billy-summers"
 	},
-	"game": {
-		"title": "A Plague Tale: Innocence",
-		"detail": "PS5",
-		"blurb": "The sequel recently came out so it's as good a time as any to explore the first game, made by a French team, and set in France during the 14th century.",
-		"link": "https://psnprofiles.com/trophies/13342-a-plague-tale-innocence/JaKhris"
-	},
+	"game": [
+		{
+			"title": "A Plague Tale: Innocence",
+			"detail": "PS5",
+			"blurb": "Just finished this lovely French game that had quite the rich soundtrack (14th century string instruments just hit differently) and interesting characters and story. I usually dislike playing with French audio but turned out pretty well this time!",
+			"link": "https://psnprofiles.com/trophies/13342-a-plague-tale-innocence/JaKhris"
+		},
+		{
+			"title": "Horizon Forbidden West: Burning Shores",
+			"detail": "PS5",
+			"blurb": "A little additional content for a great game from last year? Yes please!"
+		}
+	],
 	"show": [
 		{
 			"title": "Trailer Park Boys",
@@ -28,8 +35,13 @@
 		{
 			"title": "So Much (for) Stardust",
 			"detail": "Fall Out Boy",
-			"blurb": "While I was never a superfan, I started really listening to FOB's music after their peak of success while I was in high school. Now I can just enjoy it, and their latest album is excellent. Don't miss out!",
+			"blurb": "While I was never a superfan, I started really listening to FOB's music after their peak of success when I was in high school. Now I can just enjoy it, and their latest album is excellent. Don't miss out!",
 			"link": "https://www.last.fm/music/Fall+Out+Boy/So+Much+(for)+Stardust"
+		},
+		{
+			"title": "Sundowning / This Place Will Become Your Tomb",
+			"detail": "Sleep Token",
+			"blurb": "Okay, so I randomly stumbled upon this band on YouTube and my goodness, they are _fantastic_. I'm getting really hyped up for their next album, \"Take Me Back to Eden\" coming out mid-May as the already-released tracks are incredible. They hit a plethora of styles and I absolutely love it."
 		}
 	],
 	"sports": {

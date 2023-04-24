@@ -1,6 +1,12 @@
+.now-list {
+	list-style-position: outside;
+	padding-inline-start: 2ch; // About the size of an emoji + whitespace… ish?
+}
 .now-list > li + li {
 	margin-block-start: var(--size-xs);
 }
 .now-list > li::marker {
 	content: var(--marker, '•') ' ';
+
+	font-family: var(--fontstack-sans-serif);
 }
