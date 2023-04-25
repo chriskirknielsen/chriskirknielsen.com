@@ -21,7 +21,7 @@ Temavælgeren er lidt (meget) inspireret af [Max Böcks egen](https://mxb.dev), 
             <li><strong>Vapor:</strong> En form for en vaporwave-tema som var meget sjovt at lave, tak igen her til Sophie Koonin for inspirationen!! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> var det eneste skrifttypevalg.</li>
             <li><strong>Y2K:</strong> Jeg voksede op med Windows 98 og XP, så jeg var nødt til at lave denne tema. Se lige på logoet nederst på siden.</li>
             <li><strong>Neo-Tokyo:</strong> Jeg elsker Retrowave, men dystopiske cyberpunk-stilarter er også fede. Denne tager lidt fra Akira! De brede overskrifter bruger <a href="https://fonts.google.com/specimen/Syncopate">Syncopate</a>.</li>
-            <li><strong>Campfire:</strong> Modsat den forrige, tager dette stor inspiration fra videospillet Firewatch og <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>' smukke kunstværk. Jeg var efter en "nationalpark" stil, med overskrifter, der ser perfekte ud i <a href="https://www.dafont.com/hagona.font">Hagona</a>, og formen på Mont Blanc i baggrunden på hjemmesiden, som nogle gange er synligt fra min hjemby. Helteafsnittene brugte det meste af <a href="https://codepen.io/scottkellum/details/poOWGQg">Scott Kellums kode</a> til generativ topografi. (åh og også, <a href="https://alistairshepherd.uk/">Alistair</a> gjorde alt dette bedre)</li>
+            <li><strong>Campfire:</strong> Modsat den forrige, tager dette stor inspiration fra videospillet Firewatch og <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>' smukke kunstværk. Jeg var efter en "nationalpark" stil, med overskrifter, der ser perfekte ud i <a href="https://www.dafont.com/hagona.font">Hagona</a>, og formen på Mont Blanc i baggrunden på hjemmesiden, som nogle gange er synligt fra min hjemby. Overskriftssektionen brugte det meste af <a href="https://codepen.io/scottkellum/details/poOWGQg">Scott Kellums kode</a> til generativ topografi. (åh og også, <a href="https://alistairshepherd.uk/">Alistair</a> gjorde alt dette bedre)</li>
         </ul>
     </div>
 </details>
@@ -35,7 +35,7 @@ Du kan se hele koden på [GitHub]({{ metadata.repo }}) for at se _plugins_ og an
 
 -   [2019 16" MacBook Pro](https://www.apple.com/macbook-pro-16/) (Intel Core i7, 16 GB RAM og 500 GB SSD)
     En god computer med en rigtig Escape-tast, efter alle disse år med en falsk touchscreen én.
--   [Écran Dell U2518D](https://www.amazon.com/Dell-LED-Lit-Monitor-U2518D-Compatibility/dp/B075KGLYRL?linkCode=as2&tag=ratcgala-20)
+-   [Dell U2518D skærm](https://www.amazon.com/Dell-LED-Lit-Monitor-U2518D-Compatibility/dp/B075KGLYRL?linkCode=as2&tag=ratcgala-20)
     En stor skærm til stor kode.
 -   [Autonomous AI ErgoChair 2](https://www.autonomous.ai/office-chairs/ergonomic-chair/?rid=7a4b2c) _(fraskrivelse: indeholder et henvisnings-id, giver dig rabat)_
     En meget god stol som nu heder ErgoChair Pro, tror jeg.
@@ -45,7 +45,7 @@ Du kan se hele koden på [GitHub]({{ metadata.repo }}) for at se _plugins_ og an
     Giver lidt plads tilbage pa mit skrivebord.
 -   [Sony MDR-XB50AP høretelefoner](https://amzn.to/3x6jtDt)
     Enkle øretelefoner som jeg især bruger til videomøder.
--   [Sony MDR-XB950N1 hovedtelefonero](https://amzn.to/3h0jhAe)
+-   [Sony MDR-XB950N1 hovedtelefoner](https://amzn.to/3h0jhAe)
     Kvalitetshøretelefoner som er meget gode, når jeg har brug for fokus.
 -   [Novation Launchkey 37 MIDI Keyboard](https://www.amazon.com/gp/product/B086N4W81X?linkCode=as2&tag=ratcgala-20)
     Jeg plejede at lave en masse musik, og dette lille legetøj er fantastisk til langsomt at komme ind i det igen!
@@ -56,7 +56,7 @@ Du kan se hele koden på [GitHub]({{ metadata.repo }}) for at se _plugins_ og an
     Jeg har brugt Firefox siden version 3, tror jeg, og det har aldrig skuffet mig - jeg elsker dens CSS DevTools!
 -   [Visual Studio Code](https://code.visualstudio.com/)
     Fantastisk kode editor med gode plugins, jeg bruger især:
-    -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): En smug neon-type tema.
+    -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): En smuk neon-type tema.
     -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Beholder min kode pæn og smuk.
     -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): Mit eget plugin for forhåndsvisning af CSS cubic-bezier funktioner.
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)

@@ -61,7 +61,7 @@ i18n:
 {% set nowGame = now.game | getFirst %}
 {% if nowGame %}
     <li>
-        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🕹️</span>&nbsp;{{ nowGame.title }}
+        <span aria-label="{{ 'page.now.gameLabel' | i18n }}">🎮</span>&nbsp;{{ nowGame.title }}
         {% if nowGame.detail %}({{ nowGame.detail }}){% endif %}
     </li>
 {% endif %}
