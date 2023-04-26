@@ -44,15 +44,6 @@ package = "netlify-plugin-cache"
   status = 301
   force = true
 
-## Uses redirect
-[[redirects]]
-  from = "/uses"
-  to = "/acknowledgements#uses"
-
-[[redirects]]
-  from = "/fr/usages"
-  to = "/fr/remerciements/#usages"
-
 ## Error 404 redirects
 [[redirects]]
   from = "/fr/*"
