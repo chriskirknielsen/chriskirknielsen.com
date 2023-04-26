@@ -14,12 +14,17 @@ templateName: page
 				</div>
 
 				{% if bigboiCta %}
-					{% component "cta", {
-						url: bigboiCta.url | url,
-						label: bigboiCta.label,
-						icon: bigboiCta.icon or false,
-						iconBefore: bigboiCta.iconBefore or false
-					} %}
+				<div class="spaced-items inlined-items">
+					{% set bigboiCtaList = bigboiCta | getList %}
+					{% for cta in bigboiCtaList %}
+						{% component "cta", {
+							url: cta.url | url,
+							label: cta.label,
+							icon: cta.icon or false,
+							iconBefore: cta.iconBefore or false
+						} %}
+					{% endfor %}
+				</div>
 				{% endif %}
 			</div>
 
