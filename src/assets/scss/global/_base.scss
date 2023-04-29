@@ -24,6 +24,10 @@ main {
 
 	padding-block-end: var(--size-2xl);
 
+	&:has(.page-content > .content-fullbleed[class*='u-paddingBlock'][class*='u-background-']:last-child) {
+		padding-block-end: 0; // If the last block of content has a different background and its own padding, don't add padding below it
+	}
+
 	&:focus {
 		outline: 0;
 	}
