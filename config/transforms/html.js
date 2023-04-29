@@ -1,4 +1,5 @@
 const htmlmin = require('html-minifier');
+const cheerio = require('cheerio');
 
 module.exports = function (eleventyConfig, options = {}) {
 	const minifyOpts = Object.assign(
@@ -6,6 +7,7 @@ module.exports = function (eleventyConfig, options = {}) {
 			useShortDoctype: true,
 			removeComments: true,
 			collapseWhitespace: true,
+			defaultLang: 'en',
 		},
 		options
 	);

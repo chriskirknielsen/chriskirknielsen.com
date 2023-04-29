@@ -1,4 +1,9 @@
 .skip-link:focus {
+	color: var(--t-color-gray-min);
+	background-color: var(--t-color-aux-max);
+}
+
+.skip-link:focus {
 	position: fixed;
 	inset-block-start: 1rem;
 	inset-inline-start: 1rem;
@@ -7,19 +12,68 @@
 	display: inline-block;
 	padding: var(--size-xs);
 
-	color: var(--t-color-gray-min);
-	background-color: var(--t-color-aux-max);
-
 	&[data-skiplink='local'] {
 		position: absolute;
 	}
 }
 
+.visually-hidden,
 .skip-link:not(:focus),
-.visually-hidden {
+:where(a[hreflang]):not(:hover, :focus)::after {
 	position: absolute;
 	overflow: hidden;
 	width: 1px;
 	height: 1px;
 	clip: rect(1px, 1px, 1px, 1px);
+}
+
+:where(html:not([lang='en']) a[hreflang='en'], html:not([lang='fr']) a[hreflang='fr'], html:not([lang='da']) a[hreflang='da']) {
+	position: relative;
+
+	&:is(:hover, :focus)::before,
+	&:is(:hover, :focus)::after {
+		position: absolute;
+		inset-block-end: calc(100% + var(--size-2xs));
+		inset-inline: 0;
+		pointer-events: none; // Prevents hiding other content below
+
+		display: block;
+		margin: auto;
+
+		color: var(--t-color-gray-max);
+		background-color: var(--t-color-aux-min);
+	}
+
+	&:is(:hover, :focus)::before {
+		content: '';
+
+		width: var(--size-2xs);
+		height: var(--size-2xs);
+
+		transform: translateY(50%) rotate(45deg);
+	}
+
+	&:is(:hover, :focus)::after {
+		content: '(' attr(hreflang) ')';
+
+		z-index: 1;
+
+		width: auto;
+		width: max-content;
+		height: auto;
+		padding: 0 var(--size-2xs);
+		overflow: visible;
+
+		clip: auto;
+
+		font: initial;
+		font-size: 0.75rem;
+		font-family: var(--t-font-body);
+		text-align: center;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1.6;
+		font-weight: normal;
+		border-radius: var(--t-corner-radius);
+	}
 }
