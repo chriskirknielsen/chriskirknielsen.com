@@ -40,7 +40,7 @@ i18n:
 ---
 
 {% mdsafe %}
-<h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" class="heading-anchor">Now</a>)</h2>
+<h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" hreflang="en" class="heading-anchor">Now</a>)</h2>
 <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
 {% set nowBook = now.book | getFirst %}
 {% if nowBook %}

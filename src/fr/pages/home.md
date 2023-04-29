@@ -42,7 +42,7 @@ i18n:
 <!-- Je m'appelle **Christopher Kirk-Nielsen** mais vous pouvez m'appeler **Chris**. Je suis un graphiste devenu développeur n'ayant remporté aucun prix qui adore coder sur le web qui travaille chez MOJO PSG. -->
 
 {% mdsafe %}
-<h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" class="heading-anchor">Now</a>)</h2>
+<h2>{{ 'page.now.heading' | i18n }} (<a href="/now/" hreflang="en" class="heading-anchor">Now</a>)</h2>
 <ul class="inline-list" role="list" style="--separator:radial-gradient(circle at 50%, currentColor 0.125em, transparent calc(0.125em + 1px))">
 {% set nowBook = now.book | getFirst %}
 {% if nowBook %}

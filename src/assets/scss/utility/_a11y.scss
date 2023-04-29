@@ -1,25 +1,80 @@
+.skip-link:focus,
+:where(a[hreflang]):is(:hover, :focus) > .hreflang-tip {
+	display: inline-block;
+	padding: var(--size-xs);
+
+	color: var(--t-color-gray-min);
+	background-color: var(--t-color-aux-max);
+}
+
 .skip-link:focus {
 	position: fixed;
 	inset-block-start: 1rem;
 	inset-inline-start: 1rem;
 	z-index: 99;
 
-	display: inline-block;
-	padding: var(--size-xs);
-
-	color: var(--t-color-gray-min);
-	background-color: var(--t-color-aux-max);
-
 	&[data-skiplink='local'] {
 		position: absolute;
 	}
 }
 
+.visually-hidden,
 .skip-link:not(:focus),
-.visually-hidden {
+:where(a[hreflang]):not(:hover, :focus) > .hreflang-tip {
 	position: absolute;
 	overflow: hidden;
 	width: 1px;
 	height: 1px;
 	clip: rect(1px, 1px, 1px, 1px);
+}
+
+:where(a[hreflang]) {
+	position: relative;
+
+	& > .hreflang-tip {
+		display: block;
+		width: auto;
+		width: max-content;
+		height: auto;
+		margin: auto;
+		padding: 0 var(--size-xs);
+		overflow: visible;
+
+		clip: auto;
+		pointer-events: none; // Prevents hiding other content below
+
+		font-size: 0.75rem;
+		font-family: var(--t-font-body);
+		text-align: center;
+		text-transform: none;
+		letter-spacing: 0;
+		line-height: 1;
+		font-weight: normal;
+		color: var(--t-color-gray-min);
+		border-radius: var(--t-corner-radius);
+		background-color: var(--t-color-aux-max);
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			inset-block-start: 0;
+			inset-inline: 0;
+
+			width: var(--size-xs);
+			height: var(--size-xs);
+			margin: auto;
+
+			background-color: inherit;
+
+			transform: translateY(-50%) rotate(45deg);
+		}
+	}
+
+	&:is(:hover, :focus) > .hreflang-tip {
+		position: absolute;
+		inset-block-start: calc(100% + var(--size-xs));
+		inset-inline: 0;
+		z-index: 1;
+	}
 }

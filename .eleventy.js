@@ -90,6 +90,7 @@ module.exports = function (eleventyConfig) {
 
 	/* Transforms (and related filters) */
 	eleventyConfig.addPlugin(require('./config/transforms/html.js'), {
+		defaultLang: defaultLang,
 		useShortDoctype: true,
 		removeComments: true,
 		collapseWhitespace: true,
