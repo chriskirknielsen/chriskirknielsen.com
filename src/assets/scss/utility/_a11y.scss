@@ -29,6 +29,8 @@
 
 	&:is(:hover, :focus)::before,
 	&:is(:hover, :focus)::after {
+		all: initial; // Reset all styles no matter the context
+
 		position: absolute;
 		inset-block-end: calc(100% + var(--size-2xs));
 		inset-inline: 0;
@@ -59,18 +61,13 @@
 		width: max-content;
 		height: auto;
 		padding: 0 var(--size-2xs);
-		overflow: visible;
 
 		clip: auto;
 
-		font: initial;
 		font-size: 0.75rem;
 		font-family: var(--t-font-body);
-		text-align: center;
-		text-transform: none;
-		letter-spacing: 0;
 		line-height: 1.6;
-		font-weight: normal;
+		text-align: center;
 		border-radius: var(--t-corner-radius);
 	}
 }
