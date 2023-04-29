@@ -18,7 +18,7 @@ module.exports = function (eleventyConfig, options = {}) {
 		const emojiStyleAttr = emoji ? `style="--callout-emoji: '${emoji}'"` : '';
 		pseudo ||= labelByLang[lang];
 
-		return `<div class="callout" aria-labelledby="${uniqueId}">
+		return `<div class="callout | content-wide" aria-labelledby="${uniqueId}">
 			<p id="${uniqueId}" class="h3 | callout-label" ${emojiStyleAttr}>${pseudo}</p>
 			<p>${markdownEngine.renderInline(content.trim())}</p>
 		</div>`;
