@@ -1,9 +1,4 @@
 .skip-link:focus {
-	color: var(--t-color-gray-min);
-	background-color: var(--t-color-aux-max);
-}
-
-.skip-link:focus {
 	position: fixed;
 	inset-block-start: 1rem;
 	inset-inline-start: 1rem;
@@ -12,14 +7,16 @@
 	display: inline-block;
 	padding: var(--size-xs);
 
+	color: var(--t-color-gray-min);
+	background-color: var(--t-color-aux-max);
+
 	&[data-skiplink='local'] {
 		position: absolute;
 	}
 }
 
 .visually-hidden,
-.skip-link:not(:focus),
-:where(a[hreflang]):not(:hover, :focus)::after {
+.skip-link:not(:focus) {
 	position: absolute;
 	overflow: hidden;
 	width: 1px;
