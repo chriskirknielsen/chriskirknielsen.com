@@ -1,8 +1,4 @@
-.skip-link:focus,
-:where(a[hreflang]):is(:hover, :focus) > .hreflang-tip {
-	display: inline-block;
-	padding: var(--size-xs);
-
+.skip-link:focus {
 	color: var(--t-color-gray-min);
 	background-color: var(--t-color-aux-max);
 }
@@ -13,6 +9,9 @@
 	inset-inline-start: 1rem;
 	z-index: 99;
 
+	display: inline-block;
+	padding: var(--size-xs);
+
 	&[data-skiplink='local'] {
 		position: absolute;
 	}
@@ -20,7 +19,7 @@
 
 .visually-hidden,
 .skip-link:not(:focus),
-:where(a[hreflang]):not(:hover, :focus) > .hreflang-tip {
+:where(a[hreflang]):not(:hover, :focus)::after {
 	position: absolute;
 	overflow: hidden;
 	width: 1px;
@@ -28,53 +27,53 @@
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
-:where(a[hreflang]) {
+:where(html:not([lang='en']) a[hreflang='en'], html:not([lang='fr']) a[hreflang='fr'], html:not([lang='da']) a[hreflang='da']) {
 	position: relative;
 
-	& > .hreflang-tip {
+	&:is(:hover, :focus)::before,
+	&:is(:hover, :focus)::after {
+		position: absolute;
+		inset-block-end: calc(100% + var(--size-2xs));
+		inset-inline: 0;
+		pointer-events: none; // Prevents hiding other content below
+
 		display: block;
+		margin: auto;
+
+		color: var(--t-color-gray-max);
+		background-color: var(--t-color-aux-min);
+	}
+
+	&:is(:hover, :focus)::before {
+		content: '';
+
+		width: var(--size-2xs);
+		height: var(--size-2xs);
+
+		transform: translateY(50%) rotate(45deg);
+	}
+
+	&:is(:hover, :focus)::after {
+		content: '(' attr(hreflang) ')';
+
+		z-index: 1;
+
 		width: auto;
 		width: max-content;
 		height: auto;
-		margin: auto;
-		padding: 0 var(--size-xs);
+		padding: 0 var(--size-2xs);
 		overflow: visible;
 
 		clip: auto;
-		pointer-events: none; // Prevents hiding other content below
 
+		font: initial;
 		font-size: 0.75rem;
 		font-family: var(--t-font-body);
 		text-align: center;
 		text-transform: none;
 		letter-spacing: 0;
-		line-height: 1;
+		line-height: 1.6;
 		font-weight: normal;
-		color: var(--t-color-gray-min);
 		border-radius: var(--t-corner-radius);
-		background-color: var(--t-color-aux-max);
-
-		&::before {
-			content: '';
-
-			position: absolute;
-			inset-block-start: 0;
-			inset-inline: 0;
-
-			width: var(--size-xs);
-			height: var(--size-xs);
-			margin: auto;
-
-			background-color: inherit;
-
-			transform: translateY(-50%) rotate(45deg);
-		}
-	}
-
-	&:is(:hover, :focus) > .hreflang-tip {
-		position: absolute;
-		inset-block-start: calc(100% + var(--size-xs));
-		inset-inline: 0;
-		z-index: 1;
 	}
 }
