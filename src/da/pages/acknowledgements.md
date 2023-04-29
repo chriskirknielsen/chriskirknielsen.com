@@ -14,7 +14,7 @@ Temavælgeren er lidt (meget) inspireret af [Max Böcks egen](https://mxb.dev), 
 <details class="expander">
     <summary class="cta expander-cta | u-width100" style="--btn-justify-content:center">Mere om tema og skrifttyper 🎨</summary>
     <div class="expander-content">
-        <ul>
+        <ul class="list-bullet-offset">
             <li><strong>Dusk:</strong> Et neon-fyldt, retrowave-inspireret tema, som basisk er hele min online personlighed. Den bruger den smukke <a href="https://www.readvisions.com/marvin">Marvin Visions</a> skrifttype.</li>
             <li><strong>Dawn:</strong> Dette næsten-hvide tema prøver at være en lys-mode version af Dusk, med <em>lige</em> nok forskel!</li>
             <li><strong>Vapor:</strong> En form for en vaporwave-tema som var meget sjovt at lave, tak igen her til Sophie Koonin for inspirationen!! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> var det eneste skrifttypevalg.</li>

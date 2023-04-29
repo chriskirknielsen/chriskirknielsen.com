@@ -13,7 +13,7 @@ The theme picker is more than a little inspired by [Max Böck's own](https://mxb
 <details class="expander">
     <summary class="cta expander-cta | u-width100" style="--btn-justify-content:center">More info about themes &amp; fonts 🎨</summary>
     <div class="expander-content">
-        <ul>
+        <ul class="list-bullet-offset">
             <li><strong>Dusk:</strong> A neon-infused, retrowave-inspired theme which is basically my entire online personality. It uses the gorgeous <a href="https://www.readvisions.com/marvin">Marvin Visions</a> typeface.</li>
             <li><strong>Dawn:</strong> This very-off-white theme aims to be a light-mode version of Dusk, with enough changes to give it its own spin.</li>
             <li><strong>Vapor:</strong> A vaporwave interpretation of a theme which was a lot of fun to make, I'll thank Sophie Koonin here again for embracing this aesthetic! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> was the obvious typeface choice.</li>

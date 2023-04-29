@@ -13,7 +13,7 @@ Le sélecteur de thème est plus que légèrement inspiré par [celui de Max Bö
 <details class="expander">
     <summary class="cta expander-cta | u-width100" style="--btn-justify-content:center">Plus de détails sur les thèmes &amp; typos 🎨</summary>
     <div class="expander-content">
-        <ul>
+        <ul class="list-bullet-offset">
             <li><strong>Dusk:</strong> Infusé de néon, ce thème inspiré par le style retrowave est grosso-modo toute ma personnalité en ligne. La superbe typo <a href="https://www.readvisions.com/marvin">Marvin Visions</a> est utilisée.</li>
             <li><strong>Dawn:</strong> Ce thème blanc-très-crème vise à être un mode clair de Dusk, avec assez de différences pour lui donner son propre <em>twist</em>.</li>
             <li><strong>Vapor:</strong> Une interprétation vaporwave d'un thème qui était très amusant à faire, je remercie une fois de plus Sophie Koonin qui a adopté cette esthétique ! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> était la seule typo qui fonctionnerait bien.</li>

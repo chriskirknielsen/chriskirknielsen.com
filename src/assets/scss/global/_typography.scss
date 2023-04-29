@@ -32,6 +32,7 @@ i,
 em {
 	padding-inline-end: 0.125em; // Add a little space after an em tag to avoid sticking too closely to the following text
 
+	font-family: var(--t-font-italics, inherit);
 	color: var(--t-heading-color);
 }
 
@@ -83,17 +84,15 @@ blockquote {
 	}
 }
 
-:is(ol, ul) {
-	&:where(:not([class])),
-	& :is(ol, ul) {
-		padding-inline-start: 0.875em;
+:where(main) :is(ol, ul):where(:not([class])),
+:where(main) :is(ol, ul) :is(ol, ul),
+.list-bullet-offset:is(ol, ul) {
+	list-style-position: outside;
+}
 
-		list-style-position: outside;
-	}
-
-	& ul {
-		list-style-type: disc;
-	}
+:where(main) :is(ol, ul) :is(ol, ul),
+.list-bullet-offset:is(ol, ul) {
+	padding-inline-start: 0.875em;
 }
 
 hr {

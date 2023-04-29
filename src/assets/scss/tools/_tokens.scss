@@ -13,6 +13,7 @@ $tokens: (
     is-dark: 0,
     font-heading: Helvetica,
     font-body: Georgia,
+    font-italics: Georgia,
     bg-color: white,
     bg-alt-color: #ccc,
     bg-neutral-color: var(--t-color-gray-max),
@@ -176,6 +177,7 @@ $tokens: (
       vars: (
         color-scheme: light,
         is-dark: 0,
+        font-italics: inherit,
         bg-color: var(--t-color-main-max),
         bg-alt-color: var(--t-color-aux-max),
         heading-color: var(--t-color-main-min),
@@ -233,6 +235,7 @@ $tokens: (
       vars: (
         color-scheme: light,
         is-dark: 0,
+        font-italics: inherit,
         bg-color: #ffffff,
         bg-alt-color: #d8ecff,
         heading-color: var(--t-color-main-min),
