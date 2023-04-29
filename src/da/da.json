@@ -31,7 +31,7 @@
 			"yearLabel": "Artikler for",
 			"original": "Læs den originale artikel",
 			"external": "Læs hele artiklen på",
-			"writtenByAuthor": "Artikel skrevet af <a href=\"{{aboutUrl}}\" id=\"{{aboutLinkId}}\">{{ author }}</a>",
+			"writtenByAuthor": "Artikel skrevet af <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>",
 			"commentsAndSupport": "Hvis du har en kommentar, <a href=\"{{ socialUrl }}\">tag mig på Mastodon</a> for at diskutere! Hvis du vil støtte mig, kan du <a href=\"{{ shopUrl }}\">bestille en af mine t-shirts</a>. Tusind tak skal du hav!"
 		},
 		"projects": {
