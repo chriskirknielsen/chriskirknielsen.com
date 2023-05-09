@@ -49,7 +49,7 @@ module.exports = function (eleventyConfig) {
 		defaultLanguage: defaultLang,
 		dictionaries: dictionaries,
 	});
-	eleventyConfig.addPlugin(require('./internal_modules/eleventy-plugin-page-assets-mxbck-fix'), {
+	eleventyConfig.addPlugin(require('eleventy-plugin-page-assets-mxbck-fix'), {
 		mode: 'directory',
 		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/**/index.{njk,md}`, `${rootDir}/projects/**/index.{njk,md}`],
 		assetsMatching: '*.jpg|*.png|*.gif|*.mp4|*.otf|*.woff|*.woff2|*.zip',
