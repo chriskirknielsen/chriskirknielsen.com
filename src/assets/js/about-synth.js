@@ -424,6 +424,16 @@
 		},
 		false
 	);
+	window.addEventListener('blur', function () {
+		Array.from(pressedKbkeys).forEach((noteKey) => {
+			const note = noteKey.slice(0, noteKey.length - 1);
+			const octave = parseInt(noteKey.slice(-1), 10);
+			const octaveShift = isShiftPressed ? 1 : 0;
+			const key = getKeyByNoteOctave(note, octave - octaveShift);
+			const keyNote = getKeyDataByKeyNote(key);
+			stopKey(keyNote);
+		});
+	});
 
 	/* Intersection Observer insuring notes can't play when the synth isn't in the viewport */
 	const target = document.querySelector('.about-synth');
