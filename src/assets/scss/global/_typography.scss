@@ -84,6 +84,14 @@ blockquote {
 	}
 }
 
+:where(main) :not(li) > ul {
+	list-style-type: square;
+}
+
+:where(main) :not(li) > ul > li > ul {
+	list-style-type: disc;
+}
+
 :where(main) :is(ol, ul):where(:not([class])),
 :where(main) :is(ol, ul) :is(ol, ul),
 .list-bullet-offset:is(ol, ul) {

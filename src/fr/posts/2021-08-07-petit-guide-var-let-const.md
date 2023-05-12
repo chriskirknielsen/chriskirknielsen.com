@@ -5,6 +5,7 @@ summary: Comment distinguer ces mots-clés JavaScript
 date: 2021-08-07
 tags:
     - javascript
+toc: true
 ---
 
 On m'a posé la question mais puisque je n'ai pas trouvé de ressource en français à ce sujet après trois secondes de recherche, voici mon tout petit guide sur `var`, `let`, et `const` en JavaScript.

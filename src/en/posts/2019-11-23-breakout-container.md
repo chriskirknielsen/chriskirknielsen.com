@@ -3,6 +3,7 @@ slug: breakout-container
 title: Breakout Container
 summary: Make a contained element span the entire horizontal space.
 date: 2019-11-23
+toc: true
 tags:
     - css
     - quick-tip

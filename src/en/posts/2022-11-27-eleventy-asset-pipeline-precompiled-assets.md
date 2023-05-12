@@ -5,6 +5,7 @@ tags:
     - eleventy
     - javascript
 templateEngineOverride: njk,md
+toc: true
 ---
 
 I've found out a way to avoid using Gulp and save compiled assets that then live as regular assets that can be used as includes and whatnot within my Eleventy build. (and yes, [I like to precompile](/blog/eleventy-within-eleventy-precompiling-reused-assets/), it seems…) [Full code at the end!](#all-done)

@@ -8,6 +8,7 @@ tags:
     - eleventy
     - svg
 templateEngineOverride: njk,md
+toc: true
 ---
 
 {% callout "Update", "🚨" %}[Wait! I have a new method below.](#updated-method){% endcallout %}

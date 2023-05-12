@@ -17,11 +17,6 @@ ol {
 	list-style-position: inside;
 }
 
-/* Set a different list style for default unordered lists */
-ul {
-	list-style-type: square;
-}
-
 /* Remove list styles on ul, ol elements with a class attribute */
 ul:where([role='list']),
 ol:where([role='list']) {

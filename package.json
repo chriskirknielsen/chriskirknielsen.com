@@ -35,6 +35,7 @@
 		"clean-css": "^5.3.1",
 		"deepmerge": "^4.2.2",
 		"dotenv": "^16.0.3",
+		"eleventy-plugin-page-assets-mxbck-fix": "chriskirknielsen/eleventy-plugin-page-assets#patch-1",
 		"esbuild": "^0.15.15",
 		"glob": "^8.0.3",
 		"html-minifier": "^4.0.0",
@@ -51,8 +52,7 @@
 		"purgecss": "^5.0.0",
 		"sass": "^1.54.0",
 		"templite": "^1.2.0",
-		"uglify-es": "^3.3.9",
-		"eleventy-plugin-page-assets-mxbck-fix": "chriskirknielsen/eleventy-plugin-page-assets#patch-1"
+		"uglify-es": "^3.3.9"
 	},
 	"overrides": {
 		"lodash": "^4.17.21",

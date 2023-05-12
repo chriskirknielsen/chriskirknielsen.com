@@ -4,6 +4,7 @@ summary: 'An absolute brain dump about all the web development I learned this ye
 updated: 2023-01-15
 tags:
     - personal
+toc: true
 ---
 
 Far from having a super interesting life, it’s nice to look back and see what 2022 looked like. I have added titles to each section so you can skip anything that is not interesting to you. Go ahead, I won't take any offence!

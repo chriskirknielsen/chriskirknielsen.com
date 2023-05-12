@@ -4,6 +4,7 @@ summary: 'Retrieving a property of an object which is also in an object in JavaS
 tags:
     - quick-tip
     - javascript
+toc: true
 ---
 
 Have you ever wanted just one value from an array of JavaScript objects? Gently plucking a single property from each object and neatly placing them next to one another. It's got some use cases, and I certainly used that approach in PHP in the past with `array_column`, and `wp_list_pluck` on WordPress sites.

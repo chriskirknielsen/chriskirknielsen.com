@@ -8,6 +8,7 @@ tags:
     - eleventy
     - javascript
 templateEngineOverride: njk,md
+toc: true
 ---
 
 {% callout "Update", "🚨" %}[Okay, so maybe don't do this? More info below!](#quick-update){% endcallout %}
