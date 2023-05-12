@@ -1,10 +1,4 @@
 .callout {
-	&,
-	& + * {
-		// Provide more space around this element
-		--flow-space: var(--size-2xl);
-	}
-
 	position: relative;
 	padding: var(--size-m);
 	padding-block-start: 0;
