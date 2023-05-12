@@ -82,8 +82,15 @@ templateName: post
 		{%- set tocScript -%}
 		document.addEventListener('click', function(e) {
 			const tocToggle = e.target.closest('[data-toc-toggle]');
-			if (!tocToggle) { return; }
-			tocToggle.closest('.toc').classList.toggle('toc--pinned');
+			if (tocToggle) {
+				tocToggle.closest('.toc').classList.toggle('toc--pinned');
+			}
+			
+			let toc = e.target.closest('.toc');
+			if (toc) {
+				const isPinned = toc.classList.contains('toc--pinned');
+				requestAnimationFrame(() => document.documentElement.style.setProperty('--toc-offset', isPinned ? toc.offsetHeight : 0));
+			}
 		});
 		{%- endset -%}
 		{{- tocScript | jsmin('toc') | safe -}}

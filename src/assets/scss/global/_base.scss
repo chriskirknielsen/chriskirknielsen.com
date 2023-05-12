@@ -47,7 +47,7 @@ main {
 }
 
 [id] {
-	scroll-margin-block-start: var(--size-2xl);
+	scroll-margin-block-start: calc(var(--toc-offset, 0) * 1px + var(--size-2xl));
 }
 
 [id]:not([tabindex='-1']):target {
