@@ -81,7 +81,7 @@ const japanese = pluckObject(object, 'ja'); // { one: 'ichi', two: 'ni', three: 
 ```
 
 {% callout "Chaos" %}
-In the `map`, you could do `map((item) => { item[1] = item[1][prop]; return item; })` but that's less readable to me and a bit destructive (I believe the original object might be mutated).
+In the `map`, you could do `.map((item) => { item[1] = item[1][prop]; return item; })` but that's less readable to me and maybe a bit destructive (I assume it might mutate the original object in some cases).
 {% endcallout %}
 
 ## Plucking well done
