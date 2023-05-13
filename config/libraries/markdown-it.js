@@ -3,97 +3,6 @@ const markdownItAnchor = require('markdown-it-anchor');
 const markdownItFootnote = require('markdown-it-footnote');
 const cheerio = require('cheerio');
 
-class TableOfContents {
-	constructor(options = {}) {
-		this.markup = options.markup;
-		this.selectors = options.selectors || 'h2, h3, h4, h5';
-		this.listClass = options.listClass || '';
-		this.$ = cheerio.load(this.markup, null, false);
-		this.headings = this.$(this.selectors); // Find semantic headings
-		this.levels = this.selectors.split(',').map((h) => h.trim()); // Get an array of the heading selectors
-		this.hierachy = {};
-	}
-
-	/** Resolves the hierachy a heading belongs to. */
-	getHierarchy(h) {
-		let tree = [];
-
-		const tag = h.prop('tagName').toLowerCase();
-		const level = this.levels.findIndex((level) => level === tag);
-		const parentHeading = level > 0 ? h.prevAll(this.levels[level - 1]).first() : false;
-
-		if (!parentHeading) {
-			return false;
-		}
-
-		const parentAnchor = parentHeading.find('a[href^="#"]').attr('href');
-		tree.push(parentAnchor);
-		const ancestors = this.getHierarchy(parentHeading);
-		if (ancestors) {
-			tree = tree.concat(ancestors.tree); // Add the ancestors after the parent (forms a low-to-high hierarchy)
-		}
-
-		return { level, tree };
-	}
-
-	parseHeading(h, parent) {
-		const anchor = h.find('a[href^="#"]').attr('href');
-		const title = h.text().trim();
-		const hierarchy = this.getHierarchy(h);
-		const item = {
-			title: title,
-			sub: {},
-		};
-
-		if (hierarchy) {
-			// The tree is returned from lowest to highest level, so we reverse the list to start from the top
-			let tree = hierarchy.tree.slice().reverse();
-			while (tree.length > 0) {
-				const ancestorAnchor = tree.shift(); // Removes the first item in the list and returns it
-				parent = parent[ancestorAnchor].sub; // Go one level deeper
-			}
-		}
-		parent[anchor] = item; // Assign the item to the hierarchy
-	}
-
-	/** Creates a list with all the hierarchy represented. */
-	populateList(levelItems) {
-		const list = this.$('<ul>');
-
-		for (let heading in levelItems) {
-			const headingData = levelItems[heading];
-			const item = this.$('<li>');
-			const link = this.$(`<a href="${heading}">`).text(headingData.title);
-			item.append(link);
-			list.append(item);
-
-			if (headingData.sub && Object.keys(headingData.sub).length > 0) {
-				const sublist = this.populateList(headingData.sub);
-				item.append(sublist);
-			}
-		}
-
-		return list;
-	}
-
-	render() {
-		// If there are no headings, that's an error
-		if (this.headings.length === 0) {
-			return '<p>(This may be broken, please let me know on Mastodon!)</p>';
-		}
-
-		// Loop over all the found headings
-		this.headings.each((i, el) => {
-			const h = this.$(el);
-			this.parseHeading(h, this.hierachy);
-		});
-
-		const list = this.populateList(this.hierachy, true);
-		list.addClass(this.listClass);
-		return list.prop('outerHTML');
-	}
-}
-
 /* Markdown */
 module.exports = (eleventyConfig, options = {}) => {
 	if (['anchorSvgClass', 'anchorSvgId', 'anchorClass'].some((key) => typeof options[key] !== 'string')) {
@@ -105,11 +14,102 @@ module.exports = (eleventyConfig, options = {}) => {
 			String(s)
 				.trim()
 				.normalize('NFD')
-				.replace(/([\u0300-\u036f]|[,;:.…'"?!&])/g, '')
+				.replace(/([\u0300-\u036f]|[,;:.…’'"?!&])/g, '')
 				.toLowerCase()
 				.replace(/\s+/g, '-')
 		);
 	const { anchorSvgClass, anchorSvgId, anchorClass } = options;
+
+	class TableOfContents {
+		constructor(options = {}) {
+			this.markup = options.markup;
+			this.selectors = options.selectors || 'h2, h3, h4, h5';
+			this.listClass = options.listClass || '';
+			this.$ = cheerio.load(this.markup, null, false);
+			this.headings = this.$(this.selectors); // Find semantic headings
+			this.levels = this.selectors.split(',').map((h) => h.trim()); // Get an array of the heading selectors
+			this.hierachy = {};
+		}
+
+		/** Resolves the hierachy a heading belongs to. */
+		getHierarchy(h) {
+			let tree = [];
+
+			const tag = h.prop('tagName').toLowerCase();
+			const level = this.levels.findIndex((level) => level === tag);
+			const parentHeading = level > 0 ? h.prevAll(this.levels[level - 1]).first() : false;
+
+			if (!parentHeading) {
+				return false;
+			}
+
+			const parentAnchor = parentHeading.find('a[href^="#"]').attr('href');
+			tree.push(parentAnchor);
+			const ancestors = this.getHierarchy(parentHeading);
+			if (ancestors) {
+				tree = tree.concat(ancestors.tree); // Add the ancestors after the parent (forms a low-to-high hierarchy)
+			}
+
+			return { level, tree };
+		}
+
+		parseHeading(h, parent) {
+			const anchor = h.find('a[href^="#"]').attr('href');
+			const title = h.text().trim();
+			const hierarchy = this.getHierarchy(h);
+			const item = {
+				title: title,
+				sub: {},
+			};
+
+			if (hierarchy) {
+				// The tree is returned from lowest to highest level, so we reverse the list to start from the top
+				let tree = hierarchy.tree.slice().reverse();
+				while (tree.length > 0) {
+					const ancestorAnchor = tree.shift(); // Removes the first item in the list and returns it
+					parent = parent[ancestorAnchor].sub; // Go one level deeper
+				}
+			}
+			parent[anchor] = item; // Assign the item to the hierarchy
+		}
+
+		/** Creates a list with all the hierarchy represented. */
+		populateList(levelItems) {
+			const list = this.$('<ul>');
+
+			for (let heading in levelItems) {
+				const headingData = levelItems[heading];
+				const item = this.$('<li>');
+				const link = this.$(`<a href="${heading}">`).text(headingData.title);
+				item.append(link);
+				list.append(item);
+
+				if (headingData.sub && Object.keys(headingData.sub).length > 0) {
+					const sublist = this.populateList(headingData.sub);
+					item.append(sublist);
+				}
+			}
+
+			return list;
+		}
+
+		render() {
+			// If there are no headings, that's an error
+			if (this.headings.length === 0) {
+				return '<p>(This may be broken, please let me know on Mastodon!)</p>';
+			}
+
+			// Loop over all the found headings
+			this.headings.each((i, el) => {
+				const h = this.$(el);
+				this.parseHeading(h, this.hierachy);
+			});
+
+			const list = this.populateList(this.hierachy, true);
+			list.addClass(this.listClass);
+			return list.prop('outerHTML');
+		}
+	}
 
 	let markdownItOptions = {
 		html: true,
