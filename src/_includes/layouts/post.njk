@@ -27,19 +27,21 @@ templateName: post
 	</header>
 
 	{% if toc %}
-	<div class="toc | content-fullbleed container u-background-bg-color">
-		<div class="toc-wrap">
-			<details class="toc-inner" id="toc-inner" open>
-				<summary class="toc-title | h4">{{ "blog.tableOfContents" | i18n }}</summary>
-				<div class="toc-list">
-					{{ layoutContent | autoToc | safe }}
-				</div>
-			</details>
-			<button type="button" class="toc-pin-toggle" data-toc-toggle aria-controls="toc-inner">
-				📌
-				<span data-toc-toggle-label="on">{{ "blog.pin" | i18n }}</span>
-				<span data-toc-toggle-label="off">{{ "blog.unpin" | i18n }}</span>
-			</button>
+	<div class="toc | content-fullbleed  u-background-bg-color">
+		<div class="container">
+			<div class="toc-wrap">
+				<details class="toc-inner" id="toc-inner" open>
+					<summary class="toc-title | h4">{{ "blog.tableOfContents" | i18n }}</summary>
+					<div class="toc-list">
+						{{ layoutContent | autoToc | safe }}
+					</div>
+				</details>
+				<button type="button" class="toc-pin-toggle" data-toc-toggle aria-controls="toc-inner">
+					📌
+					<span data-toc-toggle-label="on">{{ "blog.pin" | i18n }}</span>
+					<span data-toc-toggle-label="off">{{ "blog.unpin" | i18n }}</span>
+				</button>
+			</div>
 		</div>
 	</div>
 	{% endif %}

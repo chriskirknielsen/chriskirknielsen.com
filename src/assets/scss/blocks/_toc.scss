@@ -18,6 +18,10 @@ html.no-js .toc-pin-toggle {
 	display: none;
 }
 
+.toc-title::marker {
+	font-size: 1.125em;
+}
+
 .toc-wrap {
 	display: flex;
 	align-items: baseline;
