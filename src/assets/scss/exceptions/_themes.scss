@@ -56,7 +56,7 @@
 
 		position: relative;
 
-		outline: 2px solid var(--bigboi-outline-color);
+		border-block: 2px solid var(--bigboi-outline-color);
 
 		&::before {
 			$grid-line-width: 1.5px;
@@ -403,7 +403,7 @@
 		$neotokyo-bigboi-bg-size: 3px;
 		background: linear-gradient(var(--ctx-bg), var(--ctx-bg) #{$neotokyo-bigboi-bg-size * 0.5}, var(--t-color-main-max) 0, var(--t-color-main-max) #{$neotokyo-bigboi-bg-size})
 			50% 50% / 100% 3px;
-		outline: 2px solid var(--t-color-main-med);
+		border-block: 2px solid var(--t-color-main-med);
 	}
 
 	:where(button, .cta):where(:not(.button-reset)):where(:not(.themepicker-button, .themepicker-close)) {
@@ -561,7 +561,7 @@
 	}
 
 	.bigboi {
-		outline: 1px solid var(--t-color-aux-min);
+		border-block: 1px solid var(--t-color-aux-min);
 
 		&::before {
 			content: '';

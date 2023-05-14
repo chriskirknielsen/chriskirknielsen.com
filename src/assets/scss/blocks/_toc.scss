@@ -1,13 +1,15 @@
 .toc {
 	z-index: #{layer-index('main', 1)};
 
-	margin-block-start: 2px !important; // Overwrite .flow margin; 2px is the size of a bigboi border if present on some themes
+	--flow-space: 0; // Overwrite .flow margin
 	padding-block: var(--size-xl);
 }
 
 .toc--pinned {
 	position: sticky;
 	inset-block-start: 0;
+
+	box-shadow: 0 1px 0 var(--t-accent-color-alt, var(--t-accent-color)); // Little visual separator
 }
 
 .toc:not(.toc--pinned) [data-toc-toggle-label='off'],
