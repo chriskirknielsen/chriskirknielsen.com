@@ -84,11 +84,11 @@ blockquote {
 	}
 }
 
-:where(main :not(li) > ul) {
+:where(:is(main, footer) :not(li) > ul) {
 	list-style-type: square;
 }
 
-:where(main :not(li) > ul > li > ul) {
+:where(:is(main, footer) :not(li) > ul > li > ul) {
 	list-style-type: disc;
 }
 
