@@ -51,6 +51,11 @@ package = "netlify-plugin-cache"
   status = 404
 
 [[redirects]]
+  from = "/da/*"
+  to = "/da/404.html"
+  status = 404
+
+[[redirects]]
   from = "/*"
   to = "/en/404.html"
   status = 404

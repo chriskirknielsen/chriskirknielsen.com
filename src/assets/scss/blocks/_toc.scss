@@ -1,7 +1,8 @@
 .toc {
+	--flow-space: 0; // Overwrite .flow margin
+
 	z-index: #{layer-index('main', 1)};
 
-	--flow-space: 0; // Overwrite .flow margin
 	padding-block: var(--size-xl);
 }
 
