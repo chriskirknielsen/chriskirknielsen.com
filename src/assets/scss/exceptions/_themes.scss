@@ -214,14 +214,11 @@
 	--t-custom-easing: steps(8, jump-none);
 
 	&::-webkit-scrollbar,
-	& ::-webkit-scrollbar,
-	&::-webkit-scrollbar-track,
-	& ::-webkit-scrollbar-track {
+	&::-webkit-scrollbar-track {
 		background-color: var(--t-scrollbar-bg);
 	}
 
-	&::-webkit-scrollbar-thumb,
-	& ::-webkit-scrollbar-thumb {
+	&::-webkit-scrollbar-thumb {
 		background: var(--t-scrollbar-color);
 		border: 2px solid;
 		border-color: var(--t-cta-border-color);

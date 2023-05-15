@@ -33,10 +33,6 @@ main {
 	}
 }
 
-* {
-	scrollbar-color: var(--t-scrollbar-color, var(--t-accent-color)) var(--t-scrollbar-bg, var(--t-color-gray-max));
-}
-
 *:focus {
 	outline: 4px dashed var(--t-link-color-active);
 	outline-offset: 2px;
