@@ -20,6 +20,12 @@
 	],
 	"show": [
 		{
+			"title": "Severance",
+			"detail": 1,
+			"blurb": "I'm only a few episodes in but I absolutely love the aesthetic and atmosphere that accompany this very puzzling intrigue. The Lumon offices are also very reminiscent of The Oldest House in the video game Control, so I'm definitely hooked in…",
+			"link": "https://www.serializd.com/show/95396"
+		},
+		{
 			"title": "Trailer Park Boys",
 			"detail": 5,
 			"blurb": "This is a fun, if dark-humoured, mockumentary show that's been great to watch during lunch breaks. I had never watched any of it but knew of a couple of memes, and now I get it. Bubbles is the best part of the show!",
@@ -27,12 +33,6 @@
 		}
 	],
 	"music": [
-		{
-			"title": "Fall Out Boy",
-			"detail": "So Much (for) Stardust",
-			"blurb": "While I was never a superfan, I started really listening to FOB's music after their peak of success when I was in high school. Now I can just enjoy it, and their latest album is excellent. Don't miss out!",
-			"link": "https://www.last.fm/music/Fall+Out+Boy/So+Much+(for)+Stardust"
-		},
 		{
 			"title": "Sleep Token",
 			"detail": "Sundowning / This Place Will Become Your Tomb",
@@ -42,6 +42,6 @@
 	"sports": {
 		"title": "Running",
 		"detail": "10Km",
-		"blurb": "I started running back in September 2022, and recently finished my first \"real\" race, a 10K that I, in involuntary-yet-definitely nerdy fashion, completed in 01:01:00. My legs hurt but it was a great experience, so I'm now looking forward to what's next!"
+		"blurb": "I started running back in September 2022, and recently finished my first \"real\" race, a 10K that I, in involuntary-yet-definitely nerdy fashion, completed in 01:01:00. I am now planning my next endavour: a 14K!"
 	}
 }
