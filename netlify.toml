@@ -7,9 +7,10 @@
 package = "netlify-plugin-cache"
 
   [plugins.inputs]
-  paths = [
-    ".cache" # Remote Asset Cache
-  ]
+  paths = [".cache"] # Remote Asset Cache
+
+[[plugins]]
+package = "netlify-plugin-debug-cache"
 
 ## Cache control for CSS files
 [[headers]]

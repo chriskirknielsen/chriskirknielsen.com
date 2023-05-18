@@ -65,8 +65,10 @@ module.exports = async () => {
 	// Get the last cached value for the DB info
 	const cacheLastEdit = (await dbInfoCache.getCachedContents('text')) || null;
 
+	console.log(`Now database cache out-of-date? ${dbLastEdit === cacheLastEdit ? 'false' : 'true'}`);
+
 	// If the cached last edit matches the live last edit, return the cached DB contents and stop here
-	if (false && dbLastEdit === cacheLastEdit) {
+	if (dbLastEdit === cacheLastEdit) {
 		const dbCache = await dbDataCache.getCachedContents('json');
 		return dbCache;
 	}
