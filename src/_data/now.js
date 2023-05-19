@@ -62,13 +62,18 @@ module.exports = async () => {
 	// Determine when the DB was last edited, or created
 	const dbLastEdit = dbInfo.last_edited_time || dbInfo.created_time || '';
 
-	// Get the last cached value for the DB info
-	const cacheLastEdit = (await dbInfoCache.getCachedContents('text')) || null;
+	// Check if there is a cache object for the value we're after
+	const isCachePresent = dbInfoCache.cachedObject && dbDataCache.cachedObject;
 
-	// If the cached last edit matches the live last edit, return the cached DB contents and stop here
-	if (dbLastEdit === cacheLastEdit) {
-		const dbCache = await dbDataCache.getCachedContents('json');
-		return dbCache;
+	if (isCachePresent) {
+		// Get the last cached value for the DB info
+		const cacheLastEdit = (await dbInfoCache.getCachedContents('text')) || null;
+
+		// If the cached last edit matches the live last edit, return the cached DB contents and stop here
+		if (dbLastEdit === cacheLastEdit) {
+			const dbCache = await dbDataCache.getCachedContents('json');
+			return dbCache;
+		}
 	}
 
 	// If this has changed, save the new last edit date value
