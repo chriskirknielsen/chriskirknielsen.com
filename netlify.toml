@@ -1,7 +1,7 @@
 ## Netlify build settings
-[build]
-  publish = "_site"
-  command = "eleventy"
+##[build]
+##  publish = "_site"
+##  command = "eleventy"
 
 [[plugins]]
 package = "netlify-plugin-cache"
