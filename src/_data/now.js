@@ -38,8 +38,14 @@ function richTextBlockToMd(block) {
 	if (block.annotations.italic) {
 		wrap.push('_');
 	}
+	if (block.annotations.underline) {
+		wrap.push('_');
+	}
 	if (block.annotations.strikethrough) {
 		wrap.push('~~');
+	}
+	if (block.annotations.code) {
+		wrap.push('`');
 	}
 	let mdString = `${wrap.join('')}${string}${wrap.reverse().join('')}`;
 	return mdString;
