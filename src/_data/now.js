@@ -72,9 +72,12 @@ module.exports = async () => {
 		// If the cached last edit matches the live last edit, return the cached DB contents and stop here
 		if (dbLastEdit === cacheLastEdit) {
 			const dbCache = await dbDataCache.getCachedContents('json');
+			console.log('now.js: Found and reused cached data.');
 			return dbCache;
 		}
 	}
+
+	console.log('now.js: No cached data, fetching latest data.');
 
 	// If this has changed, save the new last edit date value
 	dbInfoCache.save(dbLastEdit, 'text');
