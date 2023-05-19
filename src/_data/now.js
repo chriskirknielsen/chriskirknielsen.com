@@ -98,8 +98,16 @@ module.exports = async () => {
 			database_id: nowDatabaseId,
 			filter_properties: propsById,
 			filter: {
-				property: 'archived',
-				checkbox: { equals: false },
+				and: [
+					{
+						property: 'category',
+						select: { is_not_empty: true },
+					},
+					{
+						property: 'archived',
+						checkbox: { equals: false },
+					},
+				],
 			},
 		})
 		.then((data) => data.results);
@@ -112,7 +120,7 @@ module.exports = async () => {
 			title: props.title.title.pop().plain_text,
 			detail: props.detail.rich_text.map((textBlock) => textBlock.plain_text).join(''),
 			blurb: props.blurb.rich_text.map((textBlock) => richTextBlockToMd(textBlock)).join(''),
-			category: props.category.select.name,
+			category: props.category.select?.name,
 			link: props.link.url,
 		};
 	});
