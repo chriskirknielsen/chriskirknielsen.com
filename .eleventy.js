@@ -101,7 +101,7 @@ module.exports = function (eleventyConfig) {
 		dynamicAttributes: ['data-theme', 'aria-pressed'],
 		safelist: purgeCssList._global.safe,
 		blocklist: purgeCssList._global.block,
-		getPageList: (outputPath) => {
+		getPageList: function (outputPath) {
 			if (new RegExp(`${outputDir}\/(index\.html|fr\/index\.html)`).exec(outputPath)) {
 				return purgeCssList.home;
 			} else if (new RegExp(`${outputDir}\/(about|fr\/a-propos)`).exec(outputPath)) {

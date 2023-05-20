@@ -49,7 +49,6 @@
 
 	&-back {
 		position: relative;
-		contain: layout;
 
 		display: block;
 		width: #{$thumb-size * 2 + $thumb-space * 2};
@@ -57,45 +56,28 @@
 		overflow: hidden;
 
 		background-color: var(--t-text-color);
-		border-radius: #{$thumb-size};
-
-		transition: background-color var(--toggle-duration) var(--easing-in-out);
+		border-radius: calc(var(--t-corner-radius) + #{$thumb-space});
 	}
 
 	&-thumb {
 		position: absolute;
-		inset-block-start: #{$thumb-space};
-		inset-inline-start: #{$thumb-space};
+		inset: 0;
 
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		margin: auto;
 		width: #{$thumb-size};
 		height: #{$thumb-size};
 
 		color: var(--t-accent-color);
-		border-radius: #{$thumb-size};
+		border-radius: var(--t-corner-radius);
 		background-color: var(--t-bg-color);
 
-		transform-origin: 0 50%;
-		transform: translateX(var(--toggle-thumb-offset, 0)) scale(var(--toggle-thumb-scale, 0.875));
-
-		transition: transform var(--toggle-duration) var(--easing-in-out), transform-origin var(--toggle-duration) var(--easing-in-out),
-			width var(--toggle-duration) cubic-bezier(0.75, -19, 0.25, 20);
-		will-change: transform, transform-origin, width;
+		transform: translateX(var(--toggle-thumb-offset, -50%));
+		transition: transform var(--toggle-duration) cubic-bezier(0.67, -0.5, 0.25, 1.5);
 		z-index: 1;
 	}
 
-	:focus-visible + &-back {
-		outline: 2px solid var(--t-accent-color);
-	}
-
 	:checked + &-back > &-thumb {
-		--toggle-thumb-scale: 1;
-		--toggle-thumb-offset: #{$thumb-size};
-
-		width: calc(#{$thumb-size} + 0.5px);
-		transform-origin: 100% 50%;
+		--toggle-thumb-offset: 50%;
 	}
 
 	:focus-visible + &-back > &-thumb {
