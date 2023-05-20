@@ -7,16 +7,13 @@
 kbd,
 code,
 pre {
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
 	tab-size: 4;
 	-webkit-hyphens: none;
-	-ms-hyphens: none;
 	hyphens: none;
 	white-space: pre;
 	word-wrap: normal;
 	font-family: var(--fontstack-monospace);
-	font-size: 1rem;
+	font-size: clamp(1rem, 0.75em, 3rem);
 	color: var(--t-color-aux-med);
 	text-shadow: none;
 }

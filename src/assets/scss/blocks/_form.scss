@@ -62,6 +62,7 @@
 	&-thumb {
 		position: absolute;
 		inset: 0;
+		z-index: 1;
 
 		margin: auto;
 		width: #{$thumb-size};
@@ -73,7 +74,6 @@
 
 		transform: translateX(var(--toggle-thumb-offset, -50%));
 		transition: transform var(--toggle-duration) cubic-bezier(0.67, -0.5, 0.25, 1.5);
-		z-index: 1;
 	}
 
 	:checked + &-back > &-thumb {
