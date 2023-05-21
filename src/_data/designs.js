@@ -368,6 +368,18 @@ const designs = [
 		tags: ['tv-movies'],
 		date: '2022-05-09',
 	},
+	{
+		slug: 'cartridge-world',
+		name: 'Cartridge World',
+		description: 'Memories of the thousands of worlds we held in our hands.',
+		img: 'cartridge-world.jpg',
+		links: {
+			TeePublic: 'https://www.teepublic.com/t-shirt/45538405-raised-in-a-cartridge-world',
+			// RedBubble: 'https://www.redbubble.com/i/sticker/Raised-in-a-Cartridge-World-by-ckirknielsen/145765578.EJUG5,
+		},
+		tags: ['games'],
+		date: '2023-05-20',
+	},
 
 	// Below are designs that are hidden but still accessible via their unique URL
 
