@@ -4,8 +4,10 @@ summary: Precompiled Sass and JS files that become part of the source folder.
 tags:
     - eleventy
     - javascript
+    - css
 templateEngineOverride: njk,md
 toc: true
+updated: 2023-05-21
 ---
 
 I've found out a way to avoid using Gulp and save compiled assets that then live as regular assets that can be used as includes and whatnot within my Eleventy build. (and yes, [I like to precompile](/blog/eleventy-within-eleventy-precompiling-reused-assets/), it seems…) [Full code at the end!](#all-done)
@@ -418,3 +420,41 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.watchIgnores.add(`./${rootDir}/_includes/assets/js/**/*`);
 }
 ```
+
+## Update: Inlined PurgeCSS transform
+
+I realised I didn't provide the logic for the PurgeCSS stuff I mentioned at the top, so here's that as a bonus!
+
+My `head.njk` file has this line, a comment used as a placeholder to dictate where the final CSS will be inserted (the comment is the important bit, the `id` attribute is optional):
+
+```njk
+<style id="inline-styles">/*INLINE_CSS*/</style>
+```
+
+And my `.eleventy.js` has a transform (a function run on a file once it has been compiled) that will replace the comment with the actual CSS (this is a simplified version but I'll link to my repository files below):
+
+```js
+const { PurgeCSS } = require('purgecss');
+
+eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
+    if (!outputPath.endsWith('.html')) {
+        return content; // Don't process non-HTML files
+    }
+    
+    const purgeCSSResults = await new PurgeCSS().purge({
+        content: [{ raw: content }], // Provide the HTML file contents
+        css: [`src/_includes/assets/css/style.css`], // Based on the output structure above
+        keyframes: true, // Keep unused keyframes
+        safelist: [':is', ':where', 'translated-rtl', ':target'], // Ensure novel selectors aren't dropped
+        dynamicAttributes: true, // Ensure toggling attributes don't get dropped
+    });
+
+    return content.replace(`/*INLINE_CSS*/`, purgeCSSResults[0].css || ''); // Replace the comment with the purged CSS
+});
+```
+
+This will then clean up my CSS by only inlining the relevant declarations based on selectors matching the content provided to PurgeCSS. It does extend the build time a little but on a small site like mine, this little maneuver is going to cost an extra second or two (on average it takes 5 seconds total for 100+ files, the worst offender being the i18n plugin). As a result, the CSS for my homepage goes from about 96 kB to about 49 kB (last I checked), so nearly 50% smaller. A pretty neat optimisation!
+
+My actual config is defined here:
+- [.eleventy.js@98-111](https://github.com/chriskirknielsen/chriskirknielsen.com/blob/f3d8e7e053172e56fb44a7446828e3f5331e162d/.eleventy.js#LL98C2-L111C5)
+- [config/transforms.css@30-48](https://github.com/chriskirknielsen/chriskirknielsen.com/blob/f3d8e7e053172e56fb44a7446828e3f5331e162d/config/transforms/css.js#L30-L48)
