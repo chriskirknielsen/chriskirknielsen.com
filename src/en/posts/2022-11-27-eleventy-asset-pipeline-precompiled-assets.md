@@ -457,4 +457,4 @@ This will then clean up my CSS by only inlining the relevant declarations based 
 
 My actual config is defined here:
 - [.eleventy.js@98-111](https://github.com/chriskirknielsen/chriskirknielsen.com/blob/f3d8e7e053172e56fb44a7446828e3f5331e162d/.eleventy.js#LL98C2-L111C5)
-- [config/transforms.css@30-48](https://github.com/chriskirknielsen/chriskirknielsen.com/blob/f3d8e7e053172e56fb44a7446828e3f5331e162d/config/transforms/css.js#L30-L48)
+- [config/transforms/css.js@30-48](https://github.com/chriskirknielsen/chriskirknielsen.com/blob/f3d8e7e053172e56fb44a7446828e3f5331e162d/config/transforms/css.js#L30-L48)
