@@ -111,9 +111,7 @@
 		box-shadow: 0.5em 0.5em 2em -1em var(--t-color-main-med);
 	}
 
-	.codeblock[data-lang] {
-		overflow: hidden;
-
+	.codeblock[data-lang]::before {
 		border-radius: calc(2 * var(--t-corner-radius)) calc(2 * var(--t-corner-radius)) 0 0;
 	}
 
