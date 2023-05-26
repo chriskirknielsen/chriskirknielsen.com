@@ -10,7 +10,7 @@ templateName: post
 			<h1 id="{{ title | slugify }}">{{ title }}</h1>
 			<p>
 				<time datetime="{{ date | dateFormat }}">
-					{{- date | dateFormat({ format: 'nice', locale: lang }) -}}
+					{{- date | dateFormat({ format: 'nice', lang: lang }) -}}
 				</time>
 				{{ 'grammar.inWord' | i18n }}
 				{%- if tags -%}
@@ -20,7 +20,7 @@ templateName: post
 				{%- endif -%}
 				{% if updated %}
 					({{ 'blog.updated' | i18n }}{% if (updated | dateFormat) != (date | dateFormat) %}
-					<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ updated | dateFormat }}">{{ updated | dateFormat({ format: 'nice', locale: lang }) }}</time>{% endif %})
+					<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ updated | dateFormat }}">{{ updated | dateFormat({ format: 'nice', lang: lang }) }}</time>{% endif %})
 				{% endif %}
 			</p>
 		</div>

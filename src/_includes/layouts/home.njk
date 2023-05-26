@@ -77,17 +77,17 @@ section: home
             </div>
         </div>
 
-        {% if collections['post_'+lang] | length %}
+        {% if collections.post | filterToLocale | length %}
         <div style="--flow-space:var(--size-2xl)">
             <div class="subsection subsection--writing">
                 <h2 style="--area: head">{{ 'page.writing.heading' | i18n }}</h2>
 
                 <p style="--area: body">{{ 'page.writing.content' | i18n }}</p>
 
-                {% set latestposts = collections["post_" + lang] | reverse %}
+                {% set latestposts = collections.post | filterToLocale | reverse %}
                 {% set latestpost = latestposts[0] %}
                 <a href="{{ latestpost.url | url }}" class="cta | flow" data-cta="tile" style="--area: post">
-                    <time datetime="{{ latestpost.date | dateFormat }}">{{ latestpost.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
+                    <time datetime="{{ latestpost.date | dateFormat }}">{{ latestpost.date | dateFormat({ format: 'nice', lang: lang }) }}</time>
 
                     <h2 class="h3 | u-marginBlockStart-2xs">
                         {{- latestpost.data.title -}}

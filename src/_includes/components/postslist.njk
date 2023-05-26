@@ -17,10 +17,10 @@
 			</h2>
 
 			<p>
-				<time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat({ format: 'nice', locale: lang }) }}</time>
+				<time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat({ format: 'nice', lang: lang }) }}</time>
 				{% if post.data.updated %}
 				({{ 'blog.updated' | i18n }}{% if (post.data.updated | dateFormat) != (post.date | dateFormat) %}
-				<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ post.data.updated | dateFormat }}">{{ post.data.updated | dateFormat({ format: 'nice', locale: lang }) }}</time>{% endif %})
+				<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ post.data.updated | dateFormat }}">{{ post.data.updated | dateFormat({ format: 'nice', lang: lang }) }}</time>{% endif %})
 				{% endif %}
 			</p>
 

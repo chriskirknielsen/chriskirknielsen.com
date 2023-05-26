@@ -5,7 +5,7 @@ section: blog
 {% extends "layouts/base.njk" %}
 
 {% block layoutContent %}
-	{% set postslist = collections["post_" + lang] %}
+	{% set postslist = collections.post | filterToLocale %}
 
 	<header class="bigboi | content-fullbleed container">
 		<div class="bigboi-inner | content | flow" style="--flow-space: var(--size-m)">
@@ -24,7 +24,7 @@ section: blog
 		</div>
 	</header>
 
-	{% if collections['post_'+lang] | length %}
+	{% if postslist | length %}
 		{{ layoutContent | safe }}
 	{% else %}
 		<p class="h1 u-textAlign-center">🤷</p>

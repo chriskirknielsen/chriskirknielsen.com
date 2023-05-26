@@ -49,7 +49,7 @@
 
 <meta property="og:title" content="{{ title | stripHyphenChars }} | {{ metadata.title }}">
 <meta property="og:site_name" content="{{ metadata.title }}">
-<meta property="og:locale" content="{{ locale or 'en' }}">
+<meta property="og:locale" content="{{ lang }}">
 <meta property="og:type" content="{% if section == "post" %}article{% else %}website{% endif %}">
 <meta property="og:url" content="{{ (page.url or '/') | url | absoluteUrl(metadata.url) }}">
 

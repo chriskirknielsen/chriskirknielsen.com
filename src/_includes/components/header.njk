@@ -7,7 +7,7 @@
 
             <nav class="header-nav" aria-label="{{ 'nav.label' | i18n }}">
                 <ul class="header-menu menu" role="list">
-                    {% if collections['post_'+lang] | length %}
+                    {% if collections.post | filterToLocale | length %}
                     <li class="menu-item">
                         <a href="{{ '/blog/' | locale_url | url }}" class="menu-link">{{ 'nav.blog' | i18n }}</a>
                     </li>

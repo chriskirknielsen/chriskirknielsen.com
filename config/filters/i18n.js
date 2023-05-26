@@ -46,8 +46,8 @@ function createLangDictionary(lang, object, translations = {}) {
  */
 function buildDictionaries(dictionaries) {
 	const translations = {};
-	for (const [locale, i18n] of Object.entries(dictionaries)) {
-		createLangDictionary(locale, i18n, translations);
+	for (const [lang, i18n] of Object.entries(dictionaries)) {
+		createLangDictionary(lang, i18n, translations);
 	}
 	return translations;
 }
@@ -126,10 +126,13 @@ module.exports = function (eleventyConfig, options = {}) {
 	});
 
 	/** Filter down items in a collection that only match the provided, contextual, or default locale. */
-	eleventyConfig.addFilter('filterToLocale', function (collection, locale = null) {
+	eleventyConfig.addFilter('filterToLocale', function (collection, lang = null) {
 		// Determine the target language, or use the default
 		const context = this?.ctx || this.context?.environments;
-		locale ||= context.lang || defaultLanguage; // If the locale is not provided, us the context, and if that isn't reliable, use the default language
-		return collection.filter((item) => item?.data?.lang === locale);
+		lang ||= context.lang || defaultLanguage; // If the language is not provided, use the context, and if that isn't reliable, use the default language
+		return collection.filter((item) => {
+			const itemLocale = item?.data?.lang;
+			return itemLocale === lang;
+		});
 	});
 };

@@ -2,7 +2,6 @@ module.exports = {
 	layout: 'layouts/project.njk',
 	tags: ['projects'],
 	language: 'en',
-	locale: 'en',
 	lang: 'en',
 	eleventyComputed: {
 		permalink: function (data) {

@@ -6,7 +6,7 @@ const metadata = require(`./${rootDir}/_data/metadata.js`);
 const assets = require(`./${rootDir}/_data/assets.js`);
 const locales = Object.keys(metadata.locales);
 const defaultLang = 'en';
-const dictionaries = Object.fromEntries(locales.map((locale) => [locale, require(`./${rootDir}/${locale}/${locale}.json`).i18n]));
+const dictionaries = Object.fromEntries(locales.map((lang) => [lang, require(`./${rootDir}/${lang}/${lang}.json`).i18n]));
 
 // Tools
 const util = require('util');
@@ -130,6 +130,8 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.setServerOptions({
 		domDiff: false, // Due to runtime JS (mainly themes), it is preferrable to get a fresh copy of the DOM
 	});
+
+	eleventyConfig.setWatchThrottleWaitTime(100); // Wait a teeny bit before re-running, very useful when saving many files in one go
 
 	return {
 		pathPrefix: '/',
