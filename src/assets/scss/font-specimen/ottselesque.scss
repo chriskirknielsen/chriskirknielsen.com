@@ -432,3 +432,22 @@ li + li {
 		transform: translateY(25%);
 	}
 }
+
+.powercell-hunters-shirt {
+	width: clamp(4rem, 20%, 10rem);
+	margin-inline-end: 1rem;
+	float: left;
+	shape-outside: content-box;
+	shape-margin: 1rem;
+
+	& > img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 2/1;
+		object-fit: cover;
+		object-position: 50% 25%;
+
+		clip-path: var(--clip);
+	}
+}
