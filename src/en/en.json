@@ -40,6 +40,10 @@
 			"view": "View the project"
 		},
 		"callout": "Note",
+		"codeBlock": {
+			"copyLabel": "Copy code",
+			"copiedLabel": "Code copied!"
+		},
 		"latestPost": "Latest Post",
 		"tagged": "Tagged",
 		"blobBacklinkLabel": "Back to Blog",

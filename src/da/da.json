@@ -40,6 +40,10 @@
 			"view": "Se projektet"
 		},
 		"callout": "Note",
+		"codeBlock": {
+			"copyLabel": "Kopiér kode",
+			"copiedLabel": "kopieret!"
+		},
 		"latestPost": "Seneste artikel",
 		"tagged": "Etiketter",
 		"blobBacklinkLabel": "Tilbage til bloggen",

@@ -40,6 +40,10 @@
 			"view": "Voir le projet"
 		},
 		"callout": "Nota bene",
+		"codeBlock": {
+			"copyLabel": "Copier ce code",
+			"copiedLabel": "Code copié !"
+		},
 		"latestPost": "Dernier Article",
 		"tagged": "Étiquettes",
 		"blobBacklinkLabel": "Retour au Blog",

@@ -36,8 +36,7 @@ module.exports = function (eleventyConfig) {
 		templateFormats: ['md', 'html', 'njk'],
 		preAttributes: {
 			tabindex: 0,
-			class: (context) => `${context.language ? 'language-' + context.language : ''} codeblock | content-wide`.trim(),
-			'data-lang': (context) => (context.language && context.language !== 'text' ? context.language.toUpperCase() : ''),
+			class: (context) => `${context.language ? 'language-' + context.language : ''} codeblock`.trim(),
 		},
 	});
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
@@ -59,6 +58,53 @@ module.exports = function (eleventyConfig) {
 		anchorClass: 'heading-anchor',
 		anchorSvgId: 'anchor-link',
 		anchorSvgClass: 'heading-anchor-symbol',
+
+		codeWrapTag: 'figure',
+		codeWrapClass: 'codeblock-wrap | content-wide',
+		codeWrapToolbar: true,
+		hasCopyButton: true,
+		codeToolbarTag: 'figcaption',
+		codeToolbarClass: 'codeblock-toolbar',
+		codeToolbarLabel: (tokens, idx, options, env, self) => {
+			// If a "filename" is provided, isolate it
+			if (tokens[idx].info.includes(':')) {
+				const [lang, filename] = tokens[idx].info.split(':');
+				tokens[idx].info = lang || 'text'; // Reset to a "normal" type
+				tokens[idx]._filename = filename; // Create a private property
+			}
+
+			let toolbarLabel = '';
+			let syntaxType = tokens[idx].info;
+
+			if (!syntaxType || syntaxType === 'text') {
+				toolbarLabel = tokens[idx]?._filename || '';
+			} else if (tokens[idx]?._filename) {
+				toolbarLabel = tokens[idx]._filename.includes('.') ? tokens[idx]._filename : tokens[idx]._filename + '.' + syntaxType;
+			} else {
+				switch (syntaxType) {
+					case 'js': {
+						toolbarLabel = 'JavaScript';
+						break;
+					}
+					default: {
+						toolbarLabel = syntaxType.toUpperCase();
+						break;
+					}
+				}
+			}
+
+			return `<span class="codeblock-lang">${toolbarLabel}</span>`;
+		},
+		copyButtonInToolbar: true,
+		copyButtonAttrs: {
+			class: 'codeblock-copy',
+			'data-codewrap-copy-button': '',
+		},
+		copyButtonLabel: (tokens, idx, options, env, self) =>
+			`<span class="codeblock-copy__idle">${'📋 ' + (env?.i18n?.codeBlock?.copyLabel || 'Copy')}</span><span class="codeblock-copy__copied">${
+				'👍 ' + (env?.i18n?.codeBlock?.copiedLabel || 'OK')
+			}</span>`,
+		inlineCopyHandler: false,
 	});
 
 	/* Filters */

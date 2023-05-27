@@ -145,7 +145,7 @@ module.exports = (eleventyConfig, options = {}) => {
 			const svgUseTokenOpen = Object.assign(new state.Token('use_open', 'use', 1), {
 				attrs: [['xlink:href', `#${anchorSvgId}`]],
 			});
-			const svgUseTokenClose = Object.assign(new state.Token('use_close', 'svg', -1));
+			const svgUseTokenClose = Object.assign(new state.Token('use_close', 'use', -1));
 			const svgSymbolTokenClose = Object.assign(new state.Token('svg_close', 'svg', -1));
 			const headingAnchorTokenClose = Object.assign(new state.Token('link_close', 'a', -1));
 
@@ -160,8 +160,26 @@ module.exports = (eleventyConfig, options = {}) => {
 		slugify: slugify,
 	};
 
+	let markdownItCodeWrap = require('./code-wrap.js');
+	let markdownItCodeWrapOptions = {
+		wrapTag: options.codeWrapTag,
+		wrapClass: options.codeWrapClass,
+		hasToolbar: options.codeWrapToolbar,
+		hasCopyButton: options.hasCopyButton,
+		toolbarTag: options.codeToolbarTag,
+		toolbarClass: options.codeToolbarClass,
+		toolbarLabel: options.codeToolbarLabel,
+		isButtonInToolbar: options.copyButtonInToolbar,
+		copyButtonAttrs: options.copyButtonAttrs,
+		copyButtonLabel: options.copyButtonLabel,
+		inlineCopyHandler: options.inlineCopyHandler,
+	};
+
 	/** Configure the markdown-it library to use. */
-	eleventyConfig.setLibrary('md', markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote));
+	eleventyConfig.setLibrary(
+		'md',
+		markdownIt(markdownItOptions).disable('code').use(markdownItAnchor, markdownItAnchorOptions).use(markdownItFootnote).use(markdownItCodeWrap, markdownItCodeWrapOptions)
+	);
 
 	/** Take markup content and automatically create anchors for headings. Should only be used when content is not Markdown. */
 	eleventyConfig.addFilter('autoHeadingAnchors', (markup) => {
@@ -216,10 +234,56 @@ module.exports = (eleventyConfig, options = {}) => {
 			return content;
 		}
 
+		// If the anchor SVG is in use, don't change anything!
 		if (content.includes(`href="#${anchorSvgId}"`)) {
 			return content;
 		}
 
+		// Else, remove the SVG from the markup
 		return content.replace(/<svg ([^>]+) data-anchor-link>(.+)<\/svg>/s, '');
+	});
+
+	/** Add copy button to block blocks */
+	eleventyConfig.addTransform('codeblock-copy', (content, outputPath) => {
+		if (!outputPath.endsWith('.html')) {
+			return content;
+		}
+
+		// Look for our custom data attribute
+		if (!content.includes(' data-codewrap-copy-button=')) {
+			return content;
+		}
+
+		const $ = cheerio.load(content, null, true); // Load the contents into cheerio to get a DOM representation
+		const codeBlockWrappers = $('.codeblock-wrap'); // Look for all codeblocks
+
+		// If there are no codeblocks, just return the content
+		if (codeBlockWrappers.length === 0) {
+			return content;
+		}
+
+		const codeCopyHandler = `<script>
+		if (navigator.clipboard.writeText) {
+			document.addEventListener('click', function(e) {
+				const copyButton = e.target.closest('.codeblock-copy');
+				if (!copyButton) { return; }
+				const codeBlock = copyButton.closest('.codeblock-wrap').querySelector('code');
+				if (!codeBlock) { return; }
+				const copyAction = navigator.clipboard.writeText(codeBlock.innerText);
+				copyButton.classList.add('is-copied');
+				copyAction.then(() => {
+					setTimeout(() => {
+						copyButton.classList.remove('is-copied');
+						copyButton.blur();
+					}, 2000);
+				});
+			});
+		} else {
+			Array.from(document.querySelectorAll('.codeblock-copy')).forEach(btn => btn.hidden = true);
+		}
+		</script>`;
+		$('head').append(codeCopyHandler);
+
+		return $.html();
 	});
 };

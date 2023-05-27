@@ -48,9 +48,47 @@ pre > code {
 	border-inline-start: var(--codeblock-border) solid var(--t-color-aux-med, currentColor);
 }
 
-pre.codeblock {
+.codeblock-wrap {
 	--codeblock-border: 2px;
+	--codeblock-lang: 1.5rem;
 
+	font-size: clamp(1rem, 0.75em, 3rem);
+}
+
+.codeblock-toolbar {
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	gap: 1em;
+
+	align-items: center;
+	padding: 0.25em 0.25em 0.25em var(--C-content-gutter);
+
+	color: var(--ctx-bg);
+	background: var(--t-color-aux-med);
+}
+
+.codeblock-lang {
+	font-family: var(--fontstack-monospace);
+	font-size: 0.875em;
+	letter-spacing: 0.125em;
+}
+
+/* Copy to clipboard */
+.codeblock-copy {
+	margin-inline-start: auto; // Push to the inline-end of the toolbar
+
+	white-space: normal;
+
+	html.no-js &,
+	&.is-copied &__idle,
+	&:not(.is-copied) &__copied {
+		display: none;
+	}
+}
+
+pre.codeblock {
 	&,
 	& + * {
 		// Provide more space around this element
@@ -58,32 +96,7 @@ pre.codeblock {
 	}
 
 	position: relative;
-	padding-block-start: var(--codeblock-lang, 0px);
-
-	&[data-lang] {
-		--codeblock-lang: 1.5rem;
-
-		&::before {
-			content: attr(data-lang);
-
-			position: absolute;
-			inset: 0 0 auto 0;
-			z-index: 2;
-
-			display: flex;
-			align-items: center;
-			width: 100%;
-			height: var(--codeblock-lang);
-			padding: 0 calc(var(--codeblock-border) + var(--C-content-gutter));
-
-			line-height: 1;
-			color: var(--ctx-bg);
-			background: var(--t-color-aux-med);
-
-			font-size: 0.75em;
-			letter-spacing: 0.125em;
-		}
-	}
+	margin: 0;
 
 	&::after {
 		content: '';

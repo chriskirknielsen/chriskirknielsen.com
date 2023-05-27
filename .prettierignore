@@ -1,4 +1,3 @@
 src/**/posts/**/*.md
 src/**/pages/**/*.md
 node_modules/**/*
-internal_modules/**/*

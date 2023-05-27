@@ -111,7 +111,7 @@
 		box-shadow: 0.5em 0.5em 2em -1em var(--t-color-main-med);
 	}
 
-	.codeblock[data-lang]::before {
+	.codeblock-toolbar {
 		border-radius: calc(2 * var(--t-corner-radius)) calc(2 * var(--t-corner-radius)) 0 0;
 	}
 
@@ -540,7 +540,7 @@
 
 	.callout-label,
 	.postlist-yeargroup,
-	.codeblock::before {
+	.codeblock-toolbar {
 		clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%); // Cut the bottom-right corner
 	}
 

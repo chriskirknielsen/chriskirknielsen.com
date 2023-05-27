@@ -32,7 +32,7 @@ I have my assets in `/src/assets/scss` and `/src/assets/js`, and the resulting f
 
 First, the packages I use need to be installed, in my case via npm:
 
-```text
+```text:Terminal
 npm install glob json-sass sass esbuild
 ```
 
@@ -427,14 +427,14 @@ I realised I didn't provide the logic for the PurgeCSS stuff I mentioned at the 
 
 My `head.njk` file has this line, a comment used as a placeholder to dictate where the final CSS will be inserted (the comment is the important bit, the `id` attribute is optional):
 
-```njk
+```html:head.njk
 <style id="inline-styles">/*INLINE_CSS*/</style>
 ```
 
 And my `.eleventy.js` has a transform (a function run on a file once it has been compiled) that will replace the comment with the actual CSS (this is a simplified version but I'll link to my repository files below):
 
 ```js
-const { PurgeCSS } = require('purgecss');
+const { PurgeCSS } = require('purgecss'); // Be sure to install this via `npm i purgecss`
 
 eleventyConfig.addTransform('purge-and-inline-css', async (content, outputPath) => {
     if (!outputPath.endsWith('.html')) {
