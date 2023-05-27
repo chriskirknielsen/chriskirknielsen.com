@@ -433,18 +433,30 @@ li + li {
 	}
 }
 
+.two-up {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+	gap: 2rem;
+}
+
 .powercell-hunters-shirt {
-	width: clamp(4rem, 20%, 10rem);
+	width: clamp(4rem, 20%, 7.5rem);
+	margin-block: 0.375rem;
 	margin-inline-end: 1rem;
 	float: left;
 	shape-outside: content-box;
 	shape-margin: 1rem;
 
+	&:is(:hover, :focus) {
+		filter: drop-shadow(-1px -1px 0 var(--palette-05)) drop-shadow(1px -1px 0 var(--palette-05)) drop-shadow(1px 1px 0 var(--palette-05))
+			drop-shadow(-1px 1px 0 var(--palette-05));
+	}
+
 	& > img {
 		display: block;
 		width: 100%;
 		height: auto;
-		aspect-ratio: 2/1;
+		aspect-ratio: 1;
 		object-fit: cover;
 		object-position: 50% 25%;
 
