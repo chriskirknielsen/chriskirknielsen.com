@@ -1,5 +1,6 @@
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+const markdownItCodeWrap = require('markdown-it-codewrap');
 const markdownItFootnote = require('markdown-it-footnote');
 const cheerio = require('cheerio');
 
@@ -160,7 +161,6 @@ module.exports = (eleventyConfig, options = {}) => {
 		slugify: slugify,
 	};
 
-	let markdownItCodeWrap = require('./code-wrap.js');
 	let markdownItCodeWrapOptions = {
 		wrapTag: options.codeWrapTag,
 		wrapClass: options.codeWrapClass,

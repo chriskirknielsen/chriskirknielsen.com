@@ -47,6 +47,7 @@
 		"luxon": "^3.0.1",
 		"markdown-it": "^13.0.1",
 		"markdown-it-anchor": "^8.6.4",
+		"markdown-it-codewrap": "^1.0.0",
 		"markdown-it-footnote": "^3.0.3",
 		"netlify-plugin-cache": "^1.0.3",
 		"path": "^0.12.7",
