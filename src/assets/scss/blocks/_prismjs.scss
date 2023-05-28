@@ -69,7 +69,7 @@ pre > code {
 	background: var(--t-color-aux-med);
 }
 
-.codeblock-lang {
+.codeblock-toolbar-label {
 	font-family: var(--fontstack-monospace);
 	font-size: 0.875em;
 	letter-spacing: 0.125em;
@@ -88,15 +88,17 @@ pre > code {
 	}
 }
 
+pre {
+	position: relative;
+	margin: 0;
+}
+
 pre.codeblock {
 	&,
 	& + * {
 		// Provide more space around this element
 		--flow-margin: var(--size-2xl);
 	}
-
-	position: relative;
-	margin: 0;
 
 	&::after {
 		content: '';
