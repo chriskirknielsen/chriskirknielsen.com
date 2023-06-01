@@ -1,6 +1,7 @@
 {
 	"lang": "en",
 	"tags": ["fonts"],
+	"permalink": "/fonts/{{ page.fileSlug }}/index.html",
 	"templateEngineOverride": "njk",
 	"eleventyComputed": {
 		"customMetaImage": "{{ page.url | removeTrailingSlash }}/{{ customMetaImage }}"

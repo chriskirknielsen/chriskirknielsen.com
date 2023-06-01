@@ -50,8 +50,12 @@ module.exports = function (eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(require('eleventy-plugin-page-assets-mxbck-fix'), {
 		mode: 'directory',
-		postsMatching: [`${rootDir}/fonts/*/*.njk`, `${rootDir}/**/posts/**/index.{njk,md}`, `${rootDir}/en/projects/**/index.{njk,md}`],
-		assetsMatching: '*.jpg|*.png|*.gif|*.mp4|*.otf|*.woff|*.woff2|*.zip',
+		postsMatching: [
+			`${rootDir}/**/posts/**/index.{njk,md}`, // Regular posts
+			`${rootDir}/en/projects/**/index.{njk,md}`, // Projects (en only)
+			`${rootDir}/en/fonts/*/*.njk`, // Fonts (en only)
+		],
+		assetsMatching: '*.jpg|*.png|*.gif|*.mp4|*.otf|*.woff|*.woff2|*.zip', // Images, videos, fonts, and archives
 		silent: true,
 	});
 	eleventyConfig.addPlugin(require('./config/libraries/markdown-it.js'), {
