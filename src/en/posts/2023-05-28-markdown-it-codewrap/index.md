@@ -85,8 +85,8 @@ module.exports = function(eleventyConfig, options = {}) {
             'data-codewrap-copy-button': '',
         },
         copyButtonLabel: (tokens, idx, options, env, self) => {
-            return `<span class="codeblock-copy__idle">${'📋 ' + (env?.i18n?.codeBlock?.copyLabel || 'Copy')}</span>
-            <span class="codeblock-copy__copied">${'👍 ' + (env?.i18n?.codeBlock?.copiedLabel || 'OK')}</span>`;
+            return `<span class="codeblock-copy__idle">📋 ${env?.i18n?.codeBlock?.copyLabel || 'Copy'}</span>
+            <span class="codeblock-copy__copied">👍 ${env?.i18n?.codeBlock?.copiedLabel || 'OK'}</span>`;
         },
         inlineCopyHandler: false,
     };
