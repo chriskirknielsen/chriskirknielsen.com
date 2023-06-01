@@ -447,7 +447,10 @@ li + li {
 	shape-outside: content-box;
 	shape-margin: 1rem;
 
+	transition: all ease-in-out 300ms;
+
 	&:is(:hover, :focus) {
+		transform: scale(1.05);
 		filter: drop-shadow(-1px -1px 0 var(--palette-05)) drop-shadow(1px -1px 0 var(--palette-05)) drop-shadow(1px 1px 0 var(--palette-05))
 			drop-shadow(-1px 1px 0 var(--palette-05));
 	}
