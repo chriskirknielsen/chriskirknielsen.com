@@ -84,7 +84,7 @@ blockquote {
 	}
 }
 
-:where(:is(main, footer) :not(li) > ul) > li::marker {
+:where(:is(main, footer) :not(li) > ul::not([role='list'])) > li::marker {
 	content: '\2043\00a0';
 }
 
