@@ -30,7 +30,7 @@ h6,
 
 i,
 em {
-	padding-inline-end: 0.125em; // Add a little space after an em tag to avoid sticking too closely to the following text
+	padding-inline-end: 0.03125em; // Add a little space after an em tag to avoid sticking too closely to the following text
 
 	font-family: var(--t-font-italics, inherit);
 	color: var(--t-heading-color);
@@ -84,12 +84,8 @@ blockquote {
 	}
 }
 
-:where(:is(main, footer) :not(li) > ul) {
-	list-style-type: square;
-}
-
-:where(:is(main, footer) :not(li) > ul > li > ul) {
-	list-style-type: disc;
+:where(:is(main, footer) :not(li) > ul) > li::marker {
+	content: '\2043\00a0';
 }
 
 :where(main) :is(ol, ul):where(:not([class])),
