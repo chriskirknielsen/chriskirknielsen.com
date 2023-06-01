@@ -47,7 +47,7 @@ module.exports = function(eleventyConfig, options = {}) {
         wrapClass: 'codeblock-wrap | content-wide',
         hasToolbar: true,
         hasCopyButton: true,
-        toolbarTag: 'figcaption,
+        toolbarTag: 'figcaption',
         toolbarClass: 'codeblock-toolbar',
         toolbarLabel: (tokens, idx, options, env, self) => {
             // If a "filename" is provided, isolate it
