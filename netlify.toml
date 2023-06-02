@@ -44,7 +44,7 @@ package = "netlify-plugin-debug-cache"
   status = 200
 [[redirects]]
   from = "/.well-known/pronouns"
-  to = "/.well-known/pronouns.json"
+  to = "/.well-known/pronouns.txt"
   status = 200
 
 ## Error 404 redirects
