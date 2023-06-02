@@ -167,6 +167,7 @@ module.exports = function (eleventyConfig) {
 		[`${rootDir}/assets/img`]: '/assets/img',
 		[`${rootDir}/assets/audio`]: '/assets/audio',
 		[`${rootDir}/assets/fonts`]: '/assets/fonts',
+		[`${rootDir}/.well-known`]: '/.well-known',
 	});
 
 	/* Watch targets */
