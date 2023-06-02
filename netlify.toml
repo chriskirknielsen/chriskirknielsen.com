@@ -20,12 +20,6 @@ package = "netlify-plugin-debug-cache"
     public,
     max-age=1209600'''
 
-## Opt out of Google's FLoC
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Permissions-Policy = "interest-cohort=()"
-
 ## Special page redirects
 [[redirects]]
   from = "/design"
@@ -44,6 +38,14 @@ package = "netlify-plugin-debug-cache"
   to = "/follow.rss"
   status = 301
   force = true
+[[redirects]]
+  from = "/.well-known/avatar"
+  to = "/assets/img/profile.jpg"
+  status = 200
+[[redirects]]
+  from = "/.well-known/pronouns"
+  to = "/.well-known/pronouns.json"
+  status = 200
 
 ## Error 404 redirects
 [[redirects]]
