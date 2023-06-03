@@ -34,7 +34,7 @@
 {# RSS feed #}
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ (rssFeedOverride or ('/rss.xml' | locale_url)) | absoluteUrl(metadata.url) }}">
 {% if lang == 'en' %}
-<link rel="alternate" href="/follow.rss" title="{{ metadata.author.name }}'s' Activity Feed" type="application/rss+xml">
+<link rel="alternate" type="application/rss+xml" title="{{ metadata.author.name }}'s' Activity Feed" href="/follow.rss">
 {% endif %}
 
 {# Meta, SEO, etc. #}
@@ -43,8 +43,8 @@
 <meta name="generator" content="{{ eleventy.generator }}">
 
 {% if summary %}
-<meta name="description" content="{{ summary }}">
-<meta name="og:description" content="{{ summary }}">
+<meta name="description" content="{{ metaDescriptionOverride or summary }}">
+<meta name="og:description" content="{{ metaDescriptionOverride or summary }}">
 {% endif %}
 
 <meta property="og:title" content="{{ title | stripHyphenChars }} | {{ metadata.title }}">
