@@ -107,6 +107,10 @@ rssFeedOverride: '/designs.xml'
 	view-transition-name: none;
 }
 
+::view-transition {
+	pointer-events: none;
+}
+
 ::view-transition-old(*),
 ::view-transition-new(*) {
 	animation-timing-function: var(--t-custom-easing, cubic-bezier(0.67, 0, 0.33, 1));
@@ -222,7 +226,7 @@ rssFeedOverride: '/designs.xml'
 		}
 
 		const animateOptions = {
-			duration: 300,
+			duration: 500,
 			easing: getComputedStyle(items[0]).transitionTimingFunction || 'ease-in-out',
 		};
 		const listGeometry = list.getBoundingClientRect();
