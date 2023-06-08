@@ -27,6 +27,7 @@
                 <ul>
                     <li><a href="{{ '/acknowledgements/' | locale_url }}">{{ 'nav.acknowledgements' | i18n | safe }}</a></li>
                     <li><a href="{{ '/fonts/' | url }}" hreflang="en">{{ 'customFonts' | i18n | safe }}</a></li>
+                    {% if lang == 'en' %}<li><a href="{{ '/webring/' | url }}" hreflang="en">Webring</a></li>{% endif %}
                     <li><a href="{{ metadata.tweetArchiveUrl }}" hreflang="en">{{ 'tweetArchive' | i18n | safe }}</a></li>
                 </ul>
             </nav>

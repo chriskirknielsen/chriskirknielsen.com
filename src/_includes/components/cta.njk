@@ -6,7 +6,7 @@
 	{% if icon and iconBefore %}{{ iconRender | safe }}{% endif %}
     {% if label.aria %}
         <span class="visually-hidden">{{ label.aria }}</span>
-        <span aria-hidden="true">{{ label.plain }}</span>
+        {% if label.plain %}<span aria-hidden="true">{{ label.plain }}</span>{% endif %}
 	{% elseif label %}
         <span>{{ label }}</span>
     {% endif %}
