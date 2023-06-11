@@ -180,9 +180,11 @@ rssFeedOverride: '/designs.xml'
 
 	function filterTo(filter, skipAnim = false) {
 		let isShowAll = (filter === '');
+		let filterHash = filter ? ('#' + hashIndicator + filter) : '';
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-		history.replaceState(undefined, '', filter ? ('#' + hashIndicator + filter) : '#');
+		history.replaceState(undefined, '', filterHash);
+		sessionStorage.setItem('designHash', filterHash);
 		
 		// Don't animate in certain conditions
 		if (skipAnim || prefersReducedMotion || !Element.prototype.animate || document.startViewTransition) {
@@ -226,7 +228,7 @@ rssFeedOverride: '/designs.xml'
 		}
 
 		const animateOptions = {
-			duration: 500,
+			duration: 300,
 			easing: getComputedStyle(items[0]).transitionTimingFunction || 'ease-in-out',
 		};
 		const listGeometry = list.getBoundingClientRect();

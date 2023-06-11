@@ -1,1 +1,1 @@
-(()=>{(function(){let e=document.querySelector('[data-backlink][href="/designs/"]');document.referrer.replace(/\/$/,"")===e.href.replace(/\/$/,"")&&e.addEventListener("click",function(n){return n.preventDefault(),window.history.go(-1),setTimeout(function(){window.location.href=e.href},300),!1})})();})();
+(()=>{(function(){let e=document.querySelector('[data-backlink][href="/designs/"]'),r=sessionStorage.getItem("designHash")||null;if(document.referrer.replace(/\/$/,"")===e.href.replace(/\/$/,"")&&r){let a=new URL(e.href);a.hash=r,e.href=a.href}})();})();
