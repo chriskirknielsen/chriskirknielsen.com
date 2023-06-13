@@ -17,6 +17,9 @@
 			font-weight: {{ fontSpecimenFace.weight or 400 }};
 			font-style: {{ fontSpecimenFace.style or 'normal' }};
 			font-display: swap;
+			{% if fontSpecimenFace.ascentOverride %}ascent-override: {{ fontSpecimenFace.ascentOverride }};{% endif %}
+			{% if fontSpecimenFace.descentOverride %}descent-override: {{ fontSpecimenFace.descentOverride }};{% endif %}
+			{% if fontSpecimenFace.lineGapOverride %}line-gap-override: {{ fontSpecimenFace.lineGapOverride }};{% endif %}
 		}
 		{%- endfor -%}
 		.specimen { font-family: '{{ fontSpecimenName }}', {{ (fontSpecimenFallback | safe) or 'sans-serif' }}; }
