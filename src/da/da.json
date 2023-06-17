@@ -64,7 +64,8 @@
 			"description": "Blog om en frontend-webdev, der kan lide at pille ved"
 		},
 		"langSwitchLabel": "Skift Sprog",
-		"themeSwitchLabel": "Skift Te<span><kbd>m</kbd></span>a",
+		"themeSwitchLabelMarkup": "Skift Te<span><kbd>m</kbd></span>a",
+		"themeSwitchLabel": "Skift Tema",
 		"themePicker": "Temavælger",
 		"closeThemePicker": "Luk temavælger"
 	}
