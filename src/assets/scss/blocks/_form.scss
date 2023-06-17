@@ -85,3 +85,22 @@
 		outline-offset: -4px;
 	}
 }
+
+.inline-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-s);
+	justify-content: center;
+	align-items: center;
+
+	& > input {
+		flex: 1 1 12ch;
+	}
+}
+
+input {
+	padding: var(--size-2xs) var(--size-s);
+
+	border: 1px solid currentColor;
+	border-radius: var(--t-corner-radius);
+}
