@@ -64,7 +64,8 @@
 			"description": "Blog of a front-end developer who likes to tinker"
 		},
 		"langSwitchLabel": "Switch Language",
-		"themeSwitchLabel": "Switch The<span><kbd>m</kbd></span>e",
+		"themeSwitchLabelMarkup": "Switch The<span><kbd>m</kbd></span>e",
+		"themeSwitchLabel": "Switch Theme",
 		"themePicker": "Theme Picker",
 		"closeThemePicker": "Close theme picker"
 	}

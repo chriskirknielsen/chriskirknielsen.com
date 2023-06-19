@@ -14,6 +14,7 @@
     }
   },
   layout: "layouts/base.njk",
+  eleventyExcludeFromCollections: true,
   permalink: "/{{ localeRoot }}tags/{{ tag }}/",
   eleventyComputed: {
     title: "{{ 'tagged' | i18n }} {{ 'grammar.quoteOpen' | i18n }}{{ tag }}{{ 'grammar.quoteClose' | i18n }}"

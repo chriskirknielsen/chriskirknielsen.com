@@ -64,7 +64,8 @@
 			"description": "Blog d'un développeur front-end qui aime bidouiller"
 		},
 		"langSwitchLabel": "Changer de Langue",
-		"themeSwitchLabel": "Changer de Thè<span><kbd>m</kbd></span>e",
+		"themeSwitchLabelMarkup": "Changer de Thè<span><kbd>m</kbd></span>e",
+		"themeSwitchLabel": "Changer de Thème",
 		"themePicker": "Sélecteur de Thème",
 		"closeThemePicker": "Fermer le sélecteur de thème"
 	}

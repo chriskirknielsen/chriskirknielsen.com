@@ -6,7 +6,11 @@ fontLove: 'powercells'
 styleOverrides: ['ottselesque']
 customMetaImage: ottselesque.png
 metaThemeColorOverride: '#37200e'
-fontSpecimen: { 'Ottselesque': [ { 'file': 'Ottselesque-Regular.woff2' } ] }
+fontSpecimen: {
+    'Ottselesque': [ {
+        'file': 'Ottselesque-Regular.woff2',
+        'ascentOverride': '90%'
+    } ] }
 fontSpecimenSampleDefault: 'Naughty Ottsel'
 fontSpecimenFallback: 'fantasy'
 ---
@@ -79,7 +83,7 @@ fontSpecimenFallback: 'fantasy'
         } %}
 
         {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault, previewWarnings) %}
-            <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
+            <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300" aria-hidden="true">
                 <defs>
                     <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%">
                         <stop offset="0.2" stop-color="#ff361a"/>
@@ -113,8 +117,8 @@ fontSpecimenFallback: 'fantasy'
                     </symbol>
                 </defs>
                 
-                <use xlink:href="#sample-text" fill="#ffffff" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"/>
-                <use xlink:href="#sample-text" fill="#262425" stroke="#262425" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#noise)" transform="translate(-0.5 -0.5)" aria-hidden="true"/>
+                <use xlink:href="#sample-text" fill="#ffffff" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+                <use xlink:href="#sample-text" fill="#262425" stroke="#262425" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#noise)" transform="translate(-0.5 -0.5)"/>
                 <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
             </svg>
         {% endcall %}
@@ -170,7 +174,7 @@ fontSpecimenFallback: 'fantasy'
     <div class="full-content flow">
         <h2>Why make this now?</h2>
         <p>
-            Some backstory: I've always been a huge Jak and Daxter fan (I still use the username JaKhris — very original, I know), as it was my firs game on PlayStation 2, and I used to run a J&amp;D fansite called <strong>JAKPRO</strong> back in the day, which closed (I won't lie, that was a bitter experience). It got revived as "The Naughty Kennel", a fansite more broadly about Naughty Dog games, but then it closed as well as my available time dwindled once more. Maintaining a dying breed of websites is no small feat — hats off to my friends at <a href="https://ratchet-galaxy.com">Ratchet-Galaxy</a>!
+            Some backstory: I've always been a huge Jak and Daxter fan (I still use the username JaKhris — very original, I know), as it was my first game on PlayStation 2, and I used to run a J&amp;D fansite called <strong>JAKPRO</strong> back in the day, which closed (I won't lie, that was a bitter experience). It got revived as "The Naughty Kennel", a fansite more broadly about Naughty Dog games, but then it closed as well as my available time dwindled once more. Maintaining a dying breed of websites is no small feat — hats off to my friends at <a href="https://ratchet-galaxy.com">Ratchet-Galaxy</a>!
         </p>
         <p>
             I'm not sure why, but some time during July 2021, I had a nostalgic feeling for these games, thinking back to my webmastering days, and making J&amp;D-based fanart and whatnot. I always thought to myself "How come we never got some font based on this logo?" I wanted to make one myself all those years ago, but my graphic design skills were terrible, and my font-making skills were non-existent. Nowadays, I can handle it (well, you can be the judge of that), so I set out to make it! It's based on the logo and various promotional material or concept art I found, and then lots of creative liberty.

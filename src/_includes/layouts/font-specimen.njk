@@ -17,6 +17,9 @@
 			font-weight: {{ fontSpecimenFace.weight or 400 }};
 			font-style: {{ fontSpecimenFace.style or 'normal' }};
 			font-display: swap;
+			{% if fontSpecimenFace.ascentOverride %}ascent-override: {{ fontSpecimenFace.ascentOverride }};{% endif %}
+			{% if fontSpecimenFace.descentOverride %}descent-override: {{ fontSpecimenFace.descentOverride }};{% endif %}
+			{% if fontSpecimenFace.lineGapOverride %}line-gap-override: {{ fontSpecimenFace.lineGapOverride }};{% endif %}
 		}
 		{%- endfor -%}
 		.specimen { font-family: '{{ fontSpecimenName }}', {{ (fontSpecimenFallback | safe) or 'sans-serif' }}; }
@@ -72,7 +75,7 @@
 			{% endfor %}
 		{% endif %}
 
-        <output for="preview-input" class="preview-interactive-piece">
+        <output id="preview-output-wrap" for="preview-input" class="preview-interactive-piece" aria-label="{{ defaultText }}">
             {{ caller() }}
         </output>
 
@@ -111,13 +114,16 @@
 	{% set fontSpecimenScripts %}
 		var fontPreviewerForm = document.getElementById('font-previewer');
 		var fontPreviewInput = document.getElementById('preview-input');
+		var fontPreviewOutputWrap = document.getElementById('preview-output-wrap');
 		var fontPreviewOutput = document.getElementById('preview-output');
 		var fontPreviewSvg = document.getElementById('preview-svg');
 		var fontPreviewSave = document.getElementById('save-preview');
 		var fontNameSlug = '{{ title | stripHyphenChars | slug }}';
 
-		function updateFontPreviewText() { 
-			fontPreviewOutput.textContent = fontPreviewInput.value.trim() || '{{ fontSpecimenSampleDefault | safe }}';
+		function updateFontPreviewText() {
+			const text = fontPreviewInput.value.trim() || '{{ fontSpecimenSampleDefault | safe }}';
+			fontPreviewOutputWrap.setAttribute('aria-label', text);
+			fontPreviewOutput.textContent = text;
 		}
 
 		function updateFontPreviewOptions(e = null) {
