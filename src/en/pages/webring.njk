@@ -1,30 +1,32 @@
 ---
 title: Webring
-summary: Fun sites and friends!
+summary: Fun sites and things and such!
 permalink: /webring/
 ---
 
 <h2>CSS Joy</h2>
 
+<p>Websites of people that enjoy experimenting with CSS :)</p>
+
 <div class="spaced-items" style="--flow-space: 1em;">
     {% component "cta", {
         url: "https://webri.ng/webring/cssjoy/previous?via=https://chriskirknielsen.com/webring/",
-        label: { aria: "Previous", plain: "" },
+        label: { aria: "Previous", plain: "Prev" },
         icon: "arrow-back",
         iconBefore: true,
-        ctaAttr: 'data-cta="icon"'
+        ctaAttr: 'data-shape="flipped"'
     } %}
 
     {% component "cta", {
         url: "https://webri.ng/webring/cssjoy/random?via=https://chriskirknielsen.com/webring/",
         label: "Random",
-        icon: false
+        icon: false,
+        ctaAttr: 'data-shape="rect"'
     } %}
 
     {% component "cta", {
         url: "https://webri.ng/webring/cssjoy/next?via=https://chriskirknielsen.com/webring/",
-        label: { aria: "Next", plain: "" },
-        icon: "arrow-next",
-        ctaAttr: 'data-cta="icon"'
+        label: "Next",
+        icon: "arrow-next"
     } %}
 </div>
