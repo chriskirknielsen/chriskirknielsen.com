@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 
 <form method="get" id="searchform" class="inline-form" action="https://duckduckgo.com/" role="search" autocomplete="off" novalidate>
     <input type="hidden" name="sites" value="https://chriskirknielsen.com"/>
-    <label for="s" class="visually-hidden">Search for:</label>
+    <label for="q" class="visually-hidden">Search for:</label>
     <input type="text" value="" name="q" id="q" enterkeyhint="search">
     {% component "cta", {
         type: 'button',
