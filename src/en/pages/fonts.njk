@@ -6,7 +6,7 @@ summary: You might find a cool, nerdy font by Christopher Kirk-Nielsen here
 
 <div class="gridlist" data-grid-cols="3">
 {% for font in collections.fonts | sort(false, false, "inputPath") %}
-	{% set fontDesc %}<p class="u-marginBlockStart-auto u-fontSize-smallest">{{ font.data.summary }}</p>{% endset %}
+	{% set fontDesc %}<p class="u-fontSize-smallest">{{ font.data.summary }}</p>{% endset %}
     {% component "griditem", {
 		gridItem: font,
 		gridCoverlink: true,
