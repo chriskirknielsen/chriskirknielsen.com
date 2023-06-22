@@ -57,6 +57,10 @@
 	}
 }
 
+summary.cta::-webkit-details-marker {
+	display: none;
+}
+
 .button-reset {
 	display: inline-block;
 	padding: 0;
