@@ -62,8 +62,9 @@
 }
 
 @mixin subgrid {
-	// Until subgrid behaves properly in Safari (https://bugs.webkit.org/show_bug.cgi?id=245936), restricting subgrid to Firefox
-	@-moz-document url-prefix() {
+	// Until subgrid behaves properly in Safari (https://bugs.webkit.org/show_bug.cgi?id=245936), don't allow Safari
+	// Negated version of https://chrislachance.com/new-css-hacks-to-target-safari/
+	@supports not ((font: -apple-system-body) and (not (-webkit-touch-callout: default))) {
 		@supports (grid-template-columns: subgrid) {
 			@content;
 		}
