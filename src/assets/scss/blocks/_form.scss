@@ -94,7 +94,8 @@
 	align-items: center;
 
 	& > input {
-		flex: 1 1 12ch;
+		flex: 1 1 auto;
+		min-width: 12ch;
 	}
 }
 

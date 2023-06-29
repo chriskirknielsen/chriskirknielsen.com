@@ -28,7 +28,7 @@
 		}
 	});
 	document.addEventListener('keyup', function (e) {
-		if (e.altKey || e.metaKey || e.ctrlKey || e.shiftKey) {
+		if (e.altKey || e.metaKey || e.ctrlKey || e.shiftKey || e.target.closest('input,textarea')) {
 			return;
 		}
 		let isEsc = e.code === 'Escape';

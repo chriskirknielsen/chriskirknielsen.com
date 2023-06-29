@@ -19,7 +19,7 @@ async function getDatabase() {
 
 // Based on https://daily-dev-tips.com/posts/eleventy-creating-a-static-javascript-search/
 const runQuery = async () => {
-	resultsEl.innerHTML = `<li class="postlist-post">Loading…</li>`; // Reset
+	resultsEl.innerHTML = `<li class="u-color-grey-med">Loading…</li>`; // Reset
 	const query = inputEl.value.toLowerCase().trim();
 	if (query.length <= 0) return;
 	const match = new RegExp(`${query}`, 'gi');
@@ -27,17 +27,18 @@ const runQuery = async () => {
 	let data = await getDatabase();
 	let result = data.filter((item) => match.test(item.title) || match.test(item.tags.join(' ')));
 	if (result.length === 0) {
-		resultsMarkup = `<li class="postlist-post">No results found 😢</li>`;
+		resultsMarkup = `<li>No results found 😢</li>`;
 	}
 	result.sort((a, b) => {
 		return new Date(b.date) - new Date(a.date);
 	});
 	result.forEach((page) => {
+		const dateInIso = new Date(page.date).toISOString().split('T').shift();
 		resultsMarkup += `
-			<li class="postlist-post">
-				<h3 class="h4">
-					<a href="${page.url}" class="heading-link" hreflang="${page.lang}">${page.title}</a>
-				</h3>
+			<li>
+				<time datetime="${dateInIso}" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums">${dateInIso}</time>
+				<a href="${page.url}" hreflang="${page.lang}">${page.title}</a>
+				<span class="u-color-gray-med">(${page.lang})</span>
 			</li>
 		`;
 	});

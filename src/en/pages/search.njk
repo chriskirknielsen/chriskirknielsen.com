@@ -6,10 +6,10 @@ eleventyExcludeFromCollections: true
 
 <form method="get" id="searchform" class="inline-form" action="https://duckduckgo.com/" role="search" autocomplete="off" novalidate>
     <input type="hidden" name="sites" value="https://chriskirknielsen.com"/>
-    <label for="q" class="visually-hidden">Search for:</label>
+    <label for="q">Search for:</label>
     <input type="text" value="" name="q" id="q" enterkeyhint="search">
     {% component "cta", {
-        type: 'button',
+        type: 'submit',
         label: 'Search',
         ctaAttr: 'id="searchsubmit"',
         icon: 'search',
@@ -17,6 +17,9 @@ eleventyExcludeFromCollections: true
     } %}
 </form>
 
-<ul id="results" class="postlist | flow" style="--flow-space: var(--size-l)" role="list" aria-live="polite"></ul>
+<ul id="results" class="flow" style="--flow-space: var(--size-s)" role="list" aria-live="polite">
+    {# Adding classes used by the script so PurgeCSS preserves them in the page's styles #}
+    <li class="u-color-aux-med u-fontSize-smallest" hidden></li>
+</ul>
 
 <script>{%- include "assets/js/search.js" -%}</script>

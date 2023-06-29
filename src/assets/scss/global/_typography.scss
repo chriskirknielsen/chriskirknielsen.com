@@ -44,7 +44,7 @@ em {
 // box-decoration-break: clone;
 // }
 
-time[datetime] {
+time:where([datetime]) {
 	font-weight: 700;
 	color: var(--t-datetime-color, var(--t-accent-color));
 }
