@@ -2,6 +2,9 @@
 const formEl = document.getElementById('searchform');
 const inputEl = document.getElementById('q');
 const resultsEl = document.getElementById('results');
+const resultItemTemplate = document.getElementById('search-result-item');
+const resultHeadingEl = document.getElementById('search-results-heading');
+const resultCountEl = document.getElementById('search-results-count');
 
 let database = null;
 async function getDatabase() {
@@ -19,31 +22,50 @@ async function getDatabase() {
 
 // Based on https://daily-dev-tips.com/posts/eleventy-creating-a-static-javascript-search/
 const runQuery = async () => {
-	resultsEl.innerHTML = `<li class="u-color-grey-med">Loading…</li>`; // Reset
 	const query = inputEl.value.toLowerCase().trim();
-	if (query.length <= 0) return;
-	const match = new RegExp(`${query}`, 'gi');
-	let resultsMarkup = '';
-	let data = await getDatabase();
-	let result = data.filter((item) => match.test(item.title) || match.test(item.tags.join(' ')));
-	if (result.length === 0) {
-		resultsMarkup = `<li>No results found 😢</li>`;
+	if (query.length <= 0) {
+		return;
 	}
-	result.sort((a, b) => {
-		return new Date(b.date) - new Date(a.date);
-	});
-	result.forEach((page) => {
-		const dateInIso = new Date(page.date).toISOString().split('T').shift();
-		resultsMarkup += `
-			<li>
-				<time datetime="${dateInIso}" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums">${dateInIso}</time>
-				<a href="${page.url}" hreflang="${page.lang}">${page.title}</a>
-				<span class="u-color-gray-med">(${page.lang})</span>
-			</li>
-		`;
-	});
+
+	formEl.setAttribute('data-state', 'changed');
+	resultsEl.innerHTML = `<li>Loading…</li>`;
+
+	let data = await getDatabase();
+	let result = data.filter((item) => item.title.toLowerCase().includes(query) || item.tags.join(' ').toLowerCase().includes(query));
+
 	setTimeout(() => {
-		resultsEl.innerHTML = resultsMarkup;
+		if (result.length === 0) {
+			resultsEl.innerHTML = `<li>No results found 😢</li>`;
+			return;
+		}
+
+		const resultsFragment = new DocumentFragment();
+		resultsEl.innerHTML = '';
+
+		result.sort((a, b) => {
+			return new Date(b.date) - new Date(a.date);
+		});
+		result.forEach((page) => {
+			const tpl = resultItemTemplate.content.cloneNode(true);
+			const dateEl = tpl.querySelector('time[datetime]');
+			const anchorEl = tpl.querySelector('a[href]');
+			const langEl = tpl.querySelector('[data-lang-code]');
+
+			const dateInIso = new Date(page.date).toISOString().split('T').shift();
+
+			dateEl.setAttribute('datetime', dateInIso);
+			dateEl.innerText = dateInIso;
+
+			anchorEl.setAttribute('href', page.url);
+			anchorEl.setAttribute('hreflang', page.lang);
+			anchorEl.innerText = page.title;
+
+			langEl.innerText = `(${page.lang})`;
+
+			resultsFragment.append(tpl);
+		});
+		resultCountEl.innerText = `(${result.length})`;
+		resultsEl.append(resultsFragment);
 	}, 100); // Fake a loading period
 };
 

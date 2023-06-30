@@ -4,7 +4,7 @@ summary: Find, uh, stuff.
 eleventyExcludeFromCollections: true
 ---
 
-<form method="get" id="searchform" class="inline-form" action="https://duckduckgo.com/" role="search" autocomplete="off" novalidate>
+<form method="get" id="searchform" class="inline-form" action="https://duckduckgo.com/" role="search" autocomplete="off" novalidate data-state="initial">
     <input type="hidden" name="sites" value="https://chriskirknielsen.com"/>
     <label for="q">Search for:</label>
     <input type="text" value="" name="q" id="q" enterkeyhint="search">
@@ -17,9 +17,28 @@ eleventyExcludeFromCollections: true
     } %}
 </form>
 
+<hr>
+
+<h2 id="search-results-heading">Results <span id="search-results-count"></span></h2>
+
 <ul id="results" class="flow" style="--flow-space: var(--size-s)" role="list" aria-live="polite">
     {# Adding classes used by the script so PurgeCSS preserves them in the page's styles #}
     <li class="u-color-aux-med u-fontSize-smallest" hidden></li>
 </ul>
 
+<template id="search-result-item">
+    <li>
+        <time datetime="0000-00-00" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums">0000-00-00</time>
+        <a href="/" hreflang="LANG">Title</a>
+        <span class="u-fontSize-smallest" data-lang-code>(LANG)</span>
+    </li>
+</template>
+<style>
+{% set searchCss %}
+[data-state="initial"] ~ hr,
+[data-state="initial"] ~ h2 {
+    display: none;
+    }
+{% endset %}
+{{ searchCss | cssmin | safe }}</style>
 <script>{%- include "assets/js/search.js" -%}</script>
