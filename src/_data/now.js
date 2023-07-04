@@ -60,10 +60,18 @@ module.exports = async () => {
 	const dbInfoCache = new AssetCache('now_database_last_edit');
 	const dbDataCache = new AssetCache('now_database_content');
 
+	// Local dev: allow complete bypass
+	const LOCAL_DEV_SKIP_NOW_VIA_NOTION = process.env.LOCAL_DEV_SKIP_NOW_VIA_NOTION;
+	if (LOCAL_DEV_SKIP_NOW_VIA_NOTION) {
+		console.log('now.js: Skipping data pull for local development.');
+	}
+
 	// Grab the database's latest info (not the content, just metadata about it)
-	const dbInfo = await notionClient.databases.retrieve({
-		database_id: nowDatabaseId,
-	});
+	const dbInfo = LOCAL_DEV_SKIP_NOW_VIA_NOTION
+		? { last_edited_time: await dbInfoCache.getCachedContents('text') }
+		: await notionClient.databases.retrieve({
+				database_id: nowDatabaseId,
+		  });
 
 	// Determine when the DB was last edited, or created
 	const dbLastEdit = dbInfo.last_edited_time || dbInfo.created_time || '';
