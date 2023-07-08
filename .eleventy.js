@@ -103,6 +103,7 @@ module.exports = function (eleventyConfig) {
 		copyButtonAttrs: {
 			class: 'codeblock-copy',
 			'data-codewrap-copy-button': '',
+			hidden: '',
 		},
 		copyButtonLabel: (tokens, idx, options, env, self) => {
 			return `<span class="codeblock-copy__idle">📋 ${env?.i18n?.codeBlock?.copyLabel || 'Copy'}</span>

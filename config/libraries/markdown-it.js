@@ -263,7 +263,8 @@ module.exports = (eleventyConfig, options = {}) => {
 		}
 
 		const codeCopyHandler = `<script>
-		if (navigator.clipboard.writeText) {
+		const clipboard = navigator.clipboard.writeText;
+		if (clipboard) {
 			document.addEventListener('click', function(e) {
 				const copyButton = e.target.closest('.codeblock-copy');
 				if (!copyButton) { return; }
@@ -278,9 +279,10 @@ module.exports = (eleventyConfig, options = {}) => {
 					}, 2000);
 				});
 			});
-		} else {
-			Array.from(document.querySelectorAll('.codeblock-copy')).forEach(btn => btn.hidden = true);
 		}
+		document.addEventListener('DOMContentLoaded', () => {
+			Array.from(document.querySelectorAll('.codeblock-copy')).forEach(btn => btn.hidden = !clipboard);
+		});
 		</script>`;
 		$('head').append(codeCopyHandler);
 
