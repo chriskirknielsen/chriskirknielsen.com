@@ -25,17 +25,17 @@
 <link rel="mask-icon" href="{{ '/' + assets.icons.maskIcon | url }}" color="{{ tokens.themes[tokens.defaultTheme.dark].colors.aux.med }}">
 <link rel="apple-touch-icon" href="{{ '/' + assets.icons.appleTouchIcon | url }}">
 
-{# Page alternates #}
-<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absoluteUrl(metadata.url) }}">
-{% for link in page.url | locale_links %}
-<link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | absoluteUrl(metadata.url) }}">
-{% endfor %}
-
 {# RSS feed #}
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ (rssFeedOverride or ('/rss.xml' | locale_url)) | absoluteUrl(metadata.url) }}">
 {% if lang == 'en' %}
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.author.name }}'s' Activity Feed" href="/follow.rss">
 {% endif %}
+
+{# Page alternates #}
+<link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absoluteUrl(metadata.url) }}">
+{% for link in page.url | locale_links %}
+<link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url | absoluteUrl(metadata.url) }}">
+{% endfor %}
 
 {# Meta, SEO, etc. #}
 <meta name="author" content="{{ metadata.author.name }}">

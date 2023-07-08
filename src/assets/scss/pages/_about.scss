@@ -143,11 +143,12 @@
 
 	&-hair--brow {
 		transform-origin: 50% 50%;
-		transition: transform 0.25s var(--easing-in-out);
+		transition: transform 250ms var(--easing-in-out);
 	}
 
 	&:hover &-hair--brow {
 		transform: translateY(-2%) rotate(-3deg);
+		transition: transform 375ms cubic-bezier(0.67, 2.5, 0.5, -0.75);
 	}
 }
 

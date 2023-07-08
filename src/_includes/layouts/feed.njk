@@ -1,6 +1,7 @@
 {%- set collectionPostsLocale = collections[collectionPostsLocaleName] -%}
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title>{{ feedTitle or metadata.title }}</title>
     <subtitle>{{ feedSubtitle or ('rss.description' | i18n) }}</subtitle>
     <link href="{{ metadata.url }}/{{ permalink }}" rel="self" />

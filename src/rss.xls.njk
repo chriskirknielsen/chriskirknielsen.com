@@ -1,0 +1,148 @@
+---
+permalink: /rss.xsl
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:atom="http://www.w3.org/2005/Atom">
+	<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+	<xsl:template match="/">
+		<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+			<head>
+				<meta charset="utf-8"/>
+				<title>RSS | <xsl:value-of select="/atom:feed/atom:title"/></title>
+				<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
+				<!-- Thanks to https://darekkay.com/blog/rss-styling/ for the tips! -->
+				<style>
+					* {
+						box-sizing: border-box;
+						margin: 0;
+					}
+
+					html {
+						--color: black;
+						--bg: white;
+						--link-idle: blue;
+						--link-active: rebeccapurple;
+						
+						height: 100%;
+						font-family: system-ui, sans-serif;
+						line-height: 1.5;
+						color: black;
+						color: var(--color);
+						background: white;
+						background: var(--bg);
+					}
+
+					@media (prefers-color-scheme: dark) {
+						html {
+							--color: #dedede;
+							--bg: #232323;
+							--link-idle: deeppink;
+							--link-active: pink;
+						}
+					}
+
+					body {
+						min-height: 100%;
+						padding: 1rem;
+						padding: 1rem max(1rem, 50vw - 24rem);
+					}
+
+					header,
+					main,
+					footer {
+						display: block;
+						padding: 1rem;
+
+						border-radius: 0.5rem;
+					}
+
+					header,
+					footer {
+						text-align: center;
+					}
+
+					main {
+						background: hsla(0, 0%, 50%, 0.1);
+					}
+
+					main > * + * {
+						margin-block-start: 1em;
+					}
+
+					main > :is(h1, h2) + * {
+						margin-block-start: 0.25em;
+					}
+
+					h1 {
+						font-size: clamp(1.5rem, (100vw - 2rem)/12, 48rem/12);
+						font-family: monospace;
+						font-weight: 900;
+						text-align: center;
+						line-height: 0.875;
+					}
+					h1 > span { display: block; margin: 0 auto; }
+					h1 > span > span { color: var(--link-idle); }
+					h1 span.chris { letter-spacing: calc(1ch / 11); }
+
+					h2 { line-height: 1.125; }
+
+					a:link,
+					a:visited { color: var(--link-idle); }
+					a:hover,
+					a:active,
+					a:focus { color: var(--link-active); }
+
+					ul {
+						margin-inline-start: 1rem;
+						padding: 0;
+					}
+
+					.post {
+						font-size: 1.125em;
+					}
+
+					.update {
+						display: block;
+						font-size: 0.875em;
+					}
+				</style>
+			</head>
+			<body>
+				<header>
+					<h1>
+						<span class="chris" aria-label="Christopher">CH<span>R</span>I<span>S</span>TOPHER</span>
+						<span class="kn" aria-label="Kirk-Nielsen">KIRK-NIEL<span>S</span>EN</span>
+					</h1>
+
+					<p>Thank you for checking out my RSS feed! Hope you’ll enjoy your stay.</p>
+				</header>
+
+				<main>
+					<h2>Blog posts</h2>
+					<ul>
+						<xsl:for-each select="/atom:feed/atom:entry">
+							<li>
+								<a class="post">
+									<xsl:attribute name="href">
+										<xsl:value-of select="atom:link/@href"/>
+									</xsl:attribute>
+									<xsl:value-of select="atom:title"/>
+								</a>
+								<span class="update">
+									Last updated:
+									<xsl:value-of select="substring(atom:updated, 0, 11)" />
+								</span>
+							</li>
+						</xsl:for-each>
+					</ul>
+				</main>
+
+				<footer>
+					<p>View my full site at <a href="https://chriskirknielsen.com">chriskirknielsen.com</a></p>
+				</footer>
+			</body>
+		</html>
+	</xsl:template>
+</xsl:stylesheet>
