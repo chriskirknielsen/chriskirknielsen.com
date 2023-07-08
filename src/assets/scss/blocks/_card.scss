@@ -107,7 +107,7 @@
 		}
 	}
 
-	@container (min-width: 18.75rem) and (max-width: 26.4375rem) {
+	@container gridlist (min-width: 18.75rem) and (max-width: 26.4375rem) {
 		flex-direction: row;
 
 		&-image {
