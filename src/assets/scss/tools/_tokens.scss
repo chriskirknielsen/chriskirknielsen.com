@@ -13,7 +13,7 @@ $tokens: (
     is-dark: 0,
     font-heading: Helvetica,
     font-body: Georgia,
-    font-italics: Georgia,
+    font-italics: var(--fontstack-serif),
     bg-color: white,
     bg-alt-color: #ccc,
     bg-neutral-color: var(--t-color-gray-max),

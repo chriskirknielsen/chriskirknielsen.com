@@ -32,7 +32,7 @@ i,
 em {
 	padding-inline-end: 0.03125em; // Add a little space after an em tag to avoid sticking too closely to the following text
 
-	font-family: var(--t-font-italics, inherit);
+	font-family: var(--t-font-italics, Georgia, serif);
 	color: var(--t-heading-color);
 }
 
