@@ -1,7 +1,7 @@
 <header class="header">
     <div class="container">
         <div class="header-inner">
-            <a href="{{ '/' | locale_url | url }}" class="header-logo" aria-labelledby="header-logo-title">
+            <a href="{{ '/' | locale_url | url }}" {{ '/' | locale_url | current(page) | safe }} class="header-logo" aria-labelledby="header-logo-title">
                 {% svg "logo", { title: ('nav.home' | i18n), titleId: 'header-logo-title' } %}
             </a>
 
@@ -9,17 +9,17 @@
                 <ul class="header-menu menu" role="list">
                     {% if collections.post | filterToLocale | length %}
                     <li class="menu-item">
-                        <a href="{{ '/blog/' | locale_url | url }}" class="menu-link">{{ 'nav.blog' | i18n }}</a>
+                        <a href="{{ '/blog/' | locale_url | url }}" {{ '/blog/' | locale_url | current(page) | safe }} class="menu-link">{{ 'nav.blog' | i18n }}</a>
                     </li>
                     {% endif %}
                     <li class="menu-item">
-                        <a href="{{ '/about/' | locale_url | url }}" class="menu-link">{{ 'nav.about' | i18n }}</a>
+                        <a href="{{ '/about/' | locale_url | url }}" {{ '/about/' | locale_url | current(page) | safe }} class="menu-link">{{ 'nav.about' | i18n }}</a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ '/designs/' | url }}" hreflang="en" class="menu-link">{{ 'nav.designs' | i18n }}</a>
+                        <a href="{{ '/designs/' | url }}" {{ '/designs/' | current(page) | safe }} hreflang="en" class="menu-link">{{ 'nav.designs' | i18n }}</a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ '/projects/' | url }}" hreflang="en" class="menu-link">{{ 'nav.projects' | i18n }}</a>
+                        <a href="{{ '/projects/' | url }}" {{ '/projects/' | current(page) | safe }} hreflang="en" class="menu-link">{{ 'nav.projects' | i18n }}</a>
                     </li>
                 </ul>
             </nav>

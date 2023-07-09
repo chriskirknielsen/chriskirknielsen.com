@@ -25,9 +25,9 @@
             <nav aria-labelledby="footer-extras-links-title" class="footer-nav" data-footer-nav="extras">
                 <h2 class="h4" id="footer-extras-links-title">{{ 'footerAdditionalLinks' | i18n }}</h2>
                 <ul>
-                    <li><a href="{{ '/acknowledgements/' | locale_url }}">{{ 'nav.acknowledgements' | i18n | safe }}</a></li>
-                    <li><a href="{{ '/fonts/' | url }}" hreflang="en">{{ 'customFonts' | i18n | safe }}</a></li>
-                    {% if lang == 'en' %}<li><a href="{{ '/webring/' | url }}" hreflang="en">Webring</a></li>{% endif %}
+                    <li><a href="{{ '/acknowledgements/' | locale_url }}" {{ '/acknowledgements/' | locale_url | current(page) | safe }}>{{ 'nav.acknowledgements' | i18n | safe }}</a></li>
+                    <li><a href="{{ '/fonts/' | url }}" {{ '/fonts/' | current(page) | safe }} hreflang="en">{{ 'customFonts' | i18n | safe }}</a></li>
+                    {% if lang == 'en' %}<li><a href="{{ '/webring/' | url }}" {{ '/webring/' | current(page) | safe }} hreflang="en">Webring</a></li>{% endif %}
                     <li><a href="{{ metadata.tweetArchiveUrl }}" hreflang="en">{{ 'tweetArchive' | i18n | safe }}</a></li>
                 </ul>
             </nav>
@@ -36,7 +36,7 @@
                 <h2 class="h4" id="footer-language-links-title">{{ 'langLabel' | i18n | safe }}</h2>
                 <ul>
                 {% for langKey, langLabel in metadata.locales %}
-                    <li><a href="{{ '/' | locale_url(langKey) }}" hreflang="{{ langKey }}">{{ langLabel }}</a></li>
+                    <li><a href="{{ '/' | locale_url(langKey) }}" {{ '/' | locale_url(langKey) | current(page) | safe }} hreflang="{{ langKey }}">{{ langLabel }}</a></li>
                 {% endfor %}
                 </ul>
             </nav>
