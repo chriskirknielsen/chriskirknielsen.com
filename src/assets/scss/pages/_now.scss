@@ -1,8 +1,9 @@
 .now-list {
 	--flow-space: var(--size-xs);
+	--now-item-min: min(100%, 18rem);
 
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(var(--now-item-min), 1fr));
 	gap: var(--size-m);
 	padding: 0;
 }
@@ -11,7 +12,8 @@
 	list-style: none;
 }
 .now-item:has(.now-item-image) > .now-item-content {
-	padding: var(--size-m);
+	padding-block: var(--size-m);
+	padding-inline: 0 max(var(--size-m), 50% - var(--now-item-min)); // With §50% - var(--now-item-min)§, it ensures that the padding can be generous when the container is at least var(--now-item-min) wide, but max ensures it is at least --size-m
 	text-shadow: 0 1px 0 var(--ctx-bg), 0 0 4px var(--ctx-bg);
 }
 .now-item-content {
@@ -19,17 +21,19 @@
 	z-index: 1;
 }
 .now-item-image {
-	--mask: linear-gradient(90deg, hsl(0 0% 0% / 0.1), hsl(0 0% 0% / 0.3)); // Keep it relatively faint
+	--now-item-mask: linear-gradient(90deg, hsl(0 0% 0% / 0), 67%, hsl(0 0% 0% / 0.5)); // Keep it relatively faint
+	--now-item-width: 60%;
 
 	position: absolute;
-	inset: 0;
-	width: 100%;
+	inset-block: 0;
+	inset-inline-end: 0;
+	width: clamp(var(--now-item-min), var(--now-item-width), 2 * var(--now-item-min));
 	height: 100%;
 
 	object-fit: cover;
 	border-radius: var(--t-corner-radius);
 
 	filter: saturate(0.5);
-	-webkit-mask: var(--mask);
-	mask: var(--mask);
+	-webkit-mask: var(--now-item-mask);
+	mask: var(--now-item-mask);
 }
