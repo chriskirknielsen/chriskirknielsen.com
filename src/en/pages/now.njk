@@ -21,7 +21,10 @@ nowInfo: {
 <ul class="now-list" role="list">
     {% for nowItem in nowItems | getList %}
     <li class="now-item">
-        {% if nowItem.image %}<img src="{{ ('https://res.cloudinary.com/chriskirknielsen/image/fetch/' + cloudinaryParams + '/' + (nowItem.image | urlencode)) | url }}" alt="" aria-hidden="true" class="now-item-image" width="1200" height="400">{% endif %}
+        {% if nowItem.image %}
+            {% set nowItemImage = 'https://res.cloudinary.com/chriskirknielsen/image/fetch/' + cloudinaryParams + '/' + (nowItem.image | urlencode) %}
+            <img src="{{ nowItemImage | url }}" alt="" aria-hidden="true" class="now-item-image" width="600" height="200">
+        {% endif %}
         <p class="now-item-content">
             {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
                 <strong>{{ nowItem.title }}
@@ -36,9 +39,9 @@ nowInfo: {
 
 {%- mdsafe -%}
 {% for nowKey, nowData in nowInfo %}
-    {% if now[nowKey] %}
+    {%- if now[nowKey] -%}
         <h2>{{ nowData.heading }} {{ nowData.emoji }}</h2>
-        {{ nowList(now[nowKey], nowData.detail or false) }}
-    {% endif %}
-{% endfor %}
+        {{ nowList(now[nowKey], nowData.detail or false) -}}
+    {%- endif -%}
+{%- endfor -%}
 {%- endmdsafe -%}
