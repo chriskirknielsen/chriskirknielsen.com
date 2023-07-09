@@ -16,15 +16,19 @@ nowInfo: {
 }
 ---
 
-{% macro nowList(nowItems, marker, detailPrefix = false) %}
-<ul class="now-list" style="--marker:'{{ marker }}'">
+{% macro nowList(nowItems, detailPrefix = false) %}
+{% set cloudinaryParams = 'c_fill,g_auto:faces,h_200,w_600/q_auto:eco' %}
+<ul class="now-list" role="list">
     {% for nowItem in nowItems | getList %}
-    <li>
-        {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
-            <strong>{{ nowItem.title }}
-            {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }} {% endif %}{{ nowItem.detail }}){% endif %}</strong>
-        {% if nowItem.link %}</a>{% endif %}
-        {% if nowItem.blurb %}<br>{{ nowItem.blurb | safe }}{% endif %}
+    <li class="now-item">
+        {% if nowItem.image %}<img src="{{ ('https://res.cloudinary.com/chriskirknielsen/image/fetch/' + cloudinaryParams + '/' + (nowItem.image | urlencode)) | url }}" alt="" aria-hidden="true" class="now-item-image" width="1200" height="400">{% endif %}
+        <p class="now-item-content">
+            {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
+                <strong>{{ nowItem.title }}
+                {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }}&nbsp;{% endif %}{{ nowItem.detail }}){% endif %}</strong>
+            {% if nowItem.link %}</a>{% endif %}
+            {% if nowItem.blurb %}<br>{{ nowItem.blurb | safe }}{% endif %}
+        </p>
     </li>
     {% endfor %}
 </ul>
@@ -33,8 +37,8 @@ nowInfo: {
 {%- mdsafe -%}
 {% for nowKey, nowData in nowInfo %}
     {% if now[nowKey] %}
-        <h2>{{ nowData.heading }}</h2>
-        {{ nowList(now[nowKey], nowData.emoji, nowData.detail or false) }}
+        <h2>{{ nowData.heading }} {{ nowData.emoji }}</h2>
+        {{ nowList(now[nowKey], nowData.detail or false) }}
     {% endif %}
 {% endfor %}
 {%- endmdsafe -%}

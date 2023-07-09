@@ -61,7 +61,7 @@ module.exports = async () => {
 	const dbDataCache = new AssetCache('now_database_content');
 
 	// Local dev: allow complete bypass
-	const LOCAL_DEV_SKIP_NOW_VIA_NOTION = process.env.LOCAL_DEV_SKIP_NOW_VIA_NOTION;
+	const LOCAL_DEV_SKIP_NOW_VIA_NOTION = [true, 'true'].includes(process.env.LOCAL_DEV_SKIP_NOW_VIA_NOTION);
 	if (LOCAL_DEV_SKIP_NOW_VIA_NOTION) {
 		console.log('now.js: Skipping data pull for local development.');
 	}
@@ -98,7 +98,7 @@ module.exports = async () => {
 
 	// Based on the DB info, build a list of the IDs for the properties needed for the Now page based on their name
 	const databaseProps = dbInfo.properties;
-	const propsToUse = ['title', 'detail', 'blurb', 'category', 'link'];
+	const propsToUse = ['title', 'detail', 'blurb', 'category', 'link', 'image'];
 	let propsById = [];
 	for (let p in databaseProps) {
 		if (propsToUse.includes(p)) {
@@ -136,6 +136,7 @@ module.exports = async () => {
 			blurb: props.blurb.rich_text.map((textBlock) => richTextBlockToMd(textBlock)).join(''),
 			category: props.category.select?.name,
 			link: props.link.url,
+			image: props.image.files.length > 0 ? (props.image.files[0].type === 'external' ? props.image.files[0].external.url : props.image.files[0].file.url) : null,
 		};
 	});
 
