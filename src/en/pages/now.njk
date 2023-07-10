@@ -7,24 +7,33 @@ section: now
 bigboiCta: { url: "https://nownownow.com/about", label: "What this is", icon: "question" }
 templateEngineOverride: njk, md
 nowInfo: {
-    home: { heading: "Living", emoji: "🏠" },
-    music: { heading: "Listening", emoji: "🎧" },
-    sport: { heading: "Training", emoji: "🏃‍♂️" },
-    show: { heading: "Watching", emoji: "📺", detail: "Season" },
-    book: { heading: "Reading", emoji: "📚" },
-    game: { heading: "Playing", emoji: "🎮" },
+    home: { heading: "Living" },
+    music: { heading: "Listening" },
+    sport: { heading: "Training" },
+    show: { heading: "Watching", detail: "Season" },
+    book: { heading: "Reading" },
+    game: { heading: "Playing" },
 }
 ---
 
-{% macro nowList(nowItems, detailPrefix = false) %}
-{% set cloudinaryParams = 'c_fill,g_auto:faces,h_200,w_600/q_auto:eco' %}
-<ul class="now-list" role="list">
-    {% for nowItem in nowItems | getList %}
-    <li class="now-item">
+{%- set lastKey = '' -%}
+{% macro nowList(nowKey, nowItems, nowData) %}
+{% set detailPrefix = nowData.detail or false %}
+{% set imageWidth = 600 %}
+{% set imageHeight = 900 %}
+{# {% set imageHeight = 600 %} #}
+{% set cloudinaryParams = 'c_fill,g_auto:faces,h_'+imageHeight+',w_'+imageWidth+'/q_auto:eco' %}
+{% for nowItem in nowItems | getList %}
+    <div class="now-item">
+        {% if lastKey != nowKey %}
+        <h2 class="now-section-heading">{{ nowInfo[nowKey].heading }}</h2>
+        {% endif %}
+
         {% if nowItem.image %}
             {% set nowItemImage = 'https://res.cloudinary.com/chriskirknielsen/image/fetch/' + cloudinaryParams + '/' + (nowItem.image | urlencode) %}
-            <img src="{{ nowItemImage | url }}" alt="" aria-hidden="true" class="now-item-image" width="600" height="200">
+            <img src="{{ nowItemImage | url }}" alt="" aria-hidden="true" class="now-item-image" width="{{ imageWidth }}" height="{{ imageHeight }}">
         {% endif %}
+
         <p class="now-item-content">
             {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
                 <strong>{{ nowItem.title }}
@@ -32,16 +41,17 @@ nowInfo: {
             {% if nowItem.link %}</a>{% endif %}
             {% if nowItem.blurb %}<br>{{ nowItem.blurb | safe }}{% endif %}
         </p>
-    </li>
-    {% endfor %}
-</ul>
+    </div>
+    {%- set lastKey = nowKey -%}
+{% endfor %}
 {% endmacro %}
 
 {%- mdsafe -%}
+<div class="now-grid" role="list">
 {% for nowKey, nowData in nowInfo %}
     {%- if now[nowKey] -%}
-        <h2>{{ nowData.heading }} {{ nowData.emoji }}</h2>
-        {{ nowList(now[nowKey], nowData.detail or false) -}}
+        {{ nowList(nowKey, now[nowKey], nowData) -}}
     {%- endif -%}
 {%- endfor -%}
+</div>
 {%- endmdsafe -%}

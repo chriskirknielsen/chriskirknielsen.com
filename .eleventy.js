@@ -184,7 +184,7 @@ module.exports = function (eleventyConfig) {
 		domDiff: false, // Due to runtime JS (mainly themes), it is preferrable to get a fresh copy of the DOM
 	});
 
-	eleventyConfig.setWatchThrottleWaitTime(100); // Wait a teeny bit before re-running, very useful when saving many files in one go
+	eleventyConfig.setWatchThrottleWaitTime(500); // Wait a teeny bit before re-running, very useful when saving many files in one go
 
 	return {
 		pathPrefix: '/',

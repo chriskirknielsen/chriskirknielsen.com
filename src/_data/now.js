@@ -61,7 +61,7 @@ module.exports = async () => {
 	const dbDataCache = new AssetCache('now_database_content');
 
 	// Local dev: allow complete bypass
-	const LOCAL_DEV_SKIP_NOW_VIA_NOTION = [true, 'true'].includes(process.env.LOCAL_DEV_SKIP_NOW_VIA_NOTION);
+	const LOCAL_DEV_SKIP_NOW_VIA_NOTION = false && [true, 'true'].includes(process.env.LOCAL_DEV_SKIP_NOW_VIA_NOTION);
 	if (LOCAL_DEV_SKIP_NOW_VIA_NOTION) {
 		console.log('now.js: Skipping data pull for local development.');
 	}
@@ -77,7 +77,7 @@ module.exports = async () => {
 	const dbLastEdit = dbInfo.last_edited_time || dbInfo.created_time || '';
 
 	// Check if there is a cache object for the value we're after
-	const isCachePresent = dbInfoCache.cachedObject && dbDataCache.cachedObject;
+	const isCachePresent = false && dbInfoCache.cachedObject && dbDataCache.cachedObject;
 
 	if (isCachePresent) {
 		// Get the last cached value for the DB info
