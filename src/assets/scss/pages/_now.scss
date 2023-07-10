@@ -29,7 +29,7 @@
 }
 
 .now-item:has(.now-item-image) {
-	--now-item-image-fill: minmax(min(33vh, 10rem), 1fr);
+	--now-item-image-fill: minmax(clamp(2rem, 10vh, 10rem), 1fr);
 }
 
 .now-item:has(.now-item-image) :is(.now-section-heading, .now-item-content) {
