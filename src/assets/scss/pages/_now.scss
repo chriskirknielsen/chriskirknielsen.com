@@ -14,10 +14,12 @@
 	grid-template-rows:
 		calc(var(--type-4) / 4 * 3) /* Most of an h2 size */
 		auto
-		var(--now-item-image-fill, 0px) /* At least a little of the image should be revealed*/
+		var(--now-item-image-fill, 1fr) /* At least a little of the image should be revealed*/
 		auto
-		1rem; //
+		1rem;
 	grid-template-columns: 1fr;
+	min-height: max(min(33vh, 12rem), 24rem);
+	min-height: clamp(12rem, 33vh, 24rem);
 
 	& > * {
 		grid-column: 1;
