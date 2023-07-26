@@ -402,9 +402,9 @@ $tokens: (
     2xl: 4rem
   ),
   fontstack: (
-    serif: ('Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida Serif', 'Lucida', 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', 'Georgia', 'serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
-    sans-serif: ('system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'),
-    monospace: ('Monaco', 'Consolas', 'Andale Mono', 'Courier New', 'monospace', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol')
+    serif: ('Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida Serif', 'Lucida', 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', 'Georgia', 'serif', 'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiOne Color'),
+    sans-serif: ('system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif', 'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiOne Color'),
+    monospace: ('Monaco', 'Consolas', 'Andale Mono', 'Courier New', 'monospace', 'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiOne Color')
   ),
   easing: (
     in: cubic-bezier(0.75, 0, 1, 1),
