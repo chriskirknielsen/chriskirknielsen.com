@@ -10,21 +10,14 @@ Denne hjemmeside er bygget med [Eleventy](https://www.11ty.dev/), en statisk hje
 
 Temavælgeren er lidt (meget) inspireret af [Max Böcks egen](https://mxb.dev), og den sjov side er inspireret af [Sophie Koonins hjemmeside](https://localghost.dev/). Synthen på [Om mig](/en/om-mig/) siden kommer fra [Bret Camerons idé](https://css-tricks.com/how-to-code-a-playable-synth-keyboard/) og er bedre tak til lidt kode fra [Daniel Schulz](https://iamschulz.com/building-a-synthesizer-in-javascript/).
 
-{% mdsafe %}
-<details class="expander">
-    <summary class="cta expander-cta | u-width100" style="--btn-justify-content:center">Mere om tema og skrifttyper 🎨</summary>
-    <div class="expander-content">
-        <ul class="list-bullet-offset">
-            <li><strong>Dusk:</strong> Et neon-fyldt, retrowave-inspireret tema, som basisk er hele min online personlighed. Den bruger den smukke <a href="https://www.readvisions.com/marvin">Marvin Visions</a> skrifttype.</li>
-            <li><strong>Dawn:</strong> Dette næsten-hvide tema prøver at være en lys-mode version af Dusk, med <em>lige</em> nok forskel!</li>
-            <li><strong>Vapor:</strong> En form for en vaporwave-tema som var meget sjovt at lave, tak igen her til Sophie Koonin for inspirationen!! <a href="https://www.dafont.com/vcr-osd-mono.font">VCR OSD Mono</a> var det eneste skrifttypevalg.</li>
-            <li><strong>Y2K:</strong> Jeg voksede op med Windows 98 og XP, så jeg var nødt til at lave denne tema. Se lige på logoet nederst på siden.</li>
-            <li><strong>Neo-Tokyo:</strong> Jeg elsker Retrowave, men dystopiske cyberpunk-stilarter er også fede. Denne tager lidt fra Akira! De brede overskrifter bruger <a href="https://fonts.google.com/specimen/Syncopate">Syncopate</a>.</li>
-            <li><strong>Campfire:</strong> Modsat den forrige, tager dette stor inspiration fra videospillet Firewatch og <a href="http://ollymoss.com/#/firewatch/">Olly Moss</a>' smukke kunstværk. Jeg var efter en "nationalpark" stil, med overskrifter, der ser perfekte ud i <a href="https://www.dafont.com/hagona.font">Hagona</a>, og formen på Mont Blanc i baggrunden på hjemmesiden, som nogle gange er synligt fra min hjemby. Overskriftssektionen brugte det meste af <a href="https://codepen.io/scottkellum/details/poOWGQg">Scott Kellums kode</a> til generativ topografi. (åh og også, <a href="https://alistairshepherd.uk/">Alistair</a> gjorde alt dette bedre)</li>
-        </ul>
-    </div>
-</details>
-{% endmdsafe %}
+{% expander "Mere om tema og skrifttyper 🎨", false %}
+- **Dusk:** Et neon-fyldt, retrowave-inspireret tema, som basisk er hele min online personlighed. Den bruger den smukke [Marvin Visions](https://www.readvisions.com/marvin) skrifttype.
+- **Dawn:** Dette næsten-hvide tema prøver at være en lys-mode version af Dusk, med _lige_ nok forskel!
+- **Vapor:** En form for en vaporwave-tema som var meget sjovt at lave, tak igen her til Sophie Koonin for inspirationen!! [VCR OSD Mono](https://www.dafont.com/vcr-osd-mono.font) var det eneste skrifttypevalg.
+- **Y2K:** Jeg voksede op med Windows 98 og XP, så jeg var nødt til at lave denne tema. Se lige på logoet nederst på siden.
+- **Neo-Tokyo:** Jeg elsker Retrowave, men dystopiske cyberpunk-stilarter er også fede. Denne tager lidt fra Akira! De brede overskrifter bruger [Syncopate](https://fonts.google.com/specimen/Syncopate).
+- **Campfire:** Modsat den forrige, tager dette stor inspiration fra videospillet Firewatch og [Olly Moss](http://ollymoss.com/#/firewatch/)' smukke kunstværk. Jeg var efter en "nationalpark" stil, med overskrifter, der ser perfekte ud i [Hagona](https://www.dafont.com/hagona.font), og formen på Mont Blanc i baggrunden på hjemmesiden, som nogle gange er synligt fra min hjemby. Overskriftssektionen brugte det meste af [Scott Kellums kode](https://codepen.io/scottkellum/details/poOWGQg) til generativ topografi. (åh og også, [Alistair](https://alistairshepherd.uk/) gjorde alt dette bedre)
+{% endexpander %}
 
 Du kan se hele koden på [GitHub]({{ metadata.repo }}) for at se _plugins_ og andre brugte _packages_. Jeg beder kun om, at du ikke stjæler min kode og slår dit eget navn på den.
 

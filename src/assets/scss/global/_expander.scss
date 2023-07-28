@@ -10,6 +10,19 @@
 		}
 	}
 
+	&-cta--arrow {
+		display: inline-block;
+
+		border-block: 0.25em solid transparent;
+		border-inline-start: 0.5em solid currentColor;
+
+		transform-origin: 42.5% 50%;
+		transition: transform 500ms var(--easing-circ-out);
+	}
+	&[open] &-cta--arrow {
+		transform: rotate(90deg);
+	}
+
 	&-cta:active .inline-icon,
 	&[open] & .inline-icon {
 		transform: translateY(3px);

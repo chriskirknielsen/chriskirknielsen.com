@@ -90,13 +90,15 @@ blockquote {
 
 :where(main) :is(ol, ul):where(:not([class])),
 :where(main) :is(ol, ul) :is(ol, ul),
-.list-bullet-offset:is(ol, ul) {
+.list-bullet-offset:is(ol, ul),
+.expander-content > :is(ol, ul) {
 	list-style-position: outside;
 }
 
 :where(main) :is(ol, ul) :is(ol, ul),
-.list-bullet-offset:is(ol, ul) {
-	padding-inline-start: 0.875em;
+.list-bullet-offset:is(ol, ul),
+.expander-content > :is(ol, ul) {
+	padding-inline-start: 1em;
 }
 
 hr {

@@ -125,6 +125,7 @@ module.exports = function (eleventyConfig) {
 	/* Shortcodes */
 	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { markdownEngine: md });
 	eleventyConfig.addPlugin(require('./config/shortcodes/codepen.js'));
+	eleventyConfig.addPlugin(require('./config/shortcodes/expander.js'));
 	eleventyConfig.addPlugin(require('./config/shortcodes/callout.js'), {
 		labelByLang: Object.fromEntries(Object.keys(dictionaries).map((dictLang) => [dictLang, dictionaries[dictLang].callout])),
 		defaultLanguage: defaultLang,
