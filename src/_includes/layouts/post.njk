@@ -70,12 +70,17 @@ templateName: post
 
 	{% if not original and not externalUrl %}
 	<footer class="post-footer">
-		<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar" tabindex="-1" aria-hidden="true">
-			<img src="{{ ('/' + assets.imagesDir + '/profile.jpg') | url }}" alt="" width="64" height="64">
-		</a>
-		
-		<p class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url), aboutLinkId: "post-author-about-link" }) | safe }}</p>
-		<p class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe }}</p>
+		<div class="post-footer-inner">
+			<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar" tabindex="-1" aria-hidden="true">
+				<img src="{{ ('/' + assets.imagesDir + '/profile.jpg') | url }}" alt="" width="64" height="64">
+			</a>
+			
+			<p class="post-footer-content">
+				<span class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url), aboutLinkId: "post-author-about-link" }) | safe }}</span>
+				<br>
+				<span class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe }}</span>
+			</p>
+		</div>
 	</footer>
 	{% endif %}
 
