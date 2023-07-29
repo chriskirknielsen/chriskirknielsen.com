@@ -36,6 +36,7 @@
 		}
 	}
 }
+
 @mixin above-small {
 	@media screen and (min-width: 25em) {
 		@content; // 740px
@@ -46,11 +47,17 @@
 		@content; // 740px
 	}
 }
+@mixin above-content-column {
+	@media screen and (min-width: calc(#{get-token('constants', 'content-width')} + 4 * #{get-token('constants', 'content-gutter')})) {
+		@content; // Wider than the max content column width
+	}
+}
 @mixin above-large {
 	@media screen and (min-width: 71.25em) {
 		@content; // 1140px
 	}
 }
+
 @mixin _theme($selector, $context) {
 	@at-root {
 		#{$selector} {

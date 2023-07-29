@@ -88,17 +88,19 @@ blockquote {
 	content: '\2043\00a0';
 }
 
-:where(main) :is(ol, ul):where(:not([class])),
-:where(main) :is(ol, ul) :is(ol, ul),
-.list-bullet-offset:is(ol, ul),
-.expander-content > :is(ol, ul) {
-	list-style-position: outside;
-}
+@include above-content-column {
+	:where(main) :is(ol, ul):where(:not([class])),
+	:where(main) :is(ol, ul) :is(ol, ul),
+	.list-bullet-offset:is(ol, ul),
+	.expander-content > :is(ol, ul) {
+		list-style-position: outside;
+	}
 
-:where(main) :is(ol, ul) :is(ol, ul),
-.list-bullet-offset:is(ol, ul),
-.expander-content > :is(ol, ul) {
-	padding-inline-start: 1em;
+	:where(main) :is(ol, ul) :is(ol, ul),
+	.list-bullet-offset:is(ol, ul),
+	.expander-content > :is(ol, ul) {
+		padding-inline-start: 1em;
+	}
 }
 
 hr {
