@@ -11,7 +11,7 @@ You may already know this, but I have a slight bias towards theming “efficient
 Una already wrote a [great introduction to this feature](https://developer.chrome.com/blog/style-queries/) as a demo on how this can be applied to components, and even themes. If you have never played with container style queries, I highly recommend having a look at the article before reading further here. As Una shows, you can style based on a theme property, but how would we go about actually implementing that idea on a site-wide scale? We’ll take a look at this from a “multi-theme” perspective, though this works fine for a binary light/dark mode theme setup.
 
 {% callout "Still Experimental", "⚠️" %}
-Please note that this is an experimental feature which has not yet landed in stable browsers at the time of writing, so you’ll likely want to test it out in [Chrome Canary](https://www.google.com/chrome/canary/).
+Please note that this is an experimental feature which has not yet landed in stable browsers at the time of writing, so you’ll likely want to test it out in [Chrome Canary](https://www.google.com/chrome/canary/), or regular Chrome might even work these days!
 {% endcallout %}
 
 First off, let’s take a look at a demo where you can cycle through a theme value that affects the entire layout:
@@ -510,7 +510,7 @@ And update our (optional) JSON-to-CSS function:
 I suppose we could hardcode `light` and `dark` for the scheme ones, since we know what they are, up to you! We could also throw `background` in there (without omitting `--_background` among the other tokens as we might want to access the custom property inside another element!), but that’ll start to be a bit much in terms of repetition, so this is a small CSS sin for the greater good of unrepeated code.
 
 {% callout "Today I learned", "💡" %}
-While writing this, I discovered that the [`color-scheme` property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme), if set to a specific value (`light` or `dark`, instead of `normal`, `light dark`, or `dark light`), determines the actual colour used by those system colours we saw earlier. I thought it was only controlled by the media query! A `(prefers-color-scheme: dark)` media query around `html` using `color-scheme: light` will render in “light mode”! My website themes use `color-scheme`, so the CodePen demo for browsers without support will change based on the theme's dominant scheme! That’s so cool! But it also highlights why defining this property is important if we're overriding user preferences.
+While writing this, I discovered that the [`color-scheme` property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme), if set to a specific value (`light` or `dark`, instead of `normal`, `light dark`, or `dark light`), determines the actual colour used by those system colours we saw earlier. I thought it was only controlled by the media query! A `(prefers-color-scheme: dark)` media query around `html` using `color-scheme: light` will render in “light mode”! My website themes use `color-scheme`, so the CodePen demo for browsers without support will change based on the theme's dominant scheme! (well, only in Firefox, it seems) That’s so cool! But it also highlights why defining this property is important if we're overriding user preferences.
 {% endcallout %}
 
 ## Conclusion
