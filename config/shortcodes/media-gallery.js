@@ -38,6 +38,12 @@ function mediaShortcode(type, src, alt, caption = '', options = {}) {
 
 	if (type === 'video') {
 		attrs = { controls: '', playsinline: '', muted: '', loop: '', 'aria-label': alt };
+		if (options.hasOwnProperty('loop') && !options.loop) {
+			delete attrs.loop;
+		}
+		if (options.hasOwnProperty('loop') && !options.muted) {
+			delete attrs.muted;
+		}
 	} else if (type === 'image') {
 		attrs = { loading: 'lazy', decoding: 'async', alt: alt, srcset: srcset.join(','), sizes: sizes };
 	}
