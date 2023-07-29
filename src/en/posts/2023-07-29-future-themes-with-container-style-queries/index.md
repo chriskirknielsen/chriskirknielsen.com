@@ -34,7 +34,7 @@ With the ability to style an element based on its container’s style, we can qu
 }
 ```
 
-“But wait a minute,” I hear you say, “can’t we already do this by applying the custom properties on the root without containers?” And, yes, that is true! That’s how I’ve built my website’s theme feature, which works in all current browsers, but it does require more work to set up properly (not to mention a pretty terrible hack). The style query approach is more of an experiment about how we might do the same in a more clean way.
+“But wait a minute,” I hear you say, “can’t we already do this by applying the custom properties on the root without containers?” And, yes, that is true! That’s how I’ve built my website’s theme feature, which works in all current browsers, but it does require more work to set up properly (not to mention a pretty terrible hack). The style query approach is more of an experiment about how we might do the same in a cleaner way.
 
 ## A note on specificity
 
