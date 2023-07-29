@@ -1,9 +1,11 @@
 .callout {
+	--callout-border: 2px;
+
 	position: relative;
-	padding: var(--size-m);
+	padding: calc(var(--size-m) - var(--callout-border));
 	padding-block-start: 0;
 
-	border-inline-start: 2px solid var(--t-color-main-med);
+	border-inline-start: var(--callout-border) solid var(--t-color-main-med);
 
 	&-label {
 		display: block;
