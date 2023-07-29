@@ -86,19 +86,18 @@
 	}
 
 	.callout {
-		padding-block-start: var(--size-xl);
-
 		background: linear-gradient(90deg, transparent, var(--ctx-bg)) 100% 0 repeat-y,
 			repeating-linear-gradient(var(--t-color-main-med) 0, var(--t-color-main-med) 2px, transparent 2px, transparent 6px) 0 0 repeat-x,
 			linear-gradient(90deg, var(--t-color-main-med), var(--ctx-bg)) 0 100% no-repeat;
 		background-size: 100% 1.25em, 100% 1.25em, 100% 0.11em;
 
 		&-label {
-			position: absolute;
-			inset-block-start: -0.25em;
-			inset-inline-start: var(--C-content-gutter);
+			position: relative;
+			inset-block-start: -0.325em;
 
-			padding: 0 var(--C-content-gutter);
+			width: fit-content;
+			max-width: 100%;
+			padding: 0 var(--size-m);
 
 			font-size: max(var(--size-xl), 1.75em);
 			color: var(--t-color-main-min);
