@@ -74,10 +74,14 @@
 		&-image {
 			position: relative;
 			z-index: 1;
+			pointer-events: none;
+
+			shape-margin: var(--image-margin-block);
 
 			& > img {
+				pointer-events: auto;
+
 				width: var(--image-size);
-				margin-block: var(--image-margin-block);
 				aspect-ratio: 1;
 				object-fit: cover;
 
@@ -89,6 +93,7 @@
 			&--avatar {
 				display: block;
 				float: left;
+				shape-outside: inset(0);
 
 				& > img {
 					margin-inline-end: var(--image-margin-inline);
@@ -100,7 +105,7 @@
 				height: 100%;
 				align-items: flex-end;
 				float: right;
-				shape-outside: inset(calc(100% - var(--image-size) - (var(--image-margin-block))) 0 0);
+				shape-outside: inset(calc(100% - var(--image-size) - (2 * var(--image-margin-block))) 0 0);
 
 				& > img {
 					margin-inline-start: var(--image-margin-inline);
