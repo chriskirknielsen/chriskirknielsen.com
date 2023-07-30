@@ -274,7 +274,10 @@
 		}
 	}
 
-	.post-footer-avatar > img {
+	.post-footer-image {
+		shape-outside: none;
+	}
+	.post-footer-image > img {
 		border-radius: 0;
 	}
 

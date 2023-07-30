@@ -63,26 +63,48 @@
 	}
 
 	// Makes use of the centered float trick described by Tyler Sticka: https://cloudfour.com/thinks/solved-tricky-floating-image-alignment/
+	// As well as the bottom floated trick described by Temani Afif: https://css-tricks.com/float-an-element-to-the-bottom-corner/
 	&-footer {
+		--image-size: clamp(3.5em, 3em + 2.5vw, 5em);
+		--image-margin-block: var(--size-2xs);
+		--image-margin-inline: var(--size-m);
+
 		display: grid;
 
-		&-avatar {
+		&-image {
 			position: relative;
 			z-index: 1;
 
-			display: block;
-			margin-block: var(--size-2xs);
-			margin-inline-end: var(--size-m);
-			float: left;
-
 			& > img {
-				width: clamp(3.5em, 3em + 2.5vw, 5em);
+				width: var(--image-size);
+				margin-block: var(--image-margin-block);
 				aspect-ratio: 1;
 				object-fit: cover;
 
 				border: 2px solid transparent;
 				border-radius: 50%;
 				background: linear-gradient(45deg, var(--t-link-color), var(--t-link-underline-color)) border-box;
+			}
+
+			&--avatar {
+				display: block;
+				float: left;
+
+				& > img {
+					margin-inline-end: var(--image-margin-inline);
+				}
+			}
+
+			&--design {
+				display: flex;
+				height: 100%;
+				align-items: flex-end;
+				float: right;
+				shape-outside: inset(calc(100% - var(--image-size) - (var(--image-margin-block))) 0 0);
+
+				& > img {
+					margin-inline-start: var(--image-margin-inline);
+				}
 			}
 		}
 		&-author {
@@ -99,7 +121,7 @@
 		&::after {
 			content: '';
 			display: table;
-			clear: left;
+			clear: both;
 		}
 	}
 }
