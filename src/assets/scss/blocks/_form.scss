@@ -74,6 +74,37 @@
 
 		transform: translateX(var(--toggle-thumb-offset, -50%));
 		transition: transform var(--toggle-duration) cubic-bezier(0.67, -0.5, 0.25, 1.5);
+
+		&::before {
+			content: '←';
+
+			position: absolute;
+			inset: 0;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			font-family: system-ui, sans-serif;
+			text-align: center;
+			font-size: 0.5em;
+			line-height: 1;
+
+			transition: inherit;
+		}
+	}
+
+	&-checkbox[aria-checked='true'] + &-back > &-thumb::before {
+		transform: scaleX(-1);
+	}
+
+	&:has(&-toggle > &-checkbox[aria-checked='false']) &-value[data-value='false'],
+	&:has(&-toggle > &-checkbox[aria-checked='true']) &-value[data-value='true'] {
+		text-decoration: underline;
+	}
+	&:has(&-toggle > &-checkbox[aria-checked='false']) &-value[data-value='true'],
+	&:has(&-toggle > &-checkbox[aria-checked='true']) &-value[data-value='false'] {
+		opacity: 0.8;
 	}
 
 	:checked + &-back > &-thumb {
