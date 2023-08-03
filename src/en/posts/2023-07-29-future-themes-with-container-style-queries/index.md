@@ -521,7 +521,7 @@ Should you use this on a professional project? I don’t know. Probably not (yet
 
 ## More resources
 
-- [Manuel Matuzović's talk, "That’s not how I wrote CSS 3 years ago"](https://www.youtube.com/live/L668dK6wFcM) (excellent and very relatable to me!)
+- [Manuel Matuzović's talk, "That’s not how I wrote CSS 3 years ago"](https://www.youtube.com/live/L668dK6wFcM) (excellent and very relatable!)
 - [Getting Started with Style Queries](https://developer.chrome.com/blog/style-queries/) (lots of fun!)
 - [@container on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@container) (interesting)
 - [CSS Containment specification](https://drafts.csswg.org/css-contain-3/#container-rule) (a little dense)
