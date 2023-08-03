@@ -526,7 +526,7 @@ li[data-fact-emoji] {
 	--thumb-thickness: 1em;
 	--thumb-width: var(--thumb-thickness);
 	--thumb-height: calc(2 / 3 * var(--thumb-thickness));
-	--keys-space-end: 0.5em;
+	--synth-keys-space-end: 0.5em;
 
 	position: relative;
 
@@ -694,7 +694,7 @@ li[data-fact-emoji] {
 		grid-template-columns: repeat(calc(2 * var(--synth-white-keys)), minmax(0, 1fr));
 		grid-template-rows: 3fr 2fr;
 		height: clamp(5em, 25vw, 8em);
-		padding-block: 1px var(--keys-space-end);
+		padding-block: 1px var(--synth-keys-space-end);
 		padding-inline: 1px;
 
 		background: linear-gradient(to top, transparent, hsl(37.5deg 25% 25%) calc(var(--synth-keys-space-end) * 1.5), transparent) hsl(37.5deg 14.29% 43.92%);
