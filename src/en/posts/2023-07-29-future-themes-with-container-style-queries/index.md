@@ -519,8 +519,9 @@ Okay so we’ve found a way to have our themes that respect our user’s prefere
 
 Should you use this on a professional project? I don’t know. Probably not (yet). I mainly wanted to try out style queries on something I’m otherwise familiar with, and share a few fun tips… figured we might all learn something along the way. But if you wanted to implement this on your personal site? Learned new tricks? *And* had fun?! Go for it. And please: ask questions and share what you come up with!
 
-## More reading
+## More resources
 
+- [Manuel Matuzović's talk, "That’s not how I wrote CSS 3 years ago"](https://www.youtube.com/live/L668dK6wFcM) (excellent and very relatable to me!)
 - [Getting Started with Style Queries](https://developer.chrome.com/blog/style-queries/) (lots of fun!)
 - [@container on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@container) (interesting)
 - [CSS Containment specification](https://drafts.csswg.org/css-contain-3/#container-rule) (a little dense)
