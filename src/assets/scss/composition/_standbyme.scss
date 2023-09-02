@@ -1,6 +1,7 @@
 .standbyme {
 	display: flex;
 	flex-wrap: wrap;
+	gap: var(--size-xl);
 
 	& > * {
 		flex-basis: calc((42rem - 100%) * 999);

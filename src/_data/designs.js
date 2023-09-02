@@ -168,8 +168,8 @@ const designs = [
 	{
 		slug: 'css-retro-vhs',
 		name: 'CSS Retro VHS',
-		description: "Show your appreciation for everybody's favorite way to style the web with this retro shirt inspired by '90s VHS blank tapes",
-		note: 'Designed for the State of CSS survey, 2021 edition',
+		description: "Show your appreciation for everybody's favorite way to style the web with this retro shirt inspired by '90s blank VHS tapes",
+		note: 'Designed for the State of CSS survey',
 		img: 'css-retro-vhs.jpg',
 		links: {
 			CottonBureau: 'https://cottonbureau.com/products/css-retro-vhs#/13046404/tee-men-standard-tee-vintage-black-tri-blend-s',
@@ -182,7 +182,7 @@ const designs = [
 		slug: 'js-retro-vhs',
 		name: 'JS Retro VHS',
 		description: "Wear your JS colours from the perspective of a '90s VHS tape",
-		note: 'Designed for the State of JS survey, 2021 edition',
+		note: 'Designed for the State of JS survey',
 		img: 'js-retro-vhs.jpg',
 		links: {
 			CottonBureau: 'https://cottonbureau.com/products/javascript-retro-vhs#/13799357/tee-men-standard-tee-vintage-black-tri-blend-s',

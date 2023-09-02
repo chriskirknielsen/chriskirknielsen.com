@@ -27,11 +27,11 @@
 <article class="standbyme">
 	{% if design.img %}
 	<div class="standbyme-wide">
-		<img src="{{ '/' + assets.imagesDir + '/designs/' + design.img | url }}" alt="" width="600" height="600" class="u-corner">
+		<img src="{{ '/' + assets.imagesDir + '/designs/' + design.img | url }}" alt="" width="600" height="600" class="u-width100 u-corner">
 	</div>
 	{% endif %}
 
-	<div class="standbyme-narrow | flow | u-padding-l">
+	<div class="standbyme-narrow | flow">
 
 	{% if design.links %}
 		<h2>Available on</h2>
@@ -42,7 +42,7 @@
 		</ul>
 	{% endif %}
 
-	{% if design.note %}<p class="u-fontStyle-italic">{% markdown true %}{{ design.note }}{% endmarkdown %}</p>{% endif %}
+	{% if design.note %}<p class="u-fontStyle-italic u-fontSize-smaller">{% markdown true %}{{ design.note }}{% endmarkdown %}</p>{% endif %}
 	
 	{% if design.variant %}
 		<h2 class="h3">Variant{% if (design.variant | length) != 1 %}s{% endif %}</h2>
