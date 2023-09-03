@@ -68,11 +68,23 @@
 	}
 }
 
+@mixin --old-safari {
+	@supports (-webkit-hyphens: none) and (not (hyphens: none)) {
+		@content;
+	}
+}
+
+@mixin --new-safari {
+	@supports (-webkit-hyphens: none) and (hyphens: none) {
+		@content;
+	}
+}
+
 @mixin subgrid {
-	// Until subgrid behaves properly in Safari (https://bugs.webkit.org/show_bug.cgi?id=245936), don't allow Safari
-	// Negated version of https://chrislachance.com/new-css-hacks-to-target-safari/
-	@supports not ((font: -apple-system-body) and (not (-webkit-touch-callout: default))) {
-		@supports (grid-template-columns: subgrid) {
+	@supports (grid-template-columns: subgrid) {
+		// Until subgrid behaves properly in Safari (https://bugs.webkit.org/show_bug.cgi?id=245936), don't allow Safari
+		// Negated version of https://chrislachance.com/new-css-hacks-to-target-safari/ + the --new-safari mixin above
+		@supports (not ((font: -apple-system-body) and (not (-webkit-touch-callout: default)))) or ((-webkit-hyphens: none) and (hyphens: none)) {
 			@content;
 		}
 	}

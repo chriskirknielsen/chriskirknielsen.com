@@ -172,7 +172,7 @@ const designs = [
 		note: 'Designed for the State of CSS survey',
 		img: 'css-retro-vhs.jpg',
 		links: {
-			CottonBureau: 'https://cottonbureau.com/products/css-retro-vhs#/13046404/tee-men-standard-tee-vintage-black-tri-blend-s',
+			CottonBureau: 'https://cottonbureau.com/products/css-retro-vhs#/13046404/tee-men-standard-tee-vintage-black-tri-blend-m',
 		},
 		tags: ['dev', 'css', 'vhs', 'retro'],
 		similar: ['js-retro-vhs'],
@@ -185,7 +185,7 @@ const designs = [
 		note: 'Designed for the State of JS survey',
 		img: 'js-retro-vhs.jpg',
 		links: {
-			CottonBureau: 'https://cottonbureau.com/products/javascript-retro-vhs#/13799357/tee-men-standard-tee-vintage-black-tri-blend-s',
+			CottonBureau: 'https://cottonbureau.com/products/javascript-retro-vhs#/13799357/tee-men-standard-tee-vintage-black-tri-blend-m',
 		},
 		tags: ['dev', 'js', 'vhs', 'retro'],
 		similar: ['css-retro-vhs'],
