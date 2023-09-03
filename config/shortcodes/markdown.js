@@ -8,5 +8,6 @@ module.exports = function (eleventyConfig, options = {}) {
 	eleventyConfig.addPairedShortcode('mdsafe', (content) => content.replace(/(\t|\n|\r|(    ))/g, ' '));
 
 	/** Converts a Markdown string into markup. */
+	eleventyConfig.addFilter('markdown', (content, inline = null) => (inline ? md.renderInline(content) : md.render(content)));
 	eleventyConfig.addPairedShortcode('markdown', (content, inline = null) => (inline ? md.renderInline(content) : md.render(content)));
 };

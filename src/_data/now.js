@@ -48,6 +48,9 @@ function richTextBlockToMd(block) {
 		wrap.push('`');
 	}
 	let mdString = `${wrap.join('')}${string}${wrap.reverse().join('')}`;
+	if (block.href) {
+		return `[${mdString}](${block.href})`;
+	}
 	return mdString;
 }
 

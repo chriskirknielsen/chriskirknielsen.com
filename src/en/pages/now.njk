@@ -39,7 +39,7 @@ nowInfo: {
                 <strong>{{ nowItem.title }}
                 {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }}&nbsp;{% endif %}{{ nowItem.detail }}){% endif %}</strong>
             {% if nowItem.link %}</a>{% endif %}
-            {% if nowItem.blurb %}<br>{{ nowItem.blurb | safe }}{% endif %}
+            {% if nowItem.blurb %}<br>{{ nowItem.blurb | markdown(true) | safe }}{% endif %}
         </p>
     </div>
     {%- set lastKey = nowKey -%}
