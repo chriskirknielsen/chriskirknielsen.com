@@ -45,10 +45,10 @@
                 <h2 class="h4" id="footer-external-links-title">{{ 'externalLinks' | i18n | safe }}</h2>
 
                 <ul>
-                    <li><a href="{{ localeRssUrl }}" aria-label="{{ 'rss.subscribe' | i18n }}">RSS</a></li>
                 {% for socialPage in social %}
                     <li><a href="{{ socialPage.url | url }}">{{ socialPage.name }}</a></li>
                 {% endfor %}
+                    <li><a href="{{ localeRssUrl }}" aria-label="{{ 'rss.subscribe' | i18n }}">RSS</a></li>
                 </ul>
             </nav>
         </div>
