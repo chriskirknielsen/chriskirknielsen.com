@@ -26,6 +26,7 @@
 		--btn-border-color: var(--t-cta-border-color-active);
 		--btn-background-color: var(--t-cta-bg-active);
 		--btn-box-shadow: var(--t-cta-box-shadow-active, none);
+		--btn-decoration-link: none;
 	}
 
 	:checked + &.filtering-tag {
@@ -47,7 +48,7 @@
 
 	&:any-link:not([data-cta='tile']) > span,
 	&:any-link[data-cta='tile'] > :is(strong, h2, h3) {
-		text-decoration: underline;
+		text-decoration: var(--btn-decoration-link, underline);
 		text-underline-offset: var(--btn-underline-offset, 0.1875em);
 	}
 
