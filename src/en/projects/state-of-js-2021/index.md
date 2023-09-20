@@ -8,7 +8,7 @@ projectButtonLabel: View survey
 ---
 
 {% set shirtData = designs | find('slug', 'js-retro-vhs') %}
-Following a pretty successful collaboration on the CSS shirt, Sacha asked me once more if I'd be up to design a VHS-styled logo and shirt, but for the STate of JS this time around. This one was a little more tricky to nail down as balancing "simple" with "massive ecosystem" is a tall order.
+Following a pretty successful collaboration on the CSS shirt, Sacha asked me once more if I'd be up to design a VHS-styled logo and shirt, but for the State of JS this time around. This one was a little more tricky to nail down as balancing "simple" with "massive ecosystem" is a tall order.
 
 We went through quite a few iterations, especially for the background shape that ended up being this tesseract-looking thing with multiple light sources.
 
