@@ -10,7 +10,7 @@ class SearchData {
 	async render(data) {
 		let searchData = data.collections.all
 			.filter((content) => {
-				return content.data.tags.includes('post');
+				return content.data.tags.includes('_post');
 			})
 			.map((content) => {
 				return {
@@ -19,7 +19,7 @@ class SearchData {
 					lang: content.page.lang,
 					slug: content.page?.slug || content.fileSlug,
 					url: content.url,
-					tags: content.data.tags.filter((t) => !t.startsWith('post')),
+					tags: content.data.tags.filter((t) => !t.startsWith('_')),
 				};
 			});
 

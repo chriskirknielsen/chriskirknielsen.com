@@ -11,6 +11,9 @@ module.exports = function (eleventyConfig) {
 	/** Removes unwanted values from a provided list. */
 	eleventyConfig.addFilter('filterOut', (list, values) => list.filter((value) => !values.includes(value)));
 
+	/** Removes values from a list that don't begin with the provided string. Can be reverse with a boolean argument */
+	eleventyConfig.addFilter('filterStartsWith', (list, str, flip = false) => list.filter((value) => String(value).startsWith(str) ^ flip)); // Bitwise XOR, wild stuff
+
 	/** Finds the first object in a provided list whose prop matches the value. */
 	eleventyConfig.addFilter('find', (array, prop, value) => array.find((item) => item[prop] === value));
 

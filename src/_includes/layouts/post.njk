@@ -14,7 +14,7 @@ templateName: post
 				</time>
 				{{ 'grammar.inWord' | i18n }}
 				{%- if tags -%}
-					{%- for tag in tags | filterOut(systemtags) -%}
+					{%- for tag in tags | filterStartsWith('_', true) -%}
 						{%- if loop.index > 1 %},{% endif %} <a href="{{ localePath + 'tags/' + tag | url }}/">{{ tag }}</a>
 					{%- endfor -%}
 				{%- endif -%}

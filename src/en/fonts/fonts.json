@@ -1,6 +1,6 @@
 {
 	"lang": "en",
-	"tags": ["fonts"],
+	"tags": ["_fonts"],
 	"permalink": "/fonts/{{ page.fileSlug }}/index.html",
 	"templateEngineOverride": "njk",
 	"eleventyComputed": {

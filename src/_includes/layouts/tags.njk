@@ -8,7 +8,7 @@
       return paginationData.filter(function(t) {
         // Exclude tags that are "system" tags, and then
         // filter out tags who don't have any entries in the current language
-        return !fullData.systemtags.includes(t)
+        return !t.startsWith('_')
           && fullData.collections[t].some(p => p.data.lang === fullData.lang)
       });
     }

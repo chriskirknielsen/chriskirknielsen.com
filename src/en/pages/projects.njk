@@ -4,7 +4,7 @@ summary: Some of the things I've made, either passion projects or real-world wor
 ---
 
 <div class="gridlist" data-grid-cols="3">
-{% for project in collections.projects | reverse %}
+{% for project in collections._projects | reverse %}
 	{% set projectDesc %}<p class="u-fontSize-smallest">{{ project.data.summary or project.data.subtitle }}</p>{% endset %}
     {% component "griditem", {
 		gridItem: project,

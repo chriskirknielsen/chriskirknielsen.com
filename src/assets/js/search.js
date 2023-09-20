@@ -35,6 +35,7 @@ const runQuery = async () => {
 
 	setTimeout(() => {
 		if (result.length === 0) {
+			resultCountEl.innerText = `(0)`;
 			resultsEl.innerHTML = `<li>No results found 😢</li>`;
 			return;
 		}
