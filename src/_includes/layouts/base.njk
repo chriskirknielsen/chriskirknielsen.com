@@ -9,13 +9,13 @@
 	<a class="skip-link" href="#content" data-skiplink>{{ 'skiplink' | i18n }}</a>
 
 	{% include "components/header.njk" %}
+	{% include "components/themepicker-menu.njk" %}
 	
 	<main class="main | container flow" id="content" tabindex="-1">
 		{% block layoutContent %}{{ layoutContent | safe }}{% endblock %}
 	</main>
 
 	{% include "components/footer.njk" %}
-	{% include "components/themepicker-menu.njk" %}
 	{% include "components/foot.njk" %}
 </body>
 

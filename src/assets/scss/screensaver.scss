@@ -1,9 +1,6 @@
 :root[data-screensaver] {
 	overflow: hidden;
 
-	& > body {
-		will-change: unset; // will-change creates a new stacking context meaning the screensaver block fits the <body> and not the <html>, the former can be way taller than the viewport
-	}
 	.header-logo > svg use {
 		transition: none !important; // The logo in the header has transitions on each shape, making the bounce-contact event change the colours unevenly
 	}

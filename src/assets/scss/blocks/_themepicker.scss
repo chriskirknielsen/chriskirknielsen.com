@@ -1,21 +1,11 @@
-body {
-	--themepicker-height: 9rem;
-	--themepicker-transition: var(--C-base-duration);
-
-	transition: transform var(--themepicker-transition) var(--easing-in-out);
-	will-change: transform; // Last-resort improvement which does help a bit!
-
-	[data-themepicker='open'] > & {
-		transform: translateY(var(--themepicker-height));
-	}
-}
-
 .themepicker {
 	.no-js &,
 	.no-js &-toggler {
 		display: none;
 	}
 
+	--themepicker-height: 9rem;
+	--themepicker-transition: var(--C-base-duration);
 	--picker-gap: calc(var(--C-content-gutter) / 2);
 	--picker-button-border-size: 2px;
 	--picker-text: var(--t-color-gray-min);
@@ -23,8 +13,8 @@ body {
 	--picker-close-size: var(--size-m);
 	--picker-close-padding: var(--size-s);
 
-	position: absolute;
-	inset-block-end: 100%;
+	position: relative; // Place it below the header as expected
+	inset-block-start: 0;
 	inset-inline: 0;
 	z-index: #{layer-index('themepicker')};
 
@@ -33,21 +23,27 @@ body {
 	justify-content: center;
 	gap: var(--picker-gap);
 	height: var(--themepicker-height);
+	margin-block-end: calc(var(--themepicker-height) * -1); // Cancel the entire height
 	padding: var(--picker-gap) 0;
 	overflow: hidden;
 
 	color: var(--picker-text);
 	background-color: var(--picker-bg);
-	box-shadow: 0 -2px 0 var(--picker-text) inset;
+	box-shadow: 0 2px 0 var(--picker-text) inset, 0 -2px 0 var(--picker-text) inset;
 
-	transform: translateY(-50%);
+	// Animate-in the section and the buttons
+	&,
+	&-list {
+		transform: translateY(-100%);
+		transition: transform var(--themepicker-transition) var(--easing-in-out) calc(var(--themepicker-transition) * 0.2 * var(--picker-delay, 0));
+	}
 
-	transition: transform var(--themepicker-transition) var(--easing-in-out);
-
-	[data-themepicker='open'] & {
+	[data-themepicker='open'] &,
+	[data-themepicker='open'] &-list {
 		transform: translateY(0%);
-
-		transition-delay: calc(var(--themepicker-transition) / 3); // Slight transition when opening
+	}
+	[data-themepicker='open'] &-list {
+		--picker-delay: 1; // Slight transition when opening only
 	}
 
 	&-toggle {
