@@ -25,8 +25,9 @@ nowInfo: {
 {% set cloudinaryParams = 'c_fill,g_auto:faces,h_'+imageHeight+',w_'+imageWidth+'/q_auto:eco' %}
 {% for nowItem in nowItems | getList %}
     <div class="now-item">
+        {% set sectionSlug %}section-{{ nowInfo[nowKey].heading | slugify }}{% endset %}
         {% if lastKey != nowKey %}
-        <h2 class="now-section-heading">{{ nowInfo[nowKey].heading }}</h2>
+        <h2 class="now-section-heading" id="{{ sectionSlug }}">{{ nowInfo[nowKey].heading }}</h2>
         {% endif %}
 
         {% if nowItem.image %}
@@ -34,10 +35,12 @@ nowInfo: {
             <img src="{{ nowItemImage | url }}" alt="" aria-hidden="true" class="now-item-image" width="{{ imageWidth }}" height="{{ imageHeight }}">
         {% endif %}
 
-        <p class="now-item-content">
+        <p class="now-item-content | u-fontSize-m">
             {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
-                <strong>{{ nowItem.title }}
-                {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }}&nbsp;{% endif %}{{ nowItem.detail }}){% endif %}</strong>
+                <strong class="u-fontSize-larger" aria-describedby="{{ sectionSlug }}">
+                    {{- nowItem.title }}
+                    {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }}&nbsp;{% endif %}{{ nowItem.detail }}){% endif -%}
+                </strong>
             {% if nowItem.link %}</a>{% endif %}
             {% if nowItem.blurb %}<br>{{ nowItem.blurb | markdown(true) | safe }}{% endif %}
         </p>
@@ -47,7 +50,7 @@ nowInfo: {
 {% endmacro %}
 
 {%- mdsafe -%}
-<div class="now-grid" role="list">
+<div class="now-grid">
 {% for nowKey, nowData in nowInfo %}
     {%- if now[nowKey] -%}
         {{ nowList(nowKey, now[nowKey], nowData) -}}

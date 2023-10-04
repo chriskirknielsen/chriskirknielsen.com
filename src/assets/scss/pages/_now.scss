@@ -1,6 +1,7 @@
 .now-grid {
 	--flow-space: var(--size-xs);
 	--now-item-min: min(100%, 16rem);
+	--now-item-mask: linear-gradient(0deg, hsl(0 0% 0% / 0), 67%, hsl(0 0% 0% / 0.75)); // Keep it relatively faint
 
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(var(--now-item-min), 1fr));
@@ -50,7 +51,6 @@
 
 .now-item-image {
 	/* 1: A little trick to ensure the grid item doesn't quite participate in the row sizing, but still takes up the available space (basically zero height relative to itself, 100% height relative to the container. */
-	--now-item-mask: linear-gradient(0deg, hsl(0 0% 0% / 0), 67%, hsl(0 0% 0% / 0.5)); // Keep it relatively faint
 
 	z-index: -1;
 	grid-row: 2 / -2;

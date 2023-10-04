@@ -218,6 +218,14 @@ module.exports = (eleventyConfig, options = {}) => {
 		return $.html();
 	});
 
+	eleventyConfig.addFilter('slugify', function (str) {
+		// If this isn't a string, there isn't anything we can do!
+		if (typeof str !== 'string') {
+			return str;
+		}
+
+		return slugify(str);
+	});
 	eleventyConfig.addFilter('autoToc', function (markup) {
 		// If this isn't a string, there isn't anything we can do!
 		if (typeof markup !== 'string') {
