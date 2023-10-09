@@ -25,9 +25,8 @@ nowInfo: {
 {% set cloudinaryParams = 'c_fill,g_auto:faces,h_'+imageHeight+',w_'+imageWidth+'/q_auto:eco' %}
 {% for nowItem in nowItems | getList %}
     <div class="now-item">
-        {% set sectionSlug %}section-{{ nowInfo[nowKey].heading | slugify }}{% endset %}
         {% if lastKey != nowKey %}
-        <h2 class="now-section-heading" id="{{ sectionSlug }}">{{ nowInfo[nowKey].heading }}</h2>
+        <h2 class="now-section-heading" aria-hidden="true">{{ nowInfo[nowKey].heading }}</h2>
         {% endif %}
 
         {% if nowItem.image %}
@@ -37,7 +36,7 @@ nowInfo: {
 
         <p class="now-item-content | u-fontSize-m">
             {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
-                <strong class="u-fontSize-larger" aria-describedby="{{ sectionSlug }}">
+                <strong class="u-fontSize-larger">
                     {{- nowItem.title }}
                     {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }}&nbsp;{% endif %}{{ nowItem.detail }}){% endif -%}
                 </strong>
@@ -52,6 +51,7 @@ nowInfo: {
 {%- mdsafe -%}
 <div class="now-grid">
 {% for nowKey, nowData in nowInfo %}
+    <h2 class="visually-hidden">{{ nowInfo[nowKey].heading }}</h2>
     {%- if now[nowKey] -%}
         {{ nowList(nowKey, now[nowKey], nowData) -}}
     {%- endif -%}
