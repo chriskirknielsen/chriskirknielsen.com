@@ -21,7 +21,6 @@ nowInfo: {
 {% set detailPrefix = nowData.detail or false %}
 {% set imageWidth = 600 %}
 {% set imageHeight = 600 %}
-{# {% set imageHeight = 600 %} #}
 {% set cloudinaryParams = 'c_fill,g_auto:faces,h_'+imageHeight+',w_'+imageWidth+'/q_auto:eco' %}
 {% for nowItem in nowItems | getList %}
     <div class="now-item">
