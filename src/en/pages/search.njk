@@ -17,9 +17,10 @@ eleventyExcludeFromCollections: true
         } %}
     </form>
 </search>
+
 <hr>
 
-<h2 id="search-results-heading">Results <span id="search-results-count"></span></h2>
+<h2 id="search-results-heading" hidden>Results <span id="search-results-count"></span></h2>
 
 <ul id="results" class="flow" style="--flow-space: var(--size-s)" role="list" aria-live="polite">
     {# Adding classes used by the script so PurgeCSS preserves them in the page's styles #}

@@ -28,6 +28,7 @@ const runQuery = async () => {
 	}
 
 	formEl.setAttribute('data-state', 'changed');
+	resultHeadingEl.hidden = false;
 	resultsEl.innerHTML = `<li>Loading…</li>`;
 
 	let data = await getDatabase();
