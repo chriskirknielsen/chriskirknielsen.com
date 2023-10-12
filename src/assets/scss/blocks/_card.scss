@@ -79,22 +79,36 @@
 	}
 
 	&-title {
-		--title-padding-inline: 0.25em;
+		--card-title-padding-inline: 0.25em;
 
-		margin-inline-start: calc(-1 * var(--title-padding-inline));
+		display: grid;
+		margin-inline-start: calc(-1 * var(--card-title-padding-inline));
 
-		pointer-events: none; // Remove pointer events so the cursor can click the link on the empty space at the end of the title
+		pointer-events: none; // Remove pointer events so the cursor can click the link on the image on the empty space at the end of the title
 
-		& > a {
-			padding-inline: var(--title-padding-inline);
+		&-text {
+			grid-area: 1 / -1 / 1 / -1;
+		}
 
-			border-start-start-radius: var(--t-corner-radius);
-			border-start-end-radius: var(--t-corner-radius);
-			background-color: var(--ctx-bg);
+		&-text > * {
+			padding-block-start: var(--card-title-padding-block-start, 0);
+			padding-inline: var(--card-title-padding-inline);
+
 			-webkit-box-decoration-break: clone;
 			box-decoration-break: clone;
 
 			pointer-events: auto; // Restore interactivity for the link
+		}
+
+		&--clone {
+			// This gross cloning business allows to create that "background-follows-text-box" effect without Line 2 overlapping the descenders on Line 1
+			background-color: var(--ctx-bg);
+			color: transparent;
+			border-start-start-radius: var(--t-corner-radius);
+			border-start-end-radius: var(--t-corner-radius);
+			pointer-events: none;
+			-webkit-user-select: none;
+			user-select: none;
 		}
 	}
 
@@ -109,6 +123,9 @@
 
 	@container gridlist (min-width: 18.75rem) and (max-width: 26.4375rem) {
 		flex-direction: row;
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+		}
 
 		&-image {
 			width: 6.5rem;
@@ -130,10 +147,11 @@
 		}
 
 		&-title {
-			--title-padding-inline: 0px;
+			--card-title-padding-block-start: 0px;
+			--card-title-padding-inline: 0px;
 		}
-		&-title > a {
-			background: none;
+		&-title--clone {
+			display: none;
 		}
 		&-image + &-content > &-title {
 			margin-block-start: 0;

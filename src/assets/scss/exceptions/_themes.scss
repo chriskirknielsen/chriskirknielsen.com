@@ -185,9 +185,10 @@
 	}
 
 	.cardblock {
-		&-title > a {
+		--card-title-padding-block-start: 0.125em;
+
+		&-title-text {
 			line-height: 1.2;
-			padding-block-start: 0.125em;
 		}
 	}
 
@@ -459,6 +460,8 @@
 	}
 
 	.cardblock {
+		--card-title-padding-block-start: 0.25em;
+
 		// Lea Verou — Cicada principle: simple and clever!
 		&:nth-child(7n + 1) {
 			--w: 50%;
@@ -496,9 +499,8 @@
 			background: var(--cardblock-border-color);
 		}
 
-		&-title > a {
+		&-title-text {
 			line-height: 1.3;
-			padding-block-start: 0.25em;
 		}
 	}
 
@@ -571,6 +573,10 @@
 				filter: none;
 			}
 		}
+	}
+
+	.cardblock {
+		--card-title-padding-block-start: 0.0625em;
 	}
 
 	.footer-logo > svg {

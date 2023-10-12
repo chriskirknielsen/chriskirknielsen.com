@@ -35,12 +35,12 @@ nowInfo: {
 
         <p class="now-item-content | u-fontSize-m">
             {% if nowItem.link %}<a href="{{ nowItem.link | url }}">{% endif %}
-                <strong class="u-fontSize-larger">
+                <strong class="u-display-block u-fontSize-larger u-textWrap-balance">
                     {{- nowItem.title }}
                     {% if nowItem.detail %}({% if detailPrefix %}{{ detailPrefix }}&nbsp;{% endif %}{{ nowItem.detail }}){% endif -%}
                 </strong>
             {% if nowItem.link %}</a>{% endif %}
-            {% if nowItem.blurb %}<br>{{ nowItem.blurb | markdown(true) | safe }}{% endif %}
+            {% if nowItem.blurb %}{{ nowItem.blurb | markdown(true) | safe }}{% endif %}
         </p>
     </div>
     {%- set lastKey = nowKey -%}

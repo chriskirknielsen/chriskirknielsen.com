@@ -30,7 +30,9 @@
 
     <div class="cardblock-content">
         <h2 class="cardblock-title | h5 | u-marginBlockEnd-{{ gridItemTitleSpacer or 's' }}">
-            <a href="{{ gridItemPermalink }}" class="heading-link"{% if gridCoverlink %} data-card-coverlink{% endif %}>{{- gridItemTitle | safe -}}</a>
+            {# This gross cloning business allows to create that "background-follows-text-box" effect without Line 2 overlapping the descenders on Line 1 #}
+            <span aria-hidden="true" class="cardblock-title-text"><span class="cardblock-title--clone">{{- gridItemTitle | safe -}}</span></span>
+            <span class="cardblock-title-text"><a href="{{ gridItemPermalink }}" class="heading-link"{% if gridCoverlink %} data-card-coverlink{% endif %}>{{- gridItemTitle | safe -}}</a></span>
         </h2>
         
         {{ gridItemContent | safe }}
