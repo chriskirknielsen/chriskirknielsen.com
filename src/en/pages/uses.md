@@ -7,7 +7,7 @@ permalink: /uses/
 
 **For info about this website's tech stack, [check out the Acknowledgements page](/acknowledgements).**
 
-## Gear
+## Hardware
 
 -   [2019 16" MacBook Pro](https://www.apple.com/macbook-pro-16/) (Intel Core i7, 16 GB RAM and 500 GB SSD)
     A good computer with a real Escape key, after all these years with a fake touchscreen one.
@@ -26,7 +26,7 @@ permalink: /uses/
 -   [Novation Launchkey 37 MIDI keyboard](https://www.amazon.com/gp/product/B086N4W81X?linkCode=as2&tag=ratcgala-20)
     I made music a lot in the past, and this little toy is great to slowly get back into it!
 
-## Apps
+## Software
 
 -   [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
     I've been using Firefox since version 3 or something, and it's never disappointed me — love the CSS DevTools!
