@@ -19,10 +19,11 @@ async function getDatabase() {
 			return data_server;
 		});
 }
+const normalizeApostrophe = (str) => str.replace(/(‘|’)/, "'");
 
 // Based on https://daily-dev-tips.com/posts/eleventy-creating-a-static-javascript-search/
 const runQuery = async () => {
-	const query = inputEl.value.toLowerCase().trim();
+	const query = normalizeApostrophe(inputEl.value.toLowerCase().trim());
 	if (query.length <= 0) {
 		return;
 	}
@@ -32,7 +33,7 @@ const runQuery = async () => {
 	resultsEl.innerHTML = `<li>Loading…</li>`;
 
 	let data = await getDatabase();
-	let result = data.filter((item) => item.title.toLowerCase().includes(query) || item.tags.join(' ').toLowerCase().includes(query));
+	let result = data.filter((item) => normalizeApostrophe(item.title.toLowerCase()).includes(query) || normalizeApostrophe(item.tags.join(' ').toLowerCase()).includes(query));
 
 	setTimeout(() => {
 		if (result.length === 0) {
