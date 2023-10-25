@@ -11,16 +11,20 @@ module.exports = function (eleventyConfig, options = {}) {
 	options = Object.assign({ labelByLang: { en: 'Note' } }, options);
 	const { labelByLang, markdownEngine, defaultLanguage } = options;
 
-	eleventyConfig.addPairedShortcode('callout', function (content, pseudo = '', emoji = '') {
+	eleventyConfig.addPairedShortcode('callout', function (content, pseudo = '', emoji = '', isInline = true) {
 		const uniqueId = `co-${new Date().getTime().toString(36)}`;
 		const context = this?.ctx || this.context?.environments;
 		const lang = context.lang || defaultLanguage;
 		const emojiStyleAttr = emoji ? `style="--callout-emoji: '${emoji}'"` : '';
 		pseudo ||= labelByLang[lang];
+		let render = isInline ? `<p>${markdownEngine.renderInline(content.trim())}</p>` : markdownEngine.render(content.trim());
 
-		return `<div class="callout | content-wide" aria-labelledby="${uniqueId}">
-			<p id="${uniqueId}" class="h3 | callout-label" ${emojiStyleAttr}>${pseudo}</p>
-			<p>${markdownEngine.renderInline(content.trim())}</p>
-		</div>`;
+		// Little dirty trick to avoid additional whitespace
+		return ''.concat(
+			`<div class="callout | content-wide" aria-labelledby="${uniqueId}">`,
+			`<p id="${uniqueId}" class="h3 | callout-label" ${emojiStyleAttr}>${pseudo}</p>`,
+			render.trim(),
+			`</div>`
+		);
 	});
 };
