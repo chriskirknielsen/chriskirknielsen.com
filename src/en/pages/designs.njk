@@ -7,6 +7,8 @@ rssFeedOverride: '/designs.xml'
 ---
 
 {% set activeDesigns = designs | selectattr('showInGallery') %}
+{% set enableViewTransitions = false %}
+{% set viewTransitionDuration %}300ms{% endset %}
 
 <div class="u-textAlign-center">
 	<h2 class="visually-hidden" id="designs-shops-label">Shops</h2>
@@ -29,13 +31,13 @@ rssFeedOverride: '/designs.xml'
 
 <hr>
 
-<filtered-tiles item-template="filter-item" filters="{{ activeDesigns | pluck('tags') | flatten | unique | sort | join(",") }}" filter-class="u-marginBlockEnd-xl">
+<filtered-tiles item-template="filter-item" filters="{{ activeDesigns | pluck('tags') | flatten | unique | sort | join(",") }}" filter-class="u-marginBlockEnd-xl" input-name="filter">
 	<div class="gridlist" style="--spaced-items-gap:var(--size-m);">
 	{% for design in activeDesigns %}
 		{% set designPermalink = '/designs/' + design.slug + '/' | url %}
 		{% set designAttrs %}
 			id="{{ design.slug }}"
-			style="view-transition-name:{{ design.slug }}"
+			{% if enableViewTransitions %}style="view-transition-name:{{ design.slug }}"{% endif %}
 			data-tags="{%- for tag in design.tags -%}
 				{{ tag }}
 				{%- if not loop.last %},{% endif -%}
@@ -51,7 +53,7 @@ rssFeedOverride: '/designs.xml'
 			{% endif %}
 		{%- endsetAsync %}
 		{% set designLinks %}
-			<ul role="list" class="spaced-items inlined-items | u-marginBlockStart-auto u-fontSize-smallest" style="view-transition-name:{{ design.slug }}-list;">
+			<ul role="list" class="spaced-items inlined-items | u-marginBlockStart-auto u-fontSize-smallest" {% if enableViewTransitions %}style="view-transition-name:{{ design.slug }}-list;"{% endif %}>
 				{%- for site, url in design.links %}
 				{% set siteIconId %}store-icon-{{ site | lower }}{% endset %}
 				<li>
@@ -85,13 +87,13 @@ rssFeedOverride: '/designs.xml'
 
 <template id="filter-item">
 	<div class="filtering-item">
-		<input type="radio" name="filter" class="visually-hidden">
+		<input type="radio" class="visually-hidden">
 		<label class="filtering-tag | cta"></label>
 	</div>
 </template>
 
+{% if enableViewTransitions %}
 <style>
-	{% set viewTransitionDuration %}300ms{% endset %}
 	{% set designsStyles %}
 	* {
 		view-transition-name: none;
@@ -150,15 +152,16 @@ rssFeedOverride: '/designs.xml'
 	{% endset %}
 	{{- designsStyles | safe -}}
 </style>
+{% endif %}
 
 <script>
 {% set designsFilter %}
-function filterTiles() {
+function filterTiles(context, inputName) {
 	let hashIndicator = 'filter:';
 	let initialHash = window.location.hash.slice(1);
-	let items = Array.from(document.querySelectorAll('[data-tags]'));
-	let list = document.querySelector('[data-filtered-list]');
-	let tagList = Array.from(document.querySelectorAll('.filtering-item'));
+	let items = Array.from(context.querySelectorAll('[data-tags]'));
+	let list = context.querySelector('[data-filtered-list]');
+	let tagList = Array.from(context.querySelectorAll('.filtering-item'));
 
 	function resetItem(item) {
 		item.style.width = '';
@@ -172,7 +175,7 @@ function filterTiles() {
 		let isShowAll = filter === '';
 		let filterHash = filter ? '#' + hashIndicator + filter : '';
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		let useViewTransitions = false;
+		let useViewTransitions = {% if enableViewTransitions %}true{% else %}false{% endif %};
 
 		history.replaceState(undefined, '', filterHash);
 		sessionStorage.setItem('designHash', filterHash);
@@ -187,7 +190,18 @@ function filterTiles() {
 					let wasShown = item.getAttribute('aria-hidden') === 'false';
 					let isShown = tags.indexOf(filter) > -1 || isShowAll;
 
-					item.setAttribute('aria-hidden', (!isShown).toString());
+					item.hidden = true;
+					let afterHidden = () => {
+						item.setAttribute('aria-hidden', (!isShown).toString());
+						item.hidden = false;
+					}
+
+					if (skipAnim || prefersReducedMotion) {
+						// RAF avoids a flash of positioned blocks when there is a filter on page load
+						requestAnimationFrame(afterHidden);
+					} else {
+						afterHidden();
+					}
 
 					if (doViewTransition) {
 						item.style.width = isShown ? '' : `${visibleWidth}px`;
@@ -306,17 +320,17 @@ function filterTiles() {
 
 	if (initialHash.indexOf(hashIndicator) === 0) {
 		let baseFilter = initialHash.slice(hashIndicator.length);
-		let filterSelectBox = document.querySelector('#filter-' + (baseFilter || 'all'));
+		let filterSelectBox = context.querySelector('#filter-' + (baseFilter || 'all'));
 		if (!filterSelectBox) {
 			baseFilter = '';
-			filterSelectBox = document.querySelector('#filter-all');
+			filterSelectBox = context.querySelector('#filter-all');
 		}
 		filterSelectBox.checked = true;
 		filterTo(baseFilter, true);
 	}
 
-	document.addEventListener('input', function (e) {
-		let radio = e.target.closest('[name="filter"]');
+	context.addEventListener('input', function (e) {
+		let radio = e.target.closest(`[name="${inputName}"]`);
 		if (!radio) {
 			return;
 		}
@@ -331,7 +345,7 @@ class FilteredTiles extends HTMLElement {
 	}
 
 	connectedCallback() {
-		if (!this.attributes['item-template']) {
+		if (!this.getAttribute('item-template')) {
 			throw new Error('A template must be provided to create the filter elements.');
 		}
 
@@ -340,11 +354,12 @@ class FilteredTiles extends HTMLElement {
 		Array.from(this.firstChild.children).forEach((c) => c.setAttribute('data-filtered-item', ''));
 
 		// Grab all the relevant attributes
-		const filters = this.attributes.filters.value.split(',').map((f) => f.trim().toLowerCase());
-		const filterClass = this.attributes['filter-class'] ? this.attributes['filter-class'].value : null || '';
-		const fieldsetLegend = this.attributes['filter-legend'] ? this.attributes['filter-legend'].value : null || 'Filter';
-		const filterAllLabel = this.attributes['filter-all-label'] ? this.attributes['filter-all-label'].value : null || 'All';
-		const filtertemplate = this.attributes['item-template'].value;
+		const filters = this.getAttribute('filters').split(',').map((f) => f.trim().toLowerCase());
+		const filterClass = this.getAttribute('filter-class') || '';
+		const fieldsetLegend = this.getAttribute('filter-legend') || 'Filter';
+		const filterAllLabel = this.getAttribute('filter-all-label') || 'All';
+		const filterTemplate = this.getAttribute('item-template');
+		const inputName = this.getAttribute('input-name') || 'filter';
 
 		// Set up the fieldset
 		const fieldset = Object.assign(document.createElement('fieldset'), { className: 'filtering' });
@@ -359,7 +374,7 @@ class FilteredTiles extends HTMLElement {
 		fieldset.appendChild(legendVisible);
 
 		// Set up each filter item in the provided list
-		let template = document.getElementById(filtertemplate);
+		let template = document.getElementById(filterTemplate);
 		const createFilter = (slug, label = null, checked = false) => {
 			const newItemElement = template.content.cloneNode(true);
 			const newItemRadio = newItemElement.querySelector('input');
@@ -367,6 +382,7 @@ class FilteredTiles extends HTMLElement {
 
 			const checkboxId = `filter-${(label || slug).toLowerCase()}`;
 			newItemRadio.id = checkboxId;
+			newItemRadio.name = inputName;
 			newItemRadio.value = slug || '';
 			newItemRadio.checked = checked;
 			newItemLabel.setAttribute('for', checkboxId);
@@ -382,7 +398,7 @@ class FilteredTiles extends HTMLElement {
 		this.insertBefore(fieldset, this.firstChild);
 
 		// Once we have created the elements, run the logic to process filters
-		filterTiles();
+		filterTiles(this, inputName);
 	}
 }
 customElements.define('filtered-tiles', FilteredTiles);
