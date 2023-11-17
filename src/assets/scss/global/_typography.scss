@@ -36,13 +36,21 @@ em {
 	color: var(--t-heading-color);
 }
 
-// s,
-// del {
-// text-decoration-thickness: 0.0625em;
-// text-shadow: 0 2px 0 var(--ctx-bg, transparent);
-// background: repeating-linear-gradient(-45deg, var(--t-accent-color, transparent), var(--t-accent-color, transparent) 0.33px, transparent 0.33px, transparent 6px);
-// box-decoration-break: clone;
-// }
+@supports (color: color-mix(in srgb, red 1%, tan)) {
+	s,
+	del {
+		color: color-mix(in srgb, currentColor 75%, var(--ctx-bg));
+		text-decoration-thickness: clamp(1px, 0.125em, 2px);
+		text-decoration-color: color-mix(in srgb, currentColor 67%, transparent);
+		background: linear-gradient(to top, color-mix(in srgb, var(--t-accent-color), transparent) 40%, transparent 0);
+		box-decoration-break: clone;
+	}
+
+	ins {
+		text-decoration-color: color-mix(in srgb, var(--t-heading-color), transparent);
+		text-decoration-thickness: 0.125em;
+	}
+}
 
 time:where([datetime]) {
 	font-weight: 700;
