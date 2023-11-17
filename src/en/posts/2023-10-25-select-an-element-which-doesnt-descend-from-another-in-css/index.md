@@ -4,6 +4,7 @@ summary: 'Avoid false positives when using :not() to exclude ancestors from a sc
 tags:
     - css
     - quick-tip
+updated: 2023-11-16
 ---
 
 **Update:** This article initially proposed `a:not(.archived a)`, but [Šime Vidas suggested](https://mastodon.social/@simevidas/111294439227937167) `a:not(.archived *)` which avoids repeating the target. This has been adjusted throughout the article. Thanks, Šime!
@@ -66,4 +67,4 @@ It kind of looks like "doughnut scoping" when I think about it. If we wanted to 
 }
 ```
 
-Both of these will technically "scope" the selector, however `@scope` has a few more advantages I'd say, namely specificity won't go out of control as much, and the selector has way better legibility (~~it's never good to repeat the target element in the same selector!~~ no longer an issue after the update), but still cool we can get to similar results in simple setups with relatively old browser versions!
+Both of these will technically "scope" the selector, however `@scope` has a few more advantages I'd say, namely specificity won't go out of control as much, the selector has way better legibility (<del>it's never good to repeat the target element in the same selector!</del> <ins>no longer an issue after Šime's suggestion</ins>), and [as Miriam points out](https://shoptalkshow.com/591/#t=41:30), nested scopes won't work correctly with the `:not()` hack, but it's still cool we can get to similar results for simpler setups with relatively old browser versions!
