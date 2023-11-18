@@ -1,6 +1,6 @@
 module.exports = {
 	layout: 'layouts/post.njk',
-	tags: ['_post', '_post_en'],
+	tags: ['_posts', '_posts_en'],
 	language: 'en',
 	eleventyComputed: {
 		date: function (data) {

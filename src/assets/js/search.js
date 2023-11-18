@@ -33,7 +33,12 @@ const runQuery = async () => {
 	resultsEl.innerHTML = `<li>Loading…</li>`;
 
 	let data = await getDatabase();
-	let result = data.filter((item) => normalizeApostrophe(item.title.toLowerCase()).includes(query) || normalizeApostrophe(item.tags.join(' ').toLowerCase()).includes(query));
+	let result = data.filter(
+		(item) =>
+			normalizeApostrophe(item.title.toLowerCase()).includes(query) ||
+			normalizeApostrophe(item.summary.toLowerCase()).includes(query) ||
+			normalizeApostrophe(item.tags.join(' ').toLowerCase()).includes(query)
+	);
 
 	setTimeout(() => {
 		if (result.length === 0) {
@@ -45,25 +50,46 @@ const runQuery = async () => {
 		const resultsFragment = new DocumentFragment();
 		resultsEl.innerHTML = '';
 
-		result.sort((a, b) => {
-			return new Date(b.date) - new Date(a.date);
-		});
 		result.forEach((page) => {
+			const type = page.type;
 			const tpl = resultItemTemplate.content.cloneNode(true);
+			const typeEl = tpl.querySelector('[data-page-type]');
 			const dateEl = tpl.querySelector('time[datetime]');
 			const anchorEl = tpl.querySelector('a[href]');
 			const langEl = tpl.querySelector('[data-lang-code]');
 
 			const dateInIso = new Date(page.date).toISOString().split('T').shift();
+			let typePretty = '';
+			switch (type) {
+				case '_fonts':
+					typePretty = 'Typeface';
+					break;
+				case '_designs':
+					typePretty = 'Design';
+					break;
+				case '_projects':
+					typePretty = 'Project';
+					break;
+				case '_posts':
+				default:
+					typePretty = 'Blogpost';
+					break;
+			}
 
-			dateEl.setAttribute('datetime', dateInIso);
-			dateEl.innerText = dateInIso;
-
+			typeEl.innerText = `${typePretty} |`;
 			anchorEl.setAttribute('href', page.url);
 			anchorEl.setAttribute('hreflang', page.lang);
-			anchorEl.innerText = page.title;
+			anchorEl.innerHTML = page.title;
 
-			langEl.innerText = `(${page.lang})`;
+			if (type === '_posts') {
+				dateEl.setAttribute('datetime', dateInIso);
+				dateEl.innerText = dateInIso;
+
+				langEl.innerText = `(${page.lang})`;
+			} else {
+				dateEl.hidden = true;
+				langEl.hidden = true;
+			}
 
 			resultsFragment.append(tpl);
 		});

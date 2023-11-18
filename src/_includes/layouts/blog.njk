@@ -5,7 +5,7 @@ section: blog
 {% extends "layouts/base.njk" %}
 
 {% block layoutContent %}
-	{% set postslist = collections._post | filterToLocale %}
+	{% set postslist = collections._posts | filterToLocale %}
 
 	<header class="bigboi | content-fullbleed container">
 		<div class="bigboi-inner | content | flow" style="--flow-space: var(--size-m)">

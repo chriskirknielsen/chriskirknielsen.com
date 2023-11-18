@@ -8,19 +8,25 @@ class SearchData {
 	}
 
 	async render(data) {
+		let acceptedTags = ['_posts', '_fonts', '_designs', '_projects'];
 		let searchData = data.collections.all
 			.filter((content) => {
-				return content.data.tags.includes('_post');
+				return acceptedTags.some((tag) => content.data.tags.includes(tag));
 			})
 			.map((content) => {
 				return {
+					type: content.data.tags.find((t) => acceptedTags.includes(t)),
 					title: content.data?.pageTitle || content.data.title,
-					date: content.page?.date || content.date,
+					summary: content.data.summary || '',
+					date: content.data?.date || content.page?.date || content.date,
 					lang: content.page.lang,
 					slug: content.page?.slug || content.fileSlug,
 					url: content.url,
-					tags: content.data.tags.filter((t) => !t.startsWith('_')),
+					tags: (content.page?.tags || content.data?.tags || []).filter((t) => !t.startsWith('_')),
 				};
+			})
+			.sort((a, b) => {
+				return new Date(b.date) - new Date(a.date);
 			});
 
 		return JSON.stringify(searchData);
