@@ -1,6 +1,5 @@
 {%- svg "anchor-link", { class: "visually-hidden" } -%}
 <style>{%- renderFile "font-face.css" | incPath("assets/css"), null, "njk" -%}</style>
 <script>
-{%- set footJs %}{%- include "assets/js/themepicker-toggle.js" -%}{% endset -%}
-{{- footJs | jsmin('foot') | safe }}
+{%- include "assets/js/themepicker-toggle.js" -%}
 </script>
