@@ -1,7 +1,7 @@
 {% set iconBefore = iconBefore or false %}
 {% set iconClass = iconClass or 'inline-icon' %}
 {% set ctaType = 'a' if url else 'button' %}
-{% setAsync "iconRender" %}{% if icon %}{% svg icon, { class: iconClass } %}{% endif %}{% endsetAsync %}
+{% setAsync "iconRender" %}{% if icon %}{% svg icon, { class: iconClass, title: iconAriaLabel } %}{% endif %}{% endsetAsync %}
 <{{ctaType}} {% if url %}href="{{url}}"{% else %}type="{{type or 'button'}}"{% endif %} class="cta" {{ ctaAttr | safe }}>
 	{% if icon and iconBefore %}{{ iconRender | safe }}{% endif %}
     {% if label.aria %}
