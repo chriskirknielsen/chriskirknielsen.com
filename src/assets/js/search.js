@@ -53,7 +53,8 @@ const runQuery = async () => {
 		result.forEach((page) => {
 			const type = page.type;
 			const tpl = resultItemTemplate.content.cloneNode(true);
-			const typeEl = tpl.querySelector('[data-page-type]');
+			const typeEl = tpl.querySelector('[data-result-type]');
+			const resultInfoEl = tpl.querySelector('[data-result-info]');
 			const dateEl = tpl.querySelector('time[datetime]');
 			const anchorEl = tpl.querySelector('a[href]');
 			const langEl = tpl.querySelector('[data-lang-code]');
@@ -76,7 +77,7 @@ const runQuery = async () => {
 					break;
 			}
 
-			typeEl.innerText = `${typePretty} |`;
+			typeEl.innerText = `${typePretty}`;
 			anchorEl.setAttribute('href', page.url);
 			anchorEl.setAttribute('hreflang', page.lang);
 			anchorEl.innerHTML = page.title;

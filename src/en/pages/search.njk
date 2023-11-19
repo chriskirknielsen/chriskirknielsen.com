@@ -22,17 +22,19 @@ eleventyExcludeFromCollections: true
 
 <h2 id="search-results-heading" hidden>Results <span id="search-results-count"></span></h2>
 
-<ul id="results" class="flow" style="--flow-space: var(--size-s)" role="list" aria-live="polite">
+<ul id="results" class="search-results" style="--flow-space: var(--size-s)" role="list" aria-live="polite">
     {# Adding classes used by the script so PurgeCSS preserves them in the page's styles #}
     <li class="u-color-aux-med u-fontSize-smallest" hidden></li>
 </ul>
 
 <template id="search-result-item">
-    <li>
-        <span class="u-fontSize-smallest" data-page-type></span>
-        <time datetime="" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums"></time>
-        <a href="/" hreflang=""></a>
-        <span class="u-fontSize-smallest" data-lang-code></span>
+    <li class="search-result-item">
+        <span class="u-fontSize-smallest" data-result-type></span>
+        <span data-result-info>
+            <a href="/" hreflang=""></a>
+            <time datetime="" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums"></time>
+            <span class="u-fontSize-smallest" data-lang-code></span>
+        </span>
     </li>
 </template>
 <style>

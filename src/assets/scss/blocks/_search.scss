@@ -1,0 +1,21 @@
+@include subgrid {
+	.search-results {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.25em 0.5ch;
+	}
+	.search-result-item {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+		align-items: baseline;
+
+		& > [data-result-type] {
+			grid-column: 1;
+			text-align: end;
+		}
+		& > [data-result-info] {
+			grid-column: 2;
+		}
+	}
+}
