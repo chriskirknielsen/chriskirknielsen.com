@@ -29,7 +29,7 @@ module.exports = function (eleventyConfig, options = {}) {
 		const cacheKey = filename + '_' + quickHash(JSON.stringify(svgOptions));
 
 		if (cacheSvg && svgCache.hasOwnProperty(cacheKey)) {
-			return await Promise.resolve(svgCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
+			return Promise.resolve(svgCache[cacheKey]); // Wait for the data, wrapped in a resolved promise in case the original value already was resolved
 		}
 
 		const isNjk = svgOptions.hasOwnProperty('isNjk') ? svgOptions.isNjk : true;
@@ -42,13 +42,13 @@ module.exports = function (eleventyConfig, options = {}) {
 		if (cacheSvg) {
 			svgCache[cacheKey] = content;
 		}
-		return await content;
+		return content;
 	});
 
 	/** Render a component from the component folder. */
 	eleventyConfig.addAsyncShortcode('component', async function (filename, componentOptions = {}) {
 		const filePath = `${componentsFolder}/${filename}.njk`;
 		const content = eleventyConfig.nunjucksAsyncShortcodes.renderFile(filePath, componentOptions, 'njk');
-		return await content;
+		return content;
 	});
 };

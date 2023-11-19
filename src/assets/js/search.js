@@ -12,7 +12,7 @@ async function getDatabase() {
 		return database;
 	}
 
-	return await fetch('/search.json')
+	return fetch('/search.json')
 		.then((response) => response.json())
 		.then((data_server) => {
 			database = data_server;
