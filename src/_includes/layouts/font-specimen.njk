@@ -96,7 +96,7 @@
 
 <body>
 	<header class="header">
-		<p class="text-center"><a href="{{ '/fonts/' | url }}">A font by Christopher Kirk-Nielsen</a></p>
+		<p class="text-center"><a href="{{ '/fonts/' | url }}">A font by {{ metadata.author.name }}</a></p>
 	</header>
 
 	<main class="content flow" id="content">
@@ -105,7 +105,7 @@
 
 	<footer class="footer">
 		Font built with {{ fontLove or 'love' }}
-		by <a href="{{ metadata.url | url }}">Christopher Kirk-Nielsen</a>
+		by <a href="{{ metadata.url | url }}">{{ metadata.author.name }}</a>
 		|
 		<a href="{{ '/fonts/' | url }}">Font Directory</a>
 	</footer>
