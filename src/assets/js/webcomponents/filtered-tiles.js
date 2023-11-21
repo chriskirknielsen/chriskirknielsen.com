@@ -154,10 +154,6 @@ function filterTiles(context, inputName) {
 }
 
 class FilteredTiles extends HTMLElement {
-	constructor() {
-		super();
-	}
-
 	connectedCallback() {
 		if (!this.querySelector('[data-filtered-tiles-template]')) {
 			throw new Error('A template must be provided to create the filter elements.');
@@ -204,7 +200,7 @@ class FilteredTiles extends HTMLElement {
 			newItemRadio.name = inputName;
 			newItemRadio.value = slug || '';
 			newItemRadio.checked = checked;
-			newItemLabel.setAttribute('for', checkboxId);
+			newItemLabel.htmlFor = checkboxId;
 			newItemLabel.innerText = label || slug;
 
 			return newItemElement;

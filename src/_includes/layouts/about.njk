@@ -6,22 +6,12 @@ templateEngineOverride: njk, md
 
 {{ layoutContent | autoHeadingAnchors | safe }}
 
-{% svg "dvd-logo", {isNjk: false} %}
+{% svg "dvd-logo", { isNjk: false } %}
 <style>
-    {%- set screensaverCss %}{% include "assets/css/screensaver.css" %}{% endset -%}
-    {{- screensaverCss | cssmin | safe -}}
+{% include "assets/css/screensaver.css" %}
 </style>
 <script>
-{% set aboutFactsScript %}
-    {% include "assets/js/about-facts.js" %}
-{% endset %}
-{% set synthScript %}
-    {% include "assets/js/about-synth.js" %}
-{% endset %}
-{% set screensaverJs %}
-    {% include "assets/js/screensaver.js" %}
-{% endset %}
-{{ aboutFactsScript | jsmin('aboutFacts') | safe }}
-{{ synthScript | jsmin('aboutSynth') | safe }}
-{{ screensaverJs | jsmin('screensaver') | safe }}
+{% include "assets/js/webcomponents/toggling-expander.js" %}
+{% include "assets/js/about-synth.js" %}
+{% include "assets/js/screensaver.js" %}
 </script>

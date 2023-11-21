@@ -177,17 +177,18 @@
 	}
 }
 
+// No-JS styles for the Facts list
 ul[data-facts] {
 	padding-inline-start: 1em;
-
 	list-style-position: outside;
-}
-li[data-fact-emoji] {
-	& + & {
-		margin-block-start: 0.375em;
-	}
-	&::marker {
-		content: attr(data-fact-emoji) '\00a0'; // nbsp
+
+	& > li[data-item-emoji] {
+		&:not(:first-child) {
+			margin-block-start: 0.375em;
+		}
+		&::marker {
+			content: attr(data-item-emoji) '\00a0'; // nbsp
+		}
 	}
 }
 
