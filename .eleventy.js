@@ -119,8 +119,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(require('./config/filters/date.js'), { defaultLanguage: defaultLang });
 	eleventyConfig.addPlugin(require('./config/filters/jsmin.js'), { useCache: true });
 	eleventyConfig.addPlugin(require('./config/filters/helpers.js'));
-	eleventyConfig.addFilter('incPath', (filename, dirName = '') => `./${rootDir}/${includesDir}/${dirName ? dirName + '/' : ''}${filename}`);
-	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`);
+	eleventyConfig.addFilter('console', (value) => `<pre style="white-space: pre-wrap;">${unescape(util.inspect(value))}</pre>`); // For debugging only
 
 	/* Shortcodes */
 	eleventyConfig.addPlugin(require('./config/shortcodes/markdown.js'), { markdownEngine: md });
