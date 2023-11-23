@@ -167,7 +167,7 @@ const designs = [
 	},
 	{
 		slug: 'css-retro-vhs',
-		name: 'CSS Retro VHS',
+		name: 'State of CSS',
 		description: "Show your appreciation for everybody's favorite way to style the web with this retro shirt inspired by '90s blank VHS tapes",
 		note: 'Designed for the State of CSS survey',
 		img: 'css-retro-vhs.jpg',
@@ -180,7 +180,7 @@ const designs = [
 	},
 	{
 		slug: 'js-retro-vhs',
-		name: 'JS Retro VHS',
+		name: 'State of JS',
 		description: "Wear your JS colours from the perspective of a '90s VHS tape",
 		note: 'Designed for the State of JS survey',
 		img: 'js-retro-vhs.jpg',

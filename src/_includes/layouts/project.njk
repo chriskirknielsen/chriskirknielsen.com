@@ -7,11 +7,20 @@ backlink: { url: "/projects/", label: "Back to Projects" }
 {{ layoutContent | safe }}
 
 {% if externalUrl %}
-<p class="post-external">
+<p class="post-external | spaced-items inlined-items">
 	{% component "cta", {
 		url: externalUrl,
 		label: projectButtonLabel or ('projects.view' | i18n),
 		icon: 'arrow-next'
 	} %}
+	{% if extraCta %}
+		{% for extraCtaItem in extraCta %}
+		{% component "cta", {
+			url: extraCtaItem.url,
+			label: extraCtaItem.label,
+			icon: extraCtaItem.icon or 'arrow-next'
+		} %}
+		{% endfor %}
+	{% endif %}
 </p>
 {% endif %}

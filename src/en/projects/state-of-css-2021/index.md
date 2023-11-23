@@ -5,6 +5,7 @@ customMetaImage: soc2021-cover.jpg
 externalUrl: https://2021.stateofcss.com/en-US/
 date: 2021-12-24
 projectButtonLabel: View survey
+extraCta: [{ label: 'Get shirt', url: 'https://cottonbureau.com/products/css-retro-vhs#/13046404/tee-men-standard-tee-vintage-black-tri-blend-m', icon: 'shirt' }]
 ---
 
 {% set shirtData = designs | find('slug', 'css-retro-vhs') %}
@@ -12,7 +13,7 @@ After seeing my WWW design series, Sacha Greif, maintainer of the State of CSS a
 
 {% gallery %}
 {% image customMetaImage, "A logo for the State of CSS, with CSS written in quarter-circles on top of a triple-layered yellow-to-hot pink gradient diamond.", "", { ratio: "600/600", group: true } %}
-{% image '/' + assets.imagesDir + '/designs/css-retro-vhs.jpg', "A rework of the logo for the survey rearranged to look like an old blank VHS tape, on a black t-shirt.", 'Get yours at <a href="{{shirtData.link.CottonBureau}}">CottonBureau</a>', { ratio: "600/600", group: true } %}
+{% image '/' + assets.imagesDir + '/designs/' + shirtData.slug + '.jpg', "A rework of the logo for the survey rearranged to look like an old blank VHS tape, on a black t-shirt.", 'Get yours at <a href="'+shirtData.links.CottonBureau+'">CottonBureau</a>', { ratio: "600/600", group: true } %}
 {% endgallery %}
 
 I also animated it for the survey landing page, because animations are fun! Click to restart the animation.
