@@ -11,6 +11,12 @@
 	inset-block-start: 0;
 
 	box-shadow: 0 1px 0 var(--t-accent-color-alt, var(--t-accent-color)); // Little visual separator
+	background: var(--t-bg-color);
+
+	@supports (color: color-mix(in hsl, red 1%, var(--c))) {
+		background: color-mix(in hsl, var(--t-bg-color), transparent 25%);
+		backdrop-filter: blur(8px);
+	}
 }
 
 .toc:not(.toc--pinned) [data-toc-toggle-label='off'],
