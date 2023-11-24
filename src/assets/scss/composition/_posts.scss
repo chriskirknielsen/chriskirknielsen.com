@@ -25,7 +25,7 @@
 .postlist {
 	--flow-space: var(--size-2xl);
 
-	&-yeargroup {
+	&-group-label {
 		position: sticky;
 		inset-block-start: 0;
 		z-index: 1;
@@ -36,10 +36,12 @@
 		color: var(--t-color-aux-med);
 		border-inline-start: 1px solid currentColor;
 		background: var(--ctx-bg) linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
+
+		cursor: pointer;
 	}
 
-	&-yeargroup + &-post {
-		--flow-space: var(--size-s);
+	&-group-list {
+		margin-block-start: var(--size-s);
 	}
 }
 

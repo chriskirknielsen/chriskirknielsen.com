@@ -1,32 +1,33 @@
 <div class="postlist | flow">
-	{% set currYear = ''%}
-	{% for post in postslist | reverse %}
-		{% set postYear = post.date | dateFormat({ format: 'year' }) %}
-		{% if currYear != postYear %}
-			<p class="postlist-yeargroup | u-fontSize-larger">
-				<span class="visually-hidden">{{ 'blog.yearLabel' | i18n }}</span>
-				{{ postYear }}
-			</p>
-		{% endif %}
+	{% set postsByYear = postslist | groupby("data.year") %}
+	{% for year in postsByYear | keys | reverse %}
+	<details class="postlist-group" open>
+		<summary class="postlist-group-label | u-fontSize-larger">
+			<span class="visually-hidden">{{ 'blog.yearLabel' | i18n }}</span>
+			{{ year }}
+		</summary>
 
-		<article class="postlist-post">
-			<h2 class="h3">
-				<a href="{{ post.url | url }}" class="heading-link">
-					{{- post.data.title or "Untitled Post" -}}
-				</a>
-			</h2>
+		<div class="postlist-group-list | flow">
+		{% for post in postsByYear[year] | reverse %}
+			<article class="postlist-post">
+				<h2 class="h3">
+					<a href="{{ post.url | url }}" class="heading-link">
+						{{- post.data.title or "Untitled Post" -}}
+					</a>
+				</h2>
 
-			<p>
-				<time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat({ format: 'nice', lang: lang }) }}</time>
-				{% if post.data.updated %}
-				({{ 'blog.updated' | i18n }}{% if (post.data.updated | dateFormat) != (post.date | dateFormat) %}
-				<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ post.data.updated | dateFormat }}">{{ post.data.updated | dateFormat({ format: 'nice', lang: lang }) }}</time>{% endif %})
-				{% endif %}
-			</p>
+				<p>
+					<time datetime="{{ post.date | dateFormat }}">{{ post.date | dateFormat({ format: 'nice', lang: lang }) }}</time>
+					{% if post.data.updated %}
+					({{ 'blog.updated' | i18n }}{% if (post.data.updated | dateFormat) != (post.date | dateFormat) %}
+					<time style="--t-datetime-color:var(--ctx-color)" datetime="{{ post.data.updated | dateFormat }}">{{ post.data.updated | dateFormat({ format: 'nice', lang: lang }) }}</time>{% endif %})
+					{% endif %}
+				</p>
 
-			<p>{{ post.data.summary or post.excerpt }}</p>
-		</article>
-
-		{% if currYear != postYear %}{% set currYear = postYear %}{% endif %}
+				<p>{{ post.data.summary or post.excerpt }}</p>
+			</article>
+		{% endfor %}
+		</div>
+	</details>
 	{% endfor %}
 </div>

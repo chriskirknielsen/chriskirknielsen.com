@@ -8,9 +8,6 @@ module.exports = function (eleventyConfig) {
 	/** Flattens an array to a single level. */
 	eleventyConfig.addFilter('flatten', (array) => array.flat(Infinity));
 
-	/** Removes unwanted values from a provided list. */
-	eleventyConfig.addFilter('filterOut', (list, values) => list.filter((value) => !values.includes(value)));
-
 	/** Removes values from a list that don't begin with the provided string. Can be reverse with a boolean argument */
 	eleventyConfig.addFilter('filterStartsWith', (list, str, flip = false) => list.filter((value) => String(value).startsWith(str) ^ flip)); // Bitwise XOR, wild stuff
 
