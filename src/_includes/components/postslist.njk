@@ -1,6 +1,5 @@
 <div class="postlist | flow">
-	{% set postsByYear = postslist | groupby("data.year") %}
-	{% for year in postsByYear | keys | reverse %}
+	{% for year, posts in postslist | groupby("data.year") | dictsort | reverse %}
 	<details class="postlist-group" open>
 		<summary class="postlist-group-label | u-fontSize-larger">
 			<span class="visually-hidden">{{ 'blog.yearLabel' | i18n }}</span>
@@ -8,7 +7,7 @@
 		</summary>
 
 		<div class="postlist-group-list | flow">
-		{% for post in postsByYear[year] | reverse %}
+		{% for post in posts | reverse %}
 			<article class="postlist-post">
 				<h2 class="h3">
 					<a href="{{ post.url | url }}" class="heading-link">
