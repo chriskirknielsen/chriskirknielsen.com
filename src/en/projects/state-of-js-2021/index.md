@@ -9,7 +9,6 @@ extraCta: [{ label: 'Get shirt', url: 'https://cottonbureau.com/products/javascr
 ---
 
 {% set shirtData = designs | find('slug', 'js-retro-vhs') %}
-{{ shirtData.links | console | safe }}
 Following a pretty successful collaboration on the CSS shirt, Sacha asked me once more if I'd be up to design a VHS-styled logo and shirt, but for the State of JS this time around. This one was a little more tricky to nail down as balancing "simple" with "massive ecosystem" is a tall order.
 
 We went through quite a few iterations, especially for the background shape that ended up being this tesseract-looking thing with multiple light sources.
