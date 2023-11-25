@@ -31,7 +31,7 @@
 			"original": "Read the original article",
 			"external": "Read the full article on",
 			"writtenByAuthor": "Post written by <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, a front-end developer, CSS nerd, and designer.",
-			"commentsAndSupport": "If you have a comment, please <a href=\"{{ socialUrl }}\">tag me on Mastodon</a> to chat. If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\" hreflang=\"en\">shirt/sticker design of mine</a>? Thanks a ton!",
+			"commentsAndSupport": "If you have a comment, please <a href=\"{{ socialUrl }}\">tag me on {{ socialIcon }} Mastodon</a> to chat. If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\" hreflang=\"en\">shirt/sticker design of mine</a>? Thanks a ton!",
 			"tableOfContents": "Table of Contents",
 			"pin": "Pin",
 			"unpin": "Unpin"

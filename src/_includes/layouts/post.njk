@@ -79,10 +79,11 @@ templateName: post
 				<img src="{{ '/' + assets.imagesDir + '/designs/' + ((designs | find('slug','vhs-css')).img) }}" alt="" width="64" height="64">
 			</a>
 			
+			{% setAsync "socialIcon" %}{% svg "mastodon", { class: "inline-icon inline-icon--middle" } %}{% endsetAsync %}
 			<p class="post-footer-content">
 				<span class="post-footer-author">{{ 'blog.writtenByAuthor' | i18n({ author: metadata.author.name, aboutUrl: ('/about/' | locale_url), aboutLinkId: "post-author-about-link" }) | safe }}</span>
 				<br>
-				<span class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe }}</span>
+				<span class="post-footer-blurb">{{ 'blog.commentsAndSupport' | i18n({ socialIcon: socialIcon, socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe }}</span>
 			</p>
 		</div>
 	</footer>
