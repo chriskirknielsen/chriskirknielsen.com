@@ -40,6 +40,10 @@
 		cursor: pointer;
 	}
 
+	&-group-count {
+		color: var(--t-heading-color);
+	}
+
 	&-group-list {
 		margin-block-start: var(--size-s);
 	}

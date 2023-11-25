@@ -166,6 +166,10 @@
 		background: var(--t-color-main-med);
 	}
 
+	.postlist-group-count {
+		color: var(--t-color-main-max);
+	}
+
 	.about-quotebox {
 		--quotebox-font: var(--t-font-heading);
 		--quotebox-transform: uppercase;
@@ -253,6 +257,10 @@
 		color: var(--t-color-gray-max);
 		border: 0;
 		background: var(--y2k-bar-grad);
+	}
+
+	.postlist-group-count {
+		color: var(--t-color-aux-max);
 	}
 
 	.postlist-post + .postlist-post {
@@ -540,6 +548,10 @@
 	.postlist-group-label,
 	.codeblock-toolbar {
 		clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%); // Cut the bottom-right corner
+	}
+
+	.postlist-group-count {
+		color: var(--t-color-aux-max);
 	}
 
 	.footer-logo {
