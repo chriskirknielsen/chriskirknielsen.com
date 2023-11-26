@@ -29,12 +29,13 @@ permalink: /uses/
 ## Software
 
 -   [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
-    I've been using Firefox since version 3 or something, and it's never disappointed me — love the CSS DevTools!
+    I've been using Firefox since version 3 or something, and it's never disappointed me — love the CSS DevTools! (especially for flex/grid)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     Love how powerful and customisable this editor is! I notably use these extensions:
-    -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): A beautiful neon-infused theme.
-    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Keeps all my code harmoniously formatted.
-    -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): My own CSS easing function preview tool.
+    -   [SynthWave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode): A beautiful neon-infused theme by [Robb Owens](https://robbowen.digital/) that is exactly my vibe (text glow is turned off, though!).
+    -   [JetBrains Mono](https://www.jetbrains.com/lp/mono/): I've tried all the hyped developer fonts, and I keep coming back to this one, with ligatures turned off because they do not help me at all.
+    -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Keeps all my code harmoniously formatted, and when you make a syntax mistake you'll know as your code doesn't auto-format!
+    -   [VisuBezier](https://marketplace.visualstudio.com/items?itemName=chriskirknielsen.visubezier): My own CSS easing function preview tool, pretty useful when writing `cubic-bezier()` by hand that I want to quickly verify without leaving VS Code.
 -   [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
     I love working with vectors! I optimise my work with [SVGOMG](https://jakearchibald.github.io/svgomg/) and then manually tweak them to be _just right_.
 -   [Fork](https://fork.dev/)
