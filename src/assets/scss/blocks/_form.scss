@@ -130,9 +130,13 @@
 	}
 }
 
-form input {
+:is(form, [data-formlike]) :is(input, select, textarea) {
 	padding: var(--size-2xs) var(--size-s);
 
 	border: 1px solid currentColor;
 	border-radius: var(--t-corner-radius);
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 }

@@ -3,41 +3,46 @@ title: "Search"
 summary: Find, uh, stuff.
 eleventyExcludeFromCollections: true
 ---
-<search role="search">
-    <form method="get" id="searchform" class="inline-form" action="https://duckduckgo.com/" autocomplete="off" novalidate data-state="initial">
-        <input type="hidden" name="sites" value="https://chriskirknielsen.com"/>
-        <label for="q">Search for:</label>
-        <input type="text" value="" name="q" id="q" enterkeyhint="search">
-        {% component "cta", {
-            type: 'submit',
-            label: 'Search',
-            ctaAttr: 'id="searchsubmit"',
-            icon: 'search',
-            iconBefore: true
-        } %}
-    </form>
-</search>
+<instant-search search-input="q" class="flow">
+    <search role="search">
+        <form method="get" class="inline-form" action="https://duckduckgo.com/" autocomplete="off" novalidate>
+            <input type="hidden" name="sites" value="https://chriskirknielsen.com"/>
+            <label for="q" class="u-fontWeight-bold">Keyword:</label>
+            <input type="text" value="" name="q" id="q" enterkeyhint="search">
+            {% component "cta", {
+                type: 'submit',
+                label: 'Search',
+                ctaAttr: 'id="searchsubmit"',
+                icon: 'search',
+                iconBefore: true
+            } %}
+        </form>
+    </search>
 
-<hr>
+    <hr data-show-on-first-run hidden>
 
-<h2 id="search-results-heading" hidden>Results <span id="search-results-count"></span></h2>
+    <div class="search-toolbar" data-show-on-first-run hidden>
+        <h2>Results <span data-results-count></span></h2>
+        <div data-formlike>
+            <label for="results-filter" class="u-fontWeight-bold">Filter:</label>
+            <select id="results-filter" class="search-filter" data-results-filter></select>
+        </div>
+    </div>
 
-<ul id="results" class="search-results" style="--flow-space: var(--size-s)" role="list" aria-live="polite">
-    {# Adding classes used by the script so PurgeCSS preserves them in the page's styles #}
-    <li class="u-color-aux-med u-fontSize-smallest" hidden></li>
-</ul>
+    <ul data-show-on-first-run data-results-list class="search-results" style="--flow-space: var(--size-s)" role="list" aria-live="polite"></ul>
 
-<template id="search-result-item">
-    <li class="search-result-item">
-        <span class="u-fontSize-smallest" data-result-type></span>
-        <span data-result-info>
-            <a href="/" hreflang=""></a>
-            <time datetime="" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums"></time>
-            <span class="u-fontSize-smallest" data-lang-code></span>
-        </span>
-    </li>
-</template>
-<style>[data-state="initial"] ~ :is(hr, h2) { display: none; }</style>
+    <template>
+        <li class="search-result-item" data-result-type>
+            <span class="u-fontSize-smallest" data-result-slot="type"></span>
+            <span data-result-slot="info">
+                <a href="/" hreflang=""></a>
+                <time datetime="" class="u-color-aux-med u-fontSize-smallest u-fontVariant-tabularNums"></time>
+                <span class="u-fontSize-smallest" data-result-slot="lang"></span>
+            </span>
+        </li>
+    </template>
+</instant-search>
+
 <script>
-{% include "assets/js/search.js" %}
+{% include "assets/js/webcomponents/instant-search.js" %}
 </script>

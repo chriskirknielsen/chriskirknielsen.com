@@ -1,3 +1,18 @@
+instant-search {
+	display: block;
+}
+
+.search-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.search-filter {
+	min-width: 12ch;
+}
+
 @include subgrid {
 	.search-results {
 		display: grid;
@@ -10,11 +25,11 @@
 		grid-template-columns: subgrid;
 		align-items: baseline;
 
-		& > [data-result-type] {
+		& > [data-result-slot='type'] {
 			grid-column: 1;
 			text-align: end;
 		}
-		& > [data-result-info] {
+		& > [data-result-slot='info'] {
 			grid-column: 2;
 		}
 	}
