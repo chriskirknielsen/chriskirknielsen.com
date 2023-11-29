@@ -42,8 +42,7 @@ i18n:
 <h2 id="frekvent-tastatur-bruger">Frekvent tastatur bruger</h2>
 
 <div class="about-first">
-    {%- set profile %}{% include 'components/about/ckn-profile.njk' %}{% endset -%}
-    {{- profile | htmlmin | safe }}
+    {% include 'components/about/ckn-profile.njk' %}
 
     <p>
         Som barn brugte jeg timer på Microsoft Paint, indtil jeg opdagede Photoshop (jeg havde en <em>fuldstændig</em> gyldig licens). Jeg lærte noget kode til at skift MySpace-sider og så lavede mine egne hjemmesider. Jeg betalte endda for domæner og hosting og kaldte mig selv til <strong>"webmaster"</strong>, før jeg overhovedet havde bumser - sikke et ego. Jeg studerede <strong>grafisk design i 4 år</strong>, og så bliv jeg freelancer, jonglerede mellem designarbejde, videoredigering og kode i et par år med seje kunder, inden jeg fokuserede på <strong>webdev</strong>.

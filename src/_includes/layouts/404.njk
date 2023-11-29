@@ -6,10 +6,7 @@ section: 404
 
 {% block layoutContent %}
     <button type="button" class="button-reset cdiv-clock-wrap" data-chime>
-        {%- setAsync "clock_404" -%}
         {%- svg "clock-404", { ariaLabel: clock404Label } -%}
-        {%- endsetAsync -%}
-        {{ clock_404 | htmlmin | safe }}
     </button>
 
     {{ layoutContent | safe }}

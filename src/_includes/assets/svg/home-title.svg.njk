@@ -20,7 +20,6 @@
 {% set wire_count = 8 %}
 {% set wire_color = 'var(--home-chris-flash-glow, cyan)' %}
 
-{% set svgTitle %}
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="281.25" viewBox="0 0 971.25 504.18" class="home-svg">
   <title id="{{ titleId }}">Chris, {{ 'page.description' | i18n | trim | nlsplit | join(' ') }}</title>
 
@@ -250,5 +249,3 @@
     {# <text text-anchor="middle" x="50%" y="387">{{ 'homeTitle.creaDev' | i18n | upper }}</text> #}
   </g>
 </svg>
-{% endset %}
-{{ svgTitle | htmlmin | safe }}
