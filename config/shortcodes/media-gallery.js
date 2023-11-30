@@ -84,6 +84,9 @@ function mediaShortcode(type, src, alt, caption = '', options = {}) {
 
 	let ratioString = attrs['data-ratio'] || options.ratio ? parseFloat(options.ratio.toFixed(4)).toString() : `${options.width} / ${options.height}`;
 	attrs.style = `aspect-ratio:${ratioString};`;
+	if (type === 'video') {
+		attrs.style += ' max-width: 100%;'; // For RSS feeds
+	}
 
 	const attrsStr = Object.entries(attrs)
 		.map((attr) => `${attr[0]}="${attr[1]}"`)
