@@ -27,9 +27,6 @@
 
 {# RSS feed #}
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ (rssFeedOverride or ('/rss.xml' | locale_url)) | absoluteUrl(metadata.url) }}">
-{% if lang == 'en' %}
-<link rel="alternate" type="application/rss+xml" title="{{ metadata.author.name }}'s' Activity Feed" href="/follow.rss">
-{% endif %}
 
 {# Page alternates #}
 <link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absoluteUrl(metadata.url) }}">
