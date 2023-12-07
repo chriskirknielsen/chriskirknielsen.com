@@ -30,8 +30,8 @@
 			"yearLabel": "Posts for the year",
 			"original": "Read the original article",
 			"external": "Read the full article on",
-			"writtenByAuthor": "Post written by <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, a front-end developer, CSS nerd, and designer.",
-			"commentsAndSupport": "If you have a comment, please <a href=\"{{ socialUrl }}\">tag me on {{ socialIcon }} Mastodon</a> to chat. If you'd like to support me, maybe consider getting a <a href=\"{{ shopUrl }}\" hreflang=\"en\">shirt/sticker design of mine</a>? Thanks a ton!",
+			"writtenByAuthor": "Hey, I'm <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, a front-end developer, CSS nerd, and designer.",
+			"commentsAndSupport": "You can find <a href=\"{{ socialUrl }}\">me on {{ socialIcon }} Mastodon</a>. I've designed some cool <a href=\"{{ shopUrl }}\" hreflang=\"en\">shirts/stickers</a> if you'd like to check those out. Thanks a ton!",
 			"tableOfContents": "Table of Contents",
 			"pin": "Pin",
 			"unpin": "Unpin"

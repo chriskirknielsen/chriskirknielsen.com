@@ -383,6 +383,10 @@
 			transform: rotateZ(45deg) rotateY(1deg) translateZ(calc(var(--halo-width) / 20));
 		}
 	}
+
+	.inversion {
+		--t-heading-color: var(--t-color-aux-max);
+	}
 }
 
 @include theme('neotokyo') {
@@ -556,6 +560,10 @@
 
 	.footer-logo {
 		background: linear-gradient(var(--t-footer-border-color) 50%, var(--t-color-main-med) 0) fixed 50% 50% / 100% 5px;
+	}
+
+	.inversion {
+		--t-heading-shadow: none;
 	}
 }
 

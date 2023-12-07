@@ -30,7 +30,7 @@
 			"yearLabel": "Artikler for",
 			"original": "Læs den originale artikel",
 			"external": "Læs hele artiklen på",
-			"writtenByAuthor": "Artikel skrevet af <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, kreativ webdev.",
+			"writtenByAuthor": "Hejsa, jeg heder <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, kreativ webdev.",
 			"commentsAndSupport": "Hvis du har en kommentar, <a href=\"{{ socialUrl }}\">tag mig på {{ socialIcon }} Mastodon</a> for at diskutere! Hvis du vil støtte mig, kan du <a href=\"{{ shopUrl }}\">bestille en af mine t-shirts</a>. Tusind tak skal du hav!",
 			"tableOfContents": "Indholdsfortegnelse",
 			"pin": "Pin",

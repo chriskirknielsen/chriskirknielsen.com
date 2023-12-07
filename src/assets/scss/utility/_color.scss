@@ -25,9 +25,22 @@ $extra-bg-colors: ('bg-color', 'bg-alt-color');
 	}
 }
 
-[class*='u-color'] {
+[class*='u-color-'] {
 	color: var(--ctx-color);
 }
-[class*='u-background'] {
+[class*='u-background-'] {
 	background-color: var(--ctx-bg);
+}
+
+.inversion {
+	--t-heading-color: var(--t-color-main-max);
+	--ctx-color: var(--t-color-gray-max);
+	--ctx-bg: var(--t-color-main-min);
+	--t-link-color: var(--t-color-alt-max);
+	--t-link-color-active: var(--t-color-alt-min);
+	--t-link-underline-color-active: var(--t-link-underline-color);
+	--t-link-shadow-active: var(--t-link-underline-color-active);
+
+	color: var(--ctx-color);
+	background: var(--ctx-bg);
 }

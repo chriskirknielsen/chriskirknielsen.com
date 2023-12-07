@@ -30,7 +30,7 @@
 			"yearLabel": "Articles pour l'année",
 			"original": "Consulter l'article original",
 			"external": "Consulter l'article complet sur",
-			"writtenByAuthor": "Article rédigé par <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, un développeur créatif.",
+			"writtenByAuthor": "Salut, moi c'est <a href=\"{{ aboutUrl }}\" id=\"{{ aboutLinkId }}\">{{ author }}</a>, un développeur créatif.",
 			"commentsAndSupport": "Si vous avez un commentaire, <a href=\"{{ socialUrl }}\">taggez-moi sur {{ socialIcon }} Mastodon</a> pour discuter ! Si vous souhaitez me soutenir, vous pouvez <a href=\"{{ shopUrl }}\">commander un de mes t-shirts</a>. Merci infiniment !",
 			"tableOfContents": "Table des Matières",
 			"pin": "Épingler",

@@ -50,8 +50,7 @@
 }
 
 .post {
-	&-original,
-	&-footer {
+	&-original {
 		padding: var(--size-xs) var(--size-m);
 
 		color: var(--t-footer-text-color);
@@ -68,71 +67,8 @@
 		font-size: var(--type-1);
 	}
 
-	// Makes use of the centered float trick described by Tyler Sticka: https://cloudfour.com/thinks/solved-tricky-floating-image-alignment/
-	// As well as the bottom floated trick described by Temani Afif: https://css-tricks.com/float-an-element-to-the-bottom-corner/
 	&-footer {
-		--image-size: clamp(3.5em, 3em + 2.5vw, 5em);
-		--image-margin-block: var(--size-2xs);
-		--image-margin-inline: var(--size-m);
-
-		display: grid;
-
-		&-image {
-			position: relative;
-			z-index: 1;
-			pointer-events: none;
-
-			shape-margin: var(--image-margin-block);
-
-			& > img {
-				pointer-events: auto;
-
-				width: var(--image-size);
-				aspect-ratio: 1;
-				object-fit: cover;
-
-				border: 2px solid transparent;
-				border-radius: 50%;
-				background: linear-gradient(45deg, var(--t-link-color), var(--t-link-underline-color)) border-box;
-			}
-
-			&--avatar {
-				display: block;
-				float: left;
-				shape-outside: inset(0);
-
-				& > img {
-					margin-inline-end: var(--image-margin-inline);
-				}
-			}
-
-			&--design {
-				display: flex;
-				height: 100%;
-				align-items: flex-end;
-				float: right;
-				shape-outside: inset(calc(100% - var(--image-size) - (2 * var(--image-margin-block))) 0 0);
-
-				& > img {
-					margin-inline-start: var(--image-margin-inline);
-				}
-			}
-		}
-		&-author {
-			color: var(--t-link-color);
-		}
-
-		&-content {
-			position: relative;
-			inset-block-start: 50%;
-
-			transform: translateY(-50%);
-		}
-
-		&::after {
-			content: '';
-			display: table;
-			clear: both;
-		}
+		grid-column: wide;
+		padding: var(--C-content-gutter);
 	}
 }

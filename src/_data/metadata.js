@@ -4,6 +4,7 @@ module.exports = {
 	repo: 'https://github.com/chriskirknielsen/chriskirknielsen.com',
 	author: {
 		name: 'Christopher Kirk-Nielsen',
+		shortname: 'Chris',
 		email: 'chriskirknielsen@gmail.com',
 		twitter: 'ckirknielsen',
 		mastodon: 'chriskirknielsen',
