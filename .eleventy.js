@@ -90,6 +90,10 @@ module.exports = function (eleventyConfig) {
 						toolbarLabel = 'JavaScript';
 						break;
 					}
+					case 'njk': {
+						toolbarLabel = 'Nunjucks';
+						break;
+					}
 					default: {
 						toolbarLabel = syntaxType.toUpperCase();
 						break;
