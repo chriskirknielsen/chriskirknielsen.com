@@ -20,4 +20,6 @@ The theme picker is more than a little inspired by [Max Böck's own](https://mxb
 
 You can check out the [full source code on GitHub]({{ metadata.repo }}) to see plugins and other packages used. I only ask that you don't steal my code and slap your own name on it.
 
+I'd like to thank my friends who accept to review my site or my work before it goes live, and also my partner Ilona for the times I say "just fixing something my website" and it takes at least half an hour.
+
 Thanks for stopping by, friend, it is mighty kind of you! 👋
