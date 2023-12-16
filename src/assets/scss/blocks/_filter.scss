@@ -5,6 +5,7 @@ filtered-tiles {
 .filtering {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	align-items: baseline;
 	gap: 0.5em 0.5em;
 	margin: 0;
@@ -13,16 +14,52 @@ filtered-tiles {
 	border: 0;
 
 	&-item {
-		display: inline;
+		display: inline-block;
 
 		& input[type='radio']:focus-visible + label {
 			outline: 4px dashed var(--t-color-gray-min);
 		}
+	}
 
-		& input[type='radio']:checked + label {
+	&-tag {
+		position: relative;
+
+		padding: var(--size-2xs) var(--size-xs);
+
+		color: var(--t-cta-text-color);
+		border: 1px solid var(--t-cta-border-color);
+		border-radius: var(--btn-border-radius, var(--t-corner-radius));
+		background-color: var(--t-cta-bg);
+		box-shadow: var(--t-cta-box-shadow, none);
+
+		:checked + & {
 			text-decoration: underline;
-			text-decoration-thickness: 0.125em;
-			text-underline-offset: 0.25em;
+
+			color: var(--t-cta-text-color-active);
+			border-color: var(--t-cta-border-color-active);
+			background-color: var(--t-cta-bg-active);
+
+			&::before {
+				--arrow-color: var(--t-cta-border-color-active, current-color);
+				--arrow-size-x: 0.25em;
+				--arrow-size-y: 0.25em;
+
+				content: '';
+				position: absolute;
+				inset: 0 0 auto;
+
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-left-width: var(--arrow-size-x);
+				border-right-width: var(--arrow-size-x);
+				border-color: transparent transparent;
+
+				margin: 0 auto auto;
+				border-style: solid;
+				border-top-width: var(--arrow-size-y);
+				border-top-color: var(--arrow-color);
+			}
 		}
 	}
 }
