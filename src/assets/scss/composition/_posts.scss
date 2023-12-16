@@ -38,9 +38,14 @@
 		background: var(--ctx-bg) linear-gradient(to right, currentColor, transparent) no-repeat 0 100% / 100% 1px;
 
 		cursor: pointer;
+
+		&:is(:hover, :focus-visible) > &__text {
+			text-decoration: underline;
+		}
 	}
 
-	&-group-count {
+	&-group-count,
+	&-group-label:is(:hover, :focus-visible)::marker {
 		color: var(--t-heading-color);
 	}
 

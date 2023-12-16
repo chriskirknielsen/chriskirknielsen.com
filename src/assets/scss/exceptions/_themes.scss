@@ -166,7 +166,8 @@
 		background: var(--t-color-main-med);
 	}
 
-	.postlist-group-count {
+	.postlist-group-count,
+	.postlist-group-label:is(:hover, :focus-visible)::marker {
 		color: var(--t-color-main-max);
 	}
 
@@ -259,7 +260,8 @@
 		background: var(--y2k-bar-grad);
 	}
 
-	.postlist-group-count {
+	.postlist-group-count,
+	.postlist-group-label:is(:hover, :focus-visible)::marker {
 		color: var(--t-color-aux-max);
 	}
 
@@ -554,7 +556,8 @@
 		clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut-size)), calc(100% - var(--cut-size)) 100%, 0 100%); // Cut the bottom-right corner
 	}
 
-	.postlist-group-count {
+	.postlist-group-count,
+	.postlist-group-label:is(:hover, :focus-visible)::marker {
 		color: var(--t-color-aux-max);
 	}
 
