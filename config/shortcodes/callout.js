@@ -12,7 +12,7 @@ module.exports = function (eleventyConfig, options = {}) {
 	const { labelByLang, markdownEngine, defaultLanguage } = options;
 
 	eleventyConfig.addPairedShortcode('callout', function (content, pseudo = '', emoji = '', isInline = true) {
-		const uniqueId = `co-${new Date().getTime().toString(36)}`;
+		const uniqueId = `co-${parseInt(String(Math.random()).split('.')[1], 10).toString(36)}`;
 		const context = this?.ctx || this.context?.environments;
 		const lang = context.lang || defaultLanguage;
 		const emojiStyleAttr = emoji ? `style="--callout-emoji: '${emoji}'"` : '';
