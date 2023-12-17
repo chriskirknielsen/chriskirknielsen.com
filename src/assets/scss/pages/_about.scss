@@ -910,7 +910,6 @@ ul[data-facts] {
 
 .about-quotebox {
 	--flow-space: var(--size-xl);
-	--quotebox-grad-pos: calc(100% * (1 - var(--t-is-dark))) calc(100% * (1 - var(--t-is-dark)));
 
 	align-self: center;
 	display: flex;
@@ -926,16 +925,6 @@ ul[data-facts] {
 	letter-spacing: var(--quotebox-tracking, initial);
 	text-align: center;
 	line-height: 1.1;
-
-	color: var(--t-color-main-max);
-	border-radius: var(--quotebox-corner-radius, calc(4 * var(--t-corner-radius)));
-	background: var(--t-color-main-min)
-		radial-gradient(
-			farthest-corner at var(--quotebox-grad-pos, 100% 100%),
-			var(--quotebox-bg-start, var(--t-color-main-min)),
-			66.7%,
-			var(--quotebox-bg-end, var(--t-color-main-med))
-		);
 }
 
 @include above-small {

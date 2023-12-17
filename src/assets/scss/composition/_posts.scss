@@ -72,8 +72,48 @@
 		font-size: var(--type-1);
 	}
 
+	// Makes use of the centered float trick described by Tyler Sticka: https://cloudfour.com/thinks/solved-tricky-floating-image-alignment/
 	&-footer {
+		--image-size: clamp(3em, 2.5em + 5vw, 8em);
+		--image-margin-block: var(--size-2xs);
+		--image-margin-inline: var(--size-m);
+
 		grid-column: wide;
+		display: grid;
 		padding: var(--C-content-gutter);
+
+		&-avatar {
+			position: relative;
+			z-index: 1;
+			pointer-events: none;
+
+			overflow: clip;
+
+			float: left;
+			shape-outside: inset(0);
+			shape-margin: var(--image-margin-block);
+
+			& > img {
+				pointer-events: auto;
+
+				width: var(--image-size);
+				aspect-ratio: 1;
+				object-fit: cover;
+				margin-inline-end: var(--image-margin-inline);
+
+				border-radius: 50%;
+			}
+		}
+
+		&-content {
+			position: relative;
+			inset-block-start: 50%;
+
+			transform: translateY(-50%);
+		}
+
+		&-blurb {
+			text-wrap: pretty;
+		}
 	}
 }

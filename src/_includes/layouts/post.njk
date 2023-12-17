@@ -70,13 +70,21 @@ templateName: post
 
 	{% if not original and not externalUrl %}
 	{% setAsync "socialIcon" %}{% svg "mastodon", { class: "inline-icon inline-icon--middle" } %}{% endsetAsync %}
-	<footer class="post-footer | inversion">
-		<h2 class="h5 | post-footer-author">
-			{{- 'blog.writtenByAuthor' | i18n({ author: metadata.author.shortname, aboutUrl: ('/about/' | locale_url), aboutLinkId: "post-author-about-link" }) | safe -}}
-		</h2>
-		<p class="post-footer-blurb">
-			{{- 'blog.commentsAndSupport' | i18n({ socialIcon: socialIcon, socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe -}}
-		</p>
+	<footer class="post-footer | standout">
+		<div class="post-footer-inner">
+			<a href="{{ '/about/' | locale_url }}" class="post-footer-avatar" tabindex="-1" aria-hidden="true">
+				<img src="{{ ('/' + assets.imagesDir + '/profile.jpg') | url }}" alt="{{ metadata.author.shortname }}" width="64" height="64">
+			</a>
+
+			<div class="post-footer-content | flow">
+				<h2 class="h5 | post-footer-author">
+					{{- 'blog.writtenByAuthor' | i18n({ author: metadata.author.shortname, aboutUrl: ('/about/' | locale_url), aboutLinkId: "post-author-about-link" }) | safe -}}
+				</h2>
+				<p class="post-footer-blurb">
+					{{- 'blog.commentsAndSupport' | i18n({ socialIcon: socialIcon, socialUrl: 'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon, shopUrl: '/designs/' }) | safe -}}
+				</p>
+			</div>
+		</div>
 	</footer>
 	{% endif %}
 
