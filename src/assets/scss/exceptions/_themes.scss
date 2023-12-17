@@ -574,9 +574,9 @@
 }
 
 @include theme('campfire') {
-	.about-quotebox {
-		--quotebox-bg-start: var(--t-color-aux-min);
-		--quotebox-bg-end: var(--t-color-aux-med);
+	.standout {
+		--standout-bg-start: var(--t-color-aux-min);
+		--standout-bg-end: var(--t-color-aux-med);
 	}
 
 	.bigboi {
