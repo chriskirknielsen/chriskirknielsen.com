@@ -29,7 +29,7 @@ rssFeedOverride: '/designs.xml'
 
 <hr>
 
-<filtered-tiles filters="{{ activeDesigns | pluck('tags') | flatten | unique | sort | join(",") }}" filter-class="u-marginBlockEnd-xl">
+<filtered-tiles class="custom-element custom-element--passthrough" filters="{{ activeDesigns | pluck('tags') | flatten | unique | sort | join(",") }}" filter-class="u-marginBlockEnd-xl">
 	<div data-filtered-tiles-group class="gridlist" style="--spaced-items-gap:var(--size-m);">
 	{% for design in activeDesigns %}
 		{% set designPermalink = '/designs/' + design.slug + '/' | url %}

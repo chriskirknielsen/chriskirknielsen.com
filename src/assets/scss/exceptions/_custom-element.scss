@@ -1,0 +1,13 @@
+.custom-element {
+	&--passthrough {
+		display: contents;
+
+		.container > & > * {
+			grid-column: inherit;
+		}
+
+		.flow > & > * {
+			margin-block-start: inherit;
+		}
+	}
+}

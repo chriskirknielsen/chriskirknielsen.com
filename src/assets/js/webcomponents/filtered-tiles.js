@@ -14,7 +14,7 @@ function filterTiles(context, inputName) {
 
 	function filterTo(filter, skipAnim = false) {
 		let isShowAll = filter === '';
-		let filterHash = filter ? '#' + hashIndicator + filter : '';
+		let filterHash = filter ? '#' + hashIndicator + filter : './';
 		let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 		history.replaceState(undefined, '', filterHash);
