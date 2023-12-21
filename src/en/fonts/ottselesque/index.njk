@@ -72,57 +72,55 @@ fontSpecimenFallback: 'fantasy'
 </p>
 
 <div class="full color-alt bg-alt padding-block">
-    <form class="full-content preview" id="font-previewer">
-        {% set previewOptions = {
-            "dlig": { default: true, label: "Enable Ligatures" },
-            "ss01": { default: false, label: "Enable Stylistic Alternates" }
-        } %}
-        {% set previewWarnings = {
-            "preview-jak-warning": 'Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!',
-            "preview-daxter-warning": 'Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!'
-        } %}
+    {% set previewOptions = {
+        "dlig": { default: true, label: "Enable Ligatures" },
+        "ss01": { default: false, label: "Enable Stylistic Alternates" }
+    } %}
+    {% set previewWarnings = {
+        "preview-jak-warning": 'Tip: Use a capital <code>K</code> when typing "Jak" to get the look of the logo!',
+        "preview-daxter-warning": 'Tip: Use capital <code>DAXTER</code> when typing "Daxter" to get the look of the logo!'
+    } %}
 
-        {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault, previewWarnings) %}
-            <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300" aria-hidden="true">
-                <defs>
-                    <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%">
-                        <stop offset="0.2" stop-color="#ff361a"/>
-                        <stop offset="0.6" stop-color="#ecd237"/>
-                        <stop offset="0.9" stop-color="#ff361a"/>
-                    </linearGradient>
+    {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault, previewWarnings) %}
+        <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300">
+            <defs>
+                <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="0" y2="100%">
+                    <stop offset="0.2" stop-color="#ff361a"/>
+                    <stop offset="0.6" stop-color="#ecd237"/>
+                    <stop offset="0.9" stop-color="#ff361a"/>
+                </linearGradient>
 
-                    <filter id="bevel" filterUnits="objectBoundingBox" x="-10%" y="-10%" width="120%" height="120%">
-                        <feGaussianBlur in="SourceAlpha" stdDeviation="0.75" result="blur"/>
-                        <feSpecularLighting in="blur" surfaceScale="10" specularConstant="1" specularExponent="10" result="specOut" lighting-color="#ffffff">
-                            <fePointLight x="-2000" y="-5000" z="0"/>
-                        </feSpecularLighting>
-                        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
-                        <feComposite in="SourceGraphic" in2="specOut2" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
-                    </filter>
+                <filter id="bevel" filterUnits="objectBoundingBox" x="-10%" y="-10%" width="120%" height="120%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="0.75" result="blur"/>
+                    <feSpecularLighting in="blur" surfaceScale="10" specularConstant="1" specularExponent="10" result="specOut" lighting-color="#ffffff">
+                        <fePointLight x="-2000" y="-5000" z="0"/>
+                    </feSpecularLighting>
+                    <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
+                    <feComposite in="SourceGraphic" in2="specOut2" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
+                </filter>
 
-                    <filter id="noise" x="-10%" y="-10%" width="120%" height="120%">
-                        <feTurbulence baseFrequency="0.05 0.05" result="turb" numOctaves="2" />
-                        <feDisplacementMap in="SourceGraphic" in2="turb" result="displace" scale="5" xChannelSelector="R" yChannelSelector="R"/>
-                        <feGaussianBlur in="displace" stdDeviation="2" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="
-                            1 0 0 0 0
-                            0 1 0 0 0
-                            0 0 1 0 0
-                            0 0 0 24 -12
-                        " result="goo" />
-                    </filter>
+                <filter id="noise" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence baseFrequency="0.05 0.05" result="turb" numOctaves="2" />
+                    <feDisplacementMap in="SourceGraphic" in2="turb" result="displace" scale="5" xChannelSelector="R" yChannelSelector="R"/>
+                    <feGaussianBlur in="displace" stdDeviation="2" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="
+                        1 0 0  0   0
+                        0 1 0  0   0
+                        0 0 1  0   0
+                        0 0 0 24 -12
+                    " result="goo" />
+                </filter>
 
-                    <symbol id="sample-text">
-                        <text class="specimen" style="font-size:128px" text-anchor="middle" x="50%" y="200" id="preview-output">{{ fontSpecimenSampleDefault }}</text>
-                    </symbol>
-                </defs>
-                
-                <use xlink:href="#sample-text" fill="#ffffff" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
-                <use xlink:href="#sample-text" fill="#262425" stroke="#262425" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#noise)" transform="translate(-0.5 -0.5)"/>
-                <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
-            </svg>
-        {% endcall %}
-    </form>
+                <symbol id="sample-text">
+                    <text class="specimen" style="font-size:128px" text-anchor="middle" x="50%" y="200" data-fontpreview="preview-output">{{ fontSpecimenSampleDefault }}</text>
+                </symbol>
+            </defs>
+            
+            <use xlink:href="#sample-text" fill="#ffffff" stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+            <use xlink:href="#sample-text" fill="#262425" stroke="#262425" stroke-width="12.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#noise)" transform="translate(-0.5 -0.5)"/>
+            <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
+        </svg>
+    {% endcall %}
 </div>
 
 <div class="specimen-set-demo demo-grid specimen">
@@ -155,7 +153,7 @@ fontSpecimenFallback: 'fantasy'
     </p>
 </div>
 
-<h2>Ligatures<span class="preview-interactive-piece"> (click code to copy)</span></h2>
+<h2>Ligatures <span class="requires-js">(click code to copy)</span></h2>
 {% set ligaList = ['JaKandDAXTER', 'JaK', '&nbsp;and&nbsp;', 'DAXTER', 'JaKh', 'XTER', 'II', 'III', 'IV', 'KrI', 'Pro', 'TER', 'ER', 'KI', 'Kh', 'Ko', 'Kr', 'LA', 'LE', 'Le', 'Ll', 'Lo', 'RO', 'TE', 'XT', 'le', 'li', 'll', 'ls', 'lu', 'rI', 'ri', 'rr', 'ss', 'tt'] %}
 <p class="specimen-set-demo specimen specimen-dlig ligature-set-demo">
     {% for liga in ligaList %}
@@ -230,7 +228,7 @@ fontSpecimenFallback: 'fantasy'
         document.getElementById('preview-daxter-warning').hidden = (e.target.value.indexOf('Daxter') === -1);
     });
 
-    Array.from(document.querySelectorAll('.ligature-sample')).forEach(lig => {
+    Array.from(document.querySelectorAll('.ligature-sample')).forEach((lig) => {
         const libButton = lig.querySelector('button.ligature-sample-code');
         const libInput = lig.querySelector('input.ligature-sample-code');
         

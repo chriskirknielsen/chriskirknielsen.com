@@ -55,44 +55,42 @@ fontSpecimenFallback: '"Helvetica Extended Black", "Helvetica Extended", "Helvet
 </p>
 
 <div class="full color-alt bg-alt padding-block">
-    <form class="full-content preview" id="font-previewer">
-        {% set previewOptions = {
-            "italic": { default: true, label: "Enable Italics" },
-            "dlig": { default: true, label: "Enable Ligatures" },
-            "ss01": { default: true, label: "Enable Stylistic Alternates" }
-        } %}
+    {% set previewOptions = {
+        "italic": { default: true, label: "Enable Italics" },
+        "dlig": { default: true, label: "Enable Ligatures" },
+        "ss01": { default: true, label: "Enable Stylistic Alternates" }
+    } %}
 
-        {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault) %}
-            <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300" aria-hidden="true">
-                <defs>
-                    <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="100%" y2="0" gradientTransform="scale(1 2)">
-                        <stop offset="0.1" stop-color="#c84823"/>
-                        <stop offset="0.5" stop-color="#f9af68"/>
-                        <stop offset="0.9" stop-color="#c84823"/>
-                    </linearGradient>
+    {% call fontPreviewer(previewOptions, fontSpecimenSampleDefault) %}
+        <svg id="preview-svg" class="preview-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 300" width="1000" height="300" aria-hidden="true">
+            <defs>
+                <linearGradient id="specimenPreviewFill" x1="0" y1="0" x2="100%" y2="0" gradientTransform="scale(1 2)">
+                    <stop offset="0.1" stop-color="#c84823"/>
+                    <stop offset="0.5" stop-color="#f9af68"/>
+                    <stop offset="0.9" stop-color="#c84823"/>
+                </linearGradient>
 
-                    <filter id="bevel" filterUnits="objectBoundingBox" x="-10%" y="-10%" width="120%" height="120%">
-                        <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
-                        <feSpecularLighting in="blur" surfaceScale="10" specularConstant="1" specularExponent="10" result="specOut" lighting-color="#ffffff">
-                            <fePointLight x="-2000" y="-5000" z="0"/>
-                        </feSpecularLighting>
-                        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
-                        <feComposite in="SourceGraphic" in2="specOut2" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
-                    </filter>
+                <filter id="bevel" filterUnits="objectBoundingBox" x="-10%" y="-10%" width="120%" height="120%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+                    <feSpecularLighting in="blur" surfaceScale="10" specularConstant="1" specularExponent="10" result="specOut" lighting-color="#ffffff">
+                        <fePointLight x="-2000" y="-5000" z="0"/>
+                    </feSpecularLighting>
+                    <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut2"/>
+                    <feComposite in="SourceGraphic" in2="specOut2" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
+                </filter>
 
-                    <symbol id="sample-text">
-                        <text class="specimen" style="font-size:72px" text-anchor="middle" x="50%" y="200"><tspan id="preview-output">{{ fontSpecimenSampleDefault }}</tspan><tspan>&nbsp;</tspan></text>
-                    </symbol>
-                </defs>
-                
-                <use xlink:href="#sample-text" fill="#cbcbcb" stroke="#cbcbcb" stroke-width="18" stroke-linecap="butt" stroke-linejoin="butt"/>
-                <use xlink:href="#sample-text" fill="#1a1c1c" stroke="#1a1c1c" stroke-width="16" stroke-linecap="butt" stroke-linejoin="butt"/>
-                <use xlink:href="#sample-text" fill="#424eaa" transform="translate(-2 2)" />
-                <use xlink:href="#sample-text" fill="#1a1c1c" transform="translate(-1 1)"/>
-                <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
-            </svg>
-        {% endcall %}
-    </form>
+                <symbol id="sample-text">
+                    <text class="specimen" style="font-size:72px" text-anchor="middle" x="50%" y="200"><tspan data-fontpreview="preview-output">{{ fontSpecimenSampleDefault }}</tspan><tspan>&nbsp;</tspan></text>
+                </symbol>
+            </defs>
+            
+            <use xlink:href="#sample-text" fill="#cbcbcb" stroke="#cbcbcb" stroke-width="18" stroke-linecap="butt" stroke-linejoin="butt"/>
+            <use xlink:href="#sample-text" fill="#1a1c1c" stroke="#1a1c1c" stroke-width="16" stroke-linecap="butt" stroke-linejoin="butt"/>
+            <use xlink:href="#sample-text" fill="#424eaa" transform="translate(-2 2)" />
+            <use xlink:href="#sample-text" fill="#1a1c1c" transform="translate(-1 1)"/>
+            <use xlink:href="#sample-text" fill="url(#specimenPreviewFill)" filter="url(#bevel)" />
+        </svg>
+    {% endcall %}
 </div>
 
 <div class="specimen-set-demo demo-grid specimen">

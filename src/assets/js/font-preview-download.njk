@@ -3,8 +3,8 @@ permalink: /fonts/download-preview.js
 eleventyExcludeFromCollections: true
 ---
 {% set fontPreviewDownload %}
-if (typeof Promise !== "undefined" && fontPreviewSave) {
-    fontPreviewSave.hidden = false;
+if (typeof Promise !== "undefined" && fontPreviewData) {
+    fontPreviewData.saveButton.hidden = false;
 
     /**
      * @source https://github.com/exupero/saveSvgAsPng
@@ -454,9 +454,8 @@ if (typeof Promise !== "undefined" && fontPreviewSave) {
         return out$.saveSvgAsPng;
     })();
 
-    fontPreviewSave.addEventListener('click', function (e) {
-        var previewEl = document.getElementById('preview-svg');
-        saveSvgAsPng(previewEl, 'preview_'+fontNameSlug+'.png', { scale: 2 });
+    fontPreviewData.saveButton.addEventListener('click', function (e) {
+        saveSvgAsPng(fontPreviewData.previewSvg, 'preview_'+fontPreviewData.nameSlug+'.png', { scale: 2 });
     });
 }
 {% endset %}

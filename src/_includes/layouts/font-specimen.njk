@@ -56,42 +56,48 @@
 </head>
 
 {% macro fontPreviewer(previewOptions = '', defaultText = 'Type Anything', warningMessages = '') %}
-	<form class="full-content preview" id="font-previewer">
-		<div class="preview-fallback">
-			<label for="font-preview-fallback" class="visually-hidden">Preview:</label>
-			<input type="text" id="font-preview-fallback" class="specimen specimen-dlig preview-fallback-input" value="{{ defaultText }}" placeholder="Type anything" />
-			<p class="fallback-warning">To get a rich preview, you may need JavaScript enabled or a better Internet service.</p>
-		</div>
+	<font-preview class="full-content" default-sample="{{ fontSpecimenSampleDefault }}">
+		<form class="preview">
+			<div class="preview-fallback">
+				<label for="font-preview-fallback">Custom preview:</label>
+				<input type="text" id="font-preview-fallback" class="specimen specimen-dlig preview-fallback-input" value="{{ defaultText }}" placeholder="{{ defaultText }}" />
+				<p class="fallback-warning">To enable advanced preview options, you may need JavaScript enabled or a better Internet service.</p>
+			</div>
 
-        <div class="preview-input-wrap preview-interactive-piece">
-            <label for="preview-input">Preview:</label>
-            <input type="text" placeholder="Type anything" id="preview-input" />
-            <button type="button" id="preview-update">Update</button>
-        </div>
+			<div class="preview-input-wrap">
+				<label for="preview-input">Preview:</label>
+				<input type="text" placeholder="{{ defaultText }}" data-fontpreview="preview-input" id="preview-input" />
+				<button type="button" data-fontpreview="preview-update">Update</button>
+			</div>
 
-		{% if warningMessages %}
-			{% for warningMessageId, warningMessageMarkup in warningMessages %}
-			<p class="preview-warning" id="{{ warningMessageId }}" hidden>{{ warningMessageMarkup | safe }}</p>
-			{% endfor %}
-		{% endif %}
-
-        <output id="preview-output-wrap" for="preview-input" class="preview-interactive-piece" aria-label="{{ defaultText }}">
-            {{ caller() }}
-        </output>
-
-        <div class="preview-actions preview-interactive-piece">
-            <div class="preview-options flow" style="--flow: 0.5rem;">
-				{% for optKey, optData in previewOptions %}
-                <p class="preview-option">
-                    <input type="checkbox" name="{{ optKey }}" data-preview-option id="preview-option-{{ optKey }}" {% if optData.default %}checked{% endif %} />
-                    <label for="preview-option-{{ optKey }}">{{ optData.label }}</label>
-                </p>
+			{% if warningMessages %}
+				{% for warningMessageId, warningMessageMarkup in warningMessages %}
+					<p class="preview-warning" id="{{ warningMessageId }}" hidden>{{ warningMessageMarkup | safe }}</p>
 				{% endfor %}
-            </div>
+			{% endif %}
 
-            <button type="button" id="save-preview" class="preview-save" hidden>Save as PNG</button>
-        </div>
-    </form>
+			<output data-fontpreview="preview-output-wrap" for="preview-input" aria-label="{{ defaultText }}">
+				{{ caller() }}
+			</output>
+
+			<div class="preview-actions">
+				<div class="preview-options flow" style="--flow: 0.5rem;">
+					{% for optKey, optData in previewOptions %}
+					<p class="preview-option">
+						<input type="checkbox" name="{{ optKey }}" data-preview-option id="preview-option-{{ optKey }}" {% if optData.default %}checked{% endif %} />
+						<label for="preview-option-{{ optKey }}">{{ optData.label }}</label>
+					</p>
+					{% endfor %}
+				</div>
+
+				<button type="button" id="save-preview" class="preview-save" hidden>Save as PNG</button>
+			</div>
+		</form>
+	</font-preview>
+
+	<script>
+	{% include "assets/js/webcomponents/font-preview.js" %}
+	</script>
 {% endmacro %}
 
 <body>
@@ -110,60 +116,28 @@
 		<a href="{{ '/fonts/' | url }}">Font Directory</a>
 	</footer>
 
+
 	<script>
-	{% set fontSpecimenScripts %}
-		var fontPreviewerForm = document.getElementById('font-previewer');
-		var fontPreviewInput = document.getElementById('preview-input');
-		var fontPreviewOutputWrap = document.getElementById('preview-output-wrap');
-		var fontPreviewOutput = document.getElementById('preview-output');
-		var fontPreviewSvg = document.getElementById('preview-svg');
-		var fontPreviewSave = document.getElementById('save-preview');
-		var fontNameSlug = '{{ title | stripHyphenChars | slug }}';
+	{%- set extraFontSpecimenScripts -%}
+	document.addEventListener('click', function (e) {
+		let ligCode = e.target.closest('.ligature-sample-code');
+		if (!ligCode) { return; }
+		let ligText = ligCode.parentElement.querySelector('input');
+		ligText.select();
+		document.execCommand('copy');
+		ligCode.classList.add('copied');
+		setTimeout(function () {
+			ligCode.classList.remove('copied');
+		}, 300);
+	});
 
-		function updateFontPreviewText() {
-			const text = fontPreviewInput.value.trim() || '{{ fontSpecimenSampleDefault | safe }}';
-			fontPreviewOutputWrap.setAttribute('aria-label', text);
-			fontPreviewOutput.textContent = text;
-		}
-
-		function updateFontPreviewOptions(e = null) {
-			var previewOptions = !e ? false : e.target.closest('[data-preview-option]') || false;
-			if (!previewOptions) { previewOptions = Array.from(document.querySelectorAll('[data-preview-option]')); }
-			else { previewOptions = [previewOptions]; }
-
-			previewOptions.forEach(function (previewOption) {
-				var classToToggle = previewOption.getAttribute('name');
-				var isToggleAdd = previewOption.checked;
-
-				if (isToggleAdd) { fontPreviewOutput.classList.add('specimen-'+classToToggle); }
-				else { fontPreviewOutput.classList.remove('specimen-'+classToToggle); }
-			});
-		}
-
-		document.getElementById('preview-update').addEventListener('click', function (e) {
-			updateFontPreviewText();
-			updateFontPreviewOptions(e);
-		});
-		document.addEventListener('click', function (e) {
-			var ligCode = e.target.closest('.ligature-sample-code');
-			if (!ligCode) { return; }
-			var ligText = ligCode.parentElement.querySelector('input');
-			ligText.select();
-			document.execCommand('copy');
-			ligCode.classList.add('copied');
-			setTimeout(function() { ligCode.classList.remove('copied'); }, 300);
-		});
-		fontPreviewerForm.addEventListener('keyup', updateFontPreviewText);
-		fontPreviewerForm.addEventListener('change', updateFontPreviewOptions);
-		fontPreviewerForm.addEventListener('submit', function (e) {
-			updateFontPreviewText();
-			e.preventDefault();
-			return false;
-		});
-		updateFontPreviewText();
-		updateFontPreviewOptions();
-	{% endset %}
-	{{ fontSpecimenScripts | jsmin | safe }}
+	const fontPreviewData = {
+		saveButton: document.getElementById('save-preview'),
+		previewSvg: document.getElementById('preview-svg'),
+	};
+	{%- endset -%}
+	{{ extraFontSpecimenScripts | jsmin('extraFontSpecimenScripts') | safe }};
+	fontPreviewData.nameSlug=`{{ title | stripHyphenChars | slug }}`;
 	</script>
 	<script src="../download-preview.js" defer></script>
 </body>

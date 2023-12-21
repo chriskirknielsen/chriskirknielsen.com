@@ -181,18 +181,33 @@ a {
 
 	& > input[type='text'] {
 		flex: 4 1 30ch;
-
-		&::placeholder {
-			color: inherit;
-
-			opacity: 0.7;
-		}
 	}
 }
 
-html:not(.no-js) .preview-fallback,
-html.no-js .preview-interactive-piece {
+input.specimen::placeholder {
+	color: inherit;
+
+	opacity: 0.7;
+}
+
+font-preview.defined > form > .preview-fallback,
+font-preview:not(.defined) > form > :not(.preview-fallback),
+.no-js .requires-js {
+	// Hide the fallback when the element is defined
+	// Hide interactive elements when not (yet) defined
 	display: none;
+}
+
+.preview-fallback label {
+	position: relative;
+	z-index: 1;
+
+	display: inline-block;
+	padding: 0.125em 0.5em;
+
+	color: var(--bg-main);
+	background-color: var(--color-main);
+	border-radius: 0.25em 0.25em 0 0;
 }
 
 .preview-fallback-input {
@@ -200,13 +215,14 @@ html.no-js .preview-interactive-piece {
 	width: 100%;
 
 	text-align: center;
-	line-height: inherit;
+	line-height: 1.2;
 	font-size: var(--preview-fallback-font-size, 4rem);
 
-	color: inherit;
-	background: transparent;
+	color: var(--color-main);
+	background: var(--bg-main);
 	border: 0;
-	border-bottom: 2px solid currentColor;
+	border: 2px solid currentColor;
+	box-shadow: 0 0 1rem -0.25rem var(--bg-main);
 
 	&:focus {
 		outline: 2px solid currentColor;
