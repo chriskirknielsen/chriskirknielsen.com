@@ -159,7 +159,7 @@ fontSpecimenFallback: 'fantasy'
     {% for liga in ligaList %}
     <span class="ligature-sample" title="&quot;{{ liga | safe }}&quot;">
         {{ liga | safe }}
-        <button type="button" class="ligature-sample-code" type="text" aria-hidden="true" tabindex="-1">{{ liga | safe }}</button>
+        <button type="button" class="ligature-sample-code" aria-hidden="true" tabindex="-1">{{ liga | safe }}</button>
         <input type="text" class="ligature-sample-code" value="{{ liga | safe }}" readonly />
     </span>
     {% endfor %}
