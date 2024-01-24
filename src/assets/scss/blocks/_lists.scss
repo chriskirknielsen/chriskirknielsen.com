@@ -18,7 +18,7 @@
 	}
 }
 
-.long-list {
+[data-list='long'] {
 	& > li:not(:first-child) {
 		margin-top: 0.5em; // Just to let each list item breathe a little
 	}

@@ -5,7 +5,6 @@ permalink: /games/
 layout: layouts/page.njk
 section: games
 templateEngineOverride: njk
-goatIndicator: "✨"
 games: [
     {
         category: "Adventure",
@@ -182,16 +181,28 @@ games: [
 ]
 ---
 
+<svg xmlns="http://www.w3.org/2000/svg" class="visually-hidden">
+    <defs>
+        <symbol id="goat-indicator" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </symbol>
+    </defs>
+</svg>
+{% set goatIndicator %}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="inline-icon | u-color-accent-color"><use xlink:href="#goat-indicator"></use></svg>{% endset %}
+
 <p>Inspired by <a href="https://localghost.dev/games/">Sophie Koonin</a>, <a href="https://alistairshepherd.uk/games/">Alistair Shepherd</a>, and <a href="https://tylersticka.com/journal/favorite-games/">Tyler Sticka</a>, here are some of my favourite games. The only reason I am anywhere near good enough with design and development is because I made a fan-site about video games back in the day, so this feels like a necessary page. If some of these resonate with you and you want to nerd out about it, <a href="{{'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon}}">let me know on Mastodon</a>!</p>
 
-<p class="u-fontSize-smaller">{{ goatIndicator }} indicates a game I consider to be one of the greatest of all time.</p>
+<p class="u-fontSize-smaller">
+    {{ goatIndicator | safe }}
+    indicates a game I consider to be one of the greatest of all time.
+</p>
 
 {% for category, gamesByCategory in games | groupby("category") %}
     <h2>{{ category }}</h2>
-    <ul class="long-list">
+    <ul data-list="long">
     {% for entry in gamesByCategory | sort | sort(false, false, "year") %}
         <li>
-            {% if entry.goat %}{{ goatIndicator }} {% endif %}<strong class="u-color-heading-color">{{ entry.title }}</strong> ({{ entry.developer }}, {{ entry.year }}, {{ entry.platform }})
+            {% if entry.goat %}{{ goatIndicator | safe }} {% endif %}<strong class="u-color-heading-color">{{ entry.title }}</strong> ({{ entry.developer }}, {{ entry.year }}, {{ entry.platform }})
             {% if entry.blurb %}<br>{{ entry.blurb | markdown(true) | safe }}{% endif %}
             {% if entry.also %}<span class="u-fontStyle-italic">(you might also like: {{ entry.also | join(", ") }})</span>{% endif %}
         </li>
