@@ -6,7 +6,7 @@
         </summary>
 
         <div class="expander-content | u-textAlign-center" data-expander="content">
-            <ul data-facts class="u-textAlign-left" data-expander="content-items">
+            <ul data-facts class="u-textAlign-start" data-expander="content-items">
             {% for emoji, fact in facts %}
                 <li data-item-emoji="{{ emoji }}" {% if ('Konami' in fact) %}class="nojs-hidden"{% endif %}>{{ fact }}</li>
             {% endfor %}

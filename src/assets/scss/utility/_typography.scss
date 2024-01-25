@@ -43,14 +43,23 @@
 }
 
 // Text alignment
-.u-textAlign-left {
+.u-textAlign-start {
 	text-align: left;
 }
 .u-textAlign-center {
 	text-align: center;
 }
-.u-textAlign-right {
+.u-textAlign-end {
 	text-align: right;
+}
+.u-textAlignLast-start {
+	text-align-last: left;
+}
+.u-textAlignLast-center {
+	text-align-last: center;
+}
+.u-textAlignLast-end {
+	text-align-last: right;
 }
 
 .u-textWrap-balance {
