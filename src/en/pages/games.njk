@@ -12,7 +12,7 @@ games: [
         developer: "Naughty Dog",
         platform: "PS2",
         year: 2001,
-        blurb: "The game that started it all for me: fan-sites, web development, graphic design… Such a colourful game, still looks amazing to this day. I play it every few years, feels like visiting an old friend; it's a nice ”place“ to visit from my childhood. While the sequels are different (I also played those a lot), the original is where my heart's at.",
+        blurb: "The game that started it all for me: fan-sites, web development, graphic design… Such a colourful game, and it still looks amazing to this day. It's a platformer that embraces a cartoony look, all set in a more “primitive” world but with some mysterious technology from an ancient civilisation. I play it every few years, feels like visiting an old friend; it's a nice ”place“ to visit from my childhood. While the sequels are different (I also played those a lot), the original is where my heart's at.",
         goat: true,
         similar: ["Kena: Bridge of Spirits"]
     },
@@ -134,7 +134,7 @@ games: [
         developer: "Konami",
         platform: "PS2",
         year: 2005,
-        blurb: "I spent countless hours replaying MGS2 when I was young, trying to get through unseen. This saga has cultivated my taste for stealth games, that is for sure, but MGS3 will be the top dog in my eyes. Despite some gross sexualisation, there is a great story, smart gameplay, and wonderful music. similar: this game is getting a remake as _Metal Gear Solid Delta_!"
+        blurb: "I spent countless hours replaying MGS2 when I was young, trying to get through unseen. This saga has cultivated my taste for stealth games, that is for sure, but MGS3 will be the top dog in my eyes. Despite some gross sexualisation, there is a great story, smart gameplay, and wonderful music. Also, this game is getting a remake as _Metal Gear Solid Delta_!"
     },
     {
         category: "Action",
@@ -190,11 +190,13 @@ games: [
 </svg>
 {% set goatIndicator %}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="inline-icon | u-color-accent-color"><use xlink:href="#goat-indicator"></use></svg>{% endset %}
 
-<p>Inspired by <a href="https://localghost.dev/games/">Sophie Koonin</a>, <a href="https://alistairshepherd.uk/games/">Alistair Shepherd</a>, and <a href="https://tylersticka.com/journal/favorite-games/">Tyler Sticka</a>, here are some of my favourite games. The only reason I am anywhere near good enough with design and development is because I made a fan-site about video games back in the day, so this feels like a necessary page. If some of these resonate with you and you want to nerd out about it, <a href="{{'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon}}">let me know on Mastodon</a>!</p>
-
-<p class="u-fontSize-smaller">
-    {{ goatIndicator | safe }}
-    indicates a game I consider to be one of the greatest of all time.
+<p>
+    Inspired by <a href="https://localghost.dev/games/">Sophie Koonin</a>, <a href="https://alistairshepherd.uk/games/">Alistair Shepherd</a>, and <a href="https://tylersticka.com/journal/favorite-games/">Tyler Sticka</a>, here are some of my favourite games. The only reason I am anywhere near good enough with design and development is because I made a fan-site about video games back in the day, so this feels like a necessary page. If some of these resonate with you and you want to nerd out about it, <a href="{{'https://'+metadata.author.mastodonInstance+'/@'+metadata.author.mastodon}}">let me know on Mastodon</a>!
+    <br>
+    <span class="u-fontStyle-italic u-fontSize-smaller">
+        {{ goatIndicator | safe }}
+        indicates a game I consider to be one of the greatest of all time.
+    </span>
 </p>
 
 {% for category, gamesByCategory in games | groupby("category") %}
@@ -204,7 +206,7 @@ games: [
         <li>
             {% if entry.goat %}{{ goatIndicator | safe }} {% endif %}<strong class="u-color-heading-color">{{ entry.title }}</strong> ({{ entry.developer }}, {{ entry.year }}, {{ entry.platform }})
             {% if entry.blurb %}<br>{{ entry.blurb | markdown(true) | safe }}{% endif %}
-            {% if entry.similar %}<br><span class="u-fontStyle-italic u-fontSize-smaller">(similar choice: {{ entry.similar | join(", ") }})</span>{% endif %}
+            {% if entry.similar %}<br><span class="u-fontStyle-italic u-fontSize-smaller">(similar choice{% if (entry.similar | length) > 1 %}s{% endif %}: {{ entry.similar | join(", ") }})</span>{% endif %}
         </li>
     {% endfor %}
     </ul>
