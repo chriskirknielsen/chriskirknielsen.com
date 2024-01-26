@@ -20,29 +20,30 @@ summary: Some of the things I've made, either passion projects or real-world wor
 
 <h2 class="h4">Previous personal site archives</h2>
 {% set oldSites = [2020, 2018, 2016] %}
-<ul class="inline-list">
-	{% for oldSiteYear in oldSites %}
-		<li>
-			<a href="https://{{ oldSiteYear }}.chriskirknielsen.com">
-				{{ oldSiteYear }}
-			</a>
-		</li>
-	{% endfor %}
-</ul>
+<div role="paragraph">{# You can't have a list inside a paragraph, but with a div, that's okay! #}
+	Time machine:&nbsp;
+	<ul class="inline-list">
+		{% for oldSiteYear in oldSites %}
+			<li>
+				<a href="https://{{ oldSiteYear }}.chriskirknielsen.com">
+					{{ oldSiteYear }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
 
 <h2 class="h4">Random mini projects</h2>
-{% set miniProjects = {
-	"Timezone Overlap Finder (2024)": "https://timezone-overlap-finder.netlify.app/",
-	"One-Page Calendar (2023)": "https://one-page-calendar.netlify.app/",
-	"srcsetsizes (2021)": "https://srcsetsizes.netlify.app/",
-	"Casualty Friday (2013)": "https://casualty-friday.netlify.app/"
-} %}
+{% set miniProjects = [
+	{ name: "Timezone Overlap Finder (2024)", url: "https://timezone-overlap-finder.netlify.app/", blurb: "A simple way to find common ground across timezones" },
+	{ name: "One-Page Calendar (2023)", url: "https://one-page-calendar.netlify.app/", blurb: "A single grid for every single day in a calendar year" },
+	{ name: "srcsetsizes (2021)", url: "https://srcsetsizes.netlify.app/", blurb: "A tool to set up the srcset and sizes attributes on an image element in HTML" },
+	{ name: "Casualty Friday (2013)", url: "https://casualty-friday.netlify.app/", blurb: "A choice-based Flash game project I made during my design study years" }
+] %}
 <ul>
-	{% for miniProjectName, miniProjectUrl in miniProjects %}
+	{% for miniProject in miniProjects %}
 		<li>
-			<a href="{{ miniProjectUrl | url }}">
-				{{ miniProjectName }}
-			</a>
+			<a href="{{ miniProject.url | url }}">{{ miniProject.name }}</a>{% if miniProject.blurb %}: {{ miniProject.blurb }}{% endif %}
 		</li>
 	{% endfor %}
 </ul>
