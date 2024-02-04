@@ -10,7 +10,24 @@
 	background-color: var(--ctx-bg);
 	outline: 2px solid var(--t-footer-border-color);
 
+	&-decorator {
+		display: none;
+		height: 0;
+		min-height: 100%; // Prevent the decorator from dictating the height of the footer
+
+		&--start {
+			grid-column-start: fullbleed-start;
+			grid-column-end: container-start;
+		}
+		&--end {
+			grid-column-start: container-end;
+			grid-column-end: fullbleed-end;
+		}
+	}
+
 	&-inner {
+		z-index: #{layer-index('footer', 1)};
+
 		display: grid;
 		grid-gap: 1px;
 		grid-template-columns: 1fr 2fr;
@@ -29,6 +46,9 @@
 		// 		'edit hyper'
 		// 		'lang xtra';
 		// }
+
+		--ctx-bg: var(--t-footer-bg-color);
+		background-color: var(--ctx-bg);
 
 		@include above-large {
 			grid-template-columns: minmax(6rem, 12rem) repeat(3, minmax(0, 1fr));

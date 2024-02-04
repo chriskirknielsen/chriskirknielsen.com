@@ -1,3 +1,5 @@
+$body-bg-min-width: get-token('constants', 'content-width');
+
 @include default-schemes {
 	.header-logo {
 		& > svg {
@@ -119,8 +121,31 @@
 	}
 }
 
+@include theme('dusk') {
+	$footer-decorator-min-width: 100px;
+
+	@include subgrid {
+		@media (min-width: calc(#{$body-bg-min-width} + 2 * #{$footer-decorator-min-width})) {
+			.footer {
+				// background: linear-gradient(var(--t-color-aux-max), #310944);
+				background: linear-gradient(#551b42, #181742);
+			}
+
+			.footer-decorator {
+				&[data-conditional-theme-element='dusk'] {
+					--footer-deco-grad-a: #ae2266;
+					--footer-deco-grad-b: #221c54;
+					align-self: end;
+					display: block;
+					width: 100%;
+					min-height: min(90%, 300px); // Breathing room above the buildings instead of 100% height
+				}
+			}
+		}
+	}
+}
+
 @include theme('vapor') {
-	$body-bg-min-width: get-token('constants', 'content-width');
 	$body-bg-image: asset-path(get-token('themes', 'vapor', 'images', 'body-bg-image'));
 	$body-bg-image-width: 128px;
 	$body-bg-image-gutter: 2rem;
@@ -574,6 +599,8 @@
 }
 
 @include theme('campfire') {
+	$footer-decorator-min-width: 64px;
+
 	.standout {
 		--standout-bg-start: var(--t-color-aux-min);
 		--standout-bg-end: var(--t-color-aux-med);
@@ -607,5 +634,23 @@
 
 	.footer-logo > svg {
 		fill: var(--t-color-main-max);
+	}
+
+	@include subgrid {
+		@media (min-width: calc(#{$body-bg-min-width} + 2 * #{$footer-decorator-min-width})) {
+			.footer-decorator {
+				&[data-conditional-theme-element='campfire'] {
+					--footer-deco-a: #d7d07e;
+					--footer-deco-b: #ca6800;
+					--footer-deco-c: #6c3018;
+					--footer-deco-d: #4a0c00;
+
+					align-self: end;
+					display: block;
+					width: 100%;
+					min-height: min(100%, 250px);
+				}
+			}
+		}
 	}
 }

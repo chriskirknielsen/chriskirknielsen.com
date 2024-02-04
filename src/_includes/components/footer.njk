@@ -1,5 +1,24 @@
 <footer class="footer">
     <div class="container">
+        {# Dusk theme deco (start) #}
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="161.6" viewBox="0 0 255.7 161.6" preserveAspectRatio="xMaxYMax" class="footer-decorator footer-decorator--start" data-conditional-theme-element="dusk">
+            <defs>
+                <linearGradient id="footerDecoratorDuskGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="162">
+                    <stop offset="0" stop-color="var(--footer-deco-grad-a)"></stop>
+                    <stop offset="1" stop-color="var(--footer-deco-grad-b)"></stop>
+                </linearGradient>
+            </defs>
+            <path fill="url(#footerDecoratorDuskGrad)" d="M256 110h-9v1h-6v2h-6V96h-6v19h-21v-8l-7-4v-5h-7v5l-6 4v8h-20V2l-4-2-40 20v2h-2v91h-13v5H89v-12H77v11h-6v1h-9v-1h-8v-6h-3v-2H40v-1h-5v1h-4v3h-6v2h-3v4h-6v13H7v8H0v23h256v-52z"/>
+        </svg>
+
+        {# Campfire theme deco #}
+        <svg xmlns="http://www.w3.org/2000/svg" width="285.4" height="162" viewBox="0 0 285.4 162" preserveAspectRatio="xMidYMax" class="footer-decorator footer-decorator--start" data-conditional-theme-element="campfire">
+            <path fill="var(--footer-deco-d)" d="M223 149 154 29 80 39v71l143 39z"/>
+            <path fill="var(--footer-deco-c)" d="M154 29 80 39l-63 93 61 30 76-133z"/>
+            <path fill="var(--footer-deco-b)" d="m78 162 73-7 3-126 12 125 57-5-69-120-76 133z"/>
+            <path fill="none" stroke="var(--footer-deco-a)" stroke-width="1" d="M12 162 154 29.5l119 133"/>
+        </svg>
+
         <div class="footer-inner | fluid">
             <div class="footer-logo">
                 <svg width="73" height="76" viewBox="0 0 73 76" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -56,5 +75,10 @@
                 </ul>
             </nav>
         </div>
+
+        {# Dusk theme deco (end) #}
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="161.6" viewBox="0 0 256 161.6" preserveAspectRatio="xMinYMax" class="footer-decorator footer-decorator--end" data-conditional-theme-element="dusk">
+            <path fill="url(#footerDecoratorDuskGrad)" d="M246 134v-9h-12v2h-5v-14h-14v5h-4v5h-5v3h-9v-5h-5v10h-11v-6h-6v6h-18V35h-2v-2l-18-18-18 18v2h-1v92h-13v-3h-4v-1h-5v-5H80V69l-6-1-2-2 4-1v-2H66l-6-1 2 4v2h-5v12h-2v36H45v3H34v-4h-4V93h-2v-2h-8v2h-1v-2h-8v2H8v17H0v52h256v-28h-10z"/>
+        </svg>
     </div>
 </footer>
