@@ -8,7 +8,7 @@ module.exports = {
 		email: 'chriskirknielsen@gmail.com',
 		twitter: 'ckirknielsen',
 		mastodon: 'chriskirknielsen',
-		mastodonInstance: 'mastodon.social',
+		mastodonInstance: 'front-end.social',
 	},
 	tweetArchiveUrl: 'https://tweets.chriskirknielsen.com/',
 	copyrightStart: 1992,
