@@ -490,7 +490,7 @@ And update our (optional) JSON-to-CSS function:
 			}
 		}
 		
-		:root:[data-theme='${darkScheme}'] {
+		:root[data-theme='${darkScheme}'] {
 			--theme: ${darkScheme};
 			color-scheme: ${tokens[darkScheme]._colorScheme};
 		}
@@ -499,7 +499,7 @@ And update our (optional) JSON-to-CSS function:
 	// If any non-scheme themes are left to show, add them to the output
 	for (let themeKey of nonSchemeThemes) {
 		output = output.concat(`
-			:root:[data-theme='${themeKey}'] {
+			:root[data-theme='${themeKey}'] {
 				--theme: ${themeKey};
 				color-scheme: ${tokens[themeKey]._colorScheme};
 			}
